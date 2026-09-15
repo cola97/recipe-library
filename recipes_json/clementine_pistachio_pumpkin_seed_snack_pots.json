@@ -1,0 +1,428 @@
+{
+  "schema_version": "1.0",
+  "recipe": {
+    "id": "clementine_pistachio_pumpkin_seed_snack_pots",
+    "title": "Clementine, Pistachio & Pumpkin Seed Snack Pots",
+    "description": "Portable morning snack pots combining fresh clementine segments with lightly toasted pistachios and pumpkin seeds, finished with a restrained maple-cinnamon glaze and a small amount of salt for contrast.",
+    "servings": 2,
+    "difficulty": "Easy",
+    "total_time_minutes": 20,
+    "active_time_minutes": 12,
+    "passive_time_minutes": 8,
+    "cuisine": [
+      "Contemporary",
+      "British"
+    ],
+    "meal_types": [
+      "Morning snack"
+    ],
+    "dietary_tags": [
+      "Vegetarian",
+      "Vegan",
+      "Portable",
+      "High fibre"
+    ],
+    "allergens": [
+      "Pistachios"
+    ]
+  },
+  "nutrition_per_serving": {
+    "energy_kcal": 190,
+    "protein_g": 6,
+    "carbohydrate_g": 16,
+    "fat_g": 13,
+    "saturated_fat_g": 2,
+    "fibre_g": 4,
+    "salt_g": 0.1
+  },
+  "ingredients": [
+    {
+      "ingredient_id": "clementines",
+      "display_name": "Clementines",
+      "category": "Fruit",
+      "required": true,
+      "quantity_used": 2,
+      "unit_used": "integer",
+      "purchase_quantity": "Buy: 2 clementines",
+      "purchase_notes": "Choose firm, fragrant clementines with intact skin and no soft or mouldy areas.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Wash and dry before peeling. Peel completely, separate into individual segments and remove any loose white pith and seeds.",
+      "notes": "Use: 2 whole clementines, approximately 1 per serving. Exact edible weight varies naturally and does not scale perfectly by mass."
+    },
+    {
+      "ingredient_id": "pistachios_unsalted",
+      "display_name": "Unsalted shelled pistachios",
+      "category": "Nuts",
+      "required": true,
+      "quantity_used": 32,
+      "unit_used": "g",
+      "purchase_quantity": "Buy: 1 standard packet containing at least 32 g",
+      "purchase_notes": "Use plain unsalted shelled pistachios. Retail pack size may vary.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Inspect for shell fragments, then roughly chop into pieces approximately 4-6 mm across.",
+      "notes": "Use: 32 g total, 16 g per serving."
+    },
+    {
+      "ingredient_id": "pumpkin_seeds",
+      "display_name": "Pumpkin seeds",
+      "category": "Seeds",
+      "required": true,
+      "quantity_used": 20,
+      "unit_used": "g",
+      "purchase_quantity": "Buy: 1 standard packet containing at least 20 g",
+      "purchase_notes": "Use plain, unsalted pumpkin seeds. Retail pack size may vary.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Inspect and remove any foreign material before toasting.",
+      "notes": "Use: 20 g total, 10 g per serving."
+    },
+    {
+      "ingredient_id": "maple_syrup",
+      "display_name": "Pure maple syrup",
+      "category": "Sweeteners",
+      "required": true,
+      "quantity_used": 1,
+      "unit_used": "tsp",
+      "purchase_quantity": "Buy: 1 small bottle",
+      "purchase_notes": "Use pure maple syrup rather than maple-flavoured syrup where available.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Measure immediately before glazing the toasted nuts and seeds.",
+      "notes": "Use: 1 tsp total. The small quantity is intended to create a light glaze rather than a sweet coating."
+    },
+    {
+      "ingredient_id": "cinnamon_ground",
+      "display_name": "Ground cinnamon",
+      "category": "Spices",
+      "required": true,
+      "quantity_used": 0.25,
+      "unit_used": "tsp",
+      "purchase_quantity": "Buy: 1 jar",
+      "purchase_notes": "Standard ground cinnamon is suitable.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Measure before beginning the toasting stage.",
+      "notes": "Use: 0.25 tsp total."
+    },
+    {
+      "ingredient_id": "fine_salt",
+      "display_name": "Fine salt",
+      "category": "Seasoning",
+      "required": true,
+      "quantity_used": 0.0625,
+      "unit_used": "tsp",
+      "purchase_quantity": "Buy: 1 standard container",
+      "purchase_notes": "Fine table salt or fine sea salt is suitable.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Measure accurately before use.",
+      "notes": "Use: 0.0625 tsp total. The small amount balances the sweetness of the fruit and maple syrup."
+    }
+  ],
+  "equipment": [
+    {
+      "equipment_id": "kitchen_scales",
+      "display_name": "Kitchen scales",
+      "required": true,
+      "notes": "Required for accurate nut and seed quantities."
+    },
+    {
+      "equipment_id": "measuring_spoons",
+      "display_name": "Measuring spoons",
+      "required": true,
+      "notes": "For maple syrup, cinnamon and salt."
+    },
+    {
+      "equipment_id": "chef_knife",
+      "display_name": "Chef's knife",
+      "required": true,
+      "notes": "For chopping the pistachios."
+    },
+    {
+      "equipment_id": "chopping_board",
+      "display_name": "Chopping board",
+      "required": true,
+      "notes": "For safe preparation of the pistachios."
+    },
+    {
+      "equipment_id": "frying_pan",
+      "display_name": "Small frying pan",
+      "required": true,
+      "notes": "For controlled dry-toasting of the nuts and seeds."
+    },
+    {
+      "equipment_id": "gas_hob",
+      "display_name": "Gas hob",
+      "required": true,
+      "notes": "Provides responsive heat control during toasting."
+    },
+    {
+      "equipment_id": "mixing_bowl",
+      "display_name": "Small mixing bowl",
+      "required": true,
+      "notes": "For cooling and coating the toasted pistachios and pumpkin seeds."
+    },
+    {
+      "equipment_id": "lidded_containers",
+      "display_name": "2 portable lidded snack pots",
+      "required": true,
+      "notes": "Each pot should be sufficiently large to hold one clementine and half of the nut-and-seed mixture without crushing the fruit."
+    }
+  ],
+  "mise_en_place": [
+    {
+      "prep_id": "PREP_01",
+      "ingredient_ids": [
+        "clementines"
+      ],
+      "instruction": "Wash the 2 whole clementines under cold running water and dry them thoroughly. Peel each clementine completely. Separate the fruit into individual segments. Remove loose white pith and discard it. Inspect the segments and remove any seeds encountered without excessively breaking the fruit.",
+      "endpoint": "Two peeled clementines are separated into clean, intact segments with loose pith and seeds removed."
+    },
+    {
+      "prep_id": "PREP_02",
+      "ingredient_ids": [
+        "pistachios_unsalted"
+      ],
+      "instruction": "Inspect 32 g shelled pistachios and remove any shell fragments. Transfer to a chopping board and use the chef's knife to cut the nuts into irregular pieces approximately 4-6 mm across. Do not reduce them to crumbs.",
+      "endpoint": "The pistachios are evenly coarse-chopped, with visible pieces large enough to retain crunch."
+    },
+    {
+      "prep_id": "PREP_03",
+      "ingredient_ids": [
+        "pumpkin_seeds",
+        "maple_syrup",
+        "cinnamon_ground",
+        "fine_salt"
+      ],
+      "instruction": "Weigh 20 g pumpkin seeds. Measure 1 tsp maple syrup, 0.25 tsp ground cinnamon and 0.0625 tsp fine salt into separate measured quantities so they can be added rapidly after toasting.",
+      "endpoint": "All seed and seasoning components are accurately measured and immediately available."
+    }
+  ],
+  "procedure": [
+    {
+      "step_id": "STEP_01",
+      "section": "Toasted nut and seed topping",
+      "title": "Dry-toast the pistachios and pumpkin seeds",
+      "depends_on": [],
+      "parallel_group": "P01",
+      "ingredient_ids": [
+        "pistachios_unsalted",
+        "pumpkin_seeds"
+      ],
+      "equipment_ids": [
+        "frying_pan",
+        "gas_hob"
+      ],
+      "instruction": "Place the dry frying pan over a low-to-medium gas flame. Add the prepared 32 g pistachios and 20 g pumpkin seeds in a single layer. Stir or shake the pan every 10-15 seconds so all surfaces heat evenly. Continue until the pumpkin seeds begin to produce occasional light popping sounds, the pistachios become slightly deeper green-gold and the mixture develops a distinctly toasted nut aroma.",
+      "heat_source": "Gas hob",
+      "heat_level": "Low-medium",
+      "temperature_c": null,
+      "duration_min_minutes": 3,
+      "duration_max_minutes": 5,
+      "endpoint": "The nuts and seeds smell clearly toasted and aromatic, the pumpkin seeds are lightly golden in places, and no component shows blackened edges or produces smoke.",
+      "corrective_actions": [
+        {
+          "condition": "The nuts or seeds darken rapidly or begin producing smoke.",
+          "action": "Immediately remove the pan from the heat and transfer the contents to the mixing bowl. Discard any visibly blackened pieces."
+        },
+        {
+          "condition": "Little aroma or colour develops after approximately 5 minutes.",
+          "action": "Increase the gas flame slightly and continue in 20-second intervals while stirring continuously until the stated endpoint is achieved."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_02",
+      "section": "Fruit preparation",
+      "title": "Divide the clementine segments",
+      "depends_on": [],
+      "parallel_group": "P01",
+      "ingredient_ids": [
+        "clementines"
+      ],
+      "equipment_ids": [
+        "lidded_containers"
+      ],
+      "instruction": "Divide the prepared clementine segments equally between the 2 clean snack pots. Arrange the segments loosely rather than compressing them so the fruit retains its shape and released juice is minimised.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 1,
+      "duration_max_minutes": 2,
+      "endpoint": "Each snack pot contains approximately one clementine's worth of intact segments with no excessive pooling of juice.",
+      "corrective_actions": [
+        {
+          "condition": "A clementine has released substantial juice during peeling.",
+          "action": "Drain the loose juice before packing so the nut and seed topping is not unnecessarily softened during storage."
+        }
+      ],
+      "critical": false
+    },
+    {
+      "step_id": "STEP_03",
+      "section": "Toasted nut and seed topping",
+      "title": "Apply the maple-cinnamon seasoning",
+      "depends_on": [
+        "STEP_01"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "maple_syrup",
+        "cinnamon_ground",
+        "fine_salt"
+      ],
+      "equipment_ids": [
+        "mixing_bowl"
+      ],
+      "instruction": "Immediately transfer the hot toasted pistachios and pumpkin seeds to the mixing bowl. Add 1 tsp maple syrup, 0.25 tsp ground cinnamon and 0.0625 tsp fine salt. Stir continuously for approximately 30-45 seconds until the maple syrup forms a very thin, even coating over the hot nuts and seeds and no concentrated wet patches remain.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 0.5,
+      "duration_max_minutes": 1,
+      "endpoint": "The nut-and-seed mixture is evenly lightly glazed, fragrant with cinnamon and remains predominantly loose rather than forming a sticky mass.",
+      "corrective_actions": [
+        {
+          "condition": "The maple syrup collects in one part of the bowl or forms sticky clumps.",
+          "action": "Continue stirring and separating the pieces with the spoon until the coating is redistributed while the mixture is still warm."
+        },
+        {
+          "condition": "The mixture appears excessively wet after thorough stirring.",
+          "action": "Spread it in a thin layer across the bowl and allow it to cool uncovered; do not add additional nuts or seeds because this would alter the specified quantities."
+        }
+      ],
+      "critical": false
+    },
+    {
+      "step_id": "STEP_04",
+      "section": "Cooling",
+      "title": "Cool the toasted mixture completely",
+      "depends_on": [
+        "STEP_03"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [],
+      "equipment_ids": [
+        "mixing_bowl"
+      ],
+      "instruction": "Leave the seasoned pistachio and pumpkin seed mixture uncovered in the mixing bowl at room temperature. Stir once after approximately 3 minutes to break apart any pieces beginning to adhere. Do not seal or add the mixture to the fruit while it remains warm.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 6,
+      "duration_max_minutes": 8,
+      "endpoint": "The mixture has returned to room temperature, feels dry rather than tacky on the surface and the pieces separate readily when stirred.",
+      "corrective_actions": [
+        {
+          "condition": "The mixture remains warm or tacky after 8 minutes.",
+          "action": "Spread it more thinly in the bowl and continue cooling in 2-minute intervals until the stated endpoint is reached."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_05",
+      "section": "Assembly",
+      "title": "Assemble the portable snack pots",
+      "depends_on": [
+        "STEP_02",
+        "STEP_04"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "clementines",
+        "pistachios_unsalted",
+        "pumpkin_seeds",
+        "maple_syrup",
+        "cinnamon_ground",
+        "fine_salt"
+      ],
+      "equipment_ids": [
+        "lidded_containers",
+        "kitchen_scales"
+      ],
+      "instruction": "Place the bowl containing the cooled nut-and-seed mixture on the kitchen scales and determine its total finished mass. Divide the mixture equally between the 2 snack pots, placing approximately half over each portion of clementine. Fit the lids securely. Keep the pots upright during transport.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 2,
+      "duration_max_minutes": 3,
+      "endpoint": "Both pots contain equal portions of clementine and toasted nut-and-seed topping, the topping is cool before sealing, and the lids are fully secured for transport.",
+      "corrective_actions": [
+        {
+          "condition": "One pot contains visibly more nut-and-seed mixture than the other.",
+          "action": "Use the kitchen scales to transfer small amounts between pots until the topping is divided approximately equally."
+        },
+        {
+          "condition": "The clementines have released visible juice during assembly.",
+          "action": "Keep the toasted topping concentrated on the upper surface rather than mixing it through the fruit, limiting prolonged contact with the liquid."
+        }
+      ],
+      "critical": false
+    }
+  ],
+  "plating": [
+    {
+      "step_id": "PLATE_01",
+      "instruction": "Serve one chilled snack pot per person. For maximum textural contrast, stir only immediately before eating so the juicy clementine segments and crisp toasted pistachio-pumpkin seed mixture remain distinct for as long as possible."
+    }
+  ],
+  "storage": {
+    "refrigerator_days": 1,
+    "freezer_months": null,
+    "storage_instructions": "Refrigerate the assembled pots at 5°C or below and consume within 24 hours. The snack is suitable for transport to work or on a car journey; keep chilled in an insulated lunch bag with an ice pack if it will be outside refrigeration for an extended period. For maximum crunch, the toasted pistachio and pumpkin seed mixture may instead be stored separately in a sealed dry container and added immediately before eating.",
+    "reheating_methods": []
+  },
+  "shopping": {
+    "sainsburys": [],
+    "marks_and_spencer": [],
+    "either_retailer": [
+      "Clementines: buy 2",
+      "Unsalted shelled pistachios: buy 1 standard packet containing at least 32 g",
+      "Pumpkin seeds: buy 1 standard packet containing at least 20 g",
+      "Pure maple syrup: buy 1 small bottle",
+      "Ground cinnamon: buy 1 jar",
+      "Fine salt: buy 1 standard container"
+    ]
+  },
+  "quality_checks": {
+    "protein_requirement_met": true,
+    "protein_g_per_serving": 6,
+    "restaurant_quality_features": [
+      "Dry-toasting the pistachios and pumpkin seeds develops nuttier flavour and a crisper texture than using them directly from the packet.",
+      "A restrained maple glaze helps cinnamon and salt adhere while avoiding an excessively sweet or sticky snack.",
+      "Fine salt is deliberately included to sharpen the natural sweetness and acidity of the clementine.",
+      "Cooling the toasted topping completely before sealing reduces condensation and helps preserve crunch.",
+      "Keeping the juicy fruit and crisp topping texturally distinct provides contrast despite the recipe's simplicity."
+    ],
+    "nutrition_notes": [
+      "Estimated nutrition represents one complete snack pot including clementine, pistachios, pumpkin seeds, maple syrup, cinnamon and salt.",
+      "This recipe is designed as a morning snack at approximately 200 kcal per serving.",
+      "The general 30 g protein target does not apply to morning snacks under the meal-plan rules; the approximately 6 g protein per serving is therefore compliant with the specified snack requirements.",
+      "Most of the fat is naturally occurring unsaturated fat from pistachios and pumpkin seeds.",
+      "Nutrition values are estimates and will vary with the size of the clementines and the exact supermarket products used."
+    ],
+    "critical_success_factors": [
+      "Do not over-toast the pistachios or pumpkin seeds; their relatively high oil content allows them to move rapidly from toasted to burnt.",
+      "Apply the maple syrup only after removing the toasted mixture from direct heat to reduce the risk of scorching the sugars.",
+      "Cool the nut-and-seed mixture completely before sealing the pots.",
+      "Avoid compressing or heavily mixing the clementine segments because released juice will soften the toasted topping.",
+      "For journeys substantially longer than normal commuting time, transport the pots in an insulated bag with an ice pack."
+    ]
+  }
+}
