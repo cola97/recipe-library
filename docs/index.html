@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, viewport-fit=cover"
+    >
+
+    <meta
+        name="theme-color"
+        content="#f6f3ea"
+    >
+
+    <title>Recipe Library</title>
+
+    <link
+        rel="manifest"
+        href="./manifest.webmanifest"
+    >
+
+    <link
+        rel="stylesheet"
+        href="./styles.css"
+    >
+
+</head>
+
+<body>
+
+<div class="app">
+
+    <header class="app-header">
+
+        <div>
+            <h1>Recipe Library</h1>
+            <div id="currentContext" class="context">
+                Select a date and meal.
+            </div>
+        </div>
+
+    </header>
+
+
+    <section class="controls">
+
+        <div class="control-group">
+
+            <label for="dateSelect">
+                Date
+            </label>
+
+            <input
+                id="dateSelect"
+                type="date"
+            >
+
+        </div>
+
+
+        <div class="control-group">
+
+            <label for="mealSelect">
+                Meal
+            </label>
+
+            <select id="mealSelect">
+            </select>
+
+        </div>
+
+    </section>
+
+
+    <section
+        id="scheduledPanel"
+        class="scheduled-panel"
+    >
+
+        <h2>Scheduled recipe</h2>
+
+        <div id="scheduledRecipes">
+        </div>
+
+    </section>
+
+
+    <details class="library-panel">
+
+        <summary>
+            All recipes
+        </summary>
+
+        <div class="library-content">
+
+            <label for="recipeSearch">
+                Search
+            </label>
+
+            <input
+                id="recipeSearch"
+                type="search"
+                placeholder="Search title, meal type or filename"
+            >
+
+            <label for="allRecipes">
+                Recipe
+            </label>
+
+            <select
+                id="allRecipes"
+                size="8"
+            >
+            </select>
+
+            <button
+                id="openLibraryRecipe"
+                type="button"
+            >
+                Open selected recipe
+            </button>
+
+        </div>
+
+    </details>
+
+
+    <main class="viewer-panel">
+
+        <div
+            id="viewerPlaceholder"
+            class="viewer-placeholder"
+        >
+            Choose a scheduled meal or select a recipe from the library.
+        </div>
+
+        <iframe
+            id="recipeFrame"
+            title="Recipe"
+            hidden
+        >
+        </iframe>
+
+    </main>
+
+</div>
+
+
+<script src="./app.js"></script>
+
+<script>
+
+    if ("serviceWorker" in navigator) {
+
+        window.addEventListener(
+            "load",
+            () => {
+
+                navigator.serviceWorker.register(
+                    "./sw.js"
+                );
+
+            }
+        );
+
+    }
+
+</script>
+
+</body>
+
+</html>

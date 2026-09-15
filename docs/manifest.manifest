@@ -1,0 +1,22 @@
+{
+  "name": "Recipe Library",
+  "short_name": "Recipes",
+  "description": "Personal meal-plan recipe library",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f5f3ec",
+  "theme_color": "#f5f3ec",
+  "icons": [
+    {
+      "src": "./icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
