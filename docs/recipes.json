@@ -6,5 +6,13 @@
     "meal_types": [
       "Breakfast"
     ]
+  },
+  {
+    "id": "clementine_pistachio_pumpkin_seed_snack_pots",
+    "filename": "clementine_pistachio_pumpkin_seed_snack_pots.html",
+    "title": "Clementine, Pistachio & Pumpkin Seed Snack Pots",
+    "meal_types": [
+      "Morning snack"
+    ]
   }
 ]

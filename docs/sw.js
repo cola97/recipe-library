@@ -1,5 +1,5 @@
 const CACHE_NAME =
-    "recipe-library-v1";
+    "recipe-library-v2";
 
 
 const CORE_FILES = [

@@ -1,192 +1,100 @@
-:root {
-    --background: #f5f3ec;
-    --panel: #ffffff;
-    --text: #000000;
-    --border: #b7b2a8;
-    --button: #232323;
-    --button-text: #ffffff;
-    --selected: #fff0bd;
-}
+/* ==========================================================
+   Scheduled recipe availability
+   ========================================================== */
 
-* {
-    box-sizing: border-box;
-}
-
-html,
-body {
-    margin: 0;
-    min-height: 100%;
-    background: var(--background);
-    color: var(--text);
-    font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        Roboto,
-        Helvetica,
-        Arial,
-        sans-serif;
-}
-
-body {
-    min-height: 100dvh;
-}
-
-button,
-input,
-select {
-    font: inherit;
-}
-
-.app {
-    width: min(100%, 1400px);
-    margin: 0 auto;
-    padding:
-        max(16px, env(safe-area-inset-top))
-        max(12px, env(safe-area-inset-right))
-        max(20px, env(safe-area-inset-bottom))
-        max(12px, env(safe-area-inset-left));
-}
-
-.app-header {
-    background: var(--panel);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 20px;
-    margin-bottom: 14px;
-}
-
-.app-header h1 {
-    margin: 0;
-    font-size: clamp(1.7rem, 7vw, 2.7rem);
-}
-
-.context {
-    margin-top: 8px;
-    font-weight: 650;
-}
-
-.controls {
+#scheduledRecipes {
     display: grid;
-    grid-template-columns: 1fr 1fr;
     gap: 12px;
-    margin-bottom: 14px;
 }
 
-.control-group {
-    display: grid;
-    gap: 6px;
-}
-
-label {
-    font-weight: 700;
-}
-
-input,
-select,
-button {
-    width: 100%;
-    min-height: 48px;
-    border-radius: 10px;
-    border: 1px solid var(--border);
-}
-
-input,
-select {
-    padding: 10px 12px;
-    color: #000;
-    background: #fff;
-}
-
-button {
-    padding: 10px 14px;
-    border: 1px solid #000;
-    background: var(--button);
-    color: var(--button-text);
-    font-weight: 700;
-    cursor: pointer;
-}
-
-.scheduled-panel,
-.library-panel {
-    background: var(--panel);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    margin-bottom: 14px;
-}
-
-.scheduled-panel {
+.scheduled-card {
     padding: 16px;
+    border: 2px solid #000000;
+    border-radius: 12px;
+    color: #000000;
 }
 
-.scheduled-panel h2 {
-    margin: 0 0 12px 0;
-    font-size: 1.15rem;
+.scheduled-available {
+    background: #dff3df;
 }
 
-.scheduled-button {
-    margin-top: 8px;
+.scheduled-missing {
+    background: #fff1c7;
 }
 
-.library-panel {
-    padding: 4px 16px 16px 16px;
+.scheduled-card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
 }
 
-.library-panel summary {
-    padding: 14px 0;
-    cursor: pointer;
+.scheduled-title {
+    flex: 1;
+    font-size: 1.05rem;
+    line-height: 1.35;
     font-weight: 750;
-    font-size: 1.1rem;
+    color: #000000;
 }
 
-.library-content {
-    display: grid;
-    gap: 10px;
+.status-badge {
+    flex: 0 0 auto;
+    display: inline-block;
+    padding: 5px 9px;
+    border: 1px solid #000000;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    line-height: 1.1;
+    font-weight: 800;
+    color: #000000;
+    white-space: nowrap;
 }
 
-#allRecipes {
-    min-height: 220px;
+.status-available {
+    background: #b9e5ba;
 }
 
-.viewer-panel {
-    width: 100%;
-    background: #fff;
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    overflow: hidden;
+.status-missing {
+    background: #ffd978;
 }
 
-.viewer-placeholder {
-    padding: 40px 20px;
-    text-align: center;
+.scheduled-filename {
+    margin-top: 10px;
+    font-family:
+        ui-monospace,
+        "Cascadia Mono",
+        Consolas,
+        monospace;
+    font-size: 0.78rem;
+    color: #000000;
+    overflow-wrap: anywhere;
 }
 
-#recipeFrame {
-    display: block;
-    width: 100%;
-    height: calc(100dvh - 190px);
-    min-height: 600px;
-    border: 0;
-    background: #fff;
+.scheduled-open-button {
+    margin-top: 14px;
 }
 
-@media (max-width: 650px) {
+.not-generated-message {
+    margin-top: 14px;
+    padding: 10px 12px;
+    border-left: 4px solid #000000;
+    background: rgba(255, 255, 255, 0.45);
+    color: #000000;
+}
 
-    .app {
-        padding-top:
-            max(8px, env(safe-area-inset-top));
-    }
+.empty-schedule-message {
+    padding: 12px;
+    color: #000000;
+}
 
-    .controls {
+@media (max-width: 550px) {
+
+    .scheduled-card-header {
+        display: grid;
         grid-template-columns: 1fr;
     }
 
-    .app-header {
-        padding: 16px;
-    }
-
-    #recipeFrame {
-        height: calc(100dvh - 120px);
-        min-height: 500px;
+    .status-badge {
+        width: fit-content;
     }
 }
