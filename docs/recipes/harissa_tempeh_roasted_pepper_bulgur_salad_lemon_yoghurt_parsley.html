@@ -1,0 +1,2457 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="utf-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+>
+
+<title>Harissa Tempeh, Roasted Pepper &amp; Bulgur Salad with Lemon Yoghurt and Parsley</title>
+
+<style>
+
+    :root {
+        --page-width: 1100px;
+        --border: #8f8f8f;
+        --page-background: #f2f2f2;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    html {
+        background: var(--page-background);
+    }
+
+    body {
+        margin: 0;
+
+        font-family:
+            -apple-system,
+            BlinkMacSystemFont,
+            "Segoe UI",
+            Roboto,
+            Helvetica,
+            Arial,
+            sans-serif;
+
+        color: #000000;
+
+        line-height: 1.55;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    p,
+    div,
+    span,
+    code,
+    pre,
+    summary,
+    strong {
+        color: #000000;
+    }
+
+    .page {
+        width: min(
+            calc(100% - 32px),
+            var(--page-width)
+        );
+
+        margin:
+            32px
+            auto
+            64px
+            auto;
+    }
+
+    /* ======================================================
+       Header
+       ====================================================== */
+
+    .document-header {
+        background: #ffffff;
+
+        border:
+            1px
+            solid
+            var(--border);
+
+        border-radius: 14px;
+
+        padding: 32px;
+
+        margin-bottom: 24px;
+    }
+
+    .document-header h1 {
+        margin: 0;
+
+        font-size:
+            clamp(
+                2rem,
+                4vw,
+                3rem
+            );
+
+        line-height: 1.1;
+    }
+
+    .schedule-date {
+        margin-top: 18px;
+
+        padding:
+            12px
+            16px;
+
+        border:
+            1px
+            solid
+            #000000;
+
+        border-radius: 8px;
+
+        background: #fff7c7;
+
+        font-size: 1.1rem;
+    }
+
+    /* ======================================================
+       All major JSON sections
+       ====================================================== */
+
+    .top-section {
+        border:
+            1px
+            solid
+            var(--border);
+
+        border-radius: 14px;
+
+        padding: 24px;
+
+        margin:
+            0
+            0
+            24px
+            0;
+    }
+
+    .top-section > h2 {
+        margin:
+            0
+            0
+            20px
+            0;
+
+        padding-bottom: 10px;
+
+        border-bottom:
+            2px
+            solid
+            #000000;
+
+        font-size: 1.6rem;
+    }
+
+    /*
+       Every major section receives its own background colour.
+
+       Text remains black throughout.
+    */
+
+    .top-section[data-json-path="$.schema_version"] {
+        background: #eeeeee;
+    }
+
+    .top-section[data-json-path="$.recipe"] {
+        background: #ffe8dc;
+    }
+
+    .top-section[data-json-path="$.nutrition_per_serving"] {
+        background: #ddf3e4;
+    }
+
+    .top-section[data-json-path="$.ingredients"] {
+        background: #fff4c9;
+    }
+
+    .top-section[data-json-path="$.equipment"] {
+        background: #dfeeff;
+    }
+
+    .top-section[data-json-path="$.mise_en_place"] {
+        background: #eee2fa;
+    }
+
+    .top-section[data-json-path="$.procedure"] {
+        background: #ffe1e8;
+    }
+
+    .top-section[data-json-path="$.plating"] {
+        background: #daf5f2;
+    }
+
+    .top-section[data-json-path="$.storage"] {
+        background: #ffe9c9;
+    }
+
+    .top-section[data-json-path="$.shopping"] {
+        background: #e4f3d7;
+    }
+
+    .top-section[data-json-path="$.quality_checks"] {
+        background: #eadff5;
+    }
+
+    /* ======================================================
+       Nested objects
+       ====================================================== */
+
+    .object-content {
+        margin: 0;
+    }
+
+    .nested-object {
+        margin:
+            18px
+            0;
+
+        padding: 18px;
+
+        border:
+            1px
+            solid
+            #777777;
+
+        border-radius: 10px;
+
+        background:
+            rgba(
+                255,
+                255,
+                255,
+                0.55
+            );
+    }
+
+    .nested-object > h3 {
+        margin:
+            0
+            0
+            14px
+            0;
+    }
+
+    /* ======================================================
+       Individual fields
+       ====================================================== */
+
+    .field-row {
+        display: grid;
+
+        grid-template-columns:
+            minmax(
+                180px,
+                28%
+            )
+            1fr;
+
+        gap: 20px;
+
+        padding:
+            10px
+            0;
+
+        border-bottom:
+            1px
+            solid
+            rgba(
+                0,
+                0,
+                0,
+                0.18
+            );
+    }
+
+    .field-row:last-child {
+        border-bottom: 0;
+    }
+
+    .field-name {
+        font-weight: 700;
+    }
+
+    .field-value {
+        white-space: pre-wrap;
+
+        overflow-wrap: anywhere;
+    }
+
+    .top-scalar-value {
+        font-size: 1.05rem;
+
+        overflow-wrap: anywhere;
+    }
+
+    /* ======================================================
+       Arrays
+       ====================================================== */
+
+    .array-block {
+        margin:
+            10px
+            0
+            20px
+            0;
+    }
+
+    .array-block > h3 {
+        margin-bottom: 12px;
+    }
+
+    .array-items {
+        display: grid;
+
+        gap: 14px;
+    }
+
+    .array-item {
+        padding: 18px;
+
+        border:
+            1px
+            solid
+            #777777;
+
+        border-radius: 10px;
+
+        background:
+            rgba(
+                255,
+                255,
+                255,
+                0.60
+            );
+    }
+
+    .item-number {
+        font-size: 0.82rem;
+
+        font-weight: 700;
+
+        text-transform: uppercase;
+
+        letter-spacing: 0.06em;
+
+        margin-bottom: 8px;
+    }
+
+    .scalar-array-item {
+        padding:
+            8px
+            12px;
+
+        border-left:
+            3px
+            solid
+            #000000;
+
+        background:
+            rgba(
+                255,
+                255,
+                255,
+                0.55
+            );
+
+        white-space: pre-wrap;
+
+        overflow-wrap: anywhere;
+    }
+
+    /* ======================================================
+       Special JSON values
+       ====================================================== */
+
+    .null-value {
+        font-style: italic;
+
+        color: #000000;
+    }
+
+    .boolean-value {
+        font-family:
+            ui-monospace,
+            "Cascadia Mono",
+            Consolas,
+            monospace;
+
+        color: #000000;
+    }
+
+    .empty-value {
+        font-family:
+            ui-monospace,
+            "Cascadia Mono",
+            Consolas,
+            monospace;
+
+        color: #000000;
+
+        padding:
+            8px
+            0;
+    }
+
+    /* ======================================================
+       Integrity information
+       ====================================================== */
+
+    .integrity {
+        margin-top: 32px;
+
+        background: #eeeeee;
+
+        border:
+            1px
+            solid
+            var(--border);
+
+        border-radius: 10px;
+
+        padding: 18px;
+
+        font-size: 0.9rem;
+    }
+
+    .integrity code {
+        color: #000000;
+
+        overflow-wrap: anywhere;
+    }
+
+    /* ======================================================
+       Original source JSON
+       ====================================================== */
+
+    details {
+        margin-top: 20px;
+
+        background: #ffffff;
+
+        border:
+            1px
+            solid
+            var(--border);
+
+        border-radius: 10px;
+
+        padding: 16px;
+    }
+
+    summary {
+        cursor: pointer;
+
+        font-weight: 700;
+
+        color: #000000;
+    }
+
+    pre {
+        margin-top: 18px;
+
+        overflow-x: auto;
+
+        padding: 18px;
+
+        background: #eeeeee;
+
+        color: #000000;
+
+        border:
+            1px
+            solid
+            #777777;
+
+        border-radius: 8px;
+
+        white-space: pre-wrap;
+
+        overflow-wrap: anywhere;
+    }
+
+    /* ======================================================
+       Mobile layout
+       ====================================================== */
+
+    @media (max-width: 700px) {
+
+        .page {
+            width:
+                min(
+                    calc(100% - 20px),
+                    var(--page-width)
+                );
+
+            margin-top: 10px;
+        }
+
+        .document-header,
+        .top-section {
+            padding: 18px;
+        }
+
+        .field-row {
+            grid-template-columns: 1fr;
+
+            gap: 3px;
+        }
+    }
+
+    /* ======================================================
+       Print layout
+       ====================================================== */
+
+    @media print {
+
+        html,
+        body {
+            background: #ffffff;
+        }
+
+        .page {
+            width: 100%;
+
+            margin: 0;
+        }
+
+        .top-section,
+        .array-item {
+            break-inside: avoid;
+        }
+
+        /*
+           Hide the full raw JSON when printing.
+           It remains present in the HTML source.
+        */
+
+        details {
+            display: none;
+        }
+    }
+
+</style>
+
+</head>
+
+<body>
+
+<main class="page">
+
+<header class="document-header">
+
+    <h1>Harissa Tempeh, Roasted Pepper &amp; Bulgur Salad with Lemon Yoghurt and Parsley</h1>
+
+    
+
+</header>
+
+<section class="top-section" data-json-path="$.schema_version"><h2>Schema Version</h2><div class="top-scalar-value" data-json-path="$.schema_version">1.0</div></section>
+<section class="top-section" data-json-path="$.recipe"><h2>Recipe</h2><div class="object-content" data-json-path="$.recipe">
+<div class="field-row" data-json-path="$.recipe.id"><div class="field-name">Id</div><div class="field-value">harissa_tempeh_roasted_pepper_bulgur_salad_lemon_yoghurt_parsley</div></div>
+<div class="field-row" data-json-path="$.recipe.title"><div class="field-name">Title</div><div class="field-value">Harissa Tempeh, Roasted Pepper &amp; Bulgur Salad with Lemon Yoghurt and Parsley</div></div>
+<div class="field-row" data-json-path="$.recipe.description"><div class="field-name">Description</div><div class="field-value">A portable high-protein lunch salad of deeply browned harissa-coated tempeh, sweet roasted red pepper and nutty bulgur, balanced with sharp lemon yoghurt, fresh parsley and restrained seasoning. Components are cooled before packing so the salad remains fresh rather than steaming itself in transit.</div></div>
+<div class="field-row" data-json-path="$.recipe.servings"><div class="field-name">Servings</div><div class="field-value">2</div></div>
+<div class="field-row" data-json-path="$.recipe.difficulty"><div class="field-name">Difficulty</div><div class="field-value">Moderate</div></div>
+<div class="field-row" data-json-path="$.recipe.total_time_minutes"><div class="field-name">Total Time Minutes</div><div class="field-value">45</div></div>
+<div class="field-row" data-json-path="$.recipe.active_time_minutes"><div class="field-name">Active Time Minutes</div><div class="field-value">30</div></div>
+<div class="field-row" data-json-path="$.recipe.passive_time_minutes"><div class="field-name">Passive Time Minutes</div><div class="field-value">15</div></div>
+<div class="array-block" data-json-path="$.recipe.cuisine">
+<h3>Cuisine</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.recipe.cuisine[0]">North African-inspired</div>
+<div class="scalar-array-item" data-json-path="$.recipe.cuisine[1]">Contemporary</div>
+</div>
+</div>
+<div class="array-block" data-json-path="$.recipe.meal_types">
+<h3>Meal Types</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.recipe.meal_types[0]">Lunch</div>
+</div>
+</div>
+<div class="array-block" data-json-path="$.recipe.dietary_tags">
+<h3>Dietary Tags</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.recipe.dietary_tags[0]">Vegetarian</div>
+<div class="scalar-array-item" data-json-path="$.recipe.dietary_tags[1]">High protein</div>
+<div class="scalar-array-item" data-json-path="$.recipe.dietary_tags[2]">Portable</div>
+<div class="scalar-array-item" data-json-path="$.recipe.dietary_tags[3]">High fibre</div>
+</div>
+</div>
+<div class="array-block" data-json-path="$.recipe.allergens">
+<h3>Allergens</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.recipe.allergens[0]">Soy</div>
+<div class="scalar-array-item" data-json-path="$.recipe.allergens[1]">Milk</div>
+<div class="scalar-array-item" data-json-path="$.recipe.allergens[2]">Wheat</div>
+</div>
+</div>
+</div></section>
+<section class="top-section" data-json-path="$.nutrition_per_serving"><h2>Nutrition Per Serving</h2><div class="object-content" data-json-path="$.nutrition_per_serving">
+<div class="field-row" data-json-path="$.nutrition_per_serving.energy_kcal"><div class="field-name">Energy Kcal</div><div class="field-value">405</div></div>
+<div class="field-row" data-json-path="$.nutrition_per_serving.protein_g"><div class="field-name">Protein G</div><div class="field-value">31</div></div>
+<div class="field-row" data-json-path="$.nutrition_per_serving.carbohydrate_g"><div class="field-name">Carbohydrate G</div><div class="field-value">39</div></div>
+<div class="field-row" data-json-path="$.nutrition_per_serving.fat_g"><div class="field-name">Fat G</div><div class="field-value">14</div></div>
+<div class="field-row" data-json-path="$.nutrition_per_serving.saturated_fat_g"><div class="field-name">Saturated Fat G</div><div class="field-value">3</div></div>
+<div class="field-row" data-json-path="$.nutrition_per_serving.fibre_g"><div class="field-name">Fibre G</div><div class="field-value">8</div></div>
+<div class="field-row" data-json-path="$.nutrition_per_serving.salt_g"><div class="field-name">Salt G</div><div class="field-value">1.1</div></div>
+</div></section>
+<section class="top-section" data-json-path="$.ingredients"><h2>Ingredients</h2><div class="array-block" data-json-path="$.ingredients">
+<div class="array-items">
+<article class="array-item" data-json-path="$.ingredients[0]">
+<div class="item-number">Item 1</div>
+<div class="field-row" data-json-path="$.ingredients[0].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">tempeh_plain</div></div>
+<div class="field-row" data-json-path="$.ingredients[0].display_name"><div class="field-name">Display Name</div><div class="field-value">Plain tempeh</div></div>
+<div class="field-row" data-json-path="$.ingredients[0].category"><div class="field-name">Category</div><div class="field-value">Plant protein</div></div>
+<div class="field-row" data-json-path="$.ingredients[0].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.ingredients[0].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">180</div></div>
+<div class="field-row" data-json-path="$.ingredients[0].unit_used"><div class="field-name">Unit Used</div><div class="field-value">g</div></div>
+<div class="field-row" data-json-path="$.ingredients[0].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 pack containing at least 180 g</div></div>
+<div class="field-row" data-json-path="$.ingredients[0].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Use plain unflavoured tempeh. Exact retail pack size varies; purchase enough to provide at least 180 g.</div></div>
+<div class="array-block" data-json-path="$.ingredients[0].retailers">
+<h3>Retailers</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.ingredients[0].retailers[0]">Sainsbury&#x27;s</div>
+<div class="scalar-array-item" data-json-path="$.ingredients[0].retailers[1]">Marks &amp; Spencer</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.ingredients[0].preparation"><div class="field-name">Preparation</div><div class="field-value">Remove from packaging and pat dry. Cut into approximately 15 mm cubes.</div></div>
+<div class="field-row" data-json-path="$.ingredients[0].notes"><div class="field-name">Notes</div><div class="field-value">Use: 180 g total, 90 g per serving.</div></div>
+</article>
+<article class="array-item" data-json-path="$.ingredients[1]">
+<div class="item-number">Item 2</div>
+<div class="field-row" data-json-path="$.ingredients[1].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">bulgur_wheat_dry</div></div>
+<div class="field-row" data-json-path="$.ingredients[1].display_name"><div class="field-name">Display Name</div><div class="field-value">Medium bulgur wheat</div></div>
+<div class="field-row" data-json-path="$.ingredients[1].category"><div class="field-name">Category</div><div class="field-value">Grains</div></div>
+<div class="field-row" data-json-path="$.ingredients[1].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.ingredients[1].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">50</div></div>
+<div class="field-row" data-json-path="$.ingredients[1].unit_used"><div class="field-name">Unit Used</div><div class="field-value">g</div></div>
+<div class="field-row" data-json-path="$.ingredients[1].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 standard packet</div></div>
+<div class="field-row" data-json-path="$.ingredients[1].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Use medium bulgur wheat suitable for soaking or simmering. Pack size is not critical.</div></div>
+<div class="array-block" data-json-path="$.ingredients[1].retailers">
+<h3>Retailers</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.ingredients[1].retailers[0]">Sainsbury&#x27;s</div>
+<div class="scalar-array-item" data-json-path="$.ingredients[1].retailers[1]">Marks &amp; Spencer</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.ingredients[1].preparation"><div class="field-name">Preparation</div><div class="field-value">Use dry weight. Inspect for foreign material before cooking.</div></div>
+<div class="field-row" data-json-path="$.ingredients[1].notes"><div class="field-name">Notes</div><div class="field-value">Use: 50 g dry total, 25 g per serving.</div></div>
+</article>
+<article class="array-item" data-json-path="$.ingredients[2]">
+<div class="item-number">Item 3</div>
+<div class="field-row" data-json-path="$.ingredients[2].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">red_pepper</div></div>
+<div class="field-row" data-json-path="$.ingredients[2].display_name"><div class="field-name">Display Name</div><div class="field-value">Red pepper</div></div>
+<div class="field-row" data-json-path="$.ingredients[2].category"><div class="field-name">Category</div><div class="field-value">Vegetables</div></div>
+<div class="field-row" data-json-path="$.ingredients[2].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.ingredients[2].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">1</div></div>
+<div class="field-row" data-json-path="$.ingredients[2].unit_used"><div class="field-name">Unit Used</div><div class="field-value">integer</div></div>
+<div class="field-row" data-json-path="$.ingredients[2].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 large red pepper, approximately 180-220 g as bought</div></div>
+<div class="field-row" data-json-path="$.ingredients[2].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Choose a firm glossy pepper without soft areas.</div></div>
+<div class="array-block" data-json-path="$.ingredients[2].retailers">
+<h3>Retailers</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.ingredients[2].retailers[0]">Sainsbury&#x27;s</div>
+<div class="scalar-array-item" data-json-path="$.ingredients[2].retailers[1]">Marks &amp; Spencer</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.ingredients[2].preparation"><div class="field-name">Preparation</div><div class="field-value">Wash and dry. Halve, remove stem, seeds and white membrane, then cut usable flesh into approximately 25 mm pieces.</div></div>
+<div class="field-row" data-json-path="$.ingredients[2].notes"><div class="field-name">Notes</div><div class="field-value">Recipe assumes approximately 160-180 g usable pepper flesh after trimming.</div></div>
+</article>
+<article class="array-item" data-json-path="$.ingredients[3]">
+<div class="item-number">Item 4</div>
+<div class="field-row" data-json-path="$.ingredients[3].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">red_onion</div></div>
+<div class="field-row" data-json-path="$.ingredients[3].display_name"><div class="field-name">Display Name</div><div class="field-value">Red onion</div></div>
+<div class="field-row" data-json-path="$.ingredients[3].category"><div class="field-name">Category</div><div class="field-value">Vegetables</div></div>
+<div class="field-row" data-json-path="$.ingredients[3].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.ingredients[3].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">0.5</div></div>
+<div class="field-row" data-json-path="$.ingredients[3].unit_used"><div class="field-name">Unit Used</div><div class="field-value">integer</div></div>
+<div class="field-row" data-json-path="$.ingredients[3].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 small red onion, approximately 120 g as bought</div></div>
+<div class="field-row" data-json-path="$.ingredients[3].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Only approximately half is required; refrigerate the remainder for another use.</div></div>
+<div class="array-block" data-json-path="$.ingredients[3].retailers">
+<h3>Retailers</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.ingredients[3].retailers[0]">Sainsbury&#x27;s</div>
+<div class="scalar-array-item" data-json-path="$.ingredients[3].retailers[1]">Marks &amp; Spencer</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.ingredients[3].preparation"><div class="field-name">Preparation</div><div class="field-value">Peel and trim. Use approximately 60 g usable flesh and cut into thin wedges approximately 8 mm wide at the thickest point.</div></div>
+<div class="field-row" data-json-path="$.ingredients[3].notes"><div class="field-name">Notes</div><div class="field-value">Use: approximately 60 g prepared onion.</div></div>
+</article>
+<article class="array-item" data-json-path="$.ingredients[4]">
+<div class="item-number">Item 5</div>
+<div class="field-row" data-json-path="$.ingredients[4].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">greek_yoghurt_0_percent</div></div>
+<div class="field-row" data-json-path="$.ingredients[4].display_name"><div class="field-name">Display Name</div><div class="field-value">0% Greek yoghurt</div></div>
+<div class="field-row" data-json-path="$.ingredients[4].category"><div class="field-name">Category</div><div class="field-value">Dairy</div></div>
+<div class="field-row" data-json-path="$.ingredients[4].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.ingredients[4].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">220</div></div>
+<div class="field-row" data-json-path="$.ingredients[4].unit_used"><div class="field-name">Unit Used</div><div class="field-value">g</div></div>
+<div class="field-row" data-json-path="$.ingredients[4].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 tub containing at least 220 g</div></div>
+<div class="field-row" data-json-path="$.ingredients[4].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Use plain unsweetened 0% Greek yoghurt with approximately 9-10 g protein per 100 g where possible. Exact tub size varies.</div></div>
+<div class="array-block" data-json-path="$.ingredients[4].retailers">
+<h3>Retailers</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.ingredients[4].retailers[0]">Sainsbury&#x27;s</div>
+<div class="scalar-array-item" data-json-path="$.ingredients[4].retailers[1]">Marks &amp; Spencer</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.ingredients[4].preparation"><div class="field-name">Preparation</div><div class="field-value">Keep refrigerated until required.</div></div>
+<div class="field-row" data-json-path="$.ingredients[4].notes"><div class="field-name">Notes</div><div class="field-value">Use: 220 g total, 110 g per serving. This contributes materially to the lunch protein target.</div></div>
+</article>
+<article class="array-item" data-json-path="$.ingredients[5]">
+<div class="item-number">Item 6</div>
+<div class="field-row" data-json-path="$.ingredients[5].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">harissa_paste</div></div>
+<div class="field-row" data-json-path="$.ingredients[5].display_name"><div class="field-name">Display Name</div><div class="field-value">Harissa paste</div></div>
+<div class="field-row" data-json-path="$.ingredients[5].category"><div class="field-name">Category</div><div class="field-value">Condiments</div></div>
+<div class="field-row" data-json-path="$.ingredients[5].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.ingredients[5].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">20</div></div>
+<div class="field-row" data-json-path="$.ingredients[5].unit_used"><div class="field-name">Unit Used</div><div class="field-value">g</div></div>
+<div class="field-row" data-json-path="$.ingredients[5].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 jar</div></div>
+<div class="field-row" data-json-path="$.ingredients[5].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Choose a standard supermarket harissa paste. Heat and salt levels vary by brand, so the recipe uses a measured amount and controls additional salt separately.</div></div>
+<div class="array-block" data-json-path="$.ingredients[5].retailers">
+<h3>Retailers</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.ingredients[5].retailers[0]">Sainsbury&#x27;s</div>
+<div class="scalar-array-item" data-json-path="$.ingredients[5].retailers[1]">Marks &amp; Spencer</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.ingredients[5].preparation"><div class="field-name">Preparation</div><div class="field-value">Measure before cooking.</div></div>
+<div class="field-row" data-json-path="$.ingredients[5].notes"><div class="field-name">Notes</div><div class="field-value">Use: 20 g total.</div></div>
+</article>
+<article class="array-item" data-json-path="$.ingredients[6]">
+<div class="item-number">Item 7</div>
+<div class="field-row" data-json-path="$.ingredients[6].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">lemon</div></div>
+<div class="field-row" data-json-path="$.ingredients[6].display_name"><div class="field-name">Display Name</div><div class="field-value">Unwaxed lemon</div></div>
+<div class="field-row" data-json-path="$.ingredients[6].category"><div class="field-name">Category</div><div class="field-value">Fruit</div></div>
+<div class="field-row" data-json-path="$.ingredients[6].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.ingredients[6].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">1</div></div>
+<div class="field-row" data-json-path="$.ingredients[6].unit_used"><div class="field-name">Unit Used</div><div class="field-value">integer</div></div>
+<div class="field-row" data-json-path="$.ingredients[6].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 lemon</div></div>
+<div class="field-row" data-json-path="$.ingredients[6].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">An unwaxed lemon is preferred because both zest and juice are used.</div></div>
+<div class="array-block" data-json-path="$.ingredients[6].retailers">
+<h3>Retailers</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.ingredients[6].retailers[0]">Sainsbury&#x27;s</div>
+<div class="scalar-array-item" data-json-path="$.ingredients[6].retailers[1]">Marks &amp; Spencer</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.ingredients[6].preparation"><div class="field-name">Preparation</div><div class="field-value">Wash and dry. Finely grate approximately 2 g yellow zest, then squeeze 30 ml juice. Remove seeds.</div></div>
+<div class="field-row" data-json-path="$.ingredients[6].notes"><div class="field-name">Notes</div><div class="field-value">Use approximately 2 g zest and 30 ml juice; any unused fruit may be reserved for another purpose.</div></div>
+</article>
+<article class="array-item" data-json-path="$.ingredients[7]">
+<div class="item-number">Item 8</div>
+<div class="field-row" data-json-path="$.ingredients[7].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">flat_leaf_parsley</div></div>
+<div class="field-row" data-json-path="$.ingredients[7].display_name"><div class="field-name">Display Name</div><div class="field-value">Flat-leaf parsley</div></div>
+<div class="field-row" data-json-path="$.ingredients[7].category"><div class="field-name">Category</div><div class="field-value">Fresh herbs</div></div>
+<div class="field-row" data-json-path="$.ingredients[7].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.ingredients[7].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">20</div></div>
+<div class="field-row" data-json-path="$.ingredients[7].unit_used"><div class="field-name">Unit Used</div><div class="field-value">g</div></div>
+<div class="field-row" data-json-path="$.ingredients[7].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 standard bunch or packet containing at least 20 g</div></div>
+<div class="field-row" data-json-path="$.ingredients[7].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Choose bright green parsley without slimy or heavily wilted leaves.</div></div>
+<div class="array-block" data-json-path="$.ingredients[7].retailers">
+<h3>Retailers</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.ingredients[7].retailers[0]">Sainsbury&#x27;s</div>
+<div class="scalar-array-item" data-json-path="$.ingredients[7].retailers[1]">Marks &amp; Spencer</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.ingredients[7].preparation"><div class="field-name">Preparation</div><div class="field-value">Wash thoroughly and dry. Remove coarse lower stems, retain tender upper stems and leaves, then chop to approximately 3-5 mm pieces.</div></div>
+<div class="field-row" data-json-path="$.ingredients[7].notes"><div class="field-name">Notes</div><div class="field-value">Use: 20 g prepared parsley.</div></div>
+</article>
+<article class="array-item" data-json-path="$.ingredients[8]">
+<div class="item-number">Item 9</div>
+<div class="field-row" data-json-path="$.ingredients[8].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">olive_oil</div></div>
+<div class="field-row" data-json-path="$.ingredients[8].display_name"><div class="field-name">Display Name</div><div class="field-value">Olive oil</div></div>
+<div class="field-row" data-json-path="$.ingredients[8].category"><div class="field-name">Category</div><div class="field-value">Oils</div></div>
+<div class="field-row" data-json-path="$.ingredients[8].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.ingredients[8].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">4</div></div>
+<div class="field-row" data-json-path="$.ingredients[8].unit_used"><div class="field-name">Unit Used</div><div class="field-value">g</div></div>
+<div class="field-row" data-json-path="$.ingredients[8].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 bottle</div></div>
+<div class="field-row" data-json-path="$.ingredients[8].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Standard olive oil is suitable; extra-virgin is not required for the high-heat cooking stage.</div></div>
+<div class="array-block" data-json-path="$.ingredients[8].retailers">
+<h3>Retailers</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.ingredients[8].retailers[0]">Sainsbury&#x27;s</div>
+<div class="scalar-array-item" data-json-path="$.ingredients[8].retailers[1]">Marks &amp; Spencer</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.ingredients[8].preparation"><div class="field-name">Preparation</div><div class="field-value">Measure accurately before cooking.</div></div>
+<div class="field-row" data-json-path="$.ingredients[8].notes"><div class="field-name">Notes</div><div class="field-value">Use: 4 g total. The quantity is deliberately limited because tempeh and yoghurt already provide richness.</div></div>
+</article>
+<article class="array-item" data-json-path="$.ingredients[9]">
+<div class="item-number">Item 10</div>
+<div class="field-row" data-json-path="$.ingredients[9].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">ground_cumin</div></div>
+<div class="field-row" data-json-path="$.ingredients[9].display_name"><div class="field-name">Display Name</div><div class="field-value">Ground cumin</div></div>
+<div class="field-row" data-json-path="$.ingredients[9].category"><div class="field-name">Category</div><div class="field-value">Spices</div></div>
+<div class="field-row" data-json-path="$.ingredients[9].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.ingredients[9].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">0.5</div></div>
+<div class="field-row" data-json-path="$.ingredients[9].unit_used"><div class="field-name">Unit Used</div><div class="field-value">tsp</div></div>
+<div class="field-row" data-json-path="$.ingredients[9].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 jar</div></div>
+<div class="field-row" data-json-path="$.ingredients[9].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Standard ground cumin is suitable.</div></div>
+<div class="array-block" data-json-path="$.ingredients[9].retailers">
+<h3>Retailers</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.ingredients[9].retailers[0]">Sainsbury&#x27;s</div>
+<div class="scalar-array-item" data-json-path="$.ingredients[9].retailers[1]">Marks &amp; Spencer</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.ingredients[9].preparation"><div class="field-name">Preparation</div><div class="field-value">Measure before cooking.</div></div>
+<div class="field-row" data-json-path="$.ingredients[9].notes"><div class="field-name">Notes</div><div class="field-value">Use: 0.5 tsp.</div></div>
+</article>
+<article class="array-item" data-json-path="$.ingredients[10]">
+<div class="item-number">Item 11</div>
+<div class="field-row" data-json-path="$.ingredients[10].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">smoked_paprika</div></div>
+<div class="field-row" data-json-path="$.ingredients[10].display_name"><div class="field-name">Display Name</div><div class="field-value">Smoked paprika</div></div>
+<div class="field-row" data-json-path="$.ingredients[10].category"><div class="field-name">Category</div><div class="field-value">Spices</div></div>
+<div class="field-row" data-json-path="$.ingredients[10].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.ingredients[10].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">0.5</div></div>
+<div class="field-row" data-json-path="$.ingredients[10].unit_used"><div class="field-name">Unit Used</div><div class="field-value">tsp</div></div>
+<div class="field-row" data-json-path="$.ingredients[10].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 jar</div></div>
+<div class="field-row" data-json-path="$.ingredients[10].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Sweet smoked paprika is preferred unless additional heat is specifically wanted.</div></div>
+<div class="array-block" data-json-path="$.ingredients[10].retailers">
+<h3>Retailers</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.ingredients[10].retailers[0]">Sainsbury&#x27;s</div>
+<div class="scalar-array-item" data-json-path="$.ingredients[10].retailers[1]">Marks &amp; Spencer</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.ingredients[10].preparation"><div class="field-name">Preparation</div><div class="field-value">Measure before cooking.</div></div>
+<div class="field-row" data-json-path="$.ingredients[10].notes"><div class="field-name">Notes</div><div class="field-value">Use: 0.5 tsp.</div></div>
+</article>
+<article class="array-item" data-json-path="$.ingredients[11]">
+<div class="item-number">Item 12</div>
+<div class="field-row" data-json-path="$.ingredients[11].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">fine_salt</div></div>
+<div class="field-row" data-json-path="$.ingredients[11].display_name"><div class="field-name">Display Name</div><div class="field-value">Fine salt</div></div>
+<div class="field-row" data-json-path="$.ingredients[11].category"><div class="field-name">Category</div><div class="field-value">Seasoning</div></div>
+<div class="field-row" data-json-path="$.ingredients[11].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.ingredients[11].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">0.375</div></div>
+<div class="field-row" data-json-path="$.ingredients[11].unit_used"><div class="field-name">Unit Used</div><div class="field-value">tsp</div></div>
+<div class="field-row" data-json-path="$.ingredients[11].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 standard container</div></div>
+<div class="field-row" data-json-path="$.ingredients[11].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Fine table salt or fine sea salt is suitable.</div></div>
+<div class="array-block" data-json-path="$.ingredients[11].retailers">
+<h3>Retailers</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.ingredients[11].retailers[0]">Sainsbury&#x27;s</div>
+<div class="scalar-array-item" data-json-path="$.ingredients[11].retailers[1]">Marks &amp; Spencer</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.ingredients[11].preparation"><div class="field-name">Preparation</div><div class="field-value">Measure 0.25 tsp for initial seasoning and reserve up to an additional 0.125 tsp for final adjustment.</div></div>
+<div class="field-row" data-json-path="$.ingredients[11].notes"><div class="field-name">Notes</div><div class="field-value">Harissa salt content varies; do not automatically use the reserved quantity.</div></div>
+</article>
+<article class="array-item" data-json-path="$.ingredients[12]">
+<div class="item-number">Item 13</div>
+<div class="field-row" data-json-path="$.ingredients[12].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">black_pepper_ground</div></div>
+<div class="field-row" data-json-path="$.ingredients[12].display_name"><div class="field-name">Display Name</div><div class="field-value">Ground black pepper</div></div>
+<div class="field-row" data-json-path="$.ingredients[12].category"><div class="field-name">Category</div><div class="field-value">Seasoning</div></div>
+<div class="field-row" data-json-path="$.ingredients[12].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.ingredients[12].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">0.25</div></div>
+<div class="field-row" data-json-path="$.ingredients[12].unit_used"><div class="field-name">Unit Used</div><div class="field-value">tsp</div></div>
+<div class="field-row" data-json-path="$.ingredients[12].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 jar or pepper mill</div></div>
+<div class="field-row" data-json-path="$.ingredients[12].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Freshly ground black pepper is preferred where available.</div></div>
+<div class="array-block" data-json-path="$.ingredients[12].retailers">
+<h3>Retailers</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.ingredients[12].retailers[0]">Sainsbury&#x27;s</div>
+<div class="scalar-array-item" data-json-path="$.ingredients[12].retailers[1]">Marks &amp; Spencer</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.ingredients[12].preparation"><div class="field-name">Preparation</div><div class="field-value">Measure before use.</div></div>
+<div class="field-row" data-json-path="$.ingredients[12].notes"><div class="field-name">Notes</div><div class="field-value">Use: 0.25 tsp total.</div></div>
+</article>
+<article class="array-item" data-json-path="$.ingredients[13]">
+<div class="item-number">Item 14</div>
+<div class="field-row" data-json-path="$.ingredients[13].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">water</div></div>
+<div class="field-row" data-json-path="$.ingredients[13].display_name"><div class="field-name">Display Name</div><div class="field-value">Water</div></div>
+<div class="field-row" data-json-path="$.ingredients[13].category"><div class="field-name">Category</div><div class="field-value">Liquid</div></div>
+<div class="field-row" data-json-path="$.ingredients[13].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.ingredients[13].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">100</div></div>
+<div class="field-row" data-json-path="$.ingredients[13].unit_used"><div class="field-name">Unit Used</div><div class="field-value">ml</div></div>
+<div class="field-row" data-json-path="$.ingredients[13].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Use: 100 ml tap water</div></div>
+<div class="field-row" data-json-path="$.ingredients[13].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">No purchase required.</div></div>
+<div class="array-block" data-json-path="$.ingredients[13].retailers">
+<h3>Retailers</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.ingredients[13].retailers[0]">Sainsbury&#x27;s</div>
+<div class="scalar-array-item" data-json-path="$.ingredients[13].retailers[1]">Marks &amp; Spencer</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.ingredients[13].preparation"><div class="field-name">Preparation</div><div class="field-value">Bring to the boil immediately before hydrating the bulgur.</div></div>
+<div class="field-row" data-json-path="$.ingredients[13].notes"><div class="field-name">Notes</div><div class="field-value">Use: 100 ml.</div></div>
+</article>
+</div>
+</div></section>
+<section class="top-section" data-json-path="$.equipment"><h2>Equipment</h2><div class="array-block" data-json-path="$.equipment">
+<div class="array-items">
+<article class="array-item" data-json-path="$.equipment[0]">
+<div class="item-number">Item 1</div>
+<div class="field-row" data-json-path="$.equipment[0].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">air_fryer</div></div>
+<div class="field-row" data-json-path="$.equipment[0].display_name"><div class="field-name">Display Name</div><div class="field-value">Duo Stack air fryer</div></div>
+<div class="field-row" data-json-path="$.equipment[0].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.equipment[0].notes"><div class="field-name">Notes</div><div class="field-value">Used to roast the pepper and onion efficiently while developing browned edges.</div></div>
+</article>
+<article class="array-item" data-json-path="$.equipment[1]">
+<div class="item-number">Item 2</div>
+<div class="field-row" data-json-path="$.equipment[1].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">gas_hob</div></div>
+<div class="field-row" data-json-path="$.equipment[1].display_name"><div class="field-name">Display Name</div><div class="field-value">Gas hob</div></div>
+<div class="field-row" data-json-path="$.equipment[1].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.equipment[1].notes"><div class="field-name">Notes</div><div class="field-value">Used for browning the tempeh.</div></div>
+</article>
+<article class="array-item" data-json-path="$.equipment[2]">
+<div class="item-number">Item 3</div>
+<div class="field-row" data-json-path="$.equipment[2].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">frying_pan</div></div>
+<div class="field-row" data-json-path="$.equipment[2].display_name"><div class="field-name">Display Name</div><div class="field-value">Medium frying pan</div></div>
+<div class="field-row" data-json-path="$.equipment[2].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.equipment[2].notes"><div class="field-name">Notes</div><div class="field-value">Used for controlled browning and glazing of the tempeh.</div></div>
+</article>
+<article class="array-item" data-json-path="$.equipment[3]">
+<div class="item-number">Item 4</div>
+<div class="field-row" data-json-path="$.equipment[3].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">kettle</div></div>
+<div class="field-row" data-json-path="$.equipment[3].display_name"><div class="field-name">Display Name</div><div class="field-value">Electric kettle</div></div>
+<div class="field-row" data-json-path="$.equipment[3].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.equipment[3].notes"><div class="field-name">Notes</div><div class="field-value">Used to heat water rapidly for the bulgur.</div></div>
+</article>
+<article class="array-item" data-json-path="$.equipment[4]">
+<div class="item-number">Item 5</div>
+<div class="field-row" data-json-path="$.equipment[4].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">mixing_bowl</div></div>
+<div class="field-row" data-json-path="$.equipment[4].display_name"><div class="field-name">Display Name</div><div class="field-value">Medium heatproof mixing bowl</div></div>
+<div class="field-row" data-json-path="$.equipment[4].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.equipment[4].notes"><div class="field-name">Notes</div><div class="field-value">Used to hydrate and cool the bulgur.</div></div>
+</article>
+<article class="array-item" data-json-path="$.equipment[5]">
+<div class="item-number">Item 6</div>
+<div class="field-row" data-json-path="$.equipment[5].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">small_bowl</div></div>
+<div class="field-row" data-json-path="$.equipment[5].display_name"><div class="field-name">Display Name</div><div class="field-value">Small mixing bowl</div></div>
+<div class="field-row" data-json-path="$.equipment[5].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.equipment[5].notes"><div class="field-name">Notes</div><div class="field-value">Used to prepare the lemon yoghurt.</div></div>
+</article>
+<article class="array-item" data-json-path="$.equipment[6]">
+<div class="item-number">Item 7</div>
+<div class="field-row" data-json-path="$.equipment[6].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">chef_knife</div></div>
+<div class="field-row" data-json-path="$.equipment[6].display_name"><div class="field-name">Display Name</div><div class="field-value">Chef&#x27;s knife</div></div>
+<div class="field-row" data-json-path="$.equipment[6].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.equipment[6].notes"><div class="field-name">Notes</div><div class="field-value">Used for vegetable, herb and tempeh preparation.</div></div>
+</article>
+<article class="array-item" data-json-path="$.equipment[7]">
+<div class="item-number">Item 8</div>
+<div class="field-row" data-json-path="$.equipment[7].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">chopping_board</div></div>
+<div class="field-row" data-json-path="$.equipment[7].display_name"><div class="field-name">Display Name</div><div class="field-value">Chopping board</div></div>
+<div class="field-row" data-json-path="$.equipment[7].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.equipment[7].notes"><div class="field-name">Notes</div><div class="field-value">Used for safe ingredient preparation.</div></div>
+</article>
+<article class="array-item" data-json-path="$.equipment[8]">
+<div class="item-number">Item 9</div>
+<div class="field-row" data-json-path="$.equipment[8].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">fine_grater</div></div>
+<div class="field-row" data-json-path="$.equipment[8].display_name"><div class="field-name">Display Name</div><div class="field-value">Fine grater or Microplane</div></div>
+<div class="field-row" data-json-path="$.equipment[8].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.equipment[8].notes"><div class="field-name">Notes</div><div class="field-value">Used for lemon zest.</div></div>
+</article>
+<article class="array-item" data-json-path="$.equipment[9]">
+<div class="item-number">Item 10</div>
+<div class="field-row" data-json-path="$.equipment[9].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">measuring_jug</div></div>
+<div class="field-row" data-json-path="$.equipment[9].display_name"><div class="field-name">Display Name</div><div class="field-value">Measuring jug</div></div>
+<div class="field-row" data-json-path="$.equipment[9].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.equipment[9].notes"><div class="field-name">Notes</div><div class="field-value">Used for water and lemon juice measurement.</div></div>
+</article>
+<article class="array-item" data-json-path="$.equipment[10]">
+<div class="item-number">Item 11</div>
+<div class="field-row" data-json-path="$.equipment[10].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">measuring_spoons</div></div>
+<div class="field-row" data-json-path="$.equipment[10].display_name"><div class="field-name">Display Name</div><div class="field-value">Measuring spoons</div></div>
+<div class="field-row" data-json-path="$.equipment[10].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.equipment[10].notes"><div class="field-name">Notes</div><div class="field-value">Used for spices and seasoning.</div></div>
+</article>
+<article class="array-item" data-json-path="$.equipment[11]">
+<div class="item-number">Item 12</div>
+<div class="field-row" data-json-path="$.equipment[11].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">kitchen_scales</div></div>
+<div class="field-row" data-json-path="$.equipment[11].display_name"><div class="field-name">Display Name</div><div class="field-value">Kitchen scales</div></div>
+<div class="field-row" data-json-path="$.equipment[11].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.equipment[11].notes"><div class="field-name">Notes</div><div class="field-value">Used for accurate portion and ingredient quantities.</div></div>
+</article>
+<article class="array-item" data-json-path="$.equipment[12]">
+<div class="item-number">Item 13</div>
+<div class="field-row" data-json-path="$.equipment[12].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">lidded_containers</div></div>
+<div class="field-row" data-json-path="$.equipment[12].display_name"><div class="field-name">Display Name</div><div class="field-value">2 portable lidded lunch containers</div></div>
+<div class="field-row" data-json-path="$.equipment[12].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.equipment[12].notes"><div class="field-name">Notes</div><div class="field-value">Each container should hold approximately 700 ml and seal securely for transport.</div></div>
+</article>
+</div>
+</div></section>
+<section class="top-section" data-json-path="$.mise_en_place"><h2>Mise En Place</h2><div class="array-block" data-json-path="$.mise_en_place">
+<div class="array-items">
+<article class="array-item" data-json-path="$.mise_en_place[0]">
+<div class="item-number">Item 1</div>
+<div class="field-row" data-json-path="$.mise_en_place[0].prep_id"><div class="field-name">Prep Id</div><div class="field-value">PREP_01</div></div>
+<div class="array-block" data-json-path="$.mise_en_place[0].ingredient_ids">
+<h3>Ingredient Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.mise_en_place[0].ingredient_ids[0]">red_pepper</div>
+<div class="scalar-array-item" data-json-path="$.mise_en_place[0].ingredient_ids[1]">red_onion</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.mise_en_place[0].instruction"><div class="field-name">Instruction</div><div class="field-value">Wash and dry the red pepper. Halve it lengthwise, remove the stem, seeds and white membranes, then cut the usable flesh into approximately 25 mm pieces. Peel the red onion, trim the root and stem ends, halve it, weigh or estimate approximately 60 g usable flesh, and cut that portion into wedges approximately 8 mm wide at the thickest point. Reserve the unused onion refrigerated for another use.</div></div>
+<div class="field-row" data-json-path="$.mise_en_place[0].endpoint"><div class="field-name">Endpoint</div><div class="field-value">Pepper and onion are clean, dry and cut into similarly sized pieces suitable for even roasting.</div></div>
+</article>
+<article class="array-item" data-json-path="$.mise_en_place[1]">
+<div class="item-number">Item 2</div>
+<div class="field-row" data-json-path="$.mise_en_place[1].prep_id"><div class="field-name">Prep Id</div><div class="field-value">PREP_02</div></div>
+<div class="array-block" data-json-path="$.mise_en_place[1].ingredient_ids">
+<h3>Ingredient Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.mise_en_place[1].ingredient_ids[0]">tempeh_plain</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.mise_en_place[1].instruction"><div class="field-name">Instruction</div><div class="field-value">Remove 180 g tempeh from its packaging. Pat all surfaces dry with clean kitchen paper. Cut into approximately 15 mm cubes, keeping the pieces as uniform as practical so they brown at a similar rate.</div></div>
+<div class="field-row" data-json-path="$.mise_en_place[1].endpoint"><div class="field-name">Endpoint</div><div class="field-value">Tempeh is dry on the surface and cut into approximately uniform 15 mm cubes.</div></div>
+</article>
+<article class="array-item" data-json-path="$.mise_en_place[2]">
+<div class="item-number">Item 3</div>
+<div class="field-row" data-json-path="$.mise_en_place[2].prep_id"><div class="field-name">Prep Id</div><div class="field-value">PREP_03</div></div>
+<div class="array-block" data-json-path="$.mise_en_place[2].ingredient_ids">
+<h3>Ingredient Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.mise_en_place[2].ingredient_ids[0]">lemon</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.mise_en_place[2].instruction"><div class="field-name">Instruction</div><div class="field-value">Wash and dry the lemon. Finely grate approximately 2 g of the yellow outer zest without removing significant white pith. Cut the lemon and squeeze 30 ml juice through a sieve or remove seeds manually.</div></div>
+<div class="field-row" data-json-path="$.mise_en_place[2].endpoint"><div class="field-name">Endpoint</div><div class="field-value">Approximately 2 g fine zest and 30 ml seed-free lemon juice are prepared.</div></div>
+</article>
+<article class="array-item" data-json-path="$.mise_en_place[3]">
+<div class="item-number">Item 4</div>
+<div class="field-row" data-json-path="$.mise_en_place[3].prep_id"><div class="field-name">Prep Id</div><div class="field-value">PREP_04</div></div>
+<div class="array-block" data-json-path="$.mise_en_place[3].ingredient_ids">
+<h3>Ingredient Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.mise_en_place[3].ingredient_ids[0]">flat_leaf_parsley</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.mise_en_place[3].instruction"><div class="field-name">Instruction</div><div class="field-value">Wash the parsley thoroughly in cold water and dry completely. Remove and discard coarse lower stems. Retain tender upper stems and leaves, then chop into pieces approximately 3-5 mm across.</div></div>
+<div class="field-row" data-json-path="$.mise_en_place[3].endpoint"><div class="field-name">Endpoint</div><div class="field-value">20 g parsley is clean, dry and evenly chopped.</div></div>
+</article>
+<article class="array-item" data-json-path="$.mise_en_place[4]">
+<div class="item-number">Item 5</div>
+<div class="field-row" data-json-path="$.mise_en_place[4].prep_id"><div class="field-name">Prep Id</div><div class="field-value">PREP_05</div></div>
+<div class="array-block" data-json-path="$.mise_en_place[4].ingredient_ids">
+<h3>Ingredient Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.mise_en_place[4].ingredient_ids[0]">harissa_paste</div>
+<div class="scalar-array-item" data-json-path="$.mise_en_place[4].ingredient_ids[1]">ground_cumin</div>
+<div class="scalar-array-item" data-json-path="$.mise_en_place[4].ingredient_ids[2]">smoked_paprika</div>
+<div class="scalar-array-item" data-json-path="$.mise_en_place[4].ingredient_ids[3]">fine_salt</div>
+<div class="scalar-array-item" data-json-path="$.mise_en_place[4].ingredient_ids[4]">black_pepper_ground</div>
+<div class="scalar-array-item" data-json-path="$.mise_en_place[4].ingredient_ids[5]">olive_oil</div>
+<div class="scalar-array-item" data-json-path="$.mise_en_place[4].ingredient_ids[6]">bulgur_wheat_dry</div>
+<div class="scalar-array-item" data-json-path="$.mise_en_place[4].ingredient_ids[7]">greek_yoghurt_0_percent</div>
+<div class="scalar-array-item" data-json-path="$.mise_en_place[4].ingredient_ids[8]">water</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.mise_en_place[4].instruction"><div class="field-name">Instruction</div><div class="field-value">Measure 20 g harissa paste, 0.5 tsp ground cumin, 0.5 tsp smoked paprika, 0.25 tsp initial fine salt, 0.125 tsp reserved fine salt, 0.25 tsp black pepper, 4 g olive oil, 50 g dry bulgur, 220 g 0% Greek yoghurt and 100 ml water. Keep yoghurt refrigerated until required.</div></div>
+<div class="field-row" data-json-path="$.mise_en_place[4].endpoint"><div class="field-name">Endpoint</div><div class="field-value">All measured ingredients are ready for immediate controlled use.</div></div>
+</article>
+</div>
+</div></section>
+<section class="top-section" data-json-path="$.procedure"><h2>Procedure</h2><div class="array-block" data-json-path="$.procedure">
+<div class="array-items">
+<article class="array-item" data-json-path="$.procedure[0]">
+<div class="item-number">Item 1</div>
+<div class="field-row" data-json-path="$.procedure[0].step_id"><div class="field-name">Step Id</div><div class="field-value">STEP_01</div></div>
+<div class="field-row" data-json-path="$.procedure[0].section"><div class="field-name">Section</div><div class="field-value">Roasted vegetables</div></div>
+<div class="field-row" data-json-path="$.procedure[0].title"><div class="field-name">Title</div><div class="field-value">Preheat the air fryer</div></div>
+<div class="array-block" data-json-path="$.procedure[0].depends_on">
+<h3>Depends On</h3>
+<div class="empty-value">[ ]</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[0].parallel_group"><div class="field-name">Parallel Group</div><div class="field-value">P01</div></div>
+<div class="array-block" data-json-path="$.procedure[0].ingredient_ids">
+<h3>Ingredient Ids</h3>
+<div class="empty-value">[ ]</div>
+</div>
+<div class="array-block" data-json-path="$.procedure[0].equipment_ids">
+<h3>Equipment Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[0].equipment_ids[0]">air_fryer</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[0].instruction"><div class="field-name">Instruction</div><div class="field-value">Preheat the air fryer to 200°C. Allow the appliance to reach its programmed operating temperature before loading the vegetables.</div></div>
+<div class="field-row" data-json-path="$.procedure[0].heat_source"><div class="field-name">Heat Source</div><div class="field-value">Air fryer</div></div>
+<div class="field-row" data-json-path="$.procedure[0].heat_level"><div class="field-name">Heat Level</div><div class="field-value">200°C</div></div>
+<div class="field-row" data-json-path="$.procedure[0].temperature_c"><div class="field-name">Temperature C</div><div class="field-value">200</div></div>
+<div class="field-row" data-json-path="$.procedure[0].duration_min_minutes"><div class="field-name">Duration Min Minutes</div><div class="field-value">3</div></div>
+<div class="field-row" data-json-path="$.procedure[0].duration_max_minutes"><div class="field-name">Duration Max Minutes</div><div class="field-value">5</div></div>
+<div class="field-row" data-json-path="$.procedure[0].endpoint"><div class="field-name">Endpoint</div><div class="field-value">The air fryer has completed its preheat cycle or has operated empty at 200°C for at least 3 minutes.</div></div>
+<div class="array-block" data-json-path="$.procedure[0].corrective_actions">
+<h3>Corrective Actions</h3>
+<div class="array-items">
+<article class="array-item" data-json-path="$.procedure[0].corrective_actions[0]">
+<div class="item-number">Item 1</div>
+<div class="field-row" data-json-path="$.procedure[0].corrective_actions[0].condition"><div class="field-name">Condition</div><div class="field-value">The appliance does not indicate completion of preheating after 5 minutes.</div></div>
+<div class="field-row" data-json-path="$.procedure[0].corrective_actions[0].action"><div class="field-name">Action</div><div class="field-value">Confirm the temperature setting is 200°C and allow an additional 2 minutes before loading.</div></div>
+</article>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[0].critical"><div class="field-name">Critical</div><div class="field-value"><span class="boolean-value">false</span></div></div>
+</article>
+<article class="array-item" data-json-path="$.procedure[1]">
+<div class="item-number">Item 2</div>
+<div class="field-row" data-json-path="$.procedure[1].step_id"><div class="field-name">Step Id</div><div class="field-value">STEP_02</div></div>
+<div class="field-row" data-json-path="$.procedure[1].section"><div class="field-name">Section</div><div class="field-value">Bulgur</div></div>
+<div class="field-row" data-json-path="$.procedure[1].title"><div class="field-name">Title</div><div class="field-value">Hydrate the bulgur</div></div>
+<div class="array-block" data-json-path="$.procedure[1].depends_on">
+<h3>Depends On</h3>
+<div class="empty-value">[ ]</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[1].parallel_group"><div class="field-name">Parallel Group</div><div class="field-value">P01</div></div>
+<div class="array-block" data-json-path="$.procedure[1].ingredient_ids">
+<h3>Ingredient Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[1].ingredient_ids[0]">bulgur_wheat_dry</div>
+<div class="scalar-array-item" data-json-path="$.procedure[1].ingredient_ids[1]">water</div>
+<div class="scalar-array-item" data-json-path="$.procedure[1].ingredient_ids[2]">fine_salt</div>
+</div>
+</div>
+<div class="array-block" data-json-path="$.procedure[1].equipment_ids">
+<h3>Equipment Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[1].equipment_ids[0]">kettle</div>
+<div class="scalar-array-item" data-json-path="$.procedure[1].equipment_ids[1]">mixing_bowl</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[1].instruction"><div class="field-name">Instruction</div><div class="field-value">Boil the measured 100 ml water in the kettle. Place 50 g dry bulgur in the heatproof mixing bowl and add approximately 0.0625 tsp of the measured initial salt. Pour the full 100 ml boiling water over the bulgur, stir once, cover the bowl with a plate or suitable lid and leave undisturbed until the grains absorb the water.</div></div>
+<div class="field-row" data-json-path="$.procedure[1].heat_source"><div class="field-name">Heat Source</div><div class="field-value">Electric kettle</div></div>
+<div class="field-row" data-json-path="$.procedure[1].heat_level"><div class="field-name">Heat Level</div><div class="field-value">Boiling water</div></div>
+<div class="field-row" data-json-path="$.procedure[1].temperature_c"><div class="field-name">Temperature C</div><div class="field-value">100</div></div>
+<div class="field-row" data-json-path="$.procedure[1].duration_min_minutes"><div class="field-name">Duration Min Minutes</div><div class="field-value">10</div></div>
+<div class="field-row" data-json-path="$.procedure[1].duration_max_minutes"><div class="field-name">Duration Max Minutes</div><div class="field-value">15</div></div>
+<div class="field-row" data-json-path="$.procedure[1].endpoint"><div class="field-name">Endpoint</div><div class="field-value">The bulgur is tender but retains slight chew, individual grains are distinguishable and no free water remains at the base of the bowl.</div></div>
+<div class="array-block" data-json-path="$.procedure[1].corrective_actions">
+<h3>Corrective Actions</h3>
+<div class="array-items">
+<article class="array-item" data-json-path="$.procedure[1].corrective_actions[0]">
+<div class="item-number">Item 1</div>
+<div class="field-row" data-json-path="$.procedure[1].corrective_actions[0].condition"><div class="field-name">Condition</div><div class="field-value">The bulgur remains noticeably firm after 15 minutes and the bowl is dry.</div></div>
+<div class="field-row" data-json-path="$.procedure[1].corrective_actions[0].action"><div class="field-name">Action</div><div class="field-value">Add 15 ml freshly boiled water, cover again and reassess after 5 minutes.</div></div>
+</article>
+<article class="array-item" data-json-path="$.procedure[1].corrective_actions[1]">
+<div class="item-number">Item 2</div>
+<div class="field-row" data-json-path="$.procedure[1].corrective_actions[1].condition"><div class="field-name">Condition</div><div class="field-value">Free water remains after the grains are tender.</div></div>
+<div class="field-row" data-json-path="$.procedure[1].corrective_actions[1].action"><div class="field-name">Action</div><div class="field-value">Leave the bowl uncovered for 2-3 minutes and fluff with a fork until the excess moisture is absorbed or evaporated.</div></div>
+</article>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[1].critical"><div class="field-name">Critical</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+</article>
+<article class="array-item" data-json-path="$.procedure[2]">
+<div class="item-number">Item 3</div>
+<div class="field-row" data-json-path="$.procedure[2].step_id"><div class="field-name">Step Id</div><div class="field-value">STEP_03</div></div>
+<div class="field-row" data-json-path="$.procedure[2].section"><div class="field-name">Section</div><div class="field-value">Roasted vegetables</div></div>
+<div class="field-row" data-json-path="$.procedure[2].title"><div class="field-name">Title</div><div class="field-value">Roast the pepper and onion</div></div>
+<div class="array-block" data-json-path="$.procedure[2].depends_on">
+<h3>Depends On</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[2].depends_on[0]">STEP_01</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[2].parallel_group"><div class="field-name">Parallel Group</div><div class="field-value">P02</div></div>
+<div class="array-block" data-json-path="$.procedure[2].ingredient_ids">
+<h3>Ingredient Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[2].ingredient_ids[0]">red_pepper</div>
+<div class="scalar-array-item" data-json-path="$.procedure[2].ingredient_ids[1]">red_onion</div>
+<div class="scalar-array-item" data-json-path="$.procedure[2].ingredient_ids[2]">olive_oil</div>
+<div class="scalar-array-item" data-json-path="$.procedure[2].ingredient_ids[3]">fine_salt</div>
+<div class="scalar-array-item" data-json-path="$.procedure[2].ingredient_ids[4]">black_pepper_ground</div>
+</div>
+</div>
+<div class="array-block" data-json-path="$.procedure[2].equipment_ids">
+<h3>Equipment Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[2].equipment_ids[0]">air_fryer</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[2].instruction"><div class="field-name">Instruction</div><div class="field-value">Combine the prepared pepper and onion with 2 g of the measured olive oil, approximately 0.0625 tsp of the initial salt and approximately 0.125 tsp black pepper. Toss until the surfaces are thinly coated. Load into the air-fryer basket in a loose single layer where practical. Roast at 200°C, shaking or turning after approximately 5 minutes.</div></div>
+<div class="field-row" data-json-path="$.procedure[2].heat_source"><div class="field-name">Heat Source</div><div class="field-value">Air fryer</div></div>
+<div class="field-row" data-json-path="$.procedure[2].heat_level"><div class="field-name">Heat Level</div><div class="field-value">200°C</div></div>
+<div class="field-row" data-json-path="$.procedure[2].temperature_c"><div class="field-name">Temperature C</div><div class="field-value">200</div></div>
+<div class="field-row" data-json-path="$.procedure[2].duration_min_minutes"><div class="field-name">Duration Min Minutes</div><div class="field-value">9</div></div>
+<div class="field-row" data-json-path="$.procedure[2].duration_max_minutes"><div class="field-name">Duration Max Minutes</div><div class="field-value">13</div></div>
+<div class="field-row" data-json-path="$.procedure[2].endpoint"><div class="field-name">Endpoint</div><div class="field-value">The pepper is tender with browned and lightly blistered edges, and the onion is softened with caramelised tips but is not blackened.</div></div>
+<div class="array-block" data-json-path="$.procedure[2].corrective_actions">
+<h3>Corrective Actions</h3>
+<div class="array-items">
+<article class="array-item" data-json-path="$.procedure[2].corrective_actions[0]">
+<div class="item-number">Item 1</div>
+<div class="field-row" data-json-path="$.procedure[2].corrective_actions[0].condition"><div class="field-name">Condition</div><div class="field-value">The onion edges darken significantly before the pepper softens.</div></div>
+<div class="field-row" data-json-path="$.procedure[2].corrective_actions[0].action"><div class="field-name">Action</div><div class="field-value">Remove the most browned onion pieces and continue cooking the pepper in 2-minute intervals.</div></div>
+</article>
+<article class="array-item" data-json-path="$.procedure[2].corrective_actions[1]">
+<div class="item-number">Item 2</div>
+<div class="field-row" data-json-path="$.procedure[2].corrective_actions[1].condition"><div class="field-name">Condition</div><div class="field-value">The vegetables remain pale after 10 minutes.</div></div>
+<div class="field-row" data-json-path="$.procedure[2].corrective_actions[1].action"><div class="field-name">Action</div><div class="field-value">Redistribute into a thinner layer and continue at 200°C in 2-minute intervals until browned edges develop.</div></div>
+</article>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[2].critical"><div class="field-name">Critical</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+</article>
+<article class="array-item" data-json-path="$.procedure[3]">
+<div class="item-number">Item 4</div>
+<div class="field-row" data-json-path="$.procedure[3].step_id"><div class="field-name">Step Id</div><div class="field-value">STEP_04</div></div>
+<div class="field-row" data-json-path="$.procedure[3].section"><div class="field-name">Section</div><div class="field-value">Tempeh</div></div>
+<div class="field-row" data-json-path="$.procedure[3].title"><div class="field-name">Title</div><div class="field-value">Brown the tempeh</div></div>
+<div class="array-block" data-json-path="$.procedure[3].depends_on">
+<h3>Depends On</h3>
+<div class="empty-value">[ ]</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[3].parallel_group"><div class="field-name">Parallel Group</div><div class="field-value">P02</div></div>
+<div class="array-block" data-json-path="$.procedure[3].ingredient_ids">
+<h3>Ingredient Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[3].ingredient_ids[0]">tempeh_plain</div>
+<div class="scalar-array-item" data-json-path="$.procedure[3].ingredient_ids[1]">olive_oil</div>
+<div class="scalar-array-item" data-json-path="$.procedure[3].ingredient_ids[2]">fine_salt</div>
+</div>
+</div>
+<div class="array-block" data-json-path="$.procedure[3].equipment_ids">
+<h3>Equipment Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[3].equipment_ids[0]">frying_pan</div>
+<div class="scalar-array-item" data-json-path="$.procedure[3].equipment_ids[1]">gas_hob</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[3].instruction"><div class="field-name">Instruction</div><div class="field-value">Place the frying pan over medium-high gas heat for approximately 1 minute. Add the remaining 2 g olive oil and immediately add the 180 g tempeh cubes in a single layer. Add approximately 0.0625 tsp of the initial salt. Cook while turning the cubes every 60-90 seconds so several faces contact the pan.</div></div>
+<div class="field-row" data-json-path="$.procedure[3].heat_source"><div class="field-name">Heat Source</div><div class="field-value">Gas hob</div></div>
+<div class="field-row" data-json-path="$.procedure[3].heat_level"><div class="field-name">Heat Level</div><div class="field-value">Medium-high</div></div>
+<div class="field-row" data-json-path="$.procedure[3].temperature_c"><div class="field-name">Temperature C</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.procedure[3].duration_min_minutes"><div class="field-name">Duration Min Minutes</div><div class="field-value">6</div></div>
+<div class="field-row" data-json-path="$.procedure[3].duration_max_minutes"><div class="field-name">Duration Max Minutes</div><div class="field-value">9</div></div>
+<div class="field-row" data-json-path="$.procedure[3].endpoint"><div class="field-name">Endpoint</div><div class="field-value">The tempeh has developed visible golden-brown patches on multiple faces, feels dry rather than greasy on the exterior and releases readily from the pan when turned.</div></div>
+<div class="array-block" data-json-path="$.procedure[3].corrective_actions">
+<h3>Corrective Actions</h3>
+<div class="array-items">
+<article class="array-item" data-json-path="$.procedure[3].corrective_actions[0]">
+<div class="item-number">Item 1</div>
+<div class="field-row" data-json-path="$.procedure[3].corrective_actions[0].condition"><div class="field-name">Condition</div><div class="field-value">The tempeh begins blackening before several faces brown.</div></div>
+<div class="field-row" data-json-path="$.procedure[3].corrective_actions[0].action"><div class="field-name">Action</div><div class="field-value">Reduce the gas flame to medium and turn the affected cubes immediately.</div></div>
+</article>
+<article class="array-item" data-json-path="$.procedure[3].corrective_actions[1]">
+<div class="item-number">Item 2</div>
+<div class="field-row" data-json-path="$.procedure[3].corrective_actions[1].condition"><div class="field-name">Condition</div><div class="field-value">The tempeh remains pale after 6 minutes.</div></div>
+<div class="field-row" data-json-path="$.procedure[3].corrective_actions[1].action"><div class="field-name">Action</div><div class="field-value">Increase the heat slightly and leave each face undisturbed for approximately 60 seconds before turning.</div></div>
+</article>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[3].critical"><div class="field-name">Critical</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+</article>
+<article class="array-item" data-json-path="$.procedure[4]">
+<div class="item-number">Item 5</div>
+<div class="field-row" data-json-path="$.procedure[4].step_id"><div class="field-name">Step Id</div><div class="field-value">STEP_05</div></div>
+<div class="field-row" data-json-path="$.procedure[4].section"><div class="field-name">Section</div><div class="field-value">Harissa glaze</div></div>
+<div class="field-row" data-json-path="$.procedure[4].title"><div class="field-name">Title</div><div class="field-value">Bloom the spices and glaze the tempeh</div></div>
+<div class="array-block" data-json-path="$.procedure[4].depends_on">
+<h3>Depends On</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[4].depends_on[0]">STEP_04</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[4].parallel_group"><div class="field-name">Parallel Group</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="array-block" data-json-path="$.procedure[4].ingredient_ids">
+<h3>Ingredient Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[4].ingredient_ids[0]">harissa_paste</div>
+<div class="scalar-array-item" data-json-path="$.procedure[4].ingredient_ids[1]">ground_cumin</div>
+<div class="scalar-array-item" data-json-path="$.procedure[4].ingredient_ids[2]">smoked_paprika</div>
+<div class="scalar-array-item" data-json-path="$.procedure[4].ingredient_ids[3]">lemon</div>
+</div>
+</div>
+<div class="array-block" data-json-path="$.procedure[4].equipment_ids">
+<h3>Equipment Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[4].equipment_ids[0]">frying_pan</div>
+<div class="scalar-array-item" data-json-path="$.procedure[4].equipment_ids[1]">gas_hob</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[4].instruction"><div class="field-name">Instruction</div><div class="field-value">Reduce the gas heat to medium-low. Add 20 g harissa paste, 0.5 tsp ground cumin and 0.5 tsp smoked paprika directly to the browned tempeh. Stir continuously for approximately 30 seconds so the spices become aromatic without scorching. Add 10 ml of the prepared lemon juice and stir, scraping the pan surface, until the liquid evaporates and the harissa forms a thin glossy coating around the tempeh.</div></div>
+<div class="field-row" data-json-path="$.procedure[4].heat_source"><div class="field-name">Heat Source</div><div class="field-value">Gas hob</div></div>
+<div class="field-row" data-json-path="$.procedure[4].heat_level"><div class="field-name">Heat Level</div><div class="field-value">Medium-low</div></div>
+<div class="field-row" data-json-path="$.procedure[4].temperature_c"><div class="field-name">Temperature C</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.procedure[4].duration_min_minutes"><div class="field-name">Duration Min Minutes</div><div class="field-value">1</div></div>
+<div class="field-row" data-json-path="$.procedure[4].duration_max_minutes"><div class="field-name">Duration Max Minutes</div><div class="field-value">2</div></div>
+<div class="field-row" data-json-path="$.procedure[4].endpoint"><div class="field-name">Endpoint</div><div class="field-value">The tempeh is uniformly coated in a dark red-orange glaze, the spices smell aromatic rather than raw and no free liquid remains in the pan.</div></div>
+<div class="array-block" data-json-path="$.procedure[4].corrective_actions">
+<h3>Corrective Actions</h3>
+<div class="array-items">
+<article class="array-item" data-json-path="$.procedure[4].corrective_actions[0]">
+<div class="item-number">Item 1</div>
+<div class="field-row" data-json-path="$.procedure[4].corrective_actions[0].condition"><div class="field-name">Condition</div><div class="field-value">The harissa begins sticking aggressively or darkening before the lemon juice is added.</div></div>
+<div class="field-row" data-json-path="$.procedure[4].corrective_actions[0].action"><div class="field-name">Action</div><div class="field-value">Remove the pan from the flame, add the measured lemon juice immediately and stir before returning to low heat.</div></div>
+</article>
+<article class="array-item" data-json-path="$.procedure[4].corrective_actions[1]">
+<div class="item-number">Item 2</div>
+<div class="field-row" data-json-path="$.procedure[4].corrective_actions[1].condition"><div class="field-name">Condition</div><div class="field-value">Free liquid remains after 2 minutes.</div></div>
+<div class="field-row" data-json-path="$.procedure[4].corrective_actions[1].action"><div class="field-name">Action</div><div class="field-value">Increase heat to medium and stir continuously until the glaze clings to the tempeh with no liquid pooling.</div></div>
+</article>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[4].critical"><div class="field-name">Critical</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+</article>
+<article class="array-item" data-json-path="$.procedure[5]">
+<div class="item-number">Item 6</div>
+<div class="field-row" data-json-path="$.procedure[5].step_id"><div class="field-name">Step Id</div><div class="field-value">STEP_06</div></div>
+<div class="field-row" data-json-path="$.procedure[5].section"><div class="field-name">Section</div><div class="field-value">Bulgur</div></div>
+<div class="field-row" data-json-path="$.procedure[5].title"><div class="field-name">Title</div><div class="field-value">Fluff and season the bulgur</div></div>
+<div class="array-block" data-json-path="$.procedure[5].depends_on">
+<h3>Depends On</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[5].depends_on[0]">STEP_02</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[5].parallel_group"><div class="field-name">Parallel Group</div><div class="field-value">P03</div></div>
+<div class="array-block" data-json-path="$.procedure[5].ingredient_ids">
+<h3>Ingredient Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[5].ingredient_ids[0]">bulgur_wheat_dry</div>
+<div class="scalar-array-item" data-json-path="$.procedure[5].ingredient_ids[1]">lemon</div>
+<div class="scalar-array-item" data-json-path="$.procedure[5].ingredient_ids[2]">flat_leaf_parsley</div>
+<div class="scalar-array-item" data-json-path="$.procedure[5].ingredient_ids[3]">black_pepper_ground</div>
+</div>
+</div>
+<div class="array-block" data-json-path="$.procedure[5].equipment_ids">
+<h3>Equipment Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[5].equipment_ids[0]">mixing_bowl</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[5].instruction"><div class="field-name">Instruction</div><div class="field-value">Uncover the hydrated bulgur. Fluff thoroughly with a fork to separate the grains. Add 10 ml prepared lemon juice, approximately half of the chopped parsley and the remaining 0.125 tsp black pepper. Fold until evenly distributed without compressing the grains.</div></div>
+<div class="field-row" data-json-path="$.procedure[5].heat_source"><div class="field-name">Heat Source</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.procedure[5].heat_level"><div class="field-name">Heat Level</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.procedure[5].temperature_c"><div class="field-name">Temperature C</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.procedure[5].duration_min_minutes"><div class="field-name">Duration Min Minutes</div><div class="field-value">1</div></div>
+<div class="field-row" data-json-path="$.procedure[5].duration_max_minutes"><div class="field-name">Duration Max Minutes</div><div class="field-value">2</div></div>
+<div class="field-row" data-json-path="$.procedure[5].endpoint"><div class="field-name">Endpoint</div><div class="field-value">The bulgur is loose, evenly seasoned and lightly flecked with parsley, with no compact clumps.</div></div>
+<div class="array-block" data-json-path="$.procedure[5].corrective_actions">
+<h3>Corrective Actions</h3>
+<div class="array-items">
+<article class="array-item" data-json-path="$.procedure[5].corrective_actions[0]">
+<div class="item-number">Item 1</div>
+<div class="field-row" data-json-path="$.procedure[5].corrective_actions[0].condition"><div class="field-name">Condition</div><div class="field-value">The bulgur is sticky or compacted.</div></div>
+<div class="field-row" data-json-path="$.procedure[5].corrective_actions[0].action"><div class="field-name">Action</div><div class="field-value">Use a fork to lift and separate the grains repeatedly rather than stirring vigorously.</div></div>
+</article>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[5].critical"><div class="field-name">Critical</div><div class="field-value"><span class="boolean-value">false</span></div></div>
+</article>
+<article class="array-item" data-json-path="$.procedure[6]">
+<div class="item-number">Item 7</div>
+<div class="field-row" data-json-path="$.procedure[6].step_id"><div class="field-name">Step Id</div><div class="field-value">STEP_07</div></div>
+<div class="field-row" data-json-path="$.procedure[6].section"><div class="field-name">Section</div><div class="field-value">Lemon yoghurt</div></div>
+<div class="field-row" data-json-path="$.procedure[6].title"><div class="field-name">Title</div><div class="field-value">Prepare the lemon yoghurt</div></div>
+<div class="array-block" data-json-path="$.procedure[6].depends_on">
+<h3>Depends On</h3>
+<div class="empty-value">[ ]</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[6].parallel_group"><div class="field-name">Parallel Group</div><div class="field-value">P03</div></div>
+<div class="array-block" data-json-path="$.procedure[6].ingredient_ids">
+<h3>Ingredient Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[6].ingredient_ids[0]">greek_yoghurt_0_percent</div>
+<div class="scalar-array-item" data-json-path="$.procedure[6].ingredient_ids[1]">lemon</div>
+<div class="scalar-array-item" data-json-path="$.procedure[6].ingredient_ids[2]">fine_salt</div>
+</div>
+</div>
+<div class="array-block" data-json-path="$.procedure[6].equipment_ids">
+<h3>Equipment Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[6].equipment_ids[0]">small_bowl</div>
+<div class="scalar-array-item" data-json-path="$.procedure[6].equipment_ids[1]">fine_grater</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[6].instruction"><div class="field-name">Instruction</div><div class="field-value">Place 220 g Greek yoghurt in the small bowl. Add the prepared approximately 2 g lemon zest, the remaining 10 ml lemon juice and approximately 0.0625 tsp of the initial salt. Stir until completely homogeneous and smooth.</div></div>
+<div class="field-row" data-json-path="$.procedure[6].heat_source"><div class="field-name">Heat Source</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.procedure[6].heat_level"><div class="field-name">Heat Level</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.procedure[6].temperature_c"><div class="field-name">Temperature C</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.procedure[6].duration_min_minutes"><div class="field-name">Duration Min Minutes</div><div class="field-value">1</div></div>
+<div class="field-row" data-json-path="$.procedure[6].duration_max_minutes"><div class="field-name">Duration Max Minutes</div><div class="field-value">2</div></div>
+<div class="field-row" data-json-path="$.procedure[6].endpoint"><div class="field-name">Endpoint</div><div class="field-value">The yoghurt is smooth, evenly flecked with lemon zest and tastes distinctly fresh and acidic without being sharply sour.</div></div>
+<div class="array-block" data-json-path="$.procedure[6].corrective_actions">
+<h3>Corrective Actions</h3>
+<div class="array-items">
+<article class="array-item" data-json-path="$.procedure[6].corrective_actions[0]">
+<div class="item-number">Item 1</div>
+<div class="field-row" data-json-path="$.procedure[6].corrective_actions[0].condition"><div class="field-name">Condition</div><div class="field-value">The yoghurt appears unusually stiff.</div></div>
+<div class="field-row" data-json-path="$.procedure[6].corrective_actions[0].action"><div class="field-name">Action</div><div class="field-value">Stir vigorously for approximately 20 seconds; do not dilute unless required because the yoghurt must remain thick enough for transport.</div></div>
+</article>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[6].critical"><div class="field-name">Critical</div><div class="field-value"><span class="boolean-value">false</span></div></div>
+</article>
+<article class="array-item" data-json-path="$.procedure[7]">
+<div class="item-number">Item 8</div>
+<div class="field-row" data-json-path="$.procedure[7].step_id"><div class="field-name">Step Id</div><div class="field-value">STEP_08</div></div>
+<div class="field-row" data-json-path="$.procedure[7].section"><div class="field-name">Section</div><div class="field-value">Cooling</div></div>
+<div class="field-row" data-json-path="$.procedure[7].title"><div class="field-name">Title</div><div class="field-value">Cool the cooked components</div></div>
+<div class="array-block" data-json-path="$.procedure[7].depends_on">
+<h3>Depends On</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[7].depends_on[0]">STEP_03</div>
+<div class="scalar-array-item" data-json-path="$.procedure[7].depends_on[1]">STEP_05</div>
+<div class="scalar-array-item" data-json-path="$.procedure[7].depends_on[2]">STEP_06</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[7].parallel_group"><div class="field-name">Parallel Group</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="array-block" data-json-path="$.procedure[7].ingredient_ids">
+<h3>Ingredient Ids</h3>
+<div class="empty-value">[ ]</div>
+</div>
+<div class="array-block" data-json-path="$.procedure[7].equipment_ids">
+<h3>Equipment Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[7].equipment_ids[0]">mixing_bowl</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[7].instruction"><div class="field-name">Instruction</div><div class="field-value">Transfer the roasted pepper and onion and the harissa tempeh to separate areas of a large clean plate or clean bowls so steam can escape. Leave the cooked components uncovered until they are no longer visibly steaming and are approximately room temperature. Keep the lemon yoghurt refrigerated during this cooling period.</div></div>
+<div class="field-row" data-json-path="$.procedure[7].heat_source"><div class="field-name">Heat Source</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.procedure[7].heat_level"><div class="field-name">Heat Level</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.procedure[7].temperature_c"><div class="field-name">Temperature C</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.procedure[7].duration_min_minutes"><div class="field-name">Duration Min Minutes</div><div class="field-value">10</div></div>
+<div class="field-row" data-json-path="$.procedure[7].duration_max_minutes"><div class="field-name">Duration Max Minutes</div><div class="field-value">15</div></div>
+<div class="field-row" data-json-path="$.procedure[7].endpoint"><div class="field-name">Endpoint</div><div class="field-value">Tempeh, vegetables and bulgur are no longer emitting steam and feel only slightly warm or neutral to the touch before packing.</div></div>
+<div class="array-block" data-json-path="$.procedure[7].corrective_actions">
+<h3>Corrective Actions</h3>
+<div class="array-items">
+<article class="array-item" data-json-path="$.procedure[7].corrective_actions[0]">
+<div class="item-number">Item 1</div>
+<div class="field-row" data-json-path="$.procedure[7].corrective_actions[0].condition"><div class="field-name">Condition</div><div class="field-value">The components remain noticeably hot after 15 minutes.</div></div>
+<div class="field-row" data-json-path="$.procedure[7].corrective_actions[0].action"><div class="field-name">Action</div><div class="field-value">Spread them into thinner layers and allow an additional 5 minutes cooling before packing.</div></div>
+</article>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[7].critical"><div class="field-name">Critical</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+</article>
+<article class="array-item" data-json-path="$.procedure[8]">
+<div class="item-number">Item 9</div>
+<div class="field-row" data-json-path="$.procedure[8].step_id"><div class="field-name">Step Id</div><div class="field-value">STEP_09</div></div>
+<div class="field-row" data-json-path="$.procedure[8].section"><div class="field-name">Section</div><div class="field-value">Assembly</div></div>
+<div class="field-row" data-json-path="$.procedure[8].title"><div class="field-name">Title</div><div class="field-value">Combine and balance the salad</div></div>
+<div class="array-block" data-json-path="$.procedure[8].depends_on">
+<h3>Depends On</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[8].depends_on[0]">STEP_07</div>
+<div class="scalar-array-item" data-json-path="$.procedure[8].depends_on[1]">STEP_08</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[8].parallel_group"><div class="field-name">Parallel Group</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="array-block" data-json-path="$.procedure[8].ingredient_ids">
+<h3>Ingredient Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[8].ingredient_ids[0]">tempeh_plain</div>
+<div class="scalar-array-item" data-json-path="$.procedure[8].ingredient_ids[1]">bulgur_wheat_dry</div>
+<div class="scalar-array-item" data-json-path="$.procedure[8].ingredient_ids[2]">red_pepper</div>
+<div class="scalar-array-item" data-json-path="$.procedure[8].ingredient_ids[3]">red_onion</div>
+<div class="scalar-array-item" data-json-path="$.procedure[8].ingredient_ids[4]">flat_leaf_parsley</div>
+<div class="scalar-array-item" data-json-path="$.procedure[8].ingredient_ids[5]">fine_salt</div>
+</div>
+</div>
+<div class="array-block" data-json-path="$.procedure[8].equipment_ids">
+<h3>Equipment Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[8].equipment_ids[0]">mixing_bowl</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[8].instruction"><div class="field-name">Instruction</div><div class="field-value">Combine the cooled bulgur, roasted pepper, roasted onion and harissa tempeh in the mixing bowl. Add the remaining chopped parsley and fold gently until evenly distributed. Taste one representative mouthful containing tempeh, grain and vegetable. If the mixture tastes under-seasoned after accounting for the salty harissa, add up to the reserved 0.125 tsp fine salt in 0.0625 tsp increments, folding thoroughly after each addition.</div></div>
+<div class="field-row" data-json-path="$.procedure[8].heat_source"><div class="field-name">Heat Source</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.procedure[8].heat_level"><div class="field-name">Heat Level</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.procedure[8].temperature_c"><div class="field-name">Temperature C</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.procedure[8].duration_min_minutes"><div class="field-name">Duration Min Minutes</div><div class="field-value">2</div></div>
+<div class="field-row" data-json-path="$.procedure[8].duration_max_minutes"><div class="field-name">Duration Max Minutes</div><div class="field-value">3</div></div>
+<div class="field-row" data-json-path="$.procedure[8].endpoint"><div class="field-name">Endpoint</div><div class="field-value">The salad is evenly mixed, the tempeh retains its glaze, the grains remain loose and the flavour is balanced between salt, chilli, acidity and roasted sweetness.</div></div>
+<div class="array-block" data-json-path="$.procedure[8].corrective_actions">
+<h3>Corrective Actions</h3>
+<div class="array-items">
+<article class="array-item" data-json-path="$.procedure[8].corrective_actions[0]">
+<div class="item-number">Item 1</div>
+<div class="field-row" data-json-path="$.procedure[8].corrective_actions[0].condition"><div class="field-name">Condition</div><div class="field-value">The salad tastes excessively sharp.</div></div>
+<div class="field-row" data-json-path="$.procedure[8].corrective_actions[0].action"><div class="field-name">Action</div><div class="field-value">Do not add further lemon or salt; serve with the specified yoghurt, which will soften the acidity.</div></div>
+</article>
+<article class="array-item" data-json-path="$.procedure[8].corrective_actions[1]">
+<div class="item-number">Item 2</div>
+<div class="field-row" data-json-path="$.procedure[8].corrective_actions[1].condition"><div class="field-name">Condition</div><div class="field-value">The salad tastes under-seasoned.</div></div>
+<div class="field-row" data-json-path="$.procedure[8].corrective_actions[1].action"><div class="field-name">Action</div><div class="field-value">Use the reserved salt incrementally as specified, stopping as soon as the flavour becomes defined.</div></div>
+</article>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[8].critical"><div class="field-name">Critical</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+</article>
+<article class="array-item" data-json-path="$.procedure[9]">
+<div class="item-number">Item 10</div>
+<div class="field-row" data-json-path="$.procedure[9].step_id"><div class="field-name">Step Id</div><div class="field-value">STEP_10</div></div>
+<div class="field-row" data-json-path="$.procedure[9].section"><div class="field-name">Section</div><div class="field-value">Packing</div></div>
+<div class="field-row" data-json-path="$.procedure[9].title"><div class="field-name">Title</div><div class="field-value">Portion for transport</div></div>
+<div class="array-block" data-json-path="$.procedure[9].depends_on">
+<h3>Depends On</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[9].depends_on[0]">STEP_09</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[9].parallel_group"><div class="field-name">Parallel Group</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="array-block" data-json-path="$.procedure[9].ingredient_ids">
+<h3>Ingredient Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[9].ingredient_ids[0]">greek_yoghurt_0_percent</div>
+</div>
+</div>
+<div class="array-block" data-json-path="$.procedure[9].equipment_ids">
+<h3>Equipment Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[9].equipment_ids[0]">lidded_containers</div>
+<div class="scalar-array-item" data-json-path="$.procedure[9].equipment_ids[1]">kitchen_scales</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[9].instruction"><div class="field-name">Instruction</div><div class="field-value">Place the two lunch containers on the kitchen scales individually and divide the bulgur-tempeh salad approximately equally between them. Divide the lemon yoghurt equally, approximately 110 g per serving. Place the yoghurt in a distinct mound or separate small internal compartment where available rather than fully stirring it into the salad. Secure the lids immediately and refrigerate.</div></div>
+<div class="field-row" data-json-path="$.procedure[9].heat_source"><div class="field-name">Heat Source</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.procedure[9].heat_level"><div class="field-name">Heat Level</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.procedure[9].temperature_c"><div class="field-name">Temperature C</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.procedure[9].duration_min_minutes"><div class="field-name">Duration Min Minutes</div><div class="field-value">3</div></div>
+<div class="field-row" data-json-path="$.procedure[9].duration_max_minutes"><div class="field-name">Duration Max Minutes</div><div class="field-value">5</div></div>
+<div class="field-row" data-json-path="$.procedure[9].endpoint"><div class="field-name">Endpoint</div><div class="field-value">Both containers hold approximately equal portions, the yoghurt remains visually distinct from the harissa salad and the lids are fully sealed.</div></div>
+<div class="array-block" data-json-path="$.procedure[9].corrective_actions">
+<h3>Corrective Actions</h3>
+<div class="array-items">
+<article class="array-item" data-json-path="$.procedure[9].corrective_actions[0]">
+<div class="item-number">Item 1</div>
+<div class="field-row" data-json-path="$.procedure[9].corrective_actions[0].condition"><div class="field-name">Condition</div><div class="field-value">One container is visibly heavier than the other.</div></div>
+<div class="field-row" data-json-path="$.procedure[9].corrective_actions[0].action"><div class="field-name">Action</div><div class="field-value">Transfer small amounts of salad between the containers using the scales until portions are approximately equal.</div></div>
+</article>
+<article class="array-item" data-json-path="$.procedure[9].corrective_actions[1]">
+<div class="item-number">Item 2</div>
+<div class="field-row" data-json-path="$.procedure[9].corrective_actions[1].condition"><div class="field-name">Condition</div><div class="field-value">The salad is still warm enough to create visible condensation after sealing.</div></div>
+<div class="field-row" data-json-path="$.procedure[9].corrective_actions[1].action"><div class="field-name">Action</div><div class="field-value">Reopen the containers and allow further cooling before resealing and refrigerating.</div></div>
+</article>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[9].critical"><div class="field-name">Critical</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+</article>
+</div>
+</div></section>
+<section class="top-section" data-json-path="$.plating"><h2>Plating</h2><div class="array-block" data-json-path="$.plating">
+<div class="array-items">
+<article class="array-item" data-json-path="$.plating[0]">
+<div class="item-number">Item 1</div>
+<div class="field-row" data-json-path="$.plating[0].step_id"><div class="field-name">Step Id</div><div class="field-value">PLATE_01</div></div>
+<div class="field-row" data-json-path="$.plating[0].instruction"><div class="field-name">Instruction</div><div class="field-value">Serve one complete portion per person. Immediately before eating, spoon the lemon yoghurt through the salad in broad streaks rather than fully homogenising it, preserving contrast between the spicy harissa tempeh, sweet roasted vegetables, nutty bulgur, cool yoghurt and fresh parsley.</div></div>
+</article>
+</div>
+</div></section>
+<section class="top-section" data-json-path="$.storage"><h2>Storage</h2><div class="object-content" data-json-path="$.storage">
+<div class="field-row" data-json-path="$.storage.refrigerator_days"><div class="field-name">Refrigerator Days</div><div class="field-value">2</div></div>
+<div class="field-row" data-json-path="$.storage.freezer_months"><div class="field-name">Freezer Months</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.storage.storage_instructions"><div class="field-name">Storage Instructions</div><div class="field-value">Cool all cooked components before packing. Refrigerate the finished lunch containers at 5°C or below and consume within 2 days. For transport to work or on a car journey, carry in an insulated lunch bag with an ice pack when continuous refrigeration is not available. Keep the container closed until eating. The salad is intended to be eaten chilled or at cool room temperature.</div></div>
+<div class="array-block" data-json-path="$.storage.reheating_methods">
+<h3>Reheating Methods</h3>
+<div class="empty-value">[ ]</div>
+</div>
+</div></section>
+<section class="top-section" data-json-path="$.shopping"><h2>Shopping</h2><div class="object-content" data-json-path="$.shopping">
+<div class="array-block" data-json-path="$.shopping.sainsburys">
+<h3>Sainsburys</h3>
+<div class="empty-value">[ ]</div>
+</div>
+<div class="array-block" data-json-path="$.shopping.marks_and_spencer">
+<h3>Marks And Spencer</h3>
+<div class="empty-value">[ ]</div>
+</div>
+<div class="array-block" data-json-path="$.shopping.either_retailer">
+<h3>Either Retailer</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[0]">Plain tempeh: buy enough to provide at least 180 g</div>
+<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[1]">Medium bulgur wheat: buy 1 standard packet</div>
+<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[2]">Large red pepper: buy 1</div>
+<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[3]">Small red onion: buy 1</div>
+<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[4]">0% Greek yoghurt: buy 1 tub containing at least 220 g</div>
+<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[5]">Harissa paste: buy 1 jar</div>
+<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[6]">Unwaxed lemon: buy 1</div>
+<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[7]">Flat-leaf parsley: buy 1 bunch or packet containing at least 20 g</div>
+<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[8]">Olive oil: buy 1 bottle if not already stocked</div>
+<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[9]">Ground cumin: buy 1 jar if not already stocked</div>
+<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[10]">Smoked paprika: buy 1 jar if not already stocked</div>
+<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[11]">Fine salt: buy 1 container if not already stocked</div>
+<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[12]">Ground black pepper: buy 1 jar or pepper mill if not already stocked</div>
+</div>
+</div>
+</div></section>
+<section class="top-section" data-json-path="$.quality_checks"><h2>Quality Checks</h2><div class="object-content" data-json-path="$.quality_checks">
+<div class="field-row" data-json-path="$.quality_checks.protein_requirement_met"><div class="field-name">Protein Requirement Met</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.quality_checks.protein_g_per_serving"><div class="field-name">Protein G Per Serving</div><div class="field-value">31</div></div>
+<div class="array-block" data-json-path="$.quality_checks.restaurant_quality_features">
+<h3>Restaurant Quality Features</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.quality_checks.restaurant_quality_features[0]">Tempeh is browned before harissa is added, creating genuine roasted flavour rather than simply coating pale tempeh with sauce.</div>
+<div class="scalar-array-item" data-json-path="$.quality_checks.restaurant_quality_features[1]">Harissa, cumin and smoked paprika are briefly bloomed against the hot tempeh before being deglazed with lemon, giving a more integrated and aromatic glaze.</div>
+<div class="scalar-array-item" data-json-path="$.quality_checks.restaurant_quality_features[2]">Pepper and onion are roasted separately at high heat so their natural sugars caramelise without steaming the tempeh.</div>
+<div class="scalar-array-item" data-json-path="$.quality_checks.restaurant_quality_features[3]">The bulgur is seasoned with lemon, parsley and black pepper while still structurally separate, preventing bland grain beneath strongly flavoured toppings.</div>
+<div class="scalar-array-item" data-json-path="$.quality_checks.restaurant_quality_features[4]">Thick lemon-zest yoghurt supplies cool acidity and creaminess without requiring a high-fat dressing.</div>
+<div class="scalar-array-item" data-json-path="$.quality_checks.restaurant_quality_features[5]">Fresh parsley is divided between the bulgur and final assembly so the herb contributes both integrated flavour and a fresher finishing character.</div>
+<div class="scalar-array-item" data-json-path="$.quality_checks.restaurant_quality_features[6]">Cooling components before packing protects the texture of the grain and prevents condensation from diluting the harissa glaze.</div>
+</div>
+</div>
+<div class="array-block" data-json-path="$.quality_checks.nutrition_notes">
+<h3>Nutrition Notes</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.quality_checks.nutrition_notes[0]">Estimated nutrition represents one complete lunch serving including tempeh, bulgur, vegetables, olive oil, harissa, Greek yoghurt, parsley and all seasoning.</div>
+<div class="scalar-array-item" data-json-path="$.quality_checks.nutrition_notes[1]">The approximate 31 g protein per serving comes principally from tempeh and high-protein 0% Greek yoghurt, with a smaller contribution from bulgur.</div>
+<div class="scalar-array-item" data-json-path="$.quality_checks.nutrition_notes[2]">The recipe is designed around the approximately 400 kcal lunch target; exact energy will vary with the nutritional composition of the chosen tempeh, yoghurt and harissa.</div>
+<div class="scalar-array-item" data-json-path="$.quality_checks.nutrition_notes[3]">Using a measured small quantity of olive oil preserves browning and flavour without adding unnecessary calories.</div>
+<div class="scalar-array-item" data-json-path="$.quality_checks.nutrition_notes[4]">Pepper, onion, parsley and whole-grain bulgur increase fibre, vegetable content and micronutrient variety.</div>
+</div>
+</div>
+<div class="array-block" data-json-path="$.quality_checks.critical_success_factors">
+<h3>Critical Success Factors</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.quality_checks.critical_success_factors[0]">Brown the tempeh before adding harissa; adding the paste too early will inhibit browning and increase the risk of scorched spices.</div>
+<div class="scalar-array-item" data-json-path="$.quality_checks.critical_success_factors[1]">Do not proceed with assembly until the bulgur has absorbed all free water and remains loose rather than wet.</div>
+<div class="scalar-array-item" data-json-path="$.quality_checks.critical_success_factors[2]">Roast pepper and onion until browned at the edges rather than merely softened; this provides necessary sweetness against the acidic yoghurt and spicy harissa.</div>
+<div class="scalar-array-item" data-json-path="$.quality_checks.critical_success_factors[3]">Cool all cooked ingredients before sealing the transport containers to prevent condensation and textural deterioration.</div>
+<div class="scalar-array-item" data-json-path="$.quality_checks.critical_success_factors[4]">Keep the lemon yoghurt thick and separate until eating rather than mixing it through the salad several hours in advance.</div>
+<div class="scalar-array-item" data-json-path="$.quality_checks.critical_success_factors[5]">Use the final reserved salt only after tasting the complete salad because supermarket harissa pastes vary significantly in salt concentration.</div>
+</div>
+</div>
+</div></section>
+
+<section class="integrity">
+
+    <strong>Source integrity</strong>
+
+    <div>
+        Source JSON SHA-256:
+        <code>538733adcb90f0254bd298520dfd11c9dcf395ff2b01e0eff545f8651d423784</code>
+    </div>
+
+    <div>
+        JSON paths checked:
+        <code>658</code>
+    </div>
+
+    <div>
+        Missing JSON paths:
+        <code>0</code>
+    </div>
+
+</section>
+
+<details>
+
+<summary>
+Original source JSON
+</summary>
+
+<pre>{
+  &quot;schema_version&quot;: &quot;1.0&quot;,
+  &quot;recipe&quot;: {
+    &quot;id&quot;: &quot;harissa_tempeh_roasted_pepper_bulgur_salad_lemon_yoghurt_parsley&quot;,
+    &quot;title&quot;: &quot;Harissa Tempeh, Roasted Pepper &amp; Bulgur Salad with Lemon Yoghurt and Parsley&quot;,
+    &quot;description&quot;: &quot;A portable high-protein lunch salad of deeply browned harissa-coated tempeh, sweet roasted red pepper and nutty bulgur, balanced with sharp lemon yoghurt, fresh parsley and restrained seasoning. Components are cooled before packing so the salad remains fresh rather than steaming itself in transit.&quot;,
+    &quot;servings&quot;: 2,
+    &quot;difficulty&quot;: &quot;Moderate&quot;,
+    &quot;total_time_minutes&quot;: 45,
+    &quot;active_time_minutes&quot;: 30,
+    &quot;passive_time_minutes&quot;: 15,
+    &quot;cuisine&quot;: [
+      &quot;North African-inspired&quot;,
+      &quot;Contemporary&quot;
+    ],
+    &quot;meal_types&quot;: [
+      &quot;Lunch&quot;
+    ],
+    &quot;dietary_tags&quot;: [
+      &quot;Vegetarian&quot;,
+      &quot;High protein&quot;,
+      &quot;Portable&quot;,
+      &quot;High fibre&quot;
+    ],
+    &quot;allergens&quot;: [
+      &quot;Soy&quot;,
+      &quot;Milk&quot;,
+      &quot;Wheat&quot;
+    ]
+  },
+  &quot;nutrition_per_serving&quot;: {
+    &quot;energy_kcal&quot;: 405,
+    &quot;protein_g&quot;: 31,
+    &quot;carbohydrate_g&quot;: 39,
+    &quot;fat_g&quot;: 14,
+    &quot;saturated_fat_g&quot;: 3,
+    &quot;fibre_g&quot;: 8,
+    &quot;salt_g&quot;: 1.1
+  },
+  &quot;ingredients&quot;: [
+    {
+      &quot;ingredient_id&quot;: &quot;tempeh_plain&quot;,
+      &quot;display_name&quot;: &quot;Plain tempeh&quot;,
+      &quot;category&quot;: &quot;Plant protein&quot;,
+      &quot;required&quot;: true,
+      &quot;quantity_used&quot;: 180,
+      &quot;unit_used&quot;: &quot;g&quot;,
+      &quot;purchase_quantity&quot;: &quot;Buy: 1 pack containing at least 180 g&quot;,
+      &quot;purchase_notes&quot;: &quot;Use plain unflavoured tempeh. Exact retail pack size varies; purchase enough to provide at least 180 g.&quot;,
+      &quot;retailers&quot;: [
+        &quot;Sainsbury&#x27;s&quot;,
+        &quot;Marks &amp; Spencer&quot;
+      ],
+      &quot;preparation&quot;: &quot;Remove from packaging and pat dry. Cut into approximately 15 mm cubes.&quot;,
+      &quot;notes&quot;: &quot;Use: 180 g total, 90 g per serving.&quot;
+    },
+    {
+      &quot;ingredient_id&quot;: &quot;bulgur_wheat_dry&quot;,
+      &quot;display_name&quot;: &quot;Medium bulgur wheat&quot;,
+      &quot;category&quot;: &quot;Grains&quot;,
+      &quot;required&quot;: true,
+      &quot;quantity_used&quot;: 50,
+      &quot;unit_used&quot;: &quot;g&quot;,
+      &quot;purchase_quantity&quot;: &quot;Buy: 1 standard packet&quot;,
+      &quot;purchase_notes&quot;: &quot;Use medium bulgur wheat suitable for soaking or simmering. Pack size is not critical.&quot;,
+      &quot;retailers&quot;: [
+        &quot;Sainsbury&#x27;s&quot;,
+        &quot;Marks &amp; Spencer&quot;
+      ],
+      &quot;preparation&quot;: &quot;Use dry weight. Inspect for foreign material before cooking.&quot;,
+      &quot;notes&quot;: &quot;Use: 50 g dry total, 25 g per serving.&quot;
+    },
+    {
+      &quot;ingredient_id&quot;: &quot;red_pepper&quot;,
+      &quot;display_name&quot;: &quot;Red pepper&quot;,
+      &quot;category&quot;: &quot;Vegetables&quot;,
+      &quot;required&quot;: true,
+      &quot;quantity_used&quot;: 1,
+      &quot;unit_used&quot;: &quot;integer&quot;,
+      &quot;purchase_quantity&quot;: &quot;Buy: 1 large red pepper, approximately 180-220 g as bought&quot;,
+      &quot;purchase_notes&quot;: &quot;Choose a firm glossy pepper without soft areas.&quot;,
+      &quot;retailers&quot;: [
+        &quot;Sainsbury&#x27;s&quot;,
+        &quot;Marks &amp; Spencer&quot;
+      ],
+      &quot;preparation&quot;: &quot;Wash and dry. Halve, remove stem, seeds and white membrane, then cut usable flesh into approximately 25 mm pieces.&quot;,
+      &quot;notes&quot;: &quot;Recipe assumes approximately 160-180 g usable pepper flesh after trimming.&quot;
+    },
+    {
+      &quot;ingredient_id&quot;: &quot;red_onion&quot;,
+      &quot;display_name&quot;: &quot;Red onion&quot;,
+      &quot;category&quot;: &quot;Vegetables&quot;,
+      &quot;required&quot;: true,
+      &quot;quantity_used&quot;: 0.5,
+      &quot;unit_used&quot;: &quot;integer&quot;,
+      &quot;purchase_quantity&quot;: &quot;Buy: 1 small red onion, approximately 120 g as bought&quot;,
+      &quot;purchase_notes&quot;: &quot;Only approximately half is required; refrigerate the remainder for another use.&quot;,
+      &quot;retailers&quot;: [
+        &quot;Sainsbury&#x27;s&quot;,
+        &quot;Marks &amp; Spencer&quot;
+      ],
+      &quot;preparation&quot;: &quot;Peel and trim. Use approximately 60 g usable flesh and cut into thin wedges approximately 8 mm wide at the thickest point.&quot;,
+      &quot;notes&quot;: &quot;Use: approximately 60 g prepared onion.&quot;
+    },
+    {
+      &quot;ingredient_id&quot;: &quot;greek_yoghurt_0_percent&quot;,
+      &quot;display_name&quot;: &quot;0% Greek yoghurt&quot;,
+      &quot;category&quot;: &quot;Dairy&quot;,
+      &quot;required&quot;: true,
+      &quot;quantity_used&quot;: 220,
+      &quot;unit_used&quot;: &quot;g&quot;,
+      &quot;purchase_quantity&quot;: &quot;Buy: 1 tub containing at least 220 g&quot;,
+      &quot;purchase_notes&quot;: &quot;Use plain unsweetened 0% Greek yoghurt with approximately 9-10 g protein per 100 g where possible. Exact tub size varies.&quot;,
+      &quot;retailers&quot;: [
+        &quot;Sainsbury&#x27;s&quot;,
+        &quot;Marks &amp; Spencer&quot;
+      ],
+      &quot;preparation&quot;: &quot;Keep refrigerated until required.&quot;,
+      &quot;notes&quot;: &quot;Use: 220 g total, 110 g per serving. This contributes materially to the lunch protein target.&quot;
+    },
+    {
+      &quot;ingredient_id&quot;: &quot;harissa_paste&quot;,
+      &quot;display_name&quot;: &quot;Harissa paste&quot;,
+      &quot;category&quot;: &quot;Condiments&quot;,
+      &quot;required&quot;: true,
+      &quot;quantity_used&quot;: 20,
+      &quot;unit_used&quot;: &quot;g&quot;,
+      &quot;purchase_quantity&quot;: &quot;Buy: 1 jar&quot;,
+      &quot;purchase_notes&quot;: &quot;Choose a standard supermarket harissa paste. Heat and salt levels vary by brand, so the recipe uses a measured amount and controls additional salt separately.&quot;,
+      &quot;retailers&quot;: [
+        &quot;Sainsbury&#x27;s&quot;,
+        &quot;Marks &amp; Spencer&quot;
+      ],
+      &quot;preparation&quot;: &quot;Measure before cooking.&quot;,
+      &quot;notes&quot;: &quot;Use: 20 g total.&quot;
+    },
+    {
+      &quot;ingredient_id&quot;: &quot;lemon&quot;,
+      &quot;display_name&quot;: &quot;Unwaxed lemon&quot;,
+      &quot;category&quot;: &quot;Fruit&quot;,
+      &quot;required&quot;: true,
+      &quot;quantity_used&quot;: 1,
+      &quot;unit_used&quot;: &quot;integer&quot;,
+      &quot;purchase_quantity&quot;: &quot;Buy: 1 lemon&quot;,
+      &quot;purchase_notes&quot;: &quot;An unwaxed lemon is preferred because both zest and juice are used.&quot;,
+      &quot;retailers&quot;: [
+        &quot;Sainsbury&#x27;s&quot;,
+        &quot;Marks &amp; Spencer&quot;
+      ],
+      &quot;preparation&quot;: &quot;Wash and dry. Finely grate approximately 2 g yellow zest, then squeeze 30 ml juice. Remove seeds.&quot;,
+      &quot;notes&quot;: &quot;Use approximately 2 g zest and 30 ml juice; any unused fruit may be reserved for another purpose.&quot;
+    },
+    {
+      &quot;ingredient_id&quot;: &quot;flat_leaf_parsley&quot;,
+      &quot;display_name&quot;: &quot;Flat-leaf parsley&quot;,
+      &quot;category&quot;: &quot;Fresh herbs&quot;,
+      &quot;required&quot;: true,
+      &quot;quantity_used&quot;: 20,
+      &quot;unit_used&quot;: &quot;g&quot;,
+      &quot;purchase_quantity&quot;: &quot;Buy: 1 standard bunch or packet containing at least 20 g&quot;,
+      &quot;purchase_notes&quot;: &quot;Choose bright green parsley without slimy or heavily wilted leaves.&quot;,
+      &quot;retailers&quot;: [
+        &quot;Sainsbury&#x27;s&quot;,
+        &quot;Marks &amp; Spencer&quot;
+      ],
+      &quot;preparation&quot;: &quot;Wash thoroughly and dry. Remove coarse lower stems, retain tender upper stems and leaves, then chop to approximately 3-5 mm pieces.&quot;,
+      &quot;notes&quot;: &quot;Use: 20 g prepared parsley.&quot;
+    },
+    {
+      &quot;ingredient_id&quot;: &quot;olive_oil&quot;,
+      &quot;display_name&quot;: &quot;Olive oil&quot;,
+      &quot;category&quot;: &quot;Oils&quot;,
+      &quot;required&quot;: true,
+      &quot;quantity_used&quot;: 4,
+      &quot;unit_used&quot;: &quot;g&quot;,
+      &quot;purchase_quantity&quot;: &quot;Buy: 1 bottle&quot;,
+      &quot;purchase_notes&quot;: &quot;Standard olive oil is suitable; extra-virgin is not required for the high-heat cooking stage.&quot;,
+      &quot;retailers&quot;: [
+        &quot;Sainsbury&#x27;s&quot;,
+        &quot;Marks &amp; Spencer&quot;
+      ],
+      &quot;preparation&quot;: &quot;Measure accurately before cooking.&quot;,
+      &quot;notes&quot;: &quot;Use: 4 g total. The quantity is deliberately limited because tempeh and yoghurt already provide richness.&quot;
+    },
+    {
+      &quot;ingredient_id&quot;: &quot;ground_cumin&quot;,
+      &quot;display_name&quot;: &quot;Ground cumin&quot;,
+      &quot;category&quot;: &quot;Spices&quot;,
+      &quot;required&quot;: true,
+      &quot;quantity_used&quot;: 0.5,
+      &quot;unit_used&quot;: &quot;tsp&quot;,
+      &quot;purchase_quantity&quot;: &quot;Buy: 1 jar&quot;,
+      &quot;purchase_notes&quot;: &quot;Standard ground cumin is suitable.&quot;,
+      &quot;retailers&quot;: [
+        &quot;Sainsbury&#x27;s&quot;,
+        &quot;Marks &amp; Spencer&quot;
+      ],
+      &quot;preparation&quot;: &quot;Measure before cooking.&quot;,
+      &quot;notes&quot;: &quot;Use: 0.5 tsp.&quot;
+    },
+    {
+      &quot;ingredient_id&quot;: &quot;smoked_paprika&quot;,
+      &quot;display_name&quot;: &quot;Smoked paprika&quot;,
+      &quot;category&quot;: &quot;Spices&quot;,
+      &quot;required&quot;: true,
+      &quot;quantity_used&quot;: 0.5,
+      &quot;unit_used&quot;: &quot;tsp&quot;,
+      &quot;purchase_quantity&quot;: &quot;Buy: 1 jar&quot;,
+      &quot;purchase_notes&quot;: &quot;Sweet smoked paprika is preferred unless additional heat is specifically wanted.&quot;,
+      &quot;retailers&quot;: [
+        &quot;Sainsbury&#x27;s&quot;,
+        &quot;Marks &amp; Spencer&quot;
+      ],
+      &quot;preparation&quot;: &quot;Measure before cooking.&quot;,
+      &quot;notes&quot;: &quot;Use: 0.5 tsp.&quot;
+    },
+    {
+      &quot;ingredient_id&quot;: &quot;fine_salt&quot;,
+      &quot;display_name&quot;: &quot;Fine salt&quot;,
+      &quot;category&quot;: &quot;Seasoning&quot;,
+      &quot;required&quot;: true,
+      &quot;quantity_used&quot;: 0.375,
+      &quot;unit_used&quot;: &quot;tsp&quot;,
+      &quot;purchase_quantity&quot;: &quot;Buy: 1 standard container&quot;,
+      &quot;purchase_notes&quot;: &quot;Fine table salt or fine sea salt is suitable.&quot;,
+      &quot;retailers&quot;: [
+        &quot;Sainsbury&#x27;s&quot;,
+        &quot;Marks &amp; Spencer&quot;
+      ],
+      &quot;preparation&quot;: &quot;Measure 0.25 tsp for initial seasoning and reserve up to an additional 0.125 tsp for final adjustment.&quot;,
+      &quot;notes&quot;: &quot;Harissa salt content varies; do not automatically use the reserved quantity.&quot;
+    },
+    {
+      &quot;ingredient_id&quot;: &quot;black_pepper_ground&quot;,
+      &quot;display_name&quot;: &quot;Ground black pepper&quot;,
+      &quot;category&quot;: &quot;Seasoning&quot;,
+      &quot;required&quot;: true,
+      &quot;quantity_used&quot;: 0.25,
+      &quot;unit_used&quot;: &quot;tsp&quot;,
+      &quot;purchase_quantity&quot;: &quot;Buy: 1 jar or pepper mill&quot;,
+      &quot;purchase_notes&quot;: &quot;Freshly ground black pepper is preferred where available.&quot;,
+      &quot;retailers&quot;: [
+        &quot;Sainsbury&#x27;s&quot;,
+        &quot;Marks &amp; Spencer&quot;
+      ],
+      &quot;preparation&quot;: &quot;Measure before use.&quot;,
+      &quot;notes&quot;: &quot;Use: 0.25 tsp total.&quot;
+    },
+    {
+      &quot;ingredient_id&quot;: &quot;water&quot;,
+      &quot;display_name&quot;: &quot;Water&quot;,
+      &quot;category&quot;: &quot;Liquid&quot;,
+      &quot;required&quot;: true,
+      &quot;quantity_used&quot;: 100,
+      &quot;unit_used&quot;: &quot;ml&quot;,
+      &quot;purchase_quantity&quot;: &quot;Use: 100 ml tap water&quot;,
+      &quot;purchase_notes&quot;: &quot;No purchase required.&quot;,
+      &quot;retailers&quot;: [
+        &quot;Sainsbury&#x27;s&quot;,
+        &quot;Marks &amp; Spencer&quot;
+      ],
+      &quot;preparation&quot;: &quot;Bring to the boil immediately before hydrating the bulgur.&quot;,
+      &quot;notes&quot;: &quot;Use: 100 ml.&quot;
+    }
+  ],
+  &quot;equipment&quot;: [
+    {
+      &quot;equipment_id&quot;: &quot;air_fryer&quot;,
+      &quot;display_name&quot;: &quot;Duo Stack air fryer&quot;,
+      &quot;required&quot;: true,
+      &quot;notes&quot;: &quot;Used to roast the pepper and onion efficiently while developing browned edges.&quot;
+    },
+    {
+      &quot;equipment_id&quot;: &quot;gas_hob&quot;,
+      &quot;display_name&quot;: &quot;Gas hob&quot;,
+      &quot;required&quot;: true,
+      &quot;notes&quot;: &quot;Used for browning the tempeh.&quot;
+    },
+    {
+      &quot;equipment_id&quot;: &quot;frying_pan&quot;,
+      &quot;display_name&quot;: &quot;Medium frying pan&quot;,
+      &quot;required&quot;: true,
+      &quot;notes&quot;: &quot;Used for controlled browning and glazing of the tempeh.&quot;
+    },
+    {
+      &quot;equipment_id&quot;: &quot;kettle&quot;,
+      &quot;display_name&quot;: &quot;Electric kettle&quot;,
+      &quot;required&quot;: true,
+      &quot;notes&quot;: &quot;Used to heat water rapidly for the bulgur.&quot;
+    },
+    {
+      &quot;equipment_id&quot;: &quot;mixing_bowl&quot;,
+      &quot;display_name&quot;: &quot;Medium heatproof mixing bowl&quot;,
+      &quot;required&quot;: true,
+      &quot;notes&quot;: &quot;Used to hydrate and cool the bulgur.&quot;
+    },
+    {
+      &quot;equipment_id&quot;: &quot;small_bowl&quot;,
+      &quot;display_name&quot;: &quot;Small mixing bowl&quot;,
+      &quot;required&quot;: true,
+      &quot;notes&quot;: &quot;Used to prepare the lemon yoghurt.&quot;
+    },
+    {
+      &quot;equipment_id&quot;: &quot;chef_knife&quot;,
+      &quot;display_name&quot;: &quot;Chef&#x27;s knife&quot;,
+      &quot;required&quot;: true,
+      &quot;notes&quot;: &quot;Used for vegetable, herb and tempeh preparation.&quot;
+    },
+    {
+      &quot;equipment_id&quot;: &quot;chopping_board&quot;,
+      &quot;display_name&quot;: &quot;Chopping board&quot;,
+      &quot;required&quot;: true,
+      &quot;notes&quot;: &quot;Used for safe ingredient preparation.&quot;
+    },
+    {
+      &quot;equipment_id&quot;: &quot;fine_grater&quot;,
+      &quot;display_name&quot;: &quot;Fine grater or Microplane&quot;,
+      &quot;required&quot;: true,
+      &quot;notes&quot;: &quot;Used for lemon zest.&quot;
+    },
+    {
+      &quot;equipment_id&quot;: &quot;measuring_jug&quot;,
+      &quot;display_name&quot;: &quot;Measuring jug&quot;,
+      &quot;required&quot;: true,
+      &quot;notes&quot;: &quot;Used for water and lemon juice measurement.&quot;
+    },
+    {
+      &quot;equipment_id&quot;: &quot;measuring_spoons&quot;,
+      &quot;display_name&quot;: &quot;Measuring spoons&quot;,
+      &quot;required&quot;: true,
+      &quot;notes&quot;: &quot;Used for spices and seasoning.&quot;
+    },
+    {
+      &quot;equipment_id&quot;: &quot;kitchen_scales&quot;,
+      &quot;display_name&quot;: &quot;Kitchen scales&quot;,
+      &quot;required&quot;: true,
+      &quot;notes&quot;: &quot;Used for accurate portion and ingredient quantities.&quot;
+    },
+    {
+      &quot;equipment_id&quot;: &quot;lidded_containers&quot;,
+      &quot;display_name&quot;: &quot;2 portable lidded lunch containers&quot;,
+      &quot;required&quot;: true,
+      &quot;notes&quot;: &quot;Each container should hold approximately 700 ml and seal securely for transport.&quot;
+    }
+  ],
+  &quot;mise_en_place&quot;: [
+    {
+      &quot;prep_id&quot;: &quot;PREP_01&quot;,
+      &quot;ingredient_ids&quot;: [
+        &quot;red_pepper&quot;,
+        &quot;red_onion&quot;
+      ],
+      &quot;instruction&quot;: &quot;Wash and dry the red pepper. Halve it lengthwise, remove the stem, seeds and white membranes, then cut the usable flesh into approximately 25 mm pieces. Peel the red onion, trim the root and stem ends, halve it, weigh or estimate approximately 60 g usable flesh, and cut that portion into wedges approximately 8 mm wide at the thickest point. Reserve the unused onion refrigerated for another use.&quot;,
+      &quot;endpoint&quot;: &quot;Pepper and onion are clean, dry and cut into similarly sized pieces suitable for even roasting.&quot;
+    },
+    {
+      &quot;prep_id&quot;: &quot;PREP_02&quot;,
+      &quot;ingredient_ids&quot;: [
+        &quot;tempeh_plain&quot;
+      ],
+      &quot;instruction&quot;: &quot;Remove 180 g tempeh from its packaging. Pat all surfaces dry with clean kitchen paper. Cut into approximately 15 mm cubes, keeping the pieces as uniform as practical so they brown at a similar rate.&quot;,
+      &quot;endpoint&quot;: &quot;Tempeh is dry on the surface and cut into approximately uniform 15 mm cubes.&quot;
+    },
+    {
+      &quot;prep_id&quot;: &quot;PREP_03&quot;,
+      &quot;ingredient_ids&quot;: [
+        &quot;lemon&quot;
+      ],
+      &quot;instruction&quot;: &quot;Wash and dry the lemon. Finely grate approximately 2 g of the yellow outer zest without removing significant white pith. Cut the lemon and squeeze 30 ml juice through a sieve or remove seeds manually.&quot;,
+      &quot;endpoint&quot;: &quot;Approximately 2 g fine zest and 30 ml seed-free lemon juice are prepared.&quot;
+    },
+    {
+      &quot;prep_id&quot;: &quot;PREP_04&quot;,
+      &quot;ingredient_ids&quot;: [
+        &quot;flat_leaf_parsley&quot;
+      ],
+      &quot;instruction&quot;: &quot;Wash the parsley thoroughly in cold water and dry completely. Remove and discard coarse lower stems. Retain tender upper stems and leaves, then chop into pieces approximately 3-5 mm across.&quot;,
+      &quot;endpoint&quot;: &quot;20 g parsley is clean, dry and evenly chopped.&quot;
+    },
+    {
+      &quot;prep_id&quot;: &quot;PREP_05&quot;,
+      &quot;ingredient_ids&quot;: [
+        &quot;harissa_paste&quot;,
+        &quot;ground_cumin&quot;,
+        &quot;smoked_paprika&quot;,
+        &quot;fine_salt&quot;,
+        &quot;black_pepper_ground&quot;,
+        &quot;olive_oil&quot;,
+        &quot;bulgur_wheat_dry&quot;,
+        &quot;greek_yoghurt_0_percent&quot;,
+        &quot;water&quot;
+      ],
+      &quot;instruction&quot;: &quot;Measure 20 g harissa paste, 0.5 tsp ground cumin, 0.5 tsp smoked paprika, 0.25 tsp initial fine salt, 0.125 tsp reserved fine salt, 0.25 tsp black pepper, 4 g olive oil, 50 g dry bulgur, 220 g 0% Greek yoghurt and 100 ml water. Keep yoghurt refrigerated until required.&quot;,
+      &quot;endpoint&quot;: &quot;All measured ingredients are ready for immediate controlled use.&quot;
+    }
+  ],
+  &quot;procedure&quot;: [
+    {
+      &quot;step_id&quot;: &quot;STEP_01&quot;,
+      &quot;section&quot;: &quot;Roasted vegetables&quot;,
+      &quot;title&quot;: &quot;Preheat the air fryer&quot;,
+      &quot;depends_on&quot;: [],
+      &quot;parallel_group&quot;: &quot;P01&quot;,
+      &quot;ingredient_ids&quot;: [],
+      &quot;equipment_ids&quot;: [
+        &quot;air_fryer&quot;
+      ],
+      &quot;instruction&quot;: &quot;Preheat the air fryer to 200°C. Allow the appliance to reach its programmed operating temperature before loading the vegetables.&quot;,
+      &quot;heat_source&quot;: &quot;Air fryer&quot;,
+      &quot;heat_level&quot;: &quot;200°C&quot;,
+      &quot;temperature_c&quot;: 200,
+      &quot;duration_min_minutes&quot;: 3,
+      &quot;duration_max_minutes&quot;: 5,
+      &quot;endpoint&quot;: &quot;The air fryer has completed its preheat cycle or has operated empty at 200°C for at least 3 minutes.&quot;,
+      &quot;corrective_actions&quot;: [
+        {
+          &quot;condition&quot;: &quot;The appliance does not indicate completion of preheating after 5 minutes.&quot;,
+          &quot;action&quot;: &quot;Confirm the temperature setting is 200°C and allow an additional 2 minutes before loading.&quot;
+        }
+      ],
+      &quot;critical&quot;: false
+    },
+    {
+      &quot;step_id&quot;: &quot;STEP_02&quot;,
+      &quot;section&quot;: &quot;Bulgur&quot;,
+      &quot;title&quot;: &quot;Hydrate the bulgur&quot;,
+      &quot;depends_on&quot;: [],
+      &quot;parallel_group&quot;: &quot;P01&quot;,
+      &quot;ingredient_ids&quot;: [
+        &quot;bulgur_wheat_dry&quot;,
+        &quot;water&quot;,
+        &quot;fine_salt&quot;
+      ],
+      &quot;equipment_ids&quot;: [
+        &quot;kettle&quot;,
+        &quot;mixing_bowl&quot;
+      ],
+      &quot;instruction&quot;: &quot;Boil the measured 100 ml water in the kettle. Place 50 g dry bulgur in the heatproof mixing bowl and add approximately 0.0625 tsp of the measured initial salt. Pour the full 100 ml boiling water over the bulgur, stir once, cover the bowl with a plate or suitable lid and leave undisturbed until the grains absorb the water.&quot;,
+      &quot;heat_source&quot;: &quot;Electric kettle&quot;,
+      &quot;heat_level&quot;: &quot;Boiling water&quot;,
+      &quot;temperature_c&quot;: 100,
+      &quot;duration_min_minutes&quot;: 10,
+      &quot;duration_max_minutes&quot;: 15,
+      &quot;endpoint&quot;: &quot;The bulgur is tender but retains slight chew, individual grains are distinguishable and no free water remains at the base of the bowl.&quot;,
+      &quot;corrective_actions&quot;: [
+        {
+          &quot;condition&quot;: &quot;The bulgur remains noticeably firm after 15 minutes and the bowl is dry.&quot;,
+          &quot;action&quot;: &quot;Add 15 ml freshly boiled water, cover again and reassess after 5 minutes.&quot;
+        },
+        {
+          &quot;condition&quot;: &quot;Free water remains after the grains are tender.&quot;,
+          &quot;action&quot;: &quot;Leave the bowl uncovered for 2-3 minutes and fluff with a fork until the excess moisture is absorbed or evaporated.&quot;
+        }
+      ],
+      &quot;critical&quot;: true
+    },
+    {
+      &quot;step_id&quot;: &quot;STEP_03&quot;,
+      &quot;section&quot;: &quot;Roasted vegetables&quot;,
+      &quot;title&quot;: &quot;Roast the pepper and onion&quot;,
+      &quot;depends_on&quot;: [
+        &quot;STEP_01&quot;
+      ],
+      &quot;parallel_group&quot;: &quot;P02&quot;,
+      &quot;ingredient_ids&quot;: [
+        &quot;red_pepper&quot;,
+        &quot;red_onion&quot;,
+        &quot;olive_oil&quot;,
+        &quot;fine_salt&quot;,
+        &quot;black_pepper_ground&quot;
+      ],
+      &quot;equipment_ids&quot;: [
+        &quot;air_fryer&quot;
+      ],
+      &quot;instruction&quot;: &quot;Combine the prepared pepper and onion with 2 g of the measured olive oil, approximately 0.0625 tsp of the initial salt and approximately 0.125 tsp black pepper. Toss until the surfaces are thinly coated. Load into the air-fryer basket in a loose single layer where practical. Roast at 200°C, shaking or turning after approximately 5 minutes.&quot;,
+      &quot;heat_source&quot;: &quot;Air fryer&quot;,
+      &quot;heat_level&quot;: &quot;200°C&quot;,
+      &quot;temperature_c&quot;: 200,
+      &quot;duration_min_minutes&quot;: 9,
+      &quot;duration_max_minutes&quot;: 13,
+      &quot;endpoint&quot;: &quot;The pepper is tender with browned and lightly blistered edges, and the onion is softened with caramelised tips but is not blackened.&quot;,
+      &quot;corrective_actions&quot;: [
+        {
+          &quot;condition&quot;: &quot;The onion edges darken significantly before the pepper softens.&quot;,
+          &quot;action&quot;: &quot;Remove the most browned onion pieces and continue cooking the pepper in 2-minute intervals.&quot;
+        },
+        {
+          &quot;condition&quot;: &quot;The vegetables remain pale after 10 minutes.&quot;,
+          &quot;action&quot;: &quot;Redistribute into a thinner layer and continue at 200°C in 2-minute intervals until browned edges develop.&quot;
+        }
+      ],
+      &quot;critical&quot;: true
+    },
+    {
+      &quot;step_id&quot;: &quot;STEP_04&quot;,
+      &quot;section&quot;: &quot;Tempeh&quot;,
+      &quot;title&quot;: &quot;Brown the tempeh&quot;,
+      &quot;depends_on&quot;: [],
+      &quot;parallel_group&quot;: &quot;P02&quot;,
+      &quot;ingredient_ids&quot;: [
+        &quot;tempeh_plain&quot;,
+        &quot;olive_oil&quot;,
+        &quot;fine_salt&quot;
+      ],
+      &quot;equipment_ids&quot;: [
+        &quot;frying_pan&quot;,
+        &quot;gas_hob&quot;
+      ],
+      &quot;instruction&quot;: &quot;Place the frying pan over medium-high gas heat for approximately 1 minute. Add the remaining 2 g olive oil and immediately add the 180 g tempeh cubes in a single layer. Add approximately 0.0625 tsp of the initial salt. Cook while turning the cubes every 60-90 seconds so several faces contact the pan.&quot;,
+      &quot;heat_source&quot;: &quot;Gas hob&quot;,
+      &quot;heat_level&quot;: &quot;Medium-high&quot;,
+      &quot;temperature_c&quot;: null,
+      &quot;duration_min_minutes&quot;: 6,
+      &quot;duration_max_minutes&quot;: 9,
+      &quot;endpoint&quot;: &quot;The tempeh has developed visible golden-brown patches on multiple faces, feels dry rather than greasy on the exterior and releases readily from the pan when turned.&quot;,
+      &quot;corrective_actions&quot;: [
+        {
+          &quot;condition&quot;: &quot;The tempeh begins blackening before several faces brown.&quot;,
+          &quot;action&quot;: &quot;Reduce the gas flame to medium and turn the affected cubes immediately.&quot;
+        },
+        {
+          &quot;condition&quot;: &quot;The tempeh remains pale after 6 minutes.&quot;,
+          &quot;action&quot;: &quot;Increase the heat slightly and leave each face undisturbed for approximately 60 seconds before turning.&quot;
+        }
+      ],
+      &quot;critical&quot;: true
+    },
+    {
+      &quot;step_id&quot;: &quot;STEP_05&quot;,
+      &quot;section&quot;: &quot;Harissa glaze&quot;,
+      &quot;title&quot;: &quot;Bloom the spices and glaze the tempeh&quot;,
+      &quot;depends_on&quot;: [
+        &quot;STEP_04&quot;
+      ],
+      &quot;parallel_group&quot;: null,
+      &quot;ingredient_ids&quot;: [
+        &quot;harissa_paste&quot;,
+        &quot;ground_cumin&quot;,
+        &quot;smoked_paprika&quot;,
+        &quot;lemon&quot;
+      ],
+      &quot;equipment_ids&quot;: [
+        &quot;frying_pan&quot;,
+        &quot;gas_hob&quot;
+      ],
+      &quot;instruction&quot;: &quot;Reduce the gas heat to medium-low. Add 20 g harissa paste, 0.5 tsp ground cumin and 0.5 tsp smoked paprika directly to the browned tempeh. Stir continuously for approximately 30 seconds so the spices become aromatic without scorching. Add 10 ml of the prepared lemon juice and stir, scraping the pan surface, until the liquid evaporates and the harissa forms a thin glossy coating around the tempeh.&quot;,
+      &quot;heat_source&quot;: &quot;Gas hob&quot;,
+      &quot;heat_level&quot;: &quot;Medium-low&quot;,
+      &quot;temperature_c&quot;: null,
+      &quot;duration_min_minutes&quot;: 1,
+      &quot;duration_max_minutes&quot;: 2,
+      &quot;endpoint&quot;: &quot;The tempeh is uniformly coated in a dark red-orange glaze, the spices smell aromatic rather than raw and no free liquid remains in the pan.&quot;,
+      &quot;corrective_actions&quot;: [
+        {
+          &quot;condition&quot;: &quot;The harissa begins sticking aggressively or darkening before the lemon juice is added.&quot;,
+          &quot;action&quot;: &quot;Remove the pan from the flame, add the measured lemon juice immediately and stir before returning to low heat.&quot;
+        },
+        {
+          &quot;condition&quot;: &quot;Free liquid remains after 2 minutes.&quot;,
+          &quot;action&quot;: &quot;Increase heat to medium and stir continuously until the glaze clings to the tempeh with no liquid pooling.&quot;
+        }
+      ],
+      &quot;critical&quot;: true
+    },
+    {
+      &quot;step_id&quot;: &quot;STEP_06&quot;,
+      &quot;section&quot;: &quot;Bulgur&quot;,
+      &quot;title&quot;: &quot;Fluff and season the bulgur&quot;,
+      &quot;depends_on&quot;: [
+        &quot;STEP_02&quot;
+      ],
+      &quot;parallel_group&quot;: &quot;P03&quot;,
+      &quot;ingredient_ids&quot;: [
+        &quot;bulgur_wheat_dry&quot;,
+        &quot;lemon&quot;,
+        &quot;flat_leaf_parsley&quot;,
+        &quot;black_pepper_ground&quot;
+      ],
+      &quot;equipment_ids&quot;: [
+        &quot;mixing_bowl&quot;
+      ],
+      &quot;instruction&quot;: &quot;Uncover the hydrated bulgur. Fluff thoroughly with a fork to separate the grains. Add 10 ml prepared lemon juice, approximately half of the chopped parsley and the remaining 0.125 tsp black pepper. Fold until evenly distributed without compressing the grains.&quot;,
+      &quot;heat_source&quot;: null,
+      &quot;heat_level&quot;: null,
+      &quot;temperature_c&quot;: null,
+      &quot;duration_min_minutes&quot;: 1,
+      &quot;duration_max_minutes&quot;: 2,
+      &quot;endpoint&quot;: &quot;The bulgur is loose, evenly seasoned and lightly flecked with parsley, with no compact clumps.&quot;,
+      &quot;corrective_actions&quot;: [
+        {
+          &quot;condition&quot;: &quot;The bulgur is sticky or compacted.&quot;,
+          &quot;action&quot;: &quot;Use a fork to lift and separate the grains repeatedly rather than stirring vigorously.&quot;
+        }
+      ],
+      &quot;critical&quot;: false
+    },
+    {
+      &quot;step_id&quot;: &quot;STEP_07&quot;,
+      &quot;section&quot;: &quot;Lemon yoghurt&quot;,
+      &quot;title&quot;: &quot;Prepare the lemon yoghurt&quot;,
+      &quot;depends_on&quot;: [],
+      &quot;parallel_group&quot;: &quot;P03&quot;,
+      &quot;ingredient_ids&quot;: [
+        &quot;greek_yoghurt_0_percent&quot;,
+        &quot;lemon&quot;,
+        &quot;fine_salt&quot;
+      ],
+      &quot;equipment_ids&quot;: [
+        &quot;small_bowl&quot;,
+        &quot;fine_grater&quot;
+      ],
+      &quot;instruction&quot;: &quot;Place 220 g Greek yoghurt in the small bowl. Add the prepared approximately 2 g lemon zest, the remaining 10 ml lemon juice and approximately 0.0625 tsp of the initial salt. Stir until completely homogeneous and smooth.&quot;,
+      &quot;heat_source&quot;: null,
+      &quot;heat_level&quot;: null,
+      &quot;temperature_c&quot;: null,
+      &quot;duration_min_minutes&quot;: 1,
+      &quot;duration_max_minutes&quot;: 2,
+      &quot;endpoint&quot;: &quot;The yoghurt is smooth, evenly flecked with lemon zest and tastes distinctly fresh and acidic without being sharply sour.&quot;,
+      &quot;corrective_actions&quot;: [
+        {
+          &quot;condition&quot;: &quot;The yoghurt appears unusually stiff.&quot;,
+          &quot;action&quot;: &quot;Stir vigorously for approximately 20 seconds; do not dilute unless required because the yoghurt must remain thick enough for transport.&quot;
+        }
+      ],
+      &quot;critical&quot;: false
+    },
+    {
+      &quot;step_id&quot;: &quot;STEP_08&quot;,
+      &quot;section&quot;: &quot;Cooling&quot;,
+      &quot;title&quot;: &quot;Cool the cooked components&quot;,
+      &quot;depends_on&quot;: [
+        &quot;STEP_03&quot;,
+        &quot;STEP_05&quot;,
+        &quot;STEP_06&quot;
+      ],
+      &quot;parallel_group&quot;: null,
+      &quot;ingredient_ids&quot;: [],
+      &quot;equipment_ids&quot;: [
+        &quot;mixing_bowl&quot;
+      ],
+      &quot;instruction&quot;: &quot;Transfer the roasted pepper and onion and the harissa tempeh to separate areas of a large clean plate or clean bowls so steam can escape. Leave the cooked components uncovered until they are no longer visibly steaming and are approximately room temperature. Keep the lemon yoghurt refrigerated during this cooling period.&quot;,
+      &quot;heat_source&quot;: null,
+      &quot;heat_level&quot;: null,
+      &quot;temperature_c&quot;: null,
+      &quot;duration_min_minutes&quot;: 10,
+      &quot;duration_max_minutes&quot;: 15,
+      &quot;endpoint&quot;: &quot;Tempeh, vegetables and bulgur are no longer emitting steam and feel only slightly warm or neutral to the touch before packing.&quot;,
+      &quot;corrective_actions&quot;: [
+        {
+          &quot;condition&quot;: &quot;The components remain noticeably hot after 15 minutes.&quot;,
+          &quot;action&quot;: &quot;Spread them into thinner layers and allow an additional 5 minutes cooling before packing.&quot;
+        }
+      ],
+      &quot;critical&quot;: true
+    },
+    {
+      &quot;step_id&quot;: &quot;STEP_09&quot;,
+      &quot;section&quot;: &quot;Assembly&quot;,
+      &quot;title&quot;: &quot;Combine and balance the salad&quot;,
+      &quot;depends_on&quot;: [
+        &quot;STEP_07&quot;,
+        &quot;STEP_08&quot;
+      ],
+      &quot;parallel_group&quot;: null,
+      &quot;ingredient_ids&quot;: [
+        &quot;tempeh_plain&quot;,
+        &quot;bulgur_wheat_dry&quot;,
+        &quot;red_pepper&quot;,
+        &quot;red_onion&quot;,
+        &quot;flat_leaf_parsley&quot;,
+        &quot;fine_salt&quot;
+      ],
+      &quot;equipment_ids&quot;: [
+        &quot;mixing_bowl&quot;
+      ],
+      &quot;instruction&quot;: &quot;Combine the cooled bulgur, roasted pepper, roasted onion and harissa tempeh in the mixing bowl. Add the remaining chopped parsley and fold gently until evenly distributed. Taste one representative mouthful containing tempeh, grain and vegetable. If the mixture tastes under-seasoned after accounting for the salty harissa, add up to the reserved 0.125 tsp fine salt in 0.0625 tsp increments, folding thoroughly after each addition.&quot;,
+      &quot;heat_source&quot;: null,
+      &quot;heat_level&quot;: null,
+      &quot;temperature_c&quot;: null,
+      &quot;duration_min_minutes&quot;: 2,
+      &quot;duration_max_minutes&quot;: 3,
+      &quot;endpoint&quot;: &quot;The salad is evenly mixed, the tempeh retains its glaze, the grains remain loose and the flavour is balanced between salt, chilli, acidity and roasted sweetness.&quot;,
+      &quot;corrective_actions&quot;: [
+        {
+          &quot;condition&quot;: &quot;The salad tastes excessively sharp.&quot;,
+          &quot;action&quot;: &quot;Do not add further lemon or salt; serve with the specified yoghurt, which will soften the acidity.&quot;
+        },
+        {
+          &quot;condition&quot;: &quot;The salad tastes under-seasoned.&quot;,
+          &quot;action&quot;: &quot;Use the reserved salt incrementally as specified, stopping as soon as the flavour becomes defined.&quot;
+        }
+      ],
+      &quot;critical&quot;: true
+    },
+    {
+      &quot;step_id&quot;: &quot;STEP_10&quot;,
+      &quot;section&quot;: &quot;Packing&quot;,
+      &quot;title&quot;: &quot;Portion for transport&quot;,
+      &quot;depends_on&quot;: [
+        &quot;STEP_09&quot;
+      ],
+      &quot;parallel_group&quot;: null,
+      &quot;ingredient_ids&quot;: [
+        &quot;greek_yoghurt_0_percent&quot;
+      ],
+      &quot;equipment_ids&quot;: [
+        &quot;lidded_containers&quot;,
+        &quot;kitchen_scales&quot;
+      ],
+      &quot;instruction&quot;: &quot;Place the two lunch containers on the kitchen scales individually and divide the bulgur-tempeh salad approximately equally between them. Divide the lemon yoghurt equally, approximately 110 g per serving. Place the yoghurt in a distinct mound or separate small internal compartment where available rather than fully stirring it into the salad. Secure the lids immediately and refrigerate.&quot;,
+      &quot;heat_source&quot;: null,
+      &quot;heat_level&quot;: null,
+      &quot;temperature_c&quot;: null,
+      &quot;duration_min_minutes&quot;: 3,
+      &quot;duration_max_minutes&quot;: 5,
+      &quot;endpoint&quot;: &quot;Both containers hold approximately equal portions, the yoghurt remains visually distinct from the harissa salad and the lids are fully sealed.&quot;,
+      &quot;corrective_actions&quot;: [
+        {
+          &quot;condition&quot;: &quot;One container is visibly heavier than the other.&quot;,
+          &quot;action&quot;: &quot;Transfer small amounts of salad between the containers using the scales until portions are approximately equal.&quot;
+        },
+        {
+          &quot;condition&quot;: &quot;The salad is still warm enough to create visible condensation after sealing.&quot;,
+          &quot;action&quot;: &quot;Reopen the containers and allow further cooling before resealing and refrigerating.&quot;
+        }
+      ],
+      &quot;critical&quot;: true
+    }
+  ],
+  &quot;plating&quot;: [
+    {
+      &quot;step_id&quot;: &quot;PLATE_01&quot;,
+      &quot;instruction&quot;: &quot;Serve one complete portion per person. Immediately before eating, spoon the lemon yoghurt through the salad in broad streaks rather than fully homogenising it, preserving contrast between the spicy harissa tempeh, sweet roasted vegetables, nutty bulgur, cool yoghurt and fresh parsley.&quot;
+    }
+  ],
+  &quot;storage&quot;: {
+    &quot;refrigerator_days&quot;: 2,
+    &quot;freezer_months&quot;: null,
+    &quot;storage_instructions&quot;: &quot;Cool all cooked components before packing. Refrigerate the finished lunch containers at 5°C or below and consume within 2 days. For transport to work or on a car journey, carry in an insulated lunch bag with an ice pack when continuous refrigeration is not available. Keep the container closed until eating. The salad is intended to be eaten chilled or at cool room temperature.&quot;,
+    &quot;reheating_methods&quot;: []
+  },
+  &quot;shopping&quot;: {
+    &quot;sainsburys&quot;: [],
+    &quot;marks_and_spencer&quot;: [],
+    &quot;either_retailer&quot;: [
+      &quot;Plain tempeh: buy enough to provide at least 180 g&quot;,
+      &quot;Medium bulgur wheat: buy 1 standard packet&quot;,
+      &quot;Large red pepper: buy 1&quot;,
+      &quot;Small red onion: buy 1&quot;,
+      &quot;0% Greek yoghurt: buy 1 tub containing at least 220 g&quot;,
+      &quot;Harissa paste: buy 1 jar&quot;,
+      &quot;Unwaxed lemon: buy 1&quot;,
+      &quot;Flat-leaf parsley: buy 1 bunch or packet containing at least 20 g&quot;,
+      &quot;Olive oil: buy 1 bottle if not already stocked&quot;,
+      &quot;Ground cumin: buy 1 jar if not already stocked&quot;,
+      &quot;Smoked paprika: buy 1 jar if not already stocked&quot;,
+      &quot;Fine salt: buy 1 container if not already stocked&quot;,
+      &quot;Ground black pepper: buy 1 jar or pepper mill if not already stocked&quot;
+    ]
+  },
+  &quot;quality_checks&quot;: {
+    &quot;protein_requirement_met&quot;: true,
+    &quot;protein_g_per_serving&quot;: 31,
+    &quot;restaurant_quality_features&quot;: [
+      &quot;Tempeh is browned before harissa is added, creating genuine roasted flavour rather than simply coating pale tempeh with sauce.&quot;,
+      &quot;Harissa, cumin and smoked paprika are briefly bloomed against the hot tempeh before being deglazed with lemon, giving a more integrated and aromatic glaze.&quot;,
+      &quot;Pepper and onion are roasted separately at high heat so their natural sugars caramelise without steaming the tempeh.&quot;,
+      &quot;The bulgur is seasoned with lemon, parsley and black pepper while still structurally separate, preventing bland grain beneath strongly flavoured toppings.&quot;,
+      &quot;Thick lemon-zest yoghurt supplies cool acidity and creaminess without requiring a high-fat dressing.&quot;,
+      &quot;Fresh parsley is divided between the bulgur and final assembly so the herb contributes both integrated flavour and a fresher finishing character.&quot;,
+      &quot;Cooling components before packing protects the texture of the grain and prevents condensation from diluting the harissa glaze.&quot;
+    ],
+    &quot;nutrition_notes&quot;: [
+      &quot;Estimated nutrition represents one complete lunch serving including tempeh, bulgur, vegetables, olive oil, harissa, Greek yoghurt, parsley and all seasoning.&quot;,
+      &quot;The approximate 31 g protein per serving comes principally from tempeh and high-protein 0% Greek yoghurt, with a smaller contribution from bulgur.&quot;,
+      &quot;The recipe is designed around the approximately 400 kcal lunch target; exact energy will vary with the nutritional composition of the chosen tempeh, yoghurt and harissa.&quot;,
+      &quot;Using a measured small quantity of olive oil preserves browning and flavour without adding unnecessary calories.&quot;,
+      &quot;Pepper, onion, parsley and whole-grain bulgur increase fibre, vegetable content and micronutrient variety.&quot;
+    ],
+    &quot;critical_success_factors&quot;: [
+      &quot;Brown the tempeh before adding harissa; adding the paste too early will inhibit browning and increase the risk of scorched spices.&quot;,
+      &quot;Do not proceed with assembly until the bulgur has absorbed all free water and remains loose rather than wet.&quot;,
+      &quot;Roast pepper and onion until browned at the edges rather than merely softened; this provides necessary sweetness against the acidic yoghurt and spicy harissa.&quot;,
+      &quot;Cool all cooked ingredients before sealing the transport containers to prevent condensation and textural deterioration.&quot;,
+      &quot;Keep the lemon yoghurt thick and separate until eating rather than mixing it through the salad several hours in advance.&quot;,
+      &quot;Use the final reserved salt only after tasting the complete salad because supermarket harissa pastes vary significantly in salt concentration.&quot;
+    ]
+  }
+}</pre>
+
+</details>
+
+</main>
+
+</body>
+
+</html>

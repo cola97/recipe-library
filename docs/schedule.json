@@ -21,7 +21,7 @@
     "title": "Harissa Tempeh, Roasted Pepper & Bulgur Salad with Lemon Yoghurt and Parsley",
     "file": "harissa_tempeh_roasted_pepper_bulgur_salad_lemon_yoghurt_parsley.html",
     "recipe_id": "harissa_tempeh_roasted_pepper_bulgur_salad_lemon_yoghurt_parsley",
-    "available": false
+    "available": true
   },
   {
     "date": "2026-09-16",
@@ -29,7 +29,7 @@
     "title": "Carrot & Cucumber Batons with Edamame Hummus",
     "file": "carrot_cucumber_batons_edamame_hummus.html",
     "recipe_id": "carrot_cucumber_batons_edamame_hummus",
-    "available": false
+    "available": true
   },
   {
     "date": "2026-09-16",
@@ -37,7 +37,7 @@
     "title": "Miso-Ginger Tofu, Broccoli & Brown Basmati Stir-Fry with Sesame and Edamame",
     "file": "miso_ginger_tofu_broccoli_brown_basmati_stir_fry_sesame_edamame.html",
     "recipe_id": "miso_ginger_tofu_broccoli_brown_basmati_stir_fry_sesame_edamame",
-    "available": false
+    "available": true
   },
   {
     "date": "2026-09-16",
@@ -45,7 +45,7 @@
     "title": "Cocoa, Raspberry & Skyr Pots with Ground Flaxseed",
     "file": "cocoa_raspberry_skyr_pots_ground_flaxseed.html",
     "recipe_id": "cocoa_raspberry_skyr_pots_ground_flaxseed",
-    "available": false
+    "available": true
   },
   {
     "date": "2026-09-17",
@@ -53,7 +53,7 @@
     "title": "Spinach, Mushroom & Cottage Cheese Egg Muffins with Seeded Wholemeal Toast",
     "file": "spinach_mushroom_cottage_cheese_egg_muffins_seeded_wholemeal_toast.html",
     "recipe_id": "spinach_mushroom_cottage_cheese_egg_muffins_seeded_wholemeal_toast",
-    "available": false
+    "available": true
   },
   {
     "date": "2026-09-17",
@@ -61,7 +61,7 @@
     "title": "Plum & Almond Skyr Pots with Cinnamon",
     "file": "plum_almond_skyr_pots_cinnamon.html",
     "recipe_id": "plum_almond_skyr_pots_cinnamon",
-    "available": false
+    "available": true
   },
   {
     "date": "2026-09-17",
@@ -69,7 +69,7 @@
     "title": "Cannellini Bean, Tomato & Wholewheat Pasta Salad with Basil Pesto and Rocket",
     "file": "cannellini_bean_tomato_wholewheat_pasta_salad_basil_pesto_rocket.html",
     "recipe_id": "cannellini_bean_tomato_wholewheat_pasta_salad_basil_pesto_rocket",
-    "available": false
+    "available": true
   },
   {
     "date": "2026-09-17",
@@ -77,7 +77,7 @@
     "title": "Smoked Paprika Roasted Chickpeas with Cucumber Sticks",
     "file": "smoked_paprika_roasted_chickpeas_cucumber_sticks.html",
     "recipe_id": "smoked_paprika_roasted_chickpeas_cucumber_sticks",
-    "available": false
+    "available": true
   },
   {
     "date": "2026-09-17",
@@ -85,7 +85,7 @@
     "title": "Red Lentil, Spinach & Cauliflower Dal with Brown Basmati Rice and Cucumber Raita",
     "file": "red_lentil_spinach_cauliflower_dal_brown_basmati_rice_cucumber_raita.html",
     "recipe_id": "red_lentil_spinach_cauliflower_dal_brown_basmati_rice_cucumber_raita",
-    "available": false
+    "available": true
   },
   {
     "date": "2026-09-17",
@@ -93,7 +93,7 @@
     "title": "Kiwi, Greek Yoghurt & Hemp Seed Pots",
     "file": "kiwi_greek_yoghurt_hemp_seed_pots.html",
     "recipe_id": "kiwi_greek_yoghurt_hemp_seed_pots",
-    "available": false
+    "available": true
   },
   {
     "date": "2026-09-18",

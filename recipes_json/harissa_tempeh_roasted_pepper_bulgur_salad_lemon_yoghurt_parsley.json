@@ -1,0 +1,789 @@
+{
+  "schema_version": "1.0",
+  "recipe": {
+    "id": "harissa_tempeh_roasted_pepper_bulgur_salad_lemon_yoghurt_parsley",
+    "title": "Harissa Tempeh, Roasted Pepper & Bulgur Salad with Lemon Yoghurt and Parsley",
+    "description": "A portable high-protein lunch salad of deeply browned harissa-coated tempeh, sweet roasted red pepper and nutty bulgur, balanced with sharp lemon yoghurt, fresh parsley and restrained seasoning. Components are cooled before packing so the salad remains fresh rather than steaming itself in transit.",
+    "servings": 2,
+    "difficulty": "Moderate",
+    "total_time_minutes": 45,
+    "active_time_minutes": 30,
+    "passive_time_minutes": 15,
+    "cuisine": [
+      "North African-inspired",
+      "Contemporary"
+    ],
+    "meal_types": [
+      "Lunch"
+    ],
+    "dietary_tags": [
+      "Vegetarian",
+      "High protein",
+      "Portable",
+      "High fibre"
+    ],
+    "allergens": [
+      "Soy",
+      "Milk",
+      "Wheat"
+    ]
+  },
+  "nutrition_per_serving": {
+    "energy_kcal": 405,
+    "protein_g": 31,
+    "carbohydrate_g": 39,
+    "fat_g": 14,
+    "saturated_fat_g": 3,
+    "fibre_g": 8,
+    "salt_g": 1.1
+  },
+  "ingredients": [
+    {
+      "ingredient_id": "tempeh_plain",
+      "display_name": "Plain tempeh",
+      "category": "Plant protein",
+      "required": true,
+      "quantity_used": 180,
+      "unit_used": "g",
+      "purchase_quantity": "Buy: 1 pack containing at least 180 g",
+      "purchase_notes": "Use plain unflavoured tempeh. Exact retail pack size varies; purchase enough to provide at least 180 g.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Remove from packaging and pat dry. Cut into approximately 15 mm cubes.",
+      "notes": "Use: 180 g total, 90 g per serving."
+    },
+    {
+      "ingredient_id": "bulgur_wheat_dry",
+      "display_name": "Medium bulgur wheat",
+      "category": "Grains",
+      "required": true,
+      "quantity_used": 50,
+      "unit_used": "g",
+      "purchase_quantity": "Buy: 1 standard packet",
+      "purchase_notes": "Use medium bulgur wheat suitable for soaking or simmering. Pack size is not critical.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Use dry weight. Inspect for foreign material before cooking.",
+      "notes": "Use: 50 g dry total, 25 g per serving."
+    },
+    {
+      "ingredient_id": "red_pepper",
+      "display_name": "Red pepper",
+      "category": "Vegetables",
+      "required": true,
+      "quantity_used": 1,
+      "unit_used": "integer",
+      "purchase_quantity": "Buy: 1 large red pepper, approximately 180-220 g as bought",
+      "purchase_notes": "Choose a firm glossy pepper without soft areas.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Wash and dry. Halve, remove stem, seeds and white membrane, then cut usable flesh into approximately 25 mm pieces.",
+      "notes": "Recipe assumes approximately 160-180 g usable pepper flesh after trimming."
+    },
+    {
+      "ingredient_id": "red_onion",
+      "display_name": "Red onion",
+      "category": "Vegetables",
+      "required": true,
+      "quantity_used": 0.5,
+      "unit_used": "integer",
+      "purchase_quantity": "Buy: 1 small red onion, approximately 120 g as bought",
+      "purchase_notes": "Only approximately half is required; refrigerate the remainder for another use.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Peel and trim. Use approximately 60 g usable flesh and cut into thin wedges approximately 8 mm wide at the thickest point.",
+      "notes": "Use: approximately 60 g prepared onion."
+    },
+    {
+      "ingredient_id": "greek_yoghurt_0_percent",
+      "display_name": "0% Greek yoghurt",
+      "category": "Dairy",
+      "required": true,
+      "quantity_used": 220,
+      "unit_used": "g",
+      "purchase_quantity": "Buy: 1 tub containing at least 220 g",
+      "purchase_notes": "Use plain unsweetened 0% Greek yoghurt with approximately 9-10 g protein per 100 g where possible. Exact tub size varies.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Keep refrigerated until required.",
+      "notes": "Use: 220 g total, 110 g per serving. This contributes materially to the lunch protein target."
+    },
+    {
+      "ingredient_id": "harissa_paste",
+      "display_name": "Harissa paste",
+      "category": "Condiments",
+      "required": true,
+      "quantity_used": 20,
+      "unit_used": "g",
+      "purchase_quantity": "Buy: 1 jar",
+      "purchase_notes": "Choose a standard supermarket harissa paste. Heat and salt levels vary by brand, so the recipe uses a measured amount and controls additional salt separately.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Measure before cooking.",
+      "notes": "Use: 20 g total."
+    },
+    {
+      "ingredient_id": "lemon",
+      "display_name": "Unwaxed lemon",
+      "category": "Fruit",
+      "required": true,
+      "quantity_used": 1,
+      "unit_used": "integer",
+      "purchase_quantity": "Buy: 1 lemon",
+      "purchase_notes": "An unwaxed lemon is preferred because both zest and juice are used.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Wash and dry. Finely grate approximately 2 g yellow zest, then squeeze 30 ml juice. Remove seeds.",
+      "notes": "Use approximately 2 g zest and 30 ml juice; any unused fruit may be reserved for another purpose."
+    },
+    {
+      "ingredient_id": "flat_leaf_parsley",
+      "display_name": "Flat-leaf parsley",
+      "category": "Fresh herbs",
+      "required": true,
+      "quantity_used": 20,
+      "unit_used": "g",
+      "purchase_quantity": "Buy: 1 standard bunch or packet containing at least 20 g",
+      "purchase_notes": "Choose bright green parsley without slimy or heavily wilted leaves.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Wash thoroughly and dry. Remove coarse lower stems, retain tender upper stems and leaves, then chop to approximately 3-5 mm pieces.",
+      "notes": "Use: 20 g prepared parsley."
+    },
+    {
+      "ingredient_id": "olive_oil",
+      "display_name": "Olive oil",
+      "category": "Oils",
+      "required": true,
+      "quantity_used": 4,
+      "unit_used": "g",
+      "purchase_quantity": "Buy: 1 bottle",
+      "purchase_notes": "Standard olive oil is suitable; extra-virgin is not required for the high-heat cooking stage.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Measure accurately before cooking.",
+      "notes": "Use: 4 g total. The quantity is deliberately limited because tempeh and yoghurt already provide richness."
+    },
+    {
+      "ingredient_id": "ground_cumin",
+      "display_name": "Ground cumin",
+      "category": "Spices",
+      "required": true,
+      "quantity_used": 0.5,
+      "unit_used": "tsp",
+      "purchase_quantity": "Buy: 1 jar",
+      "purchase_notes": "Standard ground cumin is suitable.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Measure before cooking.",
+      "notes": "Use: 0.5 tsp."
+    },
+    {
+      "ingredient_id": "smoked_paprika",
+      "display_name": "Smoked paprika",
+      "category": "Spices",
+      "required": true,
+      "quantity_used": 0.5,
+      "unit_used": "tsp",
+      "purchase_quantity": "Buy: 1 jar",
+      "purchase_notes": "Sweet smoked paprika is preferred unless additional heat is specifically wanted.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Measure before cooking.",
+      "notes": "Use: 0.5 tsp."
+    },
+    {
+      "ingredient_id": "fine_salt",
+      "display_name": "Fine salt",
+      "category": "Seasoning",
+      "required": true,
+      "quantity_used": 0.375,
+      "unit_used": "tsp",
+      "purchase_quantity": "Buy: 1 standard container",
+      "purchase_notes": "Fine table salt or fine sea salt is suitable.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Measure 0.25 tsp for initial seasoning and reserve up to an additional 0.125 tsp for final adjustment.",
+      "notes": "Harissa salt content varies; do not automatically use the reserved quantity."
+    },
+    {
+      "ingredient_id": "black_pepper_ground",
+      "display_name": "Ground black pepper",
+      "category": "Seasoning",
+      "required": true,
+      "quantity_used": 0.25,
+      "unit_used": "tsp",
+      "purchase_quantity": "Buy: 1 jar or pepper mill",
+      "purchase_notes": "Freshly ground black pepper is preferred where available.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Measure before use.",
+      "notes": "Use: 0.25 tsp total."
+    },
+    {
+      "ingredient_id": "water",
+      "display_name": "Water",
+      "category": "Liquid",
+      "required": true,
+      "quantity_used": 100,
+      "unit_used": "ml",
+      "purchase_quantity": "Use: 100 ml tap water",
+      "purchase_notes": "No purchase required.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Bring to the boil immediately before hydrating the bulgur.",
+      "notes": "Use: 100 ml."
+    }
+  ],
+  "equipment": [
+    {
+      "equipment_id": "air_fryer",
+      "display_name": "Duo Stack air fryer",
+      "required": true,
+      "notes": "Used to roast the pepper and onion efficiently while developing browned edges."
+    },
+    {
+      "equipment_id": "gas_hob",
+      "display_name": "Gas hob",
+      "required": true,
+      "notes": "Used for browning the tempeh."
+    },
+    {
+      "equipment_id": "frying_pan",
+      "display_name": "Medium frying pan",
+      "required": true,
+      "notes": "Used for controlled browning and glazing of the tempeh."
+    },
+    {
+      "equipment_id": "kettle",
+      "display_name": "Electric kettle",
+      "required": true,
+      "notes": "Used to heat water rapidly for the bulgur."
+    },
+    {
+      "equipment_id": "mixing_bowl",
+      "display_name": "Medium heatproof mixing bowl",
+      "required": true,
+      "notes": "Used to hydrate and cool the bulgur."
+    },
+    {
+      "equipment_id": "small_bowl",
+      "display_name": "Small mixing bowl",
+      "required": true,
+      "notes": "Used to prepare the lemon yoghurt."
+    },
+    {
+      "equipment_id": "chef_knife",
+      "display_name": "Chef's knife",
+      "required": true,
+      "notes": "Used for vegetable, herb and tempeh preparation."
+    },
+    {
+      "equipment_id": "chopping_board",
+      "display_name": "Chopping board",
+      "required": true,
+      "notes": "Used for safe ingredient preparation."
+    },
+    {
+      "equipment_id": "fine_grater",
+      "display_name": "Fine grater or Microplane",
+      "required": true,
+      "notes": "Used for lemon zest."
+    },
+    {
+      "equipment_id": "measuring_jug",
+      "display_name": "Measuring jug",
+      "required": true,
+      "notes": "Used for water and lemon juice measurement."
+    },
+    {
+      "equipment_id": "measuring_spoons",
+      "display_name": "Measuring spoons",
+      "required": true,
+      "notes": "Used for spices and seasoning."
+    },
+    {
+      "equipment_id": "kitchen_scales",
+      "display_name": "Kitchen scales",
+      "required": true,
+      "notes": "Used for accurate portion and ingredient quantities."
+    },
+    {
+      "equipment_id": "lidded_containers",
+      "display_name": "2 portable lidded lunch containers",
+      "required": true,
+      "notes": "Each container should hold approximately 700 ml and seal securely for transport."
+    }
+  ],
+  "mise_en_place": [
+    {
+      "prep_id": "PREP_01",
+      "ingredient_ids": [
+        "red_pepper",
+        "red_onion"
+      ],
+      "instruction": "Wash and dry the red pepper. Halve it lengthwise, remove the stem, seeds and white membranes, then cut the usable flesh into approximately 25 mm pieces. Peel the red onion, trim the root and stem ends, halve it, weigh or estimate approximately 60 g usable flesh, and cut that portion into wedges approximately 8 mm wide at the thickest point. Reserve the unused onion refrigerated for another use.",
+      "endpoint": "Pepper and onion are clean, dry and cut into similarly sized pieces suitable for even roasting."
+    },
+    {
+      "prep_id": "PREP_02",
+      "ingredient_ids": [
+        "tempeh_plain"
+      ],
+      "instruction": "Remove 180 g tempeh from its packaging. Pat all surfaces dry with clean kitchen paper. Cut into approximately 15 mm cubes, keeping the pieces as uniform as practical so they brown at a similar rate.",
+      "endpoint": "Tempeh is dry on the surface and cut into approximately uniform 15 mm cubes."
+    },
+    {
+      "prep_id": "PREP_03",
+      "ingredient_ids": [
+        "lemon"
+      ],
+      "instruction": "Wash and dry the lemon. Finely grate approximately 2 g of the yellow outer zest without removing significant white pith. Cut the lemon and squeeze 30 ml juice through a sieve or remove seeds manually.",
+      "endpoint": "Approximately 2 g fine zest and 30 ml seed-free lemon juice are prepared."
+    },
+    {
+      "prep_id": "PREP_04",
+      "ingredient_ids": [
+        "flat_leaf_parsley"
+      ],
+      "instruction": "Wash the parsley thoroughly in cold water and dry completely. Remove and discard coarse lower stems. Retain tender upper stems and leaves, then chop into pieces approximately 3-5 mm across.",
+      "endpoint": "20 g parsley is clean, dry and evenly chopped."
+    },
+    {
+      "prep_id": "PREP_05",
+      "ingredient_ids": [
+        "harissa_paste",
+        "ground_cumin",
+        "smoked_paprika",
+        "fine_salt",
+        "black_pepper_ground",
+        "olive_oil",
+        "bulgur_wheat_dry",
+        "greek_yoghurt_0_percent",
+        "water"
+      ],
+      "instruction": "Measure 20 g harissa paste, 0.5 tsp ground cumin, 0.5 tsp smoked paprika, 0.25 tsp initial fine salt, 0.125 tsp reserved fine salt, 0.25 tsp black pepper, 4 g olive oil, 50 g dry bulgur, 220 g 0% Greek yoghurt and 100 ml water. Keep yoghurt refrigerated until required.",
+      "endpoint": "All measured ingredients are ready for immediate controlled use."
+    }
+  ],
+  "procedure": [
+    {
+      "step_id": "STEP_01",
+      "section": "Roasted vegetables",
+      "title": "Preheat the air fryer",
+      "depends_on": [],
+      "parallel_group": "P01",
+      "ingredient_ids": [],
+      "equipment_ids": [
+        "air_fryer"
+      ],
+      "instruction": "Preheat the air fryer to 200°C. Allow the appliance to reach its programmed operating temperature before loading the vegetables.",
+      "heat_source": "Air fryer",
+      "heat_level": "200°C",
+      "temperature_c": 200,
+      "duration_min_minutes": 3,
+      "duration_max_minutes": 5,
+      "endpoint": "The air fryer has completed its preheat cycle or has operated empty at 200°C for at least 3 minutes.",
+      "corrective_actions": [
+        {
+          "condition": "The appliance does not indicate completion of preheating after 5 minutes.",
+          "action": "Confirm the temperature setting is 200°C and allow an additional 2 minutes before loading."
+        }
+      ],
+      "critical": false
+    },
+    {
+      "step_id": "STEP_02",
+      "section": "Bulgur",
+      "title": "Hydrate the bulgur",
+      "depends_on": [],
+      "parallel_group": "P01",
+      "ingredient_ids": [
+        "bulgur_wheat_dry",
+        "water",
+        "fine_salt"
+      ],
+      "equipment_ids": [
+        "kettle",
+        "mixing_bowl"
+      ],
+      "instruction": "Boil the measured 100 ml water in the kettle. Place 50 g dry bulgur in the heatproof mixing bowl and add approximately 0.0625 tsp of the measured initial salt. Pour the full 100 ml boiling water over the bulgur, stir once, cover the bowl with a plate or suitable lid and leave undisturbed until the grains absorb the water.",
+      "heat_source": "Electric kettle",
+      "heat_level": "Boiling water",
+      "temperature_c": 100,
+      "duration_min_minutes": 10,
+      "duration_max_minutes": 15,
+      "endpoint": "The bulgur is tender but retains slight chew, individual grains are distinguishable and no free water remains at the base of the bowl.",
+      "corrective_actions": [
+        {
+          "condition": "The bulgur remains noticeably firm after 15 minutes and the bowl is dry.",
+          "action": "Add 15 ml freshly boiled water, cover again and reassess after 5 minutes."
+        },
+        {
+          "condition": "Free water remains after the grains are tender.",
+          "action": "Leave the bowl uncovered for 2-3 minutes and fluff with a fork until the excess moisture is absorbed or evaporated."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_03",
+      "section": "Roasted vegetables",
+      "title": "Roast the pepper and onion",
+      "depends_on": [
+        "STEP_01"
+      ],
+      "parallel_group": "P02",
+      "ingredient_ids": [
+        "red_pepper",
+        "red_onion",
+        "olive_oil",
+        "fine_salt",
+        "black_pepper_ground"
+      ],
+      "equipment_ids": [
+        "air_fryer"
+      ],
+      "instruction": "Combine the prepared pepper and onion with 2 g of the measured olive oil, approximately 0.0625 tsp of the initial salt and approximately 0.125 tsp black pepper. Toss until the surfaces are thinly coated. Load into the air-fryer basket in a loose single layer where practical. Roast at 200°C, shaking or turning after approximately 5 minutes.",
+      "heat_source": "Air fryer",
+      "heat_level": "200°C",
+      "temperature_c": 200,
+      "duration_min_minutes": 9,
+      "duration_max_minutes": 13,
+      "endpoint": "The pepper is tender with browned and lightly blistered edges, and the onion is softened with caramelised tips but is not blackened.",
+      "corrective_actions": [
+        {
+          "condition": "The onion edges darken significantly before the pepper softens.",
+          "action": "Remove the most browned onion pieces and continue cooking the pepper in 2-minute intervals."
+        },
+        {
+          "condition": "The vegetables remain pale after 10 minutes.",
+          "action": "Redistribute into a thinner layer and continue at 200°C in 2-minute intervals until browned edges develop."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_04",
+      "section": "Tempeh",
+      "title": "Brown the tempeh",
+      "depends_on": [],
+      "parallel_group": "P02",
+      "ingredient_ids": [
+        "tempeh_plain",
+        "olive_oil",
+        "fine_salt"
+      ],
+      "equipment_ids": [
+        "frying_pan",
+        "gas_hob"
+      ],
+      "instruction": "Place the frying pan over medium-high gas heat for approximately 1 minute. Add the remaining 2 g olive oil and immediately add the 180 g tempeh cubes in a single layer. Add approximately 0.0625 tsp of the initial salt. Cook while turning the cubes every 60-90 seconds so several faces contact the pan.",
+      "heat_source": "Gas hob",
+      "heat_level": "Medium-high",
+      "temperature_c": null,
+      "duration_min_minutes": 6,
+      "duration_max_minutes": 9,
+      "endpoint": "The tempeh has developed visible golden-brown patches on multiple faces, feels dry rather than greasy on the exterior and releases readily from the pan when turned.",
+      "corrective_actions": [
+        {
+          "condition": "The tempeh begins blackening before several faces brown.",
+          "action": "Reduce the gas flame to medium and turn the affected cubes immediately."
+        },
+        {
+          "condition": "The tempeh remains pale after 6 minutes.",
+          "action": "Increase the heat slightly and leave each face undisturbed for approximately 60 seconds before turning."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_05",
+      "section": "Harissa glaze",
+      "title": "Bloom the spices and glaze the tempeh",
+      "depends_on": [
+        "STEP_04"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "harissa_paste",
+        "ground_cumin",
+        "smoked_paprika",
+        "lemon"
+      ],
+      "equipment_ids": [
+        "frying_pan",
+        "gas_hob"
+      ],
+      "instruction": "Reduce the gas heat to medium-low. Add 20 g harissa paste, 0.5 tsp ground cumin and 0.5 tsp smoked paprika directly to the browned tempeh. Stir continuously for approximately 30 seconds so the spices become aromatic without scorching. Add 10 ml of the prepared lemon juice and stir, scraping the pan surface, until the liquid evaporates and the harissa forms a thin glossy coating around the tempeh.",
+      "heat_source": "Gas hob",
+      "heat_level": "Medium-low",
+      "temperature_c": null,
+      "duration_min_minutes": 1,
+      "duration_max_minutes": 2,
+      "endpoint": "The tempeh is uniformly coated in a dark red-orange glaze, the spices smell aromatic rather than raw and no free liquid remains in the pan.",
+      "corrective_actions": [
+        {
+          "condition": "The harissa begins sticking aggressively or darkening before the lemon juice is added.",
+          "action": "Remove the pan from the flame, add the measured lemon juice immediately and stir before returning to low heat."
+        },
+        {
+          "condition": "Free liquid remains after 2 minutes.",
+          "action": "Increase heat to medium and stir continuously until the glaze clings to the tempeh with no liquid pooling."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_06",
+      "section": "Bulgur",
+      "title": "Fluff and season the bulgur",
+      "depends_on": [
+        "STEP_02"
+      ],
+      "parallel_group": "P03",
+      "ingredient_ids": [
+        "bulgur_wheat_dry",
+        "lemon",
+        "flat_leaf_parsley",
+        "black_pepper_ground"
+      ],
+      "equipment_ids": [
+        "mixing_bowl"
+      ],
+      "instruction": "Uncover the hydrated bulgur. Fluff thoroughly with a fork to separate the grains. Add 10 ml prepared lemon juice, approximately half of the chopped parsley and the remaining 0.125 tsp black pepper. Fold until evenly distributed without compressing the grains.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 1,
+      "duration_max_minutes": 2,
+      "endpoint": "The bulgur is loose, evenly seasoned and lightly flecked with parsley, with no compact clumps.",
+      "corrective_actions": [
+        {
+          "condition": "The bulgur is sticky or compacted.",
+          "action": "Use a fork to lift and separate the grains repeatedly rather than stirring vigorously."
+        }
+      ],
+      "critical": false
+    },
+    {
+      "step_id": "STEP_07",
+      "section": "Lemon yoghurt",
+      "title": "Prepare the lemon yoghurt",
+      "depends_on": [],
+      "parallel_group": "P03",
+      "ingredient_ids": [
+        "greek_yoghurt_0_percent",
+        "lemon",
+        "fine_salt"
+      ],
+      "equipment_ids": [
+        "small_bowl",
+        "fine_grater"
+      ],
+      "instruction": "Place 220 g Greek yoghurt in the small bowl. Add the prepared approximately 2 g lemon zest, the remaining 10 ml lemon juice and approximately 0.0625 tsp of the initial salt. Stir until completely homogeneous and smooth.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 1,
+      "duration_max_minutes": 2,
+      "endpoint": "The yoghurt is smooth, evenly flecked with lemon zest and tastes distinctly fresh and acidic without being sharply sour.",
+      "corrective_actions": [
+        {
+          "condition": "The yoghurt appears unusually stiff.",
+          "action": "Stir vigorously for approximately 20 seconds; do not dilute unless required because the yoghurt must remain thick enough for transport."
+        }
+      ],
+      "critical": false
+    },
+    {
+      "step_id": "STEP_08",
+      "section": "Cooling",
+      "title": "Cool the cooked components",
+      "depends_on": [
+        "STEP_03",
+        "STEP_05",
+        "STEP_06"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [],
+      "equipment_ids": [
+        "mixing_bowl"
+      ],
+      "instruction": "Transfer the roasted pepper and onion and the harissa tempeh to separate areas of a large clean plate or clean bowls so steam can escape. Leave the cooked components uncovered until they are no longer visibly steaming and are approximately room temperature. Keep the lemon yoghurt refrigerated during this cooling period.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 10,
+      "duration_max_minutes": 15,
+      "endpoint": "Tempeh, vegetables and bulgur are no longer emitting steam and feel only slightly warm or neutral to the touch before packing.",
+      "corrective_actions": [
+        {
+          "condition": "The components remain noticeably hot after 15 minutes.",
+          "action": "Spread them into thinner layers and allow an additional 5 minutes cooling before packing."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_09",
+      "section": "Assembly",
+      "title": "Combine and balance the salad",
+      "depends_on": [
+        "STEP_07",
+        "STEP_08"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "tempeh_plain",
+        "bulgur_wheat_dry",
+        "red_pepper",
+        "red_onion",
+        "flat_leaf_parsley",
+        "fine_salt"
+      ],
+      "equipment_ids": [
+        "mixing_bowl"
+      ],
+      "instruction": "Combine the cooled bulgur, roasted pepper, roasted onion and harissa tempeh in the mixing bowl. Add the remaining chopped parsley and fold gently until evenly distributed. Taste one representative mouthful containing tempeh, grain and vegetable. If the mixture tastes under-seasoned after accounting for the salty harissa, add up to the reserved 0.125 tsp fine salt in 0.0625 tsp increments, folding thoroughly after each addition.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 2,
+      "duration_max_minutes": 3,
+      "endpoint": "The salad is evenly mixed, the tempeh retains its glaze, the grains remain loose and the flavour is balanced between salt, chilli, acidity and roasted sweetness.",
+      "corrective_actions": [
+        {
+          "condition": "The salad tastes excessively sharp.",
+          "action": "Do not add further lemon or salt; serve with the specified yoghurt, which will soften the acidity."
+        },
+        {
+          "condition": "The salad tastes under-seasoned.",
+          "action": "Use the reserved salt incrementally as specified, stopping as soon as the flavour becomes defined."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_10",
+      "section": "Packing",
+      "title": "Portion for transport",
+      "depends_on": [
+        "STEP_09"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "greek_yoghurt_0_percent"
+      ],
+      "equipment_ids": [
+        "lidded_containers",
+        "kitchen_scales"
+      ],
+      "instruction": "Place the two lunch containers on the kitchen scales individually and divide the bulgur-tempeh salad approximately equally between them. Divide the lemon yoghurt equally, approximately 110 g per serving. Place the yoghurt in a distinct mound or separate small internal compartment where available rather than fully stirring it into the salad. Secure the lids immediately and refrigerate.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 3,
+      "duration_max_minutes": 5,
+      "endpoint": "Both containers hold approximately equal portions, the yoghurt remains visually distinct from the harissa salad and the lids are fully sealed.",
+      "corrective_actions": [
+        {
+          "condition": "One container is visibly heavier than the other.",
+          "action": "Transfer small amounts of salad between the containers using the scales until portions are approximately equal."
+        },
+        {
+          "condition": "The salad is still warm enough to create visible condensation after sealing.",
+          "action": "Reopen the containers and allow further cooling before resealing and refrigerating."
+        }
+      ],
+      "critical": true
+    }
+  ],
+  "plating": [
+    {
+      "step_id": "PLATE_01",
+      "instruction": "Serve one complete portion per person. Immediately before eating, spoon the lemon yoghurt through the salad in broad streaks rather than fully homogenising it, preserving contrast between the spicy harissa tempeh, sweet roasted vegetables, nutty bulgur, cool yoghurt and fresh parsley."
+    }
+  ],
+  "storage": {
+    "refrigerator_days": 2,
+    "freezer_months": null,
+    "storage_instructions": "Cool all cooked components before packing. Refrigerate the finished lunch containers at 5°C or below and consume within 2 days. For transport to work or on a car journey, carry in an insulated lunch bag with an ice pack when continuous refrigeration is not available. Keep the container closed until eating. The salad is intended to be eaten chilled or at cool room temperature.",
+    "reheating_methods": []
+  },
+  "shopping": {
+    "sainsburys": [],
+    "marks_and_spencer": [],
+    "either_retailer": [
+      "Plain tempeh: buy enough to provide at least 180 g",
+      "Medium bulgur wheat: buy 1 standard packet",
+      "Large red pepper: buy 1",
+      "Small red onion: buy 1",
+      "0% Greek yoghurt: buy 1 tub containing at least 220 g",
+      "Harissa paste: buy 1 jar",
+      "Unwaxed lemon: buy 1",
+      "Flat-leaf parsley: buy 1 bunch or packet containing at least 20 g",
+      "Olive oil: buy 1 bottle if not already stocked",
+      "Ground cumin: buy 1 jar if not already stocked",
+      "Smoked paprika: buy 1 jar if not already stocked",
+      "Fine salt: buy 1 container if not already stocked",
+      "Ground black pepper: buy 1 jar or pepper mill if not already stocked"
+    ]
+  },
+  "quality_checks": {
+    "protein_requirement_met": true,
+    "protein_g_per_serving": 31,
+    "restaurant_quality_features": [
+      "Tempeh is browned before harissa is added, creating genuine roasted flavour rather than simply coating pale tempeh with sauce.",
+      "Harissa, cumin and smoked paprika are briefly bloomed against the hot tempeh before being deglazed with lemon, giving a more integrated and aromatic glaze.",
+      "Pepper and onion are roasted separately at high heat so their natural sugars caramelise without steaming the tempeh.",
+      "The bulgur is seasoned with lemon, parsley and black pepper while still structurally separate, preventing bland grain beneath strongly flavoured toppings.",
+      "Thick lemon-zest yoghurt supplies cool acidity and creaminess without requiring a high-fat dressing.",
+      "Fresh parsley is divided between the bulgur and final assembly so the herb contributes both integrated flavour and a fresher finishing character.",
+      "Cooling components before packing protects the texture of the grain and prevents condensation from diluting the harissa glaze."
+    ],
+    "nutrition_notes": [
+      "Estimated nutrition represents one complete lunch serving including tempeh, bulgur, vegetables, olive oil, harissa, Greek yoghurt, parsley and all seasoning.",
+      "The approximate 31 g protein per serving comes principally from tempeh and high-protein 0% Greek yoghurt, with a smaller contribution from bulgur.",
+      "The recipe is designed around the approximately 400 kcal lunch target; exact energy will vary with the nutritional composition of the chosen tempeh, yoghurt and harissa.",
+      "Using a measured small quantity of olive oil preserves browning and flavour without adding unnecessary calories.",
+      "Pepper, onion, parsley and whole-grain bulgur increase fibre, vegetable content and micronutrient variety."
+    ],
+    "critical_success_factors": [
+      "Brown the tempeh before adding harissa; adding the paste too early will inhibit browning and increase the risk of scorched spices.",
+      "Do not proceed with assembly until the bulgur has absorbed all free water and remains loose rather than wet.",
+      "Roast pepper and onion until browned at the edges rather than merely softened; this provides necessary sweetness against the acidic yoghurt and spicy harissa.",
+      "Cool all cooked ingredients before sealing the transport containers to prevent condensation and textural deterioration.",
+      "Keep the lemon yoghurt thick and separate until eating rather than mixing it through the salad several hours in advance.",
+      "Use the final reserved salt only after tasting the complete salad because supermarket harissa pastes vary significantly in salt concentration."
+    ]
+  }
+}

@@ -1,0 +1,2647 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="utf-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+>
+
+<title>Miso-Ginger Tofu, Broccoli &amp; Brown Basmati Stir-Fry with Sesame and Edamame</title>
+
+<style>
+
+    :root {
+        --page-width: 1100px;
+        --border: #8f8f8f;
+        --page-background: #f2f2f2;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    html {
+        background: var(--page-background);
+    }
+
+    body {
+        margin: 0;
+
+        font-family:
+            -apple-system,
+            BlinkMacSystemFont,
+            "Segoe UI",
+            Roboto,
+            Helvetica,
+            Arial,
+            sans-serif;
+
+        color: #000000;
+
+        line-height: 1.55;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    p,
+    div,
+    span,
+    code,
+    pre,
+    summary,
+    strong {
+        color: #000000;
+    }
+
+    .page {
+        width: min(
+            calc(100% - 32px),
+            var(--page-width)
+        );
+
+        margin:
+            32px
+            auto
+            64px
+            auto;
+    }
+
+    /* ======================================================
+       Header
+       ====================================================== */
+
+    .document-header {
+        background: #ffffff;
+
+        border:
+            1px
+            solid
+            var(--border);
+
+        border-radius: 14px;
+
+        padding: 32px;
+
+        margin-bottom: 24px;
+    }
+
+    .document-header h1 {
+        margin: 0;
+
+        font-size:
+            clamp(
+                2rem,
+                4vw,
+                3rem
+            );
+
+        line-height: 1.1;
+    }
+
+    .schedule-date {
+        margin-top: 18px;
+
+        padding:
+            12px
+            16px;
+
+        border:
+            1px
+            solid
+            #000000;
+
+        border-radius: 8px;
+
+        background: #fff7c7;
+
+        font-size: 1.1rem;
+    }
+
+    /* ======================================================
+       All major JSON sections
+       ====================================================== */
+
+    .top-section {
+        border:
+            1px
+            solid
+            var(--border);
+
+        border-radius: 14px;
+
+        padding: 24px;
+
+        margin:
+            0
+            0
+            24px
+            0;
+    }
+
+    .top-section > h2 {
+        margin:
+            0
+            0
+            20px
+            0;
+
+        padding-bottom: 10px;
+
+        border-bottom:
+            2px
+            solid
+            #000000;
+
+        font-size: 1.6rem;
+    }
+
+    /*
+       Every major section receives its own background colour.
+
+       Text remains black throughout.
+    */
+
+    .top-section[data-json-path="$.schema_version"] {
+        background: #eeeeee;
+    }
+
+    .top-section[data-json-path="$.recipe"] {
+        background: #ffe8dc;
+    }
+
+    .top-section[data-json-path="$.nutrition_per_serving"] {
+        background: #ddf3e4;
+    }
+
+    .top-section[data-json-path="$.ingredients"] {
+        background: #fff4c9;
+    }
+
+    .top-section[data-json-path="$.equipment"] {
+        background: #dfeeff;
+    }
+
+    .top-section[data-json-path="$.mise_en_place"] {
+        background: #eee2fa;
+    }
+
+    .top-section[data-json-path="$.procedure"] {
+        background: #ffe1e8;
+    }
+
+    .top-section[data-json-path="$.plating"] {
+        background: #daf5f2;
+    }
+
+    .top-section[data-json-path="$.storage"] {
+        background: #ffe9c9;
+    }
+
+    .top-section[data-json-path="$.shopping"] {
+        background: #e4f3d7;
+    }
+
+    .top-section[data-json-path="$.quality_checks"] {
+        background: #eadff5;
+    }
+
+    /* ======================================================
+       Nested objects
+       ====================================================== */
+
+    .object-content {
+        margin: 0;
+    }
+
+    .nested-object {
+        margin:
+            18px
+            0;
+
+        padding: 18px;
+
+        border:
+            1px
+            solid
+            #777777;
+
+        border-radius: 10px;
+
+        background:
+            rgba(
+                255,
+                255,
+                255,
+                0.55
+            );
+    }
+
+    .nested-object > h3 {
+        margin:
+            0
+            0
+            14px
+            0;
+    }
+
+    /* ======================================================
+       Individual fields
+       ====================================================== */
+
+    .field-row {
+        display: grid;
+
+        grid-template-columns:
+            minmax(
+                180px,
+                28%
+            )
+            1fr;
+
+        gap: 20px;
+
+        padding:
+            10px
+            0;
+
+        border-bottom:
+            1px
+            solid
+            rgba(
+                0,
+                0,
+                0,
+                0.18
+            );
+    }
+
+    .field-row:last-child {
+        border-bottom: 0;
+    }
+
+    .field-name {
+        font-weight: 700;
+    }
+
+    .field-value {
+        white-space: pre-wrap;
+
+        overflow-wrap: anywhere;
+    }
+
+    .top-scalar-value {
+        font-size: 1.05rem;
+
+        overflow-wrap: anywhere;
+    }
+
+    /* ======================================================
+       Arrays
+       ====================================================== */
+
+    .array-block {
+        margin:
+            10px
+            0
+            20px
+            0;
+    }
+
+    .array-block > h3 {
+        margin-bottom: 12px;
+    }
+
+    .array-items {
+        display: grid;
+
+        gap: 14px;
+    }
+
+    .array-item {
+        padding: 18px;
+
+        border:
+            1px
+            solid
+            #777777;
+
+        border-radius: 10px;
+
+        background:
+            rgba(
+                255,
+                255,
+                255,
+                0.60
+            );
+    }
+
+    .item-number {
+        font-size: 0.82rem;
+
+        font-weight: 700;
+
+        text-transform: uppercase;
+
+        letter-spacing: 0.06em;
+
+        margin-bottom: 8px;
+    }
+
+    .scalar-array-item {
+        padding:
+            8px
+            12px;
+
+        border-left:
+            3px
+            solid
+            #000000;
+
+        background:
+            rgba(
+                255,
+                255,
+                255,
+                0.55
+            );
+
+        white-space: pre-wrap;
+
+        overflow-wrap: anywhere;
+    }
+
+    /* ======================================================
+       Special JSON values
+       ====================================================== */
+
+    .null-value {
+        font-style: italic;
+
+        color: #000000;
+    }
+
+    .boolean-value {
+        font-family:
+            ui-monospace,
+            "Cascadia Mono",
+            Consolas,
+            monospace;
+
+        color: #000000;
+    }
+
+    .empty-value {
+        font-family:
+            ui-monospace,
+            "Cascadia Mono",
+            Consolas,
+            monospace;
+
+        color: #000000;
+
+        padding:
+            8px
+            0;
+    }
+
+    /* ======================================================
+       Integrity information
+       ====================================================== */
+
+    .integrity {
+        margin-top: 32px;
+
+        background: #eeeeee;
+
+        border:
+            1px
+            solid
+            var(--border);
+
+        border-radius: 10px;
+
+        padding: 18px;
+
+        font-size: 0.9rem;
+    }
+
+    .integrity code {
+        color: #000000;
+
+        overflow-wrap: anywhere;
+    }
+
+    /* ======================================================
+       Original source JSON
+       ====================================================== */
+
+    details {
+        margin-top: 20px;
+
+        background: #ffffff;
+
+        border:
+            1px
+            solid
+            var(--border);
+
+        border-radius: 10px;
+
+        padding: 16px;
+    }
+
+    summary {
+        cursor: pointer;
+
+        font-weight: 700;
+
+        color: #000000;
+    }
+
+    pre {
+        margin-top: 18px;
+
+        overflow-x: auto;
+
+        padding: 18px;
+
+        background: #eeeeee;
+
+        color: #000000;
+
+        border:
+            1px
+            solid
+            #777777;
+
+        border-radius: 8px;
+
+        white-space: pre-wrap;
+
+        overflow-wrap: anywhere;
+    }
+
+    /* ======================================================
+       Mobile layout
+       ====================================================== */
+
+    @media (max-width: 700px) {
+
+        .page {
+            width:
+                min(
+                    calc(100% - 20px),
+                    var(--page-width)
+                );
+
+            margin-top: 10px;
+        }
+
+        .document-header,
+        .top-section {
+            padding: 18px;
+        }
+
+        .field-row {
+            grid-template-columns: 1fr;
+
+            gap: 3px;
+        }
+    }
+
+    /* ======================================================
+       Print layout
+       ====================================================== */
+
+    @media print {
+
+        html,
+        body {
+            background: #ffffff;
+        }
+
+        .page {
+            width: 100%;
+
+            margin: 0;
+        }
+
+        .top-section,
+        .array-item {
+            break-inside: avoid;
+        }
+
+        /*
+           Hide the full raw JSON when printing.
+           It remains present in the HTML source.
+        */
+
+        details {
+            display: none;
+        }
+    }
+
+</style>
+
+</head>
+
+<body>
+
+<main class="page">
+
+<header class="document-header">
+
+    <h1>Miso-Ginger Tofu, Broccoli &amp; Brown Basmati Stir-Fry with Sesame and Edamame</h1>
+
+    
+
+</header>
+
+<section class="top-section" data-json-path="$.schema_version"><h2>Schema Version</h2><div class="top-scalar-value" data-json-path="$.schema_version">1.0</div></section>
+<section class="top-section" data-json-path="$.recipe"><h2>Recipe</h2><div class="object-content" data-json-path="$.recipe">
+<div class="field-row" data-json-path="$.recipe.id"><div class="field-name">Id</div><div class="field-value">miso_ginger_tofu_broccoli_brown_basmati_stir_fry_sesame_edamame</div></div>
+<div class="field-row" data-json-path="$.recipe.title"><div class="field-name">Title</div><div class="field-value">Miso-Ginger Tofu, Broccoli &amp; Brown Basmati Stir-Fry with Sesame and Edamame</div></div>
+<div class="field-row" data-json-path="$.recipe.description"><div class="field-name">Description</div><div class="field-value">A high-protein dinner of crisp-edged tofu, broccoli and edamame tossed through a glossy miso-ginger sauce and served with nutty brown basmati rice. High wok heat develops browning before the sauce is added, while rice vinegar, ginger and toasted sesame keep the finished dish savoury, aromatic and balanced rather than heavy.</div></div>
+<div class="field-row" data-json-path="$.recipe.servings"><div class="field-name">Servings</div><div class="field-value">2</div></div>
+<div class="field-row" data-json-path="$.recipe.difficulty"><div class="field-name">Difficulty</div><div class="field-value">Moderate</div></div>
+<div class="field-row" data-json-path="$.recipe.total_time_minutes"><div class="field-name">Total Time Minutes</div><div class="field-value">50</div></div>
+<div class="field-row" data-json-path="$.recipe.active_time_minutes"><div class="field-name">Active Time Minutes</div><div class="field-value">25</div></div>
+<div class="field-row" data-json-path="$.recipe.passive_time_minutes"><div class="field-name">Passive Time Minutes</div><div class="field-value">25</div></div>
+<div class="array-block" data-json-path="$.recipe.cuisine">
+<h3>Cuisine</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.recipe.cuisine[0]">Japanese-inspired</div>
+<div class="scalar-array-item" data-json-path="$.recipe.cuisine[1]">East Asian-inspired</div>
+<div class="scalar-array-item" data-json-path="$.recipe.cuisine[2]">Contemporary</div>
+</div>
+</div>
+<div class="array-block" data-json-path="$.recipe.meal_types">
+<h3>Meal Types</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.recipe.meal_types[0]">Dinner</div>
+</div>
+</div>
+<div class="array-block" data-json-path="$.recipe.dietary_tags">
+<h3>Dietary Tags</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.recipe.dietary_tags[0]">Vegetarian</div>
+<div class="scalar-array-item" data-json-path="$.recipe.dietary_tags[1]">Vegan</div>
+<div class="scalar-array-item" data-json-path="$.recipe.dietary_tags[2]">High protein</div>
+<div class="scalar-array-item" data-json-path="$.recipe.dietary_tags[3]">High fibre</div>
+</div>
+</div>
+<div class="array-block" data-json-path="$.recipe.allergens">
+<h3>Allergens</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.recipe.allergens[0]">Soy</div>
+<div class="scalar-array-item" data-json-path="$.recipe.allergens[1]">Sesame</div>
+</div>
+</div>
+</div></section>
+<section class="top-section" data-json-path="$.nutrition_per_serving"><h2>Nutrition Per Serving</h2><div class="object-content" data-json-path="$.nutrition_per_serving">
+<div class="field-row" data-json-path="$.nutrition_per_serving.energy_kcal"><div class="field-name">Energy Kcal</div><div class="field-value">595</div></div>
+<div class="field-row" data-json-path="$.nutrition_per_serving.protein_g"><div class="field-name">Protein G</div><div class="field-value">39</div></div>
+<div class="field-row" data-json-path="$.nutrition_per_serving.carbohydrate_g"><div class="field-name">Carbohydrate G</div><div class="field-value">63</div></div>
+<div class="field-row" data-json-path="$.nutrition_per_serving.fat_g"><div class="field-name">Fat G</div><div class="field-value">23</div></div>
+<div class="field-row" data-json-path="$.nutrition_per_serving.saturated_fat_g"><div class="field-name">Saturated Fat G</div><div class="field-value">3.5</div></div>
+<div class="field-row" data-json-path="$.nutrition_per_serving.fibre_g"><div class="field-name">Fibre G</div><div class="field-value">11</div></div>
+<div class="field-row" data-json-path="$.nutrition_per_serving.salt_g"><div class="field-name">Salt G</div><div class="field-value">2.1</div></div>
+</div></section>
+<section class="top-section" data-json-path="$.ingredients"><h2>Ingredients</h2><div class="array-block" data-json-path="$.ingredients">
+<div class="array-items">
+<article class="array-item" data-json-path="$.ingredients[0]">
+<div class="item-number">Item 1</div>
+<div class="field-row" data-json-path="$.ingredients[0].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">tofu_extra_firm</div></div>
+<div class="field-row" data-json-path="$.ingredients[0].display_name"><div class="field-name">Display Name</div><div class="field-value">Extra-firm tofu</div></div>
+<div class="field-row" data-json-path="$.ingredients[0].category"><div class="field-name">Category</div><div class="field-value">Plant protein</div></div>
+<div class="field-row" data-json-path="$.ingredients[0].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.ingredients[0].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">320</div></div>
+<div class="field-row" data-json-path="$.ingredients[0].unit_used"><div class="field-name">Unit Used</div><div class="field-value">g</div></div>
+<div class="field-row" data-json-path="$.ingredients[0].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: enough extra-firm tofu to provide at least 320 g</div></div>
+<div class="field-row" data-json-path="$.ingredients[0].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Choose plain, unflavoured extra-firm tofu. Exact supermarket pack sizes vary; purchase sufficient packs to provide at least 320 g.</div></div>
+<div class="array-block" data-json-path="$.ingredients[0].retailers">
+<h3>Retailers</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.ingredients[0].retailers[0]">Sainsbury&#x27;s</div>
+<div class="scalar-array-item" data-json-path="$.ingredients[0].retailers[1]">Marks &amp; Spencer</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.ingredients[0].preparation"><div class="field-name">Preparation</div><div class="field-value">Drain thoroughly, pat completely dry and cut into approximately 20 mm cubes.</div></div>
+<div class="field-row" data-json-path="$.ingredients[0].notes"><div class="field-name">Notes</div><div class="field-value">Use: 320 g total, 160 g per serving.</div></div>
+</article>
+<article class="array-item" data-json-path="$.ingredients[1]">
+<div class="item-number">Item 2</div>
+<div class="field-row" data-json-path="$.ingredients[1].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">edamame_beans_frozen</div></div>
+<div class="field-row" data-json-path="$.ingredients[1].display_name"><div class="field-name">Display Name</div><div class="field-value">Frozen shelled edamame beans</div></div>
+<div class="field-row" data-json-path="$.ingredients[1].category"><div class="field-name">Category</div><div class="field-value">Legumes</div></div>
+<div class="field-row" data-json-path="$.ingredients[1].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.ingredients[1].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">140</div></div>
+<div class="field-row" data-json-path="$.ingredients[1].unit_used"><div class="field-name">Unit Used</div><div class="field-value">g</div></div>
+<div class="field-row" data-json-path="$.ingredients[1].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 standard bag containing at least 140 g</div></div>
+<div class="field-row" data-json-path="$.ingredients[1].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Use frozen shelled edamame rather than beans in pods. Exact pack size varies.</div></div>
+<div class="array-block" data-json-path="$.ingredients[1].retailers">
+<h3>Retailers</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.ingredients[1].retailers[0]">Sainsbury&#x27;s</div>
+<div class="scalar-array-item" data-json-path="$.ingredients[1].retailers[1]">Marks &amp; Spencer</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.ingredients[1].preparation"><div class="field-name">Preparation</div><div class="field-value">Use directly from frozen; they will be heated during the stir-fry.</div></div>
+<div class="field-row" data-json-path="$.ingredients[1].notes"><div class="field-name">Notes</div><div class="field-value">Use: 140 g total, 70 g per serving.</div></div>
+</article>
+<article class="array-item" data-json-path="$.ingredients[2]">
+<div class="item-number">Item 3</div>
+<div class="field-row" data-json-path="$.ingredients[2].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">brown_basmati_rice_dry</div></div>
+<div class="field-row" data-json-path="$.ingredients[2].display_name"><div class="field-name">Display Name</div><div class="field-value">Brown basmati rice</div></div>
+<div class="field-row" data-json-path="$.ingredients[2].category"><div class="field-name">Category</div><div class="field-value">Grains</div></div>
+<div class="field-row" data-json-path="$.ingredients[2].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.ingredients[2].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">80</div></div>
+<div class="field-row" data-json-path="$.ingredients[2].unit_used"><div class="field-name">Unit Used</div><div class="field-value">g</div></div>
+<div class="field-row" data-json-path="$.ingredients[2].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 standard packet</div></div>
+<div class="field-row" data-json-path="$.ingredients[2].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Use dry brown basmati rice. Exact retail pack size is not important.</div></div>
+<div class="array-block" data-json-path="$.ingredients[2].retailers">
+<h3>Retailers</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.ingredients[2].retailers[0]">Sainsbury&#x27;s</div>
+<div class="scalar-array-item" data-json-path="$.ingredients[2].retailers[1]">Marks &amp; Spencer</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.ingredients[2].preparation"><div class="field-name">Preparation</div><div class="field-value">Rinse thoroughly under cold water until the runoff is substantially clearer.</div></div>
+<div class="field-row" data-json-path="$.ingredients[2].notes"><div class="field-name">Notes</div><div class="field-value">Use: 80 g dry total, 40 g dry per serving.</div></div>
+</article>
+<article class="array-item" data-json-path="$.ingredients[3]">
+<div class="item-number">Item 4</div>
+<div class="field-row" data-json-path="$.ingredients[3].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">broccoli</div></div>
+<div class="field-row" data-json-path="$.ingredients[3].display_name"><div class="field-name">Display Name</div><div class="field-value">Broccoli</div></div>
+<div class="field-row" data-json-path="$.ingredients[3].category"><div class="field-name">Category</div><div class="field-value">Vegetables</div></div>
+<div class="field-row" data-json-path="$.ingredients[3].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.ingredients[3].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">1</div></div>
+<div class="field-row" data-json-path="$.ingredients[3].unit_used"><div class="field-name">Unit Used</div><div class="field-value">integer</div></div>
+<div class="field-row" data-json-path="$.ingredients[3].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 large broccoli head, approximately 350-400 g as bought</div></div>
+<div class="field-row" data-json-path="$.ingredients[3].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Choose a firm head with tightly closed dark-green florets and a firm stem.</div></div>
+<div class="array-block" data-json-path="$.ingredients[3].retailers">
+<h3>Retailers</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.ingredients[3].retailers[0]">Sainsbury&#x27;s</div>
+<div class="scalar-array-item" data-json-path="$.ingredients[3].retailers[1]">Marks &amp; Spencer</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.ingredients[3].preparation"><div class="field-name">Preparation</div><div class="field-value">Wash and dry. Cut approximately 300 g usable florets and tender stem into stir-fry pieces. Peel tough outer stem skin where necessary.</div></div>
+<div class="field-row" data-json-path="$.ingredients[3].notes"><div class="field-name">Notes</div><div class="field-value">Use approximately 300 g prepared broccoli. Tender stem flesh is included to reduce waste.</div></div>
+</article>
+<article class="array-item" data-json-path="$.ingredients[4]">
+<div class="item-number">Item 5</div>
+<div class="field-row" data-json-path="$.ingredients[4].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">white_miso_paste</div></div>
+<div class="field-row" data-json-path="$.ingredients[4].display_name"><div class="field-name">Display Name</div><div class="field-value">White miso paste</div></div>
+<div class="field-row" data-json-path="$.ingredients[4].category"><div class="field-name">Category</div><div class="field-value">Condiments</div></div>
+<div class="field-row" data-json-path="$.ingredients[4].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.ingredients[4].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">20</div></div>
+<div class="field-row" data-json-path="$.ingredients[4].unit_used"><div class="field-name">Unit Used</div><div class="field-value">g</div></div>
+<div class="field-row" data-json-path="$.ingredients[4].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 tub or jar</div></div>
+<div class="field-row" data-json-path="$.ingredients[4].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Use a mild white or light miso paste. Exact pack size varies.</div></div>
+<div class="array-block" data-json-path="$.ingredients[4].retailers">
+<h3>Retailers</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.ingredients[4].retailers[0]">Sainsbury&#x27;s</div>
+<div class="scalar-array-item" data-json-path="$.ingredients[4].retailers[1]">Marks &amp; Spencer</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.ingredients[4].preparation"><div class="field-name">Preparation</div><div class="field-value">Measure accurately and dissolve into the stir-fry sauce before cooking.</div></div>
+<div class="field-row" data-json-path="$.ingredients[4].notes"><div class="field-name">Notes</div><div class="field-value">Use: 20 g total.</div></div>
+</article>
+<article class="array-item" data-json-path="$.ingredients[5]">
+<div class="item-number">Item 6</div>
+<div class="field-row" data-json-path="$.ingredients[5].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">soy_sauce_reduced_salt</div></div>
+<div class="field-row" data-json-path="$.ingredients[5].display_name"><div class="field-name">Display Name</div><div class="field-value">Reduced-salt soy sauce</div></div>
+<div class="field-row" data-json-path="$.ingredients[5].category"><div class="field-name">Category</div><div class="field-value">Condiments</div></div>
+<div class="field-row" data-json-path="$.ingredients[5].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.ingredients[5].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">20</div></div>
+<div class="field-row" data-json-path="$.ingredients[5].unit_used"><div class="field-name">Unit Used</div><div class="field-value">ml</div></div>
+<div class="field-row" data-json-path="$.ingredients[5].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 bottle</div></div>
+<div class="field-row" data-json-path="$.ingredients[5].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Reduced-salt soy sauce is preferred because miso already contributes significant sodium.</div></div>
+<div class="array-block" data-json-path="$.ingredients[5].retailers">
+<h3>Retailers</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.ingredients[5].retailers[0]">Sainsbury&#x27;s</div>
+<div class="scalar-array-item" data-json-path="$.ingredients[5].retailers[1]">Marks &amp; Spencer</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.ingredients[5].preparation"><div class="field-name">Preparation</div><div class="field-value">Measure before making the sauce.</div></div>
+<div class="field-row" data-json-path="$.ingredients[5].notes"><div class="field-name">Notes</div><div class="field-value">Use: 20 ml total.</div></div>
+</article>
+<article class="array-item" data-json-path="$.ingredients[6]">
+<div class="item-number">Item 7</div>
+<div class="field-row" data-json-path="$.ingredients[6].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">rice_vinegar</div></div>
+<div class="field-row" data-json-path="$.ingredients[6].display_name"><div class="field-name">Display Name</div><div class="field-value">Rice vinegar</div></div>
+<div class="field-row" data-json-path="$.ingredients[6].category"><div class="field-name">Category</div><div class="field-value">Condiments</div></div>
+<div class="field-row" data-json-path="$.ingredients[6].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.ingredients[6].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">20</div></div>
+<div class="field-row" data-json-path="$.ingredients[6].unit_used"><div class="field-name">Unit Used</div><div class="field-value">ml</div></div>
+<div class="field-row" data-json-path="$.ingredients[6].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 bottle</div></div>
+<div class="field-row" data-json-path="$.ingredients[6].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Use unseasoned rice vinegar where available so sweetness and salt remain controlled.</div></div>
+<div class="array-block" data-json-path="$.ingredients[6].retailers">
+<h3>Retailers</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.ingredients[6].retailers[0]">Sainsbury&#x27;s</div>
+<div class="scalar-array-item" data-json-path="$.ingredients[6].retailers[1]">Marks &amp; Spencer</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.ingredients[6].preparation"><div class="field-name">Preparation</div><div class="field-value">Measure before making the sauce.</div></div>
+<div class="field-row" data-json-path="$.ingredients[6].notes"><div class="field-name">Notes</div><div class="field-value">Use: 20 ml total.</div></div>
+</article>
+<article class="array-item" data-json-path="$.ingredients[7]">
+<div class="item-number">Item 8</div>
+<div class="field-row" data-json-path="$.ingredients[7].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">fresh_ginger</div></div>
+<div class="field-row" data-json-path="$.ingredients[7].display_name"><div class="field-name">Display Name</div><div class="field-value">Fresh root ginger</div></div>
+<div class="field-row" data-json-path="$.ingredients[7].category"><div class="field-name">Category</div><div class="field-value">Aromatics</div></div>
+<div class="field-row" data-json-path="$.ingredients[7].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.ingredients[7].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">20</div></div>
+<div class="field-row" data-json-path="$.ingredients[7].unit_used"><div class="field-name">Unit Used</div><div class="field-value">g</div></div>
+<div class="field-row" data-json-path="$.ingredients[7].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 piece fresh ginger containing at least 20 g usable flesh</div></div>
+<div class="field-row" data-json-path="$.ingredients[7].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Choose firm ginger without shrivelled or mouldy areas.</div></div>
+<div class="array-block" data-json-path="$.ingredients[7].retailers">
+<h3>Retailers</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.ingredients[7].retailers[0]">Sainsbury&#x27;s</div>
+<div class="scalar-array-item" data-json-path="$.ingredients[7].retailers[1]">Marks &amp; Spencer</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.ingredients[7].preparation"><div class="field-name">Preparation</div><div class="field-value">Wash, peel if the skin is tough, then finely grate 20 g usable ginger.</div></div>
+<div class="field-row" data-json-path="$.ingredients[7].notes"><div class="field-name">Notes</div><div class="field-value">Use: 20 g prepared ginger.</div></div>
+</article>
+<article class="array-item" data-json-path="$.ingredients[8]">
+<div class="item-number">Item 9</div>
+<div class="field-row" data-json-path="$.ingredients[8].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">garlic</div></div>
+<div class="field-row" data-json-path="$.ingredients[8].display_name"><div class="field-name">Display Name</div><div class="field-value">Garlic</div></div>
+<div class="field-row" data-json-path="$.ingredients[8].category"><div class="field-name">Category</div><div class="field-value">Aromatics</div></div>
+<div class="field-row" data-json-path="$.ingredients[8].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.ingredients[8].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">2</div></div>
+<div class="field-row" data-json-path="$.ingredients[8].unit_used"><div class="field-name">Unit Used</div><div class="field-value">integer</div></div>
+<div class="field-row" data-json-path="$.ingredients[8].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 garlic bulb</div></div>
+<div class="field-row" data-json-path="$.ingredients[8].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Use 2 medium cloves from the bulb.</div></div>
+<div class="array-block" data-json-path="$.ingredients[8].retailers">
+<h3>Retailers</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.ingredients[8].retailers[0]">Sainsbury&#x27;s</div>
+<div class="scalar-array-item" data-json-path="$.ingredients[8].retailers[1]">Marks &amp; Spencer</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.ingredients[8].preparation"><div class="field-name">Preparation</div><div class="field-value">Separate 2 cloves, peel, trim the root ends and finely grate.</div></div>
+<div class="field-row" data-json-path="$.ingredients[8].notes"><div class="field-name">Notes</div><div class="field-value">Use: 2 medium cloves.</div></div>
+</article>
+<article class="array-item" data-json-path="$.ingredients[9]">
+<div class="item-number">Item 10</div>
+<div class="field-row" data-json-path="$.ingredients[9].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">sesame_seeds</div></div>
+<div class="field-row" data-json-path="$.ingredients[9].display_name"><div class="field-name">Display Name</div><div class="field-value">Sesame seeds</div></div>
+<div class="field-row" data-json-path="$.ingredients[9].category"><div class="field-name">Category</div><div class="field-value">Seeds</div></div>
+<div class="field-row" data-json-path="$.ingredients[9].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.ingredients[9].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">10</div></div>
+<div class="field-row" data-json-path="$.ingredients[9].unit_used"><div class="field-name">Unit Used</div><div class="field-value">g</div></div>
+<div class="field-row" data-json-path="$.ingredients[9].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 standard packet</div></div>
+<div class="field-row" data-json-path="$.ingredients[9].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">White or mixed sesame seeds are suitable. Use plain, untoasted seeds because the recipe includes a controlled toasting stage.</div></div>
+<div class="array-block" data-json-path="$.ingredients[9].retailers">
+<h3>Retailers</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.ingredients[9].retailers[0]">Sainsbury&#x27;s</div>
+<div class="scalar-array-item" data-json-path="$.ingredients[9].retailers[1]">Marks &amp; Spencer</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.ingredients[9].preparation"><div class="field-name">Preparation</div><div class="field-value">Use directly from the packet.</div></div>
+<div class="field-row" data-json-path="$.ingredients[9].notes"><div class="field-name">Notes</div><div class="field-value">Use: 10 g total, 5 g per serving.</div></div>
+</article>
+<article class="array-item" data-json-path="$.ingredients[10]">
+<div class="item-number">Item 11</div>
+<div class="field-row" data-json-path="$.ingredients[10].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">sesame_oil_toasted</div></div>
+<div class="field-row" data-json-path="$.ingredients[10].display_name"><div class="field-name">Display Name</div><div class="field-value">Toasted sesame oil</div></div>
+<div class="field-row" data-json-path="$.ingredients[10].category"><div class="field-name">Category</div><div class="field-value">Oils</div></div>
+<div class="field-row" data-json-path="$.ingredients[10].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.ingredients[10].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">4</div></div>
+<div class="field-row" data-json-path="$.ingredients[10].unit_used"><div class="field-name">Unit Used</div><div class="field-value">g</div></div>
+<div class="field-row" data-json-path="$.ingredients[10].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 small bottle</div></div>
+<div class="field-row" data-json-path="$.ingredients[10].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Use toasted sesame oil as a finishing flavouring rather than as the primary high-heat cooking oil.</div></div>
+<div class="array-block" data-json-path="$.ingredients[10].retailers">
+<h3>Retailers</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.ingredients[10].retailers[0]">Sainsbury&#x27;s</div>
+<div class="scalar-array-item" data-json-path="$.ingredients[10].retailers[1]">Marks &amp; Spencer</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.ingredients[10].preparation"><div class="field-name">Preparation</div><div class="field-value">Measure before cooking.</div></div>
+<div class="field-row" data-json-path="$.ingredients[10].notes"><div class="field-name">Notes</div><div class="field-value">Use: 4 g total.</div></div>
+</article>
+<article class="array-item" data-json-path="$.ingredients[11]">
+<div class="item-number">Item 12</div>
+<div class="field-row" data-json-path="$.ingredients[11].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">rapeseed_oil</div></div>
+<div class="field-row" data-json-path="$.ingredients[11].display_name"><div class="field-name">Display Name</div><div class="field-value">Rapeseed oil</div></div>
+<div class="field-row" data-json-path="$.ingredients[11].category"><div class="field-name">Category</div><div class="field-value">Oils</div></div>
+<div class="field-row" data-json-path="$.ingredients[11].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.ingredients[11].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">4</div></div>
+<div class="field-row" data-json-path="$.ingredients[11].unit_used"><div class="field-name">Unit Used</div><div class="field-value">g</div></div>
+<div class="field-row" data-json-path="$.ingredients[11].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 bottle</div></div>
+<div class="field-row" data-json-path="$.ingredients[11].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Use a neutral refined rapeseed oil suitable for high-heat cooking.</div></div>
+<div class="array-block" data-json-path="$.ingredients[11].retailers">
+<h3>Retailers</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.ingredients[11].retailers[0]">Sainsbury&#x27;s</div>
+<div class="scalar-array-item" data-json-path="$.ingredients[11].retailers[1]">Marks &amp; Spencer</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.ingredients[11].preparation"><div class="field-name">Preparation</div><div class="field-value">Measure accurately before stir-frying.</div></div>
+<div class="field-row" data-json-path="$.ingredients[11].notes"><div class="field-name">Notes</div><div class="field-value">Use: 4 g total.</div></div>
+</article>
+<article class="array-item" data-json-path="$.ingredients[12]">
+<div class="item-number">Item 13</div>
+<div class="field-row" data-json-path="$.ingredients[12].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">cornflour</div></div>
+<div class="field-row" data-json-path="$.ingredients[12].display_name"><div class="field-name">Display Name</div><div class="field-value">Cornflour</div></div>
+<div class="field-row" data-json-path="$.ingredients[12].category"><div class="field-name">Category</div><div class="field-value">Thickeners</div></div>
+<div class="field-row" data-json-path="$.ingredients[12].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.ingredients[12].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">10</div></div>
+<div class="field-row" data-json-path="$.ingredients[12].unit_used"><div class="field-name">Unit Used</div><div class="field-value">g</div></div>
+<div class="field-row" data-json-path="$.ingredients[12].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 standard packet</div></div>
+<div class="field-row" data-json-path="$.ingredients[12].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Standard cornflour is suitable.</div></div>
+<div class="array-block" data-json-path="$.ingredients[12].retailers">
+<h3>Retailers</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.ingredients[12].retailers[0]">Sainsbury&#x27;s</div>
+<div class="scalar-array-item" data-json-path="$.ingredients[12].retailers[1]">Marks &amp; Spencer</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.ingredients[12].preparation"><div class="field-name">Preparation</div><div class="field-value">Use 6 g for coating the tofu and 4 g for thickening the stir-fry sauce.</div></div>
+<div class="field-row" data-json-path="$.ingredients[12].notes"><div class="field-name">Notes</div><div class="field-value">Use: 10 g total.</div></div>
+</article>
+<article class="array-item" data-json-path="$.ingredients[13]">
+<div class="item-number">Item 14</div>
+<div class="field-row" data-json-path="$.ingredients[13].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">runny_honey</div></div>
+<div class="field-row" data-json-path="$.ingredients[13].display_name"><div class="field-name">Display Name</div><div class="field-value">Runny honey</div></div>
+<div class="field-row" data-json-path="$.ingredients[13].category"><div class="field-name">Category</div><div class="field-value">Sweeteners</div></div>
+<div class="field-row" data-json-path="$.ingredients[13].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.ingredients[13].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">8</div></div>
+<div class="field-row" data-json-path="$.ingredients[13].unit_used"><div class="field-name">Unit Used</div><div class="field-value">g</div></div>
+<div class="field-row" data-json-path="$.ingredients[13].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 jar or squeeze bottle</div></div>
+<div class="field-row" data-json-path="$.ingredients[13].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Use a mild runny honey. The quantity is deliberately small and balances the miso and vinegar rather than making the sauce sweet.</div></div>
+<div class="array-block" data-json-path="$.ingredients[13].retailers">
+<h3>Retailers</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.ingredients[13].retailers[0]">Sainsbury&#x27;s</div>
+<div class="scalar-array-item" data-json-path="$.ingredients[13].retailers[1]">Marks &amp; Spencer</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.ingredients[13].preparation"><div class="field-name">Preparation</div><div class="field-value">Measure before preparing the sauce.</div></div>
+<div class="field-row" data-json-path="$.ingredients[13].notes"><div class="field-name">Notes</div><div class="field-value">Use: 8 g total.</div></div>
+</article>
+<article class="array-item" data-json-path="$.ingredients[14]">
+<div class="item-number">Item 15</div>
+<div class="field-row" data-json-path="$.ingredients[14].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">water</div></div>
+<div class="field-row" data-json-path="$.ingredients[14].display_name"><div class="field-name">Display Name</div><div class="field-value">Water</div></div>
+<div class="field-row" data-json-path="$.ingredients[14].category"><div class="field-name">Category</div><div class="field-value">Liquid</div></div>
+<div class="field-row" data-json-path="$.ingredients[14].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.ingredients[14].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">80</div></div>
+<div class="field-row" data-json-path="$.ingredients[14].unit_used"><div class="field-name">Unit Used</div><div class="field-value">ml</div></div>
+<div class="field-row" data-json-path="$.ingredients[14].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Use: 80 ml tap water plus the amount required by the rice cooker for 80 g brown basmati rice</div></div>
+<div class="field-row" data-json-path="$.ingredients[14].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">No purchase required.</div></div>
+<div class="array-block" data-json-path="$.ingredients[14].retailers">
+<h3>Retailers</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.ingredients[14].retailers[0]">Sainsbury&#x27;s</div>
+<div class="scalar-array-item" data-json-path="$.ingredients[14].retailers[1]">Marks &amp; Spencer</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.ingredients[14].preparation"><div class="field-name">Preparation</div><div class="field-value">Measure 80 ml for the stir-fry sauce separately from the rice-cooking water.</div></div>
+<div class="field-row" data-json-path="$.ingredients[14].notes"><div class="field-name">Notes</div><div class="field-value">The 80 ml quantity represents sauce water only. Rice-cooking water should follow the rice cooker&#x27;s brown-rice requirement because absorption varies by appliance.</div></div>
+</article>
+</div>
+</div></section>
+<section class="top-section" data-json-path="$.equipment"><h2>Equipment</h2><div class="array-block" data-json-path="$.equipment">
+<div class="array-items">
+<article class="array-item" data-json-path="$.equipment[0]">
+<div class="item-number">Item 1</div>
+<div class="field-row" data-json-path="$.equipment[0].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">rice_cooker</div></div>
+<div class="field-row" data-json-path="$.equipment[0].display_name"><div class="field-name">Display Name</div><div class="field-value">Rice cooker</div></div>
+<div class="field-row" data-json-path="$.equipment[0].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.equipment[0].notes"><div class="field-name">Notes</div><div class="field-value">Used for repeatable cooking of the brown basmati rice while the stir-fry is prepared.</div></div>
+</article>
+<article class="array-item" data-json-path="$.equipment[1]">
+<div class="item-number">Item 2</div>
+<div class="field-row" data-json-path="$.equipment[1].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">wok_burner</div></div>
+<div class="field-row" data-json-path="$.equipment[1].display_name"><div class="field-name">Display Name</div><div class="field-value">High-output wok burner</div></div>
+<div class="field-row" data-json-path="$.equipment[1].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.equipment[1].notes"><div class="field-name">Notes</div><div class="field-value">Used to achieve rapid browning and minimise steaming.</div></div>
+</article>
+<article class="array-item" data-json-path="$.equipment[2]">
+<div class="item-number">Item 3</div>
+<div class="field-row" data-json-path="$.equipment[2].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">wok</div></div>
+<div class="field-row" data-json-path="$.equipment[2].display_name"><div class="field-name">Display Name</div><div class="field-value">Large wok</div></div>
+<div class="field-row" data-json-path="$.equipment[2].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.equipment[2].notes"><div class="field-name">Notes</div><div class="field-value">Used for tofu browning and final stir-frying.</div></div>
+</article>
+<article class="array-item" data-json-path="$.equipment[3]">
+<div class="item-number">Item 4</div>
+<div class="field-row" data-json-path="$.equipment[3].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">mixing_bowl</div></div>
+<div class="field-row" data-json-path="$.equipment[3].display_name"><div class="field-name">Display Name</div><div class="field-value">Medium mixing bowl</div></div>
+<div class="field-row" data-json-path="$.equipment[3].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.equipment[3].notes"><div class="field-name">Notes</div><div class="field-value">Used for coating the tofu.</div></div>
+</article>
+<article class="array-item" data-json-path="$.equipment[4]">
+<div class="item-number">Item 5</div>
+<div class="field-row" data-json-path="$.equipment[4].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">small_bowl</div></div>
+<div class="field-row" data-json-path="$.equipment[4].display_name"><div class="field-name">Display Name</div><div class="field-value">Small mixing bowl</div></div>
+<div class="field-row" data-json-path="$.equipment[4].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.equipment[4].notes"><div class="field-name">Notes</div><div class="field-value">Used to prepare the miso-ginger sauce.</div></div>
+</article>
+<article class="array-item" data-json-path="$.equipment[5]">
+<div class="item-number">Item 6</div>
+<div class="field-row" data-json-path="$.equipment[5].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">chef_knife</div></div>
+<div class="field-row" data-json-path="$.equipment[5].display_name"><div class="field-name">Display Name</div><div class="field-value">Chef&#x27;s knife</div></div>
+<div class="field-row" data-json-path="$.equipment[5].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.equipment[5].notes"><div class="field-name">Notes</div><div class="field-value">Used for tofu and broccoli preparation.</div></div>
+</article>
+<article class="array-item" data-json-path="$.equipment[6]">
+<div class="item-number">Item 7</div>
+<div class="field-row" data-json-path="$.equipment[6].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">chopping_board</div></div>
+<div class="field-row" data-json-path="$.equipment[6].display_name"><div class="field-name">Display Name</div><div class="field-value">Chopping board</div></div>
+<div class="field-row" data-json-path="$.equipment[6].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.equipment[6].notes"><div class="field-name">Notes</div><div class="field-value">Used for safe preparation of tofu and vegetables.</div></div>
+</article>
+<article class="array-item" data-json-path="$.equipment[7]">
+<div class="item-number">Item 8</div>
+<div class="field-row" data-json-path="$.equipment[7].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">fine_grater</div></div>
+<div class="field-row" data-json-path="$.equipment[7].display_name"><div class="field-name">Display Name</div><div class="field-value">Fine grater or Microplane</div></div>
+<div class="field-row" data-json-path="$.equipment[7].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.equipment[7].notes"><div class="field-name">Notes</div><div class="field-value">Used for ginger and garlic.</div></div>
+</article>
+<article class="array-item" data-json-path="$.equipment[8]">
+<div class="item-number">Item 9</div>
+<div class="field-row" data-json-path="$.equipment[8].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">sieve</div></div>
+<div class="field-row" data-json-path="$.equipment[8].display_name"><div class="field-name">Display Name</div><div class="field-value">Fine sieve</div></div>
+<div class="field-row" data-json-path="$.equipment[8].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.equipment[8].notes"><div class="field-name">Notes</div><div class="field-value">Used to rinse and drain the brown basmati rice thoroughly.</div></div>
+</article>
+<article class="array-item" data-json-path="$.equipment[9]">
+<div class="item-number">Item 10</div>
+<div class="field-row" data-json-path="$.equipment[9].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">measuring_jug</div></div>
+<div class="field-row" data-json-path="$.equipment[9].display_name"><div class="field-name">Display Name</div><div class="field-value">Measuring jug</div></div>
+<div class="field-row" data-json-path="$.equipment[9].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.equipment[9].notes"><div class="field-name">Notes</div><div class="field-value">Used for sauce liquids.</div></div>
+</article>
+<article class="array-item" data-json-path="$.equipment[10]">
+<div class="item-number">Item 11</div>
+<div class="field-row" data-json-path="$.equipment[10].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">measuring_spoons</div></div>
+<div class="field-row" data-json-path="$.equipment[10].display_name"><div class="field-name">Display Name</div><div class="field-value">Measuring spoons</div></div>
+<div class="field-row" data-json-path="$.equipment[10].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.equipment[10].notes"><div class="field-name">Notes</div><div class="field-value">Used for controlled measurement where required.</div></div>
+</article>
+<article class="array-item" data-json-path="$.equipment[11]">
+<div class="item-number">Item 12</div>
+<div class="field-row" data-json-path="$.equipment[11].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">kitchen_scales</div></div>
+<div class="field-row" data-json-path="$.equipment[11].display_name"><div class="field-name">Display Name</div><div class="field-value">Kitchen scales</div></div>
+<div class="field-row" data-json-path="$.equipment[11].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.equipment[11].notes"><div class="field-name">Notes</div><div class="field-value">Used for tofu, rice, edamame, sauces, oils and sesame quantities.</div></div>
+</article>
+<article class="array-item" data-json-path="$.equipment[12]">
+<div class="item-number">Item 13</div>
+<div class="field-row" data-json-path="$.equipment[12].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">spatula</div></div>
+<div class="field-row" data-json-path="$.equipment[12].display_name"><div class="field-name">Display Name</div><div class="field-value">Heatproof wok spatula</div></div>
+<div class="field-row" data-json-path="$.equipment[12].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.equipment[12].notes"><div class="field-name">Notes</div><div class="field-value">Used for turning tofu and rapidly tossing the stir-fry.</div></div>
+</article>
+</div>
+</div></section>
+<section class="top-section" data-json-path="$.mise_en_place"><h2>Mise En Place</h2><div class="array-block" data-json-path="$.mise_en_place">
+<div class="array-items">
+<article class="array-item" data-json-path="$.mise_en_place[0]">
+<div class="item-number">Item 1</div>
+<div class="field-row" data-json-path="$.mise_en_place[0].prep_id"><div class="field-name">Prep Id</div><div class="field-value">PREP_01</div></div>
+<div class="array-block" data-json-path="$.mise_en_place[0].ingredient_ids">
+<h3>Ingredient Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.mise_en_place[0].ingredient_ids[0]">brown_basmati_rice_dry</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.mise_en_place[0].instruction"><div class="field-name">Instruction</div><div class="field-value">Weigh 80 g dry brown basmati rice. Place it in the fine sieve and rinse under cold running water while agitating the grains with clean fingers until the runoff is substantially clearer. Shake the sieve thoroughly to remove excess water.</div></div>
+<div class="field-row" data-json-path="$.mise_en_place[0].endpoint"><div class="field-name">Endpoint</div><div class="field-value">The rice is thoroughly rinsed and no longer releases heavily cloudy water.</div></div>
+</article>
+<article class="array-item" data-json-path="$.mise_en_place[1]">
+<div class="item-number">Item 2</div>
+<div class="field-row" data-json-path="$.mise_en_place[1].prep_id"><div class="field-name">Prep Id</div><div class="field-value">PREP_02</div></div>
+<div class="array-block" data-json-path="$.mise_en_place[1].ingredient_ids">
+<h3>Ingredient Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.mise_en_place[1].ingredient_ids[0]">tofu_extra_firm</div>
+<div class="scalar-array-item" data-json-path="$.mise_en_place[1].ingredient_ids[1]">cornflour</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.mise_en_place[1].instruction"><div class="field-name">Instruction</div><div class="field-value">Drain 320 g extra-firm tofu. Pat all surfaces repeatedly with clean kitchen paper until little visible moisture transfers. Cut the tofu into approximately 20 mm cubes. Weigh 6 g of the cornflour separately for coating.</div></div>
+<div class="field-row" data-json-path="$.mise_en_place[1].endpoint"><div class="field-name">Endpoint</div><div class="field-value">The tofu is surface-dry, evenly cubed and the coating cornflour is separately measured.</div></div>
+</article>
+<article class="array-item" data-json-path="$.mise_en_place[2]">
+<div class="item-number">Item 3</div>
+<div class="field-row" data-json-path="$.mise_en_place[2].prep_id"><div class="field-name">Prep Id</div><div class="field-value">PREP_03</div></div>
+<div class="array-block" data-json-path="$.mise_en_place[2].ingredient_ids">
+<h3>Ingredient Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.mise_en_place[2].ingredient_ids[0]">broccoli</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.mise_en_place[2].instruction"><div class="field-name">Instruction</div><div class="field-value">Wash and dry the broccoli. Separate the crown into florets approximately 30-40 mm across. Trim the stem base. Peel away any visibly tough outer stem skin, then cut the tender stem flesh into pieces approximately 5 mm thick and 40 mm long. Weigh or estimate approximately 300 g usable broccoli in total.</div></div>
+<div class="field-row" data-json-path="$.mise_en_place[2].endpoint"><div class="field-name">Endpoint</div><div class="field-value">Approximately 300 g broccoli is prepared into similarly quick-cooking florets and stem pieces.</div></div>
+</article>
+<article class="array-item" data-json-path="$.mise_en_place[3]">
+<div class="item-number">Item 4</div>
+<div class="field-row" data-json-path="$.mise_en_place[3].prep_id"><div class="field-name">Prep Id</div><div class="field-value">PREP_04</div></div>
+<div class="array-block" data-json-path="$.mise_en_place[3].ingredient_ids">
+<h3>Ingredient Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.mise_en_place[3].ingredient_ids[0]">fresh_ginger</div>
+<div class="scalar-array-item" data-json-path="$.mise_en_place[3].ingredient_ids[1]">garlic</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.mise_en_place[3].instruction"><div class="field-name">Instruction</div><div class="field-value">Wash the ginger and peel only if the skin is thick or dry. Finely grate 20 g usable ginger. Separate 2 garlic cloves from the bulb, peel them, trim the root ends and finely grate.</div></div>
+<div class="field-row" data-json-path="$.mise_en_place[3].endpoint"><div class="field-name">Endpoint</div><div class="field-value">The ginger and garlic are finely grated and ready to disperse rapidly through the sauce.</div></div>
+</article>
+<article class="array-item" data-json-path="$.mise_en_place[4]">
+<div class="item-number">Item 5</div>
+<div class="field-row" data-json-path="$.mise_en_place[4].prep_id"><div class="field-name">Prep Id</div><div class="field-value">PREP_05</div></div>
+<div class="array-block" data-json-path="$.mise_en_place[4].ingredient_ids">
+<h3>Ingredient Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.mise_en_place[4].ingredient_ids[0]">white_miso_paste</div>
+<div class="scalar-array-item" data-json-path="$.mise_en_place[4].ingredient_ids[1]">soy_sauce_reduced_salt</div>
+<div class="scalar-array-item" data-json-path="$.mise_en_place[4].ingredient_ids[2]">rice_vinegar</div>
+<div class="scalar-array-item" data-json-path="$.mise_en_place[4].ingredient_ids[3]">runny_honey</div>
+<div class="scalar-array-item" data-json-path="$.mise_en_place[4].ingredient_ids[4]">water</div>
+<div class="scalar-array-item" data-json-path="$.mise_en_place[4].ingredient_ids[5]">cornflour</div>
+<div class="scalar-array-item" data-json-path="$.mise_en_place[4].ingredient_ids[6]">sesame_oil_toasted</div>
+<div class="scalar-array-item" data-json-path="$.mise_en_place[4].ingredient_ids[7]">fresh_ginger</div>
+<div class="scalar-array-item" data-json-path="$.mise_en_place[4].ingredient_ids[8]">garlic</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.mise_en_place[4].instruction"><div class="field-name">Instruction</div><div class="field-value">Measure 20 g white miso, 20 ml reduced-salt soy sauce, 20 ml rice vinegar, 8 g honey, 80 ml water, the remaining 4 g cornflour, 4 g toasted sesame oil, the prepared 20 g grated ginger and the prepared grated garlic. Add all of these ingredients to the small bowl and whisk until the miso and cornflour are fully dispersed with no visible lumps.</div></div>
+<div class="field-row" data-json-path="$.mise_en_place[4].endpoint"><div class="field-name">Endpoint</div><div class="field-value">The sauce is homogeneous, pourable and free from visible miso or cornflour lumps.</div></div>
+</article>
+<article class="array-item" data-json-path="$.mise_en_place[5]">
+<div class="item-number">Item 6</div>
+<div class="field-row" data-json-path="$.mise_en_place[5].prep_id"><div class="field-name">Prep Id</div><div class="field-value">PREP_06</div></div>
+<div class="array-block" data-json-path="$.mise_en_place[5].ingredient_ids">
+<h3>Ingredient Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.mise_en_place[5].ingredient_ids[0]">edamame_beans_frozen</div>
+<div class="scalar-array-item" data-json-path="$.mise_en_place[5].ingredient_ids[1]">sesame_seeds</div>
+<div class="scalar-array-item" data-json-path="$.mise_en_place[5].ingredient_ids[2]">rapeseed_oil</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.mise_en_place[5].instruction"><div class="field-name">Instruction</div><div class="field-value">Weigh 140 g frozen shelled edamame, 10 g sesame seeds and 4 g rapeseed oil into separate measured quantities. Keep the edamame frozen until the stir-fry stage.</div></div>
+<div class="field-row" data-json-path="$.mise_en_place[5].endpoint"><div class="field-name">Endpoint</div><div class="field-value">Edamame, sesame seeds and high-heat cooking oil are accurately measured and immediately available.</div></div>
+</article>
+</div>
+</div></section>
+<section class="top-section" data-json-path="$.procedure"><h2>Procedure</h2><div class="array-block" data-json-path="$.procedure">
+<div class="array-items">
+<article class="array-item" data-json-path="$.procedure[0]">
+<div class="item-number">Item 1</div>
+<div class="field-row" data-json-path="$.procedure[0].step_id"><div class="field-name">Step Id</div><div class="field-value">STEP_01</div></div>
+<div class="field-row" data-json-path="$.procedure[0].section"><div class="field-name">Section</div><div class="field-value">Brown basmati rice</div></div>
+<div class="field-row" data-json-path="$.procedure[0].title"><div class="field-name">Title</div><div class="field-value">Cook the brown basmati rice</div></div>
+<div class="array-block" data-json-path="$.procedure[0].depends_on">
+<h3>Depends On</h3>
+<div class="empty-value">[ ]</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[0].parallel_group"><div class="field-name">Parallel Group</div><div class="field-value">P01</div></div>
+<div class="array-block" data-json-path="$.procedure[0].ingredient_ids">
+<h3>Ingredient Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[0].ingredient_ids[0]">brown_basmati_rice_dry</div>
+</div>
+</div>
+<div class="array-block" data-json-path="$.procedure[0].equipment_ids">
+<h3>Equipment Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[0].equipment_ids[0]">rice_cooker</div>
+<div class="scalar-array-item" data-json-path="$.procedure[0].equipment_ids[1]">sieve</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[0].instruction"><div class="field-name">Instruction</div><div class="field-value">Transfer the rinsed 80 g brown basmati rice to the rice cooker. Add the quantity of water specified by the rice cooker&#x27;s brown-rice markings or manufacturer instructions for this amount of rice. Select the brown-rice programme where available and start the cooking cycle. Keep the lid closed throughout cooking.</div></div>
+<div class="field-row" data-json-path="$.procedure[0].heat_source"><div class="field-name">Heat Source</div><div class="field-value">Rice cooker</div></div>
+<div class="field-row" data-json-path="$.procedure[0].heat_level"><div class="field-name">Heat Level</div><div class="field-value">Brown rice programme</div></div>
+<div class="field-row" data-json-path="$.procedure[0].temperature_c"><div class="field-name">Temperature C</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.procedure[0].duration_min_minutes"><div class="field-name">Duration Min Minutes</div><div class="field-value">30</div></div>
+<div class="field-row" data-json-path="$.procedure[0].duration_max_minutes"><div class="field-name">Duration Max Minutes</div><div class="field-value">45</div></div>
+<div class="field-row" data-json-path="$.procedure[0].endpoint"><div class="field-name">Endpoint</div><div class="field-value">The rice cooker has completed its cycle, the grains are tender with a slight chew, no hard core remains and there is no free water at the base.</div></div>
+<div class="array-block" data-json-path="$.procedure[0].corrective_actions">
+<h3>Corrective Actions</h3>
+<div class="array-items">
+<article class="array-item" data-json-path="$.procedure[0].corrective_actions[0]">
+<div class="item-number">Item 1</div>
+<div class="field-row" data-json-path="$.procedure[0].corrective_actions[0].condition"><div class="field-name">Condition</div><div class="field-value">The rice remains noticeably firm after the rice cooker completes and no free water remains.</div></div>
+<div class="field-row" data-json-path="$.procedure[0].corrective_actions[0].action"><div class="field-name">Action</div><div class="field-value">Add 30 ml hot water, close the lid and continue using the cook or keep-warm function for 5-10 minutes before reassessing.</div></div>
+</article>
+<article class="array-item" data-json-path="$.procedure[0].corrective_actions[1]">
+<div class="item-number">Item 2</div>
+<div class="field-row" data-json-path="$.procedure[0].corrective_actions[1].condition"><div class="field-name">Condition</div><div class="field-value">The grains are cooked but visibly wet.</div></div>
+<div class="field-row" data-json-path="$.procedure[0].corrective_actions[1].action"><div class="field-name">Action</div><div class="field-value">Leave the rice cooker open on keep-warm for several minutes and gently fluff once excess moisture has evaporated.</div></div>
+</article>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[0].critical"><div class="field-name">Critical</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+</article>
+<article class="array-item" data-json-path="$.procedure[1]">
+<div class="item-number">Item 2</div>
+<div class="field-row" data-json-path="$.procedure[1].step_id"><div class="field-name">Step Id</div><div class="field-value">STEP_02</div></div>
+<div class="field-row" data-json-path="$.procedure[1].section"><div class="field-name">Section</div><div class="field-value">Sesame garnish</div></div>
+<div class="field-row" data-json-path="$.procedure[1].title"><div class="field-name">Title</div><div class="field-value">Toast the sesame seeds</div></div>
+<div class="array-block" data-json-path="$.procedure[1].depends_on">
+<h3>Depends On</h3>
+<div class="empty-value">[ ]</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[1].parallel_group"><div class="field-name">Parallel Group</div><div class="field-value">P01</div></div>
+<div class="array-block" data-json-path="$.procedure[1].ingredient_ids">
+<h3>Ingredient Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[1].ingredient_ids[0]">sesame_seeds</div>
+</div>
+</div>
+<div class="array-block" data-json-path="$.procedure[1].equipment_ids">
+<h3>Equipment Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[1].equipment_ids[0]">wok</div>
+<div class="scalar-array-item" data-json-path="$.procedure[1].equipment_ids[1]">wok_burner</div>
+<div class="scalar-array-item" data-json-path="$.procedure[1].equipment_ids[2]">spatula</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[1].instruction"><div class="field-name">Instruction</div><div class="field-value">Place the dry wok over low heat on the wok burner. Add 10 g sesame seeds. Stir continuously so the seeds move across the hot surface rather than remaining stationary.</div></div>
+<div class="field-row" data-json-path="$.procedure[1].heat_source"><div class="field-name">Heat Source</div><div class="field-value">Wok burner</div></div>
+<div class="field-row" data-json-path="$.procedure[1].heat_level"><div class="field-name">Heat Level</div><div class="field-value">Low</div></div>
+<div class="field-row" data-json-path="$.procedure[1].temperature_c"><div class="field-name">Temperature C</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.procedure[1].duration_min_minutes"><div class="field-name">Duration Min Minutes</div><div class="field-value">2</div></div>
+<div class="field-row" data-json-path="$.procedure[1].duration_max_minutes"><div class="field-name">Duration Max Minutes</div><div class="field-value">4</div></div>
+<div class="field-row" data-json-path="$.procedure[1].endpoint"><div class="field-name">Endpoint</div><div class="field-value">The sesame seeds are lightly golden in places and smell distinctly nutty without smoke or blackened seeds.</div></div>
+<div class="array-block" data-json-path="$.procedure[1].corrective_actions">
+<h3>Corrective Actions</h3>
+<div class="array-items">
+<article class="array-item" data-json-path="$.procedure[1].corrective_actions[0]">
+<div class="item-number">Item 1</div>
+<div class="field-row" data-json-path="$.procedure[1].corrective_actions[0].condition"><div class="field-name">Condition</div><div class="field-value">The seeds darken rapidly or begin popping aggressively.</div></div>
+<div class="field-row" data-json-path="$.procedure[1].corrective_actions[0].action"><div class="field-name">Action</div><div class="field-value">Remove the wok from the heat immediately and transfer the seeds to a cool plate or bowl.</div></div>
+</article>
+<article class="array-item" data-json-path="$.procedure[1].corrective_actions[1]">
+<div class="item-number">Item 2</div>
+<div class="field-row" data-json-path="$.procedure[1].corrective_actions[1].condition"><div class="field-name">Condition</div><div class="field-value">No aroma develops after 4 minutes.</div></div>
+<div class="field-row" data-json-path="$.procedure[1].corrective_actions[1].action"><div class="field-name">Action</div><div class="field-value">Increase the heat slightly and continue stirring continuously in 20-second intervals.</div></div>
+</article>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[1].critical"><div class="field-name">Critical</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+</article>
+<article class="array-item" data-json-path="$.procedure[2]">
+<div class="item-number">Item 3</div>
+<div class="field-row" data-json-path="$.procedure[2].step_id"><div class="field-name">Step Id</div><div class="field-value">STEP_03</div></div>
+<div class="field-row" data-json-path="$.procedure[2].section"><div class="field-name">Section</div><div class="field-value">Tofu</div></div>
+<div class="field-row" data-json-path="$.procedure[2].title"><div class="field-name">Title</div><div class="field-value">Coat the tofu</div></div>
+<div class="array-block" data-json-path="$.procedure[2].depends_on">
+<h3>Depends On</h3>
+<div class="empty-value">[ ]</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[2].parallel_group"><div class="field-name">Parallel Group</div><div class="field-value">P01</div></div>
+<div class="array-block" data-json-path="$.procedure[2].ingredient_ids">
+<h3>Ingredient Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[2].ingredient_ids[0]">tofu_extra_firm</div>
+<div class="scalar-array-item" data-json-path="$.procedure[2].ingredient_ids[1]">cornflour</div>
+</div>
+</div>
+<div class="array-block" data-json-path="$.procedure[2].equipment_ids">
+<h3>Equipment Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[2].equipment_ids[0]">mixing_bowl</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[2].instruction"><div class="field-name">Instruction</div><div class="field-value">Place the prepared tofu cubes in the mixing bowl. Add the separately measured 6 g cornflour. Toss gently but thoroughly until all tofu surfaces have a very thin, dry coating and no loose pockets of cornflour remain in the bottom of the bowl.</div></div>
+<div class="field-row" data-json-path="$.procedure[2].heat_source"><div class="field-name">Heat Source</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.procedure[2].heat_level"><div class="field-name">Heat Level</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.procedure[2].temperature_c"><div class="field-name">Temperature C</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.procedure[2].duration_min_minutes"><div class="field-name">Duration Min Minutes</div><div class="field-value">1</div></div>
+<div class="field-row" data-json-path="$.procedure[2].duration_max_minutes"><div class="field-name">Duration Max Minutes</div><div class="field-value">2</div></div>
+<div class="field-row" data-json-path="$.procedure[2].endpoint"><div class="field-name">Endpoint</div><div class="field-value">Each tofu cube has a thin, even powdery coating without thick white clumps.</div></div>
+<div class="array-block" data-json-path="$.procedure[2].corrective_actions">
+<h3>Corrective Actions</h3>
+<div class="array-items">
+<article class="array-item" data-json-path="$.procedure[2].corrective_actions[0]">
+<div class="item-number">Item 1</div>
+<div class="field-row" data-json-path="$.procedure[2].corrective_actions[0].condition"><div class="field-name">Condition</div><div class="field-value">Cornflour accumulates in thick patches.</div></div>
+<div class="field-row" data-json-path="$.procedure[2].corrective_actions[0].action"><div class="field-name">Action</div><div class="field-value">Continue tossing gently and rub excessive powder from affected cubes onto uncoated surfaces.</div></div>
+</article>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[2].critical"><div class="field-name">Critical</div><div class="field-value"><span class="boolean-value">false</span></div></div>
+</article>
+<article class="array-item" data-json-path="$.procedure[3]">
+<div class="item-number">Item 4</div>
+<div class="field-row" data-json-path="$.procedure[3].step_id"><div class="field-name">Step Id</div><div class="field-value">STEP_04</div></div>
+<div class="field-row" data-json-path="$.procedure[3].section"><div class="field-name">Section</div><div class="field-value">Tofu</div></div>
+<div class="field-row" data-json-path="$.procedure[3].title"><div class="field-name">Title</div><div class="field-value">Sear the tofu</div></div>
+<div class="array-block" data-json-path="$.procedure[3].depends_on">
+<h3>Depends On</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[3].depends_on[0]">STEP_02</div>
+<div class="scalar-array-item" data-json-path="$.procedure[3].depends_on[1]">STEP_03</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[3].parallel_group"><div class="field-name">Parallel Group</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="array-block" data-json-path="$.procedure[3].ingredient_ids">
+<h3>Ingredient Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[3].ingredient_ids[0]">tofu_extra_firm</div>
+<div class="scalar-array-item" data-json-path="$.procedure[3].ingredient_ids[1]">rapeseed_oil</div>
+</div>
+</div>
+<div class="array-block" data-json-path="$.procedure[3].equipment_ids">
+<h3>Equipment Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[3].equipment_ids[0]">wok</div>
+<div class="scalar-array-item" data-json-path="$.procedure[3].equipment_ids[1]">wok_burner</div>
+<div class="scalar-array-item" data-json-path="$.procedure[3].equipment_ids[2]">spatula</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[3].instruction"><div class="field-name">Instruction</div><div class="field-value">Wipe any remaining sesame fragments from the wok if necessary. Heat the wok over high heat until a droplet of water evaporates almost immediately on contact. Add 4 g rapeseed oil and rotate the wok to coat the cooking surface. Immediately add the coated tofu in as close to a single layer as practical. Leave undisturbed for approximately 60-90 seconds before turning, then continue turning at intervals so multiple faces brown.</div></div>
+<div class="field-row" data-json-path="$.procedure[3].heat_source"><div class="field-name">Heat Source</div><div class="field-value">Wok burner</div></div>
+<div class="field-row" data-json-path="$.procedure[3].heat_level"><div class="field-name">Heat Level</div><div class="field-value">High</div></div>
+<div class="field-row" data-json-path="$.procedure[3].temperature_c"><div class="field-name">Temperature C</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.procedure[3].duration_min_minutes"><div class="field-name">Duration Min Minutes</div><div class="field-value">6</div></div>
+<div class="field-row" data-json-path="$.procedure[3].duration_max_minutes"><div class="field-name">Duration Max Minutes</div><div class="field-value">9</div></div>
+<div class="field-row" data-json-path="$.procedure[3].endpoint"><div class="field-name">Endpoint</div><div class="field-value">The tofu has crisp golden-brown patches on multiple faces, remains intact and releases cleanly from the wok when moved.</div></div>
+<div class="array-block" data-json-path="$.procedure[3].corrective_actions">
+<h3>Corrective Actions</h3>
+<div class="array-items">
+<article class="array-item" data-json-path="$.procedure[3].corrective_actions[0]">
+<div class="item-number">Item 1</div>
+<div class="field-row" data-json-path="$.procedure[3].corrective_actions[0].condition"><div class="field-name">Condition</div><div class="field-value">The tofu blackens before becoming evenly golden.</div></div>
+<div class="field-row" data-json-path="$.procedure[3].corrective_actions[0].action"><div class="field-name">Action</div><div class="field-value">Reduce the burner to medium-high and turn the affected pieces immediately.</div></div>
+</article>
+<article class="array-item" data-json-path="$.procedure[3].corrective_actions[1]">
+<div class="item-number">Item 2</div>
+<div class="field-row" data-json-path="$.procedure[3].corrective_actions[1].condition"><div class="field-name">Condition</div><div class="field-value">The tofu sticks strongly when first turned.</div></div>
+<div class="field-row" data-json-path="$.procedure[3].corrective_actions[1].action"><div class="field-name">Action</div><div class="field-value">Leave that face undisturbed for an additional 20-30 seconds; properly browned tofu should release more readily.</div></div>
+</article>
+<article class="array-item" data-json-path="$.procedure[3].corrective_actions[2]">
+<div class="item-number">Item 3</div>
+<div class="field-row" data-json-path="$.procedure[3].corrective_actions[2].condition"><div class="field-name">Condition</div><div class="field-value">The wok is crowded and liquid begins pooling.</div></div>
+<div class="field-row" data-json-path="$.procedure[3].corrective_actions[2].action"><div class="field-name">Action</div><div class="field-value">Remove approximately half the tofu and brown in two batches rather than allowing the tofu to steam.</div></div>
+</article>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[3].critical"><div class="field-name">Critical</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+</article>
+<article class="array-item" data-json-path="$.procedure[4]">
+<div class="item-number">Item 5</div>
+<div class="field-row" data-json-path="$.procedure[4].step_id"><div class="field-name">Step Id</div><div class="field-value">STEP_05</div></div>
+<div class="field-row" data-json-path="$.procedure[4].section"><div class="field-name">Section</div><div class="field-value">Tofu</div></div>
+<div class="field-row" data-json-path="$.procedure[4].title"><div class="field-name">Title</div><div class="field-value">Remove and hold the browned tofu</div></div>
+<div class="array-block" data-json-path="$.procedure[4].depends_on">
+<h3>Depends On</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[4].depends_on[0]">STEP_04</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[4].parallel_group"><div class="field-name">Parallel Group</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="array-block" data-json-path="$.procedure[4].ingredient_ids">
+<h3>Ingredient Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[4].ingredient_ids[0]">tofu_extra_firm</div>
+</div>
+</div>
+<div class="array-block" data-json-path="$.procedure[4].equipment_ids">
+<h3>Equipment Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[4].equipment_ids[0]">wok</div>
+<div class="scalar-array-item" data-json-path="$.procedure[4].equipment_ids[1]">spatula</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[4].instruction"><div class="field-name">Instruction</div><div class="field-value">Transfer the browned tofu from the wok to a clean plate or the cleaned mixing bowl. Leave uncovered while the vegetables cook so surface steam can escape and the crust remains as dry as practical.</div></div>
+<div class="field-row" data-json-path="$.procedure[4].heat_source"><div class="field-name">Heat Source</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.procedure[4].heat_level"><div class="field-name">Heat Level</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.procedure[4].temperature_c"><div class="field-name">Temperature C</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.procedure[4].duration_min_minutes"><div class="field-name">Duration Min Minutes</div><div class="field-value">1</div></div>
+<div class="field-row" data-json-path="$.procedure[4].duration_max_minutes"><div class="field-name">Duration Max Minutes</div><div class="field-value">2</div></div>
+<div class="field-row" data-json-path="$.procedure[4].endpoint"><div class="field-name">Endpoint</div><div class="field-value">The wok is empty and ready for the vegetable stage, and the browned tofu is held without being covered.</div></div>
+<div class="array-block" data-json-path="$.procedure[4].corrective_actions">
+<h3>Corrective Actions</h3>
+<div class="array-items">
+<article class="array-item" data-json-path="$.procedure[4].corrective_actions[0]">
+<div class="item-number">Item 1</div>
+<div class="field-row" data-json-path="$.procedure[4].corrective_actions[0].condition"><div class="field-name">Condition</div><div class="field-value">A significant layer of burnt cornflour remains in the wok.</div></div>
+<div class="field-row" data-json-path="$.procedure[4].corrective_actions[0].action"><div class="field-name">Action</div><div class="field-value">Allow the wok to cool briefly, wipe out the burnt residue carefully, then reheat before proceeding.</div></div>
+</article>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[4].critical"><div class="field-name">Critical</div><div class="field-value"><span class="boolean-value">false</span></div></div>
+</article>
+<article class="array-item" data-json-path="$.procedure[5]">
+<div class="item-number">Item 6</div>
+<div class="field-row" data-json-path="$.procedure[5].step_id"><div class="field-name">Step Id</div><div class="field-value">STEP_06</div></div>
+<div class="field-row" data-json-path="$.procedure[5].section"><div class="field-name">Section</div><div class="field-value">Vegetables</div></div>
+<div class="field-row" data-json-path="$.procedure[5].title"><div class="field-name">Title</div><div class="field-value">Stir-fry the broccoli</div></div>
+<div class="array-block" data-json-path="$.procedure[5].depends_on">
+<h3>Depends On</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[5].depends_on[0]">STEP_05</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[5].parallel_group"><div class="field-name">Parallel Group</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="array-block" data-json-path="$.procedure[5].ingredient_ids">
+<h3>Ingredient Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[5].ingredient_ids[0]">broccoli</div>
+</div>
+</div>
+<div class="array-block" data-json-path="$.procedure[5].equipment_ids">
+<h3>Equipment Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[5].equipment_ids[0]">wok</div>
+<div class="scalar-array-item" data-json-path="$.procedure[5].equipment_ids[1]">wok_burner</div>
+<div class="scalar-array-item" data-json-path="$.procedure[5].equipment_ids[2]">spatula</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[5].instruction"><div class="field-name">Instruction</div><div class="field-value">Return the empty wok to high heat. Add the prepared approximately 300 g broccoli. Stir-fry continuously for approximately 2 minutes, allowing the cut surfaces to contact the hot wok between tosses. Add 30 ml of the measured sauce water only if the broccoli begins scorching before softening, then allow the added water to evaporate completely.</div></div>
+<div class="field-row" data-json-path="$.procedure[5].heat_source"><div class="field-name">Heat Source</div><div class="field-value">Wok burner</div></div>
+<div class="field-row" data-json-path="$.procedure[5].heat_level"><div class="field-name">Heat Level</div><div class="field-value">High</div></div>
+<div class="field-row" data-json-path="$.procedure[5].temperature_c"><div class="field-name">Temperature C</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.procedure[5].duration_min_minutes"><div class="field-name">Duration Min Minutes</div><div class="field-value">3</div></div>
+<div class="field-row" data-json-path="$.procedure[5].duration_max_minutes"><div class="field-name">Duration Max Minutes</div><div class="field-value">5</div></div>
+<div class="field-row" data-json-path="$.procedure[5].endpoint"><div class="field-name">Endpoint</div><div class="field-value">The broccoli is vivid green, tender enough to bite cleanly but still crisp, with scattered browned or blistered surfaces and no standing water.</div></div>
+<div class="array-block" data-json-path="$.procedure[5].corrective_actions">
+<h3>Corrective Actions</h3>
+<div class="array-items">
+<article class="array-item" data-json-path="$.procedure[5].corrective_actions[0]">
+<div class="item-number">Item 1</div>
+<div class="field-row" data-json-path="$.procedure[5].corrective_actions[0].condition"><div class="field-name">Condition</div><div class="field-value">The broccoli begins blackening while still raw inside.</div></div>
+<div class="field-row" data-json-path="$.procedure[5].corrective_actions[0].action"><div class="field-name">Action</div><div class="field-value">Reduce heat to medium-high, add up to 30 ml water as specified and cover or toss rapidly until the thickest pieces begin to soften.</div></div>
+</article>
+<article class="array-item" data-json-path="$.procedure[5].corrective_actions[1]">
+<div class="item-number">Item 2</div>
+<div class="field-row" data-json-path="$.procedure[5].corrective_actions[1].condition"><div class="field-name">Condition</div><div class="field-value">The broccoli becomes soft without developing browning.</div></div>
+<div class="field-row" data-json-path="$.procedure[5].corrective_actions[1].action"><div class="field-name">Action</div><div class="field-value">Increase the heat and cook uncovered until surface moisture evaporates; stop once light browning develops.</div></div>
+</article>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[5].critical"><div class="field-name">Critical</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+</article>
+<article class="array-item" data-json-path="$.procedure[6]">
+<div class="item-number">Item 7</div>
+<div class="field-row" data-json-path="$.procedure[6].step_id"><div class="field-name">Step Id</div><div class="field-value">STEP_07</div></div>
+<div class="field-row" data-json-path="$.procedure[6].section"><div class="field-name">Section</div><div class="field-value">Vegetables</div></div>
+<div class="field-row" data-json-path="$.procedure[6].title"><div class="field-name">Title</div><div class="field-value">Heat the edamame</div></div>
+<div class="array-block" data-json-path="$.procedure[6].depends_on">
+<h3>Depends On</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[6].depends_on[0]">STEP_06</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[6].parallel_group"><div class="field-name">Parallel Group</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="array-block" data-json-path="$.procedure[6].ingredient_ids">
+<h3>Ingredient Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[6].ingredient_ids[0]">edamame_beans_frozen</div>
+</div>
+</div>
+<div class="array-block" data-json-path="$.procedure[6].equipment_ids">
+<h3>Equipment Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[6].equipment_ids[0]">wok</div>
+<div class="scalar-array-item" data-json-path="$.procedure[6].equipment_ids[1]">wok_burner</div>
+<div class="scalar-array-item" data-json-path="$.procedure[6].equipment_ids[2]">spatula</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[6].instruction"><div class="field-name">Instruction</div><div class="field-value">Add the 140 g frozen shelled edamame directly to the broccoli. Continue stir-frying over medium-high heat, tossing frequently as the frozen beans thaw and release moisture.</div></div>
+<div class="field-row" data-json-path="$.procedure[6].heat_source"><div class="field-name">Heat Source</div><div class="field-value">Wok burner</div></div>
+<div class="field-row" data-json-path="$.procedure[6].heat_level"><div class="field-name">Heat Level</div><div class="field-value">Medium-high</div></div>
+<div class="field-row" data-json-path="$.procedure[6].temperature_c"><div class="field-name">Temperature C</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.procedure[6].duration_min_minutes"><div class="field-name">Duration Min Minutes</div><div class="field-value">2</div></div>
+<div class="field-row" data-json-path="$.procedure[6].duration_max_minutes"><div class="field-name">Duration Max Minutes</div><div class="field-value">4</div></div>
+<div class="field-row" data-json-path="$.procedure[6].endpoint"><div class="field-name">Endpoint</div><div class="field-value">The edamame is fully hot and bright green, the broccoli remains crisp-tender and no visible water remains in the wok.</div></div>
+<div class="array-block" data-json-path="$.procedure[6].corrective_actions">
+<h3>Corrective Actions</h3>
+<div class="array-items">
+<article class="array-item" data-json-path="$.procedure[6].corrective_actions[0]">
+<div class="item-number">Item 1</div>
+<div class="field-row" data-json-path="$.procedure[6].corrective_actions[0].condition"><div class="field-name">Condition</div><div class="field-value">Water pools in the wok as the edamame thaws.</div></div>
+<div class="field-row" data-json-path="$.procedure[6].corrective_actions[0].action"><div class="field-name">Action</div><div class="field-value">Increase the burner to high and toss continuously until the water has completely evaporated before proceeding.</div></div>
+</article>
+<article class="array-item" data-json-path="$.procedure[6].corrective_actions[1]">
+<div class="item-number">Item 2</div>
+<div class="field-row" data-json-path="$.procedure[6].corrective_actions[1].condition"><div class="field-name">Condition</div><div class="field-value">The broccoli begins becoming overly soft before the edamame is hot.</div></div>
+<div class="field-row" data-json-path="$.procedure[6].corrective_actions[1].action"><div class="field-name">Action</div><div class="field-value">Temporarily remove the broccoli and continue heating the edamame alone until fully hot.</div></div>
+</article>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[6].critical"><div class="field-name">Critical</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+</article>
+<article class="array-item" data-json-path="$.procedure[7]">
+<div class="item-number">Item 8</div>
+<div class="field-row" data-json-path="$.procedure[7].step_id"><div class="field-name">Step Id</div><div class="field-value">STEP_08</div></div>
+<div class="field-row" data-json-path="$.procedure[7].section"><div class="field-name">Section</div><div class="field-value">Miso-ginger sauce</div></div>
+<div class="field-row" data-json-path="$.procedure[7].title"><div class="field-name">Title</div><div class="field-value">Recombine and glaze the stir-fry</div></div>
+<div class="array-block" data-json-path="$.procedure[7].depends_on">
+<h3>Depends On</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[7].depends_on[0]">STEP_05</div>
+<div class="scalar-array-item" data-json-path="$.procedure[7].depends_on[1]">STEP_07</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[7].parallel_group"><div class="field-name">Parallel Group</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="array-block" data-json-path="$.procedure[7].ingredient_ids">
+<h3>Ingredient Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[7].ingredient_ids[0]">tofu_extra_firm</div>
+<div class="scalar-array-item" data-json-path="$.procedure[7].ingredient_ids[1]">white_miso_paste</div>
+<div class="scalar-array-item" data-json-path="$.procedure[7].ingredient_ids[2]">soy_sauce_reduced_salt</div>
+<div class="scalar-array-item" data-json-path="$.procedure[7].ingredient_ids[3]">rice_vinegar</div>
+<div class="scalar-array-item" data-json-path="$.procedure[7].ingredient_ids[4]">runny_honey</div>
+<div class="scalar-array-item" data-json-path="$.procedure[7].ingredient_ids[5]">water</div>
+<div class="scalar-array-item" data-json-path="$.procedure[7].ingredient_ids[6]">cornflour</div>
+<div class="scalar-array-item" data-json-path="$.procedure[7].ingredient_ids[7]">fresh_ginger</div>
+<div class="scalar-array-item" data-json-path="$.procedure[7].ingredient_ids[8]">garlic</div>
+<div class="scalar-array-item" data-json-path="$.procedure[7].ingredient_ids[9]">sesame_oil_toasted</div>
+</div>
+</div>
+<div class="array-block" data-json-path="$.procedure[7].equipment_ids">
+<h3>Equipment Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[7].equipment_ids[0]">wok</div>
+<div class="scalar-array-item" data-json-path="$.procedure[7].equipment_ids[1]">wok_burner</div>
+<div class="scalar-array-item" data-json-path="$.procedure[7].equipment_ids[2]">spatula</div>
+<div class="scalar-array-item" data-json-path="$.procedure[7].equipment_ids[3]">small_bowl</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[7].instruction"><div class="field-name">Instruction</div><div class="field-value">Stir the prepared sauce thoroughly immediately before use because the cornflour may have settled. Return the browned tofu to the wok. Reduce the heat to medium, pour the full sauce mixture around the ingredients and toss continuously. Allow the sauce to reach a visible simmer but do not leave it stationary against the hot wok surface.</div></div>
+<div class="field-row" data-json-path="$.procedure[7].heat_source"><div class="field-name">Heat Source</div><div class="field-value">Wok burner</div></div>
+<div class="field-row" data-json-path="$.procedure[7].heat_level"><div class="field-name">Heat Level</div><div class="field-value">Medium</div></div>
+<div class="field-row" data-json-path="$.procedure[7].temperature_c"><div class="field-name">Temperature C</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.procedure[7].duration_min_minutes"><div class="field-name">Duration Min Minutes</div><div class="field-value">1</div></div>
+<div class="field-row" data-json-path="$.procedure[7].duration_max_minutes"><div class="field-name">Duration Max Minutes</div><div class="field-value">3</div></div>
+<div class="field-row" data-json-path="$.procedure[7].endpoint"><div class="field-name">Endpoint</div><div class="field-value">The sauce has thickened to a glossy consistency that clings in a thin coating to the tofu, broccoli and edamame, with no watery pool remaining at the bottom of the wok.</div></div>
+<div class="array-block" data-json-path="$.procedure[7].corrective_actions">
+<h3>Corrective Actions</h3>
+<div class="array-items">
+<article class="array-item" data-json-path="$.procedure[7].corrective_actions[0]">
+<div class="item-number">Item 1</div>
+<div class="field-row" data-json-path="$.procedure[7].corrective_actions[0].condition"><div class="field-name">Condition</div><div class="field-value">The sauce thickens before all ingredients are coated.</div></div>
+<div class="field-row" data-json-path="$.procedure[7].corrective_actions[0].action"><div class="field-name">Action</div><div class="field-value">Add 10 ml water and toss immediately to loosen the glaze.</div></div>
+</article>
+<article class="array-item" data-json-path="$.procedure[7].corrective_actions[1]">
+<div class="item-number">Item 2</div>
+<div class="field-row" data-json-path="$.procedure[7].corrective_actions[1].condition"><div class="field-name">Condition</div><div class="field-value">The sauce remains watery after 3 minutes.</div></div>
+<div class="field-row" data-json-path="$.procedure[7].corrective_actions[1].action"><div class="field-name">Action</div><div class="field-value">Increase the heat slightly and continue tossing until visible simmering reduces the sauce to the stated glossy coating.</div></div>
+</article>
+<article class="array-item" data-json-path="$.procedure[7].corrective_actions[2]">
+<div class="item-number">Item 3</div>
+<div class="field-row" data-json-path="$.procedure[7].corrective_actions[2].condition"><div class="field-name">Condition</div><div class="field-value">The sauce begins catching or scorching on the wok surface.</div></div>
+<div class="field-row" data-json-path="$.procedure[7].corrective_actions[2].action"><div class="field-name">Action</div><div class="field-value">Remove the wok from the heat immediately, add 10 ml water and toss continuously before returning to low heat only if further thickening is required.</div></div>
+</article>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[7].critical"><div class="field-name">Critical</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+</article>
+<article class="array-item" data-json-path="$.procedure[8]">
+<div class="item-number">Item 9</div>
+<div class="field-row" data-json-path="$.procedure[8].step_id"><div class="field-name">Step Id</div><div class="field-value">STEP_09</div></div>
+<div class="field-row" data-json-path="$.procedure[8].section"><div class="field-name">Section</div><div class="field-value">Rice</div></div>
+<div class="field-row" data-json-path="$.procedure[8].title"><div class="field-name">Title</div><div class="field-value">Fluff the brown basmati rice</div></div>
+<div class="array-block" data-json-path="$.procedure[8].depends_on">
+<h3>Depends On</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[8].depends_on[0]">STEP_01</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[8].parallel_group"><div class="field-name">Parallel Group</div><div class="field-value">P02</div></div>
+<div class="array-block" data-json-path="$.procedure[8].ingredient_ids">
+<h3>Ingredient Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[8].ingredient_ids[0]">brown_basmati_rice_dry</div>
+</div>
+</div>
+<div class="array-block" data-json-path="$.procedure[8].equipment_ids">
+<h3>Equipment Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[8].equipment_ids[0]">rice_cooker</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[8].instruction"><div class="field-name">Instruction</div><div class="field-value">When the brown basmati rice passes its cooking endpoint, open the rice cooker and gently fluff the grains from the bottom upward. Leave the lid open for approximately 2 minutes so excess surface steam escapes.</div></div>
+<div class="field-row" data-json-path="$.procedure[8].heat_source"><div class="field-name">Heat Source</div><div class="field-value">Rice cooker</div></div>
+<div class="field-row" data-json-path="$.procedure[8].heat_level"><div class="field-name">Heat Level</div><div class="field-value">Keep warm or off</div></div>
+<div class="field-row" data-json-path="$.procedure[8].temperature_c"><div class="field-name">Temperature C</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.procedure[8].duration_min_minutes"><div class="field-name">Duration Min Minutes</div><div class="field-value">2</div></div>
+<div class="field-row" data-json-path="$.procedure[8].duration_max_minutes"><div class="field-name">Duration Max Minutes</div><div class="field-value">3</div></div>
+<div class="field-row" data-json-path="$.procedure[8].endpoint"><div class="field-name">Endpoint</div><div class="field-value">The rice grains are separate, tender and not visibly wet or compacted.</div></div>
+<div class="array-block" data-json-path="$.procedure[8].corrective_actions">
+<h3>Corrective Actions</h3>
+<div class="array-items">
+<article class="array-item" data-json-path="$.procedure[8].corrective_actions[0]">
+<div class="item-number">Item 1</div>
+<div class="field-row" data-json-path="$.procedure[8].corrective_actions[0].condition"><div class="field-name">Condition</div><div class="field-value">The rice is compacted.</div></div>
+<div class="field-row" data-json-path="$.procedure[8].corrective_actions[0].action"><div class="field-name">Action</div><div class="field-value">Lift and separate the grains gently rather than stirring vigorously, which would increase breakage.</div></div>
+</article>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[8].critical"><div class="field-name">Critical</div><div class="field-value"><span class="boolean-value">false</span></div></div>
+</article>
+<article class="array-item" data-json-path="$.procedure[9]">
+<div class="item-number">Item 10</div>
+<div class="field-row" data-json-path="$.procedure[9].step_id"><div class="field-name">Step Id</div><div class="field-value">STEP_10</div></div>
+<div class="field-row" data-json-path="$.procedure[9].section"><div class="field-name">Section</div><div class="field-value">Finishing</div></div>
+<div class="field-row" data-json-path="$.procedure[9].title"><div class="field-name">Title</div><div class="field-value">Finish with toasted sesame</div></div>
+<div class="array-block" data-json-path="$.procedure[9].depends_on">
+<h3>Depends On</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[9].depends_on[0]">STEP_02</div>
+<div class="scalar-array-item" data-json-path="$.procedure[9].depends_on[1]">STEP_08</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[9].parallel_group"><div class="field-name">Parallel Group</div><div class="field-value">P02</div></div>
+<div class="array-block" data-json-path="$.procedure[9].ingredient_ids">
+<h3>Ingredient Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[9].ingredient_ids[0]">sesame_seeds</div>
+</div>
+</div>
+<div class="array-block" data-json-path="$.procedure[9].equipment_ids">
+<h3>Equipment Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[9].equipment_ids[0]">wok</div>
+<div class="scalar-array-item" data-json-path="$.procedure[9].equipment_ids[1]">spatula</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[9].instruction"><div class="field-name">Instruction</div><div class="field-value">Remove the wok from direct heat. Add approximately two-thirds of the toasted sesame seeds and fold through the glazed stir-fry. Reserve the remaining one-third for final garnish.</div></div>
+<div class="field-row" data-json-path="$.procedure[9].heat_source"><div class="field-name">Heat Source</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.procedure[9].heat_level"><div class="field-name">Heat Level</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.procedure[9].temperature_c"><div class="field-name">Temperature C</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.procedure[9].duration_min_minutes"><div class="field-name">Duration Min Minutes</div><div class="field-value">0.5</div></div>
+<div class="field-row" data-json-path="$.procedure[9].duration_max_minutes"><div class="field-name">Duration Max Minutes</div><div class="field-value">1</div></div>
+<div class="field-row" data-json-path="$.procedure[9].endpoint"><div class="field-name">Endpoint</div><div class="field-value">Sesame seeds are evenly distributed through the stir-fry while a visible portion remains reserved for garnish.</div></div>
+<div class="array-block" data-json-path="$.procedure[9].corrective_actions">
+<h3>Corrective Actions</h3>
+<div class="array-items">
+<article class="array-item" data-json-path="$.procedure[9].corrective_actions[0]">
+<div class="item-number">Item 1</div>
+<div class="field-row" data-json-path="$.procedure[9].corrective_actions[0].condition"><div class="field-name">Condition</div><div class="field-value">The sauce continues thickening excessively from residual wok heat.</div></div>
+<div class="field-row" data-json-path="$.procedure[9].corrective_actions[0].action"><div class="field-name">Action</div><div class="field-value">Transfer the stir-fry immediately to serving bowls rather than leaving it in the hot wok.</div></div>
+</article>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[9].critical"><div class="field-name">Critical</div><div class="field-value"><span class="boolean-value">false</span></div></div>
+</article>
+<article class="array-item" data-json-path="$.procedure[10]">
+<div class="item-number">Item 11</div>
+<div class="field-row" data-json-path="$.procedure[10].step_id"><div class="field-name">Step Id</div><div class="field-value">STEP_11</div></div>
+<div class="field-row" data-json-path="$.procedure[10].section"><div class="field-name">Section</div><div class="field-value">Portioning</div></div>
+<div class="field-row" data-json-path="$.procedure[10].title"><div class="field-name">Title</div><div class="field-value">Divide into two complete servings</div></div>
+<div class="array-block" data-json-path="$.procedure[10].depends_on">
+<h3>Depends On</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[10].depends_on[0]">STEP_09</div>
+<div class="scalar-array-item" data-json-path="$.procedure[10].depends_on[1]">STEP_10</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[10].parallel_group"><div class="field-name">Parallel Group</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="array-block" data-json-path="$.procedure[10].ingredient_ids">
+<h3>Ingredient Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[10].ingredient_ids[0]">brown_basmati_rice_dry</div>
+<div class="scalar-array-item" data-json-path="$.procedure[10].ingredient_ids[1]">tofu_extra_firm</div>
+<div class="scalar-array-item" data-json-path="$.procedure[10].ingredient_ids[2]">broccoli</div>
+<div class="scalar-array-item" data-json-path="$.procedure[10].ingredient_ids[3]">edamame_beans_frozen</div>
+<div class="scalar-array-item" data-json-path="$.procedure[10].ingredient_ids[4]">sesame_seeds</div>
+</div>
+</div>
+<div class="array-block" data-json-path="$.procedure[10].equipment_ids">
+<h3>Equipment Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[10].equipment_ids[0]">kitchen_scales</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[10].instruction"><div class="field-name">Instruction</div><div class="field-value">Divide the cooked brown basmati rice equally between 2 serving bowls. Divide the complete tofu, broccoli and edamame stir-fry equally over or alongside the rice. Scatter the reserved toasted sesame seeds equally over both servings.</div></div>
+<div class="field-row" data-json-path="$.procedure[10].heat_source"><div class="field-name">Heat Source</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.procedure[10].heat_level"><div class="field-name">Heat Level</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.procedure[10].temperature_c"><div class="field-name">Temperature C</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.procedure[10].duration_min_minutes"><div class="field-name">Duration Min Minutes</div><div class="field-value">2</div></div>
+<div class="field-row" data-json-path="$.procedure[10].duration_max_minutes"><div class="field-name">Duration Max Minutes</div><div class="field-value">3</div></div>
+<div class="field-row" data-json-path="$.procedure[10].endpoint"><div class="field-name">Endpoint</div><div class="field-value">Both bowls contain approximately equal quantities of rice, tofu, broccoli, edamame, sauce and sesame garnish.</div></div>
+<div class="array-block" data-json-path="$.procedure[10].corrective_actions">
+<h3>Corrective Actions</h3>
+<div class="array-items">
+<article class="array-item" data-json-path="$.procedure[10].corrective_actions[0]">
+<div class="item-number">Item 1</div>
+<div class="field-row" data-json-path="$.procedure[10].corrective_actions[0].condition"><div class="field-name">Condition</div><div class="field-value">One serving is visibly heavier than the other.</div></div>
+<div class="field-row" data-json-path="$.procedure[10].corrective_actions[0].action"><div class="field-name">Action</div><div class="field-value">Use the kitchen scales to transfer components between bowls until the portions are approximately equal.</div></div>
+</article>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[10].critical"><div class="field-name">Critical</div><div class="field-value"><span class="boolean-value">false</span></div></div>
+</article>
+</div>
+</div></section>
+<section class="top-section" data-json-path="$.plating"><h2>Plating</h2><div class="array-block" data-json-path="$.plating">
+<div class="array-items">
+<article class="array-item" data-json-path="$.plating[0]">
+<div class="item-number">Item 1</div>
+<div class="field-row" data-json-path="$.plating[0].step_id"><div class="field-name">Step Id</div><div class="field-value">PLATE_01</div></div>
+<div class="field-row" data-json-path="$.plating[0].instruction"><div class="field-name">Instruction</div><div class="field-value">Serve immediately while the tofu edges remain crisp and the broccoli retains bite. Place the brown basmati rice as the base or to one side of each bowl, distribute the glossy miso-ginger tofu, broccoli and edamame over the rice, and finish with the reserved toasted sesame seeds.</div></div>
+</article>
+</div>
+</div></section>
+<section class="top-section" data-json-path="$.storage"><h2>Storage</h2><div class="object-content" data-json-path="$.storage">
+<div class="field-row" data-json-path="$.storage.refrigerator_days"><div class="field-name">Refrigerator Days</div><div class="field-value">2</div></div>
+<div class="field-row" data-json-path="$.storage.freezer_months"><div class="field-name">Freezer Months</div><div class="field-value">1</div></div>
+<div class="field-row" data-json-path="$.storage.storage_instructions"><div class="field-name">Storage Instructions</div><div class="field-value">Cool leftovers promptly and refrigerate in sealed containers at 5°C or below for up to 2 days. For freezing, cool completely and freeze individual portions for up to 1 month; broccoli will soften somewhat after thawing. Reheat only once and ensure the tofu, rice, vegetables and sauce are steaming hot throughout before serving.</div></div>
+<div class="array-block" data-json-path="$.storage.reheating_methods">
+<h3>Reheating Methods</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.storage.reheating_methods[0]">Hob: place one refrigerated serving in a covered frying pan or saucepan with 15-30 ml water. Heat over medium-low heat, stirring regularly, until steaming hot throughout and the sauce has returned to a glossy consistency.</div>
+<div class="scalar-array-item" data-json-path="$.storage.reheating_methods[1]">Air fryer plus hob: reheat tofu and vegetables in the air fryer at 170°C until thoroughly hot while reheating the rice separately on the hob with 15-30 ml water. This method better restores some tofu surface texture.</div>
+<div class="scalar-array-item" data-json-path="$.storage.reheating_methods[2]">From frozen: thaw overnight in the refrigerator before reheating using one of the stated methods.</div>
+</div>
+</div>
+</div></section>
+<section class="top-section" data-json-path="$.shopping"><h2>Shopping</h2><div class="object-content" data-json-path="$.shopping">
+<div class="array-block" data-json-path="$.shopping.sainsburys">
+<h3>Sainsburys</h3>
+<div class="empty-value">[ ]</div>
+</div>
+<div class="array-block" data-json-path="$.shopping.marks_and_spencer">
+<h3>Marks And Spencer</h3>
+<div class="empty-value">[ ]</div>
+</div>
+<div class="array-block" data-json-path="$.shopping.either_retailer">
+<h3>Either Retailer</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[0]">Extra-firm tofu: buy enough to provide at least 320 g</div>
+<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[1]">Frozen shelled edamame beans: buy 1 standard bag containing at least 140 g</div>
+<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[2]">Brown basmati rice: buy 1 standard packet</div>
+<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[3]">Large broccoli head: buy 1, approximately 350-400 g as bought</div>
+<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[4]">White or light miso paste: buy 1 tub or jar</div>
+<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[5]">Reduced-salt soy sauce: buy 1 bottle</div>
+<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[6]">Unseasoned rice vinegar: buy 1 bottle</div>
+<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[7]">Fresh root ginger: buy 1 piece containing at least 20 g usable flesh</div>
+<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[8]">Garlic: buy 1 bulb</div>
+<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[9]">Sesame seeds: buy 1 standard packet</div>
+<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[10]">Toasted sesame oil: buy 1 small bottle</div>
+<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[11]">Rapeseed oil: buy 1 bottle if not already stocked</div>
+<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[12]">Cornflour: buy 1 standard packet</div>
+<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[13]">Runny honey: buy 1 jar or squeeze bottle</div>
+</div>
+</div>
+</div></section>
+<section class="top-section" data-json-path="$.quality_checks"><h2>Quality Checks</h2><div class="object-content" data-json-path="$.quality_checks">
+<div class="field-row" data-json-path="$.quality_checks.protein_requirement_met"><div class="field-name">Protein Requirement Met</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.quality_checks.protein_g_per_serving"><div class="field-name">Protein G Per Serving</div><div class="field-value">39</div></div>
+<div class="array-block" data-json-path="$.quality_checks.restaurant_quality_features">
+<h3>Restaurant Quality Features</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.quality_checks.restaurant_quality_features[0]">Extra-firm tofu is thoroughly dried, lightly coated with cornflour and browned before sauce is introduced, producing crisp edges rather than soft steamed surfaces.</div>
+<div class="scalar-array-item" data-json-path="$.quality_checks.restaurant_quality_features[1]">The high-output wok burner allows broccoli to blister while remaining crisp-tender instead of slowly stewing.</div>
+<div class="scalar-array-item" data-json-path="$.quality_checks.restaurant_quality_features[2]">Edamame is introduced late enough to retain colour and texture while adding substantial protein.</div>
+<div class="scalar-array-item" data-json-path="$.quality_checks.restaurant_quality_features[3]">Miso, reduced-salt soy sauce and garlic provide layered savoury and umami depth without requiring excessive added fat.</div>
+<div class="scalar-array-item" data-json-path="$.quality_checks.restaurant_quality_features[4]">Fresh ginger is used generously so its aromatic heat remains identifiable after cooking.</div>
+<div class="scalar-array-item" data-json-path="$.quality_checks.restaurant_quality_features[5]">Rice vinegar provides sufficient acidity to balance the fermented miso and sesame richness.</div>
+<div class="scalar-array-item" data-json-path="$.quality_checks.restaurant_quality_features[6]">A restrained amount of honey rounds the sauce without turning the dish noticeably sweet.</div>
+<div class="scalar-array-item" data-json-path="$.quality_checks.restaurant_quality_features[7]">Toasted sesame oil is incorporated in the sauce rather than used as the primary frying oil, preserving its aroma and avoiding unnecessary high-heat degradation.</div>
+<div class="scalar-array-item" data-json-path="$.quality_checks.restaurant_quality_features[8]">Sesame seeds are toasted separately and added partly through the dish and partly as a finishing garnish for sustained nutty aroma and textural contrast.</div>
+</div>
+</div>
+<div class="array-block" data-json-path="$.quality_checks.nutrition_notes">
+<h3>Nutrition Notes</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.quality_checks.nutrition_notes[0]">Estimated nutrition represents one complete dinner serving including brown basmati rice, tofu, edamame, broccoli, cornflour, oils, sauce and sesame garnish.</div>
+<div class="scalar-array-item" data-json-path="$.quality_checks.nutrition_notes[1]">The approximate 39 g protein per serving comes predominantly from tofu and edamame, with additional protein from broccoli, rice, miso and sesame.</div>
+<div class="scalar-array-item" data-json-path="$.quality_checks.nutrition_notes[2]">The recipe is designed around the approximately 600 kcal dinner target; exact energy will vary with the nutritional composition of the selected tofu and supermarket condiments.</div>
+<div class="scalar-array-item" data-json-path="$.quality_checks.nutrition_notes[3]">Brown basmati rice, broccoli and edamame provide substantial fibre and improve satiety relative to a refined-rice stir-fry.</div>
+<div class="scalar-array-item" data-json-path="$.quality_checks.nutrition_notes[4]">Added cooking fat is deliberately restrained while sufficient oil is retained for tofu browning and characteristic sesame flavour.</div>
+<div class="scalar-array-item" data-json-path="$.quality_checks.nutrition_notes[5]">Miso and soy sauce make sodium higher than in an unseasoned meal, so reduced-salt soy sauce is used and no additional salt is required.</div>
+</div>
+</div>
+<div class="array-block" data-json-path="$.quality_checks.critical_success_factors">
+<h3>Critical Success Factors</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.quality_checks.critical_success_factors[0]">Dry the tofu thoroughly before applying cornflour; excess surface water will produce a pasty coating and inhibit browning.</div>
+<div class="scalar-array-item" data-json-path="$.quality_checks.critical_success_factors[1]">Do not add the miso-ginger sauce until the tofu, broccoli and edamame have already reached their respective browning and cooking endpoints.</div>
+<div class="scalar-array-item" data-json-path="$.quality_checks.critical_success_factors[2]">Ensure any water released from frozen edamame has evaporated before adding the sauce, otherwise the glaze will be diluted.</div>
+<div class="scalar-array-item" data-json-path="$.quality_checks.critical_success_factors[3]">Stir the sauce immediately before pouring because cornflour settles rapidly.</div>
+<div class="scalar-array-item" data-json-path="$.quality_checks.critical_success_factors[4]">Once the sauce is added, toss continuously and remove the wok from heat as soon as the sauce forms a glossy coating; prolonged cooking can scorch miso and soften the broccoli.</div>
+<div class="scalar-array-item" data-json-path="$.quality_checks.critical_success_factors[5]">Toast sesame seeds separately under controlled low heat because they move quickly from aromatic to burnt.</div>
+<div class="scalar-array-item" data-json-path="$.quality_checks.critical_success_factors[6]">Do not proceed to final plating until the brown basmati rice is fully tender and free from standing water.</div>
+</div>
+</div>
+</div></section>
+
+<section class="integrity">
+
+    <strong>Source integrity</strong>
+
+    <div>
+        Source JSON SHA-256:
+        <code>60995b34c306d5d36831cd12b3b5e5feb24e4c2b71e2fc160c4085c5c837c160</code>
+    </div>
+
+    <div>
+        JSON paths checked:
+        <code>725</code>
+    </div>
+
+    <div>
+        Missing JSON paths:
+        <code>0</code>
+    </div>
+
+</section>
+
+<details>
+
+<summary>
+Original source JSON
+</summary>
+
+<pre>{
+  &quot;schema_version&quot;: &quot;1.0&quot;,
+  &quot;recipe&quot;: {
+    &quot;id&quot;: &quot;miso_ginger_tofu_broccoli_brown_basmati_stir_fry_sesame_edamame&quot;,
+    &quot;title&quot;: &quot;Miso-Ginger Tofu, Broccoli &amp; Brown Basmati Stir-Fry with Sesame and Edamame&quot;,
+    &quot;description&quot;: &quot;A high-protein dinner of crisp-edged tofu, broccoli and edamame tossed through a glossy miso-ginger sauce and served with nutty brown basmati rice. High wok heat develops browning before the sauce is added, while rice vinegar, ginger and toasted sesame keep the finished dish savoury, aromatic and balanced rather than heavy.&quot;,
+    &quot;servings&quot;: 2,
+    &quot;difficulty&quot;: &quot;Moderate&quot;,
+    &quot;total_time_minutes&quot;: 50,
+    &quot;active_time_minutes&quot;: 25,
+    &quot;passive_time_minutes&quot;: 25,
+    &quot;cuisine&quot;: [
+      &quot;Japanese-inspired&quot;,
+      &quot;East Asian-inspired&quot;,
+      &quot;Contemporary&quot;
+    ],
+    &quot;meal_types&quot;: [
+      &quot;Dinner&quot;
+    ],
+    &quot;dietary_tags&quot;: [
+      &quot;Vegetarian&quot;,
+      &quot;Vegan&quot;,
+      &quot;High protein&quot;,
+      &quot;High fibre&quot;
+    ],
+    &quot;allergens&quot;: [
+      &quot;Soy&quot;,
+      &quot;Sesame&quot;
+    ]
+  },
+  &quot;nutrition_per_serving&quot;: {
+    &quot;energy_kcal&quot;: 595,
+    &quot;protein_g&quot;: 39,
+    &quot;carbohydrate_g&quot;: 63,
+    &quot;fat_g&quot;: 23,
+    &quot;saturated_fat_g&quot;: 3.5,
+    &quot;fibre_g&quot;: 11,
+    &quot;salt_g&quot;: 2.1
+  },
+  &quot;ingredients&quot;: [
+    {
+      &quot;ingredient_id&quot;: &quot;tofu_extra_firm&quot;,
+      &quot;display_name&quot;: &quot;Extra-firm tofu&quot;,
+      &quot;category&quot;: &quot;Plant protein&quot;,
+      &quot;required&quot;: true,
+      &quot;quantity_used&quot;: 320,
+      &quot;unit_used&quot;: &quot;g&quot;,
+      &quot;purchase_quantity&quot;: &quot;Buy: enough extra-firm tofu to provide at least 320 g&quot;,
+      &quot;purchase_notes&quot;: &quot;Choose plain, unflavoured extra-firm tofu. Exact supermarket pack sizes vary; purchase sufficient packs to provide at least 320 g.&quot;,
+      &quot;retailers&quot;: [
+        &quot;Sainsbury&#x27;s&quot;,
+        &quot;Marks &amp; Spencer&quot;
+      ],
+      &quot;preparation&quot;: &quot;Drain thoroughly, pat completely dry and cut into approximately 20 mm cubes.&quot;,
+      &quot;notes&quot;: &quot;Use: 320 g total, 160 g per serving.&quot;
+    },
+    {
+      &quot;ingredient_id&quot;: &quot;edamame_beans_frozen&quot;,
+      &quot;display_name&quot;: &quot;Frozen shelled edamame beans&quot;,
+      &quot;category&quot;: &quot;Legumes&quot;,
+      &quot;required&quot;: true,
+      &quot;quantity_used&quot;: 140,
+      &quot;unit_used&quot;: &quot;g&quot;,
+      &quot;purchase_quantity&quot;: &quot;Buy: 1 standard bag containing at least 140 g&quot;,
+      &quot;purchase_notes&quot;: &quot;Use frozen shelled edamame rather than beans in pods. Exact pack size varies.&quot;,
+      &quot;retailers&quot;: [
+        &quot;Sainsbury&#x27;s&quot;,
+        &quot;Marks &amp; Spencer&quot;
+      ],
+      &quot;preparation&quot;: &quot;Use directly from frozen; they will be heated during the stir-fry.&quot;,
+      &quot;notes&quot;: &quot;Use: 140 g total, 70 g per serving.&quot;
+    },
+    {
+      &quot;ingredient_id&quot;: &quot;brown_basmati_rice_dry&quot;,
+      &quot;display_name&quot;: &quot;Brown basmati rice&quot;,
+      &quot;category&quot;: &quot;Grains&quot;,
+      &quot;required&quot;: true,
+      &quot;quantity_used&quot;: 80,
+      &quot;unit_used&quot;: &quot;g&quot;,
+      &quot;purchase_quantity&quot;: &quot;Buy: 1 standard packet&quot;,
+      &quot;purchase_notes&quot;: &quot;Use dry brown basmati rice. Exact retail pack size is not important.&quot;,
+      &quot;retailers&quot;: [
+        &quot;Sainsbury&#x27;s&quot;,
+        &quot;Marks &amp; Spencer&quot;
+      ],
+      &quot;preparation&quot;: &quot;Rinse thoroughly under cold water until the runoff is substantially clearer.&quot;,
+      &quot;notes&quot;: &quot;Use: 80 g dry total, 40 g dry per serving.&quot;
+    },
+    {
+      &quot;ingredient_id&quot;: &quot;broccoli&quot;,
+      &quot;display_name&quot;: &quot;Broccoli&quot;,
+      &quot;category&quot;: &quot;Vegetables&quot;,
+      &quot;required&quot;: true,
+      &quot;quantity_used&quot;: 1,
+      &quot;unit_used&quot;: &quot;integer&quot;,
+      &quot;purchase_quantity&quot;: &quot;Buy: 1 large broccoli head, approximately 350-400 g as bought&quot;,
+      &quot;purchase_notes&quot;: &quot;Choose a firm head with tightly closed dark-green florets and a firm stem.&quot;,
+      &quot;retailers&quot;: [
+        &quot;Sainsbury&#x27;s&quot;,
+        &quot;Marks &amp; Spencer&quot;
+      ],
+      &quot;preparation&quot;: &quot;Wash and dry. Cut approximately 300 g usable florets and tender stem into stir-fry pieces. Peel tough outer stem skin where necessary.&quot;,
+      &quot;notes&quot;: &quot;Use approximately 300 g prepared broccoli. Tender stem flesh is included to reduce waste.&quot;
+    },
+    {
+      &quot;ingredient_id&quot;: &quot;white_miso_paste&quot;,
+      &quot;display_name&quot;: &quot;White miso paste&quot;,
+      &quot;category&quot;: &quot;Condiments&quot;,
+      &quot;required&quot;: true,
+      &quot;quantity_used&quot;: 20,
+      &quot;unit_used&quot;: &quot;g&quot;,
+      &quot;purchase_quantity&quot;: &quot;Buy: 1 tub or jar&quot;,
+      &quot;purchase_notes&quot;: &quot;Use a mild white or light miso paste. Exact pack size varies.&quot;,
+      &quot;retailers&quot;: [
+        &quot;Sainsbury&#x27;s&quot;,
+        &quot;Marks &amp; Spencer&quot;
+      ],
+      &quot;preparation&quot;: &quot;Measure accurately and dissolve into the stir-fry sauce before cooking.&quot;,
+      &quot;notes&quot;: &quot;Use: 20 g total.&quot;
+    },
+    {
+      &quot;ingredient_id&quot;: &quot;soy_sauce_reduced_salt&quot;,
+      &quot;display_name&quot;: &quot;Reduced-salt soy sauce&quot;,
+      &quot;category&quot;: &quot;Condiments&quot;,
+      &quot;required&quot;: true,
+      &quot;quantity_used&quot;: 20,
+      &quot;unit_used&quot;: &quot;ml&quot;,
+      &quot;purchase_quantity&quot;: &quot;Buy: 1 bottle&quot;,
+      &quot;purchase_notes&quot;: &quot;Reduced-salt soy sauce is preferred because miso already contributes significant sodium.&quot;,
+      &quot;retailers&quot;: [
+        &quot;Sainsbury&#x27;s&quot;,
+        &quot;Marks &amp; Spencer&quot;
+      ],
+      &quot;preparation&quot;: &quot;Measure before making the sauce.&quot;,
+      &quot;notes&quot;: &quot;Use: 20 ml total.&quot;
+    },
+    {
+      &quot;ingredient_id&quot;: &quot;rice_vinegar&quot;,
+      &quot;display_name&quot;: &quot;Rice vinegar&quot;,
+      &quot;category&quot;: &quot;Condiments&quot;,
+      &quot;required&quot;: true,
+      &quot;quantity_used&quot;: 20,
+      &quot;unit_used&quot;: &quot;ml&quot;,
+      &quot;purchase_quantity&quot;: &quot;Buy: 1 bottle&quot;,
+      &quot;purchase_notes&quot;: &quot;Use unseasoned rice vinegar where available so sweetness and salt remain controlled.&quot;,
+      &quot;retailers&quot;: [
+        &quot;Sainsbury&#x27;s&quot;,
+        &quot;Marks &amp; Spencer&quot;
+      ],
+      &quot;preparation&quot;: &quot;Measure before making the sauce.&quot;,
+      &quot;notes&quot;: &quot;Use: 20 ml total.&quot;
+    },
+    {
+      &quot;ingredient_id&quot;: &quot;fresh_ginger&quot;,
+      &quot;display_name&quot;: &quot;Fresh root ginger&quot;,
+      &quot;category&quot;: &quot;Aromatics&quot;,
+      &quot;required&quot;: true,
+      &quot;quantity_used&quot;: 20,
+      &quot;unit_used&quot;: &quot;g&quot;,
+      &quot;purchase_quantity&quot;: &quot;Buy: 1 piece fresh ginger containing at least 20 g usable flesh&quot;,
+      &quot;purchase_notes&quot;: &quot;Choose firm ginger without shrivelled or mouldy areas.&quot;,
+      &quot;retailers&quot;: [
+        &quot;Sainsbury&#x27;s&quot;,
+        &quot;Marks &amp; Spencer&quot;
+      ],
+      &quot;preparation&quot;: &quot;Wash, peel if the skin is tough, then finely grate 20 g usable ginger.&quot;,
+      &quot;notes&quot;: &quot;Use: 20 g prepared ginger.&quot;
+    },
+    {
+      &quot;ingredient_id&quot;: &quot;garlic&quot;,
+      &quot;display_name&quot;: &quot;Garlic&quot;,
+      &quot;category&quot;: &quot;Aromatics&quot;,
+      &quot;required&quot;: true,
+      &quot;quantity_used&quot;: 2,
+      &quot;unit_used&quot;: &quot;integer&quot;,
+      &quot;purchase_quantity&quot;: &quot;Buy: 1 garlic bulb&quot;,
+      &quot;purchase_notes&quot;: &quot;Use 2 medium cloves from the bulb.&quot;,
+      &quot;retailers&quot;: [
+        &quot;Sainsbury&#x27;s&quot;,
+        &quot;Marks &amp; Spencer&quot;
+      ],
+      &quot;preparation&quot;: &quot;Separate 2 cloves, peel, trim the root ends and finely grate.&quot;,
+      &quot;notes&quot;: &quot;Use: 2 medium cloves.&quot;
+    },
+    {
+      &quot;ingredient_id&quot;: &quot;sesame_seeds&quot;,
+      &quot;display_name&quot;: &quot;Sesame seeds&quot;,
+      &quot;category&quot;: &quot;Seeds&quot;,
+      &quot;required&quot;: true,
+      &quot;quantity_used&quot;: 10,
+      &quot;unit_used&quot;: &quot;g&quot;,
+      &quot;purchase_quantity&quot;: &quot;Buy: 1 standard packet&quot;,
+      &quot;purchase_notes&quot;: &quot;White or mixed sesame seeds are suitable. Use plain, untoasted seeds because the recipe includes a controlled toasting stage.&quot;,
+      &quot;retailers&quot;: [
+        &quot;Sainsbury&#x27;s&quot;,
+        &quot;Marks &amp; Spencer&quot;
+      ],
+      &quot;preparation&quot;: &quot;Use directly from the packet.&quot;,
+      &quot;notes&quot;: &quot;Use: 10 g total, 5 g per serving.&quot;
+    },
+    {
+      &quot;ingredient_id&quot;: &quot;sesame_oil_toasted&quot;,
+      &quot;display_name&quot;: &quot;Toasted sesame oil&quot;,
+      &quot;category&quot;: &quot;Oils&quot;,
+      &quot;required&quot;: true,
+      &quot;quantity_used&quot;: 4,
+      &quot;unit_used&quot;: &quot;g&quot;,
+      &quot;purchase_quantity&quot;: &quot;Buy: 1 small bottle&quot;,
+      &quot;purchase_notes&quot;: &quot;Use toasted sesame oil as a finishing flavouring rather than as the primary high-heat cooking oil.&quot;,
+      &quot;retailers&quot;: [
+        &quot;Sainsbury&#x27;s&quot;,
+        &quot;Marks &amp; Spencer&quot;
+      ],
+      &quot;preparation&quot;: &quot;Measure before cooking.&quot;,
+      &quot;notes&quot;: &quot;Use: 4 g total.&quot;
+    },
+    {
+      &quot;ingredient_id&quot;: &quot;rapeseed_oil&quot;,
+      &quot;display_name&quot;: &quot;Rapeseed oil&quot;,
+      &quot;category&quot;: &quot;Oils&quot;,
+      &quot;required&quot;: true,
+      &quot;quantity_used&quot;: 4,
+      &quot;unit_used&quot;: &quot;g&quot;,
+      &quot;purchase_quantity&quot;: &quot;Buy: 1 bottle&quot;,
+      &quot;purchase_notes&quot;: &quot;Use a neutral refined rapeseed oil suitable for high-heat cooking.&quot;,
+      &quot;retailers&quot;: [
+        &quot;Sainsbury&#x27;s&quot;,
+        &quot;Marks &amp; Spencer&quot;
+      ],
+      &quot;preparation&quot;: &quot;Measure accurately before stir-frying.&quot;,
+      &quot;notes&quot;: &quot;Use: 4 g total.&quot;
+    },
+    {
+      &quot;ingredient_id&quot;: &quot;cornflour&quot;,
+      &quot;display_name&quot;: &quot;Cornflour&quot;,
+      &quot;category&quot;: &quot;Thickeners&quot;,
+      &quot;required&quot;: true,
+      &quot;quantity_used&quot;: 10,
+      &quot;unit_used&quot;: &quot;g&quot;,
+      &quot;purchase_quantity&quot;: &quot;Buy: 1 standard packet&quot;,
+      &quot;purchase_notes&quot;: &quot;Standard cornflour is suitable.&quot;,
+      &quot;retailers&quot;: [
+        &quot;Sainsbury&#x27;s&quot;,
+        &quot;Marks &amp; Spencer&quot;
+      ],
+      &quot;preparation&quot;: &quot;Use 6 g for coating the tofu and 4 g for thickening the stir-fry sauce.&quot;,
+      &quot;notes&quot;: &quot;Use: 10 g total.&quot;
+    },
+    {
+      &quot;ingredient_id&quot;: &quot;runny_honey&quot;,
+      &quot;display_name&quot;: &quot;Runny honey&quot;,
+      &quot;category&quot;: &quot;Sweeteners&quot;,
+      &quot;required&quot;: true,
+      &quot;quantity_used&quot;: 8,
+      &quot;unit_used&quot;: &quot;g&quot;,
+      &quot;purchase_quantity&quot;: &quot;Buy: 1 jar or squeeze bottle&quot;,
+      &quot;purchase_notes&quot;: &quot;Use a mild runny honey. The quantity is deliberately small and balances the miso and vinegar rather than making the sauce sweet.&quot;,
+      &quot;retailers&quot;: [
+        &quot;Sainsbury&#x27;s&quot;,
+        &quot;Marks &amp; Spencer&quot;
+      ],
+      &quot;preparation&quot;: &quot;Measure before preparing the sauce.&quot;,
+      &quot;notes&quot;: &quot;Use: 8 g total.&quot;
+    },
+    {
+      &quot;ingredient_id&quot;: &quot;water&quot;,
+      &quot;display_name&quot;: &quot;Water&quot;,
+      &quot;category&quot;: &quot;Liquid&quot;,
+      &quot;required&quot;: true,
+      &quot;quantity_used&quot;: 80,
+      &quot;unit_used&quot;: &quot;ml&quot;,
+      &quot;purchase_quantity&quot;: &quot;Use: 80 ml tap water plus the amount required by the rice cooker for 80 g brown basmati rice&quot;,
+      &quot;purchase_notes&quot;: &quot;No purchase required.&quot;,
+      &quot;retailers&quot;: [
+        &quot;Sainsbury&#x27;s&quot;,
+        &quot;Marks &amp; Spencer&quot;
+      ],
+      &quot;preparation&quot;: &quot;Measure 80 ml for the stir-fry sauce separately from the rice-cooking water.&quot;,
+      &quot;notes&quot;: &quot;The 80 ml quantity represents sauce water only. Rice-cooking water should follow the rice cooker&#x27;s brown-rice requirement because absorption varies by appliance.&quot;
+    }
+  ],
+  &quot;equipment&quot;: [
+    {
+      &quot;equipment_id&quot;: &quot;rice_cooker&quot;,
+      &quot;display_name&quot;: &quot;Rice cooker&quot;,
+      &quot;required&quot;: true,
+      &quot;notes&quot;: &quot;Used for repeatable cooking of the brown basmati rice while the stir-fry is prepared.&quot;
+    },
+    {
+      &quot;equipment_id&quot;: &quot;wok_burner&quot;,
+      &quot;display_name&quot;: &quot;High-output wok burner&quot;,
+      &quot;required&quot;: true,
+      &quot;notes&quot;: &quot;Used to achieve rapid browning and minimise steaming.&quot;
+    },
+    {
+      &quot;equipment_id&quot;: &quot;wok&quot;,
+      &quot;display_name&quot;: &quot;Large wok&quot;,
+      &quot;required&quot;: true,
+      &quot;notes&quot;: &quot;Used for tofu browning and final stir-frying.&quot;
+    },
+    {
+      &quot;equipment_id&quot;: &quot;mixing_bowl&quot;,
+      &quot;display_name&quot;: &quot;Medium mixing bowl&quot;,
+      &quot;required&quot;: true,
+      &quot;notes&quot;: &quot;Used for coating the tofu.&quot;
+    },
+    {
+      &quot;equipment_id&quot;: &quot;small_bowl&quot;,
+      &quot;display_name&quot;: &quot;Small mixing bowl&quot;,
+      &quot;required&quot;: true,
+      &quot;notes&quot;: &quot;Used to prepare the miso-ginger sauce.&quot;
+    },
+    {
+      &quot;equipment_id&quot;: &quot;chef_knife&quot;,
+      &quot;display_name&quot;: &quot;Chef&#x27;s knife&quot;,
+      &quot;required&quot;: true,
+      &quot;notes&quot;: &quot;Used for tofu and broccoli preparation.&quot;
+    },
+    {
+      &quot;equipment_id&quot;: &quot;chopping_board&quot;,
+      &quot;display_name&quot;: &quot;Chopping board&quot;,
+      &quot;required&quot;: true,
+      &quot;notes&quot;: &quot;Used for safe preparation of tofu and vegetables.&quot;
+    },
+    {
+      &quot;equipment_id&quot;: &quot;fine_grater&quot;,
+      &quot;display_name&quot;: &quot;Fine grater or Microplane&quot;,
+      &quot;required&quot;: true,
+      &quot;notes&quot;: &quot;Used for ginger and garlic.&quot;
+    },
+    {
+      &quot;equipment_id&quot;: &quot;sieve&quot;,
+      &quot;display_name&quot;: &quot;Fine sieve&quot;,
+      &quot;required&quot;: true,
+      &quot;notes&quot;: &quot;Used to rinse and drain the brown basmati rice thoroughly.&quot;
+    },
+    {
+      &quot;equipment_id&quot;: &quot;measuring_jug&quot;,
+      &quot;display_name&quot;: &quot;Measuring jug&quot;,
+      &quot;required&quot;: true,
+      &quot;notes&quot;: &quot;Used for sauce liquids.&quot;
+    },
+    {
+      &quot;equipment_id&quot;: &quot;measuring_spoons&quot;,
+      &quot;display_name&quot;: &quot;Measuring spoons&quot;,
+      &quot;required&quot;: true,
+      &quot;notes&quot;: &quot;Used for controlled measurement where required.&quot;
+    },
+    {
+      &quot;equipment_id&quot;: &quot;kitchen_scales&quot;,
+      &quot;display_name&quot;: &quot;Kitchen scales&quot;,
+      &quot;required&quot;: true,
+      &quot;notes&quot;: &quot;Used for tofu, rice, edamame, sauces, oils and sesame quantities.&quot;
+    },
+    {
+      &quot;equipment_id&quot;: &quot;spatula&quot;,
+      &quot;display_name&quot;: &quot;Heatproof wok spatula&quot;,
+      &quot;required&quot;: true,
+      &quot;notes&quot;: &quot;Used for turning tofu and rapidly tossing the stir-fry.&quot;
+    }
+  ],
+  &quot;mise_en_place&quot;: [
+    {
+      &quot;prep_id&quot;: &quot;PREP_01&quot;,
+      &quot;ingredient_ids&quot;: [
+        &quot;brown_basmati_rice_dry&quot;
+      ],
+      &quot;instruction&quot;: &quot;Weigh 80 g dry brown basmati rice. Place it in the fine sieve and rinse under cold running water while agitating the grains with clean fingers until the runoff is substantially clearer. Shake the sieve thoroughly to remove excess water.&quot;,
+      &quot;endpoint&quot;: &quot;The rice is thoroughly rinsed and no longer releases heavily cloudy water.&quot;
+    },
+    {
+      &quot;prep_id&quot;: &quot;PREP_02&quot;,
+      &quot;ingredient_ids&quot;: [
+        &quot;tofu_extra_firm&quot;,
+        &quot;cornflour&quot;
+      ],
+      &quot;instruction&quot;: &quot;Drain 320 g extra-firm tofu. Pat all surfaces repeatedly with clean kitchen paper until little visible moisture transfers. Cut the tofu into approximately 20 mm cubes. Weigh 6 g of the cornflour separately for coating.&quot;,
+      &quot;endpoint&quot;: &quot;The tofu is surface-dry, evenly cubed and the coating cornflour is separately measured.&quot;
+    },
+    {
+      &quot;prep_id&quot;: &quot;PREP_03&quot;,
+      &quot;ingredient_ids&quot;: [
+        &quot;broccoli&quot;
+      ],
+      &quot;instruction&quot;: &quot;Wash and dry the broccoli. Separate the crown into florets approximately 30-40 mm across. Trim the stem base. Peel away any visibly tough outer stem skin, then cut the tender stem flesh into pieces approximately 5 mm thick and 40 mm long. Weigh or estimate approximately 300 g usable broccoli in total.&quot;,
+      &quot;endpoint&quot;: &quot;Approximately 300 g broccoli is prepared into similarly quick-cooking florets and stem pieces.&quot;
+    },
+    {
+      &quot;prep_id&quot;: &quot;PREP_04&quot;,
+      &quot;ingredient_ids&quot;: [
+        &quot;fresh_ginger&quot;,
+        &quot;garlic&quot;
+      ],
+      &quot;instruction&quot;: &quot;Wash the ginger and peel only if the skin is thick or dry. Finely grate 20 g usable ginger. Separate 2 garlic cloves from the bulb, peel them, trim the root ends and finely grate.&quot;,
+      &quot;endpoint&quot;: &quot;The ginger and garlic are finely grated and ready to disperse rapidly through the sauce.&quot;
+    },
+    {
+      &quot;prep_id&quot;: &quot;PREP_05&quot;,
+      &quot;ingredient_ids&quot;: [
+        &quot;white_miso_paste&quot;,
+        &quot;soy_sauce_reduced_salt&quot;,
+        &quot;rice_vinegar&quot;,
+        &quot;runny_honey&quot;,
+        &quot;water&quot;,
+        &quot;cornflour&quot;,
+        &quot;sesame_oil_toasted&quot;,
+        &quot;fresh_ginger&quot;,
+        &quot;garlic&quot;
+      ],
+      &quot;instruction&quot;: &quot;Measure 20 g white miso, 20 ml reduced-salt soy sauce, 20 ml rice vinegar, 8 g honey, 80 ml water, the remaining 4 g cornflour, 4 g toasted sesame oil, the prepared 20 g grated ginger and the prepared grated garlic. Add all of these ingredients to the small bowl and whisk until the miso and cornflour are fully dispersed with no visible lumps.&quot;,
+      &quot;endpoint&quot;: &quot;The sauce is homogeneous, pourable and free from visible miso or cornflour lumps.&quot;
+    },
+    {
+      &quot;prep_id&quot;: &quot;PREP_06&quot;,
+      &quot;ingredient_ids&quot;: [
+        &quot;edamame_beans_frozen&quot;,
+        &quot;sesame_seeds&quot;,
+        &quot;rapeseed_oil&quot;
+      ],
+      &quot;instruction&quot;: &quot;Weigh 140 g frozen shelled edamame, 10 g sesame seeds and 4 g rapeseed oil into separate measured quantities. Keep the edamame frozen until the stir-fry stage.&quot;,
+      &quot;endpoint&quot;: &quot;Edamame, sesame seeds and high-heat cooking oil are accurately measured and immediately available.&quot;
+    }
+  ],
+  &quot;procedure&quot;: [
+    {
+      &quot;step_id&quot;: &quot;STEP_01&quot;,
+      &quot;section&quot;: &quot;Brown basmati rice&quot;,
+      &quot;title&quot;: &quot;Cook the brown basmati rice&quot;,
+      &quot;depends_on&quot;: [],
+      &quot;parallel_group&quot;: &quot;P01&quot;,
+      &quot;ingredient_ids&quot;: [
+        &quot;brown_basmati_rice_dry&quot;
+      ],
+      &quot;equipment_ids&quot;: [
+        &quot;rice_cooker&quot;,
+        &quot;sieve&quot;
+      ],
+      &quot;instruction&quot;: &quot;Transfer the rinsed 80 g brown basmati rice to the rice cooker. Add the quantity of water specified by the rice cooker&#x27;s brown-rice markings or manufacturer instructions for this amount of rice. Select the brown-rice programme where available and start the cooking cycle. Keep the lid closed throughout cooking.&quot;,
+      &quot;heat_source&quot;: &quot;Rice cooker&quot;,
+      &quot;heat_level&quot;: &quot;Brown rice programme&quot;,
+      &quot;temperature_c&quot;: null,
+      &quot;duration_min_minutes&quot;: 30,
+      &quot;duration_max_minutes&quot;: 45,
+      &quot;endpoint&quot;: &quot;The rice cooker has completed its cycle, the grains are tender with a slight chew, no hard core remains and there is no free water at the base.&quot;,
+      &quot;corrective_actions&quot;: [
+        {
+          &quot;condition&quot;: &quot;The rice remains noticeably firm after the rice cooker completes and no free water remains.&quot;,
+          &quot;action&quot;: &quot;Add 30 ml hot water, close the lid and continue using the cook or keep-warm function for 5-10 minutes before reassessing.&quot;
+        },
+        {
+          &quot;condition&quot;: &quot;The grains are cooked but visibly wet.&quot;,
+          &quot;action&quot;: &quot;Leave the rice cooker open on keep-warm for several minutes and gently fluff once excess moisture has evaporated.&quot;
+        }
+      ],
+      &quot;critical&quot;: true
+    },
+    {
+      &quot;step_id&quot;: &quot;STEP_02&quot;,
+      &quot;section&quot;: &quot;Sesame garnish&quot;,
+      &quot;title&quot;: &quot;Toast the sesame seeds&quot;,
+      &quot;depends_on&quot;: [],
+      &quot;parallel_group&quot;: &quot;P01&quot;,
+      &quot;ingredient_ids&quot;: [
+        &quot;sesame_seeds&quot;
+      ],
+      &quot;equipment_ids&quot;: [
+        &quot;wok&quot;,
+        &quot;wok_burner&quot;,
+        &quot;spatula&quot;
+      ],
+      &quot;instruction&quot;: &quot;Place the dry wok over low heat on the wok burner. Add 10 g sesame seeds. Stir continuously so the seeds move across the hot surface rather than remaining stationary.&quot;,
+      &quot;heat_source&quot;: &quot;Wok burner&quot;,
+      &quot;heat_level&quot;: &quot;Low&quot;,
+      &quot;temperature_c&quot;: null,
+      &quot;duration_min_minutes&quot;: 2,
+      &quot;duration_max_minutes&quot;: 4,
+      &quot;endpoint&quot;: &quot;The sesame seeds are lightly golden in places and smell distinctly nutty without smoke or blackened seeds.&quot;,
+      &quot;corrective_actions&quot;: [
+        {
+          &quot;condition&quot;: &quot;The seeds darken rapidly or begin popping aggressively.&quot;,
+          &quot;action&quot;: &quot;Remove the wok from the heat immediately and transfer the seeds to a cool plate or bowl.&quot;
+        },
+        {
+          &quot;condition&quot;: &quot;No aroma develops after 4 minutes.&quot;,
+          &quot;action&quot;: &quot;Increase the heat slightly and continue stirring continuously in 20-second intervals.&quot;
+        }
+      ],
+      &quot;critical&quot;: true
+    },
+    {
+      &quot;step_id&quot;: &quot;STEP_03&quot;,
+      &quot;section&quot;: &quot;Tofu&quot;,
+      &quot;title&quot;: &quot;Coat the tofu&quot;,
+      &quot;depends_on&quot;: [],
+      &quot;parallel_group&quot;: &quot;P01&quot;,
+      &quot;ingredient_ids&quot;: [
+        &quot;tofu_extra_firm&quot;,
+        &quot;cornflour&quot;
+      ],
+      &quot;equipment_ids&quot;: [
+        &quot;mixing_bowl&quot;
+      ],
+      &quot;instruction&quot;: &quot;Place the prepared tofu cubes in the mixing bowl. Add the separately measured 6 g cornflour. Toss gently but thoroughly until all tofu surfaces have a very thin, dry coating and no loose pockets of cornflour remain in the bottom of the bowl.&quot;,
+      &quot;heat_source&quot;: null,
+      &quot;heat_level&quot;: null,
+      &quot;temperature_c&quot;: null,
+      &quot;duration_min_minutes&quot;: 1,
+      &quot;duration_max_minutes&quot;: 2,
+      &quot;endpoint&quot;: &quot;Each tofu cube has a thin, even powdery coating without thick white clumps.&quot;,
+      &quot;corrective_actions&quot;: [
+        {
+          &quot;condition&quot;: &quot;Cornflour accumulates in thick patches.&quot;,
+          &quot;action&quot;: &quot;Continue tossing gently and rub excessive powder from affected cubes onto uncoated surfaces.&quot;
+        }
+      ],
+      &quot;critical&quot;: false
+    },
+    {
+      &quot;step_id&quot;: &quot;STEP_04&quot;,
+      &quot;section&quot;: &quot;Tofu&quot;,
+      &quot;title&quot;: &quot;Sear the tofu&quot;,
+      &quot;depends_on&quot;: [
+        &quot;STEP_02&quot;,
+        &quot;STEP_03&quot;
+      ],
+      &quot;parallel_group&quot;: null,
+      &quot;ingredient_ids&quot;: [
+        &quot;tofu_extra_firm&quot;,
+        &quot;rapeseed_oil&quot;
+      ],
+      &quot;equipment_ids&quot;: [
+        &quot;wok&quot;,
+        &quot;wok_burner&quot;,
+        &quot;spatula&quot;
+      ],
+      &quot;instruction&quot;: &quot;Wipe any remaining sesame fragments from the wok if necessary. Heat the wok over high heat until a droplet of water evaporates almost immediately on contact. Add 4 g rapeseed oil and rotate the wok to coat the cooking surface. Immediately add the coated tofu in as close to a single layer as practical. Leave undisturbed for approximately 60-90 seconds before turning, then continue turning at intervals so multiple faces brown.&quot;,
+      &quot;heat_source&quot;: &quot;Wok burner&quot;,
+      &quot;heat_level&quot;: &quot;High&quot;,
+      &quot;temperature_c&quot;: null,
+      &quot;duration_min_minutes&quot;: 6,
+      &quot;duration_max_minutes&quot;: 9,
+      &quot;endpoint&quot;: &quot;The tofu has crisp golden-brown patches on multiple faces, remains intact and releases cleanly from the wok when moved.&quot;,
+      &quot;corrective_actions&quot;: [
+        {
+          &quot;condition&quot;: &quot;The tofu blackens before becoming evenly golden.&quot;,
+          &quot;action&quot;: &quot;Reduce the burner to medium-high and turn the affected pieces immediately.&quot;
+        },
+        {
+          &quot;condition&quot;: &quot;The tofu sticks strongly when first turned.&quot;,
+          &quot;action&quot;: &quot;Leave that face undisturbed for an additional 20-30 seconds; properly browned tofu should release more readily.&quot;
+        },
+        {
+          &quot;condition&quot;: &quot;The wok is crowded and liquid begins pooling.&quot;,
+          &quot;action&quot;: &quot;Remove approximately half the tofu and brown in two batches rather than allowing the tofu to steam.&quot;
+        }
+      ],
+      &quot;critical&quot;: true
+    },
+    {
+      &quot;step_id&quot;: &quot;STEP_05&quot;,
+      &quot;section&quot;: &quot;Tofu&quot;,
+      &quot;title&quot;: &quot;Remove and hold the browned tofu&quot;,
+      &quot;depends_on&quot;: [
+        &quot;STEP_04&quot;
+      ],
+      &quot;parallel_group&quot;: null,
+      &quot;ingredient_ids&quot;: [
+        &quot;tofu_extra_firm&quot;
+      ],
+      &quot;equipment_ids&quot;: [
+        &quot;wok&quot;,
+        &quot;spatula&quot;
+      ],
+      &quot;instruction&quot;: &quot;Transfer the browned tofu from the wok to a clean plate or the cleaned mixing bowl. Leave uncovered while the vegetables cook so surface steam can escape and the crust remains as dry as practical.&quot;,
+      &quot;heat_source&quot;: null,
+      &quot;heat_level&quot;: null,
+      &quot;temperature_c&quot;: null,
+      &quot;duration_min_minutes&quot;: 1,
+      &quot;duration_max_minutes&quot;: 2,
+      &quot;endpoint&quot;: &quot;The wok is empty and ready for the vegetable stage, and the browned tofu is held without being covered.&quot;,
+      &quot;corrective_actions&quot;: [
+        {
+          &quot;condition&quot;: &quot;A significant layer of burnt cornflour remains in the wok.&quot;,
+          &quot;action&quot;: &quot;Allow the wok to cool briefly, wipe out the burnt residue carefully, then reheat before proceeding.&quot;
+        }
+      ],
+      &quot;critical&quot;: false
+    },
+    {
+      &quot;step_id&quot;: &quot;STEP_06&quot;,
+      &quot;section&quot;: &quot;Vegetables&quot;,
+      &quot;title&quot;: &quot;Stir-fry the broccoli&quot;,
+      &quot;depends_on&quot;: [
+        &quot;STEP_05&quot;
+      ],
+      &quot;parallel_group&quot;: null,
+      &quot;ingredient_ids&quot;: [
+        &quot;broccoli&quot;
+      ],
+      &quot;equipment_ids&quot;: [
+        &quot;wok&quot;,
+        &quot;wok_burner&quot;,
+        &quot;spatula&quot;
+      ],
+      &quot;instruction&quot;: &quot;Return the empty wok to high heat. Add the prepared approximately 300 g broccoli. Stir-fry continuously for approximately 2 minutes, allowing the cut surfaces to contact the hot wok between tosses. Add 30 ml of the measured sauce water only if the broccoli begins scorching before softening, then allow the added water to evaporate completely.&quot;,
+      &quot;heat_source&quot;: &quot;Wok burner&quot;,
+      &quot;heat_level&quot;: &quot;High&quot;,
+      &quot;temperature_c&quot;: null,
+      &quot;duration_min_minutes&quot;: 3,
+      &quot;duration_max_minutes&quot;: 5,
+      &quot;endpoint&quot;: &quot;The broccoli is vivid green, tender enough to bite cleanly but still crisp, with scattered browned or blistered surfaces and no standing water.&quot;,
+      &quot;corrective_actions&quot;: [
+        {
+          &quot;condition&quot;: &quot;The broccoli begins blackening while still raw inside.&quot;,
+          &quot;action&quot;: &quot;Reduce heat to medium-high, add up to 30 ml water as specified and cover or toss rapidly until the thickest pieces begin to soften.&quot;
+        },
+        {
+          &quot;condition&quot;: &quot;The broccoli becomes soft without developing browning.&quot;,
+          &quot;action&quot;: &quot;Increase the heat and cook uncovered until surface moisture evaporates; stop once light browning develops.&quot;
+        }
+      ],
+      &quot;critical&quot;: true
+    },
+    {
+      &quot;step_id&quot;: &quot;STEP_07&quot;,
+      &quot;section&quot;: &quot;Vegetables&quot;,
+      &quot;title&quot;: &quot;Heat the edamame&quot;,
+      &quot;depends_on&quot;: [
+        &quot;STEP_06&quot;
+      ],
+      &quot;parallel_group&quot;: null,
+      &quot;ingredient_ids&quot;: [
+        &quot;edamame_beans_frozen&quot;
+      ],
+      &quot;equipment_ids&quot;: [
+        &quot;wok&quot;,
+        &quot;wok_burner&quot;,
+        &quot;spatula&quot;
+      ],
+      &quot;instruction&quot;: &quot;Add the 140 g frozen shelled edamame directly to the broccoli. Continue stir-frying over medium-high heat, tossing frequently as the frozen beans thaw and release moisture.&quot;,
+      &quot;heat_source&quot;: &quot;Wok burner&quot;,
+      &quot;heat_level&quot;: &quot;Medium-high&quot;,
+      &quot;temperature_c&quot;: null,
+      &quot;duration_min_minutes&quot;: 2,
+      &quot;duration_max_minutes&quot;: 4,
+      &quot;endpoint&quot;: &quot;The edamame is fully hot and bright green, the broccoli remains crisp-tender and no visible water remains in the wok.&quot;,
+      &quot;corrective_actions&quot;: [
+        {
+          &quot;condition&quot;: &quot;Water pools in the wok as the edamame thaws.&quot;,
+          &quot;action&quot;: &quot;Increase the burner to high and toss continuously until the water has completely evaporated before proceeding.&quot;
+        },
+        {
+          &quot;condition&quot;: &quot;The broccoli begins becoming overly soft before the edamame is hot.&quot;,
+          &quot;action&quot;: &quot;Temporarily remove the broccoli and continue heating the edamame alone until fully hot.&quot;
+        }
+      ],
+      &quot;critical&quot;: true
+    },
+    {
+      &quot;step_id&quot;: &quot;STEP_08&quot;,
+      &quot;section&quot;: &quot;Miso-ginger sauce&quot;,
+      &quot;title&quot;: &quot;Recombine and glaze the stir-fry&quot;,
+      &quot;depends_on&quot;: [
+        &quot;STEP_05&quot;,
+        &quot;STEP_07&quot;
+      ],
+      &quot;parallel_group&quot;: null,
+      &quot;ingredient_ids&quot;: [
+        &quot;tofu_extra_firm&quot;,
+        &quot;white_miso_paste&quot;,
+        &quot;soy_sauce_reduced_salt&quot;,
+        &quot;rice_vinegar&quot;,
+        &quot;runny_honey&quot;,
+        &quot;water&quot;,
+        &quot;cornflour&quot;,
+        &quot;fresh_ginger&quot;,
+        &quot;garlic&quot;,
+        &quot;sesame_oil_toasted&quot;
+      ],
+      &quot;equipment_ids&quot;: [
+        &quot;wok&quot;,
+        &quot;wok_burner&quot;,
+        &quot;spatula&quot;,
+        &quot;small_bowl&quot;
+      ],
+      &quot;instruction&quot;: &quot;Stir the prepared sauce thoroughly immediately before use because the cornflour may have settled. Return the browned tofu to the wok. Reduce the heat to medium, pour the full sauce mixture around the ingredients and toss continuously. Allow the sauce to reach a visible simmer but do not leave it stationary against the hot wok surface.&quot;,
+      &quot;heat_source&quot;: &quot;Wok burner&quot;,
+      &quot;heat_level&quot;: &quot;Medium&quot;,
+      &quot;temperature_c&quot;: null,
+      &quot;duration_min_minutes&quot;: 1,
+      &quot;duration_max_minutes&quot;: 3,
+      &quot;endpoint&quot;: &quot;The sauce has thickened to a glossy consistency that clings in a thin coating to the tofu, broccoli and edamame, with no watery pool remaining at the bottom of the wok.&quot;,
+      &quot;corrective_actions&quot;: [
+        {
+          &quot;condition&quot;: &quot;The sauce thickens before all ingredients are coated.&quot;,
+          &quot;action&quot;: &quot;Add 10 ml water and toss immediately to loosen the glaze.&quot;
+        },
+        {
+          &quot;condition&quot;: &quot;The sauce remains watery after 3 minutes.&quot;,
+          &quot;action&quot;: &quot;Increase the heat slightly and continue tossing until visible simmering reduces the sauce to the stated glossy coating.&quot;
+        },
+        {
+          &quot;condition&quot;: &quot;The sauce begins catching or scorching on the wok surface.&quot;,
+          &quot;action&quot;: &quot;Remove the wok from the heat immediately, add 10 ml water and toss continuously before returning to low heat only if further thickening is required.&quot;
+        }
+      ],
+      &quot;critical&quot;: true
+    },
+    {
+      &quot;step_id&quot;: &quot;STEP_09&quot;,
+      &quot;section&quot;: &quot;Rice&quot;,
+      &quot;title&quot;: &quot;Fluff the brown basmati rice&quot;,
+      &quot;depends_on&quot;: [
+        &quot;STEP_01&quot;
+      ],
+      &quot;parallel_group&quot;: &quot;P02&quot;,
+      &quot;ingredient_ids&quot;: [
+        &quot;brown_basmati_rice_dry&quot;
+      ],
+      &quot;equipment_ids&quot;: [
+        &quot;rice_cooker&quot;
+      ],
+      &quot;instruction&quot;: &quot;When the brown basmati rice passes its cooking endpoint, open the rice cooker and gently fluff the grains from the bottom upward. Leave the lid open for approximately 2 minutes so excess surface steam escapes.&quot;,
+      &quot;heat_source&quot;: &quot;Rice cooker&quot;,
+      &quot;heat_level&quot;: &quot;Keep warm or off&quot;,
+      &quot;temperature_c&quot;: null,
+      &quot;duration_min_minutes&quot;: 2,
+      &quot;duration_max_minutes&quot;: 3,
+      &quot;endpoint&quot;: &quot;The rice grains are separate, tender and not visibly wet or compacted.&quot;,
+      &quot;corrective_actions&quot;: [
+        {
+          &quot;condition&quot;: &quot;The rice is compacted.&quot;,
+          &quot;action&quot;: &quot;Lift and separate the grains gently rather than stirring vigorously, which would increase breakage.&quot;
+        }
+      ],
+      &quot;critical&quot;: false
+    },
+    {
+      &quot;step_id&quot;: &quot;STEP_10&quot;,
+      &quot;section&quot;: &quot;Finishing&quot;,
+      &quot;title&quot;: &quot;Finish with toasted sesame&quot;,
+      &quot;depends_on&quot;: [
+        &quot;STEP_02&quot;,
+        &quot;STEP_08&quot;
+      ],
+      &quot;parallel_group&quot;: &quot;P02&quot;,
+      &quot;ingredient_ids&quot;: [
+        &quot;sesame_seeds&quot;
+      ],
+      &quot;equipment_ids&quot;: [
+        &quot;wok&quot;,
+        &quot;spatula&quot;
+      ],
+      &quot;instruction&quot;: &quot;Remove the wok from direct heat. Add approximately two-thirds of the toasted sesame seeds and fold through the glazed stir-fry. Reserve the remaining one-third for final garnish.&quot;,
+      &quot;heat_source&quot;: null,
+      &quot;heat_level&quot;: null,
+      &quot;temperature_c&quot;: null,
+      &quot;duration_min_minutes&quot;: 0.5,
+      &quot;duration_max_minutes&quot;: 1,
+      &quot;endpoint&quot;: &quot;Sesame seeds are evenly distributed through the stir-fry while a visible portion remains reserved for garnish.&quot;,
+      &quot;corrective_actions&quot;: [
+        {
+          &quot;condition&quot;: &quot;The sauce continues thickening excessively from residual wok heat.&quot;,
+          &quot;action&quot;: &quot;Transfer the stir-fry immediately to serving bowls rather than leaving it in the hot wok.&quot;
+        }
+      ],
+      &quot;critical&quot;: false
+    },
+    {
+      &quot;step_id&quot;: &quot;STEP_11&quot;,
+      &quot;section&quot;: &quot;Portioning&quot;,
+      &quot;title&quot;: &quot;Divide into two complete servings&quot;,
+      &quot;depends_on&quot;: [
+        &quot;STEP_09&quot;,
+        &quot;STEP_10&quot;
+      ],
+      &quot;parallel_group&quot;: null,
+      &quot;ingredient_ids&quot;: [
+        &quot;brown_basmati_rice_dry&quot;,
+        &quot;tofu_extra_firm&quot;,
+        &quot;broccoli&quot;,
+        &quot;edamame_beans_frozen&quot;,
+        &quot;sesame_seeds&quot;
+      ],
+      &quot;equipment_ids&quot;: [
+        &quot;kitchen_scales&quot;
+      ],
+      &quot;instruction&quot;: &quot;Divide the cooked brown basmati rice equally between 2 serving bowls. Divide the complete tofu, broccoli and edamame stir-fry equally over or alongside the rice. Scatter the reserved toasted sesame seeds equally over both servings.&quot;,
+      &quot;heat_source&quot;: null,
+      &quot;heat_level&quot;: null,
+      &quot;temperature_c&quot;: null,
+      &quot;duration_min_minutes&quot;: 2,
+      &quot;duration_max_minutes&quot;: 3,
+      &quot;endpoint&quot;: &quot;Both bowls contain approximately equal quantities of rice, tofu, broccoli, edamame, sauce and sesame garnish.&quot;,
+      &quot;corrective_actions&quot;: [
+        {
+          &quot;condition&quot;: &quot;One serving is visibly heavier than the other.&quot;,
+          &quot;action&quot;: &quot;Use the kitchen scales to transfer components between bowls until the portions are approximately equal.&quot;
+        }
+      ],
+      &quot;critical&quot;: false
+    }
+  ],
+  &quot;plating&quot;: [
+    {
+      &quot;step_id&quot;: &quot;PLATE_01&quot;,
+      &quot;instruction&quot;: &quot;Serve immediately while the tofu edges remain crisp and the broccoli retains bite. Place the brown basmati rice as the base or to one side of each bowl, distribute the glossy miso-ginger tofu, broccoli and edamame over the rice, and finish with the reserved toasted sesame seeds.&quot;
+    }
+  ],
+  &quot;storage&quot;: {
+    &quot;refrigerator_days&quot;: 2,
+    &quot;freezer_months&quot;: 1,
+    &quot;storage_instructions&quot;: &quot;Cool leftovers promptly and refrigerate in sealed containers at 5°C or below for up to 2 days. For freezing, cool completely and freeze individual portions for up to 1 month; broccoli will soften somewhat after thawing. Reheat only once and ensure the tofu, rice, vegetables and sauce are steaming hot throughout before serving.&quot;,
+    &quot;reheating_methods&quot;: [
+      &quot;Hob: place one refrigerated serving in a covered frying pan or saucepan with 15-30 ml water. Heat over medium-low heat, stirring regularly, until steaming hot throughout and the sauce has returned to a glossy consistency.&quot;,
+      &quot;Air fryer plus hob: reheat tofu and vegetables in the air fryer at 170°C until thoroughly hot while reheating the rice separately on the hob with 15-30 ml water. This method better restores some tofu surface texture.&quot;,
+      &quot;From frozen: thaw overnight in the refrigerator before reheating using one of the stated methods.&quot;
+    ]
+  },
+  &quot;shopping&quot;: {
+    &quot;sainsburys&quot;: [],
+    &quot;marks_and_spencer&quot;: [],
+    &quot;either_retailer&quot;: [
+      &quot;Extra-firm tofu: buy enough to provide at least 320 g&quot;,
+      &quot;Frozen shelled edamame beans: buy 1 standard bag containing at least 140 g&quot;,
+      &quot;Brown basmati rice: buy 1 standard packet&quot;,
+      &quot;Large broccoli head: buy 1, approximately 350-400 g as bought&quot;,
+      &quot;White or light miso paste: buy 1 tub or jar&quot;,
+      &quot;Reduced-salt soy sauce: buy 1 bottle&quot;,
+      &quot;Unseasoned rice vinegar: buy 1 bottle&quot;,
+      &quot;Fresh root ginger: buy 1 piece containing at least 20 g usable flesh&quot;,
+      &quot;Garlic: buy 1 bulb&quot;,
+      &quot;Sesame seeds: buy 1 standard packet&quot;,
+      &quot;Toasted sesame oil: buy 1 small bottle&quot;,
+      &quot;Rapeseed oil: buy 1 bottle if not already stocked&quot;,
+      &quot;Cornflour: buy 1 standard packet&quot;,
+      &quot;Runny honey: buy 1 jar or squeeze bottle&quot;
+    ]
+  },
+  &quot;quality_checks&quot;: {
+    &quot;protein_requirement_met&quot;: true,
+    &quot;protein_g_per_serving&quot;: 39,
+    &quot;restaurant_quality_features&quot;: [
+      &quot;Extra-firm tofu is thoroughly dried, lightly coated with cornflour and browned before sauce is introduced, producing crisp edges rather than soft steamed surfaces.&quot;,
+      &quot;The high-output wok burner allows broccoli to blister while remaining crisp-tender instead of slowly stewing.&quot;,
+      &quot;Edamame is introduced late enough to retain colour and texture while adding substantial protein.&quot;,
+      &quot;Miso, reduced-salt soy sauce and garlic provide layered savoury and umami depth without requiring excessive added fat.&quot;,
+      &quot;Fresh ginger is used generously so its aromatic heat remains identifiable after cooking.&quot;,
+      &quot;Rice vinegar provides sufficient acidity to balance the fermented miso and sesame richness.&quot;,
+      &quot;A restrained amount of honey rounds the sauce without turning the dish noticeably sweet.&quot;,
+      &quot;Toasted sesame oil is incorporated in the sauce rather than used as the primary frying oil, preserving its aroma and avoiding unnecessary high-heat degradation.&quot;,
+      &quot;Sesame seeds are toasted separately and added partly through the dish and partly as a finishing garnish for sustained nutty aroma and textural contrast.&quot;
+    ],
+    &quot;nutrition_notes&quot;: [
+      &quot;Estimated nutrition represents one complete dinner serving including brown basmati rice, tofu, edamame, broccoli, cornflour, oils, sauce and sesame garnish.&quot;,
+      &quot;The approximate 39 g protein per serving comes predominantly from tofu and edamame, with additional protein from broccoli, rice, miso and sesame.&quot;,
+      &quot;The recipe is designed around the approximately 600 kcal dinner target; exact energy will vary with the nutritional composition of the selected tofu and supermarket condiments.&quot;,
+      &quot;Brown basmati rice, broccoli and edamame provide substantial fibre and improve satiety relative to a refined-rice stir-fry.&quot;,
+      &quot;Added cooking fat is deliberately restrained while sufficient oil is retained for tofu browning and characteristic sesame flavour.&quot;,
+      &quot;Miso and soy sauce make sodium higher than in an unseasoned meal, so reduced-salt soy sauce is used and no additional salt is required.&quot;
+    ],
+    &quot;critical_success_factors&quot;: [
+      &quot;Dry the tofu thoroughly before applying cornflour; excess surface water will produce a pasty coating and inhibit browning.&quot;,
+      &quot;Do not add the miso-ginger sauce until the tofu, broccoli and edamame have already reached their respective browning and cooking endpoints.&quot;,
+      &quot;Ensure any water released from frozen edamame has evaporated before adding the sauce, otherwise the glaze will be diluted.&quot;,
+      &quot;Stir the sauce immediately before pouring because cornflour settles rapidly.&quot;,
+      &quot;Once the sauce is added, toss continuously and remove the wok from heat as soon as the sauce forms a glossy coating; prolonged cooking can scorch miso and soften the broccoli.&quot;,
+      &quot;Toast sesame seeds separately under controlled low heat because they move quickly from aromatic to burnt.&quot;,
+      &quot;Do not proceed to final plating until the brown basmati rice is fully tender and free from standing water.&quot;
+    ]
+  }
+}</pre>
+
+</details>
+
+</main>
+
+</body>
+
+</html>

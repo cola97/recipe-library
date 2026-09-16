@@ -1,0 +1,872 @@
+{
+  "schema_version": "1.0",
+  "recipe": {
+    "id": "miso_ginger_tofu_broccoli_brown_basmati_stir_fry_sesame_edamame",
+    "title": "Miso-Ginger Tofu, Broccoli & Brown Basmati Stir-Fry with Sesame and Edamame",
+    "description": "A high-protein dinner of crisp-edged tofu, broccoli and edamame tossed through a glossy miso-ginger sauce and served with nutty brown basmati rice. High wok heat develops browning before the sauce is added, while rice vinegar, ginger and toasted sesame keep the finished dish savoury, aromatic and balanced rather than heavy.",
+    "servings": 2,
+    "difficulty": "Moderate",
+    "total_time_minutes": 50,
+    "active_time_minutes": 25,
+    "passive_time_minutes": 25,
+    "cuisine": [
+      "Japanese-inspired",
+      "East Asian-inspired",
+      "Contemporary"
+    ],
+    "meal_types": [
+      "Dinner"
+    ],
+    "dietary_tags": [
+      "Vegetarian",
+      "Vegan",
+      "High protein",
+      "High fibre"
+    ],
+    "allergens": [
+      "Soy",
+      "Sesame"
+    ]
+  },
+  "nutrition_per_serving": {
+    "energy_kcal": 595,
+    "protein_g": 39,
+    "carbohydrate_g": 63,
+    "fat_g": 23,
+    "saturated_fat_g": 3.5,
+    "fibre_g": 11,
+    "salt_g": 2.1
+  },
+  "ingredients": [
+    {
+      "ingredient_id": "tofu_extra_firm",
+      "display_name": "Extra-firm tofu",
+      "category": "Plant protein",
+      "required": true,
+      "quantity_used": 320,
+      "unit_used": "g",
+      "purchase_quantity": "Buy: enough extra-firm tofu to provide at least 320 g",
+      "purchase_notes": "Choose plain, unflavoured extra-firm tofu. Exact supermarket pack sizes vary; purchase sufficient packs to provide at least 320 g.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Drain thoroughly, pat completely dry and cut into approximately 20 mm cubes.",
+      "notes": "Use: 320 g total, 160 g per serving."
+    },
+    {
+      "ingredient_id": "edamame_beans_frozen",
+      "display_name": "Frozen shelled edamame beans",
+      "category": "Legumes",
+      "required": true,
+      "quantity_used": 140,
+      "unit_used": "g",
+      "purchase_quantity": "Buy: 1 standard bag containing at least 140 g",
+      "purchase_notes": "Use frozen shelled edamame rather than beans in pods. Exact pack size varies.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Use directly from frozen; they will be heated during the stir-fry.",
+      "notes": "Use: 140 g total, 70 g per serving."
+    },
+    {
+      "ingredient_id": "brown_basmati_rice_dry",
+      "display_name": "Brown basmati rice",
+      "category": "Grains",
+      "required": true,
+      "quantity_used": 80,
+      "unit_used": "g",
+      "purchase_quantity": "Buy: 1 standard packet",
+      "purchase_notes": "Use dry brown basmati rice. Exact retail pack size is not important.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Rinse thoroughly under cold water until the runoff is substantially clearer.",
+      "notes": "Use: 80 g dry total, 40 g dry per serving."
+    },
+    {
+      "ingredient_id": "broccoli",
+      "display_name": "Broccoli",
+      "category": "Vegetables",
+      "required": true,
+      "quantity_used": 1,
+      "unit_used": "integer",
+      "purchase_quantity": "Buy: 1 large broccoli head, approximately 350-400 g as bought",
+      "purchase_notes": "Choose a firm head with tightly closed dark-green florets and a firm stem.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Wash and dry. Cut approximately 300 g usable florets and tender stem into stir-fry pieces. Peel tough outer stem skin where necessary.",
+      "notes": "Use approximately 300 g prepared broccoli. Tender stem flesh is included to reduce waste."
+    },
+    {
+      "ingredient_id": "white_miso_paste",
+      "display_name": "White miso paste",
+      "category": "Condiments",
+      "required": true,
+      "quantity_used": 20,
+      "unit_used": "g",
+      "purchase_quantity": "Buy: 1 tub or jar",
+      "purchase_notes": "Use a mild white or light miso paste. Exact pack size varies.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Measure accurately and dissolve into the stir-fry sauce before cooking.",
+      "notes": "Use: 20 g total."
+    },
+    {
+      "ingredient_id": "soy_sauce_reduced_salt",
+      "display_name": "Reduced-salt soy sauce",
+      "category": "Condiments",
+      "required": true,
+      "quantity_used": 20,
+      "unit_used": "ml",
+      "purchase_quantity": "Buy: 1 bottle",
+      "purchase_notes": "Reduced-salt soy sauce is preferred because miso already contributes significant sodium.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Measure before making the sauce.",
+      "notes": "Use: 20 ml total."
+    },
+    {
+      "ingredient_id": "rice_vinegar",
+      "display_name": "Rice vinegar",
+      "category": "Condiments",
+      "required": true,
+      "quantity_used": 20,
+      "unit_used": "ml",
+      "purchase_quantity": "Buy: 1 bottle",
+      "purchase_notes": "Use unseasoned rice vinegar where available so sweetness and salt remain controlled.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Measure before making the sauce.",
+      "notes": "Use: 20 ml total."
+    },
+    {
+      "ingredient_id": "fresh_ginger",
+      "display_name": "Fresh root ginger",
+      "category": "Aromatics",
+      "required": true,
+      "quantity_used": 20,
+      "unit_used": "g",
+      "purchase_quantity": "Buy: 1 piece fresh ginger containing at least 20 g usable flesh",
+      "purchase_notes": "Choose firm ginger without shrivelled or mouldy areas.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Wash, peel if the skin is tough, then finely grate 20 g usable ginger.",
+      "notes": "Use: 20 g prepared ginger."
+    },
+    {
+      "ingredient_id": "garlic",
+      "display_name": "Garlic",
+      "category": "Aromatics",
+      "required": true,
+      "quantity_used": 2,
+      "unit_used": "integer",
+      "purchase_quantity": "Buy: 1 garlic bulb",
+      "purchase_notes": "Use 2 medium cloves from the bulb.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Separate 2 cloves, peel, trim the root ends and finely grate.",
+      "notes": "Use: 2 medium cloves."
+    },
+    {
+      "ingredient_id": "sesame_seeds",
+      "display_name": "Sesame seeds",
+      "category": "Seeds",
+      "required": true,
+      "quantity_used": 10,
+      "unit_used": "g",
+      "purchase_quantity": "Buy: 1 standard packet",
+      "purchase_notes": "White or mixed sesame seeds are suitable. Use plain, untoasted seeds because the recipe includes a controlled toasting stage.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Use directly from the packet.",
+      "notes": "Use: 10 g total, 5 g per serving."
+    },
+    {
+      "ingredient_id": "sesame_oil_toasted",
+      "display_name": "Toasted sesame oil",
+      "category": "Oils",
+      "required": true,
+      "quantity_used": 4,
+      "unit_used": "g",
+      "purchase_quantity": "Buy: 1 small bottle",
+      "purchase_notes": "Use toasted sesame oil as a finishing flavouring rather than as the primary high-heat cooking oil.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Measure before cooking.",
+      "notes": "Use: 4 g total."
+    },
+    {
+      "ingredient_id": "rapeseed_oil",
+      "display_name": "Rapeseed oil",
+      "category": "Oils",
+      "required": true,
+      "quantity_used": 4,
+      "unit_used": "g",
+      "purchase_quantity": "Buy: 1 bottle",
+      "purchase_notes": "Use a neutral refined rapeseed oil suitable for high-heat cooking.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Measure accurately before stir-frying.",
+      "notes": "Use: 4 g total."
+    },
+    {
+      "ingredient_id": "cornflour",
+      "display_name": "Cornflour",
+      "category": "Thickeners",
+      "required": true,
+      "quantity_used": 10,
+      "unit_used": "g",
+      "purchase_quantity": "Buy: 1 standard packet",
+      "purchase_notes": "Standard cornflour is suitable.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Use 6 g for coating the tofu and 4 g for thickening the stir-fry sauce.",
+      "notes": "Use: 10 g total."
+    },
+    {
+      "ingredient_id": "runny_honey",
+      "display_name": "Runny honey",
+      "category": "Sweeteners",
+      "required": true,
+      "quantity_used": 8,
+      "unit_used": "g",
+      "purchase_quantity": "Buy: 1 jar or squeeze bottle",
+      "purchase_notes": "Use a mild runny honey. The quantity is deliberately small and balances the miso and vinegar rather than making the sauce sweet.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Measure before preparing the sauce.",
+      "notes": "Use: 8 g total."
+    },
+    {
+      "ingredient_id": "water",
+      "display_name": "Water",
+      "category": "Liquid",
+      "required": true,
+      "quantity_used": 80,
+      "unit_used": "ml",
+      "purchase_quantity": "Use: 80 ml tap water plus the amount required by the rice cooker for 80 g brown basmati rice",
+      "purchase_notes": "No purchase required.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Measure 80 ml for the stir-fry sauce separately from the rice-cooking water.",
+      "notes": "The 80 ml quantity represents sauce water only. Rice-cooking water should follow the rice cooker's brown-rice requirement because absorption varies by appliance."
+    }
+  ],
+  "equipment": [
+    {
+      "equipment_id": "rice_cooker",
+      "display_name": "Rice cooker",
+      "required": true,
+      "notes": "Used for repeatable cooking of the brown basmati rice while the stir-fry is prepared."
+    },
+    {
+      "equipment_id": "wok_burner",
+      "display_name": "High-output wok burner",
+      "required": true,
+      "notes": "Used to achieve rapid browning and minimise steaming."
+    },
+    {
+      "equipment_id": "wok",
+      "display_name": "Large wok",
+      "required": true,
+      "notes": "Used for tofu browning and final stir-frying."
+    },
+    {
+      "equipment_id": "mixing_bowl",
+      "display_name": "Medium mixing bowl",
+      "required": true,
+      "notes": "Used for coating the tofu."
+    },
+    {
+      "equipment_id": "small_bowl",
+      "display_name": "Small mixing bowl",
+      "required": true,
+      "notes": "Used to prepare the miso-ginger sauce."
+    },
+    {
+      "equipment_id": "chef_knife",
+      "display_name": "Chef's knife",
+      "required": true,
+      "notes": "Used for tofu and broccoli preparation."
+    },
+    {
+      "equipment_id": "chopping_board",
+      "display_name": "Chopping board",
+      "required": true,
+      "notes": "Used for safe preparation of tofu and vegetables."
+    },
+    {
+      "equipment_id": "fine_grater",
+      "display_name": "Fine grater or Microplane",
+      "required": true,
+      "notes": "Used for ginger and garlic."
+    },
+    {
+      "equipment_id": "sieve",
+      "display_name": "Fine sieve",
+      "required": true,
+      "notes": "Used to rinse and drain the brown basmati rice thoroughly."
+    },
+    {
+      "equipment_id": "measuring_jug",
+      "display_name": "Measuring jug",
+      "required": true,
+      "notes": "Used for sauce liquids."
+    },
+    {
+      "equipment_id": "measuring_spoons",
+      "display_name": "Measuring spoons",
+      "required": true,
+      "notes": "Used for controlled measurement where required."
+    },
+    {
+      "equipment_id": "kitchen_scales",
+      "display_name": "Kitchen scales",
+      "required": true,
+      "notes": "Used for tofu, rice, edamame, sauces, oils and sesame quantities."
+    },
+    {
+      "equipment_id": "spatula",
+      "display_name": "Heatproof wok spatula",
+      "required": true,
+      "notes": "Used for turning tofu and rapidly tossing the stir-fry."
+    }
+  ],
+  "mise_en_place": [
+    {
+      "prep_id": "PREP_01",
+      "ingredient_ids": [
+        "brown_basmati_rice_dry"
+      ],
+      "instruction": "Weigh 80 g dry brown basmati rice. Place it in the fine sieve and rinse under cold running water while agitating the grains with clean fingers until the runoff is substantially clearer. Shake the sieve thoroughly to remove excess water.",
+      "endpoint": "The rice is thoroughly rinsed and no longer releases heavily cloudy water."
+    },
+    {
+      "prep_id": "PREP_02",
+      "ingredient_ids": [
+        "tofu_extra_firm",
+        "cornflour"
+      ],
+      "instruction": "Drain 320 g extra-firm tofu. Pat all surfaces repeatedly with clean kitchen paper until little visible moisture transfers. Cut the tofu into approximately 20 mm cubes. Weigh 6 g of the cornflour separately for coating.",
+      "endpoint": "The tofu is surface-dry, evenly cubed and the coating cornflour is separately measured."
+    },
+    {
+      "prep_id": "PREP_03",
+      "ingredient_ids": [
+        "broccoli"
+      ],
+      "instruction": "Wash and dry the broccoli. Separate the crown into florets approximately 30-40 mm across. Trim the stem base. Peel away any visibly tough outer stem skin, then cut the tender stem flesh into pieces approximately 5 mm thick and 40 mm long. Weigh or estimate approximately 300 g usable broccoli in total.",
+      "endpoint": "Approximately 300 g broccoli is prepared into similarly quick-cooking florets and stem pieces."
+    },
+    {
+      "prep_id": "PREP_04",
+      "ingredient_ids": [
+        "fresh_ginger",
+        "garlic"
+      ],
+      "instruction": "Wash the ginger and peel only if the skin is thick or dry. Finely grate 20 g usable ginger. Separate 2 garlic cloves from the bulb, peel them, trim the root ends and finely grate.",
+      "endpoint": "The ginger and garlic are finely grated and ready to disperse rapidly through the sauce."
+    },
+    {
+      "prep_id": "PREP_05",
+      "ingredient_ids": [
+        "white_miso_paste",
+        "soy_sauce_reduced_salt",
+        "rice_vinegar",
+        "runny_honey",
+        "water",
+        "cornflour",
+        "sesame_oil_toasted",
+        "fresh_ginger",
+        "garlic"
+      ],
+      "instruction": "Measure 20 g white miso, 20 ml reduced-salt soy sauce, 20 ml rice vinegar, 8 g honey, 80 ml water, the remaining 4 g cornflour, 4 g toasted sesame oil, the prepared 20 g grated ginger and the prepared grated garlic. Add all of these ingredients to the small bowl and whisk until the miso and cornflour are fully dispersed with no visible lumps.",
+      "endpoint": "The sauce is homogeneous, pourable and free from visible miso or cornflour lumps."
+    },
+    {
+      "prep_id": "PREP_06",
+      "ingredient_ids": [
+        "edamame_beans_frozen",
+        "sesame_seeds",
+        "rapeseed_oil"
+      ],
+      "instruction": "Weigh 140 g frozen shelled edamame, 10 g sesame seeds and 4 g rapeseed oil into separate measured quantities. Keep the edamame frozen until the stir-fry stage.",
+      "endpoint": "Edamame, sesame seeds and high-heat cooking oil are accurately measured and immediately available."
+    }
+  ],
+  "procedure": [
+    {
+      "step_id": "STEP_01",
+      "section": "Brown basmati rice",
+      "title": "Cook the brown basmati rice",
+      "depends_on": [],
+      "parallel_group": "P01",
+      "ingredient_ids": [
+        "brown_basmati_rice_dry"
+      ],
+      "equipment_ids": [
+        "rice_cooker",
+        "sieve"
+      ],
+      "instruction": "Transfer the rinsed 80 g brown basmati rice to the rice cooker. Add the quantity of water specified by the rice cooker's brown-rice markings or manufacturer instructions for this amount of rice. Select the brown-rice programme where available and start the cooking cycle. Keep the lid closed throughout cooking.",
+      "heat_source": "Rice cooker",
+      "heat_level": "Brown rice programme",
+      "temperature_c": null,
+      "duration_min_minutes": 30,
+      "duration_max_minutes": 45,
+      "endpoint": "The rice cooker has completed its cycle, the grains are tender with a slight chew, no hard core remains and there is no free water at the base.",
+      "corrective_actions": [
+        {
+          "condition": "The rice remains noticeably firm after the rice cooker completes and no free water remains.",
+          "action": "Add 30 ml hot water, close the lid and continue using the cook or keep-warm function for 5-10 minutes before reassessing."
+        },
+        {
+          "condition": "The grains are cooked but visibly wet.",
+          "action": "Leave the rice cooker open on keep-warm for several minutes and gently fluff once excess moisture has evaporated."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_02",
+      "section": "Sesame garnish",
+      "title": "Toast the sesame seeds",
+      "depends_on": [],
+      "parallel_group": "P01",
+      "ingredient_ids": [
+        "sesame_seeds"
+      ],
+      "equipment_ids": [
+        "wok",
+        "wok_burner",
+        "spatula"
+      ],
+      "instruction": "Place the dry wok over low heat on the wok burner. Add 10 g sesame seeds. Stir continuously so the seeds move across the hot surface rather than remaining stationary.",
+      "heat_source": "Wok burner",
+      "heat_level": "Low",
+      "temperature_c": null,
+      "duration_min_minutes": 2,
+      "duration_max_minutes": 4,
+      "endpoint": "The sesame seeds are lightly golden in places and smell distinctly nutty without smoke or blackened seeds.",
+      "corrective_actions": [
+        {
+          "condition": "The seeds darken rapidly or begin popping aggressively.",
+          "action": "Remove the wok from the heat immediately and transfer the seeds to a cool plate or bowl."
+        },
+        {
+          "condition": "No aroma develops after 4 minutes.",
+          "action": "Increase the heat slightly and continue stirring continuously in 20-second intervals."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_03",
+      "section": "Tofu",
+      "title": "Coat the tofu",
+      "depends_on": [],
+      "parallel_group": "P01",
+      "ingredient_ids": [
+        "tofu_extra_firm",
+        "cornflour"
+      ],
+      "equipment_ids": [
+        "mixing_bowl"
+      ],
+      "instruction": "Place the prepared tofu cubes in the mixing bowl. Add the separately measured 6 g cornflour. Toss gently but thoroughly until all tofu surfaces have a very thin, dry coating and no loose pockets of cornflour remain in the bottom of the bowl.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 1,
+      "duration_max_minutes": 2,
+      "endpoint": "Each tofu cube has a thin, even powdery coating without thick white clumps.",
+      "corrective_actions": [
+        {
+          "condition": "Cornflour accumulates in thick patches.",
+          "action": "Continue tossing gently and rub excessive powder from affected cubes onto uncoated surfaces."
+        }
+      ],
+      "critical": false
+    },
+    {
+      "step_id": "STEP_04",
+      "section": "Tofu",
+      "title": "Sear the tofu",
+      "depends_on": [
+        "STEP_02",
+        "STEP_03"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "tofu_extra_firm",
+        "rapeseed_oil"
+      ],
+      "equipment_ids": [
+        "wok",
+        "wok_burner",
+        "spatula"
+      ],
+      "instruction": "Wipe any remaining sesame fragments from the wok if necessary. Heat the wok over high heat until a droplet of water evaporates almost immediately on contact. Add 4 g rapeseed oil and rotate the wok to coat the cooking surface. Immediately add the coated tofu in as close to a single layer as practical. Leave undisturbed for approximately 60-90 seconds before turning, then continue turning at intervals so multiple faces brown.",
+      "heat_source": "Wok burner",
+      "heat_level": "High",
+      "temperature_c": null,
+      "duration_min_minutes": 6,
+      "duration_max_minutes": 9,
+      "endpoint": "The tofu has crisp golden-brown patches on multiple faces, remains intact and releases cleanly from the wok when moved.",
+      "corrective_actions": [
+        {
+          "condition": "The tofu blackens before becoming evenly golden.",
+          "action": "Reduce the burner to medium-high and turn the affected pieces immediately."
+        },
+        {
+          "condition": "The tofu sticks strongly when first turned.",
+          "action": "Leave that face undisturbed for an additional 20-30 seconds; properly browned tofu should release more readily."
+        },
+        {
+          "condition": "The wok is crowded and liquid begins pooling.",
+          "action": "Remove approximately half the tofu and brown in two batches rather than allowing the tofu to steam."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_05",
+      "section": "Tofu",
+      "title": "Remove and hold the browned tofu",
+      "depends_on": [
+        "STEP_04"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "tofu_extra_firm"
+      ],
+      "equipment_ids": [
+        "wok",
+        "spatula"
+      ],
+      "instruction": "Transfer the browned tofu from the wok to a clean plate or the cleaned mixing bowl. Leave uncovered while the vegetables cook so surface steam can escape and the crust remains as dry as practical.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 1,
+      "duration_max_minutes": 2,
+      "endpoint": "The wok is empty and ready for the vegetable stage, and the browned tofu is held without being covered.",
+      "corrective_actions": [
+        {
+          "condition": "A significant layer of burnt cornflour remains in the wok.",
+          "action": "Allow the wok to cool briefly, wipe out the burnt residue carefully, then reheat before proceeding."
+        }
+      ],
+      "critical": false
+    },
+    {
+      "step_id": "STEP_06",
+      "section": "Vegetables",
+      "title": "Stir-fry the broccoli",
+      "depends_on": [
+        "STEP_05"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "broccoli"
+      ],
+      "equipment_ids": [
+        "wok",
+        "wok_burner",
+        "spatula"
+      ],
+      "instruction": "Return the empty wok to high heat. Add the prepared approximately 300 g broccoli. Stir-fry continuously for approximately 2 minutes, allowing the cut surfaces to contact the hot wok between tosses. Add 30 ml of the measured sauce water only if the broccoli begins scorching before softening, then allow the added water to evaporate completely.",
+      "heat_source": "Wok burner",
+      "heat_level": "High",
+      "temperature_c": null,
+      "duration_min_minutes": 3,
+      "duration_max_minutes": 5,
+      "endpoint": "The broccoli is vivid green, tender enough to bite cleanly but still crisp, with scattered browned or blistered surfaces and no standing water.",
+      "corrective_actions": [
+        {
+          "condition": "The broccoli begins blackening while still raw inside.",
+          "action": "Reduce heat to medium-high, add up to 30 ml water as specified and cover or toss rapidly until the thickest pieces begin to soften."
+        },
+        {
+          "condition": "The broccoli becomes soft without developing browning.",
+          "action": "Increase the heat and cook uncovered until surface moisture evaporates; stop once light browning develops."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_07",
+      "section": "Vegetables",
+      "title": "Heat the edamame",
+      "depends_on": [
+        "STEP_06"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "edamame_beans_frozen"
+      ],
+      "equipment_ids": [
+        "wok",
+        "wok_burner",
+        "spatula"
+      ],
+      "instruction": "Add the 140 g frozen shelled edamame directly to the broccoli. Continue stir-frying over medium-high heat, tossing frequently as the frozen beans thaw and release moisture.",
+      "heat_source": "Wok burner",
+      "heat_level": "Medium-high",
+      "temperature_c": null,
+      "duration_min_minutes": 2,
+      "duration_max_minutes": 4,
+      "endpoint": "The edamame is fully hot and bright green, the broccoli remains crisp-tender and no visible water remains in the wok.",
+      "corrective_actions": [
+        {
+          "condition": "Water pools in the wok as the edamame thaws.",
+          "action": "Increase the burner to high and toss continuously until the water has completely evaporated before proceeding."
+        },
+        {
+          "condition": "The broccoli begins becoming overly soft before the edamame is hot.",
+          "action": "Temporarily remove the broccoli and continue heating the edamame alone until fully hot."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_08",
+      "section": "Miso-ginger sauce",
+      "title": "Recombine and glaze the stir-fry",
+      "depends_on": [
+        "STEP_05",
+        "STEP_07"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "tofu_extra_firm",
+        "white_miso_paste",
+        "soy_sauce_reduced_salt",
+        "rice_vinegar",
+        "runny_honey",
+        "water",
+        "cornflour",
+        "fresh_ginger",
+        "garlic",
+        "sesame_oil_toasted"
+      ],
+      "equipment_ids": [
+        "wok",
+        "wok_burner",
+        "spatula",
+        "small_bowl"
+      ],
+      "instruction": "Stir the prepared sauce thoroughly immediately before use because the cornflour may have settled. Return the browned tofu to the wok. Reduce the heat to medium, pour the full sauce mixture around the ingredients and toss continuously. Allow the sauce to reach a visible simmer but do not leave it stationary against the hot wok surface.",
+      "heat_source": "Wok burner",
+      "heat_level": "Medium",
+      "temperature_c": null,
+      "duration_min_minutes": 1,
+      "duration_max_minutes": 3,
+      "endpoint": "The sauce has thickened to a glossy consistency that clings in a thin coating to the tofu, broccoli and edamame, with no watery pool remaining at the bottom of the wok.",
+      "corrective_actions": [
+        {
+          "condition": "The sauce thickens before all ingredients are coated.",
+          "action": "Add 10 ml water and toss immediately to loosen the glaze."
+        },
+        {
+          "condition": "The sauce remains watery after 3 minutes.",
+          "action": "Increase the heat slightly and continue tossing until visible simmering reduces the sauce to the stated glossy coating."
+        },
+        {
+          "condition": "The sauce begins catching or scorching on the wok surface.",
+          "action": "Remove the wok from the heat immediately, add 10 ml water and toss continuously before returning to low heat only if further thickening is required."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_09",
+      "section": "Rice",
+      "title": "Fluff the brown basmati rice",
+      "depends_on": [
+        "STEP_01"
+      ],
+      "parallel_group": "P02",
+      "ingredient_ids": [
+        "brown_basmati_rice_dry"
+      ],
+      "equipment_ids": [
+        "rice_cooker"
+      ],
+      "instruction": "When the brown basmati rice passes its cooking endpoint, open the rice cooker and gently fluff the grains from the bottom upward. Leave the lid open for approximately 2 minutes so excess surface steam escapes.",
+      "heat_source": "Rice cooker",
+      "heat_level": "Keep warm or off",
+      "temperature_c": null,
+      "duration_min_minutes": 2,
+      "duration_max_minutes": 3,
+      "endpoint": "The rice grains are separate, tender and not visibly wet or compacted.",
+      "corrective_actions": [
+        {
+          "condition": "The rice is compacted.",
+          "action": "Lift and separate the grains gently rather than stirring vigorously, which would increase breakage."
+        }
+      ],
+      "critical": false
+    },
+    {
+      "step_id": "STEP_10",
+      "section": "Finishing",
+      "title": "Finish with toasted sesame",
+      "depends_on": [
+        "STEP_02",
+        "STEP_08"
+      ],
+      "parallel_group": "P02",
+      "ingredient_ids": [
+        "sesame_seeds"
+      ],
+      "equipment_ids": [
+        "wok",
+        "spatula"
+      ],
+      "instruction": "Remove the wok from direct heat. Add approximately two-thirds of the toasted sesame seeds and fold through the glazed stir-fry. Reserve the remaining one-third for final garnish.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 0.5,
+      "duration_max_minutes": 1,
+      "endpoint": "Sesame seeds are evenly distributed through the stir-fry while a visible portion remains reserved for garnish.",
+      "corrective_actions": [
+        {
+          "condition": "The sauce continues thickening excessively from residual wok heat.",
+          "action": "Transfer the stir-fry immediately to serving bowls rather than leaving it in the hot wok."
+        }
+      ],
+      "critical": false
+    },
+    {
+      "step_id": "STEP_11",
+      "section": "Portioning",
+      "title": "Divide into two complete servings",
+      "depends_on": [
+        "STEP_09",
+        "STEP_10"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "brown_basmati_rice_dry",
+        "tofu_extra_firm",
+        "broccoli",
+        "edamame_beans_frozen",
+        "sesame_seeds"
+      ],
+      "equipment_ids": [
+        "kitchen_scales"
+      ],
+      "instruction": "Divide the cooked brown basmati rice equally between 2 serving bowls. Divide the complete tofu, broccoli and edamame stir-fry equally over or alongside the rice. Scatter the reserved toasted sesame seeds equally over both servings.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 2,
+      "duration_max_minutes": 3,
+      "endpoint": "Both bowls contain approximately equal quantities of rice, tofu, broccoli, edamame, sauce and sesame garnish.",
+      "corrective_actions": [
+        {
+          "condition": "One serving is visibly heavier than the other.",
+          "action": "Use the kitchen scales to transfer components between bowls until the portions are approximately equal."
+        }
+      ],
+      "critical": false
+    }
+  ],
+  "plating": [
+    {
+      "step_id": "PLATE_01",
+      "instruction": "Serve immediately while the tofu edges remain crisp and the broccoli retains bite. Place the brown basmati rice as the base or to one side of each bowl, distribute the glossy miso-ginger tofu, broccoli and edamame over the rice, and finish with the reserved toasted sesame seeds."
+    }
+  ],
+  "storage": {
+    "refrigerator_days": 2,
+    "freezer_months": 1,
+    "storage_instructions": "Cool leftovers promptly and refrigerate in sealed containers at 5°C or below for up to 2 days. For freezing, cool completely and freeze individual portions for up to 1 month; broccoli will soften somewhat after thawing. Reheat only once and ensure the tofu, rice, vegetables and sauce are steaming hot throughout before serving.",
+    "reheating_methods": [
+      "Hob: place one refrigerated serving in a covered frying pan or saucepan with 15-30 ml water. Heat over medium-low heat, stirring regularly, until steaming hot throughout and the sauce has returned to a glossy consistency.",
+      "Air fryer plus hob: reheat tofu and vegetables in the air fryer at 170°C until thoroughly hot while reheating the rice separately on the hob with 15-30 ml water. This method better restores some tofu surface texture.",
+      "From frozen: thaw overnight in the refrigerator before reheating using one of the stated methods."
+    ]
+  },
+  "shopping": {
+    "sainsburys": [],
+    "marks_and_spencer": [],
+    "either_retailer": [
+      "Extra-firm tofu: buy enough to provide at least 320 g",
+      "Frozen shelled edamame beans: buy 1 standard bag containing at least 140 g",
+      "Brown basmati rice: buy 1 standard packet",
+      "Large broccoli head: buy 1, approximately 350-400 g as bought",
+      "White or light miso paste: buy 1 tub or jar",
+      "Reduced-salt soy sauce: buy 1 bottle",
+      "Unseasoned rice vinegar: buy 1 bottle",
+      "Fresh root ginger: buy 1 piece containing at least 20 g usable flesh",
+      "Garlic: buy 1 bulb",
+      "Sesame seeds: buy 1 standard packet",
+      "Toasted sesame oil: buy 1 small bottle",
+      "Rapeseed oil: buy 1 bottle if not already stocked",
+      "Cornflour: buy 1 standard packet",
+      "Runny honey: buy 1 jar or squeeze bottle"
+    ]
+  },
+  "quality_checks": {
+    "protein_requirement_met": true,
+    "protein_g_per_serving": 39,
+    "restaurant_quality_features": [
+      "Extra-firm tofu is thoroughly dried, lightly coated with cornflour and browned before sauce is introduced, producing crisp edges rather than soft steamed surfaces.",
+      "The high-output wok burner allows broccoli to blister while remaining crisp-tender instead of slowly stewing.",
+      "Edamame is introduced late enough to retain colour and texture while adding substantial protein.",
+      "Miso, reduced-salt soy sauce and garlic provide layered savoury and umami depth without requiring excessive added fat.",
+      "Fresh ginger is used generously so its aromatic heat remains identifiable after cooking.",
+      "Rice vinegar provides sufficient acidity to balance the fermented miso and sesame richness.",
+      "A restrained amount of honey rounds the sauce without turning the dish noticeably sweet.",
+      "Toasted sesame oil is incorporated in the sauce rather than used as the primary frying oil, preserving its aroma and avoiding unnecessary high-heat degradation.",
+      "Sesame seeds are toasted separately and added partly through the dish and partly as a finishing garnish for sustained nutty aroma and textural contrast."
+    ],
+    "nutrition_notes": [
+      "Estimated nutrition represents one complete dinner serving including brown basmati rice, tofu, edamame, broccoli, cornflour, oils, sauce and sesame garnish.",
+      "The approximate 39 g protein per serving comes predominantly from tofu and edamame, with additional protein from broccoli, rice, miso and sesame.",
+      "The recipe is designed around the approximately 600 kcal dinner target; exact energy will vary with the nutritional composition of the selected tofu and supermarket condiments.",
+      "Brown basmati rice, broccoli and edamame provide substantial fibre and improve satiety relative to a refined-rice stir-fry.",
+      "Added cooking fat is deliberately restrained while sufficient oil is retained for tofu browning and characteristic sesame flavour.",
+      "Miso and soy sauce make sodium higher than in an unseasoned meal, so reduced-salt soy sauce is used and no additional salt is required."
+    ],
+    "critical_success_factors": [
+      "Dry the tofu thoroughly before applying cornflour; excess surface water will produce a pasty coating and inhibit browning.",
+      "Do not add the miso-ginger sauce until the tofu, broccoli and edamame have already reached their respective browning and cooking endpoints.",
+      "Ensure any water released from frozen edamame has evaporated before adding the sauce, otherwise the glaze will be diluted.",
+      "Stir the sauce immediately before pouring because cornflour settles rapidly.",
+      "Once the sauce is added, toss continuously and remove the wok from heat as soon as the sauce forms a glossy coating; prolonged cooking can scorch miso and soften the broccoli.",
+      "Toast sesame seeds separately under controlled low heat because they move quickly from aromatic to burnt.",
+      "Do not proceed to final plating until the brown basmati rice is fully tender and free from standing water."
+    ]
+  }
+}

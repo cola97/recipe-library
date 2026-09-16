@@ -1,0 +1,603 @@
+{
+  "schema_version": "1.0",
+  "recipe": {
+    "id": "carrot_cucumber_batons_edamame_hummus",
+    "title": "Carrot & Cucumber Batons with Edamame Hummus",
+    "description": "A portable afternoon snack of crisp carrot and cucumber batons with a bright, savoury edamame hummus flavoured with lemon, tahini, garlic and cumin. The hummus is blended until smooth but substantial, while the vegetables are kept dry and separate until eating to preserve crunch.",
+    "servings": 2,
+    "difficulty": "Easy",
+    "total_time_minutes": 25,
+    "active_time_minutes": 20,
+    "passive_time_minutes": 5,
+    "cuisine": [
+      "Middle Eastern-inspired",
+      "Contemporary"
+    ],
+    "meal_types": [
+      "Afternoon snack"
+    ],
+    "dietary_tags": [
+      "Vegetarian",
+      "Vegan",
+      "Portable",
+      "High fibre"
+    ],
+    "allergens": [
+      "Soy",
+      "Sesame"
+    ]
+  },
+  "nutrition_per_serving": {
+    "energy_kcal": 198,
+    "protein_g": 11,
+    "carbohydrate_g": 20,
+    "fat_g": 10,
+    "saturated_fat_g": 1.4,
+    "fibre_g": 7,
+    "salt_g": 0.5
+  },
+  "ingredients": [
+    {
+      "ingredient_id": "edamame_beans_frozen",
+      "display_name": "Frozen shelled edamame beans",
+      "category": "Legumes",
+      "required": true,
+      "quantity_used": 160,
+      "unit_used": "g",
+      "purchase_quantity": "Buy: 1 standard bag containing at least 160 g",
+      "purchase_notes": "Use frozen shelled edamame beans. Exact retail pack size varies.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Cook from frozen, then drain thoroughly and cool before blending.",
+      "notes": "Use: 160 g total, 80 g per serving."
+    },
+    {
+      "ingredient_id": "carrots",
+      "display_name": "Carrots",
+      "category": "Vegetables",
+      "required": true,
+      "quantity_used": 2,
+      "unit_used": "integer",
+      "purchase_quantity": "Buy: 2 medium carrots, approximately 180-220 g total as bought",
+      "purchase_notes": "Choose firm carrots without soft or blackened areas.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Wash, peel if required, trim both ends and cut usable flesh into approximately 10 mm x 10 mm x 70 mm batons.",
+      "notes": "Recipe assumes approximately 160 g usable carrot after trimming."
+    },
+    {
+      "ingredient_id": "cucumber",
+      "display_name": "Cucumber",
+      "category": "Vegetables",
+      "required": true,
+      "quantity_used": 0.5,
+      "unit_used": "integer",
+      "purchase_quantity": "Buy: 1 whole cucumber",
+      "purchase_notes": "Use approximately half; refrigerate the remainder for another use.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Wash and dry. Use approximately 200 g. Cut into approximately 10 mm x 10 mm x 70 mm batons. If the centre is unusually watery, trim away the softest seed core.",
+      "notes": "Use: approximately 200 g prepared cucumber."
+    },
+    {
+      "ingredient_id": "tahini",
+      "display_name": "Tahini",
+      "category": "Condiments",
+      "required": true,
+      "quantity_used": 12,
+      "unit_used": "g",
+      "purchase_quantity": "Buy: 1 jar",
+      "purchase_notes": "Use plain sesame tahini. Stir the jar well before measuring if the oil has separated.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Stir until homogeneous before weighing.",
+      "notes": "Use: 12 g total."
+    },
+    {
+      "ingredient_id": "lemon",
+      "display_name": "Unwaxed lemon",
+      "category": "Fruit",
+      "required": true,
+      "quantity_used": 1,
+      "unit_used": "integer",
+      "purchase_quantity": "Buy: 1 lemon",
+      "purchase_notes": "An unwaxed lemon is preferred because zest is used.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Wash and dry. Finely grate approximately 1 g yellow zest and squeeze 20 ml juice, removing any seeds.",
+      "notes": "Use approximately 1 g zest and 20 ml juice; reserve unused lemon for another use."
+    },
+    {
+      "ingredient_id": "garlic",
+      "display_name": "Garlic",
+      "category": "Aromatics",
+      "required": true,
+      "quantity_used": 1,
+      "unit_used": "integer",
+      "purchase_quantity": "Buy: 1 garlic bulb",
+      "purchase_notes": "Use 1 small clove from the bulb.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Separate 1 small clove, peel and trim the root end, then finely grate or crush.",
+      "notes": "Use: 1 small garlic clove, approximately 3 g prepared."
+    },
+    {
+      "ingredient_id": "olive_oil",
+      "display_name": "Extra-virgin olive oil",
+      "category": "Oils",
+      "required": true,
+      "quantity_used": 4,
+      "unit_used": "g",
+      "purchase_quantity": "Buy: 1 bottle",
+      "purchase_notes": "Use a mild extra-virgin olive oil so the edamame flavour remains dominant.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Measure accurately before blending.",
+      "notes": "Use: 4 g total."
+    },
+    {
+      "ingredient_id": "ground_cumin",
+      "display_name": "Ground cumin",
+      "category": "Spices",
+      "required": true,
+      "quantity_used": 0.25,
+      "unit_used": "tsp",
+      "purchase_quantity": "Buy: 1 jar",
+      "purchase_notes": "Standard ground cumin is suitable.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Measure before blending.",
+      "notes": "Use: 0.25 tsp."
+    },
+    {
+      "ingredient_id": "fine_salt",
+      "display_name": "Fine salt",
+      "category": "Seasoning",
+      "required": true,
+      "quantity_used": 0.25,
+      "unit_used": "tsp",
+      "purchase_quantity": "Buy: 1 standard container",
+      "purchase_notes": "Fine table salt or fine sea salt is suitable.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Measure 0.1875 tsp for initial seasoning and reserve up to 0.0625 tsp for final adjustment.",
+      "notes": "Use no more than 0.25 tsp total."
+    },
+    {
+      "ingredient_id": "black_pepper_ground",
+      "display_name": "Ground black pepper",
+      "category": "Seasoning",
+      "required": true,
+      "quantity_used": 0.125,
+      "unit_used": "tsp",
+      "purchase_quantity": "Buy: 1 jar or pepper mill",
+      "purchase_notes": "Freshly ground black pepper is preferred where available.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Measure before blending.",
+      "notes": "Use: 0.125 tsp."
+    },
+    {
+      "ingredient_id": "water",
+      "display_name": "Cold water",
+      "category": "Liquid",
+      "required": true,
+      "quantity_used": 30,
+      "unit_used": "ml",
+      "purchase_quantity": "Use: up to 30 ml tap water",
+      "purchase_notes": "No purchase required.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Use cold water and add gradually during blending.",
+      "notes": "Use up to 30 ml as required to achieve the specified hummus consistency."
+    }
+  ],
+  "equipment": [
+    {
+      "equipment_id": "kettle",
+      "display_name": "Electric kettle",
+      "required": true,
+      "notes": "Used to heat water rapidly for cooking the edamame."
+    },
+    {
+      "equipment_id": "saucepan",
+      "display_name": "Medium saucepan",
+      "required": true,
+      "notes": "Used to cook the frozen edamame."
+    },
+    {
+      "equipment_id": "gas_hob",
+      "display_name": "Gas hob",
+      "required": true,
+      "notes": "Used to bring the edamame cooking water back to the boil."
+    },
+    {
+      "equipment_id": "colander",
+      "display_name": "Colander",
+      "required": true,
+      "notes": "Used to drain and cool the cooked edamame."
+    },
+    {
+      "equipment_id": "standard_blender",
+      "display_name": "Standard blender",
+      "required": true,
+      "notes": "Used to produce a smooth but substantial edamame hummus."
+    },
+    {
+      "equipment_id": "chef_knife",
+      "display_name": "Chef's knife",
+      "required": true,
+      "notes": "Used to trim and cut the vegetables."
+    },
+    {
+      "equipment_id": "chopping_board",
+      "display_name": "Chopping board",
+      "required": true,
+      "notes": "Used for vegetable preparation."
+    },
+    {
+      "equipment_id": "fine_grater",
+      "display_name": "Fine grater or Microplane",
+      "required": true,
+      "notes": "Used for lemon zest and garlic."
+    },
+    {
+      "equipment_id": "measuring_jug",
+      "display_name": "Measuring jug",
+      "required": true,
+      "notes": "Used to measure lemon juice and water."
+    },
+    {
+      "equipment_id": "measuring_spoons",
+      "display_name": "Measuring spoons",
+      "required": true,
+      "notes": "Used for cumin, salt and black pepper."
+    },
+    {
+      "equipment_id": "kitchen_scales",
+      "display_name": "Kitchen scales",
+      "required": true,
+      "notes": "Used for accurate edamame, tahini and oil quantities."
+    },
+    {
+      "equipment_id": "lidded_containers",
+      "display_name": "2 portable lidded snack containers",
+      "required": true,
+      "notes": "Containers should allow the hummus and vegetable batons to remain physically separated where possible."
+    }
+  ],
+  "mise_en_place": [
+    {
+      "prep_id": "PREP_01",
+      "ingredient_ids": [
+        "carrots"
+      ],
+      "instruction": "Wash the 2 carrots under cold running water and dry them. Peel only if the outer surface is tough or damaged. Trim and discard both ends. Cut the usable flesh into batons approximately 10 mm x 10 mm x 70 mm.",
+      "endpoint": "Approximately 160 g carrot is cut into firm, evenly sized batons suitable for dipping."
+    },
+    {
+      "prep_id": "PREP_02",
+      "ingredient_ids": [
+        "cucumber"
+      ],
+      "instruction": "Wash and dry the whole cucumber. Cut approximately half of it to provide about 200 g. Trim the cut end if required. Cut the usable portion into batons approximately 10 mm x 10 mm x 70 mm. If the seed core is exceptionally soft and watery, trim away only the softest central material. Pat all cut surfaces dry with clean kitchen paper.",
+      "endpoint": "Approximately 200 g cucumber is cut into crisp, dry batons with minimal free surface moisture."
+    },
+    {
+      "prep_id": "PREP_03",
+      "ingredient_ids": [
+        "lemon",
+        "garlic"
+      ],
+      "instruction": "Wash and dry the lemon. Finely grate approximately 1 g yellow zest without removing significant white pith. Cut the lemon and squeeze 20 ml juice, removing all seeds. Separate 1 small garlic clove from the bulb, peel it, trim the root end and grate it finely.",
+      "endpoint": "Approximately 1 g lemon zest, 20 ml seed-free lemon juice and 1 finely grated garlic clove are ready for blending."
+    },
+    {
+      "prep_id": "PREP_04",
+      "ingredient_ids": [
+        "edamame_beans_frozen",
+        "tahini",
+        "olive_oil",
+        "ground_cumin",
+        "fine_salt",
+        "black_pepper_ground",
+        "water"
+      ],
+      "instruction": "Weigh 160 g frozen shelled edamame, 12 g tahini and 4 g olive oil. Measure 0.25 tsp ground cumin, 0.1875 tsp initial fine salt, 0.0625 tsp reserved fine salt, 0.125 tsp black pepper and 30 ml cold water.",
+      "endpoint": "All hummus ingredients are accurately measured and ready for controlled addition."
+    }
+  ],
+  "procedure": [
+    {
+      "step_id": "STEP_01",
+      "section": "Edamame",
+      "title": "Cook the edamame",
+      "depends_on": [],
+      "parallel_group": "P01",
+      "ingredient_ids": [
+        "edamame_beans_frozen"
+      ],
+      "equipment_ids": [
+        "kettle",
+        "saucepan",
+        "gas_hob"
+      ],
+      "instruction": "Boil sufficient water in the electric kettle to cover the 160 g frozen edamame by at least 30 mm in the saucepan. Pour the boiling water into the saucepan, place over high gas heat and add the frozen edamame. Return the water to a full boil, then reduce the flame sufficiently to maintain active boiling without overflow.",
+      "heat_source": "Gas hob",
+      "heat_level": "High to medium-high",
+      "temperature_c": 100,
+      "duration_min_minutes": 3,
+      "duration_max_minutes": 5,
+      "endpoint": "The edamame is fully hot, bright green and tender when bitten but retains slight firmness rather than becoming mushy.",
+      "corrective_actions": [
+        {
+          "condition": "The water threatens to boil over.",
+          "action": "Reduce the gas flame immediately while maintaining visible boiling."
+        },
+        {
+          "condition": "The beans remain hard or chalky after 5 minutes.",
+          "action": "Continue boiling in 1-minute intervals until the stated tender-but-firm endpoint is reached."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_02",
+      "section": "Vegetables",
+      "title": "Prepare and dry the batons",
+      "depends_on": [],
+      "parallel_group": "P01",
+      "ingredient_ids": [
+        "carrots",
+        "cucumber"
+      ],
+      "equipment_ids": [
+        "chef_knife",
+        "chopping_board"
+      ],
+      "instruction": "Complete the prepared carrot and cucumber baton cuts as specified in mise en place. Inspect for irregularly thick pieces and trim them so most batons remain approximately 10 mm thick. Pat the cucumber surfaces dry before packing.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 5,
+      "duration_max_minutes": 8,
+      "endpoint": "The vegetable batons are evenly sized, crisp and externally dry, with no pooled cucumber liquid.",
+      "corrective_actions": [
+        {
+          "condition": "Cucumber pieces release significant moisture after cutting.",
+          "action": "Spread them on clean kitchen paper and blot thoroughly before packing."
+        }
+      ],
+      "critical": false
+    },
+    {
+      "step_id": "STEP_03",
+      "section": "Edamame",
+      "title": "Drain and cool the edamame",
+      "depends_on": [
+        "STEP_01"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "edamame_beans_frozen"
+      ],
+      "equipment_ids": [
+        "colander"
+      ],
+      "instruction": "Drain the cooked edamame immediately through the colander. Rinse under cold running water while agitating the beans gently until they are no longer hot. Shake the colander firmly several times and leave it to drain for approximately 2 minutes so excess water is removed.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 2,
+      "duration_max_minutes": 4,
+      "endpoint": "The edamame is cool, bright green and visibly free of standing or dripping water.",
+      "corrective_actions": [
+        {
+          "condition": "Water continues dripping heavily from the colander after 2 minutes.",
+          "action": "Shake again and leave to drain for an additional 1-2 minutes before blending."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_04",
+      "section": "Edamame hummus",
+      "title": "Blend the hummus base",
+      "depends_on": [
+        "STEP_03"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "edamame_beans_frozen",
+        "tahini",
+        "lemon",
+        "garlic",
+        "olive_oil",
+        "ground_cumin",
+        "fine_salt",
+        "black_pepper_ground",
+        "water"
+      ],
+      "equipment_ids": [
+        "standard_blender",
+        "fine_grater",
+        "measuring_jug",
+        "measuring_spoons",
+        "kitchen_scales"
+      ],
+      "instruction": "Add the drained 160 g cooked edamame to the blender with 12 g tahini, 20 ml lemon juice, approximately 1 g lemon zest, the finely grated garlic, 4 g olive oil, 0.25 tsp cumin, 0.1875 tsp fine salt, 0.125 tsp black pepper and 15 ml of the measured cold water. Blend for approximately 30 seconds, stop and scrape down the sides, then blend again until the mixture becomes mostly smooth.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 1,
+      "duration_max_minutes": 2,
+      "endpoint": "The hummus is pale green, cohesive and mostly smooth with no whole edamame remaining, but retains enough body to hold a soft mound on a spoon.",
+      "corrective_actions": [
+        {
+          "condition": "The blender blades spin without circulating the mixture or the hummus remains excessively stiff.",
+          "action": "Add the remaining cold water in 5 ml increments, blending after each addition, stopping as soon as the mixture circulates and reaches the specified thick dipping consistency."
+        },
+        {
+          "condition": "The mixture becomes thinner than intended.",
+          "action": "Stop adding water immediately and allow the hummus to stand refrigerated for 10 minutes; do not add unlisted ingredients to thicken it."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_05",
+      "section": "Edamame hummus",
+      "title": "Check seasoning and texture",
+      "depends_on": [
+        "STEP_04"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "fine_salt"
+      ],
+      "equipment_ids": [
+        "standard_blender"
+      ],
+      "instruction": "Taste a small amount of hummus after blending. Confirm that lemon acidity, sesame richness, garlic, cumin and salt are individually perceptible but balanced. If the mixture tastes under-seasoned, add up to the reserved 0.0625 tsp fine salt and blend for approximately 10 seconds.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 1,
+      "duration_max_minutes": 2,
+      "endpoint": "The hummus tastes savoury, lemon-bright and clearly seasoned without excessive salt, and retains a thick dipping consistency.",
+      "corrective_actions": [
+        {
+          "condition": "The hummus tastes adequately seasoned before the reserved salt is used.",
+          "action": "Do not add the reserved salt."
+        },
+        {
+          "condition": "The hummus appears overly thick after standing.",
+          "action": "Blend in any remaining measured water in 5 ml increments until the acceptance texture is restored."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_06",
+      "section": "Packing",
+      "title": "Portion the snack containers",
+      "depends_on": [
+        "STEP_02",
+        "STEP_05"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "carrots",
+        "cucumber",
+        "edamame_beans_frozen",
+        "tahini",
+        "lemon",
+        "garlic",
+        "olive_oil",
+        "ground_cumin",
+        "fine_salt",
+        "black_pepper_ground",
+        "water"
+      ],
+      "equipment_ids": [
+        "lidded_containers",
+        "kitchen_scales"
+      ],
+      "instruction": "Divide the finished edamame hummus equally between the 2 snack containers using the kitchen scales. Divide the carrot and cucumber batons approximately equally between the containers. Keep the vegetable batons physically separate from the hummus using an internal divider or separate small pot where available. Secure all lids fully and refrigerate immediately.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 3,
+      "duration_max_minutes": 5,
+      "endpoint": "Each serving contains approximately half of the hummus and half of the prepared vegetables, the vegetables remain dry and separate from the dip, and all lids are secure for transport.",
+      "corrective_actions": [
+        {
+          "condition": "One hummus portion is visibly larger than the other.",
+          "action": "Use the kitchen scales to transfer small amounts until both portions are approximately equal."
+        },
+        {
+          "condition": "Cucumber moisture has collected in a container before sealing.",
+          "action": "Remove the cucumber, blot dry again and dry the container before repacking."
+        }
+      ],
+      "critical": false
+    }
+  ],
+  "plating": [
+    {
+      "step_id": "PLATE_01",
+      "instruction": "Serve one complete snack container per person. Keep the hummus and vegetable batons separate until eating, then dip the carrot and cucumber directly into the edamame hummus to preserve the contrast between crisp vegetables and creamy dip."
+    }
+  ],
+  "storage": {
+    "refrigerator_days": 2,
+    "freezer_months": null,
+    "storage_instructions": "Refrigerate at 5°C or below and consume within 2 days. For best texture, keep the carrot and cucumber batons separate from the hummus until eating. The snack is suitable for transport to work or on a car journey; if continuous refrigeration is unavailable, carry it in an insulated lunch bag with an ice pack and keep it chilled until consumption.",
+    "reheating_methods": []
+  },
+  "shopping": {
+    "sainsburys": [],
+    "marks_and_spencer": [],
+    "either_retailer": [
+      "Frozen shelled edamame beans: buy 1 standard bag containing at least 160 g",
+      "Carrots: buy 2 medium carrots",
+      "Cucumber: buy 1 whole cucumber",
+      "Tahini: buy 1 jar",
+      "Unwaxed lemon: buy 1",
+      "Garlic: buy 1 bulb",
+      "Extra-virgin olive oil: buy 1 bottle if not already stocked",
+      "Ground cumin: buy 1 jar if not already stocked",
+      "Fine salt: buy 1 container if not already stocked",
+      "Ground black pepper: buy 1 jar or pepper mill if not already stocked"
+    ]
+  },
+  "quality_checks": {
+    "protein_requirement_met": true,
+    "protein_g_per_serving": 11,
+    "restaurant_quality_features": [
+      "Edamame replaces conventional chickpeas to give the dip a fresher green flavour and naturally higher protein density.",
+      "Lemon juice and zest provide both acidity and aromatic freshness rather than relying on excess oil for flavour.",
+      "Tahini supplies sesame depth and creaminess while remaining deliberately restrained to keep the snack near the 200 kcal target.",
+      "Garlic and cumin provide savoury aromatic complexity despite the recipe requiring no frying or roasting stage.",
+      "Cold water is added incrementally during blending, allowing the hummus to become smooth without becoming runny.",
+      "Drying the cucumber thoroughly and packing the vegetables separately protects their crunch during transport."
+    ],
+    "nutrition_notes": [
+      "Estimated nutrition represents one complete snack serving including vegetables, edamame hummus, tahini, olive oil and all seasonings.",
+      "This recipe is designed around the approximately 200 kcal afternoon-snack target.",
+      "The general 30 g protein target does not apply to afternoon snacks under the specified meal-plan rules; approximately 11 g protein per serving is therefore compliant.",
+      "Edamame provides the majority of the protein as well as fibre and unsaturated fat.",
+      "Carrot and cucumber contribute additional fibre, fluid volume and micronutrients while keeping energy density modest.",
+      "Nutrition values are estimates and will vary with exact vegetable size and supermarket products."
+    ],
+    "critical_success_factors": [
+      "Drain the cooked edamame thoroughly before blending; excess water will dilute flavour and make the hummus difficult to pack.",
+      "Add blending water incrementally rather than all at once so the hummus remains thick enough for dipping.",
+      "Keep cucumber surfaces dry and physically separate from the hummus until eating to prevent watery dilution.",
+      "Do not automatically add the reserved salt; taste the hummus first because tahini and individual ingredient characteristics vary.",
+      "Keep the completed snack chilled during storage and transport."
+    ]
+  }
+}

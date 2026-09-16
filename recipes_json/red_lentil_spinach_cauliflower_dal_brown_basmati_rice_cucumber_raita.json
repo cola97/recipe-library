@@ -1,0 +1,1030 @@
+{
+  "schema_version": "1.0",
+  "recipe": {
+    "id": "red_lentil_spinach_cauliflower_dal_brown_basmati_rice_cucumber_raita",
+    "title": "Red Lentil, Spinach & Cauliflower Dal with Brown Basmati Rice and Cucumber Raita",
+    "description": "A high-protein red lentil dal with browned cauliflower, wilted spinach and a deeply aromatic cumin, ginger, garlic and tomato base, served with nutty brown basmati rice and a cool lemon-mint cucumber raita. The cauliflower is roasted separately for caramelised edges before being folded through the finished dal so it retains texture.",
+    "servings": 2,
+    "difficulty": "Moderate",
+    "total_time_minutes": 50,
+    "active_time_minutes": 30,
+    "passive_time_minutes": 20,
+    "cuisine": [
+      "Indian-inspired",
+      "South Asian-inspired"
+    ],
+    "meal_types": [
+      "Dinner"
+    ],
+    "dietary_tags": [
+      "Vegetarian",
+      "High protein",
+      "High fibre"
+    ],
+    "allergens": [
+      "Milk"
+    ]
+  },
+  "nutrition_per_serving": {
+    "energy_kcal": 600,
+    "protein_g": 39,
+    "carbohydrate_g": 94,
+    "fat_g": 9.5,
+    "saturated_fat_g": 1.6,
+    "fibre_g": 16.5,
+    "salt_g": 1.3
+  },
+  "ingredients": [
+    {
+      "ingredient_id": "red_lentils_dry",
+      "display_name": "Dried red split lentils",
+      "category": "Legumes",
+      "required": true,
+      "quantity_used": 120,
+      "unit_used": "g",
+      "purchase_quantity": "Buy: 1 standard packet",
+      "purchase_notes": "Use dried red split lentils. Exact retail pack size is not important.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Inspect for foreign material, rinse repeatedly under cold running water and drain thoroughly.",
+      "notes": "Use: 120 g dry total, 60 g per serving."
+    },
+    {
+      "ingredient_id": "brown_basmati_rice_dry",
+      "display_name": "Brown basmati rice",
+      "category": "Grains",
+      "required": true,
+      "quantity_used": 70,
+      "unit_used": "g",
+      "purchase_quantity": "Buy: 1 standard packet",
+      "purchase_notes": "Use dry brown basmati rice.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Rinse under cold running water until the runoff becomes substantially clearer.",
+      "notes": "Use: 70 g dry total, 35 g per serving."
+    },
+    {
+      "ingredient_id": "cauliflower",
+      "display_name": "Cauliflower",
+      "category": "Vegetables",
+      "required": true,
+      "quantity_used": 1,
+      "unit_used": "integer",
+      "purchase_quantity": "Buy: 1 medium-large cauliflower, approximately 550-700 g as bought",
+      "purchase_notes": "Choose a firm cauliflower with tightly packed cream-coloured florets and no extensive dark spotting.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Remove leaves and tough base. Cut approximately 400 g usable florets and tender stem into pieces approximately 30-40 mm across.",
+      "notes": "Use approximately 400 g prepared cauliflower."
+    },
+    {
+      "ingredient_id": "baby_spinach",
+      "display_name": "Baby spinach",
+      "category": "Vegetables",
+      "required": true,
+      "quantity_used": 160,
+      "unit_used": "g",
+      "purchase_quantity": "Buy: 1 bag containing at least 160 g",
+      "purchase_notes": "Choose fresh leaves without slimy or heavily wilted areas.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Wash if required by pack instructions and dry thoroughly. Remove damaged leaves.",
+      "notes": "Use: 160 g total."
+    },
+    {
+      "ingredient_id": "brown_onion",
+      "display_name": "Brown onion",
+      "category": "Vegetables",
+      "required": true,
+      "quantity_used": 1,
+      "unit_used": "integer",
+      "purchase_quantity": "Buy: 1 medium brown onion, approximately 160-180 g as bought",
+      "purchase_notes": "Choose a firm onion without soft or mouldy areas.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Peel, trim and finely dice the usable flesh into approximately 4 mm pieces.",
+      "notes": "Recipe assumes approximately 150-160 g usable onion."
+    },
+    {
+      "ingredient_id": "chopped_tomatoes_canned",
+      "display_name": "Canned chopped tomatoes",
+      "category": "Vegetables",
+      "required": true,
+      "quantity_used": 200,
+      "unit_used": "g",
+      "purchase_quantity": "Buy: 1 x 400 g tin",
+      "purchase_notes": "Use approximately half the tin and refrigerate the remainder in a separate covered container for another use.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Measure directly from the opened tin, including tomato juice.",
+      "notes": "Use: 200 g."
+    },
+    {
+      "ingredient_id": "greek_yoghurt_0_percent",
+      "display_name": "0% Greek yoghurt",
+      "category": "Dairy",
+      "required": true,
+      "quantity_used": 250,
+      "unit_used": "g",
+      "purchase_quantity": "Buy: 1 tub containing at least 250 g",
+      "purchase_notes": "Use plain unsweetened 0% Greek yoghurt with approximately 9-10 g protein per 100 g where possible.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Keep refrigerated until the raita is prepared.",
+      "notes": "Use: 250 g total, 125 g per serving."
+    },
+    {
+      "ingredient_id": "cucumber",
+      "display_name": "Cucumber",
+      "category": "Vegetables",
+      "required": true,
+      "quantity_used": 0.5,
+      "unit_used": "integer",
+      "purchase_quantity": "Buy: 1 whole cucumber",
+      "purchase_notes": "Use approximately half the cucumber and refrigerate the remainder for another use.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Wash and dry. Use approximately 160 g, coarsely grate and gently squeeze out excess free water.",
+      "notes": "Use approximately 160 g prepared cucumber."
+    },
+    {
+      "ingredient_id": "fresh_ginger",
+      "display_name": "Fresh root ginger",
+      "category": "Aromatics",
+      "required": true,
+      "quantity_used": 20,
+      "unit_used": "g",
+      "purchase_quantity": "Buy: 1 piece containing at least 20 g usable ginger",
+      "purchase_notes": "Choose firm ginger without mould or severe shrivelling.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Wash, peel only if the skin is tough, then finely grate 20 g usable flesh.",
+      "notes": "Use: 20 g prepared ginger."
+    },
+    {
+      "ingredient_id": "garlic",
+      "display_name": "Garlic",
+      "category": "Aromatics",
+      "required": true,
+      "quantity_used": 3,
+      "unit_used": "integer",
+      "purchase_quantity": "Buy: 1 garlic bulb",
+      "purchase_notes": "Use 3 medium cloves from the bulb.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Separate 3 cloves, peel, trim the root ends and finely grate.",
+      "notes": "Use: 3 medium cloves."
+    },
+    {
+      "ingredient_id": "lemon",
+      "display_name": "Unwaxed lemon",
+      "category": "Fruit",
+      "required": true,
+      "quantity_used": 1,
+      "unit_used": "integer",
+      "purchase_quantity": "Buy: 1 lemon",
+      "purchase_notes": "An unwaxed lemon is preferred because a small amount of zest may contact the raita during preparation.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Wash and dry, cut and squeeze 30 ml juice, removing all seeds.",
+      "notes": "Use: 30 ml juice total; allocate 20 ml to the dal and 10 ml to the raita."
+    },
+    {
+      "ingredient_id": "fresh_mint",
+      "display_name": "Fresh mint",
+      "category": "Fresh herbs",
+      "required": true,
+      "quantity_used": 10,
+      "unit_used": "g",
+      "purchase_quantity": "Buy: 1 packet or pot containing at least 10 g usable leaves",
+      "purchase_notes": "Choose fresh green mint without blackened or slimy leaves.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Wash, dry, remove coarse stems and finely chop the leaves and tender upper stems.",
+      "notes": "Use: 10 g prepared mint."
+    },
+    {
+      "ingredient_id": "fresh_coriander",
+      "display_name": "Fresh coriander",
+      "category": "Fresh herbs",
+      "required": true,
+      "quantity_used": 15,
+      "unit_used": "g",
+      "purchase_quantity": "Buy: 1 packet or bunch containing at least 15 g",
+      "purchase_notes": "Choose fresh coriander without yellowed or slimy leaves.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Wash and dry thoroughly. Remove coarse lower stems and chop leaves and tender stems into approximately 5 mm pieces.",
+      "notes": "Use: 15 g total."
+    },
+    {
+      "ingredient_id": "rapeseed_oil",
+      "display_name": "Rapeseed oil",
+      "category": "Oils",
+      "required": true,
+      "quantity_used": 12,
+      "unit_used": "g",
+      "purchase_quantity": "Buy: 1 bottle if not already stocked",
+      "purchase_notes": "Use a neutral refined rapeseed oil suitable for frying and roasting.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Measure 4 g for cauliflower roasting and 8 g for the dal.",
+      "notes": "Use: 12 g total."
+    },
+    {
+      "ingredient_id": "cumin_seeds",
+      "display_name": "Cumin seeds",
+      "category": "Spices",
+      "required": true,
+      "quantity_used": 1,
+      "unit_used": "tsp",
+      "purchase_quantity": "Buy: 1 jar",
+      "purchase_notes": "Whole cumin seeds provide the aromatic base for the dal.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Measure before cooking.",
+      "notes": "Use: 1 tsp total."
+    },
+    {
+      "ingredient_id": "ground_coriander",
+      "display_name": "Ground coriander",
+      "category": "Spices",
+      "required": true,
+      "quantity_used": 1.5,
+      "unit_used": "tsp",
+      "purchase_quantity": "Buy: 1 jar",
+      "purchase_notes": "Standard ground coriander is suitable.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Measure before cooking.",
+      "notes": "Use: 1.5 tsp total."
+    },
+    {
+      "ingredient_id": "turmeric_ground",
+      "display_name": "Ground turmeric",
+      "category": "Spices",
+      "required": true,
+      "quantity_used": 0.5,
+      "unit_used": "tsp",
+      "purchase_quantity": "Buy: 1 jar",
+      "purchase_notes": "Standard ground turmeric is suitable.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Measure before cooking.",
+      "notes": "Use: 0.5 tsp total."
+    },
+    {
+      "ingredient_id": "garam_masala",
+      "display_name": "Garam masala",
+      "category": "Spices",
+      "required": true,
+      "quantity_used": 1,
+      "unit_used": "tsp",
+      "purchase_quantity": "Buy: 1 jar",
+      "purchase_notes": "Use a standard supermarket garam masala blend.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Measure before cooking and reserve for the finishing stage.",
+      "notes": "Use: 1 tsp total."
+    },
+    {
+      "ingredient_id": "chilli_powder",
+      "display_name": "Mild chilli powder",
+      "category": "Spices",
+      "required": true,
+      "quantity_used": 0.25,
+      "unit_used": "tsp",
+      "purchase_quantity": "Buy: 1 jar if not already stocked",
+      "purchase_notes": "Use mild chilli powder for controlled heat.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Measure before cooking.",
+      "notes": "Use: 0.25 tsp total."
+    },
+    {
+      "ingredient_id": "ground_cumin",
+      "display_name": "Ground cumin",
+      "category": "Spices",
+      "required": true,
+      "quantity_used": 0.5,
+      "unit_used": "tsp",
+      "purchase_quantity": "Buy: 1 jar if not already stocked",
+      "purchase_notes": "Standard ground cumin is suitable.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Measure for the cucumber raita.",
+      "notes": "Use: 0.5 tsp total."
+    },
+    {
+      "ingredient_id": "fine_salt",
+      "display_name": "Fine salt",
+      "category": "Seasoning",
+      "required": true,
+      "quantity_used": 0.5,
+      "unit_used": "tsp",
+      "purchase_quantity": "Buy: 1 standard container if not already stocked",
+      "purchase_notes": "Fine table salt or fine sea salt is suitable.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Measure 0.25 tsp for the dal, 0.125 tsp for the cauliflower and 0.125 tsp for the raita.",
+      "notes": "Use: 0.5 tsp total."
+    },
+    {
+      "ingredient_id": "water",
+      "display_name": "Water",
+      "category": "Liquid",
+      "required": true,
+      "quantity_used": 550,
+      "unit_used": "ml",
+      "purchase_quantity": "Use: 550 ml tap water plus the quantity required by the rice cooker",
+      "purchase_notes": "No purchase required.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Measure 550 ml for cooking the dal. Rice-cooking water is additional and should follow the rice-cooker manufacturer's brown-rice guidance.",
+      "notes": "Use: 550 ml in the dal."
+    }
+  ],
+  "equipment": [
+    {
+      "equipment_id": "rice_cooker",
+      "display_name": "Rice cooker",
+      "required": true,
+      "notes": "Used for repeatable brown basmati rice cooking."
+    },
+    {
+      "equipment_id": "air_fryer",
+      "display_name": "Duo Stack air fryer",
+      "required": true,
+      "notes": "Used to roast the cauliflower to browned, concentrated edges without requiring excessive oil."
+    },
+    {
+      "equipment_id": "gas_hob",
+      "display_name": "Gas hob",
+      "required": true,
+      "notes": "Used to build and simmer the dal."
+    },
+    {
+      "equipment_id": "saute_pan",
+      "display_name": "Large sauté pan or wide saucepan",
+      "required": true,
+      "notes": "Used for browning aromatics and simmering the lentils."
+    },
+    {
+      "equipment_id": "kettle",
+      "display_name": "Electric kettle",
+      "required": true,
+      "notes": "Used to heat the dal water efficiently."
+    },
+    {
+      "equipment_id": "mixing_bowl",
+      "display_name": "Medium mixing bowl",
+      "required": true,
+      "notes": "Used to coat the cauliflower."
+    },
+    {
+      "equipment_id": "small_bowl",
+      "display_name": "Small mixing bowl",
+      "required": true,
+      "notes": "Used to prepare the cucumber raita."
+    },
+    {
+      "equipment_id": "colander",
+      "display_name": "Fine colander or sieve",
+      "required": true,
+      "notes": "Used to rinse and drain the red lentils."
+    },
+    {
+      "equipment_id": "box_grater",
+      "display_name": "Box grater",
+      "required": true,
+      "notes": "Used to coarsely grate the cucumber for the raita."
+    },
+    {
+      "equipment_id": "fine_grater",
+      "display_name": "Fine grater or Microplane",
+      "required": true,
+      "notes": "Used for ginger and garlic."
+    },
+    {
+      "equipment_id": "chef_knife",
+      "display_name": "Chef's knife",
+      "required": true,
+      "notes": "Used for cauliflower, onion and herb preparation."
+    },
+    {
+      "equipment_id": "chopping_board",
+      "display_name": "Chopping board",
+      "required": true,
+      "notes": "Used for produce preparation."
+    },
+    {
+      "equipment_id": "measuring_jug",
+      "display_name": "Measuring jug",
+      "required": true,
+      "notes": "Used for dal water and lemon juice."
+    },
+    {
+      "equipment_id": "measuring_spoons",
+      "display_name": "Measuring spoons",
+      "required": true,
+      "notes": "Used for spices and salt."
+    },
+    {
+      "equipment_id": "kitchen_scales",
+      "display_name": "Kitchen scales",
+      "required": true,
+      "notes": "Used for rice, lentils, yoghurt, vegetables and oil."
+    },
+    {
+      "equipment_id": "spatula",
+      "display_name": "Heatproof spatula or wooden spoon",
+      "required": true,
+      "notes": "Used to cook aromatics and stir the dal."
+    }
+  ],
+  "mise_en_place": [
+    {
+      "prep_id": "PREP_01",
+      "ingredient_ids": [
+        "red_lentils_dry"
+      ],
+      "instruction": "Inspect 120 g dried red lentils for foreign material. Place in the fine colander or sieve and rinse under cold running water while agitating the lentils until the runoff becomes substantially clearer. Drain thoroughly.",
+      "endpoint": "The lentils are clean, fully drained and ready for cooking."
+    },
+    {
+      "prep_id": "PREP_02",
+      "ingredient_ids": [
+        "brown_basmati_rice_dry"
+      ],
+      "instruction": "Place 70 g brown basmati rice in a sieve and rinse under cold running water while agitating the grains until the runoff becomes substantially clearer. Shake thoroughly to remove excess water.",
+      "endpoint": "The rice is thoroughly rinsed and drained."
+    },
+    {
+      "prep_id": "PREP_03",
+      "ingredient_ids": [
+        "cauliflower"
+      ],
+      "instruction": "Remove the cauliflower leaves and trim away the tough base. Wash and dry the usable head. Cut florets into pieces approximately 30-40 mm across. Peel tough outer skin from the tender central stem where required and cut the usable stem into pieces of similar cooking thickness. Weigh approximately 400 g prepared cauliflower.",
+      "endpoint": "Approximately 400 g cauliflower is clean, dry and cut into evenly sized roasting pieces."
+    },
+    {
+      "prep_id": "PREP_04",
+      "ingredient_ids": [
+        "brown_onion",
+        "fresh_ginger",
+        "garlic"
+      ],
+      "instruction": "Peel the onion, trim the root and stem ends and dice the usable flesh into approximately 4 mm pieces. Wash the ginger, peel only if the skin is tough and finely grate 20 g usable flesh. Separate 3 garlic cloves, peel, trim the root ends and finely grate.",
+      "endpoint": "The onion is finely diced and the ginger and garlic are finely grated and separately identifiable."
+    },
+    {
+      "prep_id": "PREP_05",
+      "ingredient_ids": [
+        "baby_spinach",
+        "fresh_coriander"
+      ],
+      "instruction": "Inspect the spinach and coriander. Wash if required, then dry thoroughly. Remove damaged spinach leaves. Remove coarse lower coriander stems and chop the leaves and tender stems into approximately 5 mm pieces.",
+      "endpoint": "The spinach is clean and dry, and 15 g coriander is prepared for finishing."
+    },
+    {
+      "prep_id": "PREP_06",
+      "ingredient_ids": [
+        "cucumber",
+        "fresh_mint",
+        "greek_yoghurt_0_percent"
+      ],
+      "instruction": "Wash and dry the cucumber. Cut approximately half to provide 160 g. Coarsely grate the cucumber using the box grater. Transfer it to a sieve or clean hands and squeeze gently until obvious free water stops running; do not crush it completely dry. Wash and dry the mint, remove coarse stems and finely chop 10 g. Weigh 250 g Greek yoghurt.",
+      "endpoint": "The cucumber is coarsely grated and no longer releasing substantial free water, the mint is finely chopped and the yoghurt is measured."
+    },
+    {
+      "prep_id": "PREP_07",
+      "ingredient_ids": [
+        "lemon",
+        "rapeseed_oil",
+        "cumin_seeds",
+        "ground_coriander",
+        "turmeric_ground",
+        "garam_masala",
+        "chilli_powder",
+        "ground_cumin",
+        "fine_salt",
+        "chopped_tomatoes_canned",
+        "water"
+      ],
+      "instruction": "Squeeze 30 ml lemon juice and remove all seeds. Measure 12 g rapeseed oil, allocating 4 g to the cauliflower and 8 g to the dal. Measure 1 tsp cumin seeds, 1.5 tsp ground coriander, 0.5 tsp turmeric, 1 tsp garam masala, 0.25 tsp chilli powder, 0.5 tsp ground cumin and 0.5 tsp fine salt, allocating the salt as specified in the ingredient notes. Measure 200 g canned chopped tomatoes and 550 ml water.",
+      "endpoint": "All remaining ingredients are accurately measured and allocated to their intended components."
+    }
+  ],
+  "procedure": [
+    {
+      "step_id": "STEP_01",
+      "section": "Brown basmati rice",
+      "title": "Cook the brown basmati rice",
+      "depends_on": [],
+      "parallel_group": "P01",
+      "ingredient_ids": [
+        "brown_basmati_rice_dry"
+      ],
+      "equipment_ids": [
+        "rice_cooker"
+      ],
+      "instruction": "Transfer the rinsed 70 g brown basmati rice to the rice cooker. Add the quantity of water specified by the rice cooker's brown-rice markings or manufacturer guidance for this quantity. Select the brown-rice programme where available and start the cycle. Keep the lid closed during cooking.",
+      "heat_source": "Rice cooker",
+      "heat_level": "Brown rice programme",
+      "temperature_c": null,
+      "duration_min_minutes": 30,
+      "duration_max_minutes": 45,
+      "endpoint": "The rice is tender with slight chew, contains no hard raw core and has no free water remaining at the base.",
+      "corrective_actions": [
+        {
+          "condition": "The rice remains firm after the cycle and no free water remains.",
+          "action": "Add 30 ml hot water, close the lid and continue cooking or holding hot for 5-10 minutes before reassessing."
+        },
+        {
+          "condition": "The grains are tender but visibly wet.",
+          "action": "Leave the lid open on keep-warm for several minutes until excess moisture evaporates."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_02",
+      "section": "Roasted cauliflower",
+      "title": "Preheat the air fryer",
+      "depends_on": [],
+      "parallel_group": "P01",
+      "ingredient_ids": [],
+      "equipment_ids": [
+        "air_fryer"
+      ],
+      "instruction": "Preheat the air fryer to 200°C and allow it to complete its preheat cycle before loading.",
+      "heat_source": "Air fryer",
+      "heat_level": "200°C",
+      "temperature_c": 200,
+      "duration_min_minutes": 3,
+      "duration_max_minutes": 5,
+      "endpoint": "The air fryer has reached 200°C.",
+      "corrective_actions": [
+        {
+          "condition": "The appliance has not reached temperature after 5 minutes.",
+          "action": "Confirm the setting and continue preheating for an additional 2 minutes."
+        }
+      ],
+      "critical": false
+    },
+    {
+      "step_id": "STEP_03",
+      "section": "Roasted cauliflower",
+      "title": "Season and roast the cauliflower",
+      "depends_on": [
+        "STEP_02"
+      ],
+      "parallel_group": "P02",
+      "ingredient_ids": [
+        "cauliflower",
+        "rapeseed_oil",
+        "fine_salt",
+        "ground_coriander"
+      ],
+      "equipment_ids": [
+        "mixing_bowl",
+        "air_fryer"
+      ],
+      "instruction": "Place the prepared 400 g cauliflower in the mixing bowl. Add 4 g rapeseed oil, 0.125 tsp fine salt and 0.5 tsp of the measured ground coriander. Toss until all pieces have a thin, even coating. Transfer to the preheated air fryer in as loose a layer as practical and roast at 200°C, shaking thoroughly after approximately 6 minutes.",
+      "heat_source": "Air fryer",
+      "heat_level": "200°C",
+      "temperature_c": 200,
+      "duration_min_minutes": 12,
+      "duration_max_minutes": 16,
+      "endpoint": "The cauliflower is tender through the thickest stem sections but still structured, with clearly browned and lightly charred edges on multiple florets.",
+      "corrective_actions": [
+        {
+          "condition": "Edges darken substantially before the stems become tender.",
+          "action": "Reduce the temperature to 185°C and continue in 2-minute intervals."
+        },
+        {
+          "condition": "The cauliflower is tender but remains pale.",
+          "action": "Increase airflow by spreading the pieces more widely and continue at 200°C for 2-3 minutes."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_04",
+      "section": "Dal base",
+      "title": "Bloom cumin and brown the onion",
+      "depends_on": [],
+      "parallel_group": "P02",
+      "ingredient_ids": [
+        "rapeseed_oil",
+        "cumin_seeds",
+        "brown_onion",
+        "fine_salt"
+      ],
+      "equipment_ids": [
+        "saute_pan",
+        "gas_hob",
+        "spatula"
+      ],
+      "instruction": "Place the sauté pan over medium gas heat. Add the remaining 8 g rapeseed oil. When the oil is fluid and shimmering lightly, add 1 tsp cumin seeds and stir for approximately 20-30 seconds until fragrant. Add the finely diced onion and approximately 0.125 tsp fine salt. Cook while stirring every 30-60 seconds.",
+      "heat_source": "Gas hob",
+      "heat_level": "Medium",
+      "temperature_c": null,
+      "duration_min_minutes": 7,
+      "duration_max_minutes": 10,
+      "endpoint": "The onion is fully softened and shows clear golden-brown colour at the edges, while the cumin smells nutty and aromatic rather than burnt.",
+      "corrective_actions": [
+        {
+          "condition": "The cumin seeds darken rapidly or smell burnt.",
+          "action": "Reduce the heat immediately and add the onion to lower the pan temperature."
+        },
+        {
+          "condition": "The onion browns before becoming tender.",
+          "action": "Reduce the flame and continue cooking more slowly until fully soft."
+        },
+        {
+          "condition": "The onion remains pale after 10 minutes.",
+          "action": "Increase the heat slightly and stir less frequently, allowing brief contact with the pan surface."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_05",
+      "section": "Dal base",
+      "title": "Cook the ginger, garlic and ground spices",
+      "depends_on": [
+        "STEP_04"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "fresh_ginger",
+        "garlic",
+        "ground_coriander",
+        "turmeric_ground",
+        "chilli_powder"
+      ],
+      "equipment_ids": [
+        "saute_pan",
+        "gas_hob",
+        "spatula"
+      ],
+      "instruction": "Reduce the heat to medium-low. Add the 20 g grated ginger and 3 grated garlic cloves. Stir continuously for approximately 45 seconds until strongly aromatic. Add the remaining 1 tsp ground coriander, 0.5 tsp turmeric and 0.25 tsp mild chilli powder. Stir continuously so the spices contact the oil-coated aromatics without remaining stationary on the pan.",
+      "heat_source": "Gas hob",
+      "heat_level": "Medium-low",
+      "temperature_c": null,
+      "duration_min_minutes": 1,
+      "duration_max_minutes": 2,
+      "endpoint": "The ginger and garlic smell cooked rather than raw, and the spices are highly aromatic without dark or scorched patches.",
+      "corrective_actions": [
+        {
+          "condition": "The garlic or spices begin catching on the pan.",
+          "action": "Immediately proceed to the tomato addition in Step 6 and scrape the pan thoroughly as the tomato liquid is introduced."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_06",
+      "section": "Dal",
+      "title": "Reduce the tomato-spice base",
+      "depends_on": [
+        "STEP_05"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "chopped_tomatoes_canned"
+      ],
+      "equipment_ids": [
+        "saute_pan",
+        "gas_hob",
+        "spatula"
+      ],
+      "instruction": "Add the measured 200 g chopped tomatoes to the pan. Increase the heat to medium. Stir and scrape the pan base to release any browned spice residue. Simmer uncovered, stirring regularly.",
+      "heat_source": "Gas hob",
+      "heat_level": "Medium",
+      "temperature_c": null,
+      "duration_min_minutes": 4,
+      "duration_max_minutes": 7,
+      "endpoint": "The tomatoes have reduced into a thick, cohesive masala with little free watery liquid and a deeper red-orange colour.",
+      "corrective_actions": [
+        {
+          "condition": "The tomato mixture begins sticking before it thickens.",
+          "action": "Reduce the heat and add 15 ml of the measured dal water, then continue cooking."
+        },
+        {
+          "condition": "The mixture remains watery after 7 minutes.",
+          "action": "Increase the heat slightly and continue stirring until the stated thickened endpoint is reached."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_07",
+      "section": "Dal",
+      "title": "Simmer the red lentils",
+      "depends_on": [
+        "STEP_06"
+      ],
+      "parallel_group": "P03",
+      "ingredient_ids": [
+        "red_lentils_dry",
+        "water"
+      ],
+      "equipment_ids": [
+        "kettle",
+        "saute_pan",
+        "gas_hob",
+        "spatula"
+      ],
+      "instruction": "Bring the measured 550 ml water to the boil in the kettle. Add the rinsed red lentils to the tomato-spice base and stir for approximately 20 seconds. Pour in the 550 ml hot water and stir thoroughly, scraping the pan base. Bring to a visible simmer, then reduce the gas flame to low-medium and cook uncovered or partially covered, stirring every 3-4 minutes.",
+      "heat_source": "Gas hob",
+      "heat_level": "Low-medium simmer",
+      "temperature_c": null,
+      "duration_min_minutes": 15,
+      "duration_max_minutes": 22,
+      "endpoint": "The lentils are completely tender with no chalky centre and have partially broken down into a thick spoonable dal that slowly levels after stirring.",
+      "corrective_actions": [
+        {
+          "condition": "The lentils remain firm but the mixture becomes too thick to stir freely.",
+          "action": "Add 50 ml hot water and continue simmering until the lentils pass the tenderness endpoint."
+        },
+        {
+          "condition": "The dal remains very watery after the lentils become tender.",
+          "action": "Increase the heat to medium and simmer uncovered while stirring frequently until the required thick spoonable consistency is reached."
+        },
+        {
+          "condition": "The dal begins sticking to the pan base.",
+          "action": "Reduce the heat immediately, scrape the base thoroughly and add 30-50 ml hot water if required."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_08",
+      "section": "Cucumber raita",
+      "title": "Prepare the cucumber raita",
+      "depends_on": [],
+      "parallel_group": "P03",
+      "ingredient_ids": [
+        "greek_yoghurt_0_percent",
+        "cucumber",
+        "fresh_mint",
+        "ground_cumin",
+        "lemon",
+        "fine_salt"
+      ],
+      "equipment_ids": [
+        "small_bowl",
+        "box_grater"
+      ],
+      "instruction": "Place 250 g Greek yoghurt in the small bowl. Add the drained grated cucumber, 10 g chopped mint, 0.5 tsp ground cumin, 10 ml lemon juice and 0.125 tsp fine salt. Fold until evenly combined. Refrigerate until plating.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 2,
+      "duration_max_minutes": 4,
+      "endpoint": "The raita is thick and spoonable with cucumber and mint evenly dispersed and no pool of watery liquid forming around the edges.",
+      "corrective_actions": [
+        {
+          "condition": "The raita becomes watery immediately after mixing.",
+          "action": "Drain off any obvious free liquid and confirm that the remaining grated cucumber has been adequately squeezed."
+        }
+      ],
+      "critical": false
+    },
+    {
+      "step_id": "STEP_09",
+      "section": "Dal finishing",
+      "title": "Wilt the spinach and finish the dal",
+      "depends_on": [
+        "STEP_03",
+        "STEP_07"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "baby_spinach",
+        "cauliflower",
+        "garam_masala",
+        "lemon",
+        "fresh_coriander",
+        "fine_salt"
+      ],
+      "equipment_ids": [
+        "saute_pan",
+        "gas_hob",
+        "spatula"
+      ],
+      "instruction": "When the lentils have passed the tenderness and consistency endpoint, add the 160 g spinach in 2-3 batches, folding each addition until wilted before adding the next. Add the roasted cauliflower, reserving a few browned florets for visible garnish if desired within the specified quantity. Fold in 1 tsp garam masala, 20 ml lemon juice, 15 g chopped coriander and the remaining approximately 0.125 tsp fine salt.",
+      "heat_source": "Gas hob",
+      "heat_level": "Low",
+      "temperature_c": null,
+      "duration_min_minutes": 3,
+      "duration_max_minutes": 5,
+      "endpoint": "The spinach is fully wilted, the cauliflower is coated but retains its shape, the dal remains thick and spoonable, and the final flavour is distinctly savoury, aromatic and acidic without raw spice character.",
+      "corrective_actions": [
+        {
+          "condition": "The dal becomes too thick after the spinach and cauliflower are added.",
+          "action": "Add hot water in 20 ml increments and fold after each addition until the dal returns to a spoonable consistency."
+        },
+        {
+          "condition": "The dal tastes flat despite adequate salt.",
+          "action": "Allow the measured lemon and garam masala to disperse for 30 seconds before reassessing; do not add unlisted seasoning."
+        },
+        {
+          "condition": "The cauliflower begins breaking apart excessively.",
+          "action": "Stop vigorous stirring and use broad folding motions only."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_10",
+      "section": "Rice",
+      "title": "Fluff the brown basmati rice",
+      "depends_on": [
+        "STEP_01"
+      ],
+      "parallel_group": "P04",
+      "ingredient_ids": [
+        "brown_basmati_rice_dry"
+      ],
+      "equipment_ids": [
+        "rice_cooker"
+      ],
+      "instruction": "When the rice cooker completes and the rice passes its tenderness endpoint, open the lid and gently fluff the grains from the base upward. Leave the lid open for approximately 2 minutes to release excess steam.",
+      "heat_source": "Rice cooker",
+      "heat_level": "Keep warm or off",
+      "temperature_c": null,
+      "duration_min_minutes": 2,
+      "duration_max_minutes": 3,
+      "endpoint": "The rice grains are separate, tender and free from visible surface water.",
+      "corrective_actions": [
+        {
+          "condition": "The rice is compacted.",
+          "action": "Lift and separate the grains gently rather than stirring vigorously."
+        }
+      ],
+      "critical": false
+    },
+    {
+      "step_id": "STEP_11",
+      "section": "Final portioning",
+      "title": "Divide the complete dinner",
+      "depends_on": [
+        "STEP_08",
+        "STEP_09",
+        "STEP_10"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "red_lentils_dry",
+        "baby_spinach",
+        "cauliflower",
+        "brown_basmati_rice_dry",
+        "greek_yoghurt_0_percent",
+        "cucumber",
+        "fresh_mint"
+      ],
+      "equipment_ids": [
+        "kitchen_scales"
+      ],
+      "instruction": "Divide the cooked brown basmati rice approximately equally between 2 bowls. Divide the finished dal equally over or alongside the rice. Divide the cucumber raita equally, approximately half per serving, placing it beside rather than directly into the hottest part of the dal.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 2,
+      "duration_max_minutes": 4,
+      "endpoint": "Both bowls contain approximately equal quantities of rice, dal, roasted cauliflower, spinach and cucumber raita.",
+      "corrective_actions": [
+        {
+          "condition": "One serving is visibly heavier than the other.",
+          "action": "Use the kitchen scales to transfer components until both servings are approximately equal."
+        }
+      ],
+      "critical": false
+    }
+  ],
+  "plating": [
+    {
+      "step_id": "PLATE_01",
+      "instruction": "Serve the brown basmati rice as a compact base or side portion, spoon the thick red lentil, spinach and cauliflower dal alongside it, and place the chilled cucumber raita separately so each mouthful can alternate between hot spiced dal and cool yoghurt. Keep any reserved browned cauliflower visible on top for textural contrast."
+    }
+  ],
+  "storage": {
+    "refrigerator_days": 3,
+    "freezer_months": 2,
+    "storage_instructions": "Cool the dal and rice promptly and store in separate sealed containers at 5°C or below for up to 3 days. Store the raita separately and consume within 2 days. The dal may be frozen for up to 2 months; the raita should not be frozen because the yoghurt and cucumber texture will deteriorate. Reheat cooked components only once and ensure they are steaming hot throughout before serving. Keep refrigerated raita cold and add only after reheating is complete.",
+    "reheating_methods": [
+      "Hob: place the dal in a saucepan with 30-60 ml water per serving and reheat over medium-low heat, stirring frequently, until steaming hot throughout.",
+      "Hob for rice: place the rice in a small saucepan with 15-30 ml water per serving, cover and heat over low heat until steaming hot throughout, stirring once or twice.",
+      "Air fryer: roasted cauliflower reserved separately may be reheated at 170°C for approximately 4-6 minutes until hot and lightly crisp before being added back to the reheated dal.",
+      "From frozen: thaw the dal overnight in the refrigerator before reheating on the hob."
+    ]
+  },
+  "shopping": {
+    "sainsburys": [],
+    "marks_and_spencer": [],
+    "either_retailer": [
+      "Dried red split lentils: buy 1 standard packet",
+      "Brown basmati rice: buy 1 standard packet",
+      "Medium-large cauliflower: buy 1",
+      "Baby spinach: buy 1 bag containing at least 160 g",
+      "Medium brown onion: buy 1",
+      "Canned chopped tomatoes: buy 1 x 400 g tin",
+      "0% Greek yoghurt: buy 1 tub containing at least 250 g",
+      "Cucumber: buy 1 whole cucumber",
+      "Fresh root ginger: buy 1 piece containing at least 20 g usable flesh",
+      "Garlic: buy 1 bulb",
+      "Unwaxed lemon: buy 1",
+      "Fresh mint: buy 1 packet or pot containing at least 10 g",
+      "Fresh coriander: buy 1 packet or bunch containing at least 15 g",
+      "Rapeseed oil: buy 1 bottle if not already stocked",
+      "Cumin seeds: buy 1 jar",
+      "Ground coriander: buy 1 jar",
+      "Ground turmeric: buy 1 jar",
+      "Garam masala: buy 1 jar",
+      "Mild chilli powder: buy 1 jar if not already stocked",
+      "Ground cumin: buy 1 jar if not already stocked",
+      "Fine salt: buy 1 container if not already stocked"
+    ]
+  },
+  "quality_checks": {
+    "protein_requirement_met": true,
+    "protein_g_per_serving": 39,
+    "restaurant_quality_features": [
+      "Cauliflower is roasted separately at high heat so it develops caramelised edges and remains texturally distinct rather than becoming uniformly soft in the dal.",
+      "Whole cumin seeds are bloomed directly in oil before the onion is added, creating a deeper aromatic base.",
+      "The onion is cooked until genuinely golden at the edges rather than merely softened, adding sweetness and savoury depth.",
+      "Ginger, garlic and ground spices are cooked in the oil-rich aromatic base before liquid is introduced, eliminating raw spice flavour.",
+      "Tomatoes are reduced into a concentrated masala before lentils and water are added, preventing a thin or one-dimensional sauce.",
+      "Garam masala and lemon juice are introduced late so their volatile aromatics and acidity remain evident in the finished dish.",
+      "Spinach is folded in only after the lentils are tender, preserving colour and avoiding unnecessarily prolonged cooking.",
+      "The cucumber raita combines high-protein Greek yoghurt, drained cucumber, mint, cumin and lemon to provide a cool acidic counterpoint to the warm dal.",
+      "Brown basmati rice is cooked separately so both grain texture and dal consistency can be controlled independently."
+    ],
+    "nutrition_notes": [
+      "Estimated nutrition represents one complete dinner serving including dal, brown basmati rice, roasted cauliflower, spinach, cooking oil and cucumber raita.",
+      "The recipe is designed around the approximately 600 kcal dinner target.",
+      "Approximately 39 g protein per serving comes primarily from red lentils and high-protein Greek yoghurt, with additional protein from rice, spinach and cauliflower.",
+      "Red lentils, brown basmati rice, cauliflower and spinach provide substantial dietary fibre and a high proportion of minimally processed plant ingredients.",
+      "The measured 12 g total cooking oil is sufficient for spice blooming and cauliflower roasting while avoiding unnecessary added calories.",
+      "Nutrition values are estimates and will vary with the exact yoghurt, lentil and rice products used.",
+      "The recipe follows the supplied structured-recipe and dinner requirements. "
+    ],
+    "critical_success_factors": [
+      "Roast the cauliflower until genuinely browned before it enters the dal; pale steamed cauliflower will reduce flavour and textural contrast.",
+      "Do not add the ground spices to a dry or excessively hot pan because they can scorch rapidly.",
+      "Reduce the tomato mixture before adding lentils and water so the masala develops concentration and sweetness.",
+      "Do not proceed to the spinach and cauliflower finishing stage until the red lentils have completely lost their chalky centre.",
+      "Control dal consistency by observable texture rather than elapsed cooking time; different lentils absorb water at different rates.",
+      "Squeeze excess water from the grated cucumber before combining it with yoghurt so the raita remains thick.",
+      "Add garam masala, coriander and lemon near the end of cooking to preserve their fresher aromatic qualities.",
+      "Serve the raita cold and separate from the hottest dal until eating to retain temperature and textural contrast."
+    ]
+  }
+}

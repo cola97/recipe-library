@@ -1,0 +1,525 @@
+{
+  "schema_version": "1.0",
+  "recipe": {
+    "id": "plum_almond_skyr_pots_cinnamon",
+    "title": "Plum & Almond Skyr Pots with Cinnamon",
+    "description": "Portable morning snack pots of thick plain skyr layered with lightly macerated fresh plum and finished with cinnamon-toasted almonds. Lemon and a restrained amount of honey sharpen the fruit while the toasted nuts provide crisp contrast against the cool dairy.",
+    "servings": 2,
+    "difficulty": "Easy",
+    "total_time_minutes": 20,
+    "active_time_minutes": 12,
+    "passive_time_minutes": 8,
+    "cuisine": [
+      "Contemporary",
+      "British"
+    ],
+    "meal_types": [
+      "Morning snack"
+    ],
+    "dietary_tags": [
+      "Vegetarian",
+      "Portable",
+      "High protein"
+    ],
+    "allergens": [
+      "Milk",
+      "Almonds"
+    ]
+  },
+  "nutrition_per_serving": {
+    "energy_kcal": 198,
+    "protein_g": 15,
+    "carbohydrate_g": 22,
+    "fat_g": 7,
+    "saturated_fat_g": 0.8,
+    "fibre_g": 3,
+    "salt_g": 0.1
+  },
+  "ingredients": [
+    {
+      "ingredient_id": "skyr_plain",
+      "display_name": "Plain 0% skyr",
+      "category": "Dairy",
+      "required": true,
+      "quantity_used": 240,
+      "unit_used": "g",
+      "purchase_quantity": "Buy: 1 tub containing at least 240 g",
+      "purchase_notes": "Choose plain, unsweetened skyr. Exact supermarket tub size varies.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Keep refrigerated until assembly.",
+      "notes": "Use: 240 g total, 120 g per serving."
+    },
+    {
+      "ingredient_id": "plums",
+      "display_name": "Fresh plums",
+      "category": "Fruit",
+      "required": true,
+      "quantity_used": 2,
+      "unit_used": "integer",
+      "purchase_quantity": "Buy: 2 medium ripe plums, approximately 180-220 g total as bought",
+      "purchase_notes": "Choose ripe but firm plums without bruised, leaking or mouldy areas.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Wash and dry. Halve, remove and discard the stones, then cut the usable flesh into approximately 10 mm pieces.",
+      "notes": "Recipe assumes approximately 150 g usable plum flesh after removing stones."
+    },
+    {
+      "ingredient_id": "almonds",
+      "display_name": "Unsalted almonds",
+      "category": "Nuts",
+      "required": true,
+      "quantity_used": 24,
+      "unit_used": "g",
+      "purchase_quantity": "Buy: 1 standard packet containing at least 24 g",
+      "purchase_notes": "Use plain unsalted almonds. Exact packet size varies.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Inspect for shell fragments and roughly chop into pieces approximately 4-6 mm across before toasting.",
+      "notes": "Use: 24 g total, 12 g per serving."
+    },
+    {
+      "ingredient_id": "runny_honey",
+      "display_name": "Runny honey",
+      "category": "Sweeteners",
+      "required": true,
+      "quantity_used": 10,
+      "unit_used": "g",
+      "purchase_quantity": "Buy: 1 jar or squeeze bottle",
+      "purchase_notes": "Use a mild-flavoured runny honey.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Measure accurately before preparing the plum layer.",
+      "notes": "Use: 10 g total, 5 g per serving."
+    },
+    {
+      "ingredient_id": "lemon",
+      "display_name": "Unwaxed lemon",
+      "category": "Fruit",
+      "required": true,
+      "quantity_used": 1,
+      "unit_used": "integer",
+      "purchase_quantity": "Buy: 1 lemon",
+      "purchase_notes": "An unwaxed lemon is preferred because a small amount of zest is used.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Wash and dry. Finely grate approximately 1 g yellow zest, then squeeze 10 ml juice and remove any seeds.",
+      "notes": "Use approximately 1 g zest and 10 ml juice; reserve the remainder for another use."
+    },
+    {
+      "ingredient_id": "cinnamon_ground",
+      "display_name": "Ground cinnamon",
+      "category": "Spices",
+      "required": true,
+      "quantity_used": 0.5,
+      "unit_used": "tsp",
+      "purchase_quantity": "Buy: 1 jar",
+      "purchase_notes": "Standard ground cinnamon is suitable.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Measure 0.25 tsp for the plum layer and 0.25 tsp for the toasted almonds.",
+      "notes": "Use: 0.5 tsp total."
+    },
+    {
+      "ingredient_id": "vanilla_extract",
+      "display_name": "Vanilla extract",
+      "category": "Flavourings",
+      "required": true,
+      "quantity_used": 0.5,
+      "unit_used": "tsp",
+      "purchase_quantity": "Buy: 1 small bottle",
+      "purchase_notes": "Use vanilla extract rather than artificial vanilla essence where practical.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Measure immediately before mixing with the skyr.",
+      "notes": "Use: 0.5 tsp total."
+    },
+    {
+      "ingredient_id": "fine_salt",
+      "display_name": "Fine salt",
+      "category": "Seasoning",
+      "required": true,
+      "quantity_used": 0.03125,
+      "unit_used": "tsp",
+      "purchase_quantity": "Buy: 1 standard container if not already stocked",
+      "purchase_notes": "Fine table salt or fine sea salt is suitable.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Measure accurately before seasoning the almonds.",
+      "notes": "Use: 0.03125 tsp total. The quantity is deliberately very small and is intended only to sharpen the toasted nut flavour."
+    }
+  ],
+  "equipment": [
+    {
+      "equipment_id": "kitchen_scales",
+      "display_name": "Kitchen scales",
+      "required": true,
+      "notes": "Used for accurate skyr, almond and honey quantities and for even portioning."
+    },
+    {
+      "equipment_id": "measuring_spoons",
+      "display_name": "Measuring spoons",
+      "required": true,
+      "notes": "Used for cinnamon, vanilla extract and salt."
+    },
+    {
+      "equipment_id": "chef_knife",
+      "display_name": "Chef's knife",
+      "required": true,
+      "notes": "Used to cut the plums and almonds."
+    },
+    {
+      "equipment_id": "chopping_board",
+      "display_name": "Chopping board",
+      "required": true,
+      "notes": "Used for fruit and almond preparation."
+    },
+    {
+      "equipment_id": "fine_grater",
+      "display_name": "Fine grater or Microplane",
+      "required": true,
+      "notes": "Used for lemon zest."
+    },
+    {
+      "equipment_id": "small_bowl",
+      "display_name": "Small mixing bowl",
+      "required": true,
+      "notes": "Used to macerate the plum."
+    },
+    {
+      "equipment_id": "mixing_bowl",
+      "display_name": "Medium mixing bowl",
+      "required": true,
+      "notes": "Used to combine skyr and vanilla."
+    },
+    {
+      "equipment_id": "frying_pan",
+      "display_name": "Small frying pan",
+      "required": true,
+      "notes": "Used to toast the almonds."
+    },
+    {
+      "equipment_id": "gas_hob",
+      "display_name": "Gas hob",
+      "required": true,
+      "notes": "Used for controlled almond toasting."
+    },
+    {
+      "equipment_id": "lidded_containers",
+      "display_name": "2 portable lidded snack pots",
+      "required": true,
+      "notes": "Each pot should hold at least approximately 300 ml and seal securely for transport."
+    }
+  ],
+  "mise_en_place": [
+    {
+      "prep_id": "PREP_01",
+      "ingredient_ids": [
+        "plums"
+      ],
+      "instruction": "Wash the 2 whole plums under cold running water and dry thoroughly. Cut each plum in half along its natural seam, remove and discard the stone, then cut the usable flesh into approximately 10 mm pieces.",
+      "endpoint": "Approximately 150 g plum flesh is clean, stone-free and cut into evenly sized pieces."
+    },
+    {
+      "prep_id": "PREP_02",
+      "ingredient_ids": [
+        "almonds"
+      ],
+      "instruction": "Inspect 24 g almonds and remove any shell fragments. Transfer to the chopping board and roughly chop into pieces approximately 4-6 mm across, avoiding excessive fine crumbs.",
+      "endpoint": "The almonds are evenly coarse-chopped and retain pieces large enough to provide crunch."
+    },
+    {
+      "prep_id": "PREP_03",
+      "ingredient_ids": [
+        "lemon"
+      ],
+      "instruction": "Wash and dry the lemon. Finely grate approximately 1 g of yellow outer zest without removing significant white pith. Cut the lemon and squeeze 10 ml juice, removing all seeds.",
+      "endpoint": "Approximately 1 g lemon zest and 10 ml seed-free lemon juice are prepared."
+    },
+    {
+      "prep_id": "PREP_04",
+      "ingredient_ids": [
+        "skyr_plain",
+        "runny_honey",
+        "cinnamon_ground",
+        "vanilla_extract",
+        "fine_salt"
+      ],
+      "instruction": "Weigh 240 g plain skyr and 10 g honey. Measure 0.5 tsp ground cinnamon, allocating 0.25 tsp to the plum and 0.25 tsp to the almonds. Measure 0.5 tsp vanilla extract and 0.03125 tsp fine salt.",
+      "endpoint": "All remaining ingredients are accurately measured and allocated to their intended components."
+    }
+  ],
+  "procedure": [
+    {
+      "step_id": "STEP_01",
+      "section": "Plum layer",
+      "title": "Macerate the plum",
+      "depends_on": [],
+      "parallel_group": "P01",
+      "ingredient_ids": [
+        "plums",
+        "runny_honey",
+        "lemon",
+        "cinnamon_ground"
+      ],
+      "equipment_ids": [
+        "small_bowl"
+      ],
+      "instruction": "Place the prepared plum pieces in the small bowl. Add 10 g honey, the measured 10 ml lemon juice, approximately 1 g lemon zest and 0.25 tsp ground cinnamon. Fold gently until all fruit surfaces are lightly coated. Leave uncovered while the remaining components are prepared.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 5,
+      "duration_max_minutes": 8,
+      "endpoint": "The plum pieces remain structurally intact but have released a small amount of glossy, lightly syrupy juice in the base of the bowl.",
+      "corrective_actions": [
+        {
+          "condition": "The plum pieces begin collapsing substantially during mixing.",
+          "action": "Stop stirring and allow the mixture to rest undisturbed so the remaining fruit retains its shape."
+        },
+        {
+          "condition": "No juice is released after 8 minutes.",
+          "action": "Press approximately one-quarter of the plum pieces once against the side of the bowl with the back of a spoon, then fold them back through the mixture."
+        }
+      ],
+      "critical": false
+    },
+    {
+      "step_id": "STEP_02",
+      "section": "Almond topping",
+      "title": "Toast the almonds",
+      "depends_on": [],
+      "parallel_group": "P01",
+      "ingredient_ids": [
+        "almonds"
+      ],
+      "equipment_ids": [
+        "frying_pan",
+        "gas_hob"
+      ],
+      "instruction": "Place the dry frying pan over low-to-medium gas heat. Add the prepared 24 g chopped almonds in a single layer. Stir or shake the pan every 10-15 seconds to expose all pieces evenly to the hot surface.",
+      "heat_source": "Gas hob",
+      "heat_level": "Low-medium",
+      "temperature_c": null,
+      "duration_min_minutes": 3,
+      "duration_max_minutes": 5,
+      "endpoint": "The almonds smell distinctly nutty and show light golden-brown colour on multiple cut surfaces, with no smoke or blackened edges.",
+      "corrective_actions": [
+        {
+          "condition": "The almonds darken rapidly or begin producing smoke.",
+          "action": "Remove the pan from the heat immediately and transfer the almonds to a cool plate or bowl."
+        },
+        {
+          "condition": "Little aroma or colour develops after 5 minutes.",
+          "action": "Increase the flame slightly and continue stirring continuously in 20-second intervals until the stated endpoint is reached."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_03",
+      "section": "Almond topping",
+      "title": "Season and cool the almonds",
+      "depends_on": [
+        "STEP_02"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "cinnamon_ground",
+        "fine_salt"
+      ],
+      "equipment_ids": [
+        "frying_pan"
+      ],
+      "instruction": "Remove the frying pan from direct heat. Immediately add the remaining 0.25 tsp cinnamon and 0.03125 tsp fine salt to the hot almonds. Toss continuously for approximately 20-30 seconds until the seasoning is evenly distributed, then spread the almonds into a single layer in the pan and leave uncovered to cool.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 4,
+      "duration_max_minutes": 6,
+      "endpoint": "The almonds are evenly seasoned, no longer hot and remain dry and loose rather than damp or clumped.",
+      "corrective_actions": [
+        {
+          "condition": "Cinnamon accumulates in concentrated patches.",
+          "action": "Continue tossing while the almonds are still warm until the seasoning is distributed evenly."
+        },
+        {
+          "condition": "The almonds remain warm after 6 minutes.",
+          "action": "Transfer them to a cool plate and spread into a thinner layer until they reach room temperature."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_04",
+      "section": "Skyr base",
+      "title": "Prepare the vanilla skyr",
+      "depends_on": [],
+      "parallel_group": "P01",
+      "ingredient_ids": [
+        "skyr_plain",
+        "vanilla_extract"
+      ],
+      "equipment_ids": [
+        "mixing_bowl",
+        "kitchen_scales",
+        "measuring_spoons"
+      ],
+      "instruction": "Place 240 g plain skyr in the mixing bowl. Add 0.5 tsp vanilla extract and stir until completely homogeneous, scraping the sides and base of the bowl to eliminate unmixed streaks.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 1,
+      "duration_max_minutes": 2,
+      "endpoint": "The skyr is smooth and uniformly scented with vanilla, with no visible unmixed areas.",
+      "corrective_actions": [
+        {
+          "condition": "The skyr appears unusually stiff.",
+          "action": "Continue stirring vigorously for approximately 20 seconds; do not add unlisted liquid because the plum juices will loosen the finished pot."
+        }
+      ],
+      "critical": false
+    },
+    {
+      "step_id": "STEP_05",
+      "section": "Assembly",
+      "title": "Layer the snack pots",
+      "depends_on": [
+        "STEP_01",
+        "STEP_03",
+        "STEP_04"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "skyr_plain",
+        "plums",
+        "runny_honey",
+        "lemon",
+        "cinnamon_ground",
+        "almonds",
+        "vanilla_extract",
+        "fine_salt"
+      ],
+      "equipment_ids": [
+        "lidded_containers",
+        "kitchen_scales"
+      ],
+      "instruction": "Divide approximately half of the vanilla skyr equally between the 2 snack pots. Divide the macerated plum mixture, including all released juices, equally over the skyr. Add the remaining skyr equally on top. Finish each pot with half of the fully cooled cinnamon-toasted almonds. Fit the lids securely.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 3,
+      "duration_max_minutes": 5,
+      "endpoint": "Both pots contain approximately equal quantities of skyr, plum and almonds, and the almond topping is fully cool before the containers are sealed.",
+      "corrective_actions": [
+        {
+          "condition": "One pot is visibly heavier than the other.",
+          "action": "Use the kitchen scales to transfer small amounts between containers until both portions are approximately equal."
+        },
+        {
+          "condition": "The toasted almonds are still warm.",
+          "action": "Do not seal the pots; remove the almonds and allow them to cool completely before final assembly."
+        }
+      ],
+      "critical": false
+    },
+    {
+      "step_id": "STEP_06",
+      "section": "Chilling and transport",
+      "title": "Chill the finished pots",
+      "depends_on": [
+        "STEP_05"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [],
+      "equipment_ids": [
+        "lidded_containers"
+      ],
+      "instruction": "Transfer the sealed snack pots immediately to a refrigerator operating at 5°C or below. Chill until required for transport or consumption.",
+      "heat_source": "Refrigerator",
+      "heat_level": null,
+      "temperature_c": 5,
+      "duration_min_minutes": 10,
+      "duration_max_minutes": null,
+      "endpoint": "The pots are fully chilled, the skyr remains thick and the fruit juices have formed a light plum ripple without excessive free liquid.",
+      "corrective_actions": [
+        {
+          "condition": "Substantial fruit liquid accumulates after storage.",
+          "action": "Stir the plum layer gently into the adjacent skyr immediately before eating rather than discarding the liquid."
+        }
+      ],
+      "critical": false
+    }
+  ],
+  "plating": [
+    {
+      "step_id": "PLATE_01",
+      "instruction": "Serve one chilled pot per person. Eat through the layers rather than fully mixing at the outset so each spoonful can retain contrast between tangy skyr, juicy cinnamon-plum and crisp toasted almonds."
+    }
+  ],
+  "storage": {
+    "refrigerator_days": 2,
+    "freezer_months": null,
+    "storage_instructions": "Store the assembled pots at 5°C or below and consume within 2 days. For maximum almond crunch, the cooled toasted almonds may instead be carried in a separate small dry container and added immediately before eating. For work or car transport, use an insulated lunch bag with an ice pack whenever continuous refrigeration is unavailable.",
+    "reheating_methods": []
+  },
+  "shopping": {
+    "sainsburys": [],
+    "marks_and_spencer": [],
+    "either_retailer": [
+      "Plain 0% skyr: buy 1 tub containing at least 240 g",
+      "Medium plums: buy 2",
+      "Unsalted almonds: buy 1 standard packet containing at least 24 g",
+      "Runny honey: buy 1 jar or squeeze bottle",
+      "Unwaxed lemon: buy 1",
+      "Ground cinnamon: buy 1 jar if not already stocked",
+      "Vanilla extract: buy 1 small bottle if not already stocked",
+      "Fine salt: buy 1 standard container if not already stocked"
+    ]
+  },
+  "quality_checks": {
+    "protein_requirement_met": true,
+    "protein_g_per_serving": 15,
+    "restaurant_quality_features": [
+      "Plums are briefly macerated with lemon, honey and cinnamon so their natural juices create a fresh fruit sauce without cooking the fruit into a compote.",
+      "Lemon zest and juice sharpen ripe plum flavour and balance the creamy skyr.",
+      "Almonds are toasted before seasoning, developing deeper nutty aromas and a crisp texture.",
+      "Cinnamon is divided between the plum and almond components, creating integrated spice flavour rather than a dusty surface garnish.",
+      "A very small measured quantity of salt heightens the toasted almond flavour without making the snack taste savoury.",
+      "Vanilla is incorporated into the skyr to provide aromatic sweetness without requiring additional sugar.",
+      "Distinct layers preserve textural contrast between creamy skyr, juicy fruit and crisp nuts."
+    ],
+    "nutrition_notes": [
+      "Estimated nutrition represents one complete morning snack pot including skyr, plum, almonds, honey, lemon, cinnamon, vanilla and salt.",
+      "The recipe is designed around the approximately 200 kcal morning-snack target.",
+      "The general 30 g protein requirement does not apply to morning snacks under the specified meal-plan rules; approximately 15 g protein per serving is therefore compliant.",
+      "Skyr provides most of the protein, while almonds contribute additional protein, fibre and predominantly unsaturated fat.",
+      "Fresh plum contributes fruit, fibre and natural sweetness, allowing added honey to remain limited.",
+      "Nutrition values are estimates and will vary with plum size and the exact skyr and almond products selected.",
+      "The recipe follows the supplied structured-recipe and morning-snack requirements. "
+    ],
+    "critical_success_factors": [
+      "Use ripe but still firm plums so the fruit releases juice during maceration without collapsing into puree.",
+      "Do not over-toast the almonds; remove them from direct heat as soon as they become aromatic and lightly golden.",
+      "Cool toasted almonds completely before sealing the pots to prevent condensation and loss of crunch.",
+      "Keep the added honey restrained because ripe plum and vanilla already contribute perceived sweetness.",
+      "Maintain refrigeration during storage and use an insulated bag with an ice pack when transporting the dairy-based snack for an extended period."
+    ]
+  }
+}

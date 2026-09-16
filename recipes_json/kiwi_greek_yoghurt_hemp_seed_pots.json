@@ -1,0 +1,488 @@
+{
+  "schema_version": "1.0",
+  "recipe": {
+    "id": "kiwi_greek_yoghurt_hemp_seed_pots",
+    "title": "Kiwi, Greek Yoghurt & Hemp Seed Pots",
+    "description": "Chilled evening snack pots combining thick Greek yoghurt with fresh lime and vanilla, ripe kiwi and lightly toasted hemp seeds. The kiwi provides bright acidity and juicy texture while the toasted hemp seeds add nutty aroma and gentle crunch.",
+    "servings": 2,
+    "difficulty": "Easy",
+    "total_time_minutes": 20,
+    "active_time_minutes": 12,
+    "passive_time_minutes": 8,
+    "cuisine": [
+      "Contemporary",
+      "British"
+    ],
+    "meal_types": [
+      "Evening snack"
+    ],
+    "dietary_tags": [
+      "Vegetarian",
+      "High protein"
+    ],
+    "allergens": [
+      "Milk"
+    ]
+  },
+  "nutrition_per_serving": {
+    "energy_kcal": 195,
+    "protein_g": 17,
+    "carbohydrate_g": 21,
+    "fat_g": 7,
+    "saturated_fat_g": 1,
+    "fibre_g": 3,
+    "salt_g": 0.2
+  },
+  "ingredients": [
+    {
+      "ingredient_id": "greek_yoghurt_0_percent",
+      "display_name": "0% Greek yoghurt",
+      "category": "Dairy",
+      "required": true,
+      "quantity_used": 260,
+      "unit_used": "g",
+      "purchase_quantity": "Buy: 1 tub containing at least 260 g",
+      "purchase_notes": "Use plain unsweetened 0% Greek yoghurt, preferably providing approximately 9-10 g protein per 100 g. Exact supermarket tub size varies.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Keep refrigerated until assembly.",
+      "notes": "Use: 260 g total, 130 g per serving."
+    },
+    {
+      "ingredient_id": "kiwi_fruit",
+      "display_name": "Kiwi fruit",
+      "category": "Fruit",
+      "required": true,
+      "quantity_used": 2,
+      "unit_used": "integer",
+      "purchase_quantity": "Buy: 2 medium kiwi fruit",
+      "purchase_notes": "Choose ripe kiwi that yield slightly to gentle pressure without being soft or leaking.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Wash and dry, trim both ends, peel completely and cut the edible flesh into approximately 10 mm pieces.",
+      "notes": "Recipe assumes approximately 150 g edible kiwi flesh in total."
+    },
+    {
+      "ingredient_id": "hemp_seeds",
+      "display_name": "Shelled hemp seeds",
+      "category": "Seeds",
+      "required": true,
+      "quantity_used": 20,
+      "unit_used": "g",
+      "purchase_quantity": "Buy: 1 standard packet containing at least 20 g",
+      "purchase_notes": "Use plain shelled hemp seeds or hemp hearts. Exact packet size varies.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Inspect for foreign material before lightly toasting.",
+      "notes": "Use: 20 g total, 10 g per serving."
+    },
+    {
+      "ingredient_id": "runny_honey",
+      "display_name": "Runny honey",
+      "category": "Sweeteners",
+      "required": true,
+      "quantity_used": 10,
+      "unit_used": "g",
+      "purchase_quantity": "Buy: 1 jar or squeeze bottle",
+      "purchase_notes": "Use a mild-flavoured runny honey so the kiwi remains prominent.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Measure accurately before mixing.",
+      "notes": "Use: 10 g total, 5 g per serving."
+    },
+    {
+      "ingredient_id": "lime",
+      "display_name": "Unwaxed lime",
+      "category": "Fruit",
+      "required": true,
+      "quantity_used": 1,
+      "unit_used": "integer",
+      "purchase_quantity": "Buy: 1 lime",
+      "purchase_notes": "An unwaxed lime is preferred because the zest is used.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Wash and dry. Finely grate approximately 1 g green zest, then squeeze 10 ml juice and remove any seeds.",
+      "notes": "Use approximately 1 g zest and 10 ml juice; reserve the remaining lime for another use."
+    },
+    {
+      "ingredient_id": "vanilla_extract",
+      "display_name": "Vanilla extract",
+      "category": "Flavourings",
+      "required": true,
+      "quantity_used": 0.5,
+      "unit_used": "tsp",
+      "purchase_quantity": "Buy: 1 small bottle if not already stocked",
+      "purchase_notes": "Use vanilla extract rather than artificial vanilla essence where practical.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Measure immediately before mixing.",
+      "notes": "Use: 0.5 tsp total."
+    },
+    {
+      "ingredient_id": "fine_salt",
+      "display_name": "Fine salt",
+      "category": "Seasoning",
+      "required": true,
+      "quantity_used": 0.03125,
+      "unit_used": "tsp",
+      "purchase_quantity": "Buy: 1 standard container if not already stocked",
+      "purchase_notes": "Fine table salt or fine sea salt is suitable.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Measure accurately before mixing.",
+      "notes": "Use: 0.03125 tsp total. The very small quantity sharpens the yoghurt, lime and honey flavours without making the snack taste salty."
+    }
+  ],
+  "equipment": [
+    {
+      "equipment_id": "kitchen_scales",
+      "display_name": "Kitchen scales",
+      "required": true,
+      "notes": "Used for yoghurt, hemp seed and honey quantities and even portioning."
+    },
+    {
+      "equipment_id": "measuring_spoons",
+      "display_name": "Measuring spoons",
+      "required": true,
+      "notes": "Used for vanilla extract and salt."
+    },
+    {
+      "equipment_id": "chef_knife",
+      "display_name": "Chef's knife",
+      "required": true,
+      "notes": "Used to prepare the kiwi and lime."
+    },
+    {
+      "equipment_id": "chopping_board",
+      "display_name": "Chopping board",
+      "required": true,
+      "notes": "Used for fruit preparation."
+    },
+    {
+      "equipment_id": "fine_grater",
+      "display_name": "Fine grater or Microplane",
+      "required": true,
+      "notes": "Used for lime zest."
+    },
+    {
+      "equipment_id": "mixing_bowl",
+      "display_name": "Medium mixing bowl",
+      "required": true,
+      "notes": "Used to prepare the flavoured yoghurt."
+    },
+    {
+      "equipment_id": "small_bowl",
+      "display_name": "Small bowl",
+      "required": true,
+      "notes": "Used to hold the prepared kiwi."
+    },
+    {
+      "equipment_id": "frying_pan",
+      "display_name": "Small frying pan",
+      "required": true,
+      "notes": "Used to toast the hemp seeds."
+    },
+    {
+      "equipment_id": "gas_hob",
+      "display_name": "Gas hob",
+      "required": true,
+      "notes": "Used for controlled low-heat hemp seed toasting."
+    },
+    {
+      "equipment_id": "lidded_containers",
+      "display_name": "2 individual lidded snack pots",
+      "required": true,
+      "notes": "Each pot should comfortably hold one complete serving."
+    }
+  ],
+  "mise_en_place": [
+    {
+      "prep_id": "PREP_01",
+      "ingredient_ids": [
+        "kiwi_fruit"
+      ],
+      "instruction": "Wash and dry the 2 whole kiwi fruit. Trim a thin slice from both ends of each fruit. Remove and discard the skin, then cut the edible flesh into pieces approximately 10 mm across. Transfer the prepared fruit to the small bowl.",
+      "endpoint": "Approximately 150 g kiwi flesh is peeled and cut into evenly sized pieces with no skin remaining."
+    },
+    {
+      "prep_id": "PREP_02",
+      "ingredient_ids": [
+        "lime"
+      ],
+      "instruction": "Wash and dry the whole lime. Finely grate approximately 1 g of the green outer zest, stopping before significant white pith is removed. Cut the lime and squeeze 10 ml juice, removing any seeds.",
+      "endpoint": "Approximately 1 g lime zest and 10 ml seed-free lime juice are prepared."
+    },
+    {
+      "prep_id": "PREP_03",
+      "ingredient_ids": [
+        "greek_yoghurt_0_percent",
+        "hemp_seeds",
+        "runny_honey",
+        "vanilla_extract",
+        "fine_salt"
+      ],
+      "instruction": "Weigh 260 g Greek yoghurt, 20 g shelled hemp seeds and 10 g runny honey. Measure 0.5 tsp vanilla extract and 0.03125 tsp fine salt.",
+      "endpoint": "All remaining ingredients are accurately measured and ready for immediate use."
+    }
+  ],
+  "procedure": [
+    {
+      "step_id": "STEP_01",
+      "section": "Hemp seed topping",
+      "title": "Lightly toast the hemp seeds",
+      "depends_on": [],
+      "parallel_group": "P01",
+      "ingredient_ids": [
+        "hemp_seeds"
+      ],
+      "equipment_ids": [
+        "frying_pan",
+        "gas_hob"
+      ],
+      "instruction": "Place the dry frying pan over low gas heat. Add the 20 g shelled hemp seeds and spread them into an even layer. Stir or shake the pan continuously so the seeds heat evenly and do not remain stationary against the pan.",
+      "heat_source": "Gas hob",
+      "heat_level": "Low",
+      "temperature_c": null,
+      "duration_min_minutes": 2,
+      "duration_max_minutes": 4,
+      "endpoint": "The hemp seeds smell distinctly nutty, show slight golden colouring and remain loose, with no smoke or dark-brown scorched patches.",
+      "corrective_actions": [
+        {
+          "condition": "The hemp seeds darken rapidly or produce smoke.",
+          "action": "Remove the pan from the heat immediately and transfer the seeds to a cool plate or bowl."
+        },
+        {
+          "condition": "No toasted aroma develops after 4 minutes.",
+          "action": "Increase the flame slightly and continue stirring continuously in 20-second intervals until the stated endpoint is reached."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_02",
+      "section": "Kiwi layer",
+      "title": "Season the kiwi",
+      "depends_on": [],
+      "parallel_group": "P01",
+      "ingredient_ids": [
+        "kiwi_fruit",
+        "lime"
+      ],
+      "equipment_ids": [
+        "small_bowl"
+      ],
+      "instruction": "Add approximately half of the prepared lime zest and 5 ml of the lime juice to the prepared kiwi. Fold gently 2-3 times to distribute the citrus without crushing the fruit. Leave the fruit undisturbed while the yoghurt base is prepared.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 2,
+      "duration_max_minutes": 5,
+      "endpoint": "The kiwi pieces remain structurally intact and appear lightly glossy with lime juice, with only a small amount of free fruit liquid in the bowl.",
+      "corrective_actions": [
+        {
+          "condition": "The kiwi begins breaking down substantially during mixing.",
+          "action": "Stop mixing immediately and leave the fruit undisturbed until assembly."
+        }
+      ],
+      "critical": false
+    },
+    {
+      "step_id": "STEP_03",
+      "section": "Hemp seed topping",
+      "title": "Cool the toasted hemp seeds",
+      "depends_on": [
+        "STEP_01"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "hemp_seeds"
+      ],
+      "equipment_ids": [
+        "frying_pan"
+      ],
+      "instruction": "Remove the frying pan from direct heat and spread the toasted hemp seeds into a thin layer. Leave uncovered so heat and any residual steam can escape.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 4,
+      "duration_max_minutes": 6,
+      "endpoint": "The hemp seeds are at room temperature, dry and loose before they contact the cold yoghurt.",
+      "corrective_actions": [
+        {
+          "condition": "The seeds remain warm after 6 minutes.",
+          "action": "Transfer them to a cool plate and spread into a thinner layer until fully cooled."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_04",
+      "section": "Yoghurt base",
+      "title": "Prepare the lime-vanilla Greek yoghurt",
+      "depends_on": [],
+      "parallel_group": "P02",
+      "ingredient_ids": [
+        "greek_yoghurt_0_percent",
+        "runny_honey",
+        "lime",
+        "vanilla_extract",
+        "fine_salt"
+      ],
+      "equipment_ids": [
+        "mixing_bowl",
+        "kitchen_scales",
+        "measuring_spoons"
+      ],
+      "instruction": "Place 260 g Greek yoghurt in the mixing bowl. Add 10 g honey, the remaining approximately half of the lime zest, the remaining 5 ml lime juice, 0.5 tsp vanilla extract and 0.03125 tsp fine salt. Stir until completely homogeneous, scraping the base and sides of the bowl.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 1,
+      "duration_max_minutes": 2,
+      "endpoint": "The yoghurt is smooth, glossy and uniformly flavoured, with no concentrated honey streaks or unmixed zest.",
+      "corrective_actions": [
+        {
+          "condition": "The yoghurt appears unusually stiff.",
+          "action": "Continue stirring vigorously for approximately 20 seconds before making any adjustment; do not add unlisted liquid because the kiwi will supply additional moisture."
+        }
+      ],
+      "critical": false
+    },
+    {
+      "step_id": "STEP_05",
+      "section": "Assembly",
+      "title": "Layer the evening snack pots",
+      "depends_on": [
+        "STEP_02",
+        "STEP_03",
+        "STEP_04"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "greek_yoghurt_0_percent",
+        "kiwi_fruit",
+        "hemp_seeds",
+        "runny_honey",
+        "lime",
+        "vanilla_extract",
+        "fine_salt"
+      ],
+      "equipment_ids": [
+        "lidded_containers",
+        "kitchen_scales"
+      ],
+      "instruction": "Divide approximately half of the lime-vanilla yoghurt equally between the 2 snack pots. Divide the prepared kiwi, including any small quantity of released juice, equally over the yoghurt. Add the remaining yoghurt equally on top. Finish each pot with half of the completely cooled toasted hemp seeds. Fit the lids securely.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 3,
+      "duration_max_minutes": 5,
+      "endpoint": "Both pots contain approximately equal quantities of yoghurt, kiwi and hemp seeds, with visible fruit layers and dry toasted seeds on the surface.",
+      "corrective_actions": [
+        {
+          "condition": "One pot is visibly heavier than the other.",
+          "action": "Use the kitchen scales to transfer small amounts between pots until both filled weights are approximately equal."
+        },
+        {
+          "condition": "The toasted hemp seeds are still warm.",
+          "action": "Do not seal the pots. Remove or hold the seeds separately until they have cooled completely."
+        }
+      ],
+      "critical": false
+    },
+    {
+      "step_id": "STEP_06",
+      "section": "Chilling",
+      "title": "Chill before serving",
+      "depends_on": [
+        "STEP_05"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [],
+      "equipment_ids": [
+        "lidded_containers"
+      ],
+      "instruction": "Transfer the sealed pots to a refrigerator operating at 5°C or below and chill for at least 10 minutes before serving.",
+      "heat_source": "Refrigerator",
+      "heat_level": null,
+      "temperature_c": 5,
+      "duration_min_minutes": 10,
+      "duration_max_minutes": null,
+      "endpoint": "The pots are fully chilled, the yoghurt remains thick and the kiwi retains identifiable pieces rather than breaking down into the dairy.",
+      "corrective_actions": [
+        {
+          "condition": "A noticeable layer of kiwi juice accumulates during chilling.",
+          "action": "Fold the juice gently into the immediately adjacent yoghurt immediately before eating rather than discarding it."
+        }
+      ],
+      "critical": false
+    }
+  ],
+  "plating": [
+    {
+      "step_id": "PLATE_01",
+      "instruction": "Serve one chilled pot per person. Eat through the layers rather than completely mixing at the outset so each spoonful can retain contrast between thick lime-vanilla yoghurt, juicy kiwi and nutty toasted hemp seeds."
+    }
+  ],
+  "storage": {
+    "refrigerator_days": 1,
+    "freezer_months": null,
+    "storage_instructions": "Store the covered pots continuously at 5°C or below and consume within 24 hours for best texture. Kiwi contains enzymes that can gradually alter dairy texture during prolonged storage, so these pots are best assembled on the day they are eaten. For maximum hemp-seed crunch, the cooled toasted seeds may be kept separately in a small dry container and scattered over immediately before serving.",
+    "reheating_methods": []
+  },
+  "shopping": {
+    "sainsburys": [],
+    "marks_and_spencer": [],
+    "either_retailer": [
+      "0% Greek yoghurt: buy 1 tub containing at least 260 g",
+      "Kiwi fruit: buy 2 medium fruit",
+      "Shelled hemp seeds or hemp hearts: buy 1 standard packet containing at least 20 g",
+      "Runny honey: buy 1 jar or squeeze bottle",
+      "Unwaxed lime: buy 1",
+      "Vanilla extract: buy 1 small bottle if not already stocked",
+      "Fine salt: buy 1 standard container if not already stocked"
+    ]
+  },
+  "quality_checks": {
+    "protein_requirement_met": true,
+    "protein_g_per_serving": 17,
+    "restaurant_quality_features": [
+      "Hemp seeds are lightly toasted to develop a more pronounced nutty aroma and textural contrast than raw seeds.",
+      "Fresh lime zest provides aromatic citrus character while a controlled quantity of juice sharpens both yoghurt and kiwi.",
+      "Vanilla and a restrained amount of honey round the acidity without making the snack excessively sweet.",
+      "A very small measured amount of salt enhances the yoghurt, honey and citrus flavours without becoming perceptibly salty.",
+      "Kiwi is cut into identifiable pieces and folded only minimally so the finished pots retain fresh fruit texture.",
+      "The toasted seeds are cooled completely before contact with the yoghurt, helping preserve their texture."
+    ],
+    "nutrition_notes": [
+      "Estimated nutrition represents one complete evening snack pot including Greek yoghurt, kiwi, hemp seeds, honey, lime, vanilla and salt.",
+      "The recipe is designed around the approximately 200 kcal evening-snack target.",
+      "The general 30 g protein requirement does not apply to evening snacks under the specified meal-plan rules; approximately 17 g protein per serving is therefore compliant.",
+      "Greek yoghurt provides most of the protein while hemp seeds contribute additional protein and predominantly unsaturated fat.",
+      "Kiwi provides fruit, fibre and vitamin C while allowing added honey to remain limited.",
+      "Nutrition values are estimates and will vary with kiwi size and the exact Greek yoghurt and hemp seed products used.",
+      "The recipe follows the supplied structured-recipe and evening-snack requirements. "
+    ],
+    "critical_success_factors": [
+      "Toast hemp seeds only over low heat and remove them as soon as they become aromatic because their small size makes them easy to scorch.",
+      "Cool the toasted hemp seeds completely before adding them to the cold yoghurt.",
+      "Use ripe but structurally firm kiwi so the fruit remains in distinct pieces after cutting and chilling.",
+      "Do not assemble substantially more than 24 hours ahead because kiwi enzymes can progressively alter dairy texture.",
+      "Keep the completed pots continuously refrigerated until serving."
+    ]
+  }
+}

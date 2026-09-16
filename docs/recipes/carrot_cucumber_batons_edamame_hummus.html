@@ -1,0 +1,2010 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="utf-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+>
+
+<title>Carrot &amp; Cucumber Batons with Edamame Hummus</title>
+
+<style>
+
+    :root {
+        --page-width: 1100px;
+        --border: #8f8f8f;
+        --page-background: #f2f2f2;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    html {
+        background: var(--page-background);
+    }
+
+    body {
+        margin: 0;
+
+        font-family:
+            -apple-system,
+            BlinkMacSystemFont,
+            "Segoe UI",
+            Roboto,
+            Helvetica,
+            Arial,
+            sans-serif;
+
+        color: #000000;
+
+        line-height: 1.55;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    p,
+    div,
+    span,
+    code,
+    pre,
+    summary,
+    strong {
+        color: #000000;
+    }
+
+    .page {
+        width: min(
+            calc(100% - 32px),
+            var(--page-width)
+        );
+
+        margin:
+            32px
+            auto
+            64px
+            auto;
+    }
+
+    /* ======================================================
+       Header
+       ====================================================== */
+
+    .document-header {
+        background: #ffffff;
+
+        border:
+            1px
+            solid
+            var(--border);
+
+        border-radius: 14px;
+
+        padding: 32px;
+
+        margin-bottom: 24px;
+    }
+
+    .document-header h1 {
+        margin: 0;
+
+        font-size:
+            clamp(
+                2rem,
+                4vw,
+                3rem
+            );
+
+        line-height: 1.1;
+    }
+
+    .schedule-date {
+        margin-top: 18px;
+
+        padding:
+            12px
+            16px;
+
+        border:
+            1px
+            solid
+            #000000;
+
+        border-radius: 8px;
+
+        background: #fff7c7;
+
+        font-size: 1.1rem;
+    }
+
+    /* ======================================================
+       All major JSON sections
+       ====================================================== */
+
+    .top-section {
+        border:
+            1px
+            solid
+            var(--border);
+
+        border-radius: 14px;
+
+        padding: 24px;
+
+        margin:
+            0
+            0
+            24px
+            0;
+    }
+
+    .top-section > h2 {
+        margin:
+            0
+            0
+            20px
+            0;
+
+        padding-bottom: 10px;
+
+        border-bottom:
+            2px
+            solid
+            #000000;
+
+        font-size: 1.6rem;
+    }
+
+    /*
+       Every major section receives its own background colour.
+
+       Text remains black throughout.
+    */
+
+    .top-section[data-json-path="$.schema_version"] {
+        background: #eeeeee;
+    }
+
+    .top-section[data-json-path="$.recipe"] {
+        background: #ffe8dc;
+    }
+
+    .top-section[data-json-path="$.nutrition_per_serving"] {
+        background: #ddf3e4;
+    }
+
+    .top-section[data-json-path="$.ingredients"] {
+        background: #fff4c9;
+    }
+
+    .top-section[data-json-path="$.equipment"] {
+        background: #dfeeff;
+    }
+
+    .top-section[data-json-path="$.mise_en_place"] {
+        background: #eee2fa;
+    }
+
+    .top-section[data-json-path="$.procedure"] {
+        background: #ffe1e8;
+    }
+
+    .top-section[data-json-path="$.plating"] {
+        background: #daf5f2;
+    }
+
+    .top-section[data-json-path="$.storage"] {
+        background: #ffe9c9;
+    }
+
+    .top-section[data-json-path="$.shopping"] {
+        background: #e4f3d7;
+    }
+
+    .top-section[data-json-path="$.quality_checks"] {
+        background: #eadff5;
+    }
+
+    /* ======================================================
+       Nested objects
+       ====================================================== */
+
+    .object-content {
+        margin: 0;
+    }
+
+    .nested-object {
+        margin:
+            18px
+            0;
+
+        padding: 18px;
+
+        border:
+            1px
+            solid
+            #777777;
+
+        border-radius: 10px;
+
+        background:
+            rgba(
+                255,
+                255,
+                255,
+                0.55
+            );
+    }
+
+    .nested-object > h3 {
+        margin:
+            0
+            0
+            14px
+            0;
+    }
+
+    /* ======================================================
+       Individual fields
+       ====================================================== */
+
+    .field-row {
+        display: grid;
+
+        grid-template-columns:
+            minmax(
+                180px,
+                28%
+            )
+            1fr;
+
+        gap: 20px;
+
+        padding:
+            10px
+            0;
+
+        border-bottom:
+            1px
+            solid
+            rgba(
+                0,
+                0,
+                0,
+                0.18
+            );
+    }
+
+    .field-row:last-child {
+        border-bottom: 0;
+    }
+
+    .field-name {
+        font-weight: 700;
+    }
+
+    .field-value {
+        white-space: pre-wrap;
+
+        overflow-wrap: anywhere;
+    }
+
+    .top-scalar-value {
+        font-size: 1.05rem;
+
+        overflow-wrap: anywhere;
+    }
+
+    /* ======================================================
+       Arrays
+       ====================================================== */
+
+    .array-block {
+        margin:
+            10px
+            0
+            20px
+            0;
+    }
+
+    .array-block > h3 {
+        margin-bottom: 12px;
+    }
+
+    .array-items {
+        display: grid;
+
+        gap: 14px;
+    }
+
+    .array-item {
+        padding: 18px;
+
+        border:
+            1px
+            solid
+            #777777;
+
+        border-radius: 10px;
+
+        background:
+            rgba(
+                255,
+                255,
+                255,
+                0.60
+            );
+    }
+
+    .item-number {
+        font-size: 0.82rem;
+
+        font-weight: 700;
+
+        text-transform: uppercase;
+
+        letter-spacing: 0.06em;
+
+        margin-bottom: 8px;
+    }
+
+    .scalar-array-item {
+        padding:
+            8px
+            12px;
+
+        border-left:
+            3px
+            solid
+            #000000;
+
+        background:
+            rgba(
+                255,
+                255,
+                255,
+                0.55
+            );
+
+        white-space: pre-wrap;
+
+        overflow-wrap: anywhere;
+    }
+
+    /* ======================================================
+       Special JSON values
+       ====================================================== */
+
+    .null-value {
+        font-style: italic;
+
+        color: #000000;
+    }
+
+    .boolean-value {
+        font-family:
+            ui-monospace,
+            "Cascadia Mono",
+            Consolas,
+            monospace;
+
+        color: #000000;
+    }
+
+    .empty-value {
+        font-family:
+            ui-monospace,
+            "Cascadia Mono",
+            Consolas,
+            monospace;
+
+        color: #000000;
+
+        padding:
+            8px
+            0;
+    }
+
+    /* ======================================================
+       Integrity information
+       ====================================================== */
+
+    .integrity {
+        margin-top: 32px;
+
+        background: #eeeeee;
+
+        border:
+            1px
+            solid
+            var(--border);
+
+        border-radius: 10px;
+
+        padding: 18px;
+
+        font-size: 0.9rem;
+    }
+
+    .integrity code {
+        color: #000000;
+
+        overflow-wrap: anywhere;
+    }
+
+    /* ======================================================
+       Original source JSON
+       ====================================================== */
+
+    details {
+        margin-top: 20px;
+
+        background: #ffffff;
+
+        border:
+            1px
+            solid
+            var(--border);
+
+        border-radius: 10px;
+
+        padding: 16px;
+    }
+
+    summary {
+        cursor: pointer;
+
+        font-weight: 700;
+
+        color: #000000;
+    }
+
+    pre {
+        margin-top: 18px;
+
+        overflow-x: auto;
+
+        padding: 18px;
+
+        background: #eeeeee;
+
+        color: #000000;
+
+        border:
+            1px
+            solid
+            #777777;
+
+        border-radius: 8px;
+
+        white-space: pre-wrap;
+
+        overflow-wrap: anywhere;
+    }
+
+    /* ======================================================
+       Mobile layout
+       ====================================================== */
+
+    @media (max-width: 700px) {
+
+        .page {
+            width:
+                min(
+                    calc(100% - 20px),
+                    var(--page-width)
+                );
+
+            margin-top: 10px;
+        }
+
+        .document-header,
+        .top-section {
+            padding: 18px;
+        }
+
+        .field-row {
+            grid-template-columns: 1fr;
+
+            gap: 3px;
+        }
+    }
+
+    /* ======================================================
+       Print layout
+       ====================================================== */
+
+    @media print {
+
+        html,
+        body {
+            background: #ffffff;
+        }
+
+        .page {
+            width: 100%;
+
+            margin: 0;
+        }
+
+        .top-section,
+        .array-item {
+            break-inside: avoid;
+        }
+
+        /*
+           Hide the full raw JSON when printing.
+           It remains present in the HTML source.
+        */
+
+        details {
+            display: none;
+        }
+    }
+
+</style>
+
+</head>
+
+<body>
+
+<main class="page">
+
+<header class="document-header">
+
+    <h1>Carrot &amp; Cucumber Batons with Edamame Hummus</h1>
+
+    
+
+</header>
+
+<section class="top-section" data-json-path="$.schema_version"><h2>Schema Version</h2><div class="top-scalar-value" data-json-path="$.schema_version">1.0</div></section>
+<section class="top-section" data-json-path="$.recipe"><h2>Recipe</h2><div class="object-content" data-json-path="$.recipe">
+<div class="field-row" data-json-path="$.recipe.id"><div class="field-name">Id</div><div class="field-value">carrot_cucumber_batons_edamame_hummus</div></div>
+<div class="field-row" data-json-path="$.recipe.title"><div class="field-name">Title</div><div class="field-value">Carrot &amp; Cucumber Batons with Edamame Hummus</div></div>
+<div class="field-row" data-json-path="$.recipe.description"><div class="field-name">Description</div><div class="field-value">A portable afternoon snack of crisp carrot and cucumber batons with a bright, savoury edamame hummus flavoured with lemon, tahini, garlic and cumin. The hummus is blended until smooth but substantial, while the vegetables are kept dry and separate until eating to preserve crunch.</div></div>
+<div class="field-row" data-json-path="$.recipe.servings"><div class="field-name">Servings</div><div class="field-value">2</div></div>
+<div class="field-row" data-json-path="$.recipe.difficulty"><div class="field-name">Difficulty</div><div class="field-value">Easy</div></div>
+<div class="field-row" data-json-path="$.recipe.total_time_minutes"><div class="field-name">Total Time Minutes</div><div class="field-value">25</div></div>
+<div class="field-row" data-json-path="$.recipe.active_time_minutes"><div class="field-name">Active Time Minutes</div><div class="field-value">20</div></div>
+<div class="field-row" data-json-path="$.recipe.passive_time_minutes"><div class="field-name">Passive Time Minutes</div><div class="field-value">5</div></div>
+<div class="array-block" data-json-path="$.recipe.cuisine">
+<h3>Cuisine</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.recipe.cuisine[0]">Middle Eastern-inspired</div>
+<div class="scalar-array-item" data-json-path="$.recipe.cuisine[1]">Contemporary</div>
+</div>
+</div>
+<div class="array-block" data-json-path="$.recipe.meal_types">
+<h3>Meal Types</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.recipe.meal_types[0]">Afternoon snack</div>
+</div>
+</div>
+<div class="array-block" data-json-path="$.recipe.dietary_tags">
+<h3>Dietary Tags</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.recipe.dietary_tags[0]">Vegetarian</div>
+<div class="scalar-array-item" data-json-path="$.recipe.dietary_tags[1]">Vegan</div>
+<div class="scalar-array-item" data-json-path="$.recipe.dietary_tags[2]">Portable</div>
+<div class="scalar-array-item" data-json-path="$.recipe.dietary_tags[3]">High fibre</div>
+</div>
+</div>
+<div class="array-block" data-json-path="$.recipe.allergens">
+<h3>Allergens</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.recipe.allergens[0]">Soy</div>
+<div class="scalar-array-item" data-json-path="$.recipe.allergens[1]">Sesame</div>
+</div>
+</div>
+</div></section>
+<section class="top-section" data-json-path="$.nutrition_per_serving"><h2>Nutrition Per Serving</h2><div class="object-content" data-json-path="$.nutrition_per_serving">
+<div class="field-row" data-json-path="$.nutrition_per_serving.energy_kcal"><div class="field-name">Energy Kcal</div><div class="field-value">198</div></div>
+<div class="field-row" data-json-path="$.nutrition_per_serving.protein_g"><div class="field-name">Protein G</div><div class="field-value">11</div></div>
+<div class="field-row" data-json-path="$.nutrition_per_serving.carbohydrate_g"><div class="field-name">Carbohydrate G</div><div class="field-value">20</div></div>
+<div class="field-row" data-json-path="$.nutrition_per_serving.fat_g"><div class="field-name">Fat G</div><div class="field-value">10</div></div>
+<div class="field-row" data-json-path="$.nutrition_per_serving.saturated_fat_g"><div class="field-name">Saturated Fat G</div><div class="field-value">1.4</div></div>
+<div class="field-row" data-json-path="$.nutrition_per_serving.fibre_g"><div class="field-name">Fibre G</div><div class="field-value">7</div></div>
+<div class="field-row" data-json-path="$.nutrition_per_serving.salt_g"><div class="field-name">Salt G</div><div class="field-value">0.5</div></div>
+</div></section>
+<section class="top-section" data-json-path="$.ingredients"><h2>Ingredients</h2><div class="array-block" data-json-path="$.ingredients">
+<div class="array-items">
+<article class="array-item" data-json-path="$.ingredients[0]">
+<div class="item-number">Item 1</div>
+<div class="field-row" data-json-path="$.ingredients[0].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">edamame_beans_frozen</div></div>
+<div class="field-row" data-json-path="$.ingredients[0].display_name"><div class="field-name">Display Name</div><div class="field-value">Frozen shelled edamame beans</div></div>
+<div class="field-row" data-json-path="$.ingredients[0].category"><div class="field-name">Category</div><div class="field-value">Legumes</div></div>
+<div class="field-row" data-json-path="$.ingredients[0].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.ingredients[0].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">160</div></div>
+<div class="field-row" data-json-path="$.ingredients[0].unit_used"><div class="field-name">Unit Used</div><div class="field-value">g</div></div>
+<div class="field-row" data-json-path="$.ingredients[0].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 standard bag containing at least 160 g</div></div>
+<div class="field-row" data-json-path="$.ingredients[0].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Use frozen shelled edamame beans. Exact retail pack size varies.</div></div>
+<div class="array-block" data-json-path="$.ingredients[0].retailers">
+<h3>Retailers</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.ingredients[0].retailers[0]">Sainsbury&#x27;s</div>
+<div class="scalar-array-item" data-json-path="$.ingredients[0].retailers[1]">Marks &amp; Spencer</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.ingredients[0].preparation"><div class="field-name">Preparation</div><div class="field-value">Cook from frozen, then drain thoroughly and cool before blending.</div></div>
+<div class="field-row" data-json-path="$.ingredients[0].notes"><div class="field-name">Notes</div><div class="field-value">Use: 160 g total, 80 g per serving.</div></div>
+</article>
+<article class="array-item" data-json-path="$.ingredients[1]">
+<div class="item-number">Item 2</div>
+<div class="field-row" data-json-path="$.ingredients[1].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">carrots</div></div>
+<div class="field-row" data-json-path="$.ingredients[1].display_name"><div class="field-name">Display Name</div><div class="field-value">Carrots</div></div>
+<div class="field-row" data-json-path="$.ingredients[1].category"><div class="field-name">Category</div><div class="field-value">Vegetables</div></div>
+<div class="field-row" data-json-path="$.ingredients[1].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.ingredients[1].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">2</div></div>
+<div class="field-row" data-json-path="$.ingredients[1].unit_used"><div class="field-name">Unit Used</div><div class="field-value">integer</div></div>
+<div class="field-row" data-json-path="$.ingredients[1].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 2 medium carrots, approximately 180-220 g total as bought</div></div>
+<div class="field-row" data-json-path="$.ingredients[1].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Choose firm carrots without soft or blackened areas.</div></div>
+<div class="array-block" data-json-path="$.ingredients[1].retailers">
+<h3>Retailers</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.ingredients[1].retailers[0]">Sainsbury&#x27;s</div>
+<div class="scalar-array-item" data-json-path="$.ingredients[1].retailers[1]">Marks &amp; Spencer</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.ingredients[1].preparation"><div class="field-name">Preparation</div><div class="field-value">Wash, peel if required, trim both ends and cut usable flesh into approximately 10 mm x 10 mm x 70 mm batons.</div></div>
+<div class="field-row" data-json-path="$.ingredients[1].notes"><div class="field-name">Notes</div><div class="field-value">Recipe assumes approximately 160 g usable carrot after trimming.</div></div>
+</article>
+<article class="array-item" data-json-path="$.ingredients[2]">
+<div class="item-number">Item 3</div>
+<div class="field-row" data-json-path="$.ingredients[2].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">cucumber</div></div>
+<div class="field-row" data-json-path="$.ingredients[2].display_name"><div class="field-name">Display Name</div><div class="field-value">Cucumber</div></div>
+<div class="field-row" data-json-path="$.ingredients[2].category"><div class="field-name">Category</div><div class="field-value">Vegetables</div></div>
+<div class="field-row" data-json-path="$.ingredients[2].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.ingredients[2].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">0.5</div></div>
+<div class="field-row" data-json-path="$.ingredients[2].unit_used"><div class="field-name">Unit Used</div><div class="field-value">integer</div></div>
+<div class="field-row" data-json-path="$.ingredients[2].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 whole cucumber</div></div>
+<div class="field-row" data-json-path="$.ingredients[2].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Use approximately half; refrigerate the remainder for another use.</div></div>
+<div class="array-block" data-json-path="$.ingredients[2].retailers">
+<h3>Retailers</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.ingredients[2].retailers[0]">Sainsbury&#x27;s</div>
+<div class="scalar-array-item" data-json-path="$.ingredients[2].retailers[1]">Marks &amp; Spencer</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.ingredients[2].preparation"><div class="field-name">Preparation</div><div class="field-value">Wash and dry. Use approximately 200 g. Cut into approximately 10 mm x 10 mm x 70 mm batons. If the centre is unusually watery, trim away the softest seed core.</div></div>
+<div class="field-row" data-json-path="$.ingredients[2].notes"><div class="field-name">Notes</div><div class="field-value">Use: approximately 200 g prepared cucumber.</div></div>
+</article>
+<article class="array-item" data-json-path="$.ingredients[3]">
+<div class="item-number">Item 4</div>
+<div class="field-row" data-json-path="$.ingredients[3].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">tahini</div></div>
+<div class="field-row" data-json-path="$.ingredients[3].display_name"><div class="field-name">Display Name</div><div class="field-value">Tahini</div></div>
+<div class="field-row" data-json-path="$.ingredients[3].category"><div class="field-name">Category</div><div class="field-value">Condiments</div></div>
+<div class="field-row" data-json-path="$.ingredients[3].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.ingredients[3].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">12</div></div>
+<div class="field-row" data-json-path="$.ingredients[3].unit_used"><div class="field-name">Unit Used</div><div class="field-value">g</div></div>
+<div class="field-row" data-json-path="$.ingredients[3].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 jar</div></div>
+<div class="field-row" data-json-path="$.ingredients[3].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Use plain sesame tahini. Stir the jar well before measuring if the oil has separated.</div></div>
+<div class="array-block" data-json-path="$.ingredients[3].retailers">
+<h3>Retailers</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.ingredients[3].retailers[0]">Sainsbury&#x27;s</div>
+<div class="scalar-array-item" data-json-path="$.ingredients[3].retailers[1]">Marks &amp; Spencer</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.ingredients[3].preparation"><div class="field-name">Preparation</div><div class="field-value">Stir until homogeneous before weighing.</div></div>
+<div class="field-row" data-json-path="$.ingredients[3].notes"><div class="field-name">Notes</div><div class="field-value">Use: 12 g total.</div></div>
+</article>
+<article class="array-item" data-json-path="$.ingredients[4]">
+<div class="item-number">Item 5</div>
+<div class="field-row" data-json-path="$.ingredients[4].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">lemon</div></div>
+<div class="field-row" data-json-path="$.ingredients[4].display_name"><div class="field-name">Display Name</div><div class="field-value">Unwaxed lemon</div></div>
+<div class="field-row" data-json-path="$.ingredients[4].category"><div class="field-name">Category</div><div class="field-value">Fruit</div></div>
+<div class="field-row" data-json-path="$.ingredients[4].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.ingredients[4].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">1</div></div>
+<div class="field-row" data-json-path="$.ingredients[4].unit_used"><div class="field-name">Unit Used</div><div class="field-value">integer</div></div>
+<div class="field-row" data-json-path="$.ingredients[4].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 lemon</div></div>
+<div class="field-row" data-json-path="$.ingredients[4].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">An unwaxed lemon is preferred because zest is used.</div></div>
+<div class="array-block" data-json-path="$.ingredients[4].retailers">
+<h3>Retailers</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.ingredients[4].retailers[0]">Sainsbury&#x27;s</div>
+<div class="scalar-array-item" data-json-path="$.ingredients[4].retailers[1]">Marks &amp; Spencer</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.ingredients[4].preparation"><div class="field-name">Preparation</div><div class="field-value">Wash and dry. Finely grate approximately 1 g yellow zest and squeeze 20 ml juice, removing any seeds.</div></div>
+<div class="field-row" data-json-path="$.ingredients[4].notes"><div class="field-name">Notes</div><div class="field-value">Use approximately 1 g zest and 20 ml juice; reserve unused lemon for another use.</div></div>
+</article>
+<article class="array-item" data-json-path="$.ingredients[5]">
+<div class="item-number">Item 6</div>
+<div class="field-row" data-json-path="$.ingredients[5].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">garlic</div></div>
+<div class="field-row" data-json-path="$.ingredients[5].display_name"><div class="field-name">Display Name</div><div class="field-value">Garlic</div></div>
+<div class="field-row" data-json-path="$.ingredients[5].category"><div class="field-name">Category</div><div class="field-value">Aromatics</div></div>
+<div class="field-row" data-json-path="$.ingredients[5].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.ingredients[5].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">1</div></div>
+<div class="field-row" data-json-path="$.ingredients[5].unit_used"><div class="field-name">Unit Used</div><div class="field-value">integer</div></div>
+<div class="field-row" data-json-path="$.ingredients[5].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 garlic bulb</div></div>
+<div class="field-row" data-json-path="$.ingredients[5].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Use 1 small clove from the bulb.</div></div>
+<div class="array-block" data-json-path="$.ingredients[5].retailers">
+<h3>Retailers</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.ingredients[5].retailers[0]">Sainsbury&#x27;s</div>
+<div class="scalar-array-item" data-json-path="$.ingredients[5].retailers[1]">Marks &amp; Spencer</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.ingredients[5].preparation"><div class="field-name">Preparation</div><div class="field-value">Separate 1 small clove, peel and trim the root end, then finely grate or crush.</div></div>
+<div class="field-row" data-json-path="$.ingredients[5].notes"><div class="field-name">Notes</div><div class="field-value">Use: 1 small garlic clove, approximately 3 g prepared.</div></div>
+</article>
+<article class="array-item" data-json-path="$.ingredients[6]">
+<div class="item-number">Item 7</div>
+<div class="field-row" data-json-path="$.ingredients[6].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">olive_oil</div></div>
+<div class="field-row" data-json-path="$.ingredients[6].display_name"><div class="field-name">Display Name</div><div class="field-value">Extra-virgin olive oil</div></div>
+<div class="field-row" data-json-path="$.ingredients[6].category"><div class="field-name">Category</div><div class="field-value">Oils</div></div>
+<div class="field-row" data-json-path="$.ingredients[6].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.ingredients[6].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">4</div></div>
+<div class="field-row" data-json-path="$.ingredients[6].unit_used"><div class="field-name">Unit Used</div><div class="field-value">g</div></div>
+<div class="field-row" data-json-path="$.ingredients[6].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 bottle</div></div>
+<div class="field-row" data-json-path="$.ingredients[6].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Use a mild extra-virgin olive oil so the edamame flavour remains dominant.</div></div>
+<div class="array-block" data-json-path="$.ingredients[6].retailers">
+<h3>Retailers</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.ingredients[6].retailers[0]">Sainsbury&#x27;s</div>
+<div class="scalar-array-item" data-json-path="$.ingredients[6].retailers[1]">Marks &amp; Spencer</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.ingredients[6].preparation"><div class="field-name">Preparation</div><div class="field-value">Measure accurately before blending.</div></div>
+<div class="field-row" data-json-path="$.ingredients[6].notes"><div class="field-name">Notes</div><div class="field-value">Use: 4 g total.</div></div>
+</article>
+<article class="array-item" data-json-path="$.ingredients[7]">
+<div class="item-number">Item 8</div>
+<div class="field-row" data-json-path="$.ingredients[7].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">ground_cumin</div></div>
+<div class="field-row" data-json-path="$.ingredients[7].display_name"><div class="field-name">Display Name</div><div class="field-value">Ground cumin</div></div>
+<div class="field-row" data-json-path="$.ingredients[7].category"><div class="field-name">Category</div><div class="field-value">Spices</div></div>
+<div class="field-row" data-json-path="$.ingredients[7].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.ingredients[7].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">0.25</div></div>
+<div class="field-row" data-json-path="$.ingredients[7].unit_used"><div class="field-name">Unit Used</div><div class="field-value">tsp</div></div>
+<div class="field-row" data-json-path="$.ingredients[7].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 jar</div></div>
+<div class="field-row" data-json-path="$.ingredients[7].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Standard ground cumin is suitable.</div></div>
+<div class="array-block" data-json-path="$.ingredients[7].retailers">
+<h3>Retailers</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.ingredients[7].retailers[0]">Sainsbury&#x27;s</div>
+<div class="scalar-array-item" data-json-path="$.ingredients[7].retailers[1]">Marks &amp; Spencer</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.ingredients[7].preparation"><div class="field-name">Preparation</div><div class="field-value">Measure before blending.</div></div>
+<div class="field-row" data-json-path="$.ingredients[7].notes"><div class="field-name">Notes</div><div class="field-value">Use: 0.25 tsp.</div></div>
+</article>
+<article class="array-item" data-json-path="$.ingredients[8]">
+<div class="item-number">Item 9</div>
+<div class="field-row" data-json-path="$.ingredients[8].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">fine_salt</div></div>
+<div class="field-row" data-json-path="$.ingredients[8].display_name"><div class="field-name">Display Name</div><div class="field-value">Fine salt</div></div>
+<div class="field-row" data-json-path="$.ingredients[8].category"><div class="field-name">Category</div><div class="field-value">Seasoning</div></div>
+<div class="field-row" data-json-path="$.ingredients[8].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.ingredients[8].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">0.25</div></div>
+<div class="field-row" data-json-path="$.ingredients[8].unit_used"><div class="field-name">Unit Used</div><div class="field-value">tsp</div></div>
+<div class="field-row" data-json-path="$.ingredients[8].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 standard container</div></div>
+<div class="field-row" data-json-path="$.ingredients[8].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Fine table salt or fine sea salt is suitable.</div></div>
+<div class="array-block" data-json-path="$.ingredients[8].retailers">
+<h3>Retailers</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.ingredients[8].retailers[0]">Sainsbury&#x27;s</div>
+<div class="scalar-array-item" data-json-path="$.ingredients[8].retailers[1]">Marks &amp; Spencer</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.ingredients[8].preparation"><div class="field-name">Preparation</div><div class="field-value">Measure 0.1875 tsp for initial seasoning and reserve up to 0.0625 tsp for final adjustment.</div></div>
+<div class="field-row" data-json-path="$.ingredients[8].notes"><div class="field-name">Notes</div><div class="field-value">Use no more than 0.25 tsp total.</div></div>
+</article>
+<article class="array-item" data-json-path="$.ingredients[9]">
+<div class="item-number">Item 10</div>
+<div class="field-row" data-json-path="$.ingredients[9].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">black_pepper_ground</div></div>
+<div class="field-row" data-json-path="$.ingredients[9].display_name"><div class="field-name">Display Name</div><div class="field-value">Ground black pepper</div></div>
+<div class="field-row" data-json-path="$.ingredients[9].category"><div class="field-name">Category</div><div class="field-value">Seasoning</div></div>
+<div class="field-row" data-json-path="$.ingredients[9].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.ingredients[9].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">0.125</div></div>
+<div class="field-row" data-json-path="$.ingredients[9].unit_used"><div class="field-name">Unit Used</div><div class="field-value">tsp</div></div>
+<div class="field-row" data-json-path="$.ingredients[9].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 jar or pepper mill</div></div>
+<div class="field-row" data-json-path="$.ingredients[9].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Freshly ground black pepper is preferred where available.</div></div>
+<div class="array-block" data-json-path="$.ingredients[9].retailers">
+<h3>Retailers</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.ingredients[9].retailers[0]">Sainsbury&#x27;s</div>
+<div class="scalar-array-item" data-json-path="$.ingredients[9].retailers[1]">Marks &amp; Spencer</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.ingredients[9].preparation"><div class="field-name">Preparation</div><div class="field-value">Measure before blending.</div></div>
+<div class="field-row" data-json-path="$.ingredients[9].notes"><div class="field-name">Notes</div><div class="field-value">Use: 0.125 tsp.</div></div>
+</article>
+<article class="array-item" data-json-path="$.ingredients[10]">
+<div class="item-number">Item 11</div>
+<div class="field-row" data-json-path="$.ingredients[10].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">water</div></div>
+<div class="field-row" data-json-path="$.ingredients[10].display_name"><div class="field-name">Display Name</div><div class="field-value">Cold water</div></div>
+<div class="field-row" data-json-path="$.ingredients[10].category"><div class="field-name">Category</div><div class="field-value">Liquid</div></div>
+<div class="field-row" data-json-path="$.ingredients[10].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.ingredients[10].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">30</div></div>
+<div class="field-row" data-json-path="$.ingredients[10].unit_used"><div class="field-name">Unit Used</div><div class="field-value">ml</div></div>
+<div class="field-row" data-json-path="$.ingredients[10].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Use: up to 30 ml tap water</div></div>
+<div class="field-row" data-json-path="$.ingredients[10].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">No purchase required.</div></div>
+<div class="array-block" data-json-path="$.ingredients[10].retailers">
+<h3>Retailers</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.ingredients[10].retailers[0]">Sainsbury&#x27;s</div>
+<div class="scalar-array-item" data-json-path="$.ingredients[10].retailers[1]">Marks &amp; Spencer</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.ingredients[10].preparation"><div class="field-name">Preparation</div><div class="field-value">Use cold water and add gradually during blending.</div></div>
+<div class="field-row" data-json-path="$.ingredients[10].notes"><div class="field-name">Notes</div><div class="field-value">Use up to 30 ml as required to achieve the specified hummus consistency.</div></div>
+</article>
+</div>
+</div></section>
+<section class="top-section" data-json-path="$.equipment"><h2>Equipment</h2><div class="array-block" data-json-path="$.equipment">
+<div class="array-items">
+<article class="array-item" data-json-path="$.equipment[0]">
+<div class="item-number">Item 1</div>
+<div class="field-row" data-json-path="$.equipment[0].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">kettle</div></div>
+<div class="field-row" data-json-path="$.equipment[0].display_name"><div class="field-name">Display Name</div><div class="field-value">Electric kettle</div></div>
+<div class="field-row" data-json-path="$.equipment[0].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.equipment[0].notes"><div class="field-name">Notes</div><div class="field-value">Used to heat water rapidly for cooking the edamame.</div></div>
+</article>
+<article class="array-item" data-json-path="$.equipment[1]">
+<div class="item-number">Item 2</div>
+<div class="field-row" data-json-path="$.equipment[1].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">saucepan</div></div>
+<div class="field-row" data-json-path="$.equipment[1].display_name"><div class="field-name">Display Name</div><div class="field-value">Medium saucepan</div></div>
+<div class="field-row" data-json-path="$.equipment[1].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.equipment[1].notes"><div class="field-name">Notes</div><div class="field-value">Used to cook the frozen edamame.</div></div>
+</article>
+<article class="array-item" data-json-path="$.equipment[2]">
+<div class="item-number">Item 3</div>
+<div class="field-row" data-json-path="$.equipment[2].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">gas_hob</div></div>
+<div class="field-row" data-json-path="$.equipment[2].display_name"><div class="field-name">Display Name</div><div class="field-value">Gas hob</div></div>
+<div class="field-row" data-json-path="$.equipment[2].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.equipment[2].notes"><div class="field-name">Notes</div><div class="field-value">Used to bring the edamame cooking water back to the boil.</div></div>
+</article>
+<article class="array-item" data-json-path="$.equipment[3]">
+<div class="item-number">Item 4</div>
+<div class="field-row" data-json-path="$.equipment[3].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">colander</div></div>
+<div class="field-row" data-json-path="$.equipment[3].display_name"><div class="field-name">Display Name</div><div class="field-value">Colander</div></div>
+<div class="field-row" data-json-path="$.equipment[3].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.equipment[3].notes"><div class="field-name">Notes</div><div class="field-value">Used to drain and cool the cooked edamame.</div></div>
+</article>
+<article class="array-item" data-json-path="$.equipment[4]">
+<div class="item-number">Item 5</div>
+<div class="field-row" data-json-path="$.equipment[4].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">standard_blender</div></div>
+<div class="field-row" data-json-path="$.equipment[4].display_name"><div class="field-name">Display Name</div><div class="field-value">Standard blender</div></div>
+<div class="field-row" data-json-path="$.equipment[4].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.equipment[4].notes"><div class="field-name">Notes</div><div class="field-value">Used to produce a smooth but substantial edamame hummus.</div></div>
+</article>
+<article class="array-item" data-json-path="$.equipment[5]">
+<div class="item-number">Item 6</div>
+<div class="field-row" data-json-path="$.equipment[5].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">chef_knife</div></div>
+<div class="field-row" data-json-path="$.equipment[5].display_name"><div class="field-name">Display Name</div><div class="field-value">Chef&#x27;s knife</div></div>
+<div class="field-row" data-json-path="$.equipment[5].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.equipment[5].notes"><div class="field-name">Notes</div><div class="field-value">Used to trim and cut the vegetables.</div></div>
+</article>
+<article class="array-item" data-json-path="$.equipment[6]">
+<div class="item-number">Item 7</div>
+<div class="field-row" data-json-path="$.equipment[6].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">chopping_board</div></div>
+<div class="field-row" data-json-path="$.equipment[6].display_name"><div class="field-name">Display Name</div><div class="field-value">Chopping board</div></div>
+<div class="field-row" data-json-path="$.equipment[6].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.equipment[6].notes"><div class="field-name">Notes</div><div class="field-value">Used for vegetable preparation.</div></div>
+</article>
+<article class="array-item" data-json-path="$.equipment[7]">
+<div class="item-number">Item 8</div>
+<div class="field-row" data-json-path="$.equipment[7].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">fine_grater</div></div>
+<div class="field-row" data-json-path="$.equipment[7].display_name"><div class="field-name">Display Name</div><div class="field-value">Fine grater or Microplane</div></div>
+<div class="field-row" data-json-path="$.equipment[7].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.equipment[7].notes"><div class="field-name">Notes</div><div class="field-value">Used for lemon zest and garlic.</div></div>
+</article>
+<article class="array-item" data-json-path="$.equipment[8]">
+<div class="item-number">Item 9</div>
+<div class="field-row" data-json-path="$.equipment[8].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">measuring_jug</div></div>
+<div class="field-row" data-json-path="$.equipment[8].display_name"><div class="field-name">Display Name</div><div class="field-value">Measuring jug</div></div>
+<div class="field-row" data-json-path="$.equipment[8].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.equipment[8].notes"><div class="field-name">Notes</div><div class="field-value">Used to measure lemon juice and water.</div></div>
+</article>
+<article class="array-item" data-json-path="$.equipment[9]">
+<div class="item-number">Item 10</div>
+<div class="field-row" data-json-path="$.equipment[9].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">measuring_spoons</div></div>
+<div class="field-row" data-json-path="$.equipment[9].display_name"><div class="field-name">Display Name</div><div class="field-value">Measuring spoons</div></div>
+<div class="field-row" data-json-path="$.equipment[9].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.equipment[9].notes"><div class="field-name">Notes</div><div class="field-value">Used for cumin, salt and black pepper.</div></div>
+</article>
+<article class="array-item" data-json-path="$.equipment[10]">
+<div class="item-number">Item 11</div>
+<div class="field-row" data-json-path="$.equipment[10].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">kitchen_scales</div></div>
+<div class="field-row" data-json-path="$.equipment[10].display_name"><div class="field-name">Display Name</div><div class="field-value">Kitchen scales</div></div>
+<div class="field-row" data-json-path="$.equipment[10].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.equipment[10].notes"><div class="field-name">Notes</div><div class="field-value">Used for accurate edamame, tahini and oil quantities.</div></div>
+</article>
+<article class="array-item" data-json-path="$.equipment[11]">
+<div class="item-number">Item 12</div>
+<div class="field-row" data-json-path="$.equipment[11].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">lidded_containers</div></div>
+<div class="field-row" data-json-path="$.equipment[11].display_name"><div class="field-name">Display Name</div><div class="field-value">2 portable lidded snack containers</div></div>
+<div class="field-row" data-json-path="$.equipment[11].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.equipment[11].notes"><div class="field-name">Notes</div><div class="field-value">Containers should allow the hummus and vegetable batons to remain physically separated where possible.</div></div>
+</article>
+</div>
+</div></section>
+<section class="top-section" data-json-path="$.mise_en_place"><h2>Mise En Place</h2><div class="array-block" data-json-path="$.mise_en_place">
+<div class="array-items">
+<article class="array-item" data-json-path="$.mise_en_place[0]">
+<div class="item-number">Item 1</div>
+<div class="field-row" data-json-path="$.mise_en_place[0].prep_id"><div class="field-name">Prep Id</div><div class="field-value">PREP_01</div></div>
+<div class="array-block" data-json-path="$.mise_en_place[0].ingredient_ids">
+<h3>Ingredient Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.mise_en_place[0].ingredient_ids[0]">carrots</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.mise_en_place[0].instruction"><div class="field-name">Instruction</div><div class="field-value">Wash the 2 carrots under cold running water and dry them. Peel only if the outer surface is tough or damaged. Trim and discard both ends. Cut the usable flesh into batons approximately 10 mm x 10 mm x 70 mm.</div></div>
+<div class="field-row" data-json-path="$.mise_en_place[0].endpoint"><div class="field-name">Endpoint</div><div class="field-value">Approximately 160 g carrot is cut into firm, evenly sized batons suitable for dipping.</div></div>
+</article>
+<article class="array-item" data-json-path="$.mise_en_place[1]">
+<div class="item-number">Item 2</div>
+<div class="field-row" data-json-path="$.mise_en_place[1].prep_id"><div class="field-name">Prep Id</div><div class="field-value">PREP_02</div></div>
+<div class="array-block" data-json-path="$.mise_en_place[1].ingredient_ids">
+<h3>Ingredient Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.mise_en_place[1].ingredient_ids[0]">cucumber</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.mise_en_place[1].instruction"><div class="field-name">Instruction</div><div class="field-value">Wash and dry the whole cucumber. Cut approximately half of it to provide about 200 g. Trim the cut end if required. Cut the usable portion into batons approximately 10 mm x 10 mm x 70 mm. If the seed core is exceptionally soft and watery, trim away only the softest central material. Pat all cut surfaces dry with clean kitchen paper.</div></div>
+<div class="field-row" data-json-path="$.mise_en_place[1].endpoint"><div class="field-name">Endpoint</div><div class="field-value">Approximately 200 g cucumber is cut into crisp, dry batons with minimal free surface moisture.</div></div>
+</article>
+<article class="array-item" data-json-path="$.mise_en_place[2]">
+<div class="item-number">Item 3</div>
+<div class="field-row" data-json-path="$.mise_en_place[2].prep_id"><div class="field-name">Prep Id</div><div class="field-value">PREP_03</div></div>
+<div class="array-block" data-json-path="$.mise_en_place[2].ingredient_ids">
+<h3>Ingredient Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.mise_en_place[2].ingredient_ids[0]">lemon</div>
+<div class="scalar-array-item" data-json-path="$.mise_en_place[2].ingredient_ids[1]">garlic</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.mise_en_place[2].instruction"><div class="field-name">Instruction</div><div class="field-value">Wash and dry the lemon. Finely grate approximately 1 g yellow zest without removing significant white pith. Cut the lemon and squeeze 20 ml juice, removing all seeds. Separate 1 small garlic clove from the bulb, peel it, trim the root end and grate it finely.</div></div>
+<div class="field-row" data-json-path="$.mise_en_place[2].endpoint"><div class="field-name">Endpoint</div><div class="field-value">Approximately 1 g lemon zest, 20 ml seed-free lemon juice and 1 finely grated garlic clove are ready for blending.</div></div>
+</article>
+<article class="array-item" data-json-path="$.mise_en_place[3]">
+<div class="item-number">Item 4</div>
+<div class="field-row" data-json-path="$.mise_en_place[3].prep_id"><div class="field-name">Prep Id</div><div class="field-value">PREP_04</div></div>
+<div class="array-block" data-json-path="$.mise_en_place[3].ingredient_ids">
+<h3>Ingredient Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.mise_en_place[3].ingredient_ids[0]">edamame_beans_frozen</div>
+<div class="scalar-array-item" data-json-path="$.mise_en_place[3].ingredient_ids[1]">tahini</div>
+<div class="scalar-array-item" data-json-path="$.mise_en_place[3].ingredient_ids[2]">olive_oil</div>
+<div class="scalar-array-item" data-json-path="$.mise_en_place[3].ingredient_ids[3]">ground_cumin</div>
+<div class="scalar-array-item" data-json-path="$.mise_en_place[3].ingredient_ids[4]">fine_salt</div>
+<div class="scalar-array-item" data-json-path="$.mise_en_place[3].ingredient_ids[5]">black_pepper_ground</div>
+<div class="scalar-array-item" data-json-path="$.mise_en_place[3].ingredient_ids[6]">water</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.mise_en_place[3].instruction"><div class="field-name">Instruction</div><div class="field-value">Weigh 160 g frozen shelled edamame, 12 g tahini and 4 g olive oil. Measure 0.25 tsp ground cumin, 0.1875 tsp initial fine salt, 0.0625 tsp reserved fine salt, 0.125 tsp black pepper and 30 ml cold water.</div></div>
+<div class="field-row" data-json-path="$.mise_en_place[3].endpoint"><div class="field-name">Endpoint</div><div class="field-value">All hummus ingredients are accurately measured and ready for controlled addition.</div></div>
+</article>
+</div>
+</div></section>
+<section class="top-section" data-json-path="$.procedure"><h2>Procedure</h2><div class="array-block" data-json-path="$.procedure">
+<div class="array-items">
+<article class="array-item" data-json-path="$.procedure[0]">
+<div class="item-number">Item 1</div>
+<div class="field-row" data-json-path="$.procedure[0].step_id"><div class="field-name">Step Id</div><div class="field-value">STEP_01</div></div>
+<div class="field-row" data-json-path="$.procedure[0].section"><div class="field-name">Section</div><div class="field-value">Edamame</div></div>
+<div class="field-row" data-json-path="$.procedure[0].title"><div class="field-name">Title</div><div class="field-value">Cook the edamame</div></div>
+<div class="array-block" data-json-path="$.procedure[0].depends_on">
+<h3>Depends On</h3>
+<div class="empty-value">[ ]</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[0].parallel_group"><div class="field-name">Parallel Group</div><div class="field-value">P01</div></div>
+<div class="array-block" data-json-path="$.procedure[0].ingredient_ids">
+<h3>Ingredient Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[0].ingredient_ids[0]">edamame_beans_frozen</div>
+</div>
+</div>
+<div class="array-block" data-json-path="$.procedure[0].equipment_ids">
+<h3>Equipment Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[0].equipment_ids[0]">kettle</div>
+<div class="scalar-array-item" data-json-path="$.procedure[0].equipment_ids[1]">saucepan</div>
+<div class="scalar-array-item" data-json-path="$.procedure[0].equipment_ids[2]">gas_hob</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[0].instruction"><div class="field-name">Instruction</div><div class="field-value">Boil sufficient water in the electric kettle to cover the 160 g frozen edamame by at least 30 mm in the saucepan. Pour the boiling water into the saucepan, place over high gas heat and add the frozen edamame. Return the water to a full boil, then reduce the flame sufficiently to maintain active boiling without overflow.</div></div>
+<div class="field-row" data-json-path="$.procedure[0].heat_source"><div class="field-name">Heat Source</div><div class="field-value">Gas hob</div></div>
+<div class="field-row" data-json-path="$.procedure[0].heat_level"><div class="field-name">Heat Level</div><div class="field-value">High to medium-high</div></div>
+<div class="field-row" data-json-path="$.procedure[0].temperature_c"><div class="field-name">Temperature C</div><div class="field-value">100</div></div>
+<div class="field-row" data-json-path="$.procedure[0].duration_min_minutes"><div class="field-name">Duration Min Minutes</div><div class="field-value">3</div></div>
+<div class="field-row" data-json-path="$.procedure[0].duration_max_minutes"><div class="field-name">Duration Max Minutes</div><div class="field-value">5</div></div>
+<div class="field-row" data-json-path="$.procedure[0].endpoint"><div class="field-name">Endpoint</div><div class="field-value">The edamame is fully hot, bright green and tender when bitten but retains slight firmness rather than becoming mushy.</div></div>
+<div class="array-block" data-json-path="$.procedure[0].corrective_actions">
+<h3>Corrective Actions</h3>
+<div class="array-items">
+<article class="array-item" data-json-path="$.procedure[0].corrective_actions[0]">
+<div class="item-number">Item 1</div>
+<div class="field-row" data-json-path="$.procedure[0].corrective_actions[0].condition"><div class="field-name">Condition</div><div class="field-value">The water threatens to boil over.</div></div>
+<div class="field-row" data-json-path="$.procedure[0].corrective_actions[0].action"><div class="field-name">Action</div><div class="field-value">Reduce the gas flame immediately while maintaining visible boiling.</div></div>
+</article>
+<article class="array-item" data-json-path="$.procedure[0].corrective_actions[1]">
+<div class="item-number">Item 2</div>
+<div class="field-row" data-json-path="$.procedure[0].corrective_actions[1].condition"><div class="field-name">Condition</div><div class="field-value">The beans remain hard or chalky after 5 minutes.</div></div>
+<div class="field-row" data-json-path="$.procedure[0].corrective_actions[1].action"><div class="field-name">Action</div><div class="field-value">Continue boiling in 1-minute intervals until the stated tender-but-firm endpoint is reached.</div></div>
+</article>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[0].critical"><div class="field-name">Critical</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+</article>
+<article class="array-item" data-json-path="$.procedure[1]">
+<div class="item-number">Item 2</div>
+<div class="field-row" data-json-path="$.procedure[1].step_id"><div class="field-name">Step Id</div><div class="field-value">STEP_02</div></div>
+<div class="field-row" data-json-path="$.procedure[1].section"><div class="field-name">Section</div><div class="field-value">Vegetables</div></div>
+<div class="field-row" data-json-path="$.procedure[1].title"><div class="field-name">Title</div><div class="field-value">Prepare and dry the batons</div></div>
+<div class="array-block" data-json-path="$.procedure[1].depends_on">
+<h3>Depends On</h3>
+<div class="empty-value">[ ]</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[1].parallel_group"><div class="field-name">Parallel Group</div><div class="field-value">P01</div></div>
+<div class="array-block" data-json-path="$.procedure[1].ingredient_ids">
+<h3>Ingredient Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[1].ingredient_ids[0]">carrots</div>
+<div class="scalar-array-item" data-json-path="$.procedure[1].ingredient_ids[1]">cucumber</div>
+</div>
+</div>
+<div class="array-block" data-json-path="$.procedure[1].equipment_ids">
+<h3>Equipment Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[1].equipment_ids[0]">chef_knife</div>
+<div class="scalar-array-item" data-json-path="$.procedure[1].equipment_ids[1]">chopping_board</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[1].instruction"><div class="field-name">Instruction</div><div class="field-value">Complete the prepared carrot and cucumber baton cuts as specified in mise en place. Inspect for irregularly thick pieces and trim them so most batons remain approximately 10 mm thick. Pat the cucumber surfaces dry before packing.</div></div>
+<div class="field-row" data-json-path="$.procedure[1].heat_source"><div class="field-name">Heat Source</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.procedure[1].heat_level"><div class="field-name">Heat Level</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.procedure[1].temperature_c"><div class="field-name">Temperature C</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.procedure[1].duration_min_minutes"><div class="field-name">Duration Min Minutes</div><div class="field-value">5</div></div>
+<div class="field-row" data-json-path="$.procedure[1].duration_max_minutes"><div class="field-name">Duration Max Minutes</div><div class="field-value">8</div></div>
+<div class="field-row" data-json-path="$.procedure[1].endpoint"><div class="field-name">Endpoint</div><div class="field-value">The vegetable batons are evenly sized, crisp and externally dry, with no pooled cucumber liquid.</div></div>
+<div class="array-block" data-json-path="$.procedure[1].corrective_actions">
+<h3>Corrective Actions</h3>
+<div class="array-items">
+<article class="array-item" data-json-path="$.procedure[1].corrective_actions[0]">
+<div class="item-number">Item 1</div>
+<div class="field-row" data-json-path="$.procedure[1].corrective_actions[0].condition"><div class="field-name">Condition</div><div class="field-value">Cucumber pieces release significant moisture after cutting.</div></div>
+<div class="field-row" data-json-path="$.procedure[1].corrective_actions[0].action"><div class="field-name">Action</div><div class="field-value">Spread them on clean kitchen paper and blot thoroughly before packing.</div></div>
+</article>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[1].critical"><div class="field-name">Critical</div><div class="field-value"><span class="boolean-value">false</span></div></div>
+</article>
+<article class="array-item" data-json-path="$.procedure[2]">
+<div class="item-number">Item 3</div>
+<div class="field-row" data-json-path="$.procedure[2].step_id"><div class="field-name">Step Id</div><div class="field-value">STEP_03</div></div>
+<div class="field-row" data-json-path="$.procedure[2].section"><div class="field-name">Section</div><div class="field-value">Edamame</div></div>
+<div class="field-row" data-json-path="$.procedure[2].title"><div class="field-name">Title</div><div class="field-value">Drain and cool the edamame</div></div>
+<div class="array-block" data-json-path="$.procedure[2].depends_on">
+<h3>Depends On</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[2].depends_on[0]">STEP_01</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[2].parallel_group"><div class="field-name">Parallel Group</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="array-block" data-json-path="$.procedure[2].ingredient_ids">
+<h3>Ingredient Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[2].ingredient_ids[0]">edamame_beans_frozen</div>
+</div>
+</div>
+<div class="array-block" data-json-path="$.procedure[2].equipment_ids">
+<h3>Equipment Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[2].equipment_ids[0]">colander</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[2].instruction"><div class="field-name">Instruction</div><div class="field-value">Drain the cooked edamame immediately through the colander. Rinse under cold running water while agitating the beans gently until they are no longer hot. Shake the colander firmly several times and leave it to drain for approximately 2 minutes so excess water is removed.</div></div>
+<div class="field-row" data-json-path="$.procedure[2].heat_source"><div class="field-name">Heat Source</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.procedure[2].heat_level"><div class="field-name">Heat Level</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.procedure[2].temperature_c"><div class="field-name">Temperature C</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.procedure[2].duration_min_minutes"><div class="field-name">Duration Min Minutes</div><div class="field-value">2</div></div>
+<div class="field-row" data-json-path="$.procedure[2].duration_max_minutes"><div class="field-name">Duration Max Minutes</div><div class="field-value">4</div></div>
+<div class="field-row" data-json-path="$.procedure[2].endpoint"><div class="field-name">Endpoint</div><div class="field-value">The edamame is cool, bright green and visibly free of standing or dripping water.</div></div>
+<div class="array-block" data-json-path="$.procedure[2].corrective_actions">
+<h3>Corrective Actions</h3>
+<div class="array-items">
+<article class="array-item" data-json-path="$.procedure[2].corrective_actions[0]">
+<div class="item-number">Item 1</div>
+<div class="field-row" data-json-path="$.procedure[2].corrective_actions[0].condition"><div class="field-name">Condition</div><div class="field-value">Water continues dripping heavily from the colander after 2 minutes.</div></div>
+<div class="field-row" data-json-path="$.procedure[2].corrective_actions[0].action"><div class="field-name">Action</div><div class="field-value">Shake again and leave to drain for an additional 1-2 minutes before blending.</div></div>
+</article>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[2].critical"><div class="field-name">Critical</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+</article>
+<article class="array-item" data-json-path="$.procedure[3]">
+<div class="item-number">Item 4</div>
+<div class="field-row" data-json-path="$.procedure[3].step_id"><div class="field-name">Step Id</div><div class="field-value">STEP_04</div></div>
+<div class="field-row" data-json-path="$.procedure[3].section"><div class="field-name">Section</div><div class="field-value">Edamame hummus</div></div>
+<div class="field-row" data-json-path="$.procedure[3].title"><div class="field-name">Title</div><div class="field-value">Blend the hummus base</div></div>
+<div class="array-block" data-json-path="$.procedure[3].depends_on">
+<h3>Depends On</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[3].depends_on[0]">STEP_03</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[3].parallel_group"><div class="field-name">Parallel Group</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="array-block" data-json-path="$.procedure[3].ingredient_ids">
+<h3>Ingredient Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[3].ingredient_ids[0]">edamame_beans_frozen</div>
+<div class="scalar-array-item" data-json-path="$.procedure[3].ingredient_ids[1]">tahini</div>
+<div class="scalar-array-item" data-json-path="$.procedure[3].ingredient_ids[2]">lemon</div>
+<div class="scalar-array-item" data-json-path="$.procedure[3].ingredient_ids[3]">garlic</div>
+<div class="scalar-array-item" data-json-path="$.procedure[3].ingredient_ids[4]">olive_oil</div>
+<div class="scalar-array-item" data-json-path="$.procedure[3].ingredient_ids[5]">ground_cumin</div>
+<div class="scalar-array-item" data-json-path="$.procedure[3].ingredient_ids[6]">fine_salt</div>
+<div class="scalar-array-item" data-json-path="$.procedure[3].ingredient_ids[7]">black_pepper_ground</div>
+<div class="scalar-array-item" data-json-path="$.procedure[3].ingredient_ids[8]">water</div>
+</div>
+</div>
+<div class="array-block" data-json-path="$.procedure[3].equipment_ids">
+<h3>Equipment Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[3].equipment_ids[0]">standard_blender</div>
+<div class="scalar-array-item" data-json-path="$.procedure[3].equipment_ids[1]">fine_grater</div>
+<div class="scalar-array-item" data-json-path="$.procedure[3].equipment_ids[2]">measuring_jug</div>
+<div class="scalar-array-item" data-json-path="$.procedure[3].equipment_ids[3]">measuring_spoons</div>
+<div class="scalar-array-item" data-json-path="$.procedure[3].equipment_ids[4]">kitchen_scales</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[3].instruction"><div class="field-name">Instruction</div><div class="field-value">Add the drained 160 g cooked edamame to the blender with 12 g tahini, 20 ml lemon juice, approximately 1 g lemon zest, the finely grated garlic, 4 g olive oil, 0.25 tsp cumin, 0.1875 tsp fine salt, 0.125 tsp black pepper and 15 ml of the measured cold water. Blend for approximately 30 seconds, stop and scrape down the sides, then blend again until the mixture becomes mostly smooth.</div></div>
+<div class="field-row" data-json-path="$.procedure[3].heat_source"><div class="field-name">Heat Source</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.procedure[3].heat_level"><div class="field-name">Heat Level</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.procedure[3].temperature_c"><div class="field-name">Temperature C</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.procedure[3].duration_min_minutes"><div class="field-name">Duration Min Minutes</div><div class="field-value">1</div></div>
+<div class="field-row" data-json-path="$.procedure[3].duration_max_minutes"><div class="field-name">Duration Max Minutes</div><div class="field-value">2</div></div>
+<div class="field-row" data-json-path="$.procedure[3].endpoint"><div class="field-name">Endpoint</div><div class="field-value">The hummus is pale green, cohesive and mostly smooth with no whole edamame remaining, but retains enough body to hold a soft mound on a spoon.</div></div>
+<div class="array-block" data-json-path="$.procedure[3].corrective_actions">
+<h3>Corrective Actions</h3>
+<div class="array-items">
+<article class="array-item" data-json-path="$.procedure[3].corrective_actions[0]">
+<div class="item-number">Item 1</div>
+<div class="field-row" data-json-path="$.procedure[3].corrective_actions[0].condition"><div class="field-name">Condition</div><div class="field-value">The blender blades spin without circulating the mixture or the hummus remains excessively stiff.</div></div>
+<div class="field-row" data-json-path="$.procedure[3].corrective_actions[0].action"><div class="field-name">Action</div><div class="field-value">Add the remaining cold water in 5 ml increments, blending after each addition, stopping as soon as the mixture circulates and reaches the specified thick dipping consistency.</div></div>
+</article>
+<article class="array-item" data-json-path="$.procedure[3].corrective_actions[1]">
+<div class="item-number">Item 2</div>
+<div class="field-row" data-json-path="$.procedure[3].corrective_actions[1].condition"><div class="field-name">Condition</div><div class="field-value">The mixture becomes thinner than intended.</div></div>
+<div class="field-row" data-json-path="$.procedure[3].corrective_actions[1].action"><div class="field-name">Action</div><div class="field-value">Stop adding water immediately and allow the hummus to stand refrigerated for 10 minutes; do not add unlisted ingredients to thicken it.</div></div>
+</article>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[3].critical"><div class="field-name">Critical</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+</article>
+<article class="array-item" data-json-path="$.procedure[4]">
+<div class="item-number">Item 5</div>
+<div class="field-row" data-json-path="$.procedure[4].step_id"><div class="field-name">Step Id</div><div class="field-value">STEP_05</div></div>
+<div class="field-row" data-json-path="$.procedure[4].section"><div class="field-name">Section</div><div class="field-value">Edamame hummus</div></div>
+<div class="field-row" data-json-path="$.procedure[4].title"><div class="field-name">Title</div><div class="field-value">Check seasoning and texture</div></div>
+<div class="array-block" data-json-path="$.procedure[4].depends_on">
+<h3>Depends On</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[4].depends_on[0]">STEP_04</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[4].parallel_group"><div class="field-name">Parallel Group</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="array-block" data-json-path="$.procedure[4].ingredient_ids">
+<h3>Ingredient Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[4].ingredient_ids[0]">fine_salt</div>
+</div>
+</div>
+<div class="array-block" data-json-path="$.procedure[4].equipment_ids">
+<h3>Equipment Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[4].equipment_ids[0]">standard_blender</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[4].instruction"><div class="field-name">Instruction</div><div class="field-value">Taste a small amount of hummus after blending. Confirm that lemon acidity, sesame richness, garlic, cumin and salt are individually perceptible but balanced. If the mixture tastes under-seasoned, add up to the reserved 0.0625 tsp fine salt and blend for approximately 10 seconds.</div></div>
+<div class="field-row" data-json-path="$.procedure[4].heat_source"><div class="field-name">Heat Source</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.procedure[4].heat_level"><div class="field-name">Heat Level</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.procedure[4].temperature_c"><div class="field-name">Temperature C</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.procedure[4].duration_min_minutes"><div class="field-name">Duration Min Minutes</div><div class="field-value">1</div></div>
+<div class="field-row" data-json-path="$.procedure[4].duration_max_minutes"><div class="field-name">Duration Max Minutes</div><div class="field-value">2</div></div>
+<div class="field-row" data-json-path="$.procedure[4].endpoint"><div class="field-name">Endpoint</div><div class="field-value">The hummus tastes savoury, lemon-bright and clearly seasoned without excessive salt, and retains a thick dipping consistency.</div></div>
+<div class="array-block" data-json-path="$.procedure[4].corrective_actions">
+<h3>Corrective Actions</h3>
+<div class="array-items">
+<article class="array-item" data-json-path="$.procedure[4].corrective_actions[0]">
+<div class="item-number">Item 1</div>
+<div class="field-row" data-json-path="$.procedure[4].corrective_actions[0].condition"><div class="field-name">Condition</div><div class="field-value">The hummus tastes adequately seasoned before the reserved salt is used.</div></div>
+<div class="field-row" data-json-path="$.procedure[4].corrective_actions[0].action"><div class="field-name">Action</div><div class="field-value">Do not add the reserved salt.</div></div>
+</article>
+<article class="array-item" data-json-path="$.procedure[4].corrective_actions[1]">
+<div class="item-number">Item 2</div>
+<div class="field-row" data-json-path="$.procedure[4].corrective_actions[1].condition"><div class="field-name">Condition</div><div class="field-value">The hummus appears overly thick after standing.</div></div>
+<div class="field-row" data-json-path="$.procedure[4].corrective_actions[1].action"><div class="field-name">Action</div><div class="field-value">Blend in any remaining measured water in 5 ml increments until the acceptance texture is restored.</div></div>
+</article>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[4].critical"><div class="field-name">Critical</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+</article>
+<article class="array-item" data-json-path="$.procedure[5]">
+<div class="item-number">Item 6</div>
+<div class="field-row" data-json-path="$.procedure[5].step_id"><div class="field-name">Step Id</div><div class="field-value">STEP_06</div></div>
+<div class="field-row" data-json-path="$.procedure[5].section"><div class="field-name">Section</div><div class="field-value">Packing</div></div>
+<div class="field-row" data-json-path="$.procedure[5].title"><div class="field-name">Title</div><div class="field-value">Portion the snack containers</div></div>
+<div class="array-block" data-json-path="$.procedure[5].depends_on">
+<h3>Depends On</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[5].depends_on[0]">STEP_02</div>
+<div class="scalar-array-item" data-json-path="$.procedure[5].depends_on[1]">STEP_05</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[5].parallel_group"><div class="field-name">Parallel Group</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="array-block" data-json-path="$.procedure[5].ingredient_ids">
+<h3>Ingredient Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[5].ingredient_ids[0]">carrots</div>
+<div class="scalar-array-item" data-json-path="$.procedure[5].ingredient_ids[1]">cucumber</div>
+<div class="scalar-array-item" data-json-path="$.procedure[5].ingredient_ids[2]">edamame_beans_frozen</div>
+<div class="scalar-array-item" data-json-path="$.procedure[5].ingredient_ids[3]">tahini</div>
+<div class="scalar-array-item" data-json-path="$.procedure[5].ingredient_ids[4]">lemon</div>
+<div class="scalar-array-item" data-json-path="$.procedure[5].ingredient_ids[5]">garlic</div>
+<div class="scalar-array-item" data-json-path="$.procedure[5].ingredient_ids[6]">olive_oil</div>
+<div class="scalar-array-item" data-json-path="$.procedure[5].ingredient_ids[7]">ground_cumin</div>
+<div class="scalar-array-item" data-json-path="$.procedure[5].ingredient_ids[8]">fine_salt</div>
+<div class="scalar-array-item" data-json-path="$.procedure[5].ingredient_ids[9]">black_pepper_ground</div>
+<div class="scalar-array-item" data-json-path="$.procedure[5].ingredient_ids[10]">water</div>
+</div>
+</div>
+<div class="array-block" data-json-path="$.procedure[5].equipment_ids">
+<h3>Equipment Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[5].equipment_ids[0]">lidded_containers</div>
+<div class="scalar-array-item" data-json-path="$.procedure[5].equipment_ids[1]">kitchen_scales</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[5].instruction"><div class="field-name">Instruction</div><div class="field-value">Divide the finished edamame hummus equally between the 2 snack containers using the kitchen scales. Divide the carrot and cucumber batons approximately equally between the containers. Keep the vegetable batons physically separate from the hummus using an internal divider or separate small pot where available. Secure all lids fully and refrigerate immediately.</div></div>
+<div class="field-row" data-json-path="$.procedure[5].heat_source"><div class="field-name">Heat Source</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.procedure[5].heat_level"><div class="field-name">Heat Level</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.procedure[5].temperature_c"><div class="field-name">Temperature C</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.procedure[5].duration_min_minutes"><div class="field-name">Duration Min Minutes</div><div class="field-value">3</div></div>
+<div class="field-row" data-json-path="$.procedure[5].duration_max_minutes"><div class="field-name">Duration Max Minutes</div><div class="field-value">5</div></div>
+<div class="field-row" data-json-path="$.procedure[5].endpoint"><div class="field-name">Endpoint</div><div class="field-value">Each serving contains approximately half of the hummus and half of the prepared vegetables, the vegetables remain dry and separate from the dip, and all lids are secure for transport.</div></div>
+<div class="array-block" data-json-path="$.procedure[5].corrective_actions">
+<h3>Corrective Actions</h3>
+<div class="array-items">
+<article class="array-item" data-json-path="$.procedure[5].corrective_actions[0]">
+<div class="item-number">Item 1</div>
+<div class="field-row" data-json-path="$.procedure[5].corrective_actions[0].condition"><div class="field-name">Condition</div><div class="field-value">One hummus portion is visibly larger than the other.</div></div>
+<div class="field-row" data-json-path="$.procedure[5].corrective_actions[0].action"><div class="field-name">Action</div><div class="field-value">Use the kitchen scales to transfer small amounts until both portions are approximately equal.</div></div>
+</article>
+<article class="array-item" data-json-path="$.procedure[5].corrective_actions[1]">
+<div class="item-number">Item 2</div>
+<div class="field-row" data-json-path="$.procedure[5].corrective_actions[1].condition"><div class="field-name">Condition</div><div class="field-value">Cucumber moisture has collected in a container before sealing.</div></div>
+<div class="field-row" data-json-path="$.procedure[5].corrective_actions[1].action"><div class="field-name">Action</div><div class="field-value">Remove the cucumber, blot dry again and dry the container before repacking.</div></div>
+</article>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[5].critical"><div class="field-name">Critical</div><div class="field-value"><span class="boolean-value">false</span></div></div>
+</article>
+</div>
+</div></section>
+<section class="top-section" data-json-path="$.plating"><h2>Plating</h2><div class="array-block" data-json-path="$.plating">
+<div class="array-items">
+<article class="array-item" data-json-path="$.plating[0]">
+<div class="item-number">Item 1</div>
+<div class="field-row" data-json-path="$.plating[0].step_id"><div class="field-name">Step Id</div><div class="field-value">PLATE_01</div></div>
+<div class="field-row" data-json-path="$.plating[0].instruction"><div class="field-name">Instruction</div><div class="field-value">Serve one complete snack container per person. Keep the hummus and vegetable batons separate until eating, then dip the carrot and cucumber directly into the edamame hummus to preserve the contrast between crisp vegetables and creamy dip.</div></div>
+</article>
+</div>
+</div></section>
+<section class="top-section" data-json-path="$.storage"><h2>Storage</h2><div class="object-content" data-json-path="$.storage">
+<div class="field-row" data-json-path="$.storage.refrigerator_days"><div class="field-name">Refrigerator Days</div><div class="field-value">2</div></div>
+<div class="field-row" data-json-path="$.storage.freezer_months"><div class="field-name">Freezer Months</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.storage.storage_instructions"><div class="field-name">Storage Instructions</div><div class="field-value">Refrigerate at 5°C or below and consume within 2 days. For best texture, keep the carrot and cucumber batons separate from the hummus until eating. The snack is suitable for transport to work or on a car journey; if continuous refrigeration is unavailable, carry it in an insulated lunch bag with an ice pack and keep it chilled until consumption.</div></div>
+<div class="array-block" data-json-path="$.storage.reheating_methods">
+<h3>Reheating Methods</h3>
+<div class="empty-value">[ ]</div>
+</div>
+</div></section>
+<section class="top-section" data-json-path="$.shopping"><h2>Shopping</h2><div class="object-content" data-json-path="$.shopping">
+<div class="array-block" data-json-path="$.shopping.sainsburys">
+<h3>Sainsburys</h3>
+<div class="empty-value">[ ]</div>
+</div>
+<div class="array-block" data-json-path="$.shopping.marks_and_spencer">
+<h3>Marks And Spencer</h3>
+<div class="empty-value">[ ]</div>
+</div>
+<div class="array-block" data-json-path="$.shopping.either_retailer">
+<h3>Either Retailer</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[0]">Frozen shelled edamame beans: buy 1 standard bag containing at least 160 g</div>
+<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[1]">Carrots: buy 2 medium carrots</div>
+<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[2]">Cucumber: buy 1 whole cucumber</div>
+<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[3]">Tahini: buy 1 jar</div>
+<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[4]">Unwaxed lemon: buy 1</div>
+<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[5]">Garlic: buy 1 bulb</div>
+<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[6]">Extra-virgin olive oil: buy 1 bottle if not already stocked</div>
+<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[7]">Ground cumin: buy 1 jar if not already stocked</div>
+<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[8]">Fine salt: buy 1 container if not already stocked</div>
+<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[9]">Ground black pepper: buy 1 jar or pepper mill if not already stocked</div>
+</div>
+</div>
+</div></section>
+<section class="top-section" data-json-path="$.quality_checks"><h2>Quality Checks</h2><div class="object-content" data-json-path="$.quality_checks">
+<div class="field-row" data-json-path="$.quality_checks.protein_requirement_met"><div class="field-name">Protein Requirement Met</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.quality_checks.protein_g_per_serving"><div class="field-name">Protein G Per Serving</div><div class="field-value">11</div></div>
+<div class="array-block" data-json-path="$.quality_checks.restaurant_quality_features">
+<h3>Restaurant Quality Features</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.quality_checks.restaurant_quality_features[0]">Edamame replaces conventional chickpeas to give the dip a fresher green flavour and naturally higher protein density.</div>
+<div class="scalar-array-item" data-json-path="$.quality_checks.restaurant_quality_features[1]">Lemon juice and zest provide both acidity and aromatic freshness rather than relying on excess oil for flavour.</div>
+<div class="scalar-array-item" data-json-path="$.quality_checks.restaurant_quality_features[2]">Tahini supplies sesame depth and creaminess while remaining deliberately restrained to keep the snack near the 200 kcal target.</div>
+<div class="scalar-array-item" data-json-path="$.quality_checks.restaurant_quality_features[3]">Garlic and cumin provide savoury aromatic complexity despite the recipe requiring no frying or roasting stage.</div>
+<div class="scalar-array-item" data-json-path="$.quality_checks.restaurant_quality_features[4]">Cold water is added incrementally during blending, allowing the hummus to become smooth without becoming runny.</div>
+<div class="scalar-array-item" data-json-path="$.quality_checks.restaurant_quality_features[5]">Drying the cucumber thoroughly and packing the vegetables separately protects their crunch during transport.</div>
+</div>
+</div>
+<div class="array-block" data-json-path="$.quality_checks.nutrition_notes">
+<h3>Nutrition Notes</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.quality_checks.nutrition_notes[0]">Estimated nutrition represents one complete snack serving including vegetables, edamame hummus, tahini, olive oil and all seasonings.</div>
+<div class="scalar-array-item" data-json-path="$.quality_checks.nutrition_notes[1]">This recipe is designed around the approximately 200 kcal afternoon-snack target.</div>
+<div class="scalar-array-item" data-json-path="$.quality_checks.nutrition_notes[2]">The general 30 g protein target does not apply to afternoon snacks under the specified meal-plan rules; approximately 11 g protein per serving is therefore compliant.</div>
+<div class="scalar-array-item" data-json-path="$.quality_checks.nutrition_notes[3]">Edamame provides the majority of the protein as well as fibre and unsaturated fat.</div>
+<div class="scalar-array-item" data-json-path="$.quality_checks.nutrition_notes[4]">Carrot and cucumber contribute additional fibre, fluid volume and micronutrients while keeping energy density modest.</div>
+<div class="scalar-array-item" data-json-path="$.quality_checks.nutrition_notes[5]">Nutrition values are estimates and will vary with exact vegetable size and supermarket products.</div>
+</div>
+</div>
+<div class="array-block" data-json-path="$.quality_checks.critical_success_factors">
+<h3>Critical Success Factors</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.quality_checks.critical_success_factors[0]">Drain the cooked edamame thoroughly before blending; excess water will dilute flavour and make the hummus difficult to pack.</div>
+<div class="scalar-array-item" data-json-path="$.quality_checks.critical_success_factors[1]">Add blending water incrementally rather than all at once so the hummus remains thick enough for dipping.</div>
+<div class="scalar-array-item" data-json-path="$.quality_checks.critical_success_factors[2]">Keep cucumber surfaces dry and physically separate from the hummus until eating to prevent watery dilution.</div>
+<div class="scalar-array-item" data-json-path="$.quality_checks.critical_success_factors[3]">Do not automatically add the reserved salt; taste the hummus first because tahini and individual ingredient characteristics vary.</div>
+<div class="scalar-array-item" data-json-path="$.quality_checks.critical_success_factors[4]">Keep the completed snack chilled during storage and transport.</div>
+</div>
+</div>
+</div></section>
+
+<section class="integrity">
+
+    <strong>Source integrity</strong>
+
+    <div>
+        Source JSON SHA-256:
+        <code>1b39c438907b37c147f0ee6b5f5a990e610ab069133e3c309c86d28a1564dbaf</code>
+    </div>
+
+    <div>
+        JSON paths checked:
+        <code>503</code>
+    </div>
+
+    <div>
+        Missing JSON paths:
+        <code>0</code>
+    </div>
+
+</section>
+
+<details>
+
+<summary>
+Original source JSON
+</summary>
+
+<pre>{
+  &quot;schema_version&quot;: &quot;1.0&quot;,
+  &quot;recipe&quot;: {
+    &quot;id&quot;: &quot;carrot_cucumber_batons_edamame_hummus&quot;,
+    &quot;title&quot;: &quot;Carrot &amp; Cucumber Batons with Edamame Hummus&quot;,
+    &quot;description&quot;: &quot;A portable afternoon snack of crisp carrot and cucumber batons with a bright, savoury edamame hummus flavoured with lemon, tahini, garlic and cumin. The hummus is blended until smooth but substantial, while the vegetables are kept dry and separate until eating to preserve crunch.&quot;,
+    &quot;servings&quot;: 2,
+    &quot;difficulty&quot;: &quot;Easy&quot;,
+    &quot;total_time_minutes&quot;: 25,
+    &quot;active_time_minutes&quot;: 20,
+    &quot;passive_time_minutes&quot;: 5,
+    &quot;cuisine&quot;: [
+      &quot;Middle Eastern-inspired&quot;,
+      &quot;Contemporary&quot;
+    ],
+    &quot;meal_types&quot;: [
+      &quot;Afternoon snack&quot;
+    ],
+    &quot;dietary_tags&quot;: [
+      &quot;Vegetarian&quot;,
+      &quot;Vegan&quot;,
+      &quot;Portable&quot;,
+      &quot;High fibre&quot;
+    ],
+    &quot;allergens&quot;: [
+      &quot;Soy&quot;,
+      &quot;Sesame&quot;
+    ]
+  },
+  &quot;nutrition_per_serving&quot;: {
+    &quot;energy_kcal&quot;: 198,
+    &quot;protein_g&quot;: 11,
+    &quot;carbohydrate_g&quot;: 20,
+    &quot;fat_g&quot;: 10,
+    &quot;saturated_fat_g&quot;: 1.4,
+    &quot;fibre_g&quot;: 7,
+    &quot;salt_g&quot;: 0.5
+  },
+  &quot;ingredients&quot;: [
+    {
+      &quot;ingredient_id&quot;: &quot;edamame_beans_frozen&quot;,
+      &quot;display_name&quot;: &quot;Frozen shelled edamame beans&quot;,
+      &quot;category&quot;: &quot;Legumes&quot;,
+      &quot;required&quot;: true,
+      &quot;quantity_used&quot;: 160,
+      &quot;unit_used&quot;: &quot;g&quot;,
+      &quot;purchase_quantity&quot;: &quot;Buy: 1 standard bag containing at least 160 g&quot;,
+      &quot;purchase_notes&quot;: &quot;Use frozen shelled edamame beans. Exact retail pack size varies.&quot;,
+      &quot;retailers&quot;: [
+        &quot;Sainsbury&#x27;s&quot;,
+        &quot;Marks &amp; Spencer&quot;
+      ],
+      &quot;preparation&quot;: &quot;Cook from frozen, then drain thoroughly and cool before blending.&quot;,
+      &quot;notes&quot;: &quot;Use: 160 g total, 80 g per serving.&quot;
+    },
+    {
+      &quot;ingredient_id&quot;: &quot;carrots&quot;,
+      &quot;display_name&quot;: &quot;Carrots&quot;,
+      &quot;category&quot;: &quot;Vegetables&quot;,
+      &quot;required&quot;: true,
+      &quot;quantity_used&quot;: 2,
+      &quot;unit_used&quot;: &quot;integer&quot;,
+      &quot;purchase_quantity&quot;: &quot;Buy: 2 medium carrots, approximately 180-220 g total as bought&quot;,
+      &quot;purchase_notes&quot;: &quot;Choose firm carrots without soft or blackened areas.&quot;,
+      &quot;retailers&quot;: [
+        &quot;Sainsbury&#x27;s&quot;,
+        &quot;Marks &amp; Spencer&quot;
+      ],
+      &quot;preparation&quot;: &quot;Wash, peel if required, trim both ends and cut usable flesh into approximately 10 mm x 10 mm x 70 mm batons.&quot;,
+      &quot;notes&quot;: &quot;Recipe assumes approximately 160 g usable carrot after trimming.&quot;
+    },
+    {
+      &quot;ingredient_id&quot;: &quot;cucumber&quot;,
+      &quot;display_name&quot;: &quot;Cucumber&quot;,
+      &quot;category&quot;: &quot;Vegetables&quot;,
+      &quot;required&quot;: true,
+      &quot;quantity_used&quot;: 0.5,
+      &quot;unit_used&quot;: &quot;integer&quot;,
+      &quot;purchase_quantity&quot;: &quot;Buy: 1 whole cucumber&quot;,
+      &quot;purchase_notes&quot;: &quot;Use approximately half; refrigerate the remainder for another use.&quot;,
+      &quot;retailers&quot;: [
+        &quot;Sainsbury&#x27;s&quot;,
+        &quot;Marks &amp; Spencer&quot;
+      ],
+      &quot;preparation&quot;: &quot;Wash and dry. Use approximately 200 g. Cut into approximately 10 mm x 10 mm x 70 mm batons. If the centre is unusually watery, trim away the softest seed core.&quot;,
+      &quot;notes&quot;: &quot;Use: approximately 200 g prepared cucumber.&quot;
+    },
+    {
+      &quot;ingredient_id&quot;: &quot;tahini&quot;,
+      &quot;display_name&quot;: &quot;Tahini&quot;,
+      &quot;category&quot;: &quot;Condiments&quot;,
+      &quot;required&quot;: true,
+      &quot;quantity_used&quot;: 12,
+      &quot;unit_used&quot;: &quot;g&quot;,
+      &quot;purchase_quantity&quot;: &quot;Buy: 1 jar&quot;,
+      &quot;purchase_notes&quot;: &quot;Use plain sesame tahini. Stir the jar well before measuring if the oil has separated.&quot;,
+      &quot;retailers&quot;: [
+        &quot;Sainsbury&#x27;s&quot;,
+        &quot;Marks &amp; Spencer&quot;
+      ],
+      &quot;preparation&quot;: &quot;Stir until homogeneous before weighing.&quot;,
+      &quot;notes&quot;: &quot;Use: 12 g total.&quot;
+    },
+    {
+      &quot;ingredient_id&quot;: &quot;lemon&quot;,
+      &quot;display_name&quot;: &quot;Unwaxed lemon&quot;,
+      &quot;category&quot;: &quot;Fruit&quot;,
+      &quot;required&quot;: true,
+      &quot;quantity_used&quot;: 1,
+      &quot;unit_used&quot;: &quot;integer&quot;,
+      &quot;purchase_quantity&quot;: &quot;Buy: 1 lemon&quot;,
+      &quot;purchase_notes&quot;: &quot;An unwaxed lemon is preferred because zest is used.&quot;,
+      &quot;retailers&quot;: [
+        &quot;Sainsbury&#x27;s&quot;,
+        &quot;Marks &amp; Spencer&quot;
+      ],
+      &quot;preparation&quot;: &quot;Wash and dry. Finely grate approximately 1 g yellow zest and squeeze 20 ml juice, removing any seeds.&quot;,
+      &quot;notes&quot;: &quot;Use approximately 1 g zest and 20 ml juice; reserve unused lemon for another use.&quot;
+    },
+    {
+      &quot;ingredient_id&quot;: &quot;garlic&quot;,
+      &quot;display_name&quot;: &quot;Garlic&quot;,
+      &quot;category&quot;: &quot;Aromatics&quot;,
+      &quot;required&quot;: true,
+      &quot;quantity_used&quot;: 1,
+      &quot;unit_used&quot;: &quot;integer&quot;,
+      &quot;purchase_quantity&quot;: &quot;Buy: 1 garlic bulb&quot;,
+      &quot;purchase_notes&quot;: &quot;Use 1 small clove from the bulb.&quot;,
+      &quot;retailers&quot;: [
+        &quot;Sainsbury&#x27;s&quot;,
+        &quot;Marks &amp; Spencer&quot;
+      ],
+      &quot;preparation&quot;: &quot;Separate 1 small clove, peel and trim the root end, then finely grate or crush.&quot;,
+      &quot;notes&quot;: &quot;Use: 1 small garlic clove, approximately 3 g prepared.&quot;
+    },
+    {
+      &quot;ingredient_id&quot;: &quot;olive_oil&quot;,
+      &quot;display_name&quot;: &quot;Extra-virgin olive oil&quot;,
+      &quot;category&quot;: &quot;Oils&quot;,
+      &quot;required&quot;: true,
+      &quot;quantity_used&quot;: 4,
+      &quot;unit_used&quot;: &quot;g&quot;,
+      &quot;purchase_quantity&quot;: &quot;Buy: 1 bottle&quot;,
+      &quot;purchase_notes&quot;: &quot;Use a mild extra-virgin olive oil so the edamame flavour remains dominant.&quot;,
+      &quot;retailers&quot;: [
+        &quot;Sainsbury&#x27;s&quot;,
+        &quot;Marks &amp; Spencer&quot;
+      ],
+      &quot;preparation&quot;: &quot;Measure accurately before blending.&quot;,
+      &quot;notes&quot;: &quot;Use: 4 g total.&quot;
+    },
+    {
+      &quot;ingredient_id&quot;: &quot;ground_cumin&quot;,
+      &quot;display_name&quot;: &quot;Ground cumin&quot;,
+      &quot;category&quot;: &quot;Spices&quot;,
+      &quot;required&quot;: true,
+      &quot;quantity_used&quot;: 0.25,
+      &quot;unit_used&quot;: &quot;tsp&quot;,
+      &quot;purchase_quantity&quot;: &quot;Buy: 1 jar&quot;,
+      &quot;purchase_notes&quot;: &quot;Standard ground cumin is suitable.&quot;,
+      &quot;retailers&quot;: [
+        &quot;Sainsbury&#x27;s&quot;,
+        &quot;Marks &amp; Spencer&quot;
+      ],
+      &quot;preparation&quot;: &quot;Measure before blending.&quot;,
+      &quot;notes&quot;: &quot;Use: 0.25 tsp.&quot;
+    },
+    {
+      &quot;ingredient_id&quot;: &quot;fine_salt&quot;,
+      &quot;display_name&quot;: &quot;Fine salt&quot;,
+      &quot;category&quot;: &quot;Seasoning&quot;,
+      &quot;required&quot;: true,
+      &quot;quantity_used&quot;: 0.25,
+      &quot;unit_used&quot;: &quot;tsp&quot;,
+      &quot;purchase_quantity&quot;: &quot;Buy: 1 standard container&quot;,
+      &quot;purchase_notes&quot;: &quot;Fine table salt or fine sea salt is suitable.&quot;,
+      &quot;retailers&quot;: [
+        &quot;Sainsbury&#x27;s&quot;,
+        &quot;Marks &amp; Spencer&quot;
+      ],
+      &quot;preparation&quot;: &quot;Measure 0.1875 tsp for initial seasoning and reserve up to 0.0625 tsp for final adjustment.&quot;,
+      &quot;notes&quot;: &quot;Use no more than 0.25 tsp total.&quot;
+    },
+    {
+      &quot;ingredient_id&quot;: &quot;black_pepper_ground&quot;,
+      &quot;display_name&quot;: &quot;Ground black pepper&quot;,
+      &quot;category&quot;: &quot;Seasoning&quot;,
+      &quot;required&quot;: true,
+      &quot;quantity_used&quot;: 0.125,
+      &quot;unit_used&quot;: &quot;tsp&quot;,
+      &quot;purchase_quantity&quot;: &quot;Buy: 1 jar or pepper mill&quot;,
+      &quot;purchase_notes&quot;: &quot;Freshly ground black pepper is preferred where available.&quot;,
+      &quot;retailers&quot;: [
+        &quot;Sainsbury&#x27;s&quot;,
+        &quot;Marks &amp; Spencer&quot;
+      ],
+      &quot;preparation&quot;: &quot;Measure before blending.&quot;,
+      &quot;notes&quot;: &quot;Use: 0.125 tsp.&quot;
+    },
+    {
+      &quot;ingredient_id&quot;: &quot;water&quot;,
+      &quot;display_name&quot;: &quot;Cold water&quot;,
+      &quot;category&quot;: &quot;Liquid&quot;,
+      &quot;required&quot;: true,
+      &quot;quantity_used&quot;: 30,
+      &quot;unit_used&quot;: &quot;ml&quot;,
+      &quot;purchase_quantity&quot;: &quot;Use: up to 30 ml tap water&quot;,
+      &quot;purchase_notes&quot;: &quot;No purchase required.&quot;,
+      &quot;retailers&quot;: [
+        &quot;Sainsbury&#x27;s&quot;,
+        &quot;Marks &amp; Spencer&quot;
+      ],
+      &quot;preparation&quot;: &quot;Use cold water and add gradually during blending.&quot;,
+      &quot;notes&quot;: &quot;Use up to 30 ml as required to achieve the specified hummus consistency.&quot;
+    }
+  ],
+  &quot;equipment&quot;: [
+    {
+      &quot;equipment_id&quot;: &quot;kettle&quot;,
+      &quot;display_name&quot;: &quot;Electric kettle&quot;,
+      &quot;required&quot;: true,
+      &quot;notes&quot;: &quot;Used to heat water rapidly for cooking the edamame.&quot;
+    },
+    {
+      &quot;equipment_id&quot;: &quot;saucepan&quot;,
+      &quot;display_name&quot;: &quot;Medium saucepan&quot;,
+      &quot;required&quot;: true,
+      &quot;notes&quot;: &quot;Used to cook the frozen edamame.&quot;
+    },
+    {
+      &quot;equipment_id&quot;: &quot;gas_hob&quot;,
+      &quot;display_name&quot;: &quot;Gas hob&quot;,
+      &quot;required&quot;: true,
+      &quot;notes&quot;: &quot;Used to bring the edamame cooking water back to the boil.&quot;
+    },
+    {
+      &quot;equipment_id&quot;: &quot;colander&quot;,
+      &quot;display_name&quot;: &quot;Colander&quot;,
+      &quot;required&quot;: true,
+      &quot;notes&quot;: &quot;Used to drain and cool the cooked edamame.&quot;
+    },
+    {
+      &quot;equipment_id&quot;: &quot;standard_blender&quot;,
+      &quot;display_name&quot;: &quot;Standard blender&quot;,
+      &quot;required&quot;: true,
+      &quot;notes&quot;: &quot;Used to produce a smooth but substantial edamame hummus.&quot;
+    },
+    {
+      &quot;equipment_id&quot;: &quot;chef_knife&quot;,
+      &quot;display_name&quot;: &quot;Chef&#x27;s knife&quot;,
+      &quot;required&quot;: true,
+      &quot;notes&quot;: &quot;Used to trim and cut the vegetables.&quot;
+    },
+    {
+      &quot;equipment_id&quot;: &quot;chopping_board&quot;,
+      &quot;display_name&quot;: &quot;Chopping board&quot;,
+      &quot;required&quot;: true,
+      &quot;notes&quot;: &quot;Used for vegetable preparation.&quot;
+    },
+    {
+      &quot;equipment_id&quot;: &quot;fine_grater&quot;,
+      &quot;display_name&quot;: &quot;Fine grater or Microplane&quot;,
+      &quot;required&quot;: true,
+      &quot;notes&quot;: &quot;Used for lemon zest and garlic.&quot;
+    },
+    {
+      &quot;equipment_id&quot;: &quot;measuring_jug&quot;,
+      &quot;display_name&quot;: &quot;Measuring jug&quot;,
+      &quot;required&quot;: true,
+      &quot;notes&quot;: &quot;Used to measure lemon juice and water.&quot;
+    },
+    {
+      &quot;equipment_id&quot;: &quot;measuring_spoons&quot;,
+      &quot;display_name&quot;: &quot;Measuring spoons&quot;,
+      &quot;required&quot;: true,
+      &quot;notes&quot;: &quot;Used for cumin, salt and black pepper.&quot;
+    },
+    {
+      &quot;equipment_id&quot;: &quot;kitchen_scales&quot;,
+      &quot;display_name&quot;: &quot;Kitchen scales&quot;,
+      &quot;required&quot;: true,
+      &quot;notes&quot;: &quot;Used for accurate edamame, tahini and oil quantities.&quot;
+    },
+    {
+      &quot;equipment_id&quot;: &quot;lidded_containers&quot;,
+      &quot;display_name&quot;: &quot;2 portable lidded snack containers&quot;,
+      &quot;required&quot;: true,
+      &quot;notes&quot;: &quot;Containers should allow the hummus and vegetable batons to remain physically separated where possible.&quot;
+    }
+  ],
+  &quot;mise_en_place&quot;: [
+    {
+      &quot;prep_id&quot;: &quot;PREP_01&quot;,
+      &quot;ingredient_ids&quot;: [
+        &quot;carrots&quot;
+      ],
+      &quot;instruction&quot;: &quot;Wash the 2 carrots under cold running water and dry them. Peel only if the outer surface is tough or damaged. Trim and discard both ends. Cut the usable flesh into batons approximately 10 mm x 10 mm x 70 mm.&quot;,
+      &quot;endpoint&quot;: &quot;Approximately 160 g carrot is cut into firm, evenly sized batons suitable for dipping.&quot;
+    },
+    {
+      &quot;prep_id&quot;: &quot;PREP_02&quot;,
+      &quot;ingredient_ids&quot;: [
+        &quot;cucumber&quot;
+      ],
+      &quot;instruction&quot;: &quot;Wash and dry the whole cucumber. Cut approximately half of it to provide about 200 g. Trim the cut end if required. Cut the usable portion into batons approximately 10 mm x 10 mm x 70 mm. If the seed core is exceptionally soft and watery, trim away only the softest central material. Pat all cut surfaces dry with clean kitchen paper.&quot;,
+      &quot;endpoint&quot;: &quot;Approximately 200 g cucumber is cut into crisp, dry batons with minimal free surface moisture.&quot;
+    },
+    {
+      &quot;prep_id&quot;: &quot;PREP_03&quot;,
+      &quot;ingredient_ids&quot;: [
+        &quot;lemon&quot;,
+        &quot;garlic&quot;
+      ],
+      &quot;instruction&quot;: &quot;Wash and dry the lemon. Finely grate approximately 1 g yellow zest without removing significant white pith. Cut the lemon and squeeze 20 ml juice, removing all seeds. Separate 1 small garlic clove from the bulb, peel it, trim the root end and grate it finely.&quot;,
+      &quot;endpoint&quot;: &quot;Approximately 1 g lemon zest, 20 ml seed-free lemon juice and 1 finely grated garlic clove are ready for blending.&quot;
+    },
+    {
+      &quot;prep_id&quot;: &quot;PREP_04&quot;,
+      &quot;ingredient_ids&quot;: [
+        &quot;edamame_beans_frozen&quot;,
+        &quot;tahini&quot;,
+        &quot;olive_oil&quot;,
+        &quot;ground_cumin&quot;,
+        &quot;fine_salt&quot;,
+        &quot;black_pepper_ground&quot;,
+        &quot;water&quot;
+      ],
+      &quot;instruction&quot;: &quot;Weigh 160 g frozen shelled edamame, 12 g tahini and 4 g olive oil. Measure 0.25 tsp ground cumin, 0.1875 tsp initial fine salt, 0.0625 tsp reserved fine salt, 0.125 tsp black pepper and 30 ml cold water.&quot;,
+      &quot;endpoint&quot;: &quot;All hummus ingredients are accurately measured and ready for controlled addition.&quot;
+    }
+  ],
+  &quot;procedure&quot;: [
+    {
+      &quot;step_id&quot;: &quot;STEP_01&quot;,
+      &quot;section&quot;: &quot;Edamame&quot;,
+      &quot;title&quot;: &quot;Cook the edamame&quot;,
+      &quot;depends_on&quot;: [],
+      &quot;parallel_group&quot;: &quot;P01&quot;,
+      &quot;ingredient_ids&quot;: [
+        &quot;edamame_beans_frozen&quot;
+      ],
+      &quot;equipment_ids&quot;: [
+        &quot;kettle&quot;,
+        &quot;saucepan&quot;,
+        &quot;gas_hob&quot;
+      ],
+      &quot;instruction&quot;: &quot;Boil sufficient water in the electric kettle to cover the 160 g frozen edamame by at least 30 mm in the saucepan. Pour the boiling water into the saucepan, place over high gas heat and add the frozen edamame. Return the water to a full boil, then reduce the flame sufficiently to maintain active boiling without overflow.&quot;,
+      &quot;heat_source&quot;: &quot;Gas hob&quot;,
+      &quot;heat_level&quot;: &quot;High to medium-high&quot;,
+      &quot;temperature_c&quot;: 100,
+      &quot;duration_min_minutes&quot;: 3,
+      &quot;duration_max_minutes&quot;: 5,
+      &quot;endpoint&quot;: &quot;The edamame is fully hot, bright green and tender when bitten but retains slight firmness rather than becoming mushy.&quot;,
+      &quot;corrective_actions&quot;: [
+        {
+          &quot;condition&quot;: &quot;The water threatens to boil over.&quot;,
+          &quot;action&quot;: &quot;Reduce the gas flame immediately while maintaining visible boiling.&quot;
+        },
+        {
+          &quot;condition&quot;: &quot;The beans remain hard or chalky after 5 minutes.&quot;,
+          &quot;action&quot;: &quot;Continue boiling in 1-minute intervals until the stated tender-but-firm endpoint is reached.&quot;
+        }
+      ],
+      &quot;critical&quot;: true
+    },
+    {
+      &quot;step_id&quot;: &quot;STEP_02&quot;,
+      &quot;section&quot;: &quot;Vegetables&quot;,
+      &quot;title&quot;: &quot;Prepare and dry the batons&quot;,
+      &quot;depends_on&quot;: [],
+      &quot;parallel_group&quot;: &quot;P01&quot;,
+      &quot;ingredient_ids&quot;: [
+        &quot;carrots&quot;,
+        &quot;cucumber&quot;
+      ],
+      &quot;equipment_ids&quot;: [
+        &quot;chef_knife&quot;,
+        &quot;chopping_board&quot;
+      ],
+      &quot;instruction&quot;: &quot;Complete the prepared carrot and cucumber baton cuts as specified in mise en place. Inspect for irregularly thick pieces and trim them so most batons remain approximately 10 mm thick. Pat the cucumber surfaces dry before packing.&quot;,
+      &quot;heat_source&quot;: null,
+      &quot;heat_level&quot;: null,
+      &quot;temperature_c&quot;: null,
+      &quot;duration_min_minutes&quot;: 5,
+      &quot;duration_max_minutes&quot;: 8,
+      &quot;endpoint&quot;: &quot;The vegetable batons are evenly sized, crisp and externally dry, with no pooled cucumber liquid.&quot;,
+      &quot;corrective_actions&quot;: [
+        {
+          &quot;condition&quot;: &quot;Cucumber pieces release significant moisture after cutting.&quot;,
+          &quot;action&quot;: &quot;Spread them on clean kitchen paper and blot thoroughly before packing.&quot;
+        }
+      ],
+      &quot;critical&quot;: false
+    },
+    {
+      &quot;step_id&quot;: &quot;STEP_03&quot;,
+      &quot;section&quot;: &quot;Edamame&quot;,
+      &quot;title&quot;: &quot;Drain and cool the edamame&quot;,
+      &quot;depends_on&quot;: [
+        &quot;STEP_01&quot;
+      ],
+      &quot;parallel_group&quot;: null,
+      &quot;ingredient_ids&quot;: [
+        &quot;edamame_beans_frozen&quot;
+      ],
+      &quot;equipment_ids&quot;: [
+        &quot;colander&quot;
+      ],
+      &quot;instruction&quot;: &quot;Drain the cooked edamame immediately through the colander. Rinse under cold running water while agitating the beans gently until they are no longer hot. Shake the colander firmly several times and leave it to drain for approximately 2 minutes so excess water is removed.&quot;,
+      &quot;heat_source&quot;: null,
+      &quot;heat_level&quot;: null,
+      &quot;temperature_c&quot;: null,
+      &quot;duration_min_minutes&quot;: 2,
+      &quot;duration_max_minutes&quot;: 4,
+      &quot;endpoint&quot;: &quot;The edamame is cool, bright green and visibly free of standing or dripping water.&quot;,
+      &quot;corrective_actions&quot;: [
+        {
+          &quot;condition&quot;: &quot;Water continues dripping heavily from the colander after 2 minutes.&quot;,
+          &quot;action&quot;: &quot;Shake again and leave to drain for an additional 1-2 minutes before blending.&quot;
+        }
+      ],
+      &quot;critical&quot;: true
+    },
+    {
+      &quot;step_id&quot;: &quot;STEP_04&quot;,
+      &quot;section&quot;: &quot;Edamame hummus&quot;,
+      &quot;title&quot;: &quot;Blend the hummus base&quot;,
+      &quot;depends_on&quot;: [
+        &quot;STEP_03&quot;
+      ],
+      &quot;parallel_group&quot;: null,
+      &quot;ingredient_ids&quot;: [
+        &quot;edamame_beans_frozen&quot;,
+        &quot;tahini&quot;,
+        &quot;lemon&quot;,
+        &quot;garlic&quot;,
+        &quot;olive_oil&quot;,
+        &quot;ground_cumin&quot;,
+        &quot;fine_salt&quot;,
+        &quot;black_pepper_ground&quot;,
+        &quot;water&quot;
+      ],
+      &quot;equipment_ids&quot;: [
+        &quot;standard_blender&quot;,
+        &quot;fine_grater&quot;,
+        &quot;measuring_jug&quot;,
+        &quot;measuring_spoons&quot;,
+        &quot;kitchen_scales&quot;
+      ],
+      &quot;instruction&quot;: &quot;Add the drained 160 g cooked edamame to the blender with 12 g tahini, 20 ml lemon juice, approximately 1 g lemon zest, the finely grated garlic, 4 g olive oil, 0.25 tsp cumin, 0.1875 tsp fine salt, 0.125 tsp black pepper and 15 ml of the measured cold water. Blend for approximately 30 seconds, stop and scrape down the sides, then blend again until the mixture becomes mostly smooth.&quot;,
+      &quot;heat_source&quot;: null,
+      &quot;heat_level&quot;: null,
+      &quot;temperature_c&quot;: null,
+      &quot;duration_min_minutes&quot;: 1,
+      &quot;duration_max_minutes&quot;: 2,
+      &quot;endpoint&quot;: &quot;The hummus is pale green, cohesive and mostly smooth with no whole edamame remaining, but retains enough body to hold a soft mound on a spoon.&quot;,
+      &quot;corrective_actions&quot;: [
+        {
+          &quot;condition&quot;: &quot;The blender blades spin without circulating the mixture or the hummus remains excessively stiff.&quot;,
+          &quot;action&quot;: &quot;Add the remaining cold water in 5 ml increments, blending after each addition, stopping as soon as the mixture circulates and reaches the specified thick dipping consistency.&quot;
+        },
+        {
+          &quot;condition&quot;: &quot;The mixture becomes thinner than intended.&quot;,
+          &quot;action&quot;: &quot;Stop adding water immediately and allow the hummus to stand refrigerated for 10 minutes; do not add unlisted ingredients to thicken it.&quot;
+        }
+      ],
+      &quot;critical&quot;: true
+    },
+    {
+      &quot;step_id&quot;: &quot;STEP_05&quot;,
+      &quot;section&quot;: &quot;Edamame hummus&quot;,
+      &quot;title&quot;: &quot;Check seasoning and texture&quot;,
+      &quot;depends_on&quot;: [
+        &quot;STEP_04&quot;
+      ],
+      &quot;parallel_group&quot;: null,
+      &quot;ingredient_ids&quot;: [
+        &quot;fine_salt&quot;
+      ],
+      &quot;equipment_ids&quot;: [
+        &quot;standard_blender&quot;
+      ],
+      &quot;instruction&quot;: &quot;Taste a small amount of hummus after blending. Confirm that lemon acidity, sesame richness, garlic, cumin and salt are individually perceptible but balanced. If the mixture tastes under-seasoned, add up to the reserved 0.0625 tsp fine salt and blend for approximately 10 seconds.&quot;,
+      &quot;heat_source&quot;: null,
+      &quot;heat_level&quot;: null,
+      &quot;temperature_c&quot;: null,
+      &quot;duration_min_minutes&quot;: 1,
+      &quot;duration_max_minutes&quot;: 2,
+      &quot;endpoint&quot;: &quot;The hummus tastes savoury, lemon-bright and clearly seasoned without excessive salt, and retains a thick dipping consistency.&quot;,
+      &quot;corrective_actions&quot;: [
+        {
+          &quot;condition&quot;: &quot;The hummus tastes adequately seasoned before the reserved salt is used.&quot;,
+          &quot;action&quot;: &quot;Do not add the reserved salt.&quot;
+        },
+        {
+          &quot;condition&quot;: &quot;The hummus appears overly thick after standing.&quot;,
+          &quot;action&quot;: &quot;Blend in any remaining measured water in 5 ml increments until the acceptance texture is restored.&quot;
+        }
+      ],
+      &quot;critical&quot;: true
+    },
+    {
+      &quot;step_id&quot;: &quot;STEP_06&quot;,
+      &quot;section&quot;: &quot;Packing&quot;,
+      &quot;title&quot;: &quot;Portion the snack containers&quot;,
+      &quot;depends_on&quot;: [
+        &quot;STEP_02&quot;,
+        &quot;STEP_05&quot;
+      ],
+      &quot;parallel_group&quot;: null,
+      &quot;ingredient_ids&quot;: [
+        &quot;carrots&quot;,
+        &quot;cucumber&quot;,
+        &quot;edamame_beans_frozen&quot;,
+        &quot;tahini&quot;,
+        &quot;lemon&quot;,
+        &quot;garlic&quot;,
+        &quot;olive_oil&quot;,
+        &quot;ground_cumin&quot;,
+        &quot;fine_salt&quot;,
+        &quot;black_pepper_ground&quot;,
+        &quot;water&quot;
+      ],
+      &quot;equipment_ids&quot;: [
+        &quot;lidded_containers&quot;,
+        &quot;kitchen_scales&quot;
+      ],
+      &quot;instruction&quot;: &quot;Divide the finished edamame hummus equally between the 2 snack containers using the kitchen scales. Divide the carrot and cucumber batons approximately equally between the containers. Keep the vegetable batons physically separate from the hummus using an internal divider or separate small pot where available. Secure all lids fully and refrigerate immediately.&quot;,
+      &quot;heat_source&quot;: null,
+      &quot;heat_level&quot;: null,
+      &quot;temperature_c&quot;: null,
+      &quot;duration_min_minutes&quot;: 3,
+      &quot;duration_max_minutes&quot;: 5,
+      &quot;endpoint&quot;: &quot;Each serving contains approximately half of the hummus and half of the prepared vegetables, the vegetables remain dry and separate from the dip, and all lids are secure for transport.&quot;,
+      &quot;corrective_actions&quot;: [
+        {
+          &quot;condition&quot;: &quot;One hummus portion is visibly larger than the other.&quot;,
+          &quot;action&quot;: &quot;Use the kitchen scales to transfer small amounts until both portions are approximately equal.&quot;
+        },
+        {
+          &quot;condition&quot;: &quot;Cucumber moisture has collected in a container before sealing.&quot;,
+          &quot;action&quot;: &quot;Remove the cucumber, blot dry again and dry the container before repacking.&quot;
+        }
+      ],
+      &quot;critical&quot;: false
+    }
+  ],
+  &quot;plating&quot;: [
+    {
+      &quot;step_id&quot;: &quot;PLATE_01&quot;,
+      &quot;instruction&quot;: &quot;Serve one complete snack container per person. Keep the hummus and vegetable batons separate until eating, then dip the carrot and cucumber directly into the edamame hummus to preserve the contrast between crisp vegetables and creamy dip.&quot;
+    }
+  ],
+  &quot;storage&quot;: {
+    &quot;refrigerator_days&quot;: 2,
+    &quot;freezer_months&quot;: null,
+    &quot;storage_instructions&quot;: &quot;Refrigerate at 5°C or below and consume within 2 days. For best texture, keep the carrot and cucumber batons separate from the hummus until eating. The snack is suitable for transport to work or on a car journey; if continuous refrigeration is unavailable, carry it in an insulated lunch bag with an ice pack and keep it chilled until consumption.&quot;,
+    &quot;reheating_methods&quot;: []
+  },
+  &quot;shopping&quot;: {
+    &quot;sainsburys&quot;: [],
+    &quot;marks_and_spencer&quot;: [],
+    &quot;either_retailer&quot;: [
+      &quot;Frozen shelled edamame beans: buy 1 standard bag containing at least 160 g&quot;,
+      &quot;Carrots: buy 2 medium carrots&quot;,
+      &quot;Cucumber: buy 1 whole cucumber&quot;,
+      &quot;Tahini: buy 1 jar&quot;,
+      &quot;Unwaxed lemon: buy 1&quot;,
+      &quot;Garlic: buy 1 bulb&quot;,
+      &quot;Extra-virgin olive oil: buy 1 bottle if not already stocked&quot;,
+      &quot;Ground cumin: buy 1 jar if not already stocked&quot;,
+      &quot;Fine salt: buy 1 container if not already stocked&quot;,
+      &quot;Ground black pepper: buy 1 jar or pepper mill if not already stocked&quot;
+    ]
+  },
+  &quot;quality_checks&quot;: {
+    &quot;protein_requirement_met&quot;: true,
+    &quot;protein_g_per_serving&quot;: 11,
+    &quot;restaurant_quality_features&quot;: [
+      &quot;Edamame replaces conventional chickpeas to give the dip a fresher green flavour and naturally higher protein density.&quot;,
+      &quot;Lemon juice and zest provide both acidity and aromatic freshness rather than relying on excess oil for flavour.&quot;,
+      &quot;Tahini supplies sesame depth and creaminess while remaining deliberately restrained to keep the snack near the 200 kcal target.&quot;,
+      &quot;Garlic and cumin provide savoury aromatic complexity despite the recipe requiring no frying or roasting stage.&quot;,
+      &quot;Cold water is added incrementally during blending, allowing the hummus to become smooth without becoming runny.&quot;,
+      &quot;Drying the cucumber thoroughly and packing the vegetables separately protects their crunch during transport.&quot;
+    ],
+    &quot;nutrition_notes&quot;: [
+      &quot;Estimated nutrition represents one complete snack serving including vegetables, edamame hummus, tahini, olive oil and all seasonings.&quot;,
+      &quot;This recipe is designed around the approximately 200 kcal afternoon-snack target.&quot;,
+      &quot;The general 30 g protein target does not apply to afternoon snacks under the specified meal-plan rules; approximately 11 g protein per serving is therefore compliant.&quot;,
+      &quot;Edamame provides the majority of the protein as well as fibre and unsaturated fat.&quot;,
+      &quot;Carrot and cucumber contribute additional fibre, fluid volume and micronutrients while keeping energy density modest.&quot;,
+      &quot;Nutrition values are estimates and will vary with exact vegetable size and supermarket products.&quot;
+    ],
+    &quot;critical_success_factors&quot;: [
+      &quot;Drain the cooked edamame thoroughly before blending; excess water will dilute flavour and make the hummus difficult to pack.&quot;,
+      &quot;Add blending water incrementally rather than all at once so the hummus remains thick enough for dipping.&quot;,
+      &quot;Keep cucumber surfaces dry and physically separate from the hummus until eating to prevent watery dilution.&quot;,
+      &quot;Do not automatically add the reserved salt; taste the hummus first because tahini and individual ingredient characteristics vary.&quot;,
+      &quot;Keep the completed snack chilled during storage and transport.&quot;
+    ]
+  }
+}</pre>
+
+</details>
+
+</main>
+
+</body>
+
+</html>

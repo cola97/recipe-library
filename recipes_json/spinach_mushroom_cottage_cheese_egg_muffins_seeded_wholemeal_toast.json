@@ -1,0 +1,772 @@
+{
+  "schema_version": "1.0",
+  "recipe": {
+    "id": "spinach_mushroom_cottage_cheese_egg_muffins_seeded_wholemeal_toast",
+    "title": "Spinach, Mushroom & Cottage Cheese Egg Muffins with Seeded Wholemeal Toast",
+    "description": "Savoury high-protein breakfast muffins with deeply browned mushrooms, wilted spinach, cottage cheese and seasoned egg, served with crisp seeded wholemeal toast. The vegetables are cooked dry before assembly so the muffins remain tender and structured rather than watery.",
+    "servings": 2,
+    "difficulty": "Easy",
+    "total_time_minutes": 45,
+    "active_time_minutes": 25,
+    "passive_time_minutes": 20,
+    "cuisine": [
+      "Contemporary",
+      "British"
+    ],
+    "meal_types": [
+      "Breakfast"
+    ],
+    "dietary_tags": [
+      "Vegetarian",
+      "High protein",
+      "High fibre"
+    ],
+    "allergens": [
+      "Egg",
+      "Milk",
+      "Wheat",
+      "Gluten"
+    ]
+  },
+  "nutrition_per_serving": {
+    "energy_kcal": 400,
+    "protein_g": 38,
+    "carbohydrate_g": 28,
+    "fat_g": 16,
+    "saturated_fat_g": 5,
+    "fibre_g": 6,
+    "salt_g": 1.3
+  },
+  "ingredients": [
+    {
+      "ingredient_id": "eggs",
+      "display_name": "Medium eggs",
+      "category": "Eggs",
+      "required": true,
+      "quantity_used": 3,
+      "unit_used": "integer",
+      "purchase_quantity": "Buy: at least 3 medium eggs",
+      "purchase_notes": "Standard UK medium hen eggs are suitable.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Keep refrigerated until required, then crack individually before combining.",
+      "notes": "Use: 3 medium eggs total."
+    },
+    {
+      "ingredient_id": "egg_whites_liquid",
+      "display_name": "Liquid egg whites",
+      "category": "Eggs",
+      "required": true,
+      "quantity_used": 180,
+      "unit_used": "g",
+      "purchase_quantity": "Buy: enough pasteurised liquid egg white to provide at least 180 g",
+      "purchase_notes": "Use plain pasteurised liquid egg whites. Exact carton or bottle size varies by retailer.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Keep refrigerated and weigh immediately before mixing.",
+      "notes": "Use: 180 g total. Egg whites increase protein while keeping the breakfast close to the 400 kcal target."
+    },
+    {
+      "ingredient_id": "cottage_cheese_low_fat",
+      "display_name": "Low-fat cottage cheese",
+      "category": "Dairy",
+      "required": true,
+      "quantity_used": 180,
+      "unit_used": "g",
+      "purchase_quantity": "Buy: 1 tub containing at least 180 g",
+      "purchase_notes": "Use plain low-fat cottage cheese. Exact supermarket tub size varies.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Stir before weighing. If visible free whey has collected in the tub, drain off the loose liquid before measuring.",
+      "notes": "Use: 180 g total, 90 g per serving."
+    },
+    {
+      "ingredient_id": "chestnut_mushrooms",
+      "display_name": "Chestnut mushrooms",
+      "category": "Vegetables",
+      "required": true,
+      "quantity_used": 180,
+      "unit_used": "g",
+      "purchase_quantity": "Buy: enough chestnut mushrooms to provide at least 180 g",
+      "purchase_notes": "Choose firm mushrooms without slimy surfaces or substantial bruising.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Brush or wipe clean, trim dry stem ends if required and dice into approximately 8 mm pieces.",
+      "notes": "Use: 180 g prepared mushrooms."
+    },
+    {
+      "ingredient_id": "baby_spinach",
+      "display_name": "Baby spinach",
+      "category": "Vegetables",
+      "required": true,
+      "quantity_used": 120,
+      "unit_used": "g",
+      "purchase_quantity": "Buy: 1 bag containing at least 120 g",
+      "purchase_notes": "Choose fresh leaves without excessive moisture or sliminess.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Wash if required by the pack instructions, then dry thoroughly before cooking.",
+      "notes": "Use: 120 g total."
+    },
+    {
+      "ingredient_id": "spring_onions",
+      "display_name": "Spring onions",
+      "category": "Vegetables",
+      "required": true,
+      "quantity_used": 2,
+      "unit_used": "integer",
+      "purchase_quantity": "Buy: 1 bunch",
+      "purchase_notes": "Use 2 medium spring onions from the bunch.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Wash, trim the root ends and any damaged green tips, then slice crosswise into approximately 3 mm pieces.",
+      "notes": "Use: 2 spring onions."
+    },
+    {
+      "ingredient_id": "seeded_wholemeal_bread",
+      "display_name": "Seeded wholemeal bread",
+      "category": "Bread",
+      "required": true,
+      "quantity_used": 90,
+      "unit_used": "g",
+      "purchase_quantity": "Buy: 1 loaf of seeded wholemeal bread",
+      "purchase_notes": "Use approximately 90 g total, normally 2 substantial slices depending on loaf format.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Keep slices intact until immediately before toasting.",
+      "notes": "Use: 90 g total, approximately 45 g per serving."
+    },
+    {
+      "ingredient_id": "olive_oil",
+      "display_name": "Olive oil",
+      "category": "Oils",
+      "required": true,
+      "quantity_used": 6,
+      "unit_used": "g",
+      "purchase_quantity": "Buy: 1 bottle if not already stocked",
+      "purchase_notes": "Standard olive oil is suitable.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Measure accurately before cooking.",
+      "notes": "Use: 6 g total for mushroom browning and greasing the muffin tin."
+    },
+    {
+      "ingredient_id": "dijon_mustard",
+      "display_name": "Dijon mustard",
+      "category": "Condiments",
+      "required": true,
+      "quantity_used": 1,
+      "unit_used": "tsp",
+      "purchase_quantity": "Buy: 1 jar",
+      "purchase_notes": "Standard Dijon mustard is suitable.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Measure before mixing.",
+      "notes": "Use: 1 tsp total to provide acidity and savoury depth."
+    },
+    {
+      "ingredient_id": "fresh_chives",
+      "display_name": "Fresh chives",
+      "category": "Fresh herbs",
+      "required": true,
+      "quantity_used": 10,
+      "unit_used": "g",
+      "purchase_quantity": "Buy: 1 packet or pot containing at least 10 g usable chives",
+      "purchase_notes": "Choose fresh green chives without yellowed or slimy sections.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Wash if required, dry thoroughly and slice crosswise into approximately 2 mm pieces.",
+      "notes": "Use: 10 g total."
+    },
+    {
+      "ingredient_id": "nutmeg_ground",
+      "display_name": "Ground nutmeg",
+      "category": "Spices",
+      "required": true,
+      "quantity_used": 0.125,
+      "unit_used": "tsp",
+      "purchase_quantity": "Buy: 1 jar if not already stocked",
+      "purchase_notes": "Standard ground nutmeg is suitable.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Measure before mixing.",
+      "notes": "Use: 0.125 tsp. The small quantity complements spinach and dairy without becoming dominant."
+    },
+    {
+      "ingredient_id": "fine_salt",
+      "display_name": "Fine salt",
+      "category": "Seasoning",
+      "required": true,
+      "quantity_used": 0.375,
+      "unit_used": "tsp",
+      "purchase_quantity": "Buy: 1 standard container if not already stocked",
+      "purchase_notes": "Fine table salt or fine sea salt is suitable.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Measure 0.25 tsp for initial seasoning and reserve up to 0.125 tsp for final adjustment.",
+      "notes": "Use no more than 0.375 tsp total."
+    },
+    {
+      "ingredient_id": "black_pepper_ground",
+      "display_name": "Ground black pepper",
+      "category": "Seasoning",
+      "required": true,
+      "quantity_used": 0.25,
+      "unit_used": "tsp",
+      "purchase_quantity": "Buy: 1 jar or pepper mill if not already stocked",
+      "purchase_notes": "Freshly ground black pepper is preferred where available.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Measure before use.",
+      "notes": "Use: 0.25 tsp total."
+    }
+  ],
+  "equipment": [
+    {
+      "equipment_id": "oven",
+      "display_name": "Oven",
+      "required": true,
+      "notes": "Used to bake the egg muffins evenly."
+    },
+    {
+      "equipment_id": "gas_hob",
+      "display_name": "Gas hob",
+      "required": true,
+      "notes": "Used for browning mushrooms and wilting spinach."
+    },
+    {
+      "equipment_id": "frying_pan",
+      "display_name": "Large frying pan",
+      "required": true,
+      "notes": "Used to remove moisture and develop flavour in the vegetables."
+    },
+    {
+      "equipment_id": "muffin_tin",
+      "display_name": "6-hole standard muffin tin",
+      "required": true,
+      "notes": "Used to bake 6 individual egg muffins."
+    },
+    {
+      "equipment_id": "mixing_bowl",
+      "display_name": "Large mixing bowl",
+      "required": true,
+      "notes": "Used to combine the egg and cottage-cheese mixture."
+    },
+    {
+      "equipment_id": "small_bowl",
+      "display_name": "Small bowl",
+      "required": true,
+      "notes": "Used to crack eggs individually before adding them to the main mixture."
+    },
+    {
+      "equipment_id": "chef_knife",
+      "display_name": "Chef's knife",
+      "required": true,
+      "notes": "Used to prepare mushrooms, spring onions and herbs."
+    },
+    {
+      "equipment_id": "chopping_board",
+      "display_name": "Chopping board",
+      "required": true,
+      "notes": "Used for vegetable and herb preparation."
+    },
+    {
+      "equipment_id": "kitchen_scales",
+      "display_name": "Kitchen scales",
+      "required": true,
+      "notes": "Used for accurate ingredient quantities and final portioning."
+    },
+    {
+      "equipment_id": "measuring_spoons",
+      "display_name": "Measuring spoons",
+      "required": true,
+      "notes": "Used for mustard, nutmeg, salt and pepper."
+    },
+    {
+      "equipment_id": "spatula",
+      "display_name": "Heatproof spatula",
+      "required": true,
+      "notes": "Used to stir vegetables and combine the muffin mixture."
+    },
+    {
+      "equipment_id": "toaster",
+      "display_name": "Toaster",
+      "required": true,
+      "notes": "Used to toast the seeded wholemeal bread immediately before serving."
+    }
+  ],
+  "mise_en_place": [
+    {
+      "prep_id": "PREP_01",
+      "ingredient_ids": [
+        "chestnut_mushrooms"
+      ],
+      "instruction": "Inspect 180 g chestnut mushrooms. Wipe or brush away visible soil; avoid soaking them in water. Trim only dry or damaged stem ends, then dice the mushrooms into pieces approximately 8 mm across.",
+      "endpoint": "The mushrooms are clean, externally dry and evenly diced into approximately 8 mm pieces."
+    },
+    {
+      "prep_id": "PREP_02",
+      "ingredient_ids": [
+        "baby_spinach"
+      ],
+      "instruction": "Inspect 120 g baby spinach. Wash only if required by the packaging instructions, then dry thoroughly in a salad spinner or using clean kitchen paper. Remove any visibly damaged leaves or coarse stems.",
+      "endpoint": "The spinach is clean and as dry as practical before cooking."
+    },
+    {
+      "prep_id": "PREP_03",
+      "ingredient_ids": [
+        "spring_onions",
+        "fresh_chives"
+      ],
+      "instruction": "Wash the 2 spring onions and the chives if required. Dry thoroughly. Trim the spring-onion roots and damaged green ends, then slice crosswise into approximately 3 mm pieces. Slice the chives crosswise into approximately 2 mm pieces.",
+      "endpoint": "Spring onions and chives are clean, dry and uniformly sliced."
+    },
+    {
+      "prep_id": "PREP_04",
+      "ingredient_ids": [
+        "eggs",
+        "egg_whites_liquid",
+        "cottage_cheese_low_fat",
+        "dijon_mustard",
+        "nutmeg_ground",
+        "fine_salt",
+        "black_pepper_ground"
+      ],
+      "instruction": "Crack each of the 3 eggs individually into the small bowl, inspect for shell fragments, then transfer to the large mixing bowl. Weigh 180 g liquid egg whites and 180 g low-fat cottage cheese. Measure 1 tsp Dijon mustard, 0.125 tsp ground nutmeg, 0.25 tsp initial fine salt, 0.125 tsp reserved fine salt and 0.25 tsp black pepper.",
+      "endpoint": "All egg-mixture ingredients are accurately measured and ready for assembly."
+    },
+    {
+      "prep_id": "PREP_05",
+      "ingredient_ids": [
+        "olive_oil",
+        "seeded_wholemeal_bread"
+      ],
+      "instruction": "Measure 6 g olive oil. Allocate approximately 4 g for cooking the vegetables and approximately 2 g for greasing the muffin tin. Weigh 90 g seeded wholemeal bread and keep it covered until the toasting stage.",
+      "endpoint": "Cooking oil is divided by function and the bread is ready for later toasting."
+    }
+  ],
+  "procedure": [
+    {
+      "step_id": "STEP_01",
+      "section": "Oven preparation",
+      "title": "Preheat the oven and grease the muffin tin",
+      "depends_on": [],
+      "parallel_group": "P01",
+      "ingredient_ids": [
+        "olive_oil"
+      ],
+      "equipment_ids": [
+        "oven",
+        "muffin_tin"
+      ],
+      "instruction": "Preheat a fan oven to 180°C. Apply approximately 2 g of the measured olive oil as a very thin film across the base and lower sides of all 6 muffin-tin wells.",
+      "heat_source": "Oven",
+      "heat_level": "180°C fan",
+      "temperature_c": 180,
+      "duration_min_minutes": 5,
+      "duration_max_minutes": 10,
+      "endpoint": "The oven has reached 180°C and all 6 muffin wells have a continuous but minimal oil coating without visible pools.",
+      "corrective_actions": [
+        {
+          "condition": "Oil pools visibly at the bottom of a muffin well.",
+          "action": "Redistribute the excess oil across the remaining wells using clean kitchen paper or a pastry brush."
+        }
+      ],
+      "critical": false
+    },
+    {
+      "step_id": "STEP_02",
+      "section": "Vegetable filling",
+      "title": "Brown the mushrooms",
+      "depends_on": [],
+      "parallel_group": "P01",
+      "ingredient_ids": [
+        "chestnut_mushrooms",
+        "olive_oil",
+        "fine_salt"
+      ],
+      "equipment_ids": [
+        "frying_pan",
+        "gas_hob",
+        "spatula"
+      ],
+      "instruction": "Place the large frying pan over medium-high gas heat for approximately 1 minute. Add the remaining approximately 4 g olive oil, followed immediately by the 180 g diced mushrooms. Spread into a single layer where practical. Cook while stirring or tossing approximately every 45-60 seconds. After the mushrooms begin releasing moisture, add approximately 0.0625 tsp of the measured initial salt.",
+      "heat_source": "Gas hob",
+      "heat_level": "Medium-high",
+      "temperature_c": null,
+      "duration_min_minutes": 6,
+      "duration_max_minutes": 9,
+      "endpoint": "The mushrooms have released and evaporated their visible moisture, are reduced in volume and show distinct golden-brown surfaces rather than appearing grey and wet.",
+      "corrective_actions": [
+        {
+          "condition": "Liquid accumulates heavily in the pan and the mushrooms steam without colouring.",
+          "action": "Increase the heat and spread the mushrooms into a thinner layer; continue until all free liquid evaporates before proceeding."
+        },
+        {
+          "condition": "The mushrooms blacken before releasing their moisture.",
+          "action": "Reduce the heat to medium and stir immediately."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_03",
+      "section": "Vegetable filling",
+      "title": "Wilt and dry the spinach",
+      "depends_on": [
+        "STEP_02"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "baby_spinach",
+        "spring_onions"
+      ],
+      "equipment_ids": [
+        "frying_pan",
+        "gas_hob",
+        "spatula"
+      ],
+      "instruction": "Reduce the heat to medium. Add the prepared 120 g spinach and sliced spring onions to the browned mushrooms. Turn continuously until the spinach collapses. Continue cooking uncovered while stirring until liquid released by the spinach has completely evaporated.",
+      "heat_source": "Gas hob",
+      "heat_level": "Medium",
+      "temperature_c": null,
+      "duration_min_minutes": 2,
+      "duration_max_minutes": 4,
+      "endpoint": "The spinach is fully wilted, the spring onions are softened but still green and no visible liquid remains in the pan when the vegetables are moved aside.",
+      "corrective_actions": [
+        {
+          "condition": "Visible green liquid remains in the pan after the spinach has wilted.",
+          "action": "Increase the heat slightly and continue cooking uncovered while stirring until the pan surface is dry."
+        },
+        {
+          "condition": "The vegetables begin catching before moisture has evaporated.",
+          "action": "Reduce the heat slightly and keep the mixture moving continuously."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_04",
+      "section": "Vegetable filling",
+      "title": "Cool the vegetable mixture",
+      "depends_on": [
+        "STEP_03"
+      ],
+      "parallel_group": "P02",
+      "ingredient_ids": [
+        "chestnut_mushrooms",
+        "baby_spinach",
+        "spring_onions"
+      ],
+      "equipment_ids": [
+        "frying_pan"
+      ],
+      "instruction": "Remove the frying pan from the heat and spread the cooked vegetables into a thin layer across the pan surface. Leave uncovered until strong visible steam has stopped and the mixture is warm rather than piping hot.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 4,
+      "duration_max_minutes": 6,
+      "endpoint": "The vegetable mixture is warm but no longer releasing substantial steam and remains free from pooled liquid.",
+      "corrective_actions": [
+        {
+          "condition": "The vegetables remain very hot after 6 minutes.",
+          "action": "Transfer them to a cool plate and spread into a thinner layer for an additional 2-3 minutes."
+        }
+      ],
+      "critical": false
+    },
+    {
+      "step_id": "STEP_05",
+      "section": "Egg mixture",
+      "title": "Combine the egg and cottage-cheese base",
+      "depends_on": [],
+      "parallel_group": "P02",
+      "ingredient_ids": [
+        "eggs",
+        "egg_whites_liquid",
+        "cottage_cheese_low_fat",
+        "dijon_mustard",
+        "fresh_chives",
+        "nutmeg_ground",
+        "fine_salt",
+        "black_pepper_ground"
+      ],
+      "equipment_ids": [
+        "mixing_bowl",
+        "measuring_spoons",
+        "kitchen_scales"
+      ],
+      "instruction": "To the 3 cracked eggs in the large mixing bowl add 180 g liquid egg whites, 180 g cottage cheese, 1 tsp Dijon mustard, the prepared 10 g chives, 0.125 tsp nutmeg, the remaining approximately 0.1875 tsp of the initial salt and 0.25 tsp black pepper. Whisk or stir vigorously until the eggs and whites are homogeneous while small cottage-cheese curds remain visible.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 1,
+      "duration_max_minutes": 2,
+      "endpoint": "The mixture is uniformly seasoned and fluid, with cottage-cheese curds evenly suspended rather than collected in one area.",
+      "corrective_actions": [
+        {
+          "condition": "Large cottage-cheese clumps remain concentrated in one area.",
+          "action": "Break them apart gently with the spatula and continue mixing until evenly distributed."
+        }
+      ],
+      "critical": false
+    },
+    {
+      "step_id": "STEP_06",
+      "section": "Assembly",
+      "title": "Combine filling and portion the muffin mixture",
+      "depends_on": [
+        "STEP_01",
+        "STEP_04",
+        "STEP_05"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "chestnut_mushrooms",
+        "baby_spinach",
+        "spring_onions",
+        "eggs",
+        "egg_whites_liquid",
+        "cottage_cheese_low_fat"
+      ],
+      "equipment_ids": [
+        "mixing_bowl",
+        "muffin_tin",
+        "kitchen_scales"
+      ],
+      "instruction": "Add the cooled mushroom-spinach mixture to the egg mixture and fold until evenly distributed. Divide the complete mixture equally among all 6 greased muffin wells. Each well should contain a similar proportion of vegetables, cottage-cheese curds and liquid egg mixture and should remain below the top edge.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 3,
+      "duration_max_minutes": 5,
+      "endpoint": "All 6 wells contain approximately equal quantities and no well is filled sufficiently high to overflow during baking.",
+      "corrective_actions": [
+        {
+          "condition": "Vegetables settle at the bottom of the mixing bowl during portioning.",
+          "action": "Stir the bowl gently between every 1-2 filled wells to redistribute the solids."
+        },
+        {
+          "condition": "One well is visibly more full than another.",
+          "action": "Transfer small spoonfuls between wells until the levels are approximately equal."
+        }
+      ],
+      "critical": false
+    },
+    {
+      "step_id": "STEP_07",
+      "section": "Baking",
+      "title": "Bake the egg muffins",
+      "depends_on": [
+        "STEP_06"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [],
+      "equipment_ids": [
+        "oven",
+        "muffin_tin"
+      ],
+      "instruction": "Place the muffin tin on the centre rack of the preheated 180°C fan oven. Bake without opening the door during the first 14 minutes. Thereafter assess visually through the oven door where possible.",
+      "heat_source": "Oven",
+      "heat_level": "180°C fan",
+      "temperature_c": 180,
+      "duration_min_minutes": 16,
+      "duration_max_minutes": 21,
+      "endpoint": "The muffins are risen, lightly golden at the exposed edges and centres appear set rather than liquid. A clean knife inserted into the centre of the largest muffin emerges without raw liquid egg; moist cottage-cheese residue is acceptable.",
+      "corrective_actions": [
+        {
+          "condition": "The muffin tops brown strongly while the centres remain visibly wet.",
+          "action": "Reduce the oven to 170°C and continue baking in 2-minute intervals until the centre passes the stated endpoint."
+        },
+        {
+          "condition": "The centres remain visibly liquid after 21 minutes.",
+          "action": "Continue baking in 2-minute intervals and reassess after each interval."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_08",
+      "section": "Resting",
+      "title": "Rest and release the muffins",
+      "depends_on": [
+        "STEP_07"
+      ],
+      "parallel_group": "P03",
+      "ingredient_ids": [],
+      "equipment_ids": [
+        "muffin_tin"
+      ],
+      "instruction": "Remove the muffin tin from the oven and place it on a heat-resistant surface. Leave the muffins undisturbed for approximately 4 minutes so the egg structure firms slightly. Run a thin spatula or table knife around the perimeter of each muffin if required, then lift them from the tin.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 4,
+      "duration_max_minutes": 6,
+      "endpoint": "Each muffin releases intact, remains upright and has a tender but fully set centre.",
+      "corrective_actions": [
+        {
+          "condition": "A muffin adheres strongly to the tin.",
+          "action": "Loosen the full perimeter before lifting; do not pull forcefully from one side because the muffin may tear."
+        }
+      ],
+      "critical": false
+    },
+    {
+      "step_id": "STEP_09",
+      "section": "Toast",
+      "title": "Toast the seeded wholemeal bread",
+      "depends_on": [
+        "STEP_07"
+      ],
+      "parallel_group": "P03",
+      "ingredient_ids": [
+        "seeded_wholemeal_bread"
+      ],
+      "equipment_ids": [
+        "toaster"
+      ],
+      "instruction": "Place the approximately 90 g seeded wholemeal bread in the toaster. Select a medium browning setting and toast until the surfaces are crisp and golden-brown while the centres retain slight tenderness.",
+      "heat_source": "Toaster",
+      "heat_level": "Medium browning setting",
+      "temperature_c": null,
+      "duration_min_minutes": 2,
+      "duration_max_minutes": 4,
+      "endpoint": "The toast is evenly browned, crisp at the surface and shows no blackened or burnt areas.",
+      "corrective_actions": [
+        {
+          "condition": "The toast darkens faster than expected.",
+          "action": "Cancel the toaster cycle immediately and reduce the browning setting for any remaining slices."
+        },
+        {
+          "condition": "The toast remains pale and soft after one cycle.",
+          "action": "Return it to the toaster for a short additional cycle while monitoring closely."
+        }
+      ],
+      "critical": false
+    },
+    {
+      "step_id": "STEP_10",
+      "section": "Final seasoning and portioning",
+      "title": "Check seasoning and divide into servings",
+      "depends_on": [
+        "STEP_08",
+        "STEP_09"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "fine_salt"
+      ],
+      "equipment_ids": [
+        "kitchen_scales"
+      ],
+      "instruction": "Taste a small piece from one representative muffin. If the seasoning is already defined and savoury, do not add the reserved salt. If noticeably under-seasoned, distribute up to the reserved 0.125 tsp fine salt very lightly across all 6 muffins. Divide the muffins into 2 portions of 3 muffins each and divide the toasted bread equally between the 2 servings.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 1,
+      "duration_max_minutes": 2,
+      "endpoint": "Each serving contains 3 egg muffins and approximately 45 g seeded wholemeal toast, with balanced seasoning and approximately equal total portion size.",
+      "corrective_actions": [
+        {
+          "condition": "The muffins are adequately seasoned before the reserved salt is used.",
+          "action": "Do not add any reserved salt."
+        }
+      ],
+      "critical": false
+    }
+  ],
+  "plating": [
+    {
+      "step_id": "PLATE_01",
+      "instruction": "Serve 3 warm egg muffins and approximately 45 g crisp seeded wholemeal toast per person. Keep the toast alongside rather than underneath the muffins so steam from the eggs does not soften it."
+    }
+  ],
+  "storage": {
+    "refrigerator_days": 3,
+    "freezer_months": 1,
+    "storage_instructions": "Cool leftover egg muffins promptly, transfer to a sealed container and refrigerate at 5°C or below for up to 3 days. Freeze fully cooled muffins in a sealed freezer-safe container for up to 1 month. Store bread separately and toast fresh whenever practical. Reheat egg muffins only once and ensure they are steaming hot through the centre before eating.",
+    "reheating_methods": [
+      "Air fryer: reheat refrigerated egg muffins at 160°C for approximately 5-7 minutes, until steaming hot through the centre without excessive surface browning.",
+      "Oven: reheat refrigerated egg muffins at 170°C for approximately 8-12 minutes, until steaming hot throughout.",
+      "From frozen: thaw overnight in the refrigerator before reheating using the air fryer or oven method.",
+      "Toast bread separately in the toaster immediately before serving."
+    ]
+  },
+  "shopping": {
+    "sainsburys": [],
+    "marks_and_spencer": [],
+    "either_retailer": [
+      "Medium eggs: buy at least 3",
+      "Pasteurised liquid egg whites: buy enough to provide at least 180 g",
+      "Low-fat cottage cheese: buy 1 tub containing at least 180 g",
+      "Chestnut mushrooms: buy at least 180 g",
+      "Baby spinach: buy 1 bag containing at least 120 g",
+      "Spring onions: buy 1 bunch",
+      "Seeded wholemeal bread: buy 1 loaf",
+      "Olive oil: buy 1 bottle if not already stocked",
+      "Dijon mustard: buy 1 jar",
+      "Fresh chives: buy 1 packet or pot containing at least 10 g",
+      "Ground nutmeg: buy 1 jar if not already stocked",
+      "Fine salt: buy 1 container if not already stocked",
+      "Ground black pepper: buy 1 jar or pepper mill if not already stocked"
+    ]
+  },
+  "quality_checks": {
+    "protein_requirement_met": true,
+    "protein_g_per_serving": 38,
+    "restaurant_quality_features": [
+      "Mushrooms are browned until their released moisture has evaporated, concentrating savoury flavour instead of introducing water into the egg muffins.",
+      "Spinach is wilted separately within the mushroom mixture and cooked until the pan is dry, protecting the finished muffins from a wet or rubbery interior.",
+      "Whole eggs are combined with additional egg whites and cottage cheese to provide a tender, protein-rich structure without excessive calories.",
+      "Dijon mustard supplies restrained acidity and savoury depth, while nutmeg reinforces the spinach and dairy flavours.",
+      "Fresh chives and spring onions provide two layers of mild allium character without overwhelming the breakfast.",
+      "The muffins are rested briefly after baking so they release cleanly and retain moisture.",
+      "Seeded wholemeal toast is prepared immediately before serving to provide crisp contrast against the soft egg muffins."
+    ],
+    "nutrition_notes": [
+      "Estimated nutrition represents one complete breakfast serving of 3 egg muffins plus approximately 45 g seeded wholemeal toast.",
+      "The recipe is designed around the approximately 400 kcal breakfast target.",
+      "Approximately 38 g protein per serving comes from eggs, egg whites, cottage cheese and seeded wholemeal bread.",
+      "Spinach, mushrooms, spring onions and wholemeal bread provide fibre and micronutrient variety without requiring substantial additional fat.",
+      "Nutrition values are estimates and will vary with the exact cottage cheese, liquid egg white and seeded bread products selected.",
+      "The recipe follows the supplied structured recipe and breakfast requirements. "
+    ],
+    "critical_success_factors": [
+      "Cook the mushrooms until genuinely browned and free from visible moisture before adding spinach.",
+      "Do not add hot, steaming vegetables directly to the egg mixture; cool them sufficiently to avoid prematurely coagulating the eggs.",
+      "Ensure the spinach mixture is dry before muffin assembly because retained vegetable water will compromise texture.",
+      "Distribute vegetable solids evenly among all 6 muffin wells rather than allowing them to settle in the mixing bowl.",
+      "Bake until the centre is fully set but avoid prolonged baking after that point, which will make the eggs rubbery.",
+      "Rest the baked muffins before removal so the protein structure can firm and release cleanly.",
+      "Toast the bread as the muffins finish resting so both components reach the table at their intended textures."
+    ]
+  }
+}

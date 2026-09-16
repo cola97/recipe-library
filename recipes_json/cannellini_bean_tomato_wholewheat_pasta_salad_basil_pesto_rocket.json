@@ -1,0 +1,699 @@
+{
+  "schema_version": "1.0",
+  "recipe": {
+    "id": "cannellini_bean_tomato_wholewheat_pasta_salad_basil_pesto_rocket",
+    "title": "Cannellini Bean, Tomato & Wholewheat Pasta Salad with Basil Pesto and Rocket",
+    "description": "A portable high-protein wholewheat pasta salad with creamy cannellini beans, ripe tomatoes and peppery rocket, bound with a bright basil-pesto dressing enriched with blended cottage cheese and lemon for additional protein and freshness without excessive oil.",
+    "servings": 2,
+    "difficulty": "Easy",
+    "total_time_minutes": 35,
+    "active_time_minutes": 25,
+    "passive_time_minutes": 10,
+    "cuisine": [
+      "Italian-inspired",
+      "Contemporary"
+    ],
+    "meal_types": [
+      "Lunch"
+    ],
+    "dietary_tags": [
+      "Vegetarian",
+      "High protein",
+      "High fibre",
+      "Portable"
+    ],
+    "allergens": [
+      "Milk",
+      "Wheat",
+      "Gluten",
+      "Nuts"
+    ]
+  },
+  "nutrition_per_serving": {
+    "energy_kcal": 400,
+    "protein_g": 31,
+    "carbohydrate_g": 48,
+    "fat_g": 11,
+    "saturated_fat_g": 3,
+    "fibre_g": 11,
+    "salt_g": 1.1
+  },
+  "ingredients": [
+    {
+      "ingredient_id": "wholewheat_pasta_dry",
+      "display_name": "Wholewheat pasta",
+      "category": "Pasta and grains",
+      "required": true,
+      "quantity_used": 65,
+      "unit_used": "g",
+      "purchase_quantity": "Buy: 1 standard packet",
+      "purchase_notes": "Use a short wholewheat pasta shape such as fusilli or penne. Exact supermarket pack size varies.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Use dry weight. Cook until just tender with a slight bite, then drain thoroughly.",
+      "notes": "Use: 65 g dry total."
+    },
+    {
+      "ingredient_id": "cannellini_beans_canned",
+      "display_name": "Cannellini beans",
+      "category": "Legumes",
+      "required": true,
+      "quantity_used": 240,
+      "unit_used": "g",
+      "purchase_quantity": "Buy: 1 x 400 g tin",
+      "purchase_notes": "A standard 400 g tin normally yields approximately 230-250 g drained beans; exact drained weight varies.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Drain completely, rinse thoroughly under cold running water and allow excess water to drain away.",
+      "notes": "Use: approximately 240 g drained."
+    },
+    {
+      "ingredient_id": "cottage_cheese_low_fat",
+      "display_name": "Low-fat cottage cheese",
+      "category": "Dairy",
+      "required": true,
+      "quantity_used": 220,
+      "unit_used": "g",
+      "purchase_quantity": "Buy: 1 tub containing at least 220 g",
+      "purchase_notes": "Choose plain low-fat cottage cheese. Exact supermarket tub size varies.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Drain off any visible loose whey before weighing, then blend into the pesto dressing.",
+      "notes": "Use: 220 g total. This materially increases protein while providing a creamy dressing without requiring a large quantity of oil."
+    },
+    {
+      "ingredient_id": "basil_pesto",
+      "display_name": "Basil pesto",
+      "category": "Condiments",
+      "required": true,
+      "quantity_used": 12,
+      "unit_used": "g",
+      "purchase_quantity": "Buy: 1 small jar",
+      "purchase_notes": "Choose a vegetarian basil pesto made without animal rennet where required. Exact pack size varies.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Stir the jar thoroughly before measuring if oil has separated.",
+      "notes": "Use: 12 g total. The restrained quantity supplies concentrated basil, garlic, cheese and nut flavour while keeping calories controlled."
+    },
+    {
+      "ingredient_id": "vegetarian_parmesan_style_cheese",
+      "display_name": "Vegetarian Parmesan-style hard cheese",
+      "category": "Dairy",
+      "required": true,
+      "quantity_used": 20,
+      "unit_used": "g",
+      "purchase_quantity": "Buy: 1 small wedge or packet",
+      "purchase_notes": "Use a vegetarian Italian-style hard cheese suitable for fine grating.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Finely grate immediately before making the dressing.",
+      "notes": "Use: 20 g total."
+    },
+    {
+      "ingredient_id": "cherry_tomatoes",
+      "display_name": "Cherry tomatoes",
+      "category": "Vegetables",
+      "required": true,
+      "quantity_used": 180,
+      "unit_used": "g",
+      "purchase_quantity": "Buy: 1 punnet containing at least 180 g",
+      "purchase_notes": "Choose ripe, firm tomatoes without split or mouldy fruit.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Wash and dry thoroughly, remove any stems and halve through the stem axis.",
+      "notes": "Use: 180 g total."
+    },
+    {
+      "ingredient_id": "rocket",
+      "display_name": "Rocket",
+      "category": "Leafy vegetables",
+      "required": true,
+      "quantity_used": 50,
+      "unit_used": "g",
+      "purchase_quantity": "Buy: 1 bag containing at least 50 g",
+      "purchase_notes": "Choose fresh, dry leaves without slimy or heavily wilted sections.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Wash only if required by pack instructions, then dry thoroughly.",
+      "notes": "Use: 50 g total."
+    },
+    {
+      "ingredient_id": "lemon",
+      "display_name": "Unwaxed lemon",
+      "category": "Fruit",
+      "required": true,
+      "quantity_used": 1,
+      "unit_used": "integer",
+      "purchase_quantity": "Buy: 1 lemon",
+      "purchase_notes": "An unwaxed lemon is preferred because the zest is used.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Wash and dry. Finely grate approximately 2 g yellow zest and squeeze 20 ml juice, removing all seeds.",
+      "notes": "Use approximately 2 g zest and 20 ml juice; reserve the remaining lemon for another use."
+    },
+    {
+      "ingredient_id": "garlic",
+      "display_name": "Garlic",
+      "category": "Aromatics",
+      "required": true,
+      "quantity_used": 1,
+      "unit_used": "integer",
+      "purchase_quantity": "Buy: 1 garlic bulb",
+      "purchase_notes": "Use 1 small clove from the bulb.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Separate 1 small clove, peel, trim the root end and finely grate.",
+      "notes": "Use: 1 small clove, approximately 3 g prepared."
+    },
+    {
+      "ingredient_id": "extra_virgin_olive_oil",
+      "display_name": "Extra-virgin olive oil",
+      "category": "Oils",
+      "required": true,
+      "quantity_used": 4,
+      "unit_used": "g",
+      "purchase_quantity": "Buy: 1 bottle if not already stocked",
+      "purchase_notes": "Use a good everyday extra-virgin olive oil.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Measure accurately before preparing the dressing.",
+      "notes": "Use: 4 g total."
+    },
+    {
+      "ingredient_id": "fine_salt",
+      "display_name": "Fine salt",
+      "category": "Seasoning",
+      "required": true,
+      "quantity_used": 0.375,
+      "unit_used": "tsp",
+      "purchase_quantity": "Buy: 1 standard container if not already stocked",
+      "purchase_notes": "Fine table salt or fine sea salt is suitable.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Measure 0.25 tsp for pasta cooking and dressing, and reserve up to 0.125 tsp for final adjustment.",
+      "notes": "Pesto and hard cheese are already salty, so the reserved quantity should only be used if required after tasting."
+    },
+    {
+      "ingredient_id": "black_pepper_ground",
+      "display_name": "Ground black pepper",
+      "category": "Seasoning",
+      "required": true,
+      "quantity_used": 0.25,
+      "unit_used": "tsp",
+      "purchase_quantity": "Buy: 1 jar or pepper mill if not already stocked",
+      "purchase_notes": "Freshly ground black pepper is preferred where available.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Measure before mixing.",
+      "notes": "Use: 0.25 tsp total."
+    },
+    {
+      "ingredient_id": "water",
+      "display_name": "Water",
+      "category": "Liquid",
+      "required": true,
+      "quantity_used": 20,
+      "unit_used": "ml",
+      "purchase_quantity": "Use: up to 20 ml tap water plus sufficient water for boiling the pasta",
+      "purchase_notes": "No purchase required.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Reserve up to 20 ml cold water for loosening the dressing after blending.",
+      "notes": "The stated 20 ml is dressing water only; pasta-boiling water is additional."
+    }
+  ],
+  "equipment": [
+    {
+      "equipment_id": "saucepan",
+      "display_name": "Medium saucepan",
+      "required": true,
+      "notes": "Used to cook the wholewheat pasta."
+    },
+    {
+      "equipment_id": "gas_hob",
+      "display_name": "Gas hob",
+      "required": true,
+      "notes": "Used to boil the pasta."
+    },
+    {
+      "equipment_id": "colander",
+      "display_name": "Colander",
+      "required": true,
+      "notes": "Used to drain the pasta and cannellini beans."
+    },
+    {
+      "equipment_id": "standard_blender",
+      "display_name": "Standard blender",
+      "required": true,
+      "notes": "Used to make the smooth basil-pesto and cottage-cheese dressing."
+    },
+    {
+      "equipment_id": "mixing_bowl",
+      "display_name": "Large mixing bowl",
+      "required": true,
+      "notes": "Used to assemble and cool the pasta salad."
+    },
+    {
+      "equipment_id": "chef_knife",
+      "display_name": "Chef's knife",
+      "required": true,
+      "notes": "Used to halve the tomatoes and prepare the lemon and garlic."
+    },
+    {
+      "equipment_id": "chopping_board",
+      "display_name": "Chopping board",
+      "required": true,
+      "notes": "Used for safe produce preparation."
+    },
+    {
+      "equipment_id": "fine_grater",
+      "display_name": "Fine grater or Microplane",
+      "required": true,
+      "notes": "Used for lemon zest, garlic and hard cheese."
+    },
+    {
+      "equipment_id": "measuring_jug",
+      "display_name": "Measuring jug",
+      "required": true,
+      "notes": "Used for lemon juice and dressing water."
+    },
+    {
+      "equipment_id": "measuring_spoons",
+      "display_name": "Measuring spoons",
+      "required": true,
+      "notes": "Used for salt and black pepper."
+    },
+    {
+      "equipment_id": "kitchen_scales",
+      "display_name": "Kitchen scales",
+      "required": true,
+      "notes": "Used for accurate pasta, bean, cottage-cheese, pesto, cheese, oil and vegetable quantities."
+    },
+    {
+      "equipment_id": "spatula",
+      "display_name": "Flexible spatula or large spoon",
+      "required": true,
+      "notes": "Used to fold the salad without crushing the beans."
+    },
+    {
+      "equipment_id": "lidded_containers",
+      "display_name": "2 portable lidded lunch containers",
+      "required": true,
+      "notes": "Each container should hold approximately 650-750 ml and seal securely for transport."
+    }
+  ],
+  "mise_en_place": [
+    {
+      "prep_id": "PREP_01",
+      "ingredient_ids": [
+        "cannellini_beans_canned"
+      ],
+      "instruction": "Open the cannellini bean tin. Pour the contents into a colander and discard the canning liquid. Rinse the beans thoroughly under cold running water while gently turning them with clean fingers. Shake the colander and leave the beans to drain for at least 2 minutes.",
+      "endpoint": "Approximately 240 g cannellini beans are clean, intact and free from visible canning liquid."
+    },
+    {
+      "prep_id": "PREP_02",
+      "ingredient_ids": [
+        "cherry_tomatoes",
+        "rocket"
+      ],
+      "instruction": "Wash the cherry tomatoes and rocket if required by the packaging instructions, then dry thoroughly. Remove any tomato stems and halve each tomato through the stem axis. Remove damaged or slimy rocket leaves and discard them.",
+      "endpoint": "The tomatoes are clean, dry and evenly halved, and the rocket is clean, dry and free from damaged leaves."
+    },
+    {
+      "prep_id": "PREP_03",
+      "ingredient_ids": [
+        "lemon",
+        "garlic",
+        "vegetarian_parmesan_style_cheese"
+      ],
+      "instruction": "Wash and dry the lemon. Finely grate approximately 2 g yellow zest without removing significant white pith. Cut the lemon and squeeze 20 ml juice, removing all seeds. Separate 1 small garlic clove, peel it, trim the root end and grate finely. Finely grate 20 g vegetarian Parmesan-style cheese.",
+      "endpoint": "Lemon zest, lemon juice, garlic and hard cheese are finely prepared and ready for blending."
+    },
+    {
+      "prep_id": "PREP_04",
+      "ingredient_ids": [
+        "wholewheat_pasta_dry",
+        "cottage_cheese_low_fat",
+        "basil_pesto",
+        "extra_virgin_olive_oil",
+        "fine_salt",
+        "black_pepper_ground",
+        "water"
+      ],
+      "instruction": "Weigh 65 g dry wholewheat pasta, 220 g low-fat cottage cheese, 12 g basil pesto and 4 g extra-virgin olive oil. Measure 0.25 tsp initial fine salt, 0.125 tsp reserved fine salt, 0.25 tsp black pepper and 20 ml cold water.",
+      "endpoint": "All remaining ingredients are accurately measured and immediately available."
+    }
+  ],
+  "procedure": [
+    {
+      "step_id": "STEP_01",
+      "section": "Pasta",
+      "title": "Cook the wholewheat pasta",
+      "depends_on": [],
+      "parallel_group": "P01",
+      "ingredient_ids": [
+        "wholewheat_pasta_dry",
+        "fine_salt"
+      ],
+      "equipment_ids": [
+        "saucepan",
+        "gas_hob"
+      ],
+      "instruction": "Fill the saucepan with sufficient water to allow the 65 g pasta to move freely and bring to a full boil over high gas heat. Add approximately 0.125 tsp of the measured initial salt, then add the wholewheat pasta. Stir immediately to prevent sticking and maintain a steady active boil.",
+      "heat_source": "Gas hob",
+      "heat_level": "High, then medium-high",
+      "temperature_c": 100,
+      "duration_min_minutes": 8,
+      "duration_max_minutes": 12,
+      "endpoint": "The pasta is fully cooked but retains a slight firm bite at the centre and shows no chalky raw core.",
+      "corrective_actions": [
+        {
+          "condition": "The water threatens to boil over.",
+          "action": "Reduce the gas flame while maintaining an active boil."
+        },
+        {
+          "condition": "The pasta remains noticeably hard at the maximum stated time.",
+          "action": "Continue cooking in 1-minute intervals and reassess after each interval."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_02",
+      "section": "Dressing",
+      "title": "Blend the basil-pesto dressing",
+      "depends_on": [],
+      "parallel_group": "P01",
+      "ingredient_ids": [
+        "cottage_cheese_low_fat",
+        "basil_pesto",
+        "vegetarian_parmesan_style_cheese",
+        "lemon",
+        "garlic",
+        "extra_virgin_olive_oil",
+        "fine_salt",
+        "black_pepper_ground",
+        "water"
+      ],
+      "equipment_ids": [
+        "standard_blender",
+        "fine_grater",
+        "measuring_jug",
+        "measuring_spoons",
+        "kitchen_scales"
+      ],
+      "instruction": "Add 220 g cottage cheese, 12 g basil pesto, 20 g grated vegetarian Parmesan-style cheese, 20 ml lemon juice, approximately 2 g lemon zest, the finely grated garlic, 4 g extra-virgin olive oil, approximately 0.125 tsp of the initial salt and 0.25 tsp black pepper to the blender. Blend until smooth. If the mixture does not circulate freely or remains thicker than a spoonable dressing, add the measured cold water in 5 ml increments and blend after each addition.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 1,
+      "duration_max_minutes": 3,
+      "endpoint": "The dressing is pale green, smooth, cohesive and thick enough to coat pasta and beans without running freely from a spoon.",
+      "corrective_actions": [
+        {
+          "condition": "The blender blades spin without circulating the mixture.",
+          "action": "Stop the blender, scrape down the sides and add 5 ml water before restarting."
+        },
+        {
+          "condition": "The dressing becomes thinner than intended.",
+          "action": "Stop adding water immediately and refrigerate the dressing while the pasta cools; do not add unlisted thickening ingredients."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_03",
+      "section": "Pasta",
+      "title": "Drain and cool the pasta",
+      "depends_on": [
+        "STEP_01"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "wholewheat_pasta_dry"
+      ],
+      "equipment_ids": [
+        "colander",
+        "mixing_bowl"
+      ],
+      "instruction": "Drain the cooked pasta immediately through the colander. Shake firmly to remove excess water. Transfer the pasta to the large mixing bowl and spread it into a thin layer. Leave uncovered, turning once or twice with the spatula so steam escapes evenly.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 5,
+      "duration_max_minutes": 8,
+      "endpoint": "The pasta is no longer visibly steaming, feels warm rather than hot and has no standing water in the bowl.",
+      "corrective_actions": [
+        {
+          "condition": "The pasta begins sticking into compact clumps while cooling.",
+          "action": "Separate the pieces gently with the spatula; do not add additional oil because the dressing will provide lubrication."
+        },
+        {
+          "condition": "Water accumulates at the base of the bowl.",
+          "action": "Return the pasta to the colander briefly, drain again and then resume cooling."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_04",
+      "section": "Base assembly",
+      "title": "Coat the pasta and beans",
+      "depends_on": [
+        "STEP_02",
+        "STEP_03"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "wholewheat_pasta_dry",
+        "cannellini_beans_canned",
+        "cottage_cheese_low_fat",
+        "basil_pesto",
+        "vegetarian_parmesan_style_cheese",
+        "lemon",
+        "garlic",
+        "extra_virgin_olive_oil",
+        "fine_salt",
+        "black_pepper_ground",
+        "water"
+      ],
+      "equipment_ids": [
+        "mixing_bowl",
+        "spatula"
+      ],
+      "instruction": "Add the drained cannellini beans to the cooled pasta. Add all of the prepared basil-pesto dressing. Fold gently from the bottom upward until the pasta and beans are evenly coated. Avoid vigorous stirring, which can crush the beans.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 2,
+      "duration_max_minutes": 3,
+      "endpoint": "The pasta and beans are uniformly coated with a thin creamy green dressing, with the cannellini beans remaining predominantly intact.",
+      "corrective_actions": [
+        {
+          "condition": "The dressing remains concentrated in one area.",
+          "action": "Continue folding from multiple directions until the coating is evenly distributed."
+        },
+        {
+          "condition": "The mixture appears excessively thick after coating.",
+          "action": "Add any remaining measured water in 5 ml increments and fold gently until the dressing coats rather than clumps."
+        }
+      ],
+      "critical": false
+    },
+    {
+      "step_id": "STEP_05",
+      "section": "Vegetable assembly",
+      "title": "Add the tomatoes and rocket",
+      "depends_on": [
+        "STEP_04"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "cherry_tomatoes",
+        "rocket"
+      ],
+      "equipment_ids": [
+        "mixing_bowl",
+        "spatula"
+      ],
+      "instruction": "Add the 180 g halved cherry tomatoes and 50 g dry rocket to the dressed pasta and beans. Fold slowly and only until the vegetables are distributed throughout the salad.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 1,
+      "duration_max_minutes": 2,
+      "endpoint": "Tomatoes and rocket are evenly distributed, the tomato halves remain structurally intact and the rocket is coated lightly rather than crushed or heavily wilted.",
+      "corrective_actions": [
+        {
+          "condition": "The rocket begins compressing or bruising during mixing.",
+          "action": "Stop mixing immediately and complete distribution during portioning rather than continuing to fold."
+        }
+      ],
+      "critical": false
+    },
+    {
+      "step_id": "STEP_06",
+      "section": "Seasoning",
+      "title": "Check final seasoning",
+      "depends_on": [
+        "STEP_05"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "fine_salt"
+      ],
+      "equipment_ids": [
+        "mixing_bowl"
+      ],
+      "instruction": "Taste one representative mouthful containing pasta, bean, tomato and dressing. If the flavour is already clearly seasoned, acidic and savoury, do not add the reserved salt. If noticeably under-seasoned, add up to the reserved 0.125 tsp fine salt in 0.0625 tsp increments, folding gently after each addition.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 1,
+      "duration_max_minutes": 2,
+      "endpoint": "The salad tastes balanced, with identifiable basil, lemon, tomato sweetness and savoury cheese, without excessive saltiness or oiliness.",
+      "corrective_actions": [
+        {
+          "condition": "The salad is adequately seasoned before the reserved salt is used.",
+          "action": "Do not add the reserved salt."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_07",
+      "section": "Packing",
+      "title": "Divide and chill the portable lunches",
+      "depends_on": [
+        "STEP_06"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "wholewheat_pasta_dry",
+        "cannellini_beans_canned",
+        "cherry_tomatoes",
+        "rocket",
+        "cottage_cheese_low_fat",
+        "basil_pesto",
+        "vegetarian_parmesan_style_cheese",
+        "lemon",
+        "garlic",
+        "extra_virgin_olive_oil",
+        "fine_salt",
+        "black_pepper_ground",
+        "water"
+      ],
+      "equipment_ids": [
+        "lidded_containers",
+        "kitchen_scales"
+      ],
+      "instruction": "Divide the complete salad equally between 2 clean lunch containers using the kitchen scales. Ensure each portion contains approximately equal quantities of pasta, beans, tomatoes, rocket and dressing. Secure the lids and refrigerate immediately at 5°C or below.",
+      "heat_source": "Refrigerator",
+      "heat_level": null,
+      "temperature_c": 5,
+      "duration_min_minutes": 10,
+      "duration_max_minutes": null,
+      "endpoint": "Both containers contain approximately equal complete servings and are fully chilled before transport.",
+      "corrective_actions": [
+        {
+          "condition": "One portion contains visibly fewer beans or tomatoes than the other.",
+          "action": "Redistribute individual components between containers before sealing."
+        },
+        {
+          "condition": "The salad is still noticeably warm when the containers are filled.",
+          "action": "Leave the containers open in the refrigerator until the salad is chilled, then fit the lids securely."
+        }
+      ],
+      "critical": true
+    }
+  ],
+  "plating": [
+    {
+      "step_id": "PLATE_01",
+      "instruction": "Serve one chilled or cool-room-temperature portion per person. Before eating, turn the salad gently once or twice with a fork to redistribute any dressing that has settled, taking care not to mash the cannellini beans."
+    }
+  ],
+  "storage": {
+    "refrigerator_days": 2,
+    "freezer_months": null,
+    "storage_instructions": "Store at 5°C or below and consume within 2 days. For transport to work or on a car journey, keep the lunch chilled in an insulated bag with an ice pack when continuous refrigeration is unavailable. The salad is intended to be eaten chilled or cool rather than reheated. Rocket will soften gradually during storage, so texture is best within 24 hours.",
+    "reheating_methods": []
+  },
+  "shopping": {
+    "sainsburys": [],
+    "marks_and_spencer": [],
+    "either_retailer": [
+      "Wholewheat short pasta: buy 1 standard packet",
+      "Cannellini beans: buy 1 x 400 g tin",
+      "Low-fat cottage cheese: buy 1 tub containing at least 220 g",
+      "Vegetarian basil pesto: buy 1 small jar",
+      "Vegetarian Parmesan-style hard cheese: buy 1 small wedge or packet",
+      "Cherry tomatoes: buy 1 punnet containing at least 180 g",
+      "Rocket: buy 1 bag containing at least 50 g",
+      "Unwaxed lemon: buy 1",
+      "Garlic: buy 1 bulb",
+      "Extra-virgin olive oil: buy 1 bottle if not already stocked",
+      "Fine salt: buy 1 container if not already stocked",
+      "Ground black pepper: buy 1 jar or pepper mill if not already stocked"
+    ]
+  },
+  "quality_checks": {
+    "protein_requirement_met": true,
+    "protein_g_per_serving": 31,
+    "restaurant_quality_features": [
+      "Cannellini beans provide creamy texture and substantial protein while remaining intact through gentle folding.",
+      "Cottage cheese is blended into the basil pesto dressing to create a smooth, protein-rich coating without requiring a large quantity of oil.",
+      "Vegetarian Parmesan-style hard cheese reinforces savoury depth and provides additional protein.",
+      "Fresh lemon juice and zest balance the richness of pesto and cheese and keep the cold salad tasting bright.",
+      "Garlic is grated directly into the dressing so its flavour disperses evenly without harsh chunks.",
+      "Wholewheat pasta is cooked only until slightly firm so it retains structure after chilling and dressing.",
+      "Tomatoes and rocket are added after the pasta has cooled, preventing unnecessary wilting and preserving textural contrast.",
+      "The pasta is cooled without oil so the dressing adheres directly to the grain surface rather than sliding off."
+    ],
+    "nutrition_notes": [
+      "Estimated nutrition represents one complete lunch serving including pasta, cannellini beans, tomatoes, rocket, cottage cheese, pesto, vegetarian hard cheese, olive oil and all dressing components.",
+      "The recipe is designed around the approximately 400 kcal lunch target.",
+      "Approximately 31 g protein per serving comes from cannellini beans, cottage cheese, wholewheat pasta and vegetarian hard cheese.",
+      "Cannellini beans, wholewheat pasta, tomatoes and rocket provide substantial dietary fibre and plant diversity.",
+      "Pesto and olive oil are deliberately used in restrained quantities because their flavour is concentrated and larger amounts would substantially increase calories without being necessary for coating.",
+      "Nutrition values are estimates and will vary with the exact pasta, cottage cheese, pesto, beans and cheese selected.",
+      "The recipe follows the supplied structured-recipe and lunch requirements. "
+    ],
+    "critical_success_factors": [
+      "Do not overcook the wholewheat pasta; it should retain slight bite before cooling.",
+      "Drain both the pasta and cannellini beans thoroughly because excess water will dilute the dressing.",
+      "Blend the cottage-cheese pesto dressing until smooth before combining it with the salad.",
+      "Cool the pasta before adding rocket so the leaves remain fresh rather than heat-wilted.",
+      "Fold rather than vigorously stir once cannellini beans and tomatoes are present to preserve their structure.",
+      "Taste before using the reserved salt because pesto and hard cheese can vary substantially in salt content.",
+      "Keep the completed salad chilled during storage and transport."
+    ]
+  }
+}

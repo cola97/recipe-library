@@ -1,0 +1,589 @@
+{
+  "schema_version": "1.0",
+  "recipe": {
+    "id": "smoked_paprika_roasted_chickpeas_cucumber_sticks",
+    "title": "Smoked Paprika Roasted Chickpeas with Cucumber Sticks",
+    "description": "A portable afternoon snack of crisp roasted chickpeas coated with smoked paprika, cumin and lemon zest, served with cool cucumber sticks for fresh contrast. The chickpeas are dried thoroughly before roasting and packed separately from the cucumber to preserve crunch.",
+    "servings": 2,
+    "difficulty": "Easy",
+    "total_time_minutes": 35,
+    "active_time_minutes": 15,
+    "passive_time_minutes": 20,
+    "cuisine": [
+      "Mediterranean-inspired",
+      "Contemporary"
+    ],
+    "meal_types": [
+      "Afternoon snack"
+    ],
+    "dietary_tags": [
+      "Vegetarian",
+      "Vegan",
+      "Portable",
+      "High fibre"
+    ],
+    "allergens": []
+  },
+  "nutrition_per_serving": {
+    "energy_kcal": 196,
+    "protein_g": 8,
+    "carbohydrate_g": 25,
+    "fat_g": 8,
+    "saturated_fat_g": 1,
+    "fibre_g": 7,
+    "salt_g": 0.5
+  },
+  "ingredients": [
+    {
+      "ingredient_id": "chickpeas_canned",
+      "display_name": "Canned chickpeas",
+      "category": "Legumes",
+      "required": true,
+      "quantity_used": 220,
+      "unit_used": "g",
+      "purchase_quantity": "Buy: 1 x 400 g tin",
+      "purchase_notes": "A standard 400 g tin usually provides approximately 230-250 g drained chickpeas; exact drained weight varies by product.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Drain completely, rinse thoroughly under cold running water, then dry very thoroughly before roasting.",
+      "notes": "Use: 220 g drained chickpeas total, 110 g per serving."
+    },
+    {
+      "ingredient_id": "cucumber",
+      "display_name": "Cucumber",
+      "category": "Vegetables",
+      "required": true,
+      "quantity_used": 0.5,
+      "unit_used": "integer",
+      "purchase_quantity": "Buy: 1 whole cucumber",
+      "purchase_notes": "Use approximately half and refrigerate the remainder for another use.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Wash and dry. Cut approximately 220 g into sticks approximately 10 mm x 10 mm x 70 mm. Remove only excessively watery seed core if required.",
+      "notes": "Use: approximately 220 g prepared cucumber total."
+    },
+    {
+      "ingredient_id": "olive_oil",
+      "display_name": "Olive oil",
+      "category": "Oils",
+      "required": true,
+      "quantity_used": 8,
+      "unit_used": "g",
+      "purchase_quantity": "Buy: 1 bottle if not already stocked",
+      "purchase_notes": "Standard olive oil is suitable for roasting.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Measure accurately before coating the chickpeas.",
+      "notes": "Use: 8 g total."
+    },
+    {
+      "ingredient_id": "smoked_paprika",
+      "display_name": "Smoked paprika",
+      "category": "Spices",
+      "required": true,
+      "quantity_used": 1,
+      "unit_used": "tsp",
+      "purchase_quantity": "Buy: 1 jar",
+      "purchase_notes": "Use sweet smoked paprika unless a hotter version is specifically preferred.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Measure before seasoning.",
+      "notes": "Use: 1 tsp total."
+    },
+    {
+      "ingredient_id": "ground_cumin",
+      "display_name": "Ground cumin",
+      "category": "Spices",
+      "required": true,
+      "quantity_used": 0.5,
+      "unit_used": "tsp",
+      "purchase_quantity": "Buy: 1 jar if not already stocked",
+      "purchase_notes": "Standard ground cumin is suitable.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Measure before seasoning.",
+      "notes": "Use: 0.5 tsp total."
+    },
+    {
+      "ingredient_id": "garlic_granules",
+      "display_name": "Garlic granules",
+      "category": "Seasoning",
+      "required": true,
+      "quantity_used": 0.5,
+      "unit_used": "tsp",
+      "purchase_quantity": "Buy: 1 jar if not already stocked",
+      "purchase_notes": "Use garlic granules rather than fresh garlic for a dry roasting coating.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Measure before seasoning.",
+      "notes": "Use: 0.5 tsp total."
+    },
+    {
+      "ingredient_id": "lemon",
+      "display_name": "Unwaxed lemon",
+      "category": "Fruit",
+      "required": true,
+      "quantity_used": 1,
+      "unit_used": "integer",
+      "purchase_quantity": "Buy: 1 lemon",
+      "purchase_notes": "An unwaxed lemon is preferred because only the zest is used in this recipe.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Wash and dry. Finely grate approximately 1 g yellow zest without removing significant white pith.",
+      "notes": "Use approximately 1 g zest; reserve the remaining lemon for another use."
+    },
+    {
+      "ingredient_id": "fine_salt",
+      "display_name": "Fine salt",
+      "category": "Seasoning",
+      "required": true,
+      "quantity_used": 0.25,
+      "unit_used": "tsp",
+      "purchase_quantity": "Buy: 1 standard container if not already stocked",
+      "purchase_notes": "Fine table salt or fine sea salt is suitable.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Measure 0.1875 tsp for initial seasoning and reserve up to 0.0625 tsp for final adjustment.",
+      "notes": "Use no more than 0.25 tsp total."
+    },
+    {
+      "ingredient_id": "black_pepper_ground",
+      "display_name": "Ground black pepper",
+      "category": "Seasoning",
+      "required": true,
+      "quantity_used": 0.125,
+      "unit_used": "tsp",
+      "purchase_quantity": "Buy: 1 jar or pepper mill if not already stocked",
+      "purchase_notes": "Freshly ground black pepper is preferred where available.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Measure before seasoning.",
+      "notes": "Use: 0.125 tsp total."
+    }
+  ],
+  "equipment": [
+    {
+      "equipment_id": "air_fryer",
+      "display_name": "Duo Stack air fryer",
+      "required": true,
+      "notes": "Used to roast the chickpeas efficiently to a crisp exterior."
+    },
+    {
+      "equipment_id": "colander",
+      "display_name": "Colander",
+      "required": true,
+      "notes": "Used to drain and rinse the chickpeas."
+    },
+    {
+      "equipment_id": "mixing_bowl",
+      "display_name": "Medium mixing bowl",
+      "required": true,
+      "notes": "Used to coat and season the chickpeas."
+    },
+    {
+      "equipment_id": "chef_knife",
+      "display_name": "Chef's knife",
+      "required": true,
+      "notes": "Used to prepare the cucumber."
+    },
+    {
+      "equipment_id": "chopping_board",
+      "display_name": "Chopping board",
+      "required": true,
+      "notes": "Used for cucumber preparation."
+    },
+    {
+      "equipment_id": "fine_grater",
+      "display_name": "Fine grater or Microplane",
+      "required": true,
+      "notes": "Used for lemon zest."
+    },
+    {
+      "equipment_id": "kitchen_scales",
+      "display_name": "Kitchen scales",
+      "required": true,
+      "notes": "Used for accurate chickpea, cucumber and oil quantities and for equal portioning."
+    },
+    {
+      "equipment_id": "measuring_spoons",
+      "display_name": "Measuring spoons",
+      "required": true,
+      "notes": "Used for paprika, cumin, garlic, salt and black pepper."
+    },
+    {
+      "equipment_id": "lidded_containers",
+      "display_name": "2 portable lidded snack containers with separate compartments or small inner pots",
+      "required": true,
+      "notes": "Keeping the roasted chickpeas physically separate from cucumber is important for maintaining crispness."
+    }
+  ],
+  "mise_en_place": [
+    {
+      "prep_id": "PREP_01",
+      "ingredient_ids": [
+        "chickpeas_canned"
+      ],
+      "instruction": "Open the chickpea tin and pour the contents into the colander, discarding all canning liquid. Rinse thoroughly under cold running water while gently agitating the chickpeas. Drain for approximately 2 minutes, then spread on clean kitchen paper and roll or blot gently until the surfaces are as dry as practical. Remove any loose chickpea skins that detach during drying.",
+      "endpoint": "Approximately 220 g drained chickpeas are clean, externally dry and free from visible surface water."
+    },
+    {
+      "prep_id": "PREP_02",
+      "ingredient_ids": [
+        "cucumber"
+      ],
+      "instruction": "Wash and dry the whole cucumber. Cut approximately half to provide about 220 g. Cut into sticks approximately 10 mm x 10 mm x 70 mm. If the centre is unusually soft and watery, trim away only the softest seed core. Pat the cut surfaces dry with clean kitchen paper.",
+      "endpoint": "Approximately 220 g cucumber is cut into crisp, dry sticks suitable for transport."
+    },
+    {
+      "prep_id": "PREP_03",
+      "ingredient_ids": [
+        "lemon"
+      ],
+      "instruction": "Wash and dry the lemon. Finely grate approximately 1 g of the yellow outer zest, stopping before significant white pith is removed.",
+      "endpoint": "Approximately 1 g fine lemon zest is prepared."
+    },
+    {
+      "prep_id": "PREP_04",
+      "ingredient_ids": [
+        "olive_oil",
+        "smoked_paprika",
+        "ground_cumin",
+        "garlic_granules",
+        "fine_salt",
+        "black_pepper_ground"
+      ],
+      "instruction": "Measure 8 g olive oil, 1 tsp smoked paprika, 0.5 tsp ground cumin, 0.5 tsp garlic granules, 0.1875 tsp initial fine salt, 0.0625 tsp reserved fine salt and 0.125 tsp black pepper.",
+      "endpoint": "All roasting and seasoning ingredients are accurately measured and ready for immediate use."
+    }
+  ],
+  "procedure": [
+    {
+      "step_id": "STEP_01",
+      "section": "Air fryer preparation",
+      "title": "Preheat the air fryer",
+      "depends_on": [],
+      "parallel_group": "P01",
+      "ingredient_ids": [],
+      "equipment_ids": [
+        "air_fryer"
+      ],
+      "instruction": "Preheat the air fryer to 190°C. Allow the appliance to complete its preheat cycle or operate empty at the set temperature for approximately 3 minutes before loading the chickpeas.",
+      "heat_source": "Air fryer",
+      "heat_level": "190°C",
+      "temperature_c": 190,
+      "duration_min_minutes": 3,
+      "duration_max_minutes": 5,
+      "endpoint": "The air fryer has reached 190°C and is ready to receive the chickpeas.",
+      "corrective_actions": [
+        {
+          "condition": "The air fryer has not reached operating temperature after 5 minutes.",
+          "action": "Confirm the temperature setting and allow an additional 2 minutes before proceeding."
+        }
+      ],
+      "critical": false
+    },
+    {
+      "step_id": "STEP_02",
+      "section": "Chickpea preparation",
+      "title": "Coat the dried chickpeas",
+      "depends_on": [],
+      "parallel_group": "P01",
+      "ingredient_ids": [
+        "chickpeas_canned",
+        "olive_oil"
+      ],
+      "equipment_ids": [
+        "mixing_bowl",
+        "kitchen_scales"
+      ],
+      "instruction": "Place the thoroughly dried 220 g chickpeas in the mixing bowl. Add 8 g olive oil and toss until every chickpea has a thin visible sheen and no oil remains pooled in the base of the bowl.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 1,
+      "duration_max_minutes": 2,
+      "endpoint": "The chickpeas are evenly and lightly coated with oil without visible pooling.",
+      "corrective_actions": [
+        {
+          "condition": "Water becomes visible in the base of the bowl during tossing.",
+          "action": "Transfer the chickpeas back to clean kitchen paper, dry thoroughly again, clean and dry the bowl, then resume coating."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_03",
+      "section": "Roasting",
+      "title": "Roast the chickpeas until dry and crisp",
+      "depends_on": [
+        "STEP_01",
+        "STEP_02"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "chickpeas_canned",
+        "olive_oil"
+      ],
+      "equipment_ids": [
+        "air_fryer"
+      ],
+      "instruction": "Transfer the oiled chickpeas to the preheated air-fryer basket and spread them into the most even layer practical. Roast at 190°C. Shake the basket thoroughly after approximately 6 minutes and again every 4-5 minutes thereafter so multiple surfaces are exposed to hot circulating air.",
+      "heat_source": "Air fryer",
+      "heat_level": "190°C",
+      "temperature_c": 190,
+      "duration_min_minutes": 14,
+      "duration_max_minutes": 20,
+      "endpoint": "The chickpeas are dry on the exterior, lightly golden, audibly firm when shaken against the basket and crisp when one is cooled briefly and bitten, without burnt or bitter surfaces.",
+      "corrective_actions": [
+        {
+          "condition": "The chickpeas brown rapidly while their centres remain soft.",
+          "action": "Reduce the air-fryer temperature to 175°C and continue in 3-minute intervals, shaking between intervals."
+        },
+        {
+          "condition": "The chickpeas remain soft after 20 minutes without excessive browning.",
+          "action": "Continue roasting at 180°C in 3-minute intervals, checking one cooled chickpea after each interval."
+        },
+        {
+          "condition": "Individual chickpeas become dark brown or black.",
+          "action": "Remove the darkest chickpeas immediately and reduce the temperature before continuing."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_04",
+      "section": "Seasoning",
+      "title": "Apply the smoked paprika seasoning",
+      "depends_on": [
+        "STEP_03"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "smoked_paprika",
+        "ground_cumin",
+        "garlic_granules",
+        "lemon",
+        "fine_salt",
+        "black_pepper_ground"
+      ],
+      "equipment_ids": [
+        "mixing_bowl"
+      ],
+      "instruction": "Immediately transfer the hot roasted chickpeas to the clean mixing bowl. Add 1 tsp smoked paprika, 0.5 tsp ground cumin, 0.5 tsp garlic granules, approximately 1 g lemon zest, 0.1875 tsp fine salt and 0.125 tsp black pepper. Toss continuously for approximately 30-45 seconds so the residual oil and heat distribute the dry seasoning evenly.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 0.5,
+      "duration_max_minutes": 1,
+      "endpoint": "The chickpeas have an even red-orange seasoning coat with no concentrated spice patches or visible loose seasoning collected in one area.",
+      "corrective_actions": [
+        {
+          "condition": "Seasoning accumulates in dry patches.",
+          "action": "Continue tossing vigorously while the chickpeas are still hot until the coating becomes more uniform."
+        },
+        {
+          "condition": "The paprika smells scorched or acrid.",
+          "action": "Transfer the chickpeas immediately to a cool plate and stop further heating."
+        }
+      ],
+      "critical": false
+    },
+    {
+      "step_id": "STEP_05",
+      "section": "Cooling",
+      "title": "Cool the roasted chickpeas completely",
+      "depends_on": [
+        "STEP_04"
+      ],
+      "parallel_group": "P02",
+      "ingredient_ids": [
+        "chickpeas_canned"
+      ],
+      "equipment_ids": [
+        "mixing_bowl"
+      ],
+      "instruction": "Spread the seasoned chickpeas into a single layer across the bowl or a clean plate and leave uncovered at room temperature. Stir or shake once halfway through cooling so trapped steam can escape.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 8,
+      "duration_max_minutes": 12,
+      "endpoint": "The chickpeas are at room temperature, externally dry and remain crisp rather than steaming or tacky.",
+      "corrective_actions": [
+        {
+          "condition": "The chickpeas remain warm or soften from retained steam.",
+          "action": "Spread them into a thinner layer and continue cooling uncovered for an additional 5 minutes."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_06",
+      "section": "Vegetable preparation",
+      "title": "Prepare and dry the cucumber sticks",
+      "depends_on": [],
+      "parallel_group": "P02",
+      "ingredient_ids": [
+        "cucumber"
+      ],
+      "equipment_ids": [
+        "chef_knife",
+        "chopping_board"
+      ],
+      "instruction": "Complete the cucumber preparation specified in mise en place. Inspect the cut sticks for excessive surface moisture and blot thoroughly with clean kitchen paper before packing.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 4,
+      "duration_max_minutes": 6,
+      "endpoint": "The cucumber sticks are evenly sized, cold or room temperature, crisp and externally dry.",
+      "corrective_actions": [
+        {
+          "condition": "Visible cucumber liquid collects after cutting.",
+          "action": "Spread the sticks on clean kitchen paper for 2 minutes, then blot again before packing."
+        }
+      ],
+      "critical": false
+    },
+    {
+      "step_id": "STEP_07",
+      "section": "Final seasoning",
+      "title": "Check the chickpea seasoning",
+      "depends_on": [
+        "STEP_05"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "fine_salt"
+      ],
+      "equipment_ids": [
+        "mixing_bowl"
+      ],
+      "instruction": "Taste one cooled chickpea. If the smoked paprika, cumin and salt are clearly defined, do not add the reserved salt. If noticeably under-seasoned, add up to the reserved 0.0625 tsp fine salt and toss thoroughly.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 1,
+      "duration_max_minutes": 2,
+      "endpoint": "The chickpeas taste smoky, savoury and well seasoned without excessive saltiness.",
+      "corrective_actions": [
+        {
+          "condition": "The chickpeas are adequately seasoned before the reserved salt is used.",
+          "action": "Do not add the reserved salt."
+        }
+      ],
+      "critical": false
+    },
+    {
+      "step_id": "STEP_08",
+      "section": "Packing",
+      "title": "Portion the portable snack",
+      "depends_on": [
+        "STEP_06",
+        "STEP_07"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "chickpeas_canned",
+        "cucumber"
+      ],
+      "equipment_ids": [
+        "lidded_containers",
+        "kitchen_scales"
+      ],
+      "instruction": "Divide the completely cooled roasted chickpeas equally between 2 dry snack compartments or small inner containers. Divide the cucumber sticks equally between separate compartments. Do not allow cucumber to contact the chickpeas during storage. Seal all containers securely.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 2,
+      "duration_max_minutes": 4,
+      "endpoint": "Each serving contains approximately half of the chickpeas and half of the cucumber, with the dry roasted chickpeas physically separated from the moist vegetables.",
+      "corrective_actions": [
+        {
+          "condition": "One serving contains visibly more chickpeas than the other.",
+          "action": "Use the kitchen scales to transfer small amounts until both chickpea portions are approximately equal."
+        },
+        {
+          "condition": "Moisture is visible in the chickpea compartment before sealing.",
+          "action": "Dry the compartment completely and confirm the chickpeas are fully cool before repacking."
+        }
+      ],
+      "critical": true
+    }
+  ],
+  "plating": [
+    {
+      "step_id": "PLATE_01",
+      "instruction": "Serve one complete snack portion per person. Eat the crisp smoked-paprika chickpeas alternately with the cold cucumber sticks rather than mixing them together, preserving the contrast between dry crunch and fresh juiciness."
+    }
+  ],
+  "storage": {
+    "refrigerator_days": 2,
+    "freezer_months": null,
+    "storage_instructions": "For best texture, refrigerate the cucumber at 5°C or below and store the fully cooled roasted chickpeas in a separate sealed dry compartment. The complete snack is suitable for work or car transport; use an insulated lunch bag with an ice pack if the cucumber will be outside refrigeration for an extended period. Roasted chickpeas may soften slightly under refrigeration, so the crispest texture is obtained within 24 hours.",
+    "reheating_methods": []
+  },
+  "shopping": {
+    "sainsburys": [],
+    "marks_and_spencer": [],
+    "either_retailer": [
+      "Chickpeas: buy 1 x 400 g tin",
+      "Cucumber: buy 1 whole cucumber",
+      "Olive oil: buy 1 bottle if not already stocked",
+      "Smoked paprika: buy 1 jar",
+      "Ground cumin: buy 1 jar if not already stocked",
+      "Garlic granules: buy 1 jar if not already stocked",
+      "Unwaxed lemon: buy 1",
+      "Fine salt: buy 1 container if not already stocked",
+      "Ground black pepper: buy 1 jar or pepper mill if not already stocked"
+    ]
+  },
+  "quality_checks": {
+    "protein_requirement_met": true,
+    "protein_g_per_serving": 8,
+    "restaurant_quality_features": [
+      "Chickpeas are rinsed and dried thoroughly before roasting, allowing the surfaces to crisp rather than steam.",
+      "A measured amount of olive oil provides sufficient surface coating for browning and spice adhesion without unnecessarily increasing calories.",
+      "Smoked paprika and cumin provide layered warm spice character, while garlic granules contribute savoury depth without introducing moisture.",
+      "Lemon zest adds aromatic acidity without wetting the roasted chickpeas and compromising crispness.",
+      "Seasoning is applied while the chickpeas are hot so the spices adhere evenly to the residual oil.",
+      "The chickpeas are cooled uncovered before packing, preventing trapped steam from immediately softening the roasted exterior.",
+      "Cucumber is packed separately so its moisture does not compromise the chickpea texture."
+    ],
+    "nutrition_notes": [
+      "Estimated nutrition represents one complete afternoon snack serving including roasted chickpeas, cucumber, olive oil and all seasonings.",
+      "The recipe is designed around the approximately 200 kcal afternoon-snack target.",
+      "The general 30 g protein requirement does not apply to afternoon snacks under the specified meal-plan rules; approximately 8 g protein per serving is therefore compliant.",
+      "Chickpeas provide plant protein, carbohydrate and substantial dietary fibre, while cucumber adds volume and hydration with minimal additional energy.",
+      "Added oil is deliberately limited while remaining sufficient to support roasting and spice adhesion.",
+      "Nutrition values are estimates and will vary with the exact drained weight and nutritional composition of the chickpeas used.",
+      "The recipe follows the supplied structured-recipe and afternoon-snack requirements. "
+    ],
+    "critical_success_factors": [
+      "Dry the rinsed chickpeas extremely thoroughly before adding oil; residual water is the main cause of soft roasted chickpeas.",
+      "Do not add wet acidic ingredients such as lemon juice to the roasted chickpeas before storage; use zest for brightness without sacrificing crispness.",
+      "Judge completion by actual crispness of a briefly cooled chickpea rather than roasting time alone.",
+      "Apply dry spices immediately after roasting while the chickpeas remain hot and lightly oil-coated.",
+      "Cool chickpeas completely before sealing them in any container.",
+      "Keep cucumber physically separate from the chickpeas throughout storage and transport."
+    ]
+  }
+}

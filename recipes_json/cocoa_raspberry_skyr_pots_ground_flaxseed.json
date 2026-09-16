@@ -1,0 +1,455 @@
+{
+  "schema_version": "1.0",
+  "recipe": {
+    "id": "cocoa_raspberry_skyr_pots_ground_flaxseed",
+    "title": "Cocoa, Raspberry & Skyr Pots with Ground Flaxseed",
+    "description": "Creamy cocoa-vanilla skyr layered with lightly crushed raspberries and ground flaxseed for a sharp-sweet, chocolatey evening snack with contrasting smooth, juicy and gently nutty textures.",
+    "servings": 2,
+    "difficulty": "Easy",
+    "total_time_minutes": 20,
+    "active_time_minutes": 10,
+    "passive_time_minutes": 10,
+    "cuisine": [
+      "Contemporary",
+      "British"
+    ],
+    "meal_types": [
+      "Evening snack"
+    ],
+    "dietary_tags": [
+      "Vegetarian",
+      "High protein",
+      "High fibre"
+    ],
+    "allergens": [
+      "Milk"
+    ]
+  },
+  "nutrition_per_serving": {
+    "energy_kcal": 196,
+    "protein_g": 19,
+    "carbohydrate_g": 19,
+    "fat_g": 5,
+    "saturated_fat_g": 1,
+    "fibre_g": 7,
+    "salt_g": 0.2
+  },
+  "ingredients": [
+    {
+      "ingredient_id": "skyr_plain",
+      "display_name": "Plain 0% skyr",
+      "category": "Dairy",
+      "required": true,
+      "quantity_used": 300,
+      "unit_used": "g",
+      "purchase_quantity": "Buy: 1 tub containing at least 300 g",
+      "purchase_notes": "Choose plain, unsweetened skyr. Exact supermarket tub size varies.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Keep refrigerated until immediately before mixing.",
+      "notes": "Use: 300 g total, 150 g per serving."
+    },
+    {
+      "ingredient_id": "raspberries_fresh",
+      "display_name": "Fresh raspberries",
+      "category": "Fruit",
+      "required": true,
+      "quantity_used": 140,
+      "unit_used": "g",
+      "purchase_quantity": "Buy: enough fresh raspberries to provide at least 140 g",
+      "purchase_notes": "Choose dry, intact berries without visible mould or leaking juice. Exact punnet size varies.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Inspect carefully, rinse gently only if necessary, then dry thoroughly. Reserve 40 g whole for finishing and use 100 g for the raspberry layer.",
+      "notes": "Use: 140 g total, 70 g per serving."
+    },
+    {
+      "ingredient_id": "ground_flaxseed",
+      "display_name": "Ground flaxseed",
+      "category": "Seeds",
+      "required": true,
+      "quantity_used": 14,
+      "unit_used": "g",
+      "purchase_quantity": "Buy: 1 standard packet",
+      "purchase_notes": "Use ground or milled flaxseed rather than whole seeds so the texture integrates properly and the nutrients are more accessible.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Measure immediately before use.",
+      "notes": "Use: 14 g total, 7 g per serving."
+    },
+    {
+      "ingredient_id": "cocoa_powder_unsweetened",
+      "display_name": "Unsweetened cocoa powder",
+      "category": "Baking ingredients",
+      "required": true,
+      "quantity_used": 10,
+      "unit_used": "g",
+      "purchase_quantity": "Buy: 1 standard container",
+      "purchase_notes": "Use unsweetened cocoa powder rather than drinking chocolate, which contains added sugar.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Sift or break up visible lumps before mixing.",
+      "notes": "Use: 10 g total, 5 g per serving."
+    },
+    {
+      "ingredient_id": "runny_honey",
+      "display_name": "Runny honey",
+      "category": "Sweeteners",
+      "required": true,
+      "quantity_used": 8,
+      "unit_used": "g",
+      "purchase_quantity": "Buy: 1 jar or squeeze bottle",
+      "purchase_notes": "Use a mild-flavoured runny honey so it does not dominate the cocoa and raspberry.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Measure accurately before mixing.",
+      "notes": "Use: 8 g total. The quantity is intentionally restrained to balance cocoa bitterness without making the snack excessively sweet."
+    },
+    {
+      "ingredient_id": "vanilla_extract",
+      "display_name": "Vanilla extract",
+      "category": "Flavourings",
+      "required": true,
+      "quantity_used": 1,
+      "unit_used": "tsp",
+      "purchase_quantity": "Buy: 1 small bottle",
+      "purchase_notes": "Use vanilla extract rather than artificial vanilla essence where practical.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Measure immediately before mixing.",
+      "notes": "Use: 1 tsp total."
+    },
+    {
+      "ingredient_id": "fine_salt",
+      "display_name": "Fine salt",
+      "category": "Seasoning",
+      "required": true,
+      "quantity_used": 0.0625,
+      "unit_used": "tsp",
+      "purchase_quantity": "Buy: 1 standard container",
+      "purchase_notes": "Fine table salt or fine sea salt is suitable.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Measure accurately before mixing.",
+      "notes": "Use: 0.0625 tsp total. The small quantity sharpens the cocoa flavour without making the finished snack taste salty."
+    }
+  ],
+  "equipment": [
+    {
+      "equipment_id": "kitchen_scales",
+      "display_name": "Kitchen scales",
+      "required": true,
+      "notes": "Used for accurate skyr, raspberry, cocoa, flaxseed and honey quantities."
+    },
+    {
+      "equipment_id": "measuring_spoons",
+      "display_name": "Measuring spoons",
+      "required": true,
+      "notes": "Used for vanilla extract and fine salt."
+    },
+    {
+      "equipment_id": "mixing_bowl",
+      "display_name": "Medium mixing bowl",
+      "required": true,
+      "notes": "Used to prepare the cocoa-skyr mixture."
+    },
+    {
+      "equipment_id": "small_bowl",
+      "display_name": "Small mixing bowl",
+      "required": true,
+      "notes": "Used to crush the raspberry layer."
+    },
+    {
+      "equipment_id": "lidded_containers",
+      "display_name": "2 individual lidded dessert or snack pots",
+      "required": true,
+      "notes": "Each pot should comfortably hold one complete serving."
+    }
+  ],
+  "mise_en_place": [
+    {
+      "prep_id": "PREP_01",
+      "ingredient_ids": [
+        "raspberries_fresh"
+      ],
+      "instruction": "Inspect 140 g raspberries and discard any mouldy, leaking or damaged berries. If washing is necessary, rinse gently under cold running water and dry thoroughly on clean kitchen paper without crushing. Weigh 100 g into the small mixing bowl and reserve the remaining 40 g whole for final assembly.",
+      "endpoint": "100 g clean raspberries are allocated to the crushed fruit layer and 40 g intact raspberries are reserved for finishing."
+    },
+    {
+      "prep_id": "PREP_02",
+      "ingredient_ids": [
+        "skyr_plain",
+        "cocoa_powder_unsweetened",
+        "ground_flaxseed",
+        "runny_honey",
+        "vanilla_extract",
+        "fine_salt"
+      ],
+      "instruction": "Weigh 300 g plain skyr, 10 g cocoa powder, 14 g ground flaxseed and 8 g honey. Measure 1 tsp vanilla extract and 0.0625 tsp fine salt. Break apart or sift any compacted cocoa powder before mixing.",
+      "endpoint": "All non-fruit ingredients are accurately measured and ready for immediate assembly."
+    }
+  ],
+  "procedure": [
+    {
+      "step_id": "STEP_01",
+      "section": "Raspberry layer",
+      "title": "Crush the raspberries",
+      "depends_on": [],
+      "parallel_group": "P01",
+      "ingredient_ids": [
+        "raspberries_fresh"
+      ],
+      "equipment_ids": [
+        "small_bowl"
+      ],
+      "instruction": "Place the allocated 100 g raspberries in the small bowl. Using the back of a spoon, press and stir until approximately two-thirds of the berries have broken down and released juice while small pieces of fruit remain identifiable.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 1,
+      "duration_max_minutes": 2,
+      "endpoint": "The raspberries form a thick, juicy spoonable mixture with visible pieces rather than a completely smooth puree.",
+      "corrective_actions": [
+        {
+          "condition": "The berries remain almost completely whole.",
+          "action": "Continue pressing firmly against the side of the bowl in 15-second intervals until sufficient juice is released."
+        },
+        {
+          "condition": "The mixture becomes completely smooth.",
+          "action": "Stop processing immediately; the flavour remains suitable but the intended fruit-piece texture will be reduced."
+        }
+      ],
+      "critical": false
+    },
+    {
+      "step_id": "STEP_02",
+      "section": "Cocoa skyr",
+      "title": "Mix the cocoa-skyr base",
+      "depends_on": [],
+      "parallel_group": "P01",
+      "ingredient_ids": [
+        "skyr_plain",
+        "cocoa_powder_unsweetened",
+        "runny_honey",
+        "vanilla_extract",
+        "fine_salt"
+      ],
+      "equipment_ids": [
+        "mixing_bowl",
+        "measuring_spoons",
+        "kitchen_scales"
+      ],
+      "instruction": "Place 300 g skyr in the mixing bowl. Add 10 g cocoa powder, 8 g honey, 1 tsp vanilla extract and 0.0625 tsp fine salt. Stir slowly at first to incorporate the cocoa without dispersing dry powder into the air, then stir more vigorously until the colour is uniform and no visible cocoa or honey streaks remain.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 2,
+      "duration_max_minutes": 3,
+      "endpoint": "The mixture is smooth, glossy and uniformly chocolate-brown with no dry cocoa pockets or unmixed skyr.",
+      "corrective_actions": [
+        {
+          "condition": "Dry cocoa remains around the sides or base of the bowl.",
+          "action": "Scrape the bowl thoroughly and continue mixing until all cocoa is fully dispersed."
+        },
+        {
+          "condition": "The mixture appears unusually stiff.",
+          "action": "Continue stirring for 20-30 seconds before making any adjustment; skyr normally loosens slightly with vigorous mixing."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_03",
+      "section": "Cocoa skyr",
+      "title": "Incorporate the ground flaxseed",
+      "depends_on": [
+        "STEP_02"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "ground_flaxseed"
+      ],
+      "equipment_ids": [
+        "mixing_bowl"
+      ],
+      "instruction": "Add the measured 14 g ground flaxseed to the cocoa-skyr mixture. Fold and stir until the flaxseed is evenly dispersed and no concentrated dry patches remain.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 1,
+      "duration_max_minutes": 2,
+      "endpoint": "The flaxseed is evenly distributed throughout the cocoa skyr and the mixture remains thick but spoonable.",
+      "corrective_actions": [
+        {
+          "condition": "Ground flaxseed forms dry clumps.",
+          "action": "Press the clumps against the side of the bowl with the spoon and continue folding until fully dispersed."
+        }
+      ],
+      "critical": false
+    },
+    {
+      "step_id": "STEP_04",
+      "section": "Assembly",
+      "title": "Layer the snack pots",
+      "depends_on": [
+        "STEP_01",
+        "STEP_03"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "skyr_plain",
+        "cocoa_powder_unsweetened",
+        "ground_flaxseed",
+        "runny_honey",
+        "vanilla_extract",
+        "fine_salt",
+        "raspberries_fresh"
+      ],
+      "equipment_ids": [
+        "lidded_containers",
+        "kitchen_scales"
+      ],
+      "instruction": "Divide approximately half of the cocoa-skyr mixture between the 2 snack pots. Divide the crushed raspberry mixture equally over the cocoa layer. Add the remaining cocoa-skyr mixture equally over the raspberries. Use the tip of a spoon to make one or two shallow folds through each pot so visible raspberry streaks remain rather than fully mixing the layers.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 3,
+      "duration_max_minutes": 4,
+      "endpoint": "Both pots contain approximately equal portions with distinct cocoa-skyr and raspberry marbling rather than a uniformly mixed pink-brown colour.",
+      "corrective_actions": [
+        {
+          "condition": "One pot is visibly heavier than the other.",
+          "action": "Use the kitchen scales to transfer small amounts between pots until the filled weights are approximately equal."
+        },
+        {
+          "condition": "The raspberry layer becomes completely mixed into the cocoa skyr.",
+          "action": "Stop stirring; flavour remains correct even though visual contrast will be reduced."
+        }
+      ],
+      "critical": false
+    },
+    {
+      "step_id": "STEP_05",
+      "section": "Finishing",
+      "title": "Add the reserved raspberries",
+      "depends_on": [
+        "STEP_04"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "raspberries_fresh"
+      ],
+      "equipment_ids": [
+        "lidded_containers"
+      ],
+      "instruction": "Divide the reserved 40 g whole raspberries equally between the 2 pots, approximately 20 g per serving. Place the berries on the surface without pressing them into the cocoa-skyr mixture.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 1,
+      "duration_max_minutes": 2,
+      "endpoint": "Each pot is topped with an approximately equal quantity of intact fresh raspberries.",
+      "corrective_actions": [
+        {
+          "condition": "A reserved raspberry collapses or releases excessive juice.",
+          "action": "Place it into the raspberry-marbling layer rather than using it as a surface garnish."
+        }
+      ],
+      "critical": false
+    },
+    {
+      "step_id": "STEP_06",
+      "section": "Chilling",
+      "title": "Allow the flaxseed to hydrate",
+      "depends_on": [
+        "STEP_05"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [],
+      "equipment_ids": [
+        "lidded_containers"
+      ],
+      "instruction": "Fit the lids and refrigerate the assembled pots at 5°C or below for at least 10 minutes before serving. This brief rest allows the ground flaxseed to hydrate slightly and the cocoa mixture to become more cohesive.",
+      "heat_source": "Refrigerator",
+      "heat_level": null,
+      "temperature_c": 5,
+      "duration_min_minutes": 10,
+      "duration_max_minutes": null,
+      "endpoint": "The cocoa-skyr mixture is chilled, creamy and cohesive, with the raspberry marbling still visible and no dry flaxseed remaining.",
+      "corrective_actions": [
+        {
+          "condition": "The mixture appears noticeably thicker than desired after chilling.",
+          "action": "Stir each pot once or twice immediately before eating; the raspberry juices will loosen the texture naturally without requiring additional ingredients."
+        }
+      ],
+      "critical": false
+    }
+  ],
+  "plating": [
+    {
+      "step_id": "PLATE_01",
+      "instruction": "Serve one chilled pot per person. Eat through the layers rather than fully stirring before the first spoonful so each serving retains contrast between dark cocoa skyr, tart raspberry ripple, fresh whole berries and the subtle nutty texture of ground flaxseed."
+    }
+  ],
+  "storage": {
+    "refrigerator_days": 2,
+    "freezer_months": null,
+    "storage_instructions": "Store the covered pots at 5°C or below and consume within 2 days. The raspberries will gradually soften and release additional juice during storage, so the best texture is obtained within 24 hours. Do not leave the skyr-based pots unrefrigerated for more than 2 hours.",
+    "reheating_methods": []
+  },
+  "shopping": {
+    "sainsburys": [],
+    "marks_and_spencer": [],
+    "either_retailer": [
+      "Plain 0% skyr: buy 1 tub containing at least 300 g",
+      "Fresh raspberries: buy enough to provide at least 140 g",
+      "Ground or milled flaxseed: buy 1 standard packet",
+      "Unsweetened cocoa powder: buy 1 standard container",
+      "Runny honey: buy 1 jar or squeeze bottle",
+      "Vanilla extract: buy 1 small bottle",
+      "Fine salt: buy 1 standard container if not already stocked"
+    ]
+  },
+  "quality_checks": {
+    "protein_requirement_met": true,
+    "protein_g_per_serving": 19,
+    "restaurant_quality_features": [
+      "Unsweetened cocoa is balanced with a deliberately small amount of honey, vanilla and salt so the chocolate flavour remains dark rather than cloying.",
+      "Raspberries are used in both crushed and whole form to create two distinct fruit textures.",
+      "The raspberry layer remains visibly marbled through the cocoa skyr rather than being completely homogenised.",
+      "Ground flaxseed is incorporated into the dairy base and allowed a short hydration period so it contributes body without remaining dry or powdery.",
+      "A small measured quantity of salt intensifies cocoa flavour and moderates perceived bitterness without making the snack taste salty.",
+      "The use of high-protein skyr provides substantial protein and creaminess while keeping the snack close to the 200 kcal evening-snack target."
+    ],
+    "nutrition_notes": [
+      "Estimated nutrition represents one complete evening snack including skyr, raspberries, cocoa, flaxseed, honey, vanilla and salt.",
+      "This recipe is designed around the approximately 200 kcal evening-snack target.",
+      "The general 30 g protein requirement does not apply to evening snacks under the specified meal-plan rules; approximately 19 g protein per serving is therefore compliant.",
+      "Skyr provides the majority of the protein while ground flaxseed contributes fibre and predominantly unsaturated fat.",
+      "Raspberries and cocoa contribute additional fibre and polyphenol-rich plant ingredients.",
+      "Nutrition values are estimates and will vary with the exact skyr and cocoa products used."
+    ],
+    "critical_success_factors": [
+      "Use unsweetened cocoa powder rather than drinking chocolate so sweetness remains controlled.",
+      "Mix the cocoa completely into the skyr before adding flaxseed to avoid persistent dry cocoa pockets.",
+      "Do not over-process the raspberries; retaining small fruit pieces gives the finished pots better textural contrast.",
+      "Allow at least 10 minutes of refrigerated resting after adding ground flaxseed so the texture becomes cohesive.",
+      "Keep the reserved surface raspberries as dry as practical to prevent unnecessary dilution of the cocoa-skyr layer.",
+      "Store continuously refrigerated because the recipe contains fresh cultured dairy."
+    ]
+  }
+}

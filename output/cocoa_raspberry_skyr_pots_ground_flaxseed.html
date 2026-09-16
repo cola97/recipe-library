@@ -1,0 +1,1682 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="utf-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+>
+
+<title>Cocoa, Raspberry &amp; Skyr Pots with Ground Flaxseed</title>
+
+<style>
+
+    :root {
+        --page-width: 1100px;
+        --border: #8f8f8f;
+        --page-background: #f2f2f2;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    html {
+        background: var(--page-background);
+    }
+
+    body {
+        margin: 0;
+
+        font-family:
+            -apple-system,
+            BlinkMacSystemFont,
+            "Segoe UI",
+            Roboto,
+            Helvetica,
+            Arial,
+            sans-serif;
+
+        color: #000000;
+
+        line-height: 1.55;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    p,
+    div,
+    span,
+    code,
+    pre,
+    summary,
+    strong {
+        color: #000000;
+    }
+
+    .page {
+        width: min(
+            calc(100% - 32px),
+            var(--page-width)
+        );
+
+        margin:
+            32px
+            auto
+            64px
+            auto;
+    }
+
+    /* ======================================================
+       Header
+       ====================================================== */
+
+    .document-header {
+        background: #ffffff;
+
+        border:
+            1px
+            solid
+            var(--border);
+
+        border-radius: 14px;
+
+        padding: 32px;
+
+        margin-bottom: 24px;
+    }
+
+    .document-header h1 {
+        margin: 0;
+
+        font-size:
+            clamp(
+                2rem,
+                4vw,
+                3rem
+            );
+
+        line-height: 1.1;
+    }
+
+    .schedule-date {
+        margin-top: 18px;
+
+        padding:
+            12px
+            16px;
+
+        border:
+            1px
+            solid
+            #000000;
+
+        border-radius: 8px;
+
+        background: #fff7c7;
+
+        font-size: 1.1rem;
+    }
+
+    /* ======================================================
+       All major JSON sections
+       ====================================================== */
+
+    .top-section {
+        border:
+            1px
+            solid
+            var(--border);
+
+        border-radius: 14px;
+
+        padding: 24px;
+
+        margin:
+            0
+            0
+            24px
+            0;
+    }
+
+    .top-section > h2 {
+        margin:
+            0
+            0
+            20px
+            0;
+
+        padding-bottom: 10px;
+
+        border-bottom:
+            2px
+            solid
+            #000000;
+
+        font-size: 1.6rem;
+    }
+
+    /*
+       Every major section receives its own background colour.
+
+       Text remains black throughout.
+    */
+
+    .top-section[data-json-path="$.schema_version"] {
+        background: #eeeeee;
+    }
+
+    .top-section[data-json-path="$.recipe"] {
+        background: #ffe8dc;
+    }
+
+    .top-section[data-json-path="$.nutrition_per_serving"] {
+        background: #ddf3e4;
+    }
+
+    .top-section[data-json-path="$.ingredients"] {
+        background: #fff4c9;
+    }
+
+    .top-section[data-json-path="$.equipment"] {
+        background: #dfeeff;
+    }
+
+    .top-section[data-json-path="$.mise_en_place"] {
+        background: #eee2fa;
+    }
+
+    .top-section[data-json-path="$.procedure"] {
+        background: #ffe1e8;
+    }
+
+    .top-section[data-json-path="$.plating"] {
+        background: #daf5f2;
+    }
+
+    .top-section[data-json-path="$.storage"] {
+        background: #ffe9c9;
+    }
+
+    .top-section[data-json-path="$.shopping"] {
+        background: #e4f3d7;
+    }
+
+    .top-section[data-json-path="$.quality_checks"] {
+        background: #eadff5;
+    }
+
+    /* ======================================================
+       Nested objects
+       ====================================================== */
+
+    .object-content {
+        margin: 0;
+    }
+
+    .nested-object {
+        margin:
+            18px
+            0;
+
+        padding: 18px;
+
+        border:
+            1px
+            solid
+            #777777;
+
+        border-radius: 10px;
+
+        background:
+            rgba(
+                255,
+                255,
+                255,
+                0.55
+            );
+    }
+
+    .nested-object > h3 {
+        margin:
+            0
+            0
+            14px
+            0;
+    }
+
+    /* ======================================================
+       Individual fields
+       ====================================================== */
+
+    .field-row {
+        display: grid;
+
+        grid-template-columns:
+            minmax(
+                180px,
+                28%
+            )
+            1fr;
+
+        gap: 20px;
+
+        padding:
+            10px
+            0;
+
+        border-bottom:
+            1px
+            solid
+            rgba(
+                0,
+                0,
+                0,
+                0.18
+            );
+    }
+
+    .field-row:last-child {
+        border-bottom: 0;
+    }
+
+    .field-name {
+        font-weight: 700;
+    }
+
+    .field-value {
+        white-space: pre-wrap;
+
+        overflow-wrap: anywhere;
+    }
+
+    .top-scalar-value {
+        font-size: 1.05rem;
+
+        overflow-wrap: anywhere;
+    }
+
+    /* ======================================================
+       Arrays
+       ====================================================== */
+
+    .array-block {
+        margin:
+            10px
+            0
+            20px
+            0;
+    }
+
+    .array-block > h3 {
+        margin-bottom: 12px;
+    }
+
+    .array-items {
+        display: grid;
+
+        gap: 14px;
+    }
+
+    .array-item {
+        padding: 18px;
+
+        border:
+            1px
+            solid
+            #777777;
+
+        border-radius: 10px;
+
+        background:
+            rgba(
+                255,
+                255,
+                255,
+                0.60
+            );
+    }
+
+    .item-number {
+        font-size: 0.82rem;
+
+        font-weight: 700;
+
+        text-transform: uppercase;
+
+        letter-spacing: 0.06em;
+
+        margin-bottom: 8px;
+    }
+
+    .scalar-array-item {
+        padding:
+            8px
+            12px;
+
+        border-left:
+            3px
+            solid
+            #000000;
+
+        background:
+            rgba(
+                255,
+                255,
+                255,
+                0.55
+            );
+
+        white-space: pre-wrap;
+
+        overflow-wrap: anywhere;
+    }
+
+    /* ======================================================
+       Special JSON values
+       ====================================================== */
+
+    .null-value {
+        font-style: italic;
+
+        color: #000000;
+    }
+
+    .boolean-value {
+        font-family:
+            ui-monospace,
+            "Cascadia Mono",
+            Consolas,
+            monospace;
+
+        color: #000000;
+    }
+
+    .empty-value {
+        font-family:
+            ui-monospace,
+            "Cascadia Mono",
+            Consolas,
+            monospace;
+
+        color: #000000;
+
+        padding:
+            8px
+            0;
+    }
+
+    /* ======================================================
+       Integrity information
+       ====================================================== */
+
+    .integrity {
+        margin-top: 32px;
+
+        background: #eeeeee;
+
+        border:
+            1px
+            solid
+            var(--border);
+
+        border-radius: 10px;
+
+        padding: 18px;
+
+        font-size: 0.9rem;
+    }
+
+    .integrity code {
+        color: #000000;
+
+        overflow-wrap: anywhere;
+    }
+
+    /* ======================================================
+       Original source JSON
+       ====================================================== */
+
+    details {
+        margin-top: 20px;
+
+        background: #ffffff;
+
+        border:
+            1px
+            solid
+            var(--border);
+
+        border-radius: 10px;
+
+        padding: 16px;
+    }
+
+    summary {
+        cursor: pointer;
+
+        font-weight: 700;
+
+        color: #000000;
+    }
+
+    pre {
+        margin-top: 18px;
+
+        overflow-x: auto;
+
+        padding: 18px;
+
+        background: #eeeeee;
+
+        color: #000000;
+
+        border:
+            1px
+            solid
+            #777777;
+
+        border-radius: 8px;
+
+        white-space: pre-wrap;
+
+        overflow-wrap: anywhere;
+    }
+
+    /* ======================================================
+       Mobile layout
+       ====================================================== */
+
+    @media (max-width: 700px) {
+
+        .page {
+            width:
+                min(
+                    calc(100% - 20px),
+                    var(--page-width)
+                );
+
+            margin-top: 10px;
+        }
+
+        .document-header,
+        .top-section {
+            padding: 18px;
+        }
+
+        .field-row {
+            grid-template-columns: 1fr;
+
+            gap: 3px;
+        }
+    }
+
+    /* ======================================================
+       Print layout
+       ====================================================== */
+
+    @media print {
+
+        html,
+        body {
+            background: #ffffff;
+        }
+
+        .page {
+            width: 100%;
+
+            margin: 0;
+        }
+
+        .top-section,
+        .array-item {
+            break-inside: avoid;
+        }
+
+        /*
+           Hide the full raw JSON when printing.
+           It remains present in the HTML source.
+        */
+
+        details {
+            display: none;
+        }
+    }
+
+</style>
+
+</head>
+
+<body>
+
+<main class="page">
+
+<header class="document-header">
+
+    <h1>Cocoa, Raspberry &amp; Skyr Pots with Ground Flaxseed</h1>
+
+    
+
+</header>
+
+<section class="top-section" data-json-path="$.schema_version"><h2>Schema Version</h2><div class="top-scalar-value" data-json-path="$.schema_version">1.0</div></section>
+<section class="top-section" data-json-path="$.recipe"><h2>Recipe</h2><div class="object-content" data-json-path="$.recipe">
+<div class="field-row" data-json-path="$.recipe.id"><div class="field-name">Id</div><div class="field-value">cocoa_raspberry_skyr_pots_ground_flaxseed</div></div>
+<div class="field-row" data-json-path="$.recipe.title"><div class="field-name">Title</div><div class="field-value">Cocoa, Raspberry &amp; Skyr Pots with Ground Flaxseed</div></div>
+<div class="field-row" data-json-path="$.recipe.description"><div class="field-name">Description</div><div class="field-value">Creamy cocoa-vanilla skyr layered with lightly crushed raspberries and ground flaxseed for a sharp-sweet, chocolatey evening snack with contrasting smooth, juicy and gently nutty textures.</div></div>
+<div class="field-row" data-json-path="$.recipe.servings"><div class="field-name">Servings</div><div class="field-value">2</div></div>
+<div class="field-row" data-json-path="$.recipe.difficulty"><div class="field-name">Difficulty</div><div class="field-value">Easy</div></div>
+<div class="field-row" data-json-path="$.recipe.total_time_minutes"><div class="field-name">Total Time Minutes</div><div class="field-value">20</div></div>
+<div class="field-row" data-json-path="$.recipe.active_time_minutes"><div class="field-name">Active Time Minutes</div><div class="field-value">10</div></div>
+<div class="field-row" data-json-path="$.recipe.passive_time_minutes"><div class="field-name">Passive Time Minutes</div><div class="field-value">10</div></div>
+<div class="array-block" data-json-path="$.recipe.cuisine">
+<h3>Cuisine</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.recipe.cuisine[0]">Contemporary</div>
+<div class="scalar-array-item" data-json-path="$.recipe.cuisine[1]">British</div>
+</div>
+</div>
+<div class="array-block" data-json-path="$.recipe.meal_types">
+<h3>Meal Types</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.recipe.meal_types[0]">Evening snack</div>
+</div>
+</div>
+<div class="array-block" data-json-path="$.recipe.dietary_tags">
+<h3>Dietary Tags</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.recipe.dietary_tags[0]">Vegetarian</div>
+<div class="scalar-array-item" data-json-path="$.recipe.dietary_tags[1]">High protein</div>
+<div class="scalar-array-item" data-json-path="$.recipe.dietary_tags[2]">High fibre</div>
+</div>
+</div>
+<div class="array-block" data-json-path="$.recipe.allergens">
+<h3>Allergens</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.recipe.allergens[0]">Milk</div>
+</div>
+</div>
+</div></section>
+<section class="top-section" data-json-path="$.nutrition_per_serving"><h2>Nutrition Per Serving</h2><div class="object-content" data-json-path="$.nutrition_per_serving">
+<div class="field-row" data-json-path="$.nutrition_per_serving.energy_kcal"><div class="field-name">Energy Kcal</div><div class="field-value">196</div></div>
+<div class="field-row" data-json-path="$.nutrition_per_serving.protein_g"><div class="field-name">Protein G</div><div class="field-value">19</div></div>
+<div class="field-row" data-json-path="$.nutrition_per_serving.carbohydrate_g"><div class="field-name">Carbohydrate G</div><div class="field-value">19</div></div>
+<div class="field-row" data-json-path="$.nutrition_per_serving.fat_g"><div class="field-name">Fat G</div><div class="field-value">5</div></div>
+<div class="field-row" data-json-path="$.nutrition_per_serving.saturated_fat_g"><div class="field-name">Saturated Fat G</div><div class="field-value">1</div></div>
+<div class="field-row" data-json-path="$.nutrition_per_serving.fibre_g"><div class="field-name">Fibre G</div><div class="field-value">7</div></div>
+<div class="field-row" data-json-path="$.nutrition_per_serving.salt_g"><div class="field-name">Salt G</div><div class="field-value">0.2</div></div>
+</div></section>
+<section class="top-section" data-json-path="$.ingredients"><h2>Ingredients</h2><div class="array-block" data-json-path="$.ingredients">
+<div class="array-items">
+<article class="array-item" data-json-path="$.ingredients[0]">
+<div class="item-number">Item 1</div>
+<div class="field-row" data-json-path="$.ingredients[0].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">skyr_plain</div></div>
+<div class="field-row" data-json-path="$.ingredients[0].display_name"><div class="field-name">Display Name</div><div class="field-value">Plain 0% skyr</div></div>
+<div class="field-row" data-json-path="$.ingredients[0].category"><div class="field-name">Category</div><div class="field-value">Dairy</div></div>
+<div class="field-row" data-json-path="$.ingredients[0].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.ingredients[0].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">300</div></div>
+<div class="field-row" data-json-path="$.ingredients[0].unit_used"><div class="field-name">Unit Used</div><div class="field-value">g</div></div>
+<div class="field-row" data-json-path="$.ingredients[0].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 tub containing at least 300 g</div></div>
+<div class="field-row" data-json-path="$.ingredients[0].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Choose plain, unsweetened skyr. Exact supermarket tub size varies.</div></div>
+<div class="array-block" data-json-path="$.ingredients[0].retailers">
+<h3>Retailers</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.ingredients[0].retailers[0]">Sainsbury&#x27;s</div>
+<div class="scalar-array-item" data-json-path="$.ingredients[0].retailers[1]">Marks &amp; Spencer</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.ingredients[0].preparation"><div class="field-name">Preparation</div><div class="field-value">Keep refrigerated until immediately before mixing.</div></div>
+<div class="field-row" data-json-path="$.ingredients[0].notes"><div class="field-name">Notes</div><div class="field-value">Use: 300 g total, 150 g per serving.</div></div>
+</article>
+<article class="array-item" data-json-path="$.ingredients[1]">
+<div class="item-number">Item 2</div>
+<div class="field-row" data-json-path="$.ingredients[1].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">raspberries_fresh</div></div>
+<div class="field-row" data-json-path="$.ingredients[1].display_name"><div class="field-name">Display Name</div><div class="field-value">Fresh raspberries</div></div>
+<div class="field-row" data-json-path="$.ingredients[1].category"><div class="field-name">Category</div><div class="field-value">Fruit</div></div>
+<div class="field-row" data-json-path="$.ingredients[1].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.ingredients[1].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">140</div></div>
+<div class="field-row" data-json-path="$.ingredients[1].unit_used"><div class="field-name">Unit Used</div><div class="field-value">g</div></div>
+<div class="field-row" data-json-path="$.ingredients[1].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: enough fresh raspberries to provide at least 140 g</div></div>
+<div class="field-row" data-json-path="$.ingredients[1].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Choose dry, intact berries without visible mould or leaking juice. Exact punnet size varies.</div></div>
+<div class="array-block" data-json-path="$.ingredients[1].retailers">
+<h3>Retailers</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.ingredients[1].retailers[0]">Sainsbury&#x27;s</div>
+<div class="scalar-array-item" data-json-path="$.ingredients[1].retailers[1]">Marks &amp; Spencer</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.ingredients[1].preparation"><div class="field-name">Preparation</div><div class="field-value">Inspect carefully, rinse gently only if necessary, then dry thoroughly. Reserve 40 g whole for finishing and use 100 g for the raspberry layer.</div></div>
+<div class="field-row" data-json-path="$.ingredients[1].notes"><div class="field-name">Notes</div><div class="field-value">Use: 140 g total, 70 g per serving.</div></div>
+</article>
+<article class="array-item" data-json-path="$.ingredients[2]">
+<div class="item-number">Item 3</div>
+<div class="field-row" data-json-path="$.ingredients[2].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">ground_flaxseed</div></div>
+<div class="field-row" data-json-path="$.ingredients[2].display_name"><div class="field-name">Display Name</div><div class="field-value">Ground flaxseed</div></div>
+<div class="field-row" data-json-path="$.ingredients[2].category"><div class="field-name">Category</div><div class="field-value">Seeds</div></div>
+<div class="field-row" data-json-path="$.ingredients[2].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.ingredients[2].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">14</div></div>
+<div class="field-row" data-json-path="$.ingredients[2].unit_used"><div class="field-name">Unit Used</div><div class="field-value">g</div></div>
+<div class="field-row" data-json-path="$.ingredients[2].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 standard packet</div></div>
+<div class="field-row" data-json-path="$.ingredients[2].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Use ground or milled flaxseed rather than whole seeds so the texture integrates properly and the nutrients are more accessible.</div></div>
+<div class="array-block" data-json-path="$.ingredients[2].retailers">
+<h3>Retailers</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.ingredients[2].retailers[0]">Sainsbury&#x27;s</div>
+<div class="scalar-array-item" data-json-path="$.ingredients[2].retailers[1]">Marks &amp; Spencer</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.ingredients[2].preparation"><div class="field-name">Preparation</div><div class="field-value">Measure immediately before use.</div></div>
+<div class="field-row" data-json-path="$.ingredients[2].notes"><div class="field-name">Notes</div><div class="field-value">Use: 14 g total, 7 g per serving.</div></div>
+</article>
+<article class="array-item" data-json-path="$.ingredients[3]">
+<div class="item-number">Item 4</div>
+<div class="field-row" data-json-path="$.ingredients[3].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">cocoa_powder_unsweetened</div></div>
+<div class="field-row" data-json-path="$.ingredients[3].display_name"><div class="field-name">Display Name</div><div class="field-value">Unsweetened cocoa powder</div></div>
+<div class="field-row" data-json-path="$.ingredients[3].category"><div class="field-name">Category</div><div class="field-value">Baking ingredients</div></div>
+<div class="field-row" data-json-path="$.ingredients[3].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.ingredients[3].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">10</div></div>
+<div class="field-row" data-json-path="$.ingredients[3].unit_used"><div class="field-name">Unit Used</div><div class="field-value">g</div></div>
+<div class="field-row" data-json-path="$.ingredients[3].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 standard container</div></div>
+<div class="field-row" data-json-path="$.ingredients[3].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Use unsweetened cocoa powder rather than drinking chocolate, which contains added sugar.</div></div>
+<div class="array-block" data-json-path="$.ingredients[3].retailers">
+<h3>Retailers</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.ingredients[3].retailers[0]">Sainsbury&#x27;s</div>
+<div class="scalar-array-item" data-json-path="$.ingredients[3].retailers[1]">Marks &amp; Spencer</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.ingredients[3].preparation"><div class="field-name">Preparation</div><div class="field-value">Sift or break up visible lumps before mixing.</div></div>
+<div class="field-row" data-json-path="$.ingredients[3].notes"><div class="field-name">Notes</div><div class="field-value">Use: 10 g total, 5 g per serving.</div></div>
+</article>
+<article class="array-item" data-json-path="$.ingredients[4]">
+<div class="item-number">Item 5</div>
+<div class="field-row" data-json-path="$.ingredients[4].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">runny_honey</div></div>
+<div class="field-row" data-json-path="$.ingredients[4].display_name"><div class="field-name">Display Name</div><div class="field-value">Runny honey</div></div>
+<div class="field-row" data-json-path="$.ingredients[4].category"><div class="field-name">Category</div><div class="field-value">Sweeteners</div></div>
+<div class="field-row" data-json-path="$.ingredients[4].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.ingredients[4].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">8</div></div>
+<div class="field-row" data-json-path="$.ingredients[4].unit_used"><div class="field-name">Unit Used</div><div class="field-value">g</div></div>
+<div class="field-row" data-json-path="$.ingredients[4].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 jar or squeeze bottle</div></div>
+<div class="field-row" data-json-path="$.ingredients[4].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Use a mild-flavoured runny honey so it does not dominate the cocoa and raspberry.</div></div>
+<div class="array-block" data-json-path="$.ingredients[4].retailers">
+<h3>Retailers</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.ingredients[4].retailers[0]">Sainsbury&#x27;s</div>
+<div class="scalar-array-item" data-json-path="$.ingredients[4].retailers[1]">Marks &amp; Spencer</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.ingredients[4].preparation"><div class="field-name">Preparation</div><div class="field-value">Measure accurately before mixing.</div></div>
+<div class="field-row" data-json-path="$.ingredients[4].notes"><div class="field-name">Notes</div><div class="field-value">Use: 8 g total. The quantity is intentionally restrained to balance cocoa bitterness without making the snack excessively sweet.</div></div>
+</article>
+<article class="array-item" data-json-path="$.ingredients[5]">
+<div class="item-number">Item 6</div>
+<div class="field-row" data-json-path="$.ingredients[5].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">vanilla_extract</div></div>
+<div class="field-row" data-json-path="$.ingredients[5].display_name"><div class="field-name">Display Name</div><div class="field-value">Vanilla extract</div></div>
+<div class="field-row" data-json-path="$.ingredients[5].category"><div class="field-name">Category</div><div class="field-value">Flavourings</div></div>
+<div class="field-row" data-json-path="$.ingredients[5].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.ingredients[5].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">1</div></div>
+<div class="field-row" data-json-path="$.ingredients[5].unit_used"><div class="field-name">Unit Used</div><div class="field-value">tsp</div></div>
+<div class="field-row" data-json-path="$.ingredients[5].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 small bottle</div></div>
+<div class="field-row" data-json-path="$.ingredients[5].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Use vanilla extract rather than artificial vanilla essence where practical.</div></div>
+<div class="array-block" data-json-path="$.ingredients[5].retailers">
+<h3>Retailers</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.ingredients[5].retailers[0]">Sainsbury&#x27;s</div>
+<div class="scalar-array-item" data-json-path="$.ingredients[5].retailers[1]">Marks &amp; Spencer</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.ingredients[5].preparation"><div class="field-name">Preparation</div><div class="field-value">Measure immediately before mixing.</div></div>
+<div class="field-row" data-json-path="$.ingredients[5].notes"><div class="field-name">Notes</div><div class="field-value">Use: 1 tsp total.</div></div>
+</article>
+<article class="array-item" data-json-path="$.ingredients[6]">
+<div class="item-number">Item 7</div>
+<div class="field-row" data-json-path="$.ingredients[6].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">fine_salt</div></div>
+<div class="field-row" data-json-path="$.ingredients[6].display_name"><div class="field-name">Display Name</div><div class="field-value">Fine salt</div></div>
+<div class="field-row" data-json-path="$.ingredients[6].category"><div class="field-name">Category</div><div class="field-value">Seasoning</div></div>
+<div class="field-row" data-json-path="$.ingredients[6].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.ingredients[6].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">0.0625</div></div>
+<div class="field-row" data-json-path="$.ingredients[6].unit_used"><div class="field-name">Unit Used</div><div class="field-value">tsp</div></div>
+<div class="field-row" data-json-path="$.ingredients[6].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 standard container</div></div>
+<div class="field-row" data-json-path="$.ingredients[6].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Fine table salt or fine sea salt is suitable.</div></div>
+<div class="array-block" data-json-path="$.ingredients[6].retailers">
+<h3>Retailers</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.ingredients[6].retailers[0]">Sainsbury&#x27;s</div>
+<div class="scalar-array-item" data-json-path="$.ingredients[6].retailers[1]">Marks &amp; Spencer</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.ingredients[6].preparation"><div class="field-name">Preparation</div><div class="field-value">Measure accurately before mixing.</div></div>
+<div class="field-row" data-json-path="$.ingredients[6].notes"><div class="field-name">Notes</div><div class="field-value">Use: 0.0625 tsp total. The small quantity sharpens the cocoa flavour without making the finished snack taste salty.</div></div>
+</article>
+</div>
+</div></section>
+<section class="top-section" data-json-path="$.equipment"><h2>Equipment</h2><div class="array-block" data-json-path="$.equipment">
+<div class="array-items">
+<article class="array-item" data-json-path="$.equipment[0]">
+<div class="item-number">Item 1</div>
+<div class="field-row" data-json-path="$.equipment[0].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">kitchen_scales</div></div>
+<div class="field-row" data-json-path="$.equipment[0].display_name"><div class="field-name">Display Name</div><div class="field-value">Kitchen scales</div></div>
+<div class="field-row" data-json-path="$.equipment[0].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.equipment[0].notes"><div class="field-name">Notes</div><div class="field-value">Used for accurate skyr, raspberry, cocoa, flaxseed and honey quantities.</div></div>
+</article>
+<article class="array-item" data-json-path="$.equipment[1]">
+<div class="item-number">Item 2</div>
+<div class="field-row" data-json-path="$.equipment[1].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">measuring_spoons</div></div>
+<div class="field-row" data-json-path="$.equipment[1].display_name"><div class="field-name">Display Name</div><div class="field-value">Measuring spoons</div></div>
+<div class="field-row" data-json-path="$.equipment[1].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.equipment[1].notes"><div class="field-name">Notes</div><div class="field-value">Used for vanilla extract and fine salt.</div></div>
+</article>
+<article class="array-item" data-json-path="$.equipment[2]">
+<div class="item-number">Item 3</div>
+<div class="field-row" data-json-path="$.equipment[2].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">mixing_bowl</div></div>
+<div class="field-row" data-json-path="$.equipment[2].display_name"><div class="field-name">Display Name</div><div class="field-value">Medium mixing bowl</div></div>
+<div class="field-row" data-json-path="$.equipment[2].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.equipment[2].notes"><div class="field-name">Notes</div><div class="field-value">Used to prepare the cocoa-skyr mixture.</div></div>
+</article>
+<article class="array-item" data-json-path="$.equipment[3]">
+<div class="item-number">Item 4</div>
+<div class="field-row" data-json-path="$.equipment[3].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">small_bowl</div></div>
+<div class="field-row" data-json-path="$.equipment[3].display_name"><div class="field-name">Display Name</div><div class="field-value">Small mixing bowl</div></div>
+<div class="field-row" data-json-path="$.equipment[3].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.equipment[3].notes"><div class="field-name">Notes</div><div class="field-value">Used to crush the raspberry layer.</div></div>
+</article>
+<article class="array-item" data-json-path="$.equipment[4]">
+<div class="item-number">Item 5</div>
+<div class="field-row" data-json-path="$.equipment[4].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">lidded_containers</div></div>
+<div class="field-row" data-json-path="$.equipment[4].display_name"><div class="field-name">Display Name</div><div class="field-value">2 individual lidded dessert or snack pots</div></div>
+<div class="field-row" data-json-path="$.equipment[4].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.equipment[4].notes"><div class="field-name">Notes</div><div class="field-value">Each pot should comfortably hold one complete serving.</div></div>
+</article>
+</div>
+</div></section>
+<section class="top-section" data-json-path="$.mise_en_place"><h2>Mise En Place</h2><div class="array-block" data-json-path="$.mise_en_place">
+<div class="array-items">
+<article class="array-item" data-json-path="$.mise_en_place[0]">
+<div class="item-number">Item 1</div>
+<div class="field-row" data-json-path="$.mise_en_place[0].prep_id"><div class="field-name">Prep Id</div><div class="field-value">PREP_01</div></div>
+<div class="array-block" data-json-path="$.mise_en_place[0].ingredient_ids">
+<h3>Ingredient Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.mise_en_place[0].ingredient_ids[0]">raspberries_fresh</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.mise_en_place[0].instruction"><div class="field-name">Instruction</div><div class="field-value">Inspect 140 g raspberries and discard any mouldy, leaking or damaged berries. If washing is necessary, rinse gently under cold running water and dry thoroughly on clean kitchen paper without crushing. Weigh 100 g into the small mixing bowl and reserve the remaining 40 g whole for final assembly.</div></div>
+<div class="field-row" data-json-path="$.mise_en_place[0].endpoint"><div class="field-name">Endpoint</div><div class="field-value">100 g clean raspberries are allocated to the crushed fruit layer and 40 g intact raspberries are reserved for finishing.</div></div>
+</article>
+<article class="array-item" data-json-path="$.mise_en_place[1]">
+<div class="item-number">Item 2</div>
+<div class="field-row" data-json-path="$.mise_en_place[1].prep_id"><div class="field-name">Prep Id</div><div class="field-value">PREP_02</div></div>
+<div class="array-block" data-json-path="$.mise_en_place[1].ingredient_ids">
+<h3>Ingredient Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.mise_en_place[1].ingredient_ids[0]">skyr_plain</div>
+<div class="scalar-array-item" data-json-path="$.mise_en_place[1].ingredient_ids[1]">cocoa_powder_unsweetened</div>
+<div class="scalar-array-item" data-json-path="$.mise_en_place[1].ingredient_ids[2]">ground_flaxseed</div>
+<div class="scalar-array-item" data-json-path="$.mise_en_place[1].ingredient_ids[3]">runny_honey</div>
+<div class="scalar-array-item" data-json-path="$.mise_en_place[1].ingredient_ids[4]">vanilla_extract</div>
+<div class="scalar-array-item" data-json-path="$.mise_en_place[1].ingredient_ids[5]">fine_salt</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.mise_en_place[1].instruction"><div class="field-name">Instruction</div><div class="field-value">Weigh 300 g plain skyr, 10 g cocoa powder, 14 g ground flaxseed and 8 g honey. Measure 1 tsp vanilla extract and 0.0625 tsp fine salt. Break apart or sift any compacted cocoa powder before mixing.</div></div>
+<div class="field-row" data-json-path="$.mise_en_place[1].endpoint"><div class="field-name">Endpoint</div><div class="field-value">All non-fruit ingredients are accurately measured and ready for immediate assembly.</div></div>
+</article>
+</div>
+</div></section>
+<section class="top-section" data-json-path="$.procedure"><h2>Procedure</h2><div class="array-block" data-json-path="$.procedure">
+<div class="array-items">
+<article class="array-item" data-json-path="$.procedure[0]">
+<div class="item-number">Item 1</div>
+<div class="field-row" data-json-path="$.procedure[0].step_id"><div class="field-name">Step Id</div><div class="field-value">STEP_01</div></div>
+<div class="field-row" data-json-path="$.procedure[0].section"><div class="field-name">Section</div><div class="field-value">Raspberry layer</div></div>
+<div class="field-row" data-json-path="$.procedure[0].title"><div class="field-name">Title</div><div class="field-value">Crush the raspberries</div></div>
+<div class="array-block" data-json-path="$.procedure[0].depends_on">
+<h3>Depends On</h3>
+<div class="empty-value">[ ]</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[0].parallel_group"><div class="field-name">Parallel Group</div><div class="field-value">P01</div></div>
+<div class="array-block" data-json-path="$.procedure[0].ingredient_ids">
+<h3>Ingredient Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[0].ingredient_ids[0]">raspberries_fresh</div>
+</div>
+</div>
+<div class="array-block" data-json-path="$.procedure[0].equipment_ids">
+<h3>Equipment Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[0].equipment_ids[0]">small_bowl</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[0].instruction"><div class="field-name">Instruction</div><div class="field-value">Place the allocated 100 g raspberries in the small bowl. Using the back of a spoon, press and stir until approximately two-thirds of the berries have broken down and released juice while small pieces of fruit remain identifiable.</div></div>
+<div class="field-row" data-json-path="$.procedure[0].heat_source"><div class="field-name">Heat Source</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.procedure[0].heat_level"><div class="field-name">Heat Level</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.procedure[0].temperature_c"><div class="field-name">Temperature C</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.procedure[0].duration_min_minutes"><div class="field-name">Duration Min Minutes</div><div class="field-value">1</div></div>
+<div class="field-row" data-json-path="$.procedure[0].duration_max_minutes"><div class="field-name">Duration Max Minutes</div><div class="field-value">2</div></div>
+<div class="field-row" data-json-path="$.procedure[0].endpoint"><div class="field-name">Endpoint</div><div class="field-value">The raspberries form a thick, juicy spoonable mixture with visible pieces rather than a completely smooth puree.</div></div>
+<div class="array-block" data-json-path="$.procedure[0].corrective_actions">
+<h3>Corrective Actions</h3>
+<div class="array-items">
+<article class="array-item" data-json-path="$.procedure[0].corrective_actions[0]">
+<div class="item-number">Item 1</div>
+<div class="field-row" data-json-path="$.procedure[0].corrective_actions[0].condition"><div class="field-name">Condition</div><div class="field-value">The berries remain almost completely whole.</div></div>
+<div class="field-row" data-json-path="$.procedure[0].corrective_actions[0].action"><div class="field-name">Action</div><div class="field-value">Continue pressing firmly against the side of the bowl in 15-second intervals until sufficient juice is released.</div></div>
+</article>
+<article class="array-item" data-json-path="$.procedure[0].corrective_actions[1]">
+<div class="item-number">Item 2</div>
+<div class="field-row" data-json-path="$.procedure[0].corrective_actions[1].condition"><div class="field-name">Condition</div><div class="field-value">The mixture becomes completely smooth.</div></div>
+<div class="field-row" data-json-path="$.procedure[0].corrective_actions[1].action"><div class="field-name">Action</div><div class="field-value">Stop processing immediately; the flavour remains suitable but the intended fruit-piece texture will be reduced.</div></div>
+</article>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[0].critical"><div class="field-name">Critical</div><div class="field-value"><span class="boolean-value">false</span></div></div>
+</article>
+<article class="array-item" data-json-path="$.procedure[1]">
+<div class="item-number">Item 2</div>
+<div class="field-row" data-json-path="$.procedure[1].step_id"><div class="field-name">Step Id</div><div class="field-value">STEP_02</div></div>
+<div class="field-row" data-json-path="$.procedure[1].section"><div class="field-name">Section</div><div class="field-value">Cocoa skyr</div></div>
+<div class="field-row" data-json-path="$.procedure[1].title"><div class="field-name">Title</div><div class="field-value">Mix the cocoa-skyr base</div></div>
+<div class="array-block" data-json-path="$.procedure[1].depends_on">
+<h3>Depends On</h3>
+<div class="empty-value">[ ]</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[1].parallel_group"><div class="field-name">Parallel Group</div><div class="field-value">P01</div></div>
+<div class="array-block" data-json-path="$.procedure[1].ingredient_ids">
+<h3>Ingredient Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[1].ingredient_ids[0]">skyr_plain</div>
+<div class="scalar-array-item" data-json-path="$.procedure[1].ingredient_ids[1]">cocoa_powder_unsweetened</div>
+<div class="scalar-array-item" data-json-path="$.procedure[1].ingredient_ids[2]">runny_honey</div>
+<div class="scalar-array-item" data-json-path="$.procedure[1].ingredient_ids[3]">vanilla_extract</div>
+<div class="scalar-array-item" data-json-path="$.procedure[1].ingredient_ids[4]">fine_salt</div>
+</div>
+</div>
+<div class="array-block" data-json-path="$.procedure[1].equipment_ids">
+<h3>Equipment Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[1].equipment_ids[0]">mixing_bowl</div>
+<div class="scalar-array-item" data-json-path="$.procedure[1].equipment_ids[1]">measuring_spoons</div>
+<div class="scalar-array-item" data-json-path="$.procedure[1].equipment_ids[2]">kitchen_scales</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[1].instruction"><div class="field-name">Instruction</div><div class="field-value">Place 300 g skyr in the mixing bowl. Add 10 g cocoa powder, 8 g honey, 1 tsp vanilla extract and 0.0625 tsp fine salt. Stir slowly at first to incorporate the cocoa without dispersing dry powder into the air, then stir more vigorously until the colour is uniform and no visible cocoa or honey streaks remain.</div></div>
+<div class="field-row" data-json-path="$.procedure[1].heat_source"><div class="field-name">Heat Source</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.procedure[1].heat_level"><div class="field-name">Heat Level</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.procedure[1].temperature_c"><div class="field-name">Temperature C</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.procedure[1].duration_min_minutes"><div class="field-name">Duration Min Minutes</div><div class="field-value">2</div></div>
+<div class="field-row" data-json-path="$.procedure[1].duration_max_minutes"><div class="field-name">Duration Max Minutes</div><div class="field-value">3</div></div>
+<div class="field-row" data-json-path="$.procedure[1].endpoint"><div class="field-name">Endpoint</div><div class="field-value">The mixture is smooth, glossy and uniformly chocolate-brown with no dry cocoa pockets or unmixed skyr.</div></div>
+<div class="array-block" data-json-path="$.procedure[1].corrective_actions">
+<h3>Corrective Actions</h3>
+<div class="array-items">
+<article class="array-item" data-json-path="$.procedure[1].corrective_actions[0]">
+<div class="item-number">Item 1</div>
+<div class="field-row" data-json-path="$.procedure[1].corrective_actions[0].condition"><div class="field-name">Condition</div><div class="field-value">Dry cocoa remains around the sides or base of the bowl.</div></div>
+<div class="field-row" data-json-path="$.procedure[1].corrective_actions[0].action"><div class="field-name">Action</div><div class="field-value">Scrape the bowl thoroughly and continue mixing until all cocoa is fully dispersed.</div></div>
+</article>
+<article class="array-item" data-json-path="$.procedure[1].corrective_actions[1]">
+<div class="item-number">Item 2</div>
+<div class="field-row" data-json-path="$.procedure[1].corrective_actions[1].condition"><div class="field-name">Condition</div><div class="field-value">The mixture appears unusually stiff.</div></div>
+<div class="field-row" data-json-path="$.procedure[1].corrective_actions[1].action"><div class="field-name">Action</div><div class="field-value">Continue stirring for 20-30 seconds before making any adjustment; skyr normally loosens slightly with vigorous mixing.</div></div>
+</article>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[1].critical"><div class="field-name">Critical</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+</article>
+<article class="array-item" data-json-path="$.procedure[2]">
+<div class="item-number">Item 3</div>
+<div class="field-row" data-json-path="$.procedure[2].step_id"><div class="field-name">Step Id</div><div class="field-value">STEP_03</div></div>
+<div class="field-row" data-json-path="$.procedure[2].section"><div class="field-name">Section</div><div class="field-value">Cocoa skyr</div></div>
+<div class="field-row" data-json-path="$.procedure[2].title"><div class="field-name">Title</div><div class="field-value">Incorporate the ground flaxseed</div></div>
+<div class="array-block" data-json-path="$.procedure[2].depends_on">
+<h3>Depends On</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[2].depends_on[0]">STEP_02</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[2].parallel_group"><div class="field-name">Parallel Group</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="array-block" data-json-path="$.procedure[2].ingredient_ids">
+<h3>Ingredient Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[2].ingredient_ids[0]">ground_flaxseed</div>
+</div>
+</div>
+<div class="array-block" data-json-path="$.procedure[2].equipment_ids">
+<h3>Equipment Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[2].equipment_ids[0]">mixing_bowl</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[2].instruction"><div class="field-name">Instruction</div><div class="field-value">Add the measured 14 g ground flaxseed to the cocoa-skyr mixture. Fold and stir until the flaxseed is evenly dispersed and no concentrated dry patches remain.</div></div>
+<div class="field-row" data-json-path="$.procedure[2].heat_source"><div class="field-name">Heat Source</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.procedure[2].heat_level"><div class="field-name">Heat Level</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.procedure[2].temperature_c"><div class="field-name">Temperature C</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.procedure[2].duration_min_minutes"><div class="field-name">Duration Min Minutes</div><div class="field-value">1</div></div>
+<div class="field-row" data-json-path="$.procedure[2].duration_max_minutes"><div class="field-name">Duration Max Minutes</div><div class="field-value">2</div></div>
+<div class="field-row" data-json-path="$.procedure[2].endpoint"><div class="field-name">Endpoint</div><div class="field-value">The flaxseed is evenly distributed throughout the cocoa skyr and the mixture remains thick but spoonable.</div></div>
+<div class="array-block" data-json-path="$.procedure[2].corrective_actions">
+<h3>Corrective Actions</h3>
+<div class="array-items">
+<article class="array-item" data-json-path="$.procedure[2].corrective_actions[0]">
+<div class="item-number">Item 1</div>
+<div class="field-row" data-json-path="$.procedure[2].corrective_actions[0].condition"><div class="field-name">Condition</div><div class="field-value">Ground flaxseed forms dry clumps.</div></div>
+<div class="field-row" data-json-path="$.procedure[2].corrective_actions[0].action"><div class="field-name">Action</div><div class="field-value">Press the clumps against the side of the bowl with the spoon and continue folding until fully dispersed.</div></div>
+</article>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[2].critical"><div class="field-name">Critical</div><div class="field-value"><span class="boolean-value">false</span></div></div>
+</article>
+<article class="array-item" data-json-path="$.procedure[3]">
+<div class="item-number">Item 4</div>
+<div class="field-row" data-json-path="$.procedure[3].step_id"><div class="field-name">Step Id</div><div class="field-value">STEP_04</div></div>
+<div class="field-row" data-json-path="$.procedure[3].section"><div class="field-name">Section</div><div class="field-value">Assembly</div></div>
+<div class="field-row" data-json-path="$.procedure[3].title"><div class="field-name">Title</div><div class="field-value">Layer the snack pots</div></div>
+<div class="array-block" data-json-path="$.procedure[3].depends_on">
+<h3>Depends On</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[3].depends_on[0]">STEP_01</div>
+<div class="scalar-array-item" data-json-path="$.procedure[3].depends_on[1]">STEP_03</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[3].parallel_group"><div class="field-name">Parallel Group</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="array-block" data-json-path="$.procedure[3].ingredient_ids">
+<h3>Ingredient Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[3].ingredient_ids[0]">skyr_plain</div>
+<div class="scalar-array-item" data-json-path="$.procedure[3].ingredient_ids[1]">cocoa_powder_unsweetened</div>
+<div class="scalar-array-item" data-json-path="$.procedure[3].ingredient_ids[2]">ground_flaxseed</div>
+<div class="scalar-array-item" data-json-path="$.procedure[3].ingredient_ids[3]">runny_honey</div>
+<div class="scalar-array-item" data-json-path="$.procedure[3].ingredient_ids[4]">vanilla_extract</div>
+<div class="scalar-array-item" data-json-path="$.procedure[3].ingredient_ids[5]">fine_salt</div>
+<div class="scalar-array-item" data-json-path="$.procedure[3].ingredient_ids[6]">raspberries_fresh</div>
+</div>
+</div>
+<div class="array-block" data-json-path="$.procedure[3].equipment_ids">
+<h3>Equipment Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[3].equipment_ids[0]">lidded_containers</div>
+<div class="scalar-array-item" data-json-path="$.procedure[3].equipment_ids[1]">kitchen_scales</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[3].instruction"><div class="field-name">Instruction</div><div class="field-value">Divide approximately half of the cocoa-skyr mixture between the 2 snack pots. Divide the crushed raspberry mixture equally over the cocoa layer. Add the remaining cocoa-skyr mixture equally over the raspberries. Use the tip of a spoon to make one or two shallow folds through each pot so visible raspberry streaks remain rather than fully mixing the layers.</div></div>
+<div class="field-row" data-json-path="$.procedure[3].heat_source"><div class="field-name">Heat Source</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.procedure[3].heat_level"><div class="field-name">Heat Level</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.procedure[3].temperature_c"><div class="field-name">Temperature C</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.procedure[3].duration_min_minutes"><div class="field-name">Duration Min Minutes</div><div class="field-value">3</div></div>
+<div class="field-row" data-json-path="$.procedure[3].duration_max_minutes"><div class="field-name">Duration Max Minutes</div><div class="field-value">4</div></div>
+<div class="field-row" data-json-path="$.procedure[3].endpoint"><div class="field-name">Endpoint</div><div class="field-value">Both pots contain approximately equal portions with distinct cocoa-skyr and raspberry marbling rather than a uniformly mixed pink-brown colour.</div></div>
+<div class="array-block" data-json-path="$.procedure[3].corrective_actions">
+<h3>Corrective Actions</h3>
+<div class="array-items">
+<article class="array-item" data-json-path="$.procedure[3].corrective_actions[0]">
+<div class="item-number">Item 1</div>
+<div class="field-row" data-json-path="$.procedure[3].corrective_actions[0].condition"><div class="field-name">Condition</div><div class="field-value">One pot is visibly heavier than the other.</div></div>
+<div class="field-row" data-json-path="$.procedure[3].corrective_actions[0].action"><div class="field-name">Action</div><div class="field-value">Use the kitchen scales to transfer small amounts between pots until the filled weights are approximately equal.</div></div>
+</article>
+<article class="array-item" data-json-path="$.procedure[3].corrective_actions[1]">
+<div class="item-number">Item 2</div>
+<div class="field-row" data-json-path="$.procedure[3].corrective_actions[1].condition"><div class="field-name">Condition</div><div class="field-value">The raspberry layer becomes completely mixed into the cocoa skyr.</div></div>
+<div class="field-row" data-json-path="$.procedure[3].corrective_actions[1].action"><div class="field-name">Action</div><div class="field-value">Stop stirring; flavour remains correct even though visual contrast will be reduced.</div></div>
+</article>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[3].critical"><div class="field-name">Critical</div><div class="field-value"><span class="boolean-value">false</span></div></div>
+</article>
+<article class="array-item" data-json-path="$.procedure[4]">
+<div class="item-number">Item 5</div>
+<div class="field-row" data-json-path="$.procedure[4].step_id"><div class="field-name">Step Id</div><div class="field-value">STEP_05</div></div>
+<div class="field-row" data-json-path="$.procedure[4].section"><div class="field-name">Section</div><div class="field-value">Finishing</div></div>
+<div class="field-row" data-json-path="$.procedure[4].title"><div class="field-name">Title</div><div class="field-value">Add the reserved raspberries</div></div>
+<div class="array-block" data-json-path="$.procedure[4].depends_on">
+<h3>Depends On</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[4].depends_on[0]">STEP_04</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[4].parallel_group"><div class="field-name">Parallel Group</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="array-block" data-json-path="$.procedure[4].ingredient_ids">
+<h3>Ingredient Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[4].ingredient_ids[0]">raspberries_fresh</div>
+</div>
+</div>
+<div class="array-block" data-json-path="$.procedure[4].equipment_ids">
+<h3>Equipment Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[4].equipment_ids[0]">lidded_containers</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[4].instruction"><div class="field-name">Instruction</div><div class="field-value">Divide the reserved 40 g whole raspberries equally between the 2 pots, approximately 20 g per serving. Place the berries on the surface without pressing them into the cocoa-skyr mixture.</div></div>
+<div class="field-row" data-json-path="$.procedure[4].heat_source"><div class="field-name">Heat Source</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.procedure[4].heat_level"><div class="field-name">Heat Level</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.procedure[4].temperature_c"><div class="field-name">Temperature C</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.procedure[4].duration_min_minutes"><div class="field-name">Duration Min Minutes</div><div class="field-value">1</div></div>
+<div class="field-row" data-json-path="$.procedure[4].duration_max_minutes"><div class="field-name">Duration Max Minutes</div><div class="field-value">2</div></div>
+<div class="field-row" data-json-path="$.procedure[4].endpoint"><div class="field-name">Endpoint</div><div class="field-value">Each pot is topped with an approximately equal quantity of intact fresh raspberries.</div></div>
+<div class="array-block" data-json-path="$.procedure[4].corrective_actions">
+<h3>Corrective Actions</h3>
+<div class="array-items">
+<article class="array-item" data-json-path="$.procedure[4].corrective_actions[0]">
+<div class="item-number">Item 1</div>
+<div class="field-row" data-json-path="$.procedure[4].corrective_actions[0].condition"><div class="field-name">Condition</div><div class="field-value">A reserved raspberry collapses or releases excessive juice.</div></div>
+<div class="field-row" data-json-path="$.procedure[4].corrective_actions[0].action"><div class="field-name">Action</div><div class="field-value">Place it into the raspberry-marbling layer rather than using it as a surface garnish.</div></div>
+</article>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[4].critical"><div class="field-name">Critical</div><div class="field-value"><span class="boolean-value">false</span></div></div>
+</article>
+<article class="array-item" data-json-path="$.procedure[5]">
+<div class="item-number">Item 6</div>
+<div class="field-row" data-json-path="$.procedure[5].step_id"><div class="field-name">Step Id</div><div class="field-value">STEP_06</div></div>
+<div class="field-row" data-json-path="$.procedure[5].section"><div class="field-name">Section</div><div class="field-value">Chilling</div></div>
+<div class="field-row" data-json-path="$.procedure[5].title"><div class="field-name">Title</div><div class="field-value">Allow the flaxseed to hydrate</div></div>
+<div class="array-block" data-json-path="$.procedure[5].depends_on">
+<h3>Depends On</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[5].depends_on[0]">STEP_05</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[5].parallel_group"><div class="field-name">Parallel Group</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="array-block" data-json-path="$.procedure[5].ingredient_ids">
+<h3>Ingredient Ids</h3>
+<div class="empty-value">[ ]</div>
+</div>
+<div class="array-block" data-json-path="$.procedure[5].equipment_ids">
+<h3>Equipment Ids</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.procedure[5].equipment_ids[0]">lidded_containers</div>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[5].instruction"><div class="field-name">Instruction</div><div class="field-value">Fit the lids and refrigerate the assembled pots at 5°C or below for at least 10 minutes before serving. This brief rest allows the ground flaxseed to hydrate slightly and the cocoa mixture to become more cohesive.</div></div>
+<div class="field-row" data-json-path="$.procedure[5].heat_source"><div class="field-name">Heat Source</div><div class="field-value">Refrigerator</div></div>
+<div class="field-row" data-json-path="$.procedure[5].heat_level"><div class="field-name">Heat Level</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.procedure[5].temperature_c"><div class="field-name">Temperature C</div><div class="field-value">5</div></div>
+<div class="field-row" data-json-path="$.procedure[5].duration_min_minutes"><div class="field-name">Duration Min Minutes</div><div class="field-value">10</div></div>
+<div class="field-row" data-json-path="$.procedure[5].duration_max_minutes"><div class="field-name">Duration Max Minutes</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.procedure[5].endpoint"><div class="field-name">Endpoint</div><div class="field-value">The cocoa-skyr mixture is chilled, creamy and cohesive, with the raspberry marbling still visible and no dry flaxseed remaining.</div></div>
+<div class="array-block" data-json-path="$.procedure[5].corrective_actions">
+<h3>Corrective Actions</h3>
+<div class="array-items">
+<article class="array-item" data-json-path="$.procedure[5].corrective_actions[0]">
+<div class="item-number">Item 1</div>
+<div class="field-row" data-json-path="$.procedure[5].corrective_actions[0].condition"><div class="field-name">Condition</div><div class="field-value">The mixture appears noticeably thicker than desired after chilling.</div></div>
+<div class="field-row" data-json-path="$.procedure[5].corrective_actions[0].action"><div class="field-name">Action</div><div class="field-value">Stir each pot once or twice immediately before eating; the raspberry juices will loosen the texture naturally without requiring additional ingredients.</div></div>
+</article>
+</div>
+</div>
+<div class="field-row" data-json-path="$.procedure[5].critical"><div class="field-name">Critical</div><div class="field-value"><span class="boolean-value">false</span></div></div>
+</article>
+</div>
+</div></section>
+<section class="top-section" data-json-path="$.plating"><h2>Plating</h2><div class="array-block" data-json-path="$.plating">
+<div class="array-items">
+<article class="array-item" data-json-path="$.plating[0]">
+<div class="item-number">Item 1</div>
+<div class="field-row" data-json-path="$.plating[0].step_id"><div class="field-name">Step Id</div><div class="field-value">PLATE_01</div></div>
+<div class="field-row" data-json-path="$.plating[0].instruction"><div class="field-name">Instruction</div><div class="field-value">Serve one chilled pot per person. Eat through the layers rather than fully stirring before the first spoonful so each serving retains contrast between dark cocoa skyr, tart raspberry ripple, fresh whole berries and the subtle nutty texture of ground flaxseed.</div></div>
+</article>
+</div>
+</div></section>
+<section class="top-section" data-json-path="$.storage"><h2>Storage</h2><div class="object-content" data-json-path="$.storage">
+<div class="field-row" data-json-path="$.storage.refrigerator_days"><div class="field-name">Refrigerator Days</div><div class="field-value">2</div></div>
+<div class="field-row" data-json-path="$.storage.freezer_months"><div class="field-name">Freezer Months</div><div class="field-value"><span class="null-value">null</span></div></div>
+<div class="field-row" data-json-path="$.storage.storage_instructions"><div class="field-name">Storage Instructions</div><div class="field-value">Store the covered pots at 5°C or below and consume within 2 days. The raspberries will gradually soften and release additional juice during storage, so the best texture is obtained within 24 hours. Do not leave the skyr-based pots unrefrigerated for more than 2 hours.</div></div>
+<div class="array-block" data-json-path="$.storage.reheating_methods">
+<h3>Reheating Methods</h3>
+<div class="empty-value">[ ]</div>
+</div>
+</div></section>
+<section class="top-section" data-json-path="$.shopping"><h2>Shopping</h2><div class="object-content" data-json-path="$.shopping">
+<div class="array-block" data-json-path="$.shopping.sainsburys">
+<h3>Sainsburys</h3>
+<div class="empty-value">[ ]</div>
+</div>
+<div class="array-block" data-json-path="$.shopping.marks_and_spencer">
+<h3>Marks And Spencer</h3>
+<div class="empty-value">[ ]</div>
+</div>
+<div class="array-block" data-json-path="$.shopping.either_retailer">
+<h3>Either Retailer</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[0]">Plain 0% skyr: buy 1 tub containing at least 300 g</div>
+<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[1]">Fresh raspberries: buy enough to provide at least 140 g</div>
+<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[2]">Ground or milled flaxseed: buy 1 standard packet</div>
+<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[3]">Unsweetened cocoa powder: buy 1 standard container</div>
+<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[4]">Runny honey: buy 1 jar or squeeze bottle</div>
+<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[5]">Vanilla extract: buy 1 small bottle</div>
+<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[6]">Fine salt: buy 1 standard container if not already stocked</div>
+</div>
+</div>
+</div></section>
+<section class="top-section" data-json-path="$.quality_checks"><h2>Quality Checks</h2><div class="object-content" data-json-path="$.quality_checks">
+<div class="field-row" data-json-path="$.quality_checks.protein_requirement_met"><div class="field-name">Protein Requirement Met</div><div class="field-value"><span class="boolean-value">true</span></div></div>
+<div class="field-row" data-json-path="$.quality_checks.protein_g_per_serving"><div class="field-name">Protein G Per Serving</div><div class="field-value">19</div></div>
+<div class="array-block" data-json-path="$.quality_checks.restaurant_quality_features">
+<h3>Restaurant Quality Features</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.quality_checks.restaurant_quality_features[0]">Unsweetened cocoa is balanced with a deliberately small amount of honey, vanilla and salt so the chocolate flavour remains dark rather than cloying.</div>
+<div class="scalar-array-item" data-json-path="$.quality_checks.restaurant_quality_features[1]">Raspberries are used in both crushed and whole form to create two distinct fruit textures.</div>
+<div class="scalar-array-item" data-json-path="$.quality_checks.restaurant_quality_features[2]">The raspberry layer remains visibly marbled through the cocoa skyr rather than being completely homogenised.</div>
+<div class="scalar-array-item" data-json-path="$.quality_checks.restaurant_quality_features[3]">Ground flaxseed is incorporated into the dairy base and allowed a short hydration period so it contributes body without remaining dry or powdery.</div>
+<div class="scalar-array-item" data-json-path="$.quality_checks.restaurant_quality_features[4]">A small measured quantity of salt intensifies cocoa flavour and moderates perceived bitterness without making the snack taste salty.</div>
+<div class="scalar-array-item" data-json-path="$.quality_checks.restaurant_quality_features[5]">The use of high-protein skyr provides substantial protein and creaminess while keeping the snack close to the 200 kcal evening-snack target.</div>
+</div>
+</div>
+<div class="array-block" data-json-path="$.quality_checks.nutrition_notes">
+<h3>Nutrition Notes</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.quality_checks.nutrition_notes[0]">Estimated nutrition represents one complete evening snack including skyr, raspberries, cocoa, flaxseed, honey, vanilla and salt.</div>
+<div class="scalar-array-item" data-json-path="$.quality_checks.nutrition_notes[1]">This recipe is designed around the approximately 200 kcal evening-snack target.</div>
+<div class="scalar-array-item" data-json-path="$.quality_checks.nutrition_notes[2]">The general 30 g protein requirement does not apply to evening snacks under the specified meal-plan rules; approximately 19 g protein per serving is therefore compliant.</div>
+<div class="scalar-array-item" data-json-path="$.quality_checks.nutrition_notes[3]">Skyr provides the majority of the protein while ground flaxseed contributes fibre and predominantly unsaturated fat.</div>
+<div class="scalar-array-item" data-json-path="$.quality_checks.nutrition_notes[4]">Raspberries and cocoa contribute additional fibre and polyphenol-rich plant ingredients.</div>
+<div class="scalar-array-item" data-json-path="$.quality_checks.nutrition_notes[5]">Nutrition values are estimates and will vary with the exact skyr and cocoa products used.</div>
+</div>
+</div>
+<div class="array-block" data-json-path="$.quality_checks.critical_success_factors">
+<h3>Critical Success Factors</h3>
+<div class="array-items">
+<div class="scalar-array-item" data-json-path="$.quality_checks.critical_success_factors[0]">Use unsweetened cocoa powder rather than drinking chocolate so sweetness remains controlled.</div>
+<div class="scalar-array-item" data-json-path="$.quality_checks.critical_success_factors[1]">Mix the cocoa completely into the skyr before adding flaxseed to avoid persistent dry cocoa pockets.</div>
+<div class="scalar-array-item" data-json-path="$.quality_checks.critical_success_factors[2]">Do not over-process the raspberries; retaining small fruit pieces gives the finished pots better textural contrast.</div>
+<div class="scalar-array-item" data-json-path="$.quality_checks.critical_success_factors[3]">Allow at least 10 minutes of refrigerated resting after adding ground flaxseed so the texture becomes cohesive.</div>
+<div class="scalar-array-item" data-json-path="$.quality_checks.critical_success_factors[4]">Keep the reserved surface raspberries as dry as practical to prevent unnecessary dilution of the cocoa-skyr layer.</div>
+<div class="scalar-array-item" data-json-path="$.quality_checks.critical_success_factors[5]">Store continuously refrigerated because the recipe contains fresh cultured dairy.</div>
+</div>
+</div>
+</div></section>
+
+<section class="integrity">
+
+    <strong>Source integrity</strong>
+
+    <div>
+        Source JSON SHA-256:
+        <code>69bb3266695589811e2ccf13c6a01cd8f4b42911e104357e329bbcb313d0e1c6</code>
+    </div>
+
+    <div>
+        JSON paths checked:
+        <code>376</code>
+    </div>
+
+    <div>
+        Missing JSON paths:
+        <code>0</code>
+    </div>
+
+</section>
+
+<details>
+
+<summary>
+Original source JSON
+</summary>
+
+<pre>{
+  &quot;schema_version&quot;: &quot;1.0&quot;,
+  &quot;recipe&quot;: {
+    &quot;id&quot;: &quot;cocoa_raspberry_skyr_pots_ground_flaxseed&quot;,
+    &quot;title&quot;: &quot;Cocoa, Raspberry &amp; Skyr Pots with Ground Flaxseed&quot;,
+    &quot;description&quot;: &quot;Creamy cocoa-vanilla skyr layered with lightly crushed raspberries and ground flaxseed for a sharp-sweet, chocolatey evening snack with contrasting smooth, juicy and gently nutty textures.&quot;,
+    &quot;servings&quot;: 2,
+    &quot;difficulty&quot;: &quot;Easy&quot;,
+    &quot;total_time_minutes&quot;: 20,
+    &quot;active_time_minutes&quot;: 10,
+    &quot;passive_time_minutes&quot;: 10,
+    &quot;cuisine&quot;: [
+      &quot;Contemporary&quot;,
+      &quot;British&quot;
+    ],
+    &quot;meal_types&quot;: [
+      &quot;Evening snack&quot;
+    ],
+    &quot;dietary_tags&quot;: [
+      &quot;Vegetarian&quot;,
+      &quot;High protein&quot;,
+      &quot;High fibre&quot;
+    ],
+    &quot;allergens&quot;: [
+      &quot;Milk&quot;
+    ]
+  },
+  &quot;nutrition_per_serving&quot;: {
+    &quot;energy_kcal&quot;: 196,
+    &quot;protein_g&quot;: 19,
+    &quot;carbohydrate_g&quot;: 19,
+    &quot;fat_g&quot;: 5,
+    &quot;saturated_fat_g&quot;: 1,
+    &quot;fibre_g&quot;: 7,
+    &quot;salt_g&quot;: 0.2
+  },
+  &quot;ingredients&quot;: [
+    {
+      &quot;ingredient_id&quot;: &quot;skyr_plain&quot;,
+      &quot;display_name&quot;: &quot;Plain 0% skyr&quot;,
+      &quot;category&quot;: &quot;Dairy&quot;,
+      &quot;required&quot;: true,
+      &quot;quantity_used&quot;: 300,
+      &quot;unit_used&quot;: &quot;g&quot;,
+      &quot;purchase_quantity&quot;: &quot;Buy: 1 tub containing at least 300 g&quot;,
+      &quot;purchase_notes&quot;: &quot;Choose plain, unsweetened skyr. Exact supermarket tub size varies.&quot;,
+      &quot;retailers&quot;: [
+        &quot;Sainsbury&#x27;s&quot;,
+        &quot;Marks &amp; Spencer&quot;
+      ],
+      &quot;preparation&quot;: &quot;Keep refrigerated until immediately before mixing.&quot;,
+      &quot;notes&quot;: &quot;Use: 300 g total, 150 g per serving.&quot;
+    },
+    {
+      &quot;ingredient_id&quot;: &quot;raspberries_fresh&quot;,
+      &quot;display_name&quot;: &quot;Fresh raspberries&quot;,
+      &quot;category&quot;: &quot;Fruit&quot;,
+      &quot;required&quot;: true,
+      &quot;quantity_used&quot;: 140,
+      &quot;unit_used&quot;: &quot;g&quot;,
+      &quot;purchase_quantity&quot;: &quot;Buy: enough fresh raspberries to provide at least 140 g&quot;,
+      &quot;purchase_notes&quot;: &quot;Choose dry, intact berries without visible mould or leaking juice. Exact punnet size varies.&quot;,
+      &quot;retailers&quot;: [
+        &quot;Sainsbury&#x27;s&quot;,
+        &quot;Marks &amp; Spencer&quot;
+      ],
+      &quot;preparation&quot;: &quot;Inspect carefully, rinse gently only if necessary, then dry thoroughly. Reserve 40 g whole for finishing and use 100 g for the raspberry layer.&quot;,
+      &quot;notes&quot;: &quot;Use: 140 g total, 70 g per serving.&quot;
+    },
+    {
+      &quot;ingredient_id&quot;: &quot;ground_flaxseed&quot;,
+      &quot;display_name&quot;: &quot;Ground flaxseed&quot;,
+      &quot;category&quot;: &quot;Seeds&quot;,
+      &quot;required&quot;: true,
+      &quot;quantity_used&quot;: 14,
+      &quot;unit_used&quot;: &quot;g&quot;,
+      &quot;purchase_quantity&quot;: &quot;Buy: 1 standard packet&quot;,
+      &quot;purchase_notes&quot;: &quot;Use ground or milled flaxseed rather than whole seeds so the texture integrates properly and the nutrients are more accessible.&quot;,
+      &quot;retailers&quot;: [
+        &quot;Sainsbury&#x27;s&quot;,
+        &quot;Marks &amp; Spencer&quot;
+      ],
+      &quot;preparation&quot;: &quot;Measure immediately before use.&quot;,
+      &quot;notes&quot;: &quot;Use: 14 g total, 7 g per serving.&quot;
+    },
+    {
+      &quot;ingredient_id&quot;: &quot;cocoa_powder_unsweetened&quot;,
+      &quot;display_name&quot;: &quot;Unsweetened cocoa powder&quot;,
+      &quot;category&quot;: &quot;Baking ingredients&quot;,
+      &quot;required&quot;: true,
+      &quot;quantity_used&quot;: 10,
+      &quot;unit_used&quot;: &quot;g&quot;,
+      &quot;purchase_quantity&quot;: &quot;Buy: 1 standard container&quot;,
+      &quot;purchase_notes&quot;: &quot;Use unsweetened cocoa powder rather than drinking chocolate, which contains added sugar.&quot;,
+      &quot;retailers&quot;: [
+        &quot;Sainsbury&#x27;s&quot;,
+        &quot;Marks &amp; Spencer&quot;
+      ],
+      &quot;preparation&quot;: &quot;Sift or break up visible lumps before mixing.&quot;,
+      &quot;notes&quot;: &quot;Use: 10 g total, 5 g per serving.&quot;
+    },
+    {
+      &quot;ingredient_id&quot;: &quot;runny_honey&quot;,
+      &quot;display_name&quot;: &quot;Runny honey&quot;,
+      &quot;category&quot;: &quot;Sweeteners&quot;,
+      &quot;required&quot;: true,
+      &quot;quantity_used&quot;: 8,
+      &quot;unit_used&quot;: &quot;g&quot;,
+      &quot;purchase_quantity&quot;: &quot;Buy: 1 jar or squeeze bottle&quot;,
+      &quot;purchase_notes&quot;: &quot;Use a mild-flavoured runny honey so it does not dominate the cocoa and raspberry.&quot;,
+      &quot;retailers&quot;: [
+        &quot;Sainsbury&#x27;s&quot;,
+        &quot;Marks &amp; Spencer&quot;
+      ],
+      &quot;preparation&quot;: &quot;Measure accurately before mixing.&quot;,
+      &quot;notes&quot;: &quot;Use: 8 g total. The quantity is intentionally restrained to balance cocoa bitterness without making the snack excessively sweet.&quot;
+    },
+    {
+      &quot;ingredient_id&quot;: &quot;vanilla_extract&quot;,
+      &quot;display_name&quot;: &quot;Vanilla extract&quot;,
+      &quot;category&quot;: &quot;Flavourings&quot;,
+      &quot;required&quot;: true,
+      &quot;quantity_used&quot;: 1,
+      &quot;unit_used&quot;: &quot;tsp&quot;,
+      &quot;purchase_quantity&quot;: &quot;Buy: 1 small bottle&quot;,
+      &quot;purchase_notes&quot;: &quot;Use vanilla extract rather than artificial vanilla essence where practical.&quot;,
+      &quot;retailers&quot;: [
+        &quot;Sainsbury&#x27;s&quot;,
+        &quot;Marks &amp; Spencer&quot;
+      ],
+      &quot;preparation&quot;: &quot;Measure immediately before mixing.&quot;,
+      &quot;notes&quot;: &quot;Use: 1 tsp total.&quot;
+    },
+    {
+      &quot;ingredient_id&quot;: &quot;fine_salt&quot;,
+      &quot;display_name&quot;: &quot;Fine salt&quot;,
+      &quot;category&quot;: &quot;Seasoning&quot;,
+      &quot;required&quot;: true,
+      &quot;quantity_used&quot;: 0.0625,
+      &quot;unit_used&quot;: &quot;tsp&quot;,
+      &quot;purchase_quantity&quot;: &quot;Buy: 1 standard container&quot;,
+      &quot;purchase_notes&quot;: &quot;Fine table salt or fine sea salt is suitable.&quot;,
+      &quot;retailers&quot;: [
+        &quot;Sainsbury&#x27;s&quot;,
+        &quot;Marks &amp; Spencer&quot;
+      ],
+      &quot;preparation&quot;: &quot;Measure accurately before mixing.&quot;,
+      &quot;notes&quot;: &quot;Use: 0.0625 tsp total. The small quantity sharpens the cocoa flavour without making the finished snack taste salty.&quot;
+    }
+  ],
+  &quot;equipment&quot;: [
+    {
+      &quot;equipment_id&quot;: &quot;kitchen_scales&quot;,
+      &quot;display_name&quot;: &quot;Kitchen scales&quot;,
+      &quot;required&quot;: true,
+      &quot;notes&quot;: &quot;Used for accurate skyr, raspberry, cocoa, flaxseed and honey quantities.&quot;
+    },
+    {
+      &quot;equipment_id&quot;: &quot;measuring_spoons&quot;,
+      &quot;display_name&quot;: &quot;Measuring spoons&quot;,
+      &quot;required&quot;: true,
+      &quot;notes&quot;: &quot;Used for vanilla extract and fine salt.&quot;
+    },
+    {
+      &quot;equipment_id&quot;: &quot;mixing_bowl&quot;,
+      &quot;display_name&quot;: &quot;Medium mixing bowl&quot;,
+      &quot;required&quot;: true,
+      &quot;notes&quot;: &quot;Used to prepare the cocoa-skyr mixture.&quot;
+    },
+    {
+      &quot;equipment_id&quot;: &quot;small_bowl&quot;,
+      &quot;display_name&quot;: &quot;Small mixing bowl&quot;,
+      &quot;required&quot;: true,
+      &quot;notes&quot;: &quot;Used to crush the raspberry layer.&quot;
+    },
+    {
+      &quot;equipment_id&quot;: &quot;lidded_containers&quot;,
+      &quot;display_name&quot;: &quot;2 individual lidded dessert or snack pots&quot;,
+      &quot;required&quot;: true,
+      &quot;notes&quot;: &quot;Each pot should comfortably hold one complete serving.&quot;
+    }
+  ],
+  &quot;mise_en_place&quot;: [
+    {
+      &quot;prep_id&quot;: &quot;PREP_01&quot;,
+      &quot;ingredient_ids&quot;: [
+        &quot;raspberries_fresh&quot;
+      ],
+      &quot;instruction&quot;: &quot;Inspect 140 g raspberries and discard any mouldy, leaking or damaged berries. If washing is necessary, rinse gently under cold running water and dry thoroughly on clean kitchen paper without crushing. Weigh 100 g into the small mixing bowl and reserve the remaining 40 g whole for final assembly.&quot;,
+      &quot;endpoint&quot;: &quot;100 g clean raspberries are allocated to the crushed fruit layer and 40 g intact raspberries are reserved for finishing.&quot;
+    },
+    {
+      &quot;prep_id&quot;: &quot;PREP_02&quot;,
+      &quot;ingredient_ids&quot;: [
+        &quot;skyr_plain&quot;,
+        &quot;cocoa_powder_unsweetened&quot;,
+        &quot;ground_flaxseed&quot;,
+        &quot;runny_honey&quot;,
+        &quot;vanilla_extract&quot;,
+        &quot;fine_salt&quot;
+      ],
+      &quot;instruction&quot;: &quot;Weigh 300 g plain skyr, 10 g cocoa powder, 14 g ground flaxseed and 8 g honey. Measure 1 tsp vanilla extract and 0.0625 tsp fine salt. Break apart or sift any compacted cocoa powder before mixing.&quot;,
+      &quot;endpoint&quot;: &quot;All non-fruit ingredients are accurately measured and ready for immediate assembly.&quot;
+    }
+  ],
+  &quot;procedure&quot;: [
+    {
+      &quot;step_id&quot;: &quot;STEP_01&quot;,
+      &quot;section&quot;: &quot;Raspberry layer&quot;,
+      &quot;title&quot;: &quot;Crush the raspberries&quot;,
+      &quot;depends_on&quot;: [],
+      &quot;parallel_group&quot;: &quot;P01&quot;,
+      &quot;ingredient_ids&quot;: [
+        &quot;raspberries_fresh&quot;
+      ],
+      &quot;equipment_ids&quot;: [
+        &quot;small_bowl&quot;
+      ],
+      &quot;instruction&quot;: &quot;Place the allocated 100 g raspberries in the small bowl. Using the back of a spoon, press and stir until approximately two-thirds of the berries have broken down and released juice while small pieces of fruit remain identifiable.&quot;,
+      &quot;heat_source&quot;: null,
+      &quot;heat_level&quot;: null,
+      &quot;temperature_c&quot;: null,
+      &quot;duration_min_minutes&quot;: 1,
+      &quot;duration_max_minutes&quot;: 2,
+      &quot;endpoint&quot;: &quot;The raspberries form a thick, juicy spoonable mixture with visible pieces rather than a completely smooth puree.&quot;,
+      &quot;corrective_actions&quot;: [
+        {
+          &quot;condition&quot;: &quot;The berries remain almost completely whole.&quot;,
+          &quot;action&quot;: &quot;Continue pressing firmly against the side of the bowl in 15-second intervals until sufficient juice is released.&quot;
+        },
+        {
+          &quot;condition&quot;: &quot;The mixture becomes completely smooth.&quot;,
+          &quot;action&quot;: &quot;Stop processing immediately; the flavour remains suitable but the intended fruit-piece texture will be reduced.&quot;
+        }
+      ],
+      &quot;critical&quot;: false
+    },
+    {
+      &quot;step_id&quot;: &quot;STEP_02&quot;,
+      &quot;section&quot;: &quot;Cocoa skyr&quot;,
+      &quot;title&quot;: &quot;Mix the cocoa-skyr base&quot;,
+      &quot;depends_on&quot;: [],
+      &quot;parallel_group&quot;: &quot;P01&quot;,
+      &quot;ingredient_ids&quot;: [
+        &quot;skyr_plain&quot;,
+        &quot;cocoa_powder_unsweetened&quot;,
+        &quot;runny_honey&quot;,
+        &quot;vanilla_extract&quot;,
+        &quot;fine_salt&quot;
+      ],
+      &quot;equipment_ids&quot;: [
+        &quot;mixing_bowl&quot;,
+        &quot;measuring_spoons&quot;,
+        &quot;kitchen_scales&quot;
+      ],
+      &quot;instruction&quot;: &quot;Place 300 g skyr in the mixing bowl. Add 10 g cocoa powder, 8 g honey, 1 tsp vanilla extract and 0.0625 tsp fine salt. Stir slowly at first to incorporate the cocoa without dispersing dry powder into the air, then stir more vigorously until the colour is uniform and no visible cocoa or honey streaks remain.&quot;,
+      &quot;heat_source&quot;: null,
+      &quot;heat_level&quot;: null,
+      &quot;temperature_c&quot;: null,
+      &quot;duration_min_minutes&quot;: 2,
+      &quot;duration_max_minutes&quot;: 3,
+      &quot;endpoint&quot;: &quot;The mixture is smooth, glossy and uniformly chocolate-brown with no dry cocoa pockets or unmixed skyr.&quot;,
+      &quot;corrective_actions&quot;: [
+        {
+          &quot;condition&quot;: &quot;Dry cocoa remains around the sides or base of the bowl.&quot;,
+          &quot;action&quot;: &quot;Scrape the bowl thoroughly and continue mixing until all cocoa is fully dispersed.&quot;
+        },
+        {
+          &quot;condition&quot;: &quot;The mixture appears unusually stiff.&quot;,
+          &quot;action&quot;: &quot;Continue stirring for 20-30 seconds before making any adjustment; skyr normally loosens slightly with vigorous mixing.&quot;
+        }
+      ],
+      &quot;critical&quot;: true
+    },
+    {
+      &quot;step_id&quot;: &quot;STEP_03&quot;,
+      &quot;section&quot;: &quot;Cocoa skyr&quot;,
+      &quot;title&quot;: &quot;Incorporate the ground flaxseed&quot;,
+      &quot;depends_on&quot;: [
+        &quot;STEP_02&quot;
+      ],
+      &quot;parallel_group&quot;: null,
+      &quot;ingredient_ids&quot;: [
+        &quot;ground_flaxseed&quot;
+      ],
+      &quot;equipment_ids&quot;: [
+        &quot;mixing_bowl&quot;
+      ],
+      &quot;instruction&quot;: &quot;Add the measured 14 g ground flaxseed to the cocoa-skyr mixture. Fold and stir until the flaxseed is evenly dispersed and no concentrated dry patches remain.&quot;,
+      &quot;heat_source&quot;: null,
+      &quot;heat_level&quot;: null,
+      &quot;temperature_c&quot;: null,
+      &quot;duration_min_minutes&quot;: 1,
+      &quot;duration_max_minutes&quot;: 2,
+      &quot;endpoint&quot;: &quot;The flaxseed is evenly distributed throughout the cocoa skyr and the mixture remains thick but spoonable.&quot;,
+      &quot;corrective_actions&quot;: [
+        {
+          &quot;condition&quot;: &quot;Ground flaxseed forms dry clumps.&quot;,
+          &quot;action&quot;: &quot;Press the clumps against the side of the bowl with the spoon and continue folding until fully dispersed.&quot;
+        }
+      ],
+      &quot;critical&quot;: false
+    },
+    {
+      &quot;step_id&quot;: &quot;STEP_04&quot;,
+      &quot;section&quot;: &quot;Assembly&quot;,
+      &quot;title&quot;: &quot;Layer the snack pots&quot;,
+      &quot;depends_on&quot;: [
+        &quot;STEP_01&quot;,
+        &quot;STEP_03&quot;
+      ],
+      &quot;parallel_group&quot;: null,
+      &quot;ingredient_ids&quot;: [
+        &quot;skyr_plain&quot;,
+        &quot;cocoa_powder_unsweetened&quot;,
+        &quot;ground_flaxseed&quot;,
+        &quot;runny_honey&quot;,
+        &quot;vanilla_extract&quot;,
+        &quot;fine_salt&quot;,
+        &quot;raspberries_fresh&quot;
+      ],
+      &quot;equipment_ids&quot;: [
+        &quot;lidded_containers&quot;,
+        &quot;kitchen_scales&quot;
+      ],
+      &quot;instruction&quot;: &quot;Divide approximately half of the cocoa-skyr mixture between the 2 snack pots. Divide the crushed raspberry mixture equally over the cocoa layer. Add the remaining cocoa-skyr mixture equally over the raspberries. Use the tip of a spoon to make one or two shallow folds through each pot so visible raspberry streaks remain rather than fully mixing the layers.&quot;,
+      &quot;heat_source&quot;: null,
+      &quot;heat_level&quot;: null,
+      &quot;temperature_c&quot;: null,
+      &quot;duration_min_minutes&quot;: 3,
+      &quot;duration_max_minutes&quot;: 4,
+      &quot;endpoint&quot;: &quot;Both pots contain approximately equal portions with distinct cocoa-skyr and raspberry marbling rather than a uniformly mixed pink-brown colour.&quot;,
+      &quot;corrective_actions&quot;: [
+        {
+          &quot;condition&quot;: &quot;One pot is visibly heavier than the other.&quot;,
+          &quot;action&quot;: &quot;Use the kitchen scales to transfer small amounts between pots until the filled weights are approximately equal.&quot;
+        },
+        {
+          &quot;condition&quot;: &quot;The raspberry layer becomes completely mixed into the cocoa skyr.&quot;,
+          &quot;action&quot;: &quot;Stop stirring; flavour remains correct even though visual contrast will be reduced.&quot;
+        }
+      ],
+      &quot;critical&quot;: false
+    },
+    {
+      &quot;step_id&quot;: &quot;STEP_05&quot;,
+      &quot;section&quot;: &quot;Finishing&quot;,
+      &quot;title&quot;: &quot;Add the reserved raspberries&quot;,
+      &quot;depends_on&quot;: [
+        &quot;STEP_04&quot;
+      ],
+      &quot;parallel_group&quot;: null,
+      &quot;ingredient_ids&quot;: [
+        &quot;raspberries_fresh&quot;
+      ],
+      &quot;equipment_ids&quot;: [
+        &quot;lidded_containers&quot;
+      ],
+      &quot;instruction&quot;: &quot;Divide the reserved 40 g whole raspberries equally between the 2 pots, approximately 20 g per serving. Place the berries on the surface without pressing them into the cocoa-skyr mixture.&quot;,
+      &quot;heat_source&quot;: null,
+      &quot;heat_level&quot;: null,
+      &quot;temperature_c&quot;: null,
+      &quot;duration_min_minutes&quot;: 1,
+      &quot;duration_max_minutes&quot;: 2,
+      &quot;endpoint&quot;: &quot;Each pot is topped with an approximately equal quantity of intact fresh raspberries.&quot;,
+      &quot;corrective_actions&quot;: [
+        {
+          &quot;condition&quot;: &quot;A reserved raspberry collapses or releases excessive juice.&quot;,
+          &quot;action&quot;: &quot;Place it into the raspberry-marbling layer rather than using it as a surface garnish.&quot;
+        }
+      ],
+      &quot;critical&quot;: false
+    },
+    {
+      &quot;step_id&quot;: &quot;STEP_06&quot;,
+      &quot;section&quot;: &quot;Chilling&quot;,
+      &quot;title&quot;: &quot;Allow the flaxseed to hydrate&quot;,
+      &quot;depends_on&quot;: [
+        &quot;STEP_05&quot;
+      ],
+      &quot;parallel_group&quot;: null,
+      &quot;ingredient_ids&quot;: [],
+      &quot;equipment_ids&quot;: [
+        &quot;lidded_containers&quot;
+      ],
+      &quot;instruction&quot;: &quot;Fit the lids and refrigerate the assembled pots at 5°C or below for at least 10 minutes before serving. This brief rest allows the ground flaxseed to hydrate slightly and the cocoa mixture to become more cohesive.&quot;,
+      &quot;heat_source&quot;: &quot;Refrigerator&quot;,
+      &quot;heat_level&quot;: null,
+      &quot;temperature_c&quot;: 5,
+      &quot;duration_min_minutes&quot;: 10,
+      &quot;duration_max_minutes&quot;: null,
+      &quot;endpoint&quot;: &quot;The cocoa-skyr mixture is chilled, creamy and cohesive, with the raspberry marbling still visible and no dry flaxseed remaining.&quot;,
+      &quot;corrective_actions&quot;: [
+        {
+          &quot;condition&quot;: &quot;The mixture appears noticeably thicker than desired after chilling.&quot;,
+          &quot;action&quot;: &quot;Stir each pot once or twice immediately before eating; the raspberry juices will loosen the texture naturally without requiring additional ingredients.&quot;
+        }
+      ],
+      &quot;critical&quot;: false
+    }
+  ],
+  &quot;plating&quot;: [
+    {
+      &quot;step_id&quot;: &quot;PLATE_01&quot;,
+      &quot;instruction&quot;: &quot;Serve one chilled pot per person. Eat through the layers rather than fully stirring before the first spoonful so each serving retains contrast between dark cocoa skyr, tart raspberry ripple, fresh whole berries and the subtle nutty texture of ground flaxseed.&quot;
+    }
+  ],
+  &quot;storage&quot;: {
+    &quot;refrigerator_days&quot;: 2,
+    &quot;freezer_months&quot;: null,
+    &quot;storage_instructions&quot;: &quot;Store the covered pots at 5°C or below and consume within 2 days. The raspberries will gradually soften and release additional juice during storage, so the best texture is obtained within 24 hours. Do not leave the skyr-based pots unrefrigerated for more than 2 hours.&quot;,
+    &quot;reheating_methods&quot;: []
+  },
+  &quot;shopping&quot;: {
+    &quot;sainsburys&quot;: [],
+    &quot;marks_and_spencer&quot;: [],
+    &quot;either_retailer&quot;: [
+      &quot;Plain 0% skyr: buy 1 tub containing at least 300 g&quot;,
+      &quot;Fresh raspberries: buy enough to provide at least 140 g&quot;,
+      &quot;Ground or milled flaxseed: buy 1 standard packet&quot;,
+      &quot;Unsweetened cocoa powder: buy 1 standard container&quot;,
+      &quot;Runny honey: buy 1 jar or squeeze bottle&quot;,
+      &quot;Vanilla extract: buy 1 small bottle&quot;,
+      &quot;Fine salt: buy 1 standard container if not already stocked&quot;
+    ]
+  },
+  &quot;quality_checks&quot;: {
+    &quot;protein_requirement_met&quot;: true,
+    &quot;protein_g_per_serving&quot;: 19,
+    &quot;restaurant_quality_features&quot;: [
+      &quot;Unsweetened cocoa is balanced with a deliberately small amount of honey, vanilla and salt so the chocolate flavour remains dark rather than cloying.&quot;,
+      &quot;Raspberries are used in both crushed and whole form to create two distinct fruit textures.&quot;,
+      &quot;The raspberry layer remains visibly marbled through the cocoa skyr rather than being completely homogenised.&quot;,
+      &quot;Ground flaxseed is incorporated into the dairy base and allowed a short hydration period so it contributes body without remaining dry or powdery.&quot;,
+      &quot;A small measured quantity of salt intensifies cocoa flavour and moderates perceived bitterness without making the snack taste salty.&quot;,
+      &quot;The use of high-protein skyr provides substantial protein and creaminess while keeping the snack close to the 200 kcal evening-snack target.&quot;
+    ],
+    &quot;nutrition_notes&quot;: [
+      &quot;Estimated nutrition represents one complete evening snack including skyr, raspberries, cocoa, flaxseed, honey, vanilla and salt.&quot;,
+      &quot;This recipe is designed around the approximately 200 kcal evening-snack target.&quot;,
+      &quot;The general 30 g protein requirement does not apply to evening snacks under the specified meal-plan rules; approximately 19 g protein per serving is therefore compliant.&quot;,
+      &quot;Skyr provides the majority of the protein while ground flaxseed contributes fibre and predominantly unsaturated fat.&quot;,
+      &quot;Raspberries and cocoa contribute additional fibre and polyphenol-rich plant ingredients.&quot;,
+      &quot;Nutrition values are estimates and will vary with the exact skyr and cocoa products used.&quot;
+    ],
+    &quot;critical_success_factors&quot;: [
+      &quot;Use unsweetened cocoa powder rather than drinking chocolate so sweetness remains controlled.&quot;,
+      &quot;Mix the cocoa completely into the skyr before adding flaxseed to avoid persistent dry cocoa pockets.&quot;,
+      &quot;Do not over-process the raspberries; retaining small fruit pieces gives the finished pots better textural contrast.&quot;,
+      &quot;Allow at least 10 minutes of refrigerated resting after adding ground flaxseed so the texture becomes cohesive.&quot;,
+      &quot;Keep the reserved surface raspberries as dry as practical to prevent unnecessary dilution of the cocoa-skyr layer.&quot;,
+      &quot;Store continuously refrigerated because the recipe contains fresh cultured dairy.&quot;
+    ]
+  }
+}</pre>
+
+</details>
+
+</main>
+
+</body>
+
+</html>
