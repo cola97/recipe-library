@@ -1,0 +1,761 @@
+{
+  "schema_version": "1.0",
+  "recipe": {
+    "id": "gochujang_tempeh_aubergine_mushroom_rice_bowls_sesame_cabbage_cucumber",
+    "title": "Gochujang Tempeh, Aubergine & Mushroom Rice Bowls with Sesame Cabbage and Cucumber",
+    "description": "Korean-inspired brown rice bowls with deeply browned gochujang-glazed tempeh, caramelised aubergine and mushrooms, balanced by crisp sesame cabbage and cool cucumber.",
+    "servings": 2,
+    "difficulty": "Moderate",
+    "total_time_minutes": 45,
+    "active_time_minutes": 34,
+    "passive_time_minutes": 11,
+    "cuisine": [
+      "Korean-inspired"
+    ],
+    "meal_types": [
+      "Dinner"
+    ],
+    "dietary_tags": [
+      "Lacto-ovo vegetarian",
+      "High protein",
+      "High fibre"
+    ],
+    "allergens": [
+      "Soya",
+      "Sesame",
+      "Wheat"
+    ]
+  },
+  "nutrition_per_serving": {
+    "energy_kcal": 610,
+    "protein_g": 36.0,
+    "carbohydrate_g": 63.0,
+    "fat_g": 25.0,
+    "saturated_fat_g": 5.0,
+    "fibre_g": 12.0,
+    "salt_g": 2.0
+  },
+  "ingredients": [
+    {
+      "ingredient_id": "tempeh_plain",
+      "display_name": "Plain tempeh",
+      "category": "Plant protein",
+      "required": true,
+      "quantity_used": 300,
+      "unit_used": "g",
+      "purchase_quantity": "1 or more packs",
+      "purchase_notes": "Use 300 g in total; retail pack size may vary.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Keep chilled until preparation.",
+      "notes": "Use plain unflavoured tempeh so the gochujang glaze defines the dish."
+    },
+    {
+      "ingredient_id": "brown_basmati_rice_dry",
+      "display_name": "Brown basmati rice",
+      "category": "Grains",
+      "required": true,
+      "quantity_used": 80,
+      "unit_used": "g",
+      "purchase_quantity": "1 bag",
+      "purchase_notes": "Use 80 g dry rice.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Rinse thoroughly before cooking.",
+      "notes": ""
+    },
+    {
+      "ingredient_id": "aubergine",
+      "display_name": "Medium aubergine",
+      "category": "Vegetables",
+      "required": true,
+      "quantity_used": 1,
+      "unit_used": "integer",
+      "purchase_quantity": "1 medium aubergine",
+      "purchase_notes": "Choose a firm aubergine with smooth skin.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Wash and dry before cutting.",
+      "notes": "Whole aubergines do not scale perfectly for every serving quantity; round sensibly when scaling."
+    },
+    {
+      "ingredient_id": "chestnut_mushrooms",
+      "display_name": "Chestnut mushrooms",
+      "category": "Vegetables",
+      "required": true,
+      "quantity_used": 200,
+      "unit_used": "g",
+      "purchase_quantity": "1 pack",
+      "purchase_notes": "Use 200 g.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Brush or wipe clean rather than soaking.",
+      "notes": ""
+    },
+    {
+      "ingredient_id": "red_cabbage",
+      "display_name": "Red cabbage",
+      "category": "Vegetables",
+      "required": true,
+      "quantity_used": 160,
+      "unit_used": "g",
+      "purchase_quantity": "1 small cabbage or prepared pack",
+      "purchase_notes": "Use 160 g.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Remove any damaged outer leaves before slicing.",
+      "notes": ""
+    },
+    {
+      "ingredient_id": "cucumber",
+      "display_name": "Small cucumber",
+      "category": "Vegetables",
+      "required": true,
+      "quantity_used": 1,
+      "unit_used": "integer",
+      "purchase_quantity": "1 small cucumber",
+      "purchase_notes": "",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Wash and dry before cutting.",
+      "notes": "A standard larger cucumber may be used; reserve any excess for another meal."
+    },
+    {
+      "ingredient_id": "gochujang",
+      "display_name": "Gochujang",
+      "category": "Condiments",
+      "required": true,
+      "quantity_used": 2,
+      "unit_used": "tbsp",
+      "purchase_quantity": "1 tub or jar",
+      "purchase_notes": "Use 2 tbsp. Check the label for vegetarian suitability and allergens.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": "Gochujang commonly contains wheat and soya."
+    },
+    {
+      "ingredient_id": "soy_sauce_reduced_salt",
+      "display_name": "Reduced-salt soy sauce",
+      "category": "Condiments",
+      "required": true,
+      "quantity_used": 1,
+      "unit_used": "tbsp",
+      "purchase_quantity": "1 bottle",
+      "purchase_notes": "Use 1 tbsp.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": ""
+    },
+    {
+      "ingredient_id": "rice_vinegar",
+      "display_name": "Rice vinegar",
+      "category": "Condiments",
+      "required": true,
+      "quantity_used": 2,
+      "unit_used": "tbsp",
+      "purchase_quantity": "1 bottle",
+      "purchase_notes": "Use 2 tbsp in total.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": "Use 1 tbsp in the glaze and 1 tbsp for the cabbage."
+    },
+    {
+      "ingredient_id": "sesame_oil_toasted",
+      "display_name": "Toasted sesame oil",
+      "category": "Oils",
+      "required": true,
+      "quantity_used": 2,
+      "unit_used": "tsp",
+      "purchase_quantity": "1 bottle",
+      "purchase_notes": "Use 2 tsp in total.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": "Use 1 tsp in the glaze and 1 tsp in the cabbage."
+    },
+    {
+      "ingredient_id": "rapeseed_oil",
+      "display_name": "Rapeseed oil",
+      "category": "Oils",
+      "required": true,
+      "quantity_used": 2,
+      "unit_used": "tsp",
+      "purchase_quantity": "1 bottle",
+      "purchase_notes": "Use 2 tsp in total.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": "Used for the aubergine and pan-browning the tempeh."
+    },
+    {
+      "ingredient_id": "runny_honey",
+      "display_name": "Runny honey",
+      "category": "Sweeteners",
+      "required": true,
+      "quantity_used": 1,
+      "unit_used": "tsp",
+      "purchase_quantity": "1 jar or squeezy bottle",
+      "purchase_notes": "Use 1 tsp.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": "Balances the heat and fermentation of the gochujang."
+    },
+    {
+      "ingredient_id": "fresh_ginger",
+      "display_name": "Fresh root ginger",
+      "category": "Aromatics",
+      "required": true,
+      "quantity_used": 2,
+      "unit_used": "tsp",
+      "purchase_quantity": "1 piece",
+      "purchase_notes": "Use 2 tsp finely grated ginger.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Peel if necessary and finely grate.",
+      "notes": ""
+    },
+    {
+      "ingredient_id": "garlic",
+      "display_name": "Garlic cloves",
+      "category": "Aromatics",
+      "required": true,
+      "quantity_used": 2,
+      "unit_used": "integer",
+      "purchase_quantity": "1 bulb",
+      "purchase_notes": "Use 2 cloves.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Peel and finely grate or crush.",
+      "notes": ""
+    },
+    {
+      "ingredient_id": "sesame_seeds",
+      "display_name": "Sesame seeds",
+      "category": "Seeds",
+      "required": true,
+      "quantity_used": 2,
+      "unit_used": "tsp",
+      "purchase_quantity": "1 pack",
+      "purchase_notes": "Use 2 tsp.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": ""
+    },
+    {
+      "ingredient_id": "fine_salt",
+      "display_name": "Fine salt",
+      "category": "Seasoning",
+      "required": true,
+      "quantity_used": 0.25,
+      "unit_used": "tsp",
+      "purchase_quantity": "1 container",
+      "purchase_notes": "Use 1/4 tsp in the sesame cabbage.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": "The gochujang and soy sauce provide most of the dish's salt."
+    },
+    {
+      "ingredient_id": "black_pepper_ground",
+      "display_name": "Ground black pepper",
+      "category": "Seasoning",
+      "required": true,
+      "quantity_used": 0.25,
+      "unit_used": "tsp",
+      "purchase_quantity": "1 container",
+      "purchase_notes": "Use 1/4 tsp.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": ""
+    },
+    {
+      "ingredient_id": "water",
+      "display_name": "Water",
+      "category": "Liquid",
+      "required": true,
+      "quantity_used": 2,
+      "unit_used": "tbsp",
+      "purchase_quantity": "",
+      "purchase_notes": "Use up to 2 tbsp to loosen the glaze.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": ""
+    }
+  ],
+  "equipment": [
+    {
+      "equipment_id": "rice_cooker",
+      "display_name": "Rice cooker",
+      "required": true,
+      "notes": "Used for unattended rice cooking."
+    },
+    {
+      "equipment_id": "air_fryer",
+      "display_name": "Air fryer",
+      "required": true,
+      "notes": "Used to caramelise the aubergine with minimal active supervision."
+    },
+    {
+      "equipment_id": "gas_hob",
+      "display_name": "Gas hob",
+      "required": true,
+      "notes": ""
+    },
+    {
+      "equipment_id": "frying_pan",
+      "display_name": "Large heavy frying pan",
+      "required": true,
+      "notes": "Use a broad pan so the tempeh and mushrooms brown rather than steam."
+    },
+    {
+      "equipment_id": "mixing_bowl",
+      "display_name": "Medium mixing bowl",
+      "required": true,
+      "notes": "For the sesame cabbage and cucumber."
+    },
+    {
+      "equipment_id": "small_bowl",
+      "display_name": "Small bowl",
+      "required": true,
+      "notes": "For the gochujang glaze."
+    },
+    {
+      "equipment_id": "chef_knife",
+      "display_name": "Chef's knife",
+      "required": true,
+      "notes": ""
+    },
+    {
+      "equipment_id": "chopping_board",
+      "display_name": "Chopping board",
+      "required": true,
+      "notes": ""
+    },
+    {
+      "equipment_id": "fine_grater",
+      "display_name": "Fine grater or Microplane",
+      "required": true,
+      "notes": "For ginger and garlic."
+    },
+    {
+      "equipment_id": "measuring_spoons",
+      "display_name": "Measuring spoons",
+      "required": true,
+      "notes": ""
+    },
+    {
+      "equipment_id": "kitchen_scales",
+      "display_name": "Kitchen scales",
+      "required": true,
+      "notes": ""
+    },
+    {
+      "equipment_id": "spatula",
+      "display_name": "Heatproof spatula",
+      "required": true,
+      "notes": ""
+    }
+  ],
+  "mise_en_place": [
+    {
+      "prep_id": "PREP_01",
+      "ingredient_ids": [
+        "brown_basmati_rice_dry"
+      ],
+      "instruction": "Rinse the brown basmati rice under cold running water until the water is much less cloudy, then drain thoroughly.",
+      "endpoint": "The rice is rinsed, drained and ready for the rice cooker."
+    },
+    {
+      "prep_id": "PREP_02",
+      "ingredient_ids": [
+        "aubergine",
+        "chestnut_mushrooms",
+        "tempeh_plain"
+      ],
+      "instruction": "Trim the aubergine and cut it into approximately 25 mm cubes, retaining the skin. Trim the mushroom stem ends and cut the mushrooms into halves or quarters so the pieces are approximately 25 mm across. Cut the tempeh into approximately 20 mm cubes.",
+      "endpoint": "The aubergine, mushrooms and tempeh are in similarly substantial bite-sized pieces that can brown without drying out."
+    },
+    {
+      "prep_id": "PREP_03",
+      "ingredient_ids": [
+        "red_cabbage",
+        "cucumber"
+      ],
+      "instruction": "Remove any damaged outer cabbage leaves and the hard core, then slice 160 g cabbage very finely into approximately 2 mm ribbons. Trim the cucumber and cut it into thin half-moons approximately 3 mm thick.",
+      "endpoint": "The cabbage is finely shredded and the cucumber is thinly sliced for a crisp, fresh contrast."
+    },
+    {
+      "prep_id": "PREP_04",
+      "ingredient_ids": [
+        "gochujang",
+        "soy_sauce_reduced_salt",
+        "rice_vinegar",
+        "sesame_oil_toasted",
+        "runny_honey",
+        "fresh_ginger",
+        "garlic",
+        "water"
+      ],
+      "instruction": "Finely grate the ginger and garlic. In the small bowl, combine 2 tbsp gochujang, 1 tbsp reduced-salt soy sauce, 1 tbsp rice vinegar, 1 tsp toasted sesame oil, 1 tsp runny honey, the grated ginger and garlic, and 1 tbsp water. Stir until smooth, keeping the remaining 1 tbsp water available for adjustment.",
+      "endpoint": "The glaze is smooth, glossy and thickly pourable rather than paste-like."
+    },
+    {
+      "prep_id": "PREP_05",
+      "ingredient_ids": [
+        "red_cabbage",
+        "cucumber",
+        "rice_vinegar",
+        "sesame_oil_toasted",
+        "fine_salt",
+        "sesame_seeds"
+      ],
+      "instruction": "Combine the shredded cabbage with the cucumber, the remaining 1 tbsp rice vinegar, the remaining 1 tsp toasted sesame oil, 1/4 tsp fine salt and 1 tsp sesame seeds. Toss firmly for approximately 30 seconds, lightly squeezing the cabbage with clean hands or tongs so it begins to soften without becoming limp.",
+      "endpoint": "The cabbage is glossy, lightly softened and still crisp, while the cucumber remains firm."
+    }
+  ],
+  "procedure": [
+    {
+      "step_id": "STEP_01",
+      "section": "Rice",
+      "title": "Cook the brown rice",
+      "depends_on": [
+        "PREP_01"
+      ],
+      "parallel_group": "P01",
+      "ingredient_ids": [
+        "brown_basmati_rice_dry"
+      ],
+      "equipment_ids": [
+        "rice_cooker"
+      ],
+      "instruction": "Place the rinsed rice in the rice cooker and add the quantity of water specified by the rice-cooker manufacturer for 80 g brown basmati rice. Start the brown-rice or standard rice programme as appropriate for the appliance.",
+      "heat_source": "rice_cooker",
+      "heat_level": "brown-rice or appropriate automatic programme",
+      "temperature_c": null,
+      "duration_min_minutes": 25,
+      "duration_max_minutes": 35,
+      "endpoint": "The rice is tender throughout with distinct grains and no hard centre or pool of free water.",
+      "corrective_actions": [
+        {
+          "condition": "The rice is slightly firm when the automatic cycle finishes.",
+          "action": "Leave it covered on the keep-warm setting for another 5 minutes before fluffing."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_02",
+      "section": "Aubergine",
+      "title": "Air-fry the aubergine",
+      "depends_on": [
+        "PREP_02"
+      ],
+      "parallel_group": "P01",
+      "ingredient_ids": [
+        "aubergine",
+        "rapeseed_oil",
+        "black_pepper_ground"
+      ],
+      "equipment_ids": [
+        "air_fryer"
+      ],
+      "instruction": "Toss the aubergine with 1 tsp rapeseed oil and 1/4 tsp black pepper. Arrange it in a single layer in the air-fryer basket. Air-fry at 200°C for approximately 13-16 minutes, shaking once after approximately 8 minutes.",
+      "heat_source": "air_fryer",
+      "heat_level": "200°C",
+      "temperature_c": 200,
+      "duration_min_minutes": 13,
+      "duration_max_minutes": 16,
+      "endpoint": "The aubergine is fully tender and creamy inside with deeply browned, slightly caramelised edges.",
+      "corrective_actions": [
+        {
+          "condition": "The aubergine edges darken before the centres are tender.",
+          "action": "Reduce the air-fryer temperature to 185°C and continue cooking until the centres yield easily when pressed."
+        },
+        {
+          "condition": "The aubergine remains pale after 16 minutes.",
+          "action": "Continue cooking for 2-3 minutes, shaking once, until distinct golden-brown edges develop."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_03",
+      "section": "Tempeh and mushrooms",
+      "title": "Brown the tempeh",
+      "depends_on": [
+        "PREP_02"
+      ],
+      "parallel_group": "P01",
+      "ingredient_ids": [
+        "tempeh_plain",
+        "rapeseed_oil"
+      ],
+      "equipment_ids": [
+        "gas_hob",
+        "frying_pan",
+        "spatula"
+      ],
+      "instruction": "Heat the frying pan over medium-high heat for approximately 1 minute. Add the remaining 1 tsp rapeseed oil, followed by the tempeh cubes. Spread them into one layer and cook for approximately 6-8 minutes, turning only every 1-2 minutes so multiple faces become deeply golden.",
+      "heat_source": "gas_hob",
+      "heat_level": "medium-high",
+      "temperature_c": null,
+      "duration_min_minutes": 6,
+      "duration_max_minutes": 8,
+      "endpoint": "The tempeh is hot throughout and has clear golden-brown crusting on several surfaces.",
+      "corrective_actions": [
+        {
+          "condition": "The tempeh starts catching before browning evenly.",
+          "action": "Reduce the heat slightly and allow the pieces to release naturally before turning them."
+        },
+        {
+          "condition": "The tempeh remains pale and soft.",
+          "action": "Increase the heat slightly and leave the pieces undisturbed for longer between turns."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_04",
+      "section": "Tempeh and mushrooms",
+      "title": "Brown the mushrooms",
+      "depends_on": [
+        "STEP_03"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "chestnut_mushrooms"
+      ],
+      "equipment_ids": [
+        "gas_hob",
+        "frying_pan",
+        "spatula"
+      ],
+      "instruction": "Push the browned tempeh to the outer edge of the pan. Add the mushrooms to the centre in as close to a single layer as possible. Cook over medium-high heat for approximately 5-7 minutes, stirring only occasionally, until their released moisture has evaporated and the cut surfaces are strongly browned.",
+      "heat_source": "gas_hob",
+      "heat_level": "medium-high",
+      "temperature_c": null,
+      "duration_min_minutes": 5,
+      "duration_max_minutes": 7,
+      "endpoint": "The mushrooms are reduced, juicy inside and browned rather than grey or watery, with no pool of liquid remaining in the pan.",
+      "corrective_actions": [
+        {
+          "condition": "The mushrooms release substantial liquid and begin simmering.",
+          "action": "Keep the pan uncovered, maintain medium-high heat and avoid stirring until the visible liquid has evaporated."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_05",
+      "section": "Glaze",
+      "title": "Glaze the tempeh and mushrooms",
+      "depends_on": [
+        "STEP_04",
+        "PREP_04"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "gochujang",
+        "soy_sauce_reduced_salt",
+        "rice_vinegar",
+        "sesame_oil_toasted",
+        "runny_honey",
+        "fresh_ginger",
+        "garlic",
+        "water",
+        "tempeh_plain",
+        "chestnut_mushrooms"
+      ],
+      "equipment_ids": [
+        "gas_hob",
+        "frying_pan",
+        "spatula"
+      ],
+      "instruction": "Reduce the heat to medium. Pour the gochujang glaze over the tempeh and mushrooms and toss continuously for approximately 2-3 minutes. Allow the glaze to bubble and reduce until it clings thickly to the ingredients and begins to caramelise at the edges. If it tightens before coating everything, add the reserved water 1 tsp at a time.",
+      "heat_source": "gas_hob",
+      "heat_level": "medium",
+      "temperature_c": null,
+      "duration_min_minutes": 2,
+      "duration_max_minutes": 3,
+      "endpoint": "The tempeh and mushrooms are evenly lacquered in a glossy red glaze with no watery sauce left in the pan and no scorched garlic or gochujang.",
+      "corrective_actions": [
+        {
+          "condition": "The glaze begins catching or darkening rapidly before coating the ingredients.",
+          "action": "Lower the heat immediately and add 1 tsp of the reserved water."
+        },
+        {
+          "condition": "The glaze remains thin and watery after 3 minutes.",
+          "action": "Continue cooking uncovered for 1-2 minutes, stirring frequently, until it coats the spatula and clings to the tempeh."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_06",
+      "section": "Assembly",
+      "title": "Combine the aubergine with the glaze",
+      "depends_on": [
+        "STEP_02",
+        "STEP_05"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "aubergine",
+        "tempeh_plain",
+        "chestnut_mushrooms"
+      ],
+      "equipment_ids": [
+        "frying_pan",
+        "spatula"
+      ],
+      "instruction": "Add the browned aubergine to the glazed tempeh and mushrooms. Fold gently for approximately 30-60 seconds, just until the aubergine picks up a thin coating of glaze without breaking down.",
+      "heat_source": "gas_hob",
+      "heat_level": "low",
+      "temperature_c": null,
+      "duration_min_minutes": 0.5,
+      "duration_max_minutes": 1,
+      "endpoint": "The aubergine remains in distinct tender pieces and the glaze is evenly distributed across all three hot components.",
+      "corrective_actions": [
+        {
+          "condition": "The aubergine starts collapsing during mixing.",
+          "action": "Stop stirring and remove the pan from the heat; gentle folding is sufficient."
+        }
+      ],
+      "critical": false
+    },
+    {
+      "step_id": "STEP_07",
+      "section": "Rice",
+      "title": "Fluff the rice",
+      "depends_on": [
+        "STEP_01"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "brown_basmati_rice_dry"
+      ],
+      "equipment_ids": [
+        "rice_cooker"
+      ],
+      "instruction": "When the rice is tender, leave it covered for approximately 5 minutes if the cooking cycle has only just completed, then fluff gently so excess steam escapes and the grains separate.",
+      "heat_source": "rice_cooker",
+      "heat_level": "keep-warm or off",
+      "temperature_c": null,
+      "duration_min_minutes": 2,
+      "duration_max_minutes": 5,
+      "endpoint": "The rice is fluffy and moist without clumping or visible free water.",
+      "corrective_actions": [],
+      "critical": false
+    }
+  ],
+  "plating": [
+    {
+      "step_id": "PLATE_01",
+      "instruction": "Divide the brown rice between two bowls. Spoon the glazed tempeh, aubergine and mushrooms over one side. Add the sesame cabbage and cucumber alongside so it remains cool and crisp. Scatter each bowl with the remaining 1 tsp sesame seeds and serve immediately."
+    }
+  ],
+  "storage": {
+    "refrigerator_days": 2,
+    "freezer_months": null,
+    "storage_instructions": "Cool cooked rice promptly and refrigerate it separately from the glazed tempeh mixture and raw sesame cabbage within 1 hour where practical. Store all components in sealed containers for up to 2 days. Keep the cabbage and cucumber cold and separate from the hot components until serving so they remain crisp.",
+    "reheating_methods": [
+      "Hob: place the rice in a covered saucepan with 1 tbsp water and heat over low-medium heat, stirring occasionally, until piping hot throughout.",
+      "Hob: reheat the tempeh, aubergine and mushroom mixture in a frying pan over medium heat, adding 1-2 tsp water if the glaze is too thick, until piping hot throughout.",
+      "Air fryer: the tempeh and vegetable mixture may be reheated in a suitable heatproof dish at approximately 170°C until piping hot; stir once during heating.",
+      "Serve the sesame cabbage and cucumber chilled and do not reheat them."
+    ]
+  },
+  "shopping": {
+    "sainsburys": [],
+    "marks_and_spencer": [],
+    "either_retailer": [
+      "Plain tempeh — use 300 g; retail pack size may vary.",
+      "Brown basmati rice — use 80 g dry.",
+      "Medium aubergine — 1.",
+      "Chestnut mushrooms — 1 pack; use 200 g.",
+      "Red cabbage — use 160 g.",
+      "Small cucumber — 1.",
+      "Gochujang — use 2 tbsp.",
+      "Reduced-salt soy sauce — use 1 tbsp.",
+      "Rice vinegar — use 2 tbsp.",
+      "Toasted sesame oil — use 2 tsp.",
+      "Rapeseed oil — use 2 tsp.",
+      "Runny honey — use 1 tsp.",
+      "Fresh root ginger — use 2 tsp finely grated.",
+      "Garlic — 1 bulb; use 2 cloves.",
+      "Sesame seeds — use 2 tsp.",
+      "Fine salt — use 1/4 tsp.",
+      "Ground black pepper — use 1/4 tsp."
+    ]
+  },
+  "quality_checks": {
+    "protein_requirement_met": true,
+    "protein_g_per_serving": 36.0,
+    "restaurant_quality_features": [
+      "Tempeh is browned thoroughly before glazing, creating savoury depth and crisp edges.",
+      "Air-fried aubergine develops caramelised edges and a creamy interior without excessive oil.",
+      "Mushrooms are cooked until their released liquid evaporates so they brown instead of steam.",
+      "Gochujang is reduced into a glossy lacquer with soy, ginger, garlic, sesame and rice vinegar.",
+      "Cool sesame cabbage and cucumber provide acidity, crunch and temperature contrast against the hot glazed components.",
+      "Brown rice keeps the bowl substantial while allowing the strongly flavoured tempeh and vegetables to remain the focus."
+    ],
+    "nutrition_notes": [
+      "Approximately 610 kcal and 36 g protein per serving.",
+      "Tempeh provides the principal high-protein component.",
+      "Aubergine, mushrooms, cabbage and cucumber provide substantial vegetable volume and fibre.",
+      "Brown rice supplies a moderate wholegrain carbohydrate portion.",
+      "Most added fat comes from small amounts of rapeseed and toasted sesame oils.",
+      "Nutrition values are estimates and will vary with the exact tempeh and gochujang products used."
+    ],
+    "critical_success_factors": [
+      "Brown the tempeh before adding any glaze.",
+      "Cook mushroom moisture away completely before glazing.",
+      "Air-fry the aubergine until fully tender inside rather than stopping when only the exterior is coloured.",
+      "Reduce the gochujang mixture until it clings to the ingredients rather than leaving a watery sauce.",
+      "Keep the sesame cabbage and cucumber cool and crisp until plating."
+    ]
+  }
+}

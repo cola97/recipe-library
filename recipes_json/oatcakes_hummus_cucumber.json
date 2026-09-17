@@ -1,0 +1,285 @@
+{
+  "schema_version": "1.0",
+  "recipe": {
+    "id": "oatcakes_hummus_cucumber",
+    "title": "Oatcakes with Hummus and Cucumber",
+    "description": "A simple portable snack of crisp wholegrain oatcakes with creamy hummus and cool cucumber, packed separately so the oatcakes stay crunchy until eating.",
+    "servings": 2,
+    "difficulty": "Easy",
+    "total_time_minutes": 7,
+    "active_time_minutes": 7,
+    "passive_time_minutes": 0,
+    "cuisine": [
+      "Mediterranean-inspired"
+    ],
+    "meal_types": [
+      "Afternoon snack"
+    ],
+    "dietary_tags": [
+      "Lacto-ovo vegetarian",
+      "Portable",
+      "No-cook",
+      "High fibre"
+    ],
+    "allergens": [
+      "Sesame",
+      "Gluten"
+    ]
+  },
+  "nutrition_per_serving": {
+    "energy_kcal": 205,
+    "protein_g": 6.2,
+    "carbohydrate_g": 24.0,
+    "fat_g": 9.2,
+    "saturated_fat_g": 1.3,
+    "fibre_g": 4.8,
+    "salt_g": 0.55
+  },
+  "ingredients": [
+    {
+      "ingredient_id": "oatcakes_wholegrain",
+      "display_name": "Wholegrain oatcakes",
+      "category": "Bread",
+      "required": true,
+      "quantity_used": 4,
+      "unit_used": "integer",
+      "purchase_quantity": "1 pack",
+      "purchase_notes": "Use 4 oatcakes, 2 per serving; product size and nutrition may vary.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Keep dry and sealed until serving.",
+      "notes": "Choose plain or lightly salted oatcakes. Check the package allergen declaration because some products may contain or be produced alongside gluten-containing cereals."
+    },
+    {
+      "ingredient_id": "hummus_plain",
+      "display_name": "Plain hummus",
+      "category": "Legumes",
+      "required": true,
+      "quantity_used": 80,
+      "unit_used": "g",
+      "purchase_quantity": "1 pot",
+      "purchase_notes": "Use 80 g; retail pot size may vary.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Keep refrigerated until packing.",
+      "notes": "Use a plain chickpea-and-tahini hummus with a thick consistency suitable for dipping."
+    },
+    {
+      "ingredient_id": "cucumber",
+      "display_name": "Small cucumber",
+      "category": "Vegetables",
+      "required": true,
+      "quantity_used": 1,
+      "unit_used": "integer",
+      "purchase_quantity": "1 small cucumber",
+      "purchase_notes": "Use 1 small cucumber or an equivalent portion of a larger cucumber.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Wash and dry before cutting.",
+      "notes": "Whole cucumbers do not scale perfectly for every serving quantity; round sensibly when scaling."
+    },
+    {
+      "ingredient_id": "smoked_paprika",
+      "display_name": "Smoked paprika",
+      "category": "Spices",
+      "required": true,
+      "quantity_used": 0.25,
+      "unit_used": "tsp",
+      "purchase_quantity": "1 jar",
+      "purchase_notes": "Use 1/4 tsp.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": "A small amount adds aromatic depth to the hummus without adding another sauce or preparation stage."
+    }
+  ],
+  "equipment": [
+    {
+      "equipment_id": "chef_knife",
+      "display_name": "Chef's knife",
+      "required": true,
+      "notes": ""
+    },
+    {
+      "equipment_id": "chopping_board",
+      "display_name": "Chopping board",
+      "required": true,
+      "notes": ""
+    },
+    {
+      "equipment_id": "kitchen_scales",
+      "display_name": "Kitchen scales",
+      "required": true,
+      "notes": "Used to portion the hummus."
+    },
+    {
+      "equipment_id": "measuring_spoons",
+      "display_name": "Measuring spoons",
+      "required": true,
+      "notes": ""
+    },
+    {
+      "equipment_id": "lidded_containers",
+      "display_name": "2 divided snack containers with small sauce pots",
+      "required": true,
+      "notes": "Keep the oatcakes dry and separate from the hummus and cucumber until eating."
+    }
+  ],
+  "mise_en_place": [
+    {
+      "prep_id": "PREP_01",
+      "ingredient_ids": [
+        "cucumber"
+      ],
+      "instruction": "Trim both ends from the washed cucumber. Cut the cucumber into batons approximately 10 mm thick and 60-70 mm long, retaining the edible skin.",
+      "endpoint": "The cucumber is cut into firm, easy-to-dip batons of similar size."
+    },
+    {
+      "prep_id": "PREP_02",
+      "ingredient_ids": [
+        "hummus_plain",
+        "smoked_paprika"
+      ],
+      "instruction": "Weigh 80 g hummus and measure 1/4 tsp smoked paprika.",
+      "endpoint": "The hummus and paprika are ready to portion."
+    }
+  ],
+  "procedure": [
+    {
+      "step_id": "STEP_01",
+      "section": "Hummus",
+      "title": "Season the hummus",
+      "depends_on": [
+        "PREP_02"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "hummus_plain",
+        "smoked_paprika"
+      ],
+      "equipment_ids": [
+        "measuring_spoons"
+      ],
+      "instruction": "Stir 1/4 tsp smoked paprika through the 80 g hummus until the colour is even and no concentrated pockets of spice remain.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 1,
+      "duration_max_minutes": 1,
+      "endpoint": "The hummus is evenly seasoned and remains thick enough to hold on an oatcake or cucumber baton.",
+      "corrective_actions": [],
+      "critical": false
+    },
+    {
+      "step_id": "STEP_02",
+      "section": "Packing",
+      "title": "Portion the hummus",
+      "depends_on": [
+        "STEP_01"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "hummus_plain",
+        "smoked_paprika"
+      ],
+      "equipment_ids": [
+        "kitchen_scales",
+        "lidded_containers"
+      ],
+      "instruction": "Divide the seasoned hummus evenly between 2 small sealed sauce pots, giving approximately 40 g per serving.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 1,
+      "duration_max_minutes": 2,
+      "endpoint": "Each serving contains an equal portion of hummus in a securely sealed compartment.",
+      "corrective_actions": [],
+      "critical": false
+    },
+    {
+      "step_id": "STEP_03",
+      "section": "Packing",
+      "title": "Pack the cucumber and oatcakes",
+      "depends_on": [
+        "STEP_02",
+        "PREP_01"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "cucumber",
+        "oatcakes_wholegrain"
+      ],
+      "equipment_ids": [
+        "lidded_containers"
+      ],
+      "instruction": "Divide the cucumber batons evenly between the 2 snack containers. Add 2 oatcakes per serving in a completely dry compartment or separate dry bag, ensuring they do not contact the cucumber or hummus during storage.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 2,
+      "duration_max_minutes": 3,
+      "endpoint": "Each snack contains 2 dry oatcakes, an equal portion of cucumber batons and a separate sealed hummus portion.",
+      "corrective_actions": [
+        {
+          "condition": "The container has no dry compartment for the oatcakes.",
+          "action": "Pack the oatcakes in a separate small reusable container or sealed food bag."
+        }
+      ],
+      "critical": false
+    }
+  ],
+  "plating": [
+    {
+      "step_id": "PLATE_01",
+      "instruction": "At the time of eating, spread or dip the oatcakes into the smoked-paprika hummus and eat the cucumber batons alongside or dipped into the remaining hummus. Keep the oatcakes dry until each bite is assembled so they remain crisp."
+    }
+  ],
+  "storage": {
+    "refrigerator_days": 1,
+    "freezer_months": null,
+    "storage_instructions": "Refrigerate the hummus and cucumber promptly and use within 24 hours for the best cucumber texture. Keep the oatcakes sealed separately at room temperature so they remain crisp. For transport to work or on a car journey, carry the hummus and cucumber in an insulated bag with an ice pack and keep chilled until eating.",
+    "reheating_methods": []
+  },
+  "shopping": {
+    "sainsburys": [],
+    "marks_and_spencer": [],
+    "either_retailer": [
+      "Wholegrain oatcakes — 1 pack; use 4.",
+      "Plain hummus — 1 pot; use 80 g.",
+      "Small cucumber — 1.",
+      "Smoked paprika — use 1/4 tsp."
+    ]
+  },
+  "quality_checks": {
+    "protein_requirement_met": true,
+    "protein_g_per_serving": 6.2,
+    "restaurant_quality_features": [
+      "Smoked paprika adds aromatic depth to plain hummus with almost no additional preparation.",
+      "Cold cucumber provides clean freshness against rich, savoury hummus.",
+      "Crisp oatcakes create strong textural contrast with the creamy dip.",
+      "Separate packing prevents moisture migration and preserves oatcake crunch."
+    ],
+    "nutrition_notes": [
+      "Approximately 205 kcal per serving.",
+      "Afternoon snacks have no minimum protein requirement.",
+      "Hummus contributes plant protein, fibre and unsaturated fats.",
+      "Wholegrain oatcakes contribute complex carbohydrate and additional fibre.",
+      "Cucumber adds vegetable volume and freshness for relatively few calories.",
+      "Nutrition values are estimates and will vary with the exact oatcake and hummus products used."
+    ],
+    "critical_success_factors": [
+      "Keep the oatcakes completely separate from the cucumber and hummus until eating.",
+      "Use thick hummus so it remains practical for dipping and transport.",
+      "Cut the cucumber into sturdy batons rather than thin slices that release water quickly.",
+      "Maintain refrigeration for the hummus and cucumber during storage and transport."
+    ]
+  }
+}

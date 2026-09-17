@@ -1,0 +1,700 @@
+{
+  "schema_version": "1.0",
+  "recipe": {
+    "id": "miso_sesame_tofu_edamame_soba_noodle_salad_broccoli_carrot",
+    "title": "Miso-Sesame Tofu & Edamame Soba Noodle Salad with Broccoli and Carrot",
+    "description": "A portable Japanese-inspired soba salad with crisp-edged sesame tofu, edamame, tender-crisp broccoli and raw carrot, coated in a punchy miso, ginger, soy and rice-vinegar dressing.",
+    "servings": 2,
+    "difficulty": "Easy",
+    "total_time_minutes": 28,
+    "active_time_minutes": 21,
+    "passive_time_minutes": 7,
+    "cuisine": [
+      "Japanese-inspired"
+    ],
+    "meal_types": [
+      "Lunch"
+    ],
+    "dietary_tags": [
+      "Lacto-ovo vegetarian",
+      "High protein",
+      "Portable"
+    ],
+    "allergens": [
+      "Soya",
+      "Sesame",
+      "Wheat"
+    ]
+  },
+  "nutrition_per_serving": {
+    "energy_kcal": 445,
+    "protein_g": 32.1,
+    "carbohydrate_g": 49.0,
+    "fat_g": 17.0,
+    "saturated_fat_g": 2.5,
+    "fibre_g": 10.0,
+    "salt_g": 1.7
+  },
+  "ingredients": [
+    {
+      "ingredient_id": "tofu_extra_firm",
+      "display_name": "Extra-firm tofu",
+      "category": "Plant protein",
+      "required": true,
+      "quantity_used": 200,
+      "unit_used": "g",
+      "purchase_quantity": "1 pack",
+      "purchase_notes": "Use 200 g; retail pack size may vary.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Drain thoroughly and pat dry before cutting.",
+      "notes": "Use a firm tofu that can be air-fried without pressing for an extended period."
+    },
+    {
+      "ingredient_id": "edamame_beans_frozen",
+      "display_name": "Frozen shelled edamame beans",
+      "category": "Legumes",
+      "required": true,
+      "quantity_used": 140,
+      "unit_used": "g",
+      "purchase_quantity": "1 bag",
+      "purchase_notes": "Use 140 g directly from frozen.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "No thawing required.",
+      "notes": ""
+    },
+    {
+      "ingredient_id": "soba_noodles_dry",
+      "display_name": "Dried soba noodles",
+      "category": "Pasta and grains",
+      "required": true,
+      "quantity_used": 50,
+      "unit_used": "g",
+      "purchase_quantity": "1 pack",
+      "purchase_notes": "Use 50 g dry noodles. Check the pack allergen declaration because many supermarket soba noodles contain wheat.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Keep dry until cooking.",
+      "notes": ""
+    },
+    {
+      "ingredient_id": "broccoli",
+      "display_name": "Broccoli",
+      "category": "Vegetables",
+      "required": true,
+      "quantity_used": 180,
+      "unit_used": "g",
+      "purchase_quantity": "1 medium head",
+      "purchase_notes": "Use approximately 180 g florets and tender peeled stem.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Wash before cutting.",
+      "notes": ""
+    },
+    {
+      "ingredient_id": "carrots",
+      "display_name": "Large carrot",
+      "category": "Vegetables",
+      "required": true,
+      "quantity_used": 1,
+      "unit_used": "integer",
+      "purchase_quantity": "1 large carrot",
+      "purchase_notes": "",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Wash and peel if the skin is coarse or damaged.",
+      "notes": "Whole carrots do not scale perfectly for every serving quantity; round sensibly when scaling."
+    },
+    {
+      "ingredient_id": "white_miso_paste",
+      "display_name": "White miso paste",
+      "category": "Condiments",
+      "required": true,
+      "quantity_used": 1,
+      "unit_used": "tbsp",
+      "purchase_quantity": "1 jar or pot",
+      "purchase_notes": "Use 1 tbsp.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": ""
+    },
+    {
+      "ingredient_id": "soy_sauce_reduced_salt",
+      "display_name": "Reduced-salt soy sauce",
+      "category": "Condiments",
+      "required": true,
+      "quantity_used": 2,
+      "unit_used": "tsp",
+      "purchase_quantity": "1 bottle",
+      "purchase_notes": "Use 2 tsp in total.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": "Use 1 tsp on the tofu and 1 tsp in the dressing."
+    },
+    {
+      "ingredient_id": "rice_vinegar",
+      "display_name": "Rice vinegar",
+      "category": "Condiments",
+      "required": true,
+      "quantity_used": 1,
+      "unit_used": "tbsp",
+      "purchase_quantity": "1 bottle",
+      "purchase_notes": "Use 1 tbsp.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": ""
+    },
+    {
+      "ingredient_id": "sesame_oil_toasted",
+      "display_name": "Toasted sesame oil",
+      "category": "Oils",
+      "required": true,
+      "quantity_used": 1,
+      "unit_used": "tsp",
+      "purchase_quantity": "1 bottle",
+      "purchase_notes": "Use 1 tsp in total.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": "Use 1/2 tsp on the tofu and 1/2 tsp in the dressing."
+    },
+    {
+      "ingredient_id": "sesame_seeds",
+      "display_name": "Sesame seeds",
+      "category": "Seeds",
+      "required": true,
+      "quantity_used": 2,
+      "unit_used": "tsp",
+      "purchase_quantity": "1 pack",
+      "purchase_notes": "Use 2 tsp.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": ""
+    },
+    {
+      "ingredient_id": "fresh_ginger",
+      "display_name": "Fresh root ginger",
+      "category": "Aromatics",
+      "required": true,
+      "quantity_used": 2,
+      "unit_used": "tsp",
+      "purchase_quantity": "1 piece",
+      "purchase_notes": "Use 2 tsp finely grated ginger.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Peel if the skin is tough, then finely grate.",
+      "notes": ""
+    },
+    {
+      "ingredient_id": "garlic",
+      "display_name": "Garlic clove",
+      "category": "Aromatics",
+      "required": true,
+      "quantity_used": 1,
+      "unit_used": "integer",
+      "purchase_quantity": "1 bulb",
+      "purchase_notes": "Use 1 clove.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Peel and finely grate or crush.",
+      "notes": ""
+    },
+    {
+      "ingredient_id": "runny_honey",
+      "display_name": "Runny honey",
+      "category": "Sweeteners",
+      "required": true,
+      "quantity_used": 1,
+      "unit_used": "tsp",
+      "purchase_quantity": "1 jar or squeezy bottle",
+      "purchase_notes": "Use 1 tsp.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": "Balances the miso and vinegar without making the dressing noticeably sweet."
+    },
+    {
+      "ingredient_id": "cornflour",
+      "display_name": "Cornflour",
+      "category": "Thickeners",
+      "required": true,
+      "quantity_used": 2,
+      "unit_used": "tsp",
+      "purchase_quantity": "1 pack",
+      "purchase_notes": "Use 2 tsp.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": "Creates a light crisp coating on the air-fried tofu."
+    },
+    {
+      "ingredient_id": "water",
+      "display_name": "Hot water",
+      "category": "Liquid",
+      "required": true,
+      "quantity_used": 1,
+      "unit_used": "tbsp",
+      "purchase_quantity": "",
+      "purchase_notes": "Use 1 tbsp.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Use freshly boiled water.",
+      "notes": ""
+    }
+  ],
+  "equipment": [
+    {
+      "equipment_id": "air_fryer",
+      "display_name": "Air fryer",
+      "required": true,
+      "notes": "Used to crisp the tofu with minimal active supervision."
+    },
+    {
+      "equipment_id": "kettle",
+      "display_name": "Electric kettle",
+      "required": true,
+      "notes": "Used to heat water rapidly for the noodles."
+    },
+    {
+      "equipment_id": "gas_hob",
+      "display_name": "Gas hob",
+      "required": true,
+      "notes": ""
+    },
+    {
+      "equipment_id": "saucepan",
+      "display_name": "Medium saucepan",
+      "required": true,
+      "notes": "Used for the noodles, edamame and broccoli in one operation."
+    },
+    {
+      "equipment_id": "mixing_bowl",
+      "display_name": "Large mixing bowl",
+      "required": true,
+      "notes": "Used first for coating the tofu and then, once the tofu is in the air fryer, for mixing the dressing and finished salad."
+    },
+    {
+      "equipment_id": "chef_knife",
+      "display_name": "Chef's knife",
+      "required": true,
+      "notes": ""
+    },
+    {
+      "equipment_id": "chopping_board",
+      "display_name": "Chopping board",
+      "required": true,
+      "notes": ""
+    },
+    {
+      "equipment_id": "fine_grater",
+      "display_name": "Fine grater or Microplane",
+      "required": true,
+      "notes": "For the ginger and garlic."
+    },
+    {
+      "equipment_id": "colander",
+      "display_name": "Colander",
+      "required": true,
+      "notes": "For rapidly draining and cooling the noodles and vegetables."
+    },
+    {
+      "equipment_id": "measuring_spoons",
+      "display_name": "Measuring spoons",
+      "required": true,
+      "notes": ""
+    },
+    {
+      "equipment_id": "tongs",
+      "display_name": "Kitchen tongs",
+      "required": true,
+      "notes": "Useful for tossing the noodles evenly through the dressing."
+    },
+    {
+      "equipment_id": "lidded_containers",
+      "display_name": "2 lidded lunch containers",
+      "required": true,
+      "notes": "A separate small compartment or container for the tofu is preferable if the salad is being transported."
+    }
+  ],
+  "mise_en_place": [
+    {
+      "prep_id": "PREP_01",
+      "ingredient_ids": [
+        "tofu_extra_firm",
+        "soy_sauce_reduced_salt",
+        "sesame_oil_toasted",
+        "cornflour"
+      ],
+      "instruction": "Drain the tofu and pat it thoroughly dry. Cut it into approximately 20 mm cubes. In the large mixing bowl, gently toss the tofu with 1 tsp reduced-salt soy sauce and 1/2 tsp toasted sesame oil, then sprinkle over 2 tsp cornflour and toss until each piece has a thin, dry-looking coating.",
+      "endpoint": "The tofu cubes are evenly coated with no visible wet pools of soy sauce and no large clumps of cornflour."
+    },
+    {
+      "prep_id": "PREP_02",
+      "ingredient_ids": [
+        "broccoli",
+        "carrots"
+      ],
+      "instruction": "Cut the broccoli into small florets approximately 25-30 mm across. Peel any tough outer skin from the tender stem and slice the usable stem thinly. Trim the carrot, then cut it into fine matchsticks approximately 3 mm thick and 40-50 mm long.",
+      "endpoint": "The broccoli pieces are small enough to cook rapidly and evenly, and the carrot is cut into thin raw matchsticks."
+    },
+    {
+      "prep_id": "PREP_03",
+      "ingredient_ids": [
+        "fresh_ginger",
+        "garlic",
+        "white_miso_paste",
+        "soy_sauce_reduced_salt",
+        "rice_vinegar",
+        "sesame_oil_toasted",
+        "runny_honey",
+        "water"
+      ],
+      "instruction": "Finely grate 2 tsp ginger and the peeled garlic clove. Keep them ready with 1 tbsp white miso, the remaining 1 tsp reduced-salt soy sauce, 1 tbsp rice vinegar, the remaining 1/2 tsp toasted sesame oil, 1 tsp runny honey and 1 tbsp hot water.",
+      "endpoint": "All dressing ingredients are measured and ready to combine."
+    }
+  ],
+  "procedure": [
+    {
+      "step_id": "STEP_01",
+      "section": "Tofu",
+      "title": "Air-fry the tofu",
+      "depends_on": [
+        "PREP_01"
+      ],
+      "parallel_group": "P01",
+      "ingredient_ids": [
+        "tofu_extra_firm",
+        "soy_sauce_reduced_salt",
+        "sesame_oil_toasted",
+        "cornflour"
+      ],
+      "equipment_ids": [
+        "air_fryer"
+      ],
+      "instruction": "Preheat the air fryer to 200°C if your model benefits from preheating. Arrange the coated tofu in a single layer with space for air circulation. Air-fry at 200°C for approximately 11-14 minutes, shaking or turning once after about 7 minutes.",
+      "heat_source": "air_fryer",
+      "heat_level": "200°C",
+      "temperature_c": 200,
+      "duration_min_minutes": 11,
+      "duration_max_minutes": 14,
+      "endpoint": "The tofu is piping hot, dry on the surface and golden at several edges, with a lightly crisp exterior and tender centre.",
+      "corrective_actions": [
+        {
+          "condition": "The tofu is browning very rapidly before the surface has crisped.",
+          "action": "Reduce the air-fryer temperature to 190°C for the remaining cooking time."
+        },
+        {
+          "condition": "The tofu is still pale and soft after 14 minutes.",
+          "action": "Continue air-frying for 2-3 minutes, checking every minute, until distinct golden edges develop."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_02",
+      "section": "Noodles and vegetables",
+      "title": "Boil the water",
+      "depends_on": [],
+      "parallel_group": "P01",
+      "ingredient_ids": [],
+      "equipment_ids": [
+        "kettle",
+        "saucepan"
+      ],
+      "instruction": "While the tofu cooks, boil enough water in the kettle to generously cover the soba noodles in the saucepan. Pour the boiling water into the saucepan and bring it back to a steady boil over high heat.",
+      "heat_source": "gas_hob",
+      "heat_level": "high",
+      "temperature_c": null,
+      "duration_min_minutes": 2,
+      "duration_max_minutes": 3,
+      "endpoint": "The saucepan contains vigorously boiling water ready for the noodles.",
+      "corrective_actions": [],
+      "critical": false
+    },
+    {
+      "step_id": "STEP_03",
+      "section": "Noodles and vegetables",
+      "title": "Cook the soba, edamame and broccoli",
+      "depends_on": [
+        "STEP_02",
+        "PREP_02"
+      ],
+      "parallel_group": "P01",
+      "ingredient_ids": [
+        "soba_noodles_dry",
+        "edamame_beans_frozen",
+        "broccoli"
+      ],
+      "equipment_ids": [
+        "gas_hob",
+        "saucepan"
+      ],
+      "instruction": "Add the soba noodles to the boiling water and cook according to the lower end of the package timing, normally about 4-5 minutes. Add the frozen edamame approximately 3 minutes before the noodles are expected to be ready, then add the broccoli approximately 2 minutes before the end. Stir gently after each addition so the noodles do not stick together.",
+      "heat_source": "gas_hob",
+      "heat_level": "medium-high",
+      "temperature_c": null,
+      "duration_min_minutes": 4,
+      "duration_max_minutes": 6,
+      "endpoint": "The soba is tender but retains a slight bite, the edamame is hot throughout, and the broccoli is bright green and tender-crisp rather than soft.",
+      "corrective_actions": [
+        {
+          "condition": "The noodles reach the correct texture before the broccoli is tender-crisp.",
+          "action": "Drain the noodles and edamame with tongs or a sieve insert if practical, then allow the broccoli another 30-60 seconds before draining."
+        },
+        {
+          "condition": "The broccoli begins losing its bright green colour.",
+          "action": "Drain immediately; it is approaching overcooked."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_04",
+      "section": "Noodles and vegetables",
+      "title": "Rinse and drain thoroughly",
+      "depends_on": [
+        "STEP_03"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "soba_noodles_dry",
+        "edamame_beans_frozen",
+        "broccoli"
+      ],
+      "equipment_ids": [
+        "colander"
+      ],
+      "instruction": "Drain the noodles, edamame and broccoli immediately into the colander. Rinse thoroughly under cold running water while gently separating the noodles with clean fingers or tongs until the mixture is cool. Shake the colander firmly and leave it to drain for approximately 1 minute.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 2,
+      "duration_max_minutes": 3,
+      "endpoint": "The noodles and vegetables are cool and well drained, with no free water collecting beneath the colander.",
+      "corrective_actions": [
+        {
+          "condition": "The noodles still feel slippery with loose surface starch.",
+          "action": "Rinse for another 20-30 seconds while gently separating the strands."
+        },
+        {
+          "condition": "Water continues dripping heavily after rinsing.",
+          "action": "Shake the colander again and allow another minute of draining before dressing the salad."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_05",
+      "section": "Dressing",
+      "title": "Whisk the miso-sesame dressing",
+      "depends_on": [
+        "PREP_03"
+      ],
+      "parallel_group": "P01",
+      "ingredient_ids": [
+        "white_miso_paste",
+        "soy_sauce_reduced_salt",
+        "rice_vinegar",
+        "sesame_oil_toasted",
+        "runny_honey",
+        "fresh_ginger",
+        "garlic",
+        "water"
+      ],
+      "equipment_ids": [
+        "mixing_bowl",
+        "measuring_spoons"
+      ],
+      "instruction": "Once the tofu has been transferred to the air fryer, use the same mixing bowl to combine 1 tbsp white miso, 1 tsp reduced-salt soy sauce, 1 tbsp rice vinegar, 1/2 tsp toasted sesame oil, 1 tsp runny honey, the grated ginger, grated garlic and 1 tbsp hot water. Whisk or stir vigorously until completely smooth.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 1,
+      "duration_max_minutes": 2,
+      "endpoint": "The dressing is smooth, glossy and pourable, with a balanced salty, savoury, acidic and lightly sweet flavour.",
+      "corrective_actions": [
+        {
+          "condition": "The dressing remains too thick to coat noodles evenly.",
+          "action": "Add 1 tsp hot water and mix again; repeat once only if necessary."
+        },
+        {
+          "condition": "The dressing tastes excessively sharp.",
+          "action": "Add up to an additional 1/2 tsp runny honey."
+        }
+      ],
+      "critical": false
+    },
+    {
+      "step_id": "STEP_06",
+      "section": "Assembly",
+      "title": "Dress the noodle salad",
+      "depends_on": [
+        "STEP_04",
+        "STEP_05",
+        "PREP_02"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "soba_noodles_dry",
+        "edamame_beans_frozen",
+        "broccoli",
+        "carrots",
+        "white_miso_paste",
+        "soy_sauce_reduced_salt",
+        "rice_vinegar",
+        "sesame_oil_toasted",
+        "runny_honey",
+        "fresh_ginger",
+        "garlic",
+        "water",
+        "sesame_seeds"
+      ],
+      "equipment_ids": [
+        "mixing_bowl",
+        "tongs"
+      ],
+      "instruction": "Add the well-drained soba, edamame and broccoli to the dressing bowl with the raw carrot matchsticks. Add 1 tsp of the sesame seeds and toss thoroughly with tongs until the noodles and vegetables are evenly coated and no concentrated patches of miso dressing remain.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 2,
+      "duration_max_minutes": 3,
+      "endpoint": "The salad is evenly dressed but not wet, the noodle strands remain separate, and the carrot retains a crisp raw texture.",
+      "corrective_actions": [
+        {
+          "condition": "A watery pool forms at the bottom of the bowl.",
+          "action": "Transfer the salad briefly back to the colander, drain the excess liquid, then return it to the bowl."
+        },
+        {
+          "condition": "The noodles seem dry despite being evenly coated.",
+          "action": "Add 1 tsp water and toss again rather than adding more oil."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_07",
+      "section": "Assembly",
+      "title": "Finish with the crisp tofu",
+      "depends_on": [
+        "STEP_01",
+        "STEP_06"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "tofu_extra_firm",
+        "sesame_seeds"
+      ],
+      "equipment_ids": [
+        "mixing_bowl"
+      ],
+      "instruction": "Allow the cooked tofu to stand for approximately 2 minutes so excess steam can escape. If serving immediately, fold the tofu gently through the salad and scatter over the remaining 1 tsp sesame seeds. If packing for later, keep the tofu in a separate dry compartment or container and add it immediately before eating.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 2,
+      "duration_max_minutes": 3,
+      "endpoint": "The salad has distinct tender noodles, crisp carrot, tender-crisp broccoli and golden tofu, with the tofu remaining as dry and crisp as practical.",
+      "corrective_actions": [
+        {
+          "condition": "The tofu is visibly steaming when packing for later.",
+          "action": "Leave it uncovered for another 2-3 minutes before sealing so condensation does not soften the coating."
+        }
+      ],
+      "critical": false
+    }
+  ],
+  "plating": [
+    {
+      "step_id": "PLATE_01",
+      "instruction": "Divide the dressed soba, edamame, broccoli and carrot evenly between two bowls or lunch containers. Add half of the crisp tofu to each serving and finish with the remaining sesame seeds. For packed lunches, transport chilled and keep the tofu separate until eating for the best texture."
+    }
+  ],
+  "storage": {
+    "refrigerator_days": 2,
+    "freezer_months": null,
+    "storage_instructions": "Cool all cooked components promptly before sealing. Refrigerate the dressed noodle salad for up to 2 days. For best texture, refrigerate the air-fried tofu in a separate sealed container and combine immediately before eating. For transport to work or on a car journey, carry the salad chilled in an insulated bag with an ice pack and refrigerate on arrival where possible.",
+    "reheating_methods": []
+  },
+  "shopping": {
+    "sainsburys": [],
+    "marks_and_spencer": [],
+    "either_retailer": [
+      "Extra-firm tofu — 1 pack; use 200 g.",
+      "Frozen shelled edamame beans — 1 bag; use 140 g.",
+      "Dried soba noodles — 1 pack; use 50 g.",
+      "Broccoli — 1 medium head; use approximately 180 g.",
+      "Large carrot — 1.",
+      "White miso paste — use 1 tbsp.",
+      "Reduced-salt soy sauce — use 2 tsp.",
+      "Rice vinegar — use 1 tbsp.",
+      "Toasted sesame oil — use 1 tsp.",
+      "Sesame seeds — use 2 tsp.",
+      "Fresh root ginger — use 2 tsp finely grated.",
+      "Garlic — 1 bulb; use 1 clove.",
+      "Runny honey — use 1 tsp.",
+      "Cornflour — use 2 tsp."
+    ]
+  },
+  "quality_checks": {
+    "protein_requirement_met": true,
+    "protein_g_per_serving": 32.1,
+    "restaurant_quality_features": [
+      "Air-fried tofu develops crisp golden edges without requiring a separately monitored frying pan.",
+      "Miso, soy and toasted sesame provide layered savoury and umami depth.",
+      "Rice vinegar and fresh ginger keep the dressing bright rather than heavy.",
+      "Raw carrot contrasts with tender-crisp broccoli and soft soba noodles.",
+      "Edamame supplies both texture and a meaningful secondary protein source.",
+      "Keeping the tofu separate during transport preserves useful crispness at lunchtime."
+    ],
+    "nutrition_notes": [
+      "Approximately 445 kcal and 32.1 g protein per serving.",
+      "Tofu and edamame provide the principal protein contribution.",
+      "Soba provides a moderate carbohydrate portion while allowing the meal to remain close to the lunch calorie target.",
+      "Broccoli, carrot and edamame contribute fibre and vegetable variety.",
+      "Nutrition values are estimates and will vary with the exact tofu, miso and soba products used."
+    ],
+    "critical_success_factors": [
+      "Dry the tofu thoroughly before coating so it crisps rather than steams.",
+      "Do not overcook the soba or broccoli.",
+      "Rinse the cooked soba thoroughly to stop cooking and remove excess surface starch.",
+      "Drain the noodle mixture very well before adding it to the dressing.",
+      "Keep the tofu separate during storage and transport when maximum crispness is desired."
+    ]
+  }
+}

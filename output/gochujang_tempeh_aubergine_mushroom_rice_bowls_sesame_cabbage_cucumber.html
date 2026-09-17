@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gochujang Tempeh, Aubergine &amp; Mushroom Rice Bowls with Sesame Cabbage and Cucumber</title>
+
+<style>
+:root {
+    --background: #f4f2ec;
+    --panel: #ffffff;
+    --text: #000000;
+    --muted: #555555;
+    --border: #b9b5ad;
+    --accent: #e5f1dd;
+    --endpoint: #fff4c6;
+    --step: #f7f7f4;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--background);
+    color: var(--text);
+}
+
+body {
+    min-height: 100vh;
+    min-height: 100dvh;
+}
+
+button, input, select, summary { font: inherit; }
+
+.page {
+    width: min(calc(100% - 24px), 1050px);
+    margin: 0 auto;
+    padding: max(12px, env(safe-area-inset-top)) 0 max(40px, env(safe-area-inset-bottom)) 0;
+}
+
+.recipe-header {
+    position: static;
+    background: transparent;
+    padding: 12px 0 10px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.title-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+h1 {
+    margin: 0;
+    font-size: clamp(1.65rem, 5vw, 2.8rem);
+    line-height: 1.12;
+}
+
+.scheduled-date { margin-top: 8px; font-weight: 700; }
+.description { margin: 12px 0 0 0; line-height: 1.5; }
+
+.recipe-info {
+    margin-top: 10px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    background: #ffffff;
+    overflow: hidden;
+}
+
+.recipe-info > summary {
+    cursor: pointer;
+    padding: 9px 11px;
+    font-weight: 750;
+}
+
+.recipe-info-content { padding: 0 11px 11px 11px; }
+
+.tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: #ffffff;
+    color: #000000;
+    font-size: 0.82rem;
+}
+
+.allergens {
+    margin-top: 10px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    background: #ffe4df;
+}
+
+.facts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+    gap: 8px;
+    margin: 14px 0;
+}
+
+.fact {
+    display: grid;
+    gap: 2px;
+    padding: 9px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    background: #ffffff;
+}
+
+.fact span { font-size: 0.78rem; color: var(--muted); }
+
+.recipe-tools {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.serving-tool, .rating-tool {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: #ffffff;
+}
+
+.serving-controls, .rating-buttons {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.serving-controls button, .rating-buttons button {
+    min-height: 36px;
+    padding: 5px 9px;
+    border: 1px solid #000000;
+    border-radius: 7px;
+    background: #ffffff;
+    color: #000000;
+    font-weight: 700;
+}
+
+#servingsValue {
+    min-width: 30px;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 800;
+}
+
+.rating-buttons button.active {
+    background: #000000;
+    color: #ffffff;
+}
+
+.section {
+    display: block;
+    margin-top: 14px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--panel);
+    overflow: hidden;
+}
+
+details.section > summary {
+    cursor: pointer;
+    padding: 15px 16px;
+    font-size: 1.12rem;
+    font-weight: 800;
+    background: var(--accent);
+}
+
+.section-content { padding: 14px; }
+.method-section { padding: 14px; }
+.method-section > h2 { margin: 0 0 12px 0; }
+.ingredient-grid, .card-stack { display: grid; gap: 10px; }
+
+.ingredient-card, .prep-card, .method-step {
+    padding: 14px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--step);
+}
+
+.ingredient-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 14px;
+}
+
+.ingredient-quantity {
+    flex: 0 0 auto;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.subline { margin-top: 7px; line-height: 1.4; }
+.compact-list { margin: 0; padding-left: 22px; }
+.prep-card h3, .method-step h3 { margin: 0; }
+.prep-card p, .method-step p { margin: 10px 0; }
+
+.step-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+}
+
+.step-number {
+    flex: 0 0 auto;
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.step-section {
+    margin-top: 6px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--muted);
+}
+
+.step-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+}
+
+.instruction { font-size: 1rem; line-height: 1.55; }
+
+.endpoint {
+    margin-top: 10px;
+    padding: 10px 12px;
+    border-left: 4px solid #000000;
+    background: var(--endpoint);
+    line-height: 1.45;
+}
+
+.corrective { margin-top: 10px; }
+.corrective summary { cursor: pointer; font-weight: 750; }
+.corrective ul { margin-bottom: 0; }
+
+.cook-button {
+    flex: 0 0 auto;
+    min-height: 42px;
+    padding: 8px 12px;
+    border: 1px solid #000000;
+    border-radius: 9px;
+    background: #000000;
+    color: #ffffff;
+    font-weight: 750;
+}
+
+.cook-controls {
+    display: none;
+    position: sticky;
+    bottom: max(8px, env(safe-area-inset-bottom));
+    z-index: 30;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 14px;
+    padding: 10px;
+    border: 1px solid #000000;
+    border-radius: 12px;
+    background: #ffffff;
+}
+
+.cook-controls button {
+    min-height: 44px;
+    padding: 8px 14px;
+    border: 1px solid #000000;
+    border-radius: 8px;
+    background: #000000;
+    color: #ffffff;
+    font-weight: 750;
+}
+
+.method-step { scroll-margin-top: 58px; }
+
+/* Compact cook-mode header */
+body.cook-mode .recipe-header {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    margin: 0;
+    padding: 6px 0;
+    background: rgba(244, 242, 236, 0.98);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(8px);
+}
+
+body.cook-mode .recipe-header .recipe-info,
+body.cook-mode .recipe-header .scheduled-date,
+body.cook-mode .facts,
+body.cook-mode .recipe-tools,
+body.cook-mode .non-method,
+body.cook-mode .method-section > h2 {
+    display: none;
+}
+
+body.cook-mode .title-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 8px;
+}
+
+body.cook-mode .recipe-header h1 {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+body.cook-mode .cook-button {
+    width: auto;
+    min-height: 36px;
+    padding: 6px 10px;
+    font-size: 0.85rem;
+    white-space: nowrap;
+}
+
+body.cook-mode .method-step { display: none; }
+body.cook-mode .method-step.active { display: block; }
+body.cook-mode .cook-controls { display: flex; }
+body.cook-mode .method-section {
+    min-height: calc(100dvh - 60px);
+    margin-top: 6px;
+}
+
+@media (max-width: 600px) {
+    .page { width: calc(100% - 12px); }
+    .recipe-header { padding-top: 8px; }
+
+    h1 {
+        font-size: 1.35rem;
+        line-height: 1.18;
+    }
+
+    .title-row {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: start;
+    }
+
+    .cook-button {
+        width: auto;
+        min-height: 36px;
+        padding: 6px 10px;
+        font-size: 0.85rem;
+    }
+
+    .recipe-tools { grid-template-columns: 1fr; }
+
+    .serving-tool, .rating-tool {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .rating-buttons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .ingredient-heading {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 3px;
+    }
+
+    .ingredient-quantity { white-space: normal; }
+    .method-section, .section-content { padding: 10px; }
+    .ingredient-card, .prep-card, .method-step { padding: 12px; }
+}
+
+@media print {
+    .recipe-header { position: static; }
+    .cook-button, .cook-controls, .recipe-tools { display: none !important; }
+    body.cook-mode .non-method, body.cook-mode .method-step { display: block; }
+    .section { break-inside: avoid; }
+}
+</style>
+</head>
+
+<body>
+<main class="page">
+
+<header class="recipe-header">
+    <div class="title-row">
+        <h1>Gochujang Tempeh, Aubergine &amp; Mushroom Rice Bowls with Sesame Cabbage and Cucumber</h1>
+        <button id="cookModeButton" class="cook-button" type="button">Cook mode</button>
+    </div>
+
+    
+
+    <details class="recipe-info">
+        <summary>Recipe info</summary>
+        <div class="recipe-info-content">
+            <p class="description">Korean-inspired brown rice bowls with deeply browned gochujang-glazed tempeh, caramelised aubergine and mushrooms, balanced by crisp sesame cabbage and cool cucumber.</p>
+            <div class="tag-row"><span class="badge">Dinner</span><span class="badge">Lacto-ovo vegetarian</span><span class="badge">High protein</span><span class="badge">High fibre</span></div>
+            <div class="allergens"><strong>Allergens:</strong> Soya, Sesame, Wheat</div>
+        </div>
+    </details>
+</header>
+
+<div class="facts"><div class="fact"><span>Serves</span><strong id="servesFactValue">2</strong></div><div class="fact"><span>Difficulty</span><strong>Moderate</strong></div><div class="fact"><span>Active</span><strong>34 min</strong></div><div class="fact"><span>Total</span><strong>45 min</strong></div><div class="fact"><span>Energy</span><strong>610 kcal</strong></div><div class="fact"><span>Protein</span><strong>36 g</strong></div></div>
+
+<section class="recipe-tools">
+    <div class="serving-tool">
+        <strong>Servings</strong>
+        <div class="serving-controls">
+            <button id="servingsMinus" type="button">−</button>
+            <span id="servingsValue" data-base-servings="2">2</span>
+            <button id="servingsPlus" type="button">+</button>
+        </div>
+    </div>
+
+    <div class="rating-tool" data-recipe-id="gochujang_tempeh_aubergine_mushroom_rice_bowls_sesame_cabbage_cucumber">
+        <strong>Your rating</strong>
+        <div class="rating-buttons">
+            <button id="ratingFavourite" type="button">♥ Favourite</button>
+            <button id="ratingDislike" type="button">👎 Dislike</button>
+        </div>
+    </div>
+</section>
+
+
+<details class="section non-method" open>
+    <summary>Ingredients</summary>
+    <div class="section-content ingredient-grid">
+        <article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Plain tempeh</strong>
+<span class="ingredient-quantity" data-base-quantity="300" data-unit="g">300 g</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 or more packs</div>
+<div class="subline"><strong>Prep:</strong> Keep chilled until preparation.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Brown basmati rice</strong>
+<span class="ingredient-quantity" data-base-quantity="80" data-unit="g">80 g</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 bag</div>
+<div class="subline"><strong>Prep:</strong> Rinse thoroughly before cooking.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Medium aubergine</strong>
+<span class="ingredient-quantity" data-base-quantity="1" data-unit="integer">1</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 medium aubergine</div>
+<div class="subline"><strong>Prep:</strong> Wash and dry before cutting.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Chestnut mushrooms</strong>
+<span class="ingredient-quantity" data-base-quantity="200" data-unit="g">200 g</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 pack</div>
+<div class="subline"><strong>Prep:</strong> Brush or wipe clean rather than soaking.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Red cabbage</strong>
+<span class="ingredient-quantity" data-base-quantity="160" data-unit="g">160 g</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 small cabbage or prepared pack</div>
+<div class="subline"><strong>Prep:</strong> Remove any damaged outer leaves before slicing.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Small cucumber</strong>
+<span class="ingredient-quantity" data-base-quantity="1" data-unit="integer">1</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 small cucumber</div>
+<div class="subline"><strong>Prep:</strong> Wash and dry before cutting.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Gochujang</strong>
+<span class="ingredient-quantity" data-base-quantity="2" data-unit="tbsp">2 tbsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 tub or jar</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Reduced-salt soy sauce</strong>
+<span class="ingredient-quantity" data-base-quantity="1" data-unit="tbsp">1 tbsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 bottle</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Rice vinegar</strong>
+<span class="ingredient-quantity" data-base-quantity="2" data-unit="tbsp">2 tbsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 bottle</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Toasted sesame oil</strong>
+<span class="ingredient-quantity" data-base-quantity="2" data-unit="tsp">2 tsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 bottle</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Rapeseed oil</strong>
+<span class="ingredient-quantity" data-base-quantity="2" data-unit="tsp">2 tsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 bottle</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Runny honey</strong>
+<span class="ingredient-quantity" data-base-quantity="1" data-unit="tsp">1 tsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 jar or squeezy bottle</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Fresh root ginger</strong>
+<span class="ingredient-quantity" data-base-quantity="2" data-unit="tsp">2 tsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 piece</div>
+<div class="subline"><strong>Prep:</strong> Peel if necessary and finely grate.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Garlic cloves</strong>
+<span class="ingredient-quantity" data-base-quantity="2" data-unit="integer">2</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 bulb</div>
+<div class="subline"><strong>Prep:</strong> Peel and finely grate or crush.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Sesame seeds</strong>
+<span class="ingredient-quantity" data-base-quantity="2" data-unit="tsp">2 tsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 pack</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Fine salt</strong>
+<span class="ingredient-quantity" data-base-quantity="0.25" data-unit="tsp">¼ tsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 container</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Ground black pepper</strong>
+<span class="ingredient-quantity" data-base-quantity="0.25" data-unit="tsp">¼ tsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 container</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Water</strong>
+<span class="ingredient-quantity" data-base-quantity="2" data-unit="tbsp">2 tbsp</span>
+</div>
+</article>
+    </div>
+</details>
+
+
+<details class="section non-method">
+    <summary>Equipment</summary>
+    <div class="section-content">
+        <ul class="compact-list"><li>Rice cooker</li><li>Air fryer</li><li>Gas hob</li><li>Large heavy frying pan</li><li>Medium mixing bowl</li><li>Small bowl</li><li>Chef&#x27;s knife</li><li>Chopping board</li><li>Fine grater or Microplane</li><li>Measuring spoons</li><li>Kitchen scales</li><li>Heatproof spatula</li></ul>
+    </div>
+</details>
+
+
+<details class="section non-method" open>
+    <summary>Mise en place</summary>
+    <div class="section-content card-stack"><article class="prep-card">
+<h3>Prep 1</h3>
+<p>Rinse the brown basmati rice under cold running water until the water is much less cloudy, then drain thoroughly.</p>
+<div class="endpoint"><strong>Ready when:</strong> The rice is rinsed, drained and ready for the rice cooker.</div>
+</article><article class="prep-card">
+<h3>Prep 2</h3>
+<p>Trim the aubergine and cut it into approximately 25 mm cubes, retaining the skin. Trim the mushroom stem ends and cut the mushrooms into halves or quarters so the pieces are approximately 25 mm across. Cut the tempeh into approximately 20 mm cubes.</p>
+<div class="endpoint"><strong>Ready when:</strong> The aubergine, mushrooms and tempeh are in similarly substantial bite-sized pieces that can brown without drying out.</div>
+</article><article class="prep-card">
+<h3>Prep 3</h3>
+<p>Remove any damaged outer cabbage leaves and the hard core, then slice 160 g cabbage very finely into approximately 2 mm ribbons. Trim the cucumber and cut it into thin half-moons approximately 3 mm thick.</p>
+<div class="endpoint"><strong>Ready when:</strong> The cabbage is finely shredded and the cucumber is thinly sliced for a crisp, fresh contrast.</div>
+</article><article class="prep-card">
+<h3>Prep 4</h3>
+<p>Finely grate the ginger and garlic. In the small bowl, combine 2 tbsp gochujang, 1 tbsp reduced-salt soy sauce, 1 tbsp rice vinegar, 1 tsp toasted sesame oil, 1 tsp runny honey, the grated ginger and garlic, and 1 tbsp water. Stir until smooth, keeping the remaining 1 tbsp water available for adjustment.</p>
+<div class="endpoint"><strong>Ready when:</strong> The glaze is smooth, glossy and thickly pourable rather than paste-like.</div>
+</article><article class="prep-card">
+<h3>Prep 5</h3>
+<p>Combine the shredded cabbage with the cucumber, the remaining 1 tbsp rice vinegar, the remaining 1 tsp toasted sesame oil, 1/4 tsp fine salt and 1 tsp sesame seeds. Toss firmly for approximately 30 seconds, lightly squeezing the cabbage with clean hands or tongs so it begins to soften without becoming limp.</p>
+<div class="endpoint"><strong>Ready when:</strong> The cabbage is glossy, lightly softened and still crisp, while the cucumber remains firm.</div>
+</article></div>
+</details>
+
+
+<section class="section method-section">
+    <h2>Method</h2>
+    <div id="methodSteps" class="card-stack"><article class="method-step" data-step-index="0">
+<div class="step-heading">
+<div class="step-number">Step 1</div>
+<h3>Cook the brown rice</h3>
+</div>
+<div class="step-section">Rice</div>
+<div class="step-meta"><span class="badge">Heat source: rice_cooker</span><span class="badge">Setting: brown-rice or appropriate automatic programme</span><span class="badge">Time: 25–35 min</span></div>
+<p class="instruction">Place the rinsed rice in the rice cooker and add the quantity of water specified by the rice-cooker manufacturer for 80 g brown basmati rice. Start the brown-rice or standard rice programme as appropriate for the appliance.</p>
+<div class="endpoint"><strong>Ready when:</strong> The rice is tender throughout with distinct grains and no hard centre or pool of free water.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul><li><strong>If:</strong> The rice is slightly firm when the automatic cycle finishes.<br><strong>Do:</strong> Leave it covered on the keep-warm setting for another 5 minutes before fluffing.</li></ul>
+</details>
+
+</article><article class="method-step" data-step-index="1">
+<div class="step-heading">
+<div class="step-number">Step 2</div>
+<h3>Air-fry the aubergine</h3>
+</div>
+<div class="step-section">Aubergine</div>
+<div class="step-meta"><span class="badge">Heat source: air_fryer</span><span class="badge">Setting: 200°C</span><span class="badge">Temperature: 200°C</span><span class="badge">Time: 13–16 min</span></div>
+<p class="instruction">Toss the aubergine with 1 tsp rapeseed oil and 1/4 tsp black pepper. Arrange it in a single layer in the air-fryer basket. Air-fry at 200°C for approximately 13-16 minutes, shaking once after approximately 8 minutes.</p>
+<div class="endpoint"><strong>Ready when:</strong> The aubergine is fully tender and creamy inside with deeply browned, slightly caramelised edges.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul><li><strong>If:</strong> The aubergine edges darken before the centres are tender.<br><strong>Do:</strong> Reduce the air-fryer temperature to 185°C and continue cooking until the centres yield easily when pressed.</li><li><strong>If:</strong> The aubergine remains pale after 16 minutes.<br><strong>Do:</strong> Continue cooking for 2-3 minutes, shaking once, until distinct golden-brown edges develop.</li></ul>
+</details>
+
+</article><article class="method-step" data-step-index="2">
+<div class="step-heading">
+<div class="step-number">Step 3</div>
+<h3>Brown the tempeh</h3>
+</div>
+<div class="step-section">Tempeh and mushrooms</div>
+<div class="step-meta"><span class="badge">Heat source: gas_hob</span><span class="badge">Setting: medium-high</span><span class="badge">Time: 6–8 min</span></div>
+<p class="instruction">Heat the frying pan over medium-high heat for approximately 1 minute. Add the remaining 1 tsp rapeseed oil, followed by the tempeh cubes. Spread them into one layer and cook for approximately 6-8 minutes, turning only every 1-2 minutes so multiple faces become deeply golden.</p>
+<div class="endpoint"><strong>Ready when:</strong> The tempeh is hot throughout and has clear golden-brown crusting on several surfaces.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul><li><strong>If:</strong> The tempeh starts catching before browning evenly.<br><strong>Do:</strong> Reduce the heat slightly and allow the pieces to release naturally before turning them.</li><li><strong>If:</strong> The tempeh remains pale and soft.<br><strong>Do:</strong> Increase the heat slightly and leave the pieces undisturbed for longer between turns.</li></ul>
+</details>
+
+</article><article class="method-step" data-step-index="3">
+<div class="step-heading">
+<div class="step-number">Step 4</div>
+<h3>Brown the mushrooms</h3>
+</div>
+<div class="step-section">Tempeh and mushrooms</div>
+<div class="step-meta"><span class="badge">Heat source: gas_hob</span><span class="badge">Setting: medium-high</span><span class="badge">Time: 5–7 min</span></div>
+<p class="instruction">Push the browned tempeh to the outer edge of the pan. Add the mushrooms to the centre in as close to a single layer as possible. Cook over medium-high heat for approximately 5-7 minutes, stirring only occasionally, until their released moisture has evaporated and the cut surfaces are strongly browned.</p>
+<div class="endpoint"><strong>Ready when:</strong> The mushrooms are reduced, juicy inside and browned rather than grey or watery, with no pool of liquid remaining in the pan.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul><li><strong>If:</strong> The mushrooms release substantial liquid and begin simmering.<br><strong>Do:</strong> Keep the pan uncovered, maintain medium-high heat and avoid stirring until the visible liquid has evaporated.</li></ul>
+</details>
+
+</article><article class="method-step" data-step-index="4">
+<div class="step-heading">
+<div class="step-number">Step 5</div>
+<h3>Glaze the tempeh and mushrooms</h3>
+</div>
+<div class="step-section">Glaze</div>
+<div class="step-meta"><span class="badge">Heat source: gas_hob</span><span class="badge">Setting: medium</span><span class="badge">Time: 2–3 min</span></div>
+<p class="instruction">Reduce the heat to medium. Pour the gochujang glaze over the tempeh and mushrooms and toss continuously for approximately 2-3 minutes. Allow the glaze to bubble and reduce until it clings thickly to the ingredients and begins to caramelise at the edges. If it tightens before coating everything, add the reserved water 1 tsp at a time.</p>
+<div class="endpoint"><strong>Ready when:</strong> The tempeh and mushrooms are evenly lacquered in a glossy red glaze with no watery sauce left in the pan and no scorched garlic or gochujang.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul><li><strong>If:</strong> The glaze begins catching or darkening rapidly before coating the ingredients.<br><strong>Do:</strong> Lower the heat immediately and add 1 tsp of the reserved water.</li><li><strong>If:</strong> The glaze remains thin and watery after 3 minutes.<br><strong>Do:</strong> Continue cooking uncovered for 1-2 minutes, stirring frequently, until it coats the spatula and clings to the tempeh.</li></ul>
+</details>
+
+</article><article class="method-step" data-step-index="5">
+<div class="step-heading">
+<div class="step-number">Step 6</div>
+<h3>Combine the aubergine with the glaze</h3>
+</div>
+<div class="step-section">Assembly</div>
+<div class="step-meta"><span class="badge">Heat source: gas_hob</span><span class="badge">Setting: low</span><span class="badge">Time: 0.5–1 min</span></div>
+<p class="instruction">Add the browned aubergine to the glazed tempeh and mushrooms. Fold gently for approximately 30-60 seconds, just until the aubergine picks up a thin coating of glaze without breaking down.</p>
+<div class="endpoint"><strong>Ready when:</strong> The aubergine remains in distinct tender pieces and the glaze is evenly distributed across all three hot components.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul><li><strong>If:</strong> The aubergine starts collapsing during mixing.<br><strong>Do:</strong> Stop stirring and remove the pan from the heat; gentle folding is sufficient.</li></ul>
+</details>
+
+</article><article class="method-step" data-step-index="6">
+<div class="step-heading">
+<div class="step-number">Step 7</div>
+<h3>Fluff the rice</h3>
+</div>
+<div class="step-section">Rice</div>
+<div class="step-meta"><span class="badge">Heat source: rice_cooker</span><span class="badge">Setting: keep-warm or off</span><span class="badge">Time: 2–5 min</span></div>
+<p class="instruction">When the rice is tender, leave it covered for approximately 5 minutes if the cooking cycle has only just completed, then fluff gently so excess steam escapes and the grains separate.</p>
+<div class="endpoint"><strong>Ready when:</strong> The rice is fluffy and moist without clumping or visible free water.</div>
+</article></div>
+
+    <div id="cookControls" class="cook-controls">
+        <button id="previousStep" type="button">Previous</button>
+        <div id="stepCounter"></div>
+        <button id="nextStep" type="button">Next</button>
+    </div>
+</section>
+
+
+<details class="section non-method">
+    <summary>Serving</summary>
+    <div class="section-content"><p>Divide the brown rice between two bowls. Spoon the glazed tempeh, aubergine and mushrooms over one side. Add the sesame cabbage and cucumber alongside so it remains cool and crisp. Scatter each bowl with the remaining 1 tsp sesame seeds and serve immediately.</p></div>
+</details>
+
+
+<details class="section non-method">
+    <summary>Storage & reheating</summary>
+    <div class="section-content"><p><strong>Refrigerator:</strong> 2 days</p><p>Cool cooked rice promptly and refrigerate it separately from the glazed tempeh mixture and raw sesame cabbage within 1 hour where practical. Store all components in sealed containers for up to 2 days. Keep the cabbage and cucumber cold and separate from the hot components until serving so they remain crisp.</p><h3>Reheating</h3><ul><li>Hob: place the rice in a covered saucepan with 1 tbsp water and heat over low-medium heat, stirring occasionally, until piping hot throughout.</li><li>Hob: reheat the tempeh, aubergine and mushroom mixture in a frying pan over medium heat, adding 1-2 tsp water if the glaze is too thick, until piping hot throughout.</li><li>Air fryer: the tempeh and vegetable mixture may be reheated in a suitable heatproof dish at approximately 170°C until piping hot; stir once during heating.</li><li>Serve the sesame cabbage and cucumber chilled and do not reheat them.</li></ul></div>
+</details>
+
+
+<details class="section non-method">
+    <summary>Shopping</summary>
+    <div class="section-content"><h3>Either retailer</h3><ul><li>Plain tempeh — use 300 g; retail pack size may vary.</li><li>Brown basmati rice — use 80 g dry.</li><li>Medium aubergine — 1.</li><li>Chestnut mushrooms — 1 pack; use 200 g.</li><li>Red cabbage — use 160 g.</li><li>Small cucumber — 1.</li><li>Gochujang — use 2 tbsp.</li><li>Reduced-salt soy sauce — use 1 tbsp.</li><li>Rice vinegar — use 2 tbsp.</li><li>Toasted sesame oil — use 2 tsp.</li><li>Rapeseed oil — use 2 tsp.</li><li>Runny honey — use 1 tsp.</li><li>Fresh root ginger — use 2 tsp finely grated.</li><li>Garlic — 1 bulb; use 2 cloves.</li><li>Sesame seeds — use 2 tsp.</li><li>Fine salt — use 1/4 tsp.</li><li>Ground black pepper — use 1/4 tsp.</li></ul></div>
+</details>
+
+
+</main>
+
+<script>
+(function () {
+    const button = document.getElementById("cookModeButton");
+    const steps = Array.from(document.querySelectorAll(".method-step"));
+    const controls = document.getElementById("cookControls");
+    const previous = document.getElementById("previousStep");
+    const next = document.getElementById("nextStep");
+    const counter = document.getElementById("stepCounter");
+    let currentStep = 0;
+
+    function showStep(index) {
+        if (!steps.length) return;
+
+        currentStep = Math.max(0, Math.min(index, steps.length - 1));
+        steps.forEach((step, stepIndex) => {
+            step.classList.toggle("active", stepIndex === currentStep);
+        });
+
+        if (counter) counter.textContent = "Step " + (currentStep + 1) + " of " + steps.length;
+        if (previous) previous.disabled = currentStep === 0;
+        if (next) next.disabled = currentStep === steps.length - 1;
+
+        const active = steps[currentStep];
+        if (active) {
+            active.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+    }
+
+    if (button) {
+        button.addEventListener("click", () => {
+            const active = document.body.classList.toggle("cook-mode");
+            button.textContent = active ? "Exit cook mode" : "Cook mode";
+            if (active) showStep(currentStep);
+        });
+    }
+
+    if (previous) previous.addEventListener("click", () => showStep(currentStep - 1));
+    if (next) next.addEventListener("click", () => showStep(currentStep + 1));
+    if (!steps.length && controls) controls.style.display = "none";
+
+    /* Serving scaler */
+    const servingsMinus = document.getElementById("servingsMinus");
+    const servingsPlus = document.getElementById("servingsPlus");
+    const servingsValue = document.getElementById("servingsValue");
+    const servesFactValue = document.getElementById("servesFactValue");
+    const recipeId = "gochujang_tempeh_aubergine_mushroom_rice_bowls_sesame_cabbage_cucumber";
+
+    function formatFraction(value) {
+        const rounded = Math.round(value * 8) / 8;
+        const whole = Math.floor(rounded);
+        const remainder = Math.round((rounded - whole) * 8);
+        const fractions = { 0: "", 1: "⅛", 2: "¼", 3: "⅜", 4: "½", 5: "⅝", 6: "¾", 7: "⅞" };
+
+        if (whole > 0 && remainder > 0) return String(whole) + fractions[remainder];
+        if (whole > 0) return String(whole);
+        if (remainder > 0) return fractions[remainder];
+        return "0";
+    }
+
+    function formatScaledQuantity(value, unit) {
+        if (unit === "tsp" || unit === "tbsp" || unit === "integer") {
+            const number = formatFraction(value);
+            return unit === "integer" ? number : number + " " + unit;
+        }
+
+        const rounded = Math.round(value * 10) / 10;
+        return String(rounded) + (unit ? " " + unit : "");
+    }
+
+    function setServings(newServings) {
+        const baseServings = Number(servingsValue.dataset.baseServings);
+        newServings = Math.max(1, Math.min(12, newServings));
+        servingsValue.textContent = String(newServings);
+        if (servesFactValue) servesFactValue.textContent = String(newServings);
+
+        const factor = newServings / baseServings;
+        document.querySelectorAll(".ingredient-quantity").forEach(element => {
+            const baseQuantity = Number(element.dataset.baseQuantity);
+            const unit = element.dataset.unit;
+            if (!Number.isFinite(baseQuantity)) return;
+            element.textContent = formatScaledQuantity(baseQuantity * factor, unit);
+        });
+
+        localStorage.setItem("recipe-servings:" + recipeId, String(newServings));
+    }
+
+    if (servingsMinus && servingsPlus && servingsValue) {
+        servingsMinus.addEventListener("click", () => {
+            setServings(Number(servingsValue.textContent) - 1);
+        });
+        servingsPlus.addEventListener("click", () => {
+            setServings(Number(servingsValue.textContent) + 1);
+        });
+
+        const saved = Number(localStorage.getItem("recipe-servings:" + recipeId));
+        if (Number.isFinite(saved) && saved >= 1) setServings(saved);
+    }
+
+    /* Favourite / neutral / dislike */
+    const favouriteButton = document.getElementById("ratingFavourite");
+    const dislikeButton = document.getElementById("ratingDislike");
+    const ratingKey = "recipe-rating:" + recipeId;
+
+    function setRating(rating) {
+        localStorage.setItem(ratingKey, rating);
+        if (favouriteButton) favouriteButton.classList.toggle("active", rating === "favourite");
+        if (dislikeButton) dislikeButton.classList.toggle("active", rating === "dislike");
+    }
+
+    if (favouriteButton) favouriteButton.addEventListener("click", () => setRating("favourite"));
+    if (neutralButton) neutralButton.addEventListener("click", () => setRating("neutral"));
+    if (dislikeButton) dislikeButton.addEventListener("click", () => setRating("dislike"));
+
+    if (favouriteButton && neutralButton && dislikeButton) {
+        setRating(localStorage.getItem(ratingKey) || "neutral");
+    }
+})();
+</script>
+
+</body>
+</html>

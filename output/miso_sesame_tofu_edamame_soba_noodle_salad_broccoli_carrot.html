@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Miso-Sesame Tofu &amp; Edamame Soba Noodle Salad with Broccoli and Carrot</title>
+
+<style>
+:root {
+    --background: #f4f2ec;
+    --panel: #ffffff;
+    --text: #000000;
+    --muted: #555555;
+    --border: #b9b5ad;
+    --accent: #e5f1dd;
+    --endpoint: #fff4c6;
+    --step: #f7f7f4;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--background);
+    color: var(--text);
+}
+
+body {
+    min-height: 100vh;
+    min-height: 100dvh;
+}
+
+button, input, select, summary { font: inherit; }
+
+.page {
+    width: min(calc(100% - 24px), 1050px);
+    margin: 0 auto;
+    padding: max(12px, env(safe-area-inset-top)) 0 max(40px, env(safe-area-inset-bottom)) 0;
+}
+
+.recipe-header {
+    position: static;
+    background: transparent;
+    padding: 12px 0 10px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.title-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+h1 {
+    margin: 0;
+    font-size: clamp(1.65rem, 5vw, 2.8rem);
+    line-height: 1.12;
+}
+
+.scheduled-date { margin-top: 8px; font-weight: 700; }
+.description { margin: 12px 0 0 0; line-height: 1.5; }
+
+.recipe-info {
+    margin-top: 10px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    background: #ffffff;
+    overflow: hidden;
+}
+
+.recipe-info > summary {
+    cursor: pointer;
+    padding: 9px 11px;
+    font-weight: 750;
+}
+
+.recipe-info-content { padding: 0 11px 11px 11px; }
+
+.tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: #ffffff;
+    color: #000000;
+    font-size: 0.82rem;
+}
+
+.allergens {
+    margin-top: 10px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    background: #ffe4df;
+}
+
+.facts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+    gap: 8px;
+    margin: 14px 0;
+}
+
+.fact {
+    display: grid;
+    gap: 2px;
+    padding: 9px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    background: #ffffff;
+}
+
+.fact span { font-size: 0.78rem; color: var(--muted); }
+
+.recipe-tools {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.serving-tool, .rating-tool {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: #ffffff;
+}
+
+.serving-controls, .rating-buttons {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.serving-controls button, .rating-buttons button {
+    min-height: 36px;
+    padding: 5px 9px;
+    border: 1px solid #000000;
+    border-radius: 7px;
+    background: #ffffff;
+    color: #000000;
+    font-weight: 700;
+}
+
+#servingsValue {
+    min-width: 30px;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 800;
+}
+
+.rating-buttons button.active {
+    background: #000000;
+    color: #ffffff;
+}
+
+.section {
+    display: block;
+    margin-top: 14px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--panel);
+    overflow: hidden;
+}
+
+details.section > summary {
+    cursor: pointer;
+    padding: 15px 16px;
+    font-size: 1.12rem;
+    font-weight: 800;
+    background: var(--accent);
+}
+
+.section-content { padding: 14px; }
+.method-section { padding: 14px; }
+.method-section > h2 { margin: 0 0 12px 0; }
+.ingredient-grid, .card-stack { display: grid; gap: 10px; }
+
+.ingredient-card, .prep-card, .method-step {
+    padding: 14px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--step);
+}
+
+.ingredient-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 14px;
+}
+
+.ingredient-quantity {
+    flex: 0 0 auto;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.subline { margin-top: 7px; line-height: 1.4; }
+.compact-list { margin: 0; padding-left: 22px; }
+.prep-card h3, .method-step h3 { margin: 0; }
+.prep-card p, .method-step p { margin: 10px 0; }
+
+.step-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+}
+
+.step-number {
+    flex: 0 0 auto;
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.step-section {
+    margin-top: 6px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--muted);
+}
+
+.step-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+}
+
+.instruction { font-size: 1rem; line-height: 1.55; }
+
+.endpoint {
+    margin-top: 10px;
+    padding: 10px 12px;
+    border-left: 4px solid #000000;
+    background: var(--endpoint);
+    line-height: 1.45;
+}
+
+.corrective { margin-top: 10px; }
+.corrective summary { cursor: pointer; font-weight: 750; }
+.corrective ul { margin-bottom: 0; }
+
+.cook-button {
+    flex: 0 0 auto;
+    min-height: 42px;
+    padding: 8px 12px;
+    border: 1px solid #000000;
+    border-radius: 9px;
+    background: #000000;
+    color: #ffffff;
+    font-weight: 750;
+}
+
+.cook-controls {
+    display: none;
+    position: sticky;
+    bottom: max(8px, env(safe-area-inset-bottom));
+    z-index: 30;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 14px;
+    padding: 10px;
+    border: 1px solid #000000;
+    border-radius: 12px;
+    background: #ffffff;
+}
+
+.cook-controls button {
+    min-height: 44px;
+    padding: 8px 14px;
+    border: 1px solid #000000;
+    border-radius: 8px;
+    background: #000000;
+    color: #ffffff;
+    font-weight: 750;
+}
+
+.method-step { scroll-margin-top: 58px; }
+
+/* Compact cook-mode header */
+body.cook-mode .recipe-header {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    margin: 0;
+    padding: 6px 0;
+    background: rgba(244, 242, 236, 0.98);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(8px);
+}
+
+body.cook-mode .recipe-header .recipe-info,
+body.cook-mode .recipe-header .scheduled-date,
+body.cook-mode .facts,
+body.cook-mode .recipe-tools,
+body.cook-mode .non-method,
+body.cook-mode .method-section > h2 {
+    display: none;
+}
+
+body.cook-mode .title-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 8px;
+}
+
+body.cook-mode .recipe-header h1 {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+body.cook-mode .cook-button {
+    width: auto;
+    min-height: 36px;
+    padding: 6px 10px;
+    font-size: 0.85rem;
+    white-space: nowrap;
+}
+
+body.cook-mode .method-step { display: none; }
+body.cook-mode .method-step.active { display: block; }
+body.cook-mode .cook-controls { display: flex; }
+body.cook-mode .method-section {
+    min-height: calc(100dvh - 60px);
+    margin-top: 6px;
+}
+
+@media (max-width: 600px) {
+    .page { width: calc(100% - 12px); }
+    .recipe-header { padding-top: 8px; }
+
+    h1 {
+        font-size: 1.35rem;
+        line-height: 1.18;
+    }
+
+    .title-row {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: start;
+    }
+
+    .cook-button {
+        width: auto;
+        min-height: 36px;
+        padding: 6px 10px;
+        font-size: 0.85rem;
+    }
+
+    .recipe-tools { grid-template-columns: 1fr; }
+
+    .serving-tool, .rating-tool {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .rating-buttons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .ingredient-heading {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 3px;
+    }
+
+    .ingredient-quantity { white-space: normal; }
+    .method-section, .section-content { padding: 10px; }
+    .ingredient-card, .prep-card, .method-step { padding: 12px; }
+}
+
+@media print {
+    .recipe-header { position: static; }
+    .cook-button, .cook-controls, .recipe-tools { display: none !important; }
+    body.cook-mode .non-method, body.cook-mode .method-step { display: block; }
+    .section { break-inside: avoid; }
+}
+</style>
+</head>
+
+<body>
+<main class="page">
+
+<header class="recipe-header">
+    <div class="title-row">
+        <h1>Miso-Sesame Tofu &amp; Edamame Soba Noodle Salad with Broccoli and Carrot</h1>
+        <button id="cookModeButton" class="cook-button" type="button">Cook mode</button>
+    </div>
+
+    
+
+    <details class="recipe-info">
+        <summary>Recipe info</summary>
+        <div class="recipe-info-content">
+            <p class="description">A portable Japanese-inspired soba salad with crisp-edged sesame tofu, edamame, tender-crisp broccoli and raw carrot, coated in a punchy miso, ginger, soy and rice-vinegar dressing.</p>
+            <div class="tag-row"><span class="badge">Lunch</span><span class="badge">Lacto-ovo vegetarian</span><span class="badge">High protein</span><span class="badge">Portable</span></div>
+            <div class="allergens"><strong>Allergens:</strong> Soya, Sesame, Wheat</div>
+        </div>
+    </details>
+</header>
+
+<div class="facts"><div class="fact"><span>Serves</span><strong id="servesFactValue">2</strong></div><div class="fact"><span>Difficulty</span><strong>Easy</strong></div><div class="fact"><span>Active</span><strong>21 min</strong></div><div class="fact"><span>Total</span><strong>28 min</strong></div><div class="fact"><span>Energy</span><strong>445 kcal</strong></div><div class="fact"><span>Protein</span><strong>32.1 g</strong></div></div>
+
+<section class="recipe-tools">
+    <div class="serving-tool">
+        <strong>Servings</strong>
+        <div class="serving-controls">
+            <button id="servingsMinus" type="button">−</button>
+            <span id="servingsValue" data-base-servings="2">2</span>
+            <button id="servingsPlus" type="button">+</button>
+        </div>
+    </div>
+
+    <div class="rating-tool" data-recipe-id="miso_sesame_tofu_edamame_soba_noodle_salad_broccoli_carrot">
+        <strong>Your rating</strong>
+        <div class="rating-buttons">
+            <button id="ratingFavourite" type="button">♥ Favourite</button>
+            <button id="ratingDislike" type="button">👎 Dislike</button>
+        </div>
+    </div>
+</section>
+
+
+<details class="section non-method" open>
+    <summary>Ingredients</summary>
+    <div class="section-content ingredient-grid">
+        <article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Extra-firm tofu</strong>
+<span class="ingredient-quantity" data-base-quantity="200" data-unit="g">200 g</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 pack</div>
+<div class="subline"><strong>Prep:</strong> Drain thoroughly and pat dry before cutting.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Frozen shelled edamame beans</strong>
+<span class="ingredient-quantity" data-base-quantity="140" data-unit="g">140 g</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 bag</div>
+<div class="subline"><strong>Prep:</strong> No thawing required.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Dried soba noodles</strong>
+<span class="ingredient-quantity" data-base-quantity="50" data-unit="g">50 g</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 pack</div>
+<div class="subline"><strong>Prep:</strong> Keep dry until cooking.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Broccoli</strong>
+<span class="ingredient-quantity" data-base-quantity="180" data-unit="g">180 g</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 medium head</div>
+<div class="subline"><strong>Prep:</strong> Wash before cutting.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Large carrot</strong>
+<span class="ingredient-quantity" data-base-quantity="1" data-unit="integer">1</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 large carrot</div>
+<div class="subline"><strong>Prep:</strong> Wash and peel if the skin is coarse or damaged.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>White miso paste</strong>
+<span class="ingredient-quantity" data-base-quantity="1" data-unit="tbsp">1 tbsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 jar or pot</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Reduced-salt soy sauce</strong>
+<span class="ingredient-quantity" data-base-quantity="2" data-unit="tsp">2 tsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 bottle</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Rice vinegar</strong>
+<span class="ingredient-quantity" data-base-quantity="1" data-unit="tbsp">1 tbsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 bottle</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Toasted sesame oil</strong>
+<span class="ingredient-quantity" data-base-quantity="1" data-unit="tsp">1 tsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 bottle</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Sesame seeds</strong>
+<span class="ingredient-quantity" data-base-quantity="2" data-unit="tsp">2 tsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 pack</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Fresh root ginger</strong>
+<span class="ingredient-quantity" data-base-quantity="2" data-unit="tsp">2 tsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 piece</div>
+<div class="subline"><strong>Prep:</strong> Peel if the skin is tough, then finely grate.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Garlic clove</strong>
+<span class="ingredient-quantity" data-base-quantity="1" data-unit="integer">1</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 bulb</div>
+<div class="subline"><strong>Prep:</strong> Peel and finely grate or crush.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Runny honey</strong>
+<span class="ingredient-quantity" data-base-quantity="1" data-unit="tsp">1 tsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 jar or squeezy bottle</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Cornflour</strong>
+<span class="ingredient-quantity" data-base-quantity="2" data-unit="tsp">2 tsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 pack</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Hot water</strong>
+<span class="ingredient-quantity" data-base-quantity="1" data-unit="tbsp">1 tbsp</span>
+</div>
+<div class="subline"><strong>Prep:</strong> Use freshly boiled water.</div>
+</article>
+    </div>
+</details>
+
+
+<details class="section non-method">
+    <summary>Equipment</summary>
+    <div class="section-content">
+        <ul class="compact-list"><li>Air fryer</li><li>Electric kettle</li><li>Gas hob</li><li>Medium saucepan</li><li>Large mixing bowl</li><li>Chef&#x27;s knife</li><li>Chopping board</li><li>Fine grater or Microplane</li><li>Colander</li><li>Measuring spoons</li><li>Kitchen tongs</li><li>2 lidded lunch containers</li></ul>
+    </div>
+</details>
+
+
+<details class="section non-method" open>
+    <summary>Mise en place</summary>
+    <div class="section-content card-stack"><article class="prep-card">
+<h3>Prep 1</h3>
+<p>Drain the tofu and pat it thoroughly dry. Cut it into approximately 20 mm cubes. In the large mixing bowl, gently toss the tofu with 1 tsp reduced-salt soy sauce and 1/2 tsp toasted sesame oil, then sprinkle over 2 tsp cornflour and toss until each piece has a thin, dry-looking coating.</p>
+<div class="endpoint"><strong>Ready when:</strong> The tofu cubes are evenly coated with no visible wet pools of soy sauce and no large clumps of cornflour.</div>
+</article><article class="prep-card">
+<h3>Prep 2</h3>
+<p>Cut the broccoli into small florets approximately 25-30 mm across. Peel any tough outer skin from the tender stem and slice the usable stem thinly. Trim the carrot, then cut it into fine matchsticks approximately 3 mm thick and 40-50 mm long.</p>
+<div class="endpoint"><strong>Ready when:</strong> The broccoli pieces are small enough to cook rapidly and evenly, and the carrot is cut into thin raw matchsticks.</div>
+</article><article class="prep-card">
+<h3>Prep 3</h3>
+<p>Finely grate 2 tsp ginger and the peeled garlic clove. Keep them ready with 1 tbsp white miso, the remaining 1 tsp reduced-salt soy sauce, 1 tbsp rice vinegar, the remaining 1/2 tsp toasted sesame oil, 1 tsp runny honey and 1 tbsp hot water.</p>
+<div class="endpoint"><strong>Ready when:</strong> All dressing ingredients are measured and ready to combine.</div>
+</article></div>
+</details>
+
+
+<section class="section method-section">
+    <h2>Method</h2>
+    <div id="methodSteps" class="card-stack"><article class="method-step" data-step-index="0">
+<div class="step-heading">
+<div class="step-number">Step 1</div>
+<h3>Air-fry the tofu</h3>
+</div>
+<div class="step-section">Tofu</div>
+<div class="step-meta"><span class="badge">Heat source: air_fryer</span><span class="badge">Setting: 200°C</span><span class="badge">Temperature: 200°C</span><span class="badge">Time: 11–14 min</span></div>
+<p class="instruction">Preheat the air fryer to 200°C if your model benefits from preheating. Arrange the coated tofu in a single layer with space for air circulation. Air-fry at 200°C for approximately 11-14 minutes, shaking or turning once after about 7 minutes.</p>
+<div class="endpoint"><strong>Ready when:</strong> The tofu is piping hot, dry on the surface and golden at several edges, with a lightly crisp exterior and tender centre.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul><li><strong>If:</strong> The tofu is browning very rapidly before the surface has crisped.<br><strong>Do:</strong> Reduce the air-fryer temperature to 190°C for the remaining cooking time.</li><li><strong>If:</strong> The tofu is still pale and soft after 14 minutes.<br><strong>Do:</strong> Continue air-frying for 2-3 minutes, checking every minute, until distinct golden edges develop.</li></ul>
+</details>
+
+</article><article class="method-step" data-step-index="1">
+<div class="step-heading">
+<div class="step-number">Step 2</div>
+<h3>Boil the water</h3>
+</div>
+<div class="step-section">Noodles and vegetables</div>
+<div class="step-meta"><span class="badge">Heat source: gas_hob</span><span class="badge">Setting: high</span><span class="badge">Time: 2–3 min</span></div>
+<p class="instruction">While the tofu cooks, boil enough water in the kettle to generously cover the soba noodles in the saucepan. Pour the boiling water into the saucepan and bring it back to a steady boil over high heat.</p>
+<div class="endpoint"><strong>Ready when:</strong> The saucepan contains vigorously boiling water ready for the noodles.</div>
+</article><article class="method-step" data-step-index="2">
+<div class="step-heading">
+<div class="step-number">Step 3</div>
+<h3>Cook the soba, edamame and broccoli</h3>
+</div>
+<div class="step-section">Noodles and vegetables</div>
+<div class="step-meta"><span class="badge">Heat source: gas_hob</span><span class="badge">Setting: medium-high</span><span class="badge">Time: 4–6 min</span></div>
+<p class="instruction">Add the soba noodles to the boiling water and cook according to the lower end of the package timing, normally about 4-5 minutes. Add the frozen edamame approximately 3 minutes before the noodles are expected to be ready, then add the broccoli approximately 2 minutes before the end. Stir gently after each addition so the noodles do not stick together.</p>
+<div class="endpoint"><strong>Ready when:</strong> The soba is tender but retains a slight bite, the edamame is hot throughout, and the broccoli is bright green and tender-crisp rather than soft.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul><li><strong>If:</strong> The noodles reach the correct texture before the broccoli is tender-crisp.<br><strong>Do:</strong> Drain the noodles and edamame with tongs or a sieve insert if practical, then allow the broccoli another 30-60 seconds before draining.</li><li><strong>If:</strong> The broccoli begins losing its bright green colour.<br><strong>Do:</strong> Drain immediately; it is approaching overcooked.</li></ul>
+</details>
+
+</article><article class="method-step" data-step-index="3">
+<div class="step-heading">
+<div class="step-number">Step 4</div>
+<h3>Rinse and drain thoroughly</h3>
+</div>
+<div class="step-section">Noodles and vegetables</div>
+<div class="step-meta"><span class="badge">Time: 2–3 min</span></div>
+<p class="instruction">Drain the noodles, edamame and broccoli immediately into the colander. Rinse thoroughly under cold running water while gently separating the noodles with clean fingers or tongs until the mixture is cool. Shake the colander firmly and leave it to drain for approximately 1 minute.</p>
+<div class="endpoint"><strong>Ready when:</strong> The noodles and vegetables are cool and well drained, with no free water collecting beneath the colander.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul><li><strong>If:</strong> The noodles still feel slippery with loose surface starch.<br><strong>Do:</strong> Rinse for another 20-30 seconds while gently separating the strands.</li><li><strong>If:</strong> Water continues dripping heavily after rinsing.<br><strong>Do:</strong> Shake the colander again and allow another minute of draining before dressing the salad.</li></ul>
+</details>
+
+</article><article class="method-step" data-step-index="4">
+<div class="step-heading">
+<div class="step-number">Step 5</div>
+<h3>Whisk the miso-sesame dressing</h3>
+</div>
+<div class="step-section">Dressing</div>
+<div class="step-meta"><span class="badge">Time: 1–2 min</span></div>
+<p class="instruction">Once the tofu has been transferred to the air fryer, use the same mixing bowl to combine 1 tbsp white miso, 1 tsp reduced-salt soy sauce, 1 tbsp rice vinegar, 1/2 tsp toasted sesame oil, 1 tsp runny honey, the grated ginger, grated garlic and 1 tbsp hot water. Whisk or stir vigorously until completely smooth.</p>
+<div class="endpoint"><strong>Ready when:</strong> The dressing is smooth, glossy and pourable, with a balanced salty, savoury, acidic and lightly sweet flavour.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul><li><strong>If:</strong> The dressing remains too thick to coat noodles evenly.<br><strong>Do:</strong> Add 1 tsp hot water and mix again; repeat once only if necessary.</li><li><strong>If:</strong> The dressing tastes excessively sharp.<br><strong>Do:</strong> Add up to an additional 1/2 tsp runny honey.</li></ul>
+</details>
+
+</article><article class="method-step" data-step-index="5">
+<div class="step-heading">
+<div class="step-number">Step 6</div>
+<h3>Dress the noodle salad</h3>
+</div>
+<div class="step-section">Assembly</div>
+<div class="step-meta"><span class="badge">Time: 2–3 min</span></div>
+<p class="instruction">Add the well-drained soba, edamame and broccoli to the dressing bowl with the raw carrot matchsticks. Add 1 tsp of the sesame seeds and toss thoroughly with tongs until the noodles and vegetables are evenly coated and no concentrated patches of miso dressing remain.</p>
+<div class="endpoint"><strong>Ready when:</strong> The salad is evenly dressed but not wet, the noodle strands remain separate, and the carrot retains a crisp raw texture.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul><li><strong>If:</strong> A watery pool forms at the bottom of the bowl.<br><strong>Do:</strong> Transfer the salad briefly back to the colander, drain the excess liquid, then return it to the bowl.</li><li><strong>If:</strong> The noodles seem dry despite being evenly coated.<br><strong>Do:</strong> Add 1 tsp water and toss again rather than adding more oil.</li></ul>
+</details>
+
+</article><article class="method-step" data-step-index="6">
+<div class="step-heading">
+<div class="step-number">Step 7</div>
+<h3>Finish with the crisp tofu</h3>
+</div>
+<div class="step-section">Assembly</div>
+<div class="step-meta"><span class="badge">Time: 2–3 min</span></div>
+<p class="instruction">Allow the cooked tofu to stand for approximately 2 minutes so excess steam can escape. If serving immediately, fold the tofu gently through the salad and scatter over the remaining 1 tsp sesame seeds. If packing for later, keep the tofu in a separate dry compartment or container and add it immediately before eating.</p>
+<div class="endpoint"><strong>Ready when:</strong> The salad has distinct tender noodles, crisp carrot, tender-crisp broccoli and golden tofu, with the tofu remaining as dry and crisp as practical.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul><li><strong>If:</strong> The tofu is visibly steaming when packing for later.<br><strong>Do:</strong> Leave it uncovered for another 2-3 minutes before sealing so condensation does not soften the coating.</li></ul>
+</details>
+
+</article></div>
+
+    <div id="cookControls" class="cook-controls">
+        <button id="previousStep" type="button">Previous</button>
+        <div id="stepCounter"></div>
+        <button id="nextStep" type="button">Next</button>
+    </div>
+</section>
+
+
+<details class="section non-method">
+    <summary>Serving</summary>
+    <div class="section-content"><p>Divide the dressed soba, edamame, broccoli and carrot evenly between two bowls or lunch containers. Add half of the crisp tofu to each serving and finish with the remaining sesame seeds. For packed lunches, transport chilled and keep the tofu separate until eating for the best texture.</p></div>
+</details>
+
+
+<details class="section non-method">
+    <summary>Storage & reheating</summary>
+    <div class="section-content"><p><strong>Refrigerator:</strong> 2 days</p><p>Cool all cooked components promptly before sealing. Refrigerate the dressed noodle salad for up to 2 days. For best texture, refrigerate the air-fried tofu in a separate sealed container and combine immediately before eating. For transport to work or on a car journey, carry the salad chilled in an insulated bag with an ice pack and refrigerate on arrival where possible.</p></div>
+</details>
+
+
+<details class="section non-method">
+    <summary>Shopping</summary>
+    <div class="section-content"><h3>Either retailer</h3><ul><li>Extra-firm tofu — 1 pack; use 200 g.</li><li>Frozen shelled edamame beans — 1 bag; use 140 g.</li><li>Dried soba noodles — 1 pack; use 50 g.</li><li>Broccoli — 1 medium head; use approximately 180 g.</li><li>Large carrot — 1.</li><li>White miso paste — use 1 tbsp.</li><li>Reduced-salt soy sauce — use 2 tsp.</li><li>Rice vinegar — use 1 tbsp.</li><li>Toasted sesame oil — use 1 tsp.</li><li>Sesame seeds — use 2 tsp.</li><li>Fresh root ginger — use 2 tsp finely grated.</li><li>Garlic — 1 bulb; use 1 clove.</li><li>Runny honey — use 1 tsp.</li><li>Cornflour — use 2 tsp.</li></ul></div>
+</details>
+
+
+</main>
+
+<script>
+(function () {
+    const button = document.getElementById("cookModeButton");
+    const steps = Array.from(document.querySelectorAll(".method-step"));
+    const controls = document.getElementById("cookControls");
+    const previous = document.getElementById("previousStep");
+    const next = document.getElementById("nextStep");
+    const counter = document.getElementById("stepCounter");
+    let currentStep = 0;
+
+    function showStep(index) {
+        if (!steps.length) return;
+
+        currentStep = Math.max(0, Math.min(index, steps.length - 1));
+        steps.forEach((step, stepIndex) => {
+            step.classList.toggle("active", stepIndex === currentStep);
+        });
+
+        if (counter) counter.textContent = "Step " + (currentStep + 1) + " of " + steps.length;
+        if (previous) previous.disabled = currentStep === 0;
+        if (next) next.disabled = currentStep === steps.length - 1;
+
+        const active = steps[currentStep];
+        if (active) {
+            active.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+    }
+
+    if (button) {
+        button.addEventListener("click", () => {
+            const active = document.body.classList.toggle("cook-mode");
+            button.textContent = active ? "Exit cook mode" : "Cook mode";
+            if (active) showStep(currentStep);
+        });
+    }
+
+    if (previous) previous.addEventListener("click", () => showStep(currentStep - 1));
+    if (next) next.addEventListener("click", () => showStep(currentStep + 1));
+    if (!steps.length && controls) controls.style.display = "none";
+
+    /* Serving scaler */
+    const servingsMinus = document.getElementById("servingsMinus");
+    const servingsPlus = document.getElementById("servingsPlus");
+    const servingsValue = document.getElementById("servingsValue");
+    const servesFactValue = document.getElementById("servesFactValue");
+    const recipeId = "miso_sesame_tofu_edamame_soba_noodle_salad_broccoli_carrot";
+
+    function formatFraction(value) {
+        const rounded = Math.round(value * 8) / 8;
+        const whole = Math.floor(rounded);
+        const remainder = Math.round((rounded - whole) * 8);
+        const fractions = { 0: "", 1: "⅛", 2: "¼", 3: "⅜", 4: "½", 5: "⅝", 6: "¾", 7: "⅞" };
+
+        if (whole > 0 && remainder > 0) return String(whole) + fractions[remainder];
+        if (whole > 0) return String(whole);
+        if (remainder > 0) return fractions[remainder];
+        return "0";
+    }
+
+    function formatScaledQuantity(value, unit) {
+        if (unit === "tsp" || unit === "tbsp" || unit === "integer") {
+            const number = formatFraction(value);
+            return unit === "integer" ? number : number + " " + unit;
+        }
+
+        const rounded = Math.round(value * 10) / 10;
+        return String(rounded) + (unit ? " " + unit : "");
+    }
+
+    function setServings(newServings) {
+        const baseServings = Number(servingsValue.dataset.baseServings);
+        newServings = Math.max(1, Math.min(12, newServings));
+        servingsValue.textContent = String(newServings);
+        if (servesFactValue) servesFactValue.textContent = String(newServings);
+
+        const factor = newServings / baseServings;
+        document.querySelectorAll(".ingredient-quantity").forEach(element => {
+            const baseQuantity = Number(element.dataset.baseQuantity);
+            const unit = element.dataset.unit;
+            if (!Number.isFinite(baseQuantity)) return;
+            element.textContent = formatScaledQuantity(baseQuantity * factor, unit);
+        });
+
+        localStorage.setItem("recipe-servings:" + recipeId, String(newServings));
+    }
+
+    if (servingsMinus && servingsPlus && servingsValue) {
+        servingsMinus.addEventListener("click", () => {
+            setServings(Number(servingsValue.textContent) - 1);
+        });
+        servingsPlus.addEventListener("click", () => {
+            setServings(Number(servingsValue.textContent) + 1);
+        });
+
+        const saved = Number(localStorage.getItem("recipe-servings:" + recipeId));
+        if (Number.isFinite(saved) && saved >= 1) setServings(saved);
+    }
+
+    /* Favourite / neutral / dislike */
+    const favouriteButton = document.getElementById("ratingFavourite");
+    const dislikeButton = document.getElementById("ratingDislike");
+    const ratingKey = "recipe-rating:" + recipeId;
+
+    function setRating(rating) {
+        localStorage.setItem(ratingKey, rating);
+        if (favouriteButton) favouriteButton.classList.toggle("active", rating === "favourite");
+        if (dislikeButton) dislikeButton.classList.toggle("active", rating === "dislike");
+    }
+
+    if (favouriteButton) favouriteButton.addEventListener("click", () => setRating("favourite"));
+    if (neutralButton) neutralButton.addEventListener("click", () => setRating("neutral"));
+    if (dislikeButton) dislikeButton.addEventListener("click", () => setRating("dislike"));
+
+    if (favouriteButton && neutralButton && dislikeButton) {
+        setRating(localStorage.getItem(ratingKey) || "neutral");
+    }
+})();
+</script>
+
+</body>
+</html>

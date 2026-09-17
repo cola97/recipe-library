@@ -1,0 +1,409 @@
+{
+  "schema_version": "1.0",
+  "recipe": {
+    "id": "smoked_paprika_roasted_chickpeas_satsuma_segments",
+    "title": "Smoked Paprika Roasted Chickpeas with Satsuma Segments",
+    "description": "Crisp-edged chickpeas seasoned with smoked paprika and cumin, paired with juicy satsuma segments for a portable sweet-smoky snack with contrasting texture and freshness.",
+    "servings": 2,
+    "difficulty": "Easy",
+    "total_time_minutes": 19,
+    "active_time_minutes": 8,
+    "passive_time_minutes": 11,
+    "cuisine": [
+      "Mediterranean-inspired"
+    ],
+    "meal_types": [
+      "Afternoon snack"
+    ],
+    "dietary_tags": [
+      "Lacto-ovo vegetarian",
+      "Portable",
+      "High fibre"
+    ],
+    "allergens": []
+  },
+  "nutrition_per_serving": {
+    "energy_kcal": 202,
+    "protein_g": 8.1,
+    "carbohydrate_g": 28.5,
+    "fat_g": 6.0,
+    "saturated_fat_g": 0.8,
+    "fibre_g": 7.1,
+    "salt_g": 0.4
+  },
+  "ingredients": [
+    {
+      "ingredient_id": "chickpeas_canned",
+      "display_name": "Canned chickpeas",
+      "category": "Legumes",
+      "required": true,
+      "quantity_used": 240,
+      "unit_used": "g",
+      "purchase_quantity": "1 x approximately 400 g tin",
+      "purchase_notes": "Use approximately 240 g drained chickpeas; drained yield varies slightly between products.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Drain, rinse thoroughly under cold water and dry very well.",
+      "notes": "Removing surface moisture is important for crisp roasting."
+    },
+    {
+      "ingredient_id": "satsumas",
+      "display_name": "Satsumas",
+      "category": "Fruit",
+      "required": true,
+      "quantity_used": 2,
+      "unit_used": "integer",
+      "purchase_quantity": "2 satsumas",
+      "purchase_notes": "Choose firm fruit with intact peel.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Peel and separate into individual segments.",
+      "notes": "Use 1 satsuma per serving. Whole fruit does not scale perfectly for every serving quantity; round sensibly when scaling."
+    },
+    {
+      "ingredient_id": "rapeseed_oil",
+      "display_name": "Rapeseed oil",
+      "category": "Oils",
+      "required": true,
+      "quantity_used": 1,
+      "unit_used": "tsp",
+      "purchase_quantity": "1 bottle",
+      "purchase_notes": "Use 1 tsp.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": "A small quantity is sufficient to help the chickpeas brown and carry the spices."
+    },
+    {
+      "ingredient_id": "smoked_paprika",
+      "display_name": "Smoked paprika",
+      "category": "Spices",
+      "required": true,
+      "quantity_used": 1.5,
+      "unit_used": "tsp",
+      "purchase_quantity": "1 jar",
+      "purchase_notes": "Use 1 1/2 tsp.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": ""
+    },
+    {
+      "ingredient_id": "ground_cumin",
+      "display_name": "Ground cumin",
+      "category": "Spices",
+      "required": true,
+      "quantity_used": 0.5,
+      "unit_used": "tsp",
+      "purchase_quantity": "1 jar",
+      "purchase_notes": "Use 1/2 tsp.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": "Supports the smoky paprika without requiring a larger spice mixture."
+    },
+    {
+      "ingredient_id": "fine_salt",
+      "display_name": "Fine salt",
+      "category": "Seasoning",
+      "required": true,
+      "quantity_used": 0.125,
+      "unit_used": "tsp",
+      "purchase_quantity": "1 container",
+      "purchase_notes": "Use 1/8 tsp.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": ""
+    }
+  ],
+  "equipment": [
+    {
+      "equipment_id": "air_fryer",
+      "display_name": "Air fryer",
+      "required": true,
+      "notes": "Provides crisp chickpeas with minimal active supervision."
+    },
+    {
+      "equipment_id": "colander",
+      "display_name": "Colander or sieve",
+      "required": true,
+      "notes": "For draining and rinsing the chickpeas."
+    },
+    {
+      "equipment_id": "mixing_bowl",
+      "display_name": "Medium mixing bowl",
+      "required": true,
+      "notes": "For seasoning the chickpeas."
+    },
+    {
+      "equipment_id": "kitchen_scales",
+      "display_name": "Kitchen scales",
+      "required": true,
+      "notes": "Used to confirm the drained chickpea quantity."
+    },
+    {
+      "equipment_id": "measuring_spoons",
+      "display_name": "Measuring spoons",
+      "required": true,
+      "notes": ""
+    },
+    {
+      "equipment_id": "lidded_containers",
+      "display_name": "2 divided lidded snack containers",
+      "required": true,
+      "notes": "A divided container keeps the moist satsuma away from the roasted chickpeas."
+    }
+  ],
+  "mise_en_place": [
+    {
+      "prep_id": "PREP_01",
+      "ingredient_ids": [
+        "chickpeas_canned"
+      ],
+      "instruction": "Drain the chickpeas and rinse them thoroughly under cold running water. Shake away excess water, then spread them on a clean absorbent towel or kitchen paper and pat thoroughly dry. Remove any loose skins that detach easily, but do not spend additional time peeling every chickpea.",
+      "endpoint": "The chickpeas feel dry on the surface and do not leave visible wet patches on the towel."
+    },
+    {
+      "prep_id": "PREP_02",
+      "ingredient_ids": [
+        "smoked_paprika",
+        "ground_cumin",
+        "fine_salt",
+        "rapeseed_oil"
+      ],
+      "instruction": "Measure 1 1/2 tsp smoked paprika, 1/2 tsp ground cumin, 1/8 tsp fine salt and 1 tsp rapeseed oil.",
+      "endpoint": "All seasoning ingredients are measured before the chickpeas are coated."
+    },
+    {
+      "prep_id": "PREP_03",
+      "ingredient_ids": [
+        "satsumas"
+      ],
+      "instruction": "Peel the 2 satsumas, separate them into individual segments and remove any loose strands of white pith without damaging the fruit.",
+      "endpoint": "The satsuma segments are intact, juicy and free from large pieces of loose pith."
+    }
+  ],
+  "procedure": [
+    {
+      "step_id": "STEP_01",
+      "section": "Chickpeas",
+      "title": "Season the chickpeas",
+      "depends_on": [
+        "PREP_01",
+        "PREP_02"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "chickpeas_canned",
+        "rapeseed_oil",
+        "smoked_paprika",
+        "ground_cumin",
+        "fine_salt"
+      ],
+      "equipment_ids": [
+        "mixing_bowl",
+        "measuring_spoons"
+      ],
+      "instruction": "Place the thoroughly dried chickpeas in the mixing bowl. Add 1 tsp rapeseed oil, 1 1/2 tsp smoked paprika, 1/2 tsp ground cumin and 1/8 tsp fine salt. Toss until every chickpea has a thin, even coating and there are no concentrated patches of dry spice in the bowl.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 1,
+      "duration_max_minutes": 2,
+      "endpoint": "The chickpeas are evenly coated and glossy but there is no free oil or loose pile of seasoning in the bottom of the bowl.",
+      "corrective_actions": [
+        {
+          "condition": "The spices form damp clumps rather than coating the chickpeas evenly.",
+          "action": "Continue tossing and rubbing the chickpeas gently against the side of the bowl until the clumps disperse; do not add additional oil."
+        }
+      ],
+      "critical": false
+    },
+    {
+      "step_id": "STEP_02",
+      "section": "Chickpeas",
+      "title": "Air-fry until crisp-edged",
+      "depends_on": [
+        "STEP_01"
+      ],
+      "parallel_group": "P01",
+      "ingredient_ids": [
+        "chickpeas_canned",
+        "rapeseed_oil",
+        "smoked_paprika",
+        "ground_cumin",
+        "fine_salt"
+      ],
+      "equipment_ids": [
+        "air_fryer"
+      ],
+      "instruction": "Preheat the air fryer to 200°C if your model benefits from preheating. Spread the seasoned chickpeas in a single layer and air-fry at 200°C for approximately 12-15 minutes. Shake the basket thoroughly after approximately 7 minutes so different surfaces contact the hot air.",
+      "heat_source": "air_fryer",
+      "heat_level": "200°C",
+      "temperature_c": 200,
+      "duration_min_minutes": 12,
+      "duration_max_minutes": 15,
+      "endpoint": "The chickpeas are dry on the outside, lightly crisp at the edges and browned in scattered spots, while the centres remain pleasantly tender rather than hard.",
+      "corrective_actions": [
+        {
+          "condition": "The paprika begins darkening rapidly or smelling bitter before the chickpeas are crisp-edged.",
+          "action": "Reduce the air-fryer temperature to 185°C and continue cooking while checking every 2 minutes."
+        },
+        {
+          "condition": "The chickpeas remain soft and pale after 15 minutes.",
+          "action": "Continue air-frying for 2-3 minutes, checking every minute, until the surfaces are visibly dry and lightly browned."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_03",
+      "section": "Fruit",
+      "title": "Prepare the satsuma segments",
+      "depends_on": [
+        "PREP_03"
+      ],
+      "parallel_group": "P01",
+      "ingredient_ids": [
+        "satsumas"
+      ],
+      "equipment_ids": [
+        "lidded_containers"
+      ],
+      "instruction": "While the chickpeas air-fry, divide the satsuma segments evenly between the two moist compartments or sides of the snack containers. Keep the fruit away from the area intended for the chickpeas.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 1,
+      "duration_max_minutes": 2,
+      "endpoint": "Each serving contains the segments from approximately 1 satsuma, with no free citrus juice in the chickpea compartment.",
+      "corrective_actions": [],
+      "critical": false
+    },
+    {
+      "step_id": "STEP_04",
+      "section": "Cooling and packing",
+      "title": "Cool the roasted chickpeas",
+      "depends_on": [
+        "STEP_02"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "chickpeas_canned"
+      ],
+      "equipment_ids": [
+        "air_fryer"
+      ],
+      "instruction": "Remove the air-fryer basket and leave the chickpeas uncovered for approximately 3-4 minutes, shaking once midway through cooling so steam can escape.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 3,
+      "duration_max_minutes": 4,
+      "endpoint": "The chickpeas are no longer visibly steaming and their surfaces remain dry.",
+      "corrective_actions": [
+        {
+          "condition": "The chickpeas are still visibly steaming after 4 minutes.",
+          "action": "Leave them uncovered for another 1-2 minutes before sealing the snack containers."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_05",
+      "section": "Cooling and packing",
+      "title": "Pack the snack boxes",
+      "depends_on": [
+        "STEP_03",
+        "STEP_04"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "chickpeas_canned",
+        "satsumas"
+      ],
+      "equipment_ids": [
+        "lidded_containers"
+      ],
+      "instruction": "Divide the cooled roasted chickpeas evenly between the two dry compartments, giving approximately half to each serving. Seal the containers only once the chickpeas have stopped steaming. Keep the chickpeas physically separate from the satsuma segments until eating.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 1,
+      "duration_max_minutes": 2,
+      "endpoint": "Each sealed snack box contains an equal portion of dry smoked-paprika chickpeas and the segments from approximately 1 satsuma, stored separately.",
+      "corrective_actions": [
+        {
+          "condition": "The containers do not have separate compartments.",
+          "action": "Pack the chickpeas and satsuma segments in separate small lidded containers so citrus moisture cannot soften the chickpeas."
+        }
+      ],
+      "critical": false
+    }
+  ],
+  "plating": [
+    {
+      "step_id": "PLATE_01",
+      "instruction": "Eat the smoky roasted chickpeas alongside the cool satsuma segments, alternating between them so the sweet citrus freshness contrasts with the warm smoked-paprika and cumin seasoning."
+    }
+  ],
+  "storage": {
+    "refrigerator_days": 2,
+    "freezer_months": null,
+    "storage_instructions": "For best texture, eat the chickpeas on the day they are roasted. If preparing ahead, cool completely and refrigerate the chickpeas and satsuma segments in separate sealed compartments for up to 2 days. Refrigeration softens the chickpeas slightly; if desired, re-crisp only the chickpeas in the air fryer before packing and allow them to cool fully again. Keep the prepared snack cool during extended transport and consume the satsuma segments promptly after removal from refrigeration.",
+    "reheating_methods": [
+      "Air fryer: re-crisp only the chickpeas at approximately 180°C for 2-4 minutes until the exterior is dry and lightly crisp again, then cool completely before repacking."
+    ]
+  },
+  "shopping": {
+    "sainsburys": [],
+    "marks_and_spencer": [],
+    "either_retailer": [
+      "Canned chickpeas — 1 approximately 400 g tin; use approximately 240 g drained.",
+      "Satsumas — 2.",
+      "Rapeseed oil — use 1 tsp.",
+      "Smoked paprika — use 1 1/2 tsp.",
+      "Ground cumin — use 1/2 tsp.",
+      "Fine salt — use 1/8 tsp."
+    ]
+  },
+  "quality_checks": {
+    "protein_requirement_met": true,
+    "protein_g_per_serving": 8.1,
+    "restaurant_quality_features": [
+      "Thorough drying allows the chickpeas to develop crisp, browned surfaces rather than steam.",
+      "Smoked paprika supplies the dominant aromatic character while cumin adds savoury warmth without overcomplicating the seasoning.",
+      "High-heat air frying concentrates the chickpea flavour with minimal oil.",
+      "Cool, juicy satsuma provides a bright sweet-acid contrast to the smoky savoury chickpeas.",
+      "Separate packing preserves the contrast between crisp chickpeas and moist citrus."
+    ],
+    "nutrition_notes": [
+      "Approximately 202 kcal per serving.",
+      "Afternoon snacks have no minimum protein requirement.",
+      "Chickpeas contribute fibre, plant protein, iron and folate.",
+      "Satsuma contributes fruit, vitamin C and additional fibre.",
+      "Only a small amount of added oil is needed because the air fryer supplies efficient dry heat.",
+      "Nutrition values are estimates and will vary slightly with chickpea drained weight and satsuma size."
+    ],
+    "critical_success_factors": [
+      "Dry the rinsed chickpeas extremely well before seasoning.",
+      "Use a single layer in the air fryer rather than overcrowding the basket.",
+      "Stop cooking when the surfaces are crisp-edged and browned rather than continuing until the centres become hard.",
+      "Cool the chickpeas uncovered before sealing the container.",
+      "Keep the satsuma segments physically separate from the roasted chickpeas until eating."
+    ]
+  }
+}

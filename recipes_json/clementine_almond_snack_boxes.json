@@ -1,0 +1,197 @@
+{
+  "schema_version": "1.0",
+  "recipe": {
+    "id": "clementine_almond_snack_boxes",
+    "title": "Clementine & Almond Snack Boxes",
+    "description": "A simple portable snack of sweet whole clementines and crisp unsalted almonds, portioned for easy transport without unnecessary preparation.",
+    "servings": 2,
+    "difficulty": "Easy",
+    "total_time_minutes": 5,
+    "active_time_minutes": 5,
+    "passive_time_minutes": 0,
+    "cuisine": [],
+    "meal_types": [
+      "Morning snack"
+    ],
+    "dietary_tags": [
+      "Lacto-ovo vegetarian",
+      "Portable",
+      "No-cook"
+    ],
+    "allergens": [
+      "Nuts"
+    ]
+  },
+  "nutrition_per_serving": {
+    "energy_kcal": 210,
+    "protein_g": 7.0,
+    "carbohydrate_g": 15.5,
+    "fat_g": 15.1,
+    "saturated_fat_g": 1.2,
+    "fibre_g": 5.0,
+    "salt_g": 0.01
+  },
+  "ingredients": [
+    {
+      "ingredient_id": "clementines",
+      "display_name": "Clementines",
+      "category": "Fruit",
+      "required": true,
+      "quantity_used": 2,
+      "unit_used": "integer",
+      "purchase_quantity": "1 pack",
+      "purchase_notes": "Use 2 firm, fresh clementines; retail pack size may vary.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Keep whole and unpeeled for transport.",
+      "notes": "Choose fruit without soft patches or damaged peel."
+    },
+    {
+      "ingredient_id": "almonds",
+      "display_name": "Unsalted almonds",
+      "category": "Nuts",
+      "required": true,
+      "quantity_used": 60,
+      "unit_used": "g",
+      "purchase_quantity": "1 pack",
+      "purchase_notes": "Use 60 g; retail pack size may vary.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Use whole almonds as purchased.",
+      "notes": "Prefer fresh, crisp unsalted almonds. Ready-roasted unsalted almonds are also suitable."
+    }
+  ],
+  "equipment": [
+    {
+      "equipment_id": "kitchen_scales",
+      "display_name": "Kitchen scales",
+      "required": true,
+      "notes": "Used to portion the almonds accurately."
+    },
+    {
+      "equipment_id": "lidded_containers",
+      "display_name": "2 small lidded snack containers",
+      "required": true,
+      "notes": "Use containers suitable for carrying in a work bag or car."
+    }
+  ],
+  "mise_en_place": [
+    {
+      "prep_id": "PREP_01",
+      "ingredient_ids": [
+        "clementines"
+      ],
+      "instruction": "Inspect the clementines and discard any fruit with damaged, leaking or markedly soft areas. Leave the two sound clementines whole and unpeeled.",
+      "endpoint": "Two firm, intact clementines are ready for packing."
+    },
+    {
+      "prep_id": "PREP_02",
+      "ingredient_ids": [
+        "almonds"
+      ],
+      "instruction": "Weigh 60 g unsalted almonds.",
+      "endpoint": "60 g almonds are measured and ready to divide between the two snack boxes."
+    }
+  ],
+  "procedure": [
+    {
+      "step_id": "STEP_01",
+      "section": "Assembly",
+      "title": "Portion the almonds",
+      "depends_on": [
+        "PREP_02"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "almonds"
+      ],
+      "equipment_ids": [
+        "kitchen_scales",
+        "lidded_containers"
+      ],
+      "instruction": "Divide the 60 g almonds evenly between the two lidded snack containers, giving approximately 30 g almonds per serving.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 1,
+      "duration_max_minutes": 2,
+      "endpoint": "Each container holds approximately half of the almonds.",
+      "corrective_actions": [],
+      "critical": false
+    },
+    {
+      "step_id": "STEP_02",
+      "section": "Assembly",
+      "title": "Add the clementines",
+      "depends_on": [
+        "PREP_01",
+        "STEP_01"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "clementines"
+      ],
+      "equipment_ids": [
+        "lidded_containers"
+      ],
+      "instruction": "Place 1 whole, unpeeled clementine into each snack container alongside the almonds, then close the lids securely. Keeping the fruit whole prevents citrus juice from softening the almonds during transport.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 1,
+      "duration_max_minutes": 2,
+      "endpoint": "Each sealed snack box contains 1 clementine and approximately 30 g almonds.",
+      "corrective_actions": [
+        {
+          "condition": "A clementine is too large to fit without crushing the fruit or almonds.",
+          "action": "Carry the whole clementine separately rather than peeling or cutting it in advance."
+        }
+      ],
+      "critical": false
+    }
+  ],
+  "plating": [
+    {
+      "step_id": "PLATE_01",
+      "instruction": "At the time of eating, peel the clementine and eat it alongside the almonds."
+    }
+  ],
+  "storage": {
+    "refrigerator_days": 2,
+    "freezer_months": null,
+    "storage_instructions": "The packed snack may be kept in a cool, dry place for the same day. If prepared further ahead, refrigerate the sealed boxes for up to 2 days. Keep the clementines whole until eating so the almonds remain crisp.",
+    "reheating_methods": []
+  },
+  "shopping": {
+    "sainsburys": [],
+    "marks_and_spencer": [],
+    "either_retailer": [
+      "Clementines — 1 pack; use 2 whole fruit.",
+      "Unsalted almonds — 1 pack; use 60 g."
+    ]
+  },
+  "quality_checks": {
+    "protein_requirement_met": true,
+    "protein_g_per_serving": 7.0,
+    "restaurant_quality_features": [
+      "Fresh sweet-acid citrus contrast",
+      "Crisp almond texture",
+      "Simple ingredients kept in their best condition until eating"
+    ],
+    "nutrition_notes": [
+      "Approximately 210 kcal per serving.",
+      "Almonds provide predominantly unsaturated fats, fibre and useful micronutrients.",
+      "Clementine contributes fruit, fibre and vitamin C.",
+      "Morning snacks have no minimum protein requirement."
+    ],
+    "critical_success_factors": [
+      "Keep the clementines whole until eating so juice cannot soften the almonds.",
+      "Use fresh, crisp unsalted almonds.",
+      "Pack only sound, undamaged clementines for transport."
+    ]
+  }
+}

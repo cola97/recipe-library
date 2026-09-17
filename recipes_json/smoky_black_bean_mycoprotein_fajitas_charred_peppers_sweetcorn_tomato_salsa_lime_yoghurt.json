@@ -1,0 +1,746 @@
+{
+  "schema_version": "1.0",
+  "recipe": {
+    "id": "smoky_black_bean_mycoprotein_fajitas_charred_peppers_sweetcorn_tomato_salsa_lime_yoghurt",
+    "title": "Smoky Black Bean & Mycoprotein Fajitas with Charred Peppers, Sweetcorn, Tomato Salsa and Lime Yoghurt",
+    "description": "Smoky, deeply browned mycoprotein and black beans with charred peppers and sweetcorn, served in warm wholemeal fajita wraps with a sharp fresh tomato salsa and cooling lime yoghurt.",
+    "servings": 2,
+    "difficulty": "Easy",
+    "total_time_minutes": 35,
+    "active_time_minutes": 28,
+    "passive_time_minutes": 7,
+    "cuisine": [
+      "Mexican-inspired"
+    ],
+    "meal_types": [
+      "Dinner"
+    ],
+    "dietary_tags": [
+      "Lacto-ovo vegetarian",
+      "High protein",
+      "High fibre"
+    ],
+    "allergens": [
+      "Milk",
+      "Egg",
+      "Wheat"
+    ]
+  },
+  "nutrition_per_serving": {
+    "energy_kcal": 625,
+    "protein_g": 41.5,
+    "carbohydrate_g": 75.0,
+    "fat_g": 18.0,
+    "saturated_fat_g": 3.2,
+    "fibre_g": 18.0,
+    "salt_g": 1.6
+  },
+  "ingredients": [
+    {
+      "ingredient_id": "mycoprotein_pieces",
+      "display_name": "Plain mycoprotein pieces",
+      "category": "Plant protein",
+      "required": true,
+      "quantity_used": 300,
+      "unit_used": "g",
+      "purchase_quantity": "1 pack",
+      "purchase_notes": "Use 300 g; retail pack size may vary.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Use chilled or fully defrosted according to the pack instructions.",
+      "notes": "Choose an uncoated, unflavoured vegetarian mycoprotein product suitable for frying. Check the pack allergen declaration because formulations may contain egg."
+    },
+    {
+      "ingredient_id": "black_beans_canned",
+      "display_name": "Canned black beans",
+      "category": "Legumes",
+      "required": true,
+      "quantity_used": 240,
+      "unit_used": "g",
+      "purchase_quantity": "1 x approximately 400 g tin",
+      "purchase_notes": "Use approximately 240 g drained beans; discard the canning liquid.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Drain, rinse under cold water and drain thoroughly again.",
+      "notes": ""
+    },
+    {
+      "ingredient_id": "wholemeal_tortilla_wraps_small",
+      "display_name": "Small wholemeal tortilla wraps",
+      "category": "Bread",
+      "required": true,
+      "quantity_used": 4,
+      "unit_used": "integer",
+      "purchase_quantity": "1 pack",
+      "purchase_notes": "Use 4 small wholemeal tortilla wraps; pack sizes vary.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Keep covered until warming so they remain flexible.",
+      "notes": "The serving is 2 small wraps per person."
+    },
+    {
+      "ingredient_id": "red_pepper",
+      "display_name": "Red peppers",
+      "category": "Vegetables",
+      "required": true,
+      "quantity_used": 2,
+      "unit_used": "integer",
+      "purchase_quantity": "2 medium red peppers",
+      "purchase_notes": "",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Wash before preparation.",
+      "notes": ""
+    },
+    {
+      "ingredient_id": "red_onion",
+      "display_name": "Small red onion",
+      "category": "Vegetables",
+      "required": true,
+      "quantity_used": 1,
+      "unit_used": "integer",
+      "purchase_quantity": "1 small red onion",
+      "purchase_notes": "",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Use half in the hot filling and half in the tomato salsa.",
+      "notes": ""
+    },
+    {
+      "ingredient_id": "sweetcorn_frozen",
+      "display_name": "Frozen sweetcorn",
+      "category": "Vegetables",
+      "required": true,
+      "quantity_used": 100,
+      "unit_used": "g",
+      "purchase_quantity": "1 bag",
+      "purchase_notes": "Use 100 g directly from frozen.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "No thawing required.",
+      "notes": ""
+    },
+    {
+      "ingredient_id": "tomatoes",
+      "display_name": "Ripe tomatoes",
+      "category": "Vegetables",
+      "required": true,
+      "quantity_used": 200,
+      "unit_used": "g",
+      "purchase_quantity": "Approximately 200 g",
+      "purchase_notes": "Use ripe, firm tomatoes suitable for a fresh salsa.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Wash before preparation.",
+      "notes": ""
+    },
+    {
+      "ingredient_id": "greek_yoghurt_0_percent",
+      "display_name": "0% Greek yoghurt",
+      "category": "Dairy",
+      "required": true,
+      "quantity_used": 120,
+      "unit_used": "g",
+      "purchase_quantity": "1 pot",
+      "purchase_notes": "Use 120 g; retail pot size may vary.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Keep refrigerated until required.",
+      "notes": ""
+    },
+    {
+      "ingredient_id": "lime",
+      "display_name": "Unwaxed lime",
+      "category": "Fruit",
+      "required": true,
+      "quantity_used": 1,
+      "unit_used": "integer",
+      "purchase_quantity": "1 lime",
+      "purchase_notes": "",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Wash and dry before zesting and juicing.",
+      "notes": ""
+    },
+    {
+      "ingredient_id": "fresh_coriander",
+      "display_name": "Fresh coriander",
+      "category": "Fresh herbs",
+      "required": true,
+      "quantity_used": 15,
+      "unit_used": "g",
+      "purchase_quantity": "1 small pack",
+      "purchase_notes": "Use approximately 15 g leaves and tender stems.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Wash and dry thoroughly.",
+      "notes": ""
+    },
+    {
+      "ingredient_id": "garlic",
+      "display_name": "Garlic cloves",
+      "category": "Aromatics",
+      "required": true,
+      "quantity_used": 2,
+      "unit_used": "integer",
+      "purchase_quantity": "1 bulb",
+      "purchase_notes": "Use 2 cloves.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Peel before finely grating or crushing.",
+      "notes": ""
+    },
+    {
+      "ingredient_id": "rapeseed_oil",
+      "display_name": "Rapeseed oil",
+      "category": "Oils",
+      "required": true,
+      "quantity_used": 2,
+      "unit_used": "tsp",
+      "purchase_quantity": "1 bottle",
+      "purchase_notes": "Use 2 tsp.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": ""
+    },
+    {
+      "ingredient_id": "smoked_paprika",
+      "display_name": "Smoked paprika",
+      "category": "Spices",
+      "required": true,
+      "quantity_used": 2,
+      "unit_used": "tsp",
+      "purchase_quantity": "1 jar",
+      "purchase_notes": "Use 2 tsp.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": ""
+    },
+    {
+      "ingredient_id": "ground_cumin",
+      "display_name": "Ground cumin",
+      "category": "Spices",
+      "required": true,
+      "quantity_used": 1,
+      "unit_used": "tsp",
+      "purchase_quantity": "1 jar",
+      "purchase_notes": "Use 1 tsp.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": ""
+    },
+    {
+      "ingredient_id": "dried_oregano",
+      "display_name": "Dried oregano",
+      "category": "Spices",
+      "required": true,
+      "quantity_used": 1,
+      "unit_used": "tsp",
+      "purchase_quantity": "1 jar",
+      "purchase_notes": "Use 1 tsp.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": ""
+    },
+    {
+      "ingredient_id": "chilli_powder",
+      "display_name": "Mild chilli powder",
+      "category": "Spices",
+      "required": true,
+      "quantity_used": 0.5,
+      "unit_used": "tsp",
+      "purchase_quantity": "1 jar",
+      "purchase_notes": "Use 1/2 tsp.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": ""
+    },
+    {
+      "ingredient_id": "fine_salt",
+      "display_name": "Fine salt",
+      "category": "Seasoning",
+      "required": true,
+      "quantity_used": 0.75,
+      "unit_used": "tsp",
+      "purchase_quantity": "1 container",
+      "purchase_notes": "Use 3/4 tsp in total.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": "Use 1/4 tsp in the salsa and 1/2 tsp in the hot filling."
+    },
+    {
+      "ingredient_id": "black_pepper_ground",
+      "display_name": "Ground black pepper",
+      "category": "Seasoning",
+      "required": true,
+      "quantity_used": 0.5,
+      "unit_used": "tsp",
+      "purchase_quantity": "1 container",
+      "purchase_notes": "Use 1/2 tsp.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": ""
+    }
+  ],
+  "equipment": [
+    {
+      "equipment_id": "gas_hob",
+      "display_name": "Gas hob",
+      "required": true,
+      "notes": ""
+    },
+    {
+      "equipment_id": "frying_pan",
+      "display_name": "Large heavy frying pan",
+      "required": true,
+      "notes": "Use a pan large enough to allow the peppers and mycoprotein to brown rather than steam."
+    },
+    {
+      "equipment_id": "chef_knife",
+      "display_name": "Chef's knife",
+      "required": true,
+      "notes": ""
+    },
+    {
+      "equipment_id": "chopping_board",
+      "display_name": "Chopping board",
+      "required": true,
+      "notes": ""
+    },
+    {
+      "equipment_id": "mixing_bowl",
+      "display_name": "Medium mixing bowl",
+      "required": true,
+      "notes": "For the tomato salsa."
+    },
+    {
+      "equipment_id": "small_bowl",
+      "display_name": "Small bowl",
+      "required": true,
+      "notes": "For the lime yoghurt."
+    },
+    {
+      "equipment_id": "fine_grater",
+      "display_name": "Fine grater or Microplane",
+      "required": true,
+      "notes": "For lime zest and garlic."
+    },
+    {
+      "equipment_id": "measuring_spoons",
+      "display_name": "Measuring spoons",
+      "required": true,
+      "notes": ""
+    },
+    {
+      "equipment_id": "colander",
+      "display_name": "Colander or sieve",
+      "required": true,
+      "notes": "For draining and rinsing the black beans."
+    },
+    {
+      "equipment_id": "spatula",
+      "display_name": "Heatproof spatula or wooden spoon",
+      "required": true,
+      "notes": ""
+    }
+  ],
+  "mise_en_place": [
+    {
+      "prep_id": "PREP_01",
+      "ingredient_ids": [
+        "black_beans_canned",
+        "sweetcorn_frozen"
+      ],
+      "instruction": "Drain the black beans, rinse them thoroughly under cold running water and leave them to drain until no free water remains. Measure 100 g frozen sweetcorn and keep it frozen until cooking.",
+      "endpoint": "The beans are well drained rather than wet, and the sweetcorn is measured."
+    },
+    {
+      "prep_id": "PREP_02",
+      "ingredient_ids": [
+        "red_pepper",
+        "red_onion",
+        "garlic"
+      ],
+      "instruction": "Halve the peppers, remove the stems, seeds and white membranes, then cut the flesh into strips approximately 8 mm wide. Peel the red onion and dice it into approximately 5 mm pieces; reserve half for the salsa and half for cooking. Peel and finely grate or crush the 2 garlic cloves.",
+      "endpoint": "The peppers are evenly sliced, the onion is divided into two equal portions and the garlic is finely prepared."
+    },
+    {
+      "prep_id": "PREP_03",
+      "ingredient_ids": [
+        "tomatoes",
+        "fresh_coriander",
+        "lime"
+      ],
+      "instruction": "Dice the tomatoes into approximately 8 mm pieces. Finely chop the coriander leaves and tender stems. Finely grate the zest from half of the lime, then halve the lime and squeeze the juice.",
+      "endpoint": "The tomatoes are diced without excessive free liquid, the coriander is chopped, and the lime zest and juice are ready."
+    },
+    {
+      "prep_id": "PREP_04",
+      "ingredient_ids": [
+        "smoked_paprika",
+        "ground_cumin",
+        "dried_oregano",
+        "chilli_powder",
+        "fine_salt",
+        "black_pepper_ground"
+      ],
+      "instruction": "Measure 2 tsp smoked paprika, 1 tsp ground cumin, 1 tsp dried oregano and 1/2 tsp mild chilli powder together. Keep the 3/4 tsp fine salt and 1/2 tsp black pepper available separately for staged seasoning.",
+      "endpoint": "The spice mixture and seasonings are measured before cooking begins."
+    }
+  ],
+  "procedure": [
+    {
+      "step_id": "STEP_01",
+      "section": "Cold accompaniments",
+      "title": "Make the tomato salsa",
+      "depends_on": [],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "tomatoes",
+        "red_onion",
+        "fresh_coriander",
+        "lime",
+        "fine_salt"
+      ],
+      "equipment_ids": [
+        "mixing_bowl"
+      ],
+      "instruction": "Combine the diced tomatoes, the reserved half of the diced red onion and approximately half of the chopped coriander. Add approximately half of the lime juice and 1/4 tsp fine salt. Fold together gently and leave at room temperature while the filling cooks.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 2,
+      "duration_max_minutes": 3,
+      "endpoint": "The salsa tastes fresh, lightly salted and distinctly lime-sharp without a pool of liquid in the bottom of the bowl.",
+      "corrective_actions": [
+        {
+          "condition": "The salsa releases a large amount of watery tomato juice.",
+          "action": "Spoon off the excess liquid before serving so the tortillas do not become soggy."
+        }
+      ],
+      "critical": false
+    },
+    {
+      "step_id": "STEP_02",
+      "section": "Cold accompaniments",
+      "title": "Make the lime yoghurt",
+      "depends_on": [
+        "STEP_01"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "greek_yoghurt_0_percent",
+        "lime"
+      ],
+      "equipment_ids": [
+        "small_bowl",
+        "fine_grater"
+      ],
+      "instruction": "Stir the 120 g Greek yoghurt with the lime zest and most of the remaining lime juice. Reserve a small amount of lime juice for final adjustment of the hot filling.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 1,
+      "duration_max_minutes": 2,
+      "endpoint": "The yoghurt is smooth, cooling and clearly lime-scented while remaining thick enough to spoon onto the fajitas.",
+      "corrective_actions": [
+        {
+          "condition": "The yoghurt becomes too loose after adding lime juice.",
+          "action": "Do not add any more lime juice; reserve the remainder for the filling."
+        }
+      ],
+      "critical": false
+    },
+    {
+      "step_id": "STEP_03",
+      "section": "Tortillas",
+      "title": "Warm the tortilla wraps",
+      "depends_on": [
+        "STEP_02"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "wholemeal_tortilla_wraps_small"
+      ],
+      "equipment_ids": [
+        "gas_hob",
+        "frying_pan"
+      ],
+      "instruction": "Place the dry frying pan over medium-high heat. Warm the tortilla wraps one at a time for approximately 15-20 seconds per side, just until pliable and lightly toasted in small spots. Stack them immediately and cover with a clean plate or clean tea towel while the filling cooks.",
+      "heat_source": "gas_hob",
+      "heat_level": "medium-high",
+      "temperature_c": null,
+      "duration_min_minutes": 2,
+      "duration_max_minutes": 3,
+      "endpoint": "The tortillas are warm and flexible with a few light toasted spots but are not crisp or dry.",
+      "corrective_actions": [
+        {
+          "condition": "A tortilla stiffens or develops dark spots within a few seconds.",
+          "action": "Reduce the heat before warming the remaining tortillas."
+        }
+      ],
+      "critical": false
+    },
+    {
+      "step_id": "STEP_04",
+      "section": "Fajita filling",
+      "title": "Char the peppers and onion",
+      "depends_on": [
+        "STEP_03"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "red_pepper",
+        "red_onion",
+        "rapeseed_oil"
+      ],
+      "equipment_ids": [
+        "gas_hob",
+        "frying_pan",
+        "spatula"
+      ],
+      "instruction": "Increase the pan to high heat. Add 1 tsp rapeseed oil, then add the pepper strips and the half of the red onion reserved for cooking. Spread them over the pan and leave undisturbed for approximately 1 minute before stirring. Continue cooking for approximately 6-8 minutes, stirring only every 45-60 seconds so the vegetables can develop dark charred edges while softening.",
+      "heat_source": "gas_hob",
+      "heat_level": "high",
+      "temperature_c": null,
+      "duration_min_minutes": 6,
+      "duration_max_minutes": 8,
+      "endpoint": "The peppers are tender but retain some bite, with distinct dark blistered edges, and the onion is softened and browned.",
+      "corrective_actions": [
+        {
+          "condition": "The vegetables begin blackening before they soften.",
+          "action": "Reduce the heat to medium-high and stir more frequently."
+        },
+        {
+          "condition": "The vegetables release liquid and steam without colouring.",
+          "action": "Keep the heat high, spread them into a single layer and avoid stirring until the visible moisture has evaporated."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_05",
+      "section": "Fajita filling",
+      "title": "Brown the mycoprotein",
+      "depends_on": [
+        "STEP_04"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "mycoprotein_pieces",
+        "rapeseed_oil"
+      ],
+      "equipment_ids": [
+        "gas_hob",
+        "frying_pan",
+        "spatula"
+      ],
+      "instruction": "Push the vegetables towards the edge of the pan. Add the remaining 1 tsp rapeseed oil to the centre, followed by the mycoprotein pieces. Spread the pieces over the hottest area and cook for approximately 5-6 minutes, turning occasionally, until they are piping hot throughout and have developed clear golden-brown patches.",
+      "heat_source": "gas_hob",
+      "heat_level": "medium-high",
+      "temperature_c": null,
+      "duration_min_minutes": 5,
+      "duration_max_minutes": 6,
+      "endpoint": "The mycoprotein is piping hot and visibly browned rather than pale or wet.",
+      "corrective_actions": [
+        {
+          "condition": "The mycoprotein starts sticking before it browns.",
+          "action": "Reduce the heat slightly and allow the pieces another 30-60 seconds before attempting to turn them."
+        },
+        {
+          "condition": "Liquid collects in the pan.",
+          "action": "Continue cooking uncovered at medium-high heat until the liquid has evaporated before adding the spices."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_06",
+      "section": "Fajita filling",
+      "title": "Bloom the smoky spices",
+      "depends_on": [
+        "STEP_05"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "garlic",
+        "smoked_paprika",
+        "ground_cumin",
+        "dried_oregano",
+        "chilli_powder"
+      ],
+      "equipment_ids": [
+        "gas_hob",
+        "frying_pan",
+        "spatula"
+      ],
+      "instruction": "Reduce the heat to medium. Add the garlic and the measured smoked-paprika spice mixture. Stir continuously for approximately 30-45 seconds, coating the vegetables and mycoprotein thoroughly.",
+      "heat_source": "gas_hob",
+      "heat_level": "medium",
+      "temperature_c": null,
+      "duration_min_minutes": 0.5,
+      "duration_max_minutes": 0.75,
+      "endpoint": "The garlic and spices smell strongly aromatic and smoky but have not darkened or scorched.",
+      "corrective_actions": [
+        {
+          "condition": "The spices begin catching or smelling bitter.",
+          "action": "Immediately proceed to the next step and add the beans and sweetcorn to cool the pan."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_07",
+      "section": "Fajita filling",
+      "title": "Finish with black beans and sweetcorn",
+      "depends_on": [
+        "STEP_06"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "black_beans_canned",
+        "sweetcorn_frozen",
+        "fine_salt",
+        "black_pepper_ground",
+        "lime",
+        "fresh_coriander"
+      ],
+      "equipment_ids": [
+        "gas_hob",
+        "frying_pan",
+        "spatula"
+      ],
+      "instruction": "Add the drained black beans and frozen sweetcorn. Add 1/2 tsp fine salt and 1/2 tsp black pepper. Cook over medium-high heat for approximately 4-5 minutes, folding everything together, until the beans and sweetcorn are piping hot and any surface moisture has evaporated. Remove from the heat, fold through the remaining coriander and add the reserved lime juice a little at a time.",
+      "heat_source": "gas_hob",
+      "heat_level": "medium-high",
+      "temperature_c": null,
+      "duration_min_minutes": 4,
+      "duration_max_minutes": 5,
+      "endpoint": "The filling is hot, glossy rather than wet, smoky and savoury, with distinct charred vegetables and enough lime acidity to keep the beans and mycoprotein tasting fresh.",
+      "corrective_actions": [
+        {
+          "condition": "The filling looks wet enough to soak the tortillas.",
+          "action": "Continue cooking uncovered for 1-2 minutes until excess moisture has evaporated."
+        },
+        {
+          "condition": "The filling tastes heavy or flat after the stated seasoning.",
+          "action": "Add the remaining reserved lime juice before adding any further salt."
+        },
+        {
+          "condition": "The filling becomes dry before the beans and sweetcorn are fully hot.",
+          "action": "Add 1 tbsp water, toss through and continue heating briefly."
+        }
+      ],
+      "critical": true
+    }
+  ],
+  "plating": [
+    {
+      "step_id": "PLATE_01",
+      "instruction": "Give each person 2 warm small wholemeal tortillas. Divide the smoky black-bean and mycoprotein filling evenly between them, then spoon over the fresh tomato salsa and lime yoghurt. Serve immediately while the filling is hot, the salsa is fresh and the tortillas remain pliable."
+    }
+  ],
+  "storage": {
+    "refrigerator_days": 2,
+    "freezer_months": null,
+    "storage_instructions": "For leftovers, cool the cooked fajita filling promptly and refrigerate it separately from the tortillas, salsa and lime yoghurt in sealed containers. Refrigerate the salsa and yoghurt separately and use within 2 days. Keep unused tortillas sealed according to their pack instructions. Do not assemble fajitas before storage because the tortillas will become soggy.",
+    "reheating_methods": [
+      "Hob: reheat the filling in a frying pan over medium heat, stirring regularly, until piping hot throughout; add 1 tbsp water if it begins to dry.",
+      "Air fryer: place the filling in a suitable heatproof dish, cover loosely with foil and heat at approximately 170°C until piping hot, stirring once during reheating.",
+      "Warm the tortillas separately in a dry frying pan for approximately 15-20 seconds per side before serving."
+    ]
+  },
+  "shopping": {
+    "sainsburys": [],
+    "marks_and_spencer": [],
+    "either_retailer": [
+      "Plain vegetarian mycoprotein pieces — 1 pack; use 300 g.",
+      "Canned black beans — 1 approximately 400 g tin; use approximately 240 g drained.",
+      "Small wholemeal tortilla wraps — 1 pack; use 4.",
+      "Red peppers — 2 medium.",
+      "Small red onion — 1.",
+      "Frozen sweetcorn — 1 bag; use 100 g.",
+      "Ripe tomatoes — approximately 200 g.",
+      "0% Greek yoghurt — 1 pot; use 120 g.",
+      "Unwaxed lime — 1.",
+      "Fresh coriander — 1 small pack; use approximately 15 g.",
+      "Garlic — 1 bulb; use 2 cloves.",
+      "Rapeseed oil — use 2 tsp.",
+      "Smoked paprika — use 2 tsp.",
+      "Ground cumin — use 1 tsp.",
+      "Dried oregano — use 1 tsp.",
+      "Mild chilli powder — use 1/2 tsp.",
+      "Fine salt — use 3/4 tsp.",
+      "Ground black pepper — use 1/2 tsp."
+    ]
+  },
+  "quality_checks": {
+    "protein_requirement_met": true,
+    "protein_g_per_serving": 41.5,
+    "restaurant_quality_features": [
+      "High-heat charring develops dark, sweet edges on the peppers rather than simply softening them.",
+      "Mycoprotein is browned before spices are added, creating greater savoury depth.",
+      "Smoked paprika, cumin, oregano and chilli are briefly bloomed directly in the pan.",
+      "Fresh tomato salsa supplies cool acidity and texture against the hot smoky filling.",
+      "Lime yoghurt provides a cooling creamy contrast without requiring a calorie-dense sauce.",
+      "Fresh coriander and final lime juice brighten the finished filling immediately before serving."
+    ],
+    "nutrition_notes": [
+      "Approximately 625 kcal and 41.5 g protein per serving.",
+      "Black beans, wholemeal tortillas and vegetables provide substantial fibre.",
+      "Mycoprotein and black beans provide complementary high-protein components without relying heavily on cheese.",
+      "The lime yoghurt contributes additional protein and calcium while keeping the overall sauce relatively light.",
+      "Nutrition values are estimates and will vary with the exact mycoprotein and tortilla products used."
+    ],
+    "critical_success_factors": [
+      "Use a sufficiently large, hot frying pan so the peppers and mycoprotein brown rather than steam.",
+      "Do not add the beans until the mycoprotein has developed visible colour.",
+      "Bloom the spices only briefly to avoid scorching the smoked paprika and garlic.",
+      "Cook away excess moisture before serving so the fajitas do not become soggy.",
+      "Keep the salsa and lime yoghurt cold or cool until plating to preserve hot-cool contrast."
+    ]
+  }
+}

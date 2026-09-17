@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Beetroot, Green Lentil &amp; Feta Wholegrain Wraps with Rocket and Dijon-Herb Yoghurt</title>
+
+<style>
+:root {
+    --background: #f4f2ec;
+    --panel: #ffffff;
+    --text: #000000;
+    --muted: #555555;
+    --border: #b9b5ad;
+    --accent: #e5f1dd;
+    --endpoint: #fff4c6;
+    --step: #f7f7f4;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--background);
+    color: var(--text);
+}
+
+body {
+    min-height: 100vh;
+    min-height: 100dvh;
+}
+
+button, input, select, summary { font: inherit; }
+
+.page {
+    width: min(calc(100% - 24px), 1050px);
+    margin: 0 auto;
+    padding: max(12px, env(safe-area-inset-top)) 0 max(40px, env(safe-area-inset-bottom)) 0;
+}
+
+.recipe-header {
+    position: static;
+    background: transparent;
+    padding: 12px 0 10px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.title-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+h1 {
+    margin: 0;
+    font-size: clamp(1.65rem, 5vw, 2.8rem);
+    line-height: 1.12;
+}
+
+.scheduled-date { margin-top: 8px; font-weight: 700; }
+.description { margin: 12px 0 0 0; line-height: 1.5; }
+
+.recipe-info {
+    margin-top: 10px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    background: #ffffff;
+    overflow: hidden;
+}
+
+.recipe-info > summary {
+    cursor: pointer;
+    padding: 9px 11px;
+    font-weight: 750;
+}
+
+.recipe-info-content { padding: 0 11px 11px 11px; }
+
+.tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: #ffffff;
+    color: #000000;
+    font-size: 0.82rem;
+}
+
+.allergens {
+    margin-top: 10px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    background: #ffe4df;
+}
+
+.facts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+    gap: 8px;
+    margin: 14px 0;
+}
+
+.fact {
+    display: grid;
+    gap: 2px;
+    padding: 9px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    background: #ffffff;
+}
+
+.fact span { font-size: 0.78rem; color: var(--muted); }
+
+.recipe-tools {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.serving-tool, .rating-tool {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: #ffffff;
+}
+
+.serving-controls, .rating-buttons {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.serving-controls button, .rating-buttons button {
+    min-height: 36px;
+    padding: 5px 9px;
+    border: 1px solid #000000;
+    border-radius: 7px;
+    background: #ffffff;
+    color: #000000;
+    font-weight: 700;
+}
+
+#servingsValue {
+    min-width: 30px;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 800;
+}
+
+.rating-buttons button.active {
+    background: #000000;
+    color: #ffffff;
+}
+
+.section {
+    display: block;
+    margin-top: 14px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--panel);
+    overflow: hidden;
+}
+
+details.section > summary {
+    cursor: pointer;
+    padding: 15px 16px;
+    font-size: 1.12rem;
+    font-weight: 800;
+    background: var(--accent);
+}
+
+.section-content { padding: 14px; }
+.method-section { padding: 14px; }
+.method-section > h2 { margin: 0 0 12px 0; }
+.ingredient-grid, .card-stack { display: grid; gap: 10px; }
+
+.ingredient-card, .prep-card, .method-step {
+    padding: 14px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--step);
+}
+
+.ingredient-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 14px;
+}
+
+.ingredient-quantity {
+    flex: 0 0 auto;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.subline { margin-top: 7px; line-height: 1.4; }
+.compact-list { margin: 0; padding-left: 22px; }
+.prep-card h3, .method-step h3 { margin: 0; }
+.prep-card p, .method-step p { margin: 10px 0; }
+
+.step-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+}
+
+.step-number {
+    flex: 0 0 auto;
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.step-section {
+    margin-top: 6px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--muted);
+}
+
+.step-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+}
+
+.instruction { font-size: 1rem; line-height: 1.55; }
+
+.endpoint {
+    margin-top: 10px;
+    padding: 10px 12px;
+    border-left: 4px solid #000000;
+    background: var(--endpoint);
+    line-height: 1.45;
+}
+
+.corrective { margin-top: 10px; }
+.corrective summary { cursor: pointer; font-weight: 750; }
+.corrective ul { margin-bottom: 0; }
+
+.cook-button {
+    flex: 0 0 auto;
+    min-height: 42px;
+    padding: 8px 12px;
+    border: 1px solid #000000;
+    border-radius: 9px;
+    background: #000000;
+    color: #ffffff;
+    font-weight: 750;
+}
+
+.cook-controls {
+    display: none;
+    position: sticky;
+    bottom: max(8px, env(safe-area-inset-bottom));
+    z-index: 30;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 14px;
+    padding: 10px;
+    border: 1px solid #000000;
+    border-radius: 12px;
+    background: #ffffff;
+}
+
+.cook-controls button {
+    min-height: 44px;
+    padding: 8px 14px;
+    border: 1px solid #000000;
+    border-radius: 8px;
+    background: #000000;
+    color: #ffffff;
+    font-weight: 750;
+}
+
+.method-step { scroll-margin-top: 58px; }
+
+/* Compact cook-mode header */
+body.cook-mode .recipe-header {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    margin: 0;
+    padding: 6px 0;
+    background: rgba(244, 242, 236, 0.98);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(8px);
+}
+
+body.cook-mode .recipe-header .recipe-info,
+body.cook-mode .recipe-header .scheduled-date,
+body.cook-mode .facts,
+body.cook-mode .recipe-tools,
+body.cook-mode .non-method,
+body.cook-mode .method-section > h2 {
+    display: none;
+}
+
+body.cook-mode .title-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 8px;
+}
+
+body.cook-mode .recipe-header h1 {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+body.cook-mode .cook-button {
+    width: auto;
+    min-height: 36px;
+    padding: 6px 10px;
+    font-size: 0.85rem;
+    white-space: nowrap;
+}
+
+body.cook-mode .method-step { display: none; }
+body.cook-mode .method-step.active { display: block; }
+body.cook-mode .cook-controls { display: flex; }
+body.cook-mode .method-section {
+    min-height: calc(100dvh - 60px);
+    margin-top: 6px;
+}
+
+@media (max-width: 600px) {
+    .page { width: calc(100% - 12px); }
+    .recipe-header { padding-top: 8px; }
+
+    h1 {
+        font-size: 1.35rem;
+        line-height: 1.18;
+    }
+
+    .title-row {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: start;
+    }
+
+    .cook-button {
+        width: auto;
+        min-height: 36px;
+        padding: 6px 10px;
+        font-size: 0.85rem;
+    }
+
+    .recipe-tools { grid-template-columns: 1fr; }
+
+    .serving-tool, .rating-tool {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .rating-buttons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .ingredient-heading {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 3px;
+    }
+
+    .ingredient-quantity { white-space: normal; }
+    .method-section, .section-content { padding: 10px; }
+    .ingredient-card, .prep-card, .method-step { padding: 12px; }
+}
+
+@media print {
+    .recipe-header { position: static; }
+    .cook-button, .cook-controls, .recipe-tools { display: none !important; }
+    body.cook-mode .non-method, body.cook-mode .method-step { display: block; }
+    .section { break-inside: avoid; }
+}
+</style>
+</head>
+
+<body>
+<main class="page">
+
+<header class="recipe-header">
+    <div class="title-row">
+        <h1>Beetroot, Green Lentil &amp; Feta Wholegrain Wraps with Rocket and Dijon-Herb Yoghurt</h1>
+        <button id="cookModeButton" class="cook-button" type="button">Cook mode</button>
+    </div>
+
+    
+
+    <details class="recipe-info">
+        <summary>Recipe info</summary>
+        <div class="recipe-info-content">
+            <p class="description">Portable wholegrain wraps filled with earthy beetroot, seasoned green lentils, salty feta and peppery rocket, served with a thick Dijon-parsley yoghurt for a bright, creamy finish without making the wraps soggy.</p>
+            <div class="tag-row"><span class="badge">Lunch</span><span class="badge">Lacto-ovo vegetarian</span><span class="badge">High protein</span><span class="badge">High fibre</span><span class="badge">Portable</span><span class="badge">No-cook</span></div>
+            <div class="allergens"><strong>Allergens:</strong> Milk, Wheat, Mustard</div>
+        </div>
+    </details>
+</header>
+
+<div class="facts"><div class="fact"><span>Serves</span><strong id="servesFactValue">2</strong></div><div class="fact"><span>Difficulty</span><strong>Easy</strong></div><div class="fact"><span>Active</span><strong>18 min</strong></div><div class="fact"><span>Total</span><strong>18 min</strong></div><div class="fact"><span>Energy</span><strong>450 kcal</strong></div><div class="fact"><span>Protein</span><strong>31.5 g</strong></div></div>
+
+<section class="recipe-tools">
+    <div class="serving-tool">
+        <strong>Servings</strong>
+        <div class="serving-controls">
+            <button id="servingsMinus" type="button">−</button>
+            <span id="servingsValue" data-base-servings="2">2</span>
+            <button id="servingsPlus" type="button">+</button>
+        </div>
+    </div>
+
+    <div class="rating-tool" data-recipe-id="beetroot_green_lentil_feta_wholegrain_wraps_rocket_dijon_herb_yoghurt">
+        <strong>Your rating</strong>
+        <div class="rating-buttons">
+            <button id="ratingFavourite" type="button">♥ Favourite</button>
+            <button id="ratingDislike" type="button">👎 Dislike</button>
+        </div>
+    </div>
+</section>
+
+
+<details class="section non-method" open>
+    <summary>Ingredients</summary>
+    <div class="section-content ingredient-grid">
+        <article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Medium wholemeal tortilla wraps</strong>
+<span class="ingredient-quantity" data-base-quantity="2" data-unit="integer">2</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 pack</div>
+<div class="subline"><strong>Prep:</strong> Keep sealed until assembly so the wraps remain flexible.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Canned green lentils</strong>
+<span class="ingredient-quantity" data-base-quantity="190" data-unit="g">190 g</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 x approximately 400 g tin</div>
+<div class="subline"><strong>Prep:</strong> Drain, rinse thoroughly and drain again.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Plain cooked beetroot</strong>
+<span class="ingredient-quantity" data-base-quantity="160" data-unit="g">160 g</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 pack</div>
+<div class="subline"><strong>Prep:</strong> Drain any package liquid and pat thoroughly dry.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Feta cheese</strong>
+<span class="ingredient-quantity" data-base-quantity="50" data-unit="g">50 g</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 pack</div>
+<div class="subline"><strong>Prep:</strong> Keep refrigerated until required.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Rocket</strong>
+<span class="ingredient-quantity" data-base-quantity="40" data-unit="g">40 g</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 bag</div>
+<div class="subline"><strong>Prep:</strong> Wash if required and dry thoroughly.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>0% Greek yoghurt</strong>
+<span class="ingredient-quantity" data-base-quantity="240" data-unit="g">240 g</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 pot</div>
+<div class="subline"><strong>Prep:</strong> Keep refrigerated until required.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Dijon mustard</strong>
+<span class="ingredient-quantity" data-base-quantity="2" data-unit="tsp">2 tsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 jar</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Lemon juice</strong>
+<span class="ingredient-quantity" data-base-quantity="2" data-unit="tbsp">2 tbsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 bottle</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Fresh flat-leaf parsley</strong>
+<span class="ingredient-quantity" data-base-quantity="15" data-unit="g">15 g</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 small pack</div>
+<div class="subline"><strong>Prep:</strong> Wash and dry thoroughly.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Fine salt</strong>
+<span class="ingredient-quantity" data-base-quantity="0.125" data-unit="tsp">⅛ tsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 container</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Ground black pepper</strong>
+<span class="ingredient-quantity" data-base-quantity="0.5" data-unit="tsp">½ tsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 container</div>
+</article>
+    </div>
+</details>
+
+
+<details class="section non-method">
+    <summary>Equipment</summary>
+    <div class="section-content">
+        <ul class="compact-list"><li>Colander or sieve</li><li>Chef&#x27;s knife</li><li>Chopping board</li><li>Medium mixing bowl</li><li>Small bowl</li><li>Kitchen scales</li><li>Measuring spoons</li><li>2 lunch containers with 2 small sauce pots</li></ul>
+    </div>
+</details>
+
+
+<details class="section non-method" open>
+    <summary>Mise en place</summary>
+    <div class="section-content card-stack"><article class="prep-card">
+<h3>Prep 1</h3>
+<p>Drain the green lentils into the colander, rinse thoroughly under cold running water, then shake firmly and leave them to drain while preparing the other ingredients.</p>
+<div class="endpoint"><strong>Ready when:</strong> The lentils are cool, clean-tasting and sufficiently dry that no water collects beneath the colander.</div>
+</article><article class="prep-card">
+<h3>Prep 2</h3>
+<p>Pat the cooked beetroot thoroughly dry, then cut it into approximately 8 mm dice. Crumble the feta into pieces approximately 5-10 mm across. Check that the rocket is completely dry.</p>
+<div class="endpoint"><strong>Ready when:</strong> The beetroot is evenly diced without excessive surface liquid, the feta is coarsely crumbled and the rocket is dry.</div>
+</article><article class="prep-card">
+<h3>Prep 3</h3>
+<p>Finely chop the parsley leaves and tender stems.</p>
+<div class="endpoint"><strong>Ready when:</strong> The parsley is finely and evenly chopped without being crushed into a paste.</div>
+</article></div>
+</details>
+
+
+<section class="section method-section">
+    <h2>Method</h2>
+    <div id="methodSteps" class="card-stack"><article class="method-step" data-step-index="0">
+<div class="step-heading">
+<div class="step-number">Step 1</div>
+<h3>Make the Dijon-herb yoghurt</h3>
+</div>
+<div class="step-section">Sauce</div>
+<div class="step-meta"><span class="badge">Time: 1–2 min</span></div>
+<p class="instruction">Combine the 240 g Greek yoghurt with 2 tsp Dijon mustard, 1 tbsp lemon juice, approximately two-thirds of the chopped parsley and 1/4 tsp black pepper. Stir until completely even.</p>
+<div class="endpoint"><strong>Ready when:</strong> The sauce is thick, smooth and spoonable, with clear mustard acidity and fresh parsley flavour.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul><li><strong>If:</strong> The sauce seems excessively thick for dipping.<br><strong>Do:</strong> Stir in 1 tsp cold water; add no more unless required.</li></ul>
+</details>
+
+</article><article class="method-step" data-step-index="1">
+<div class="step-heading">
+<div class="step-number">Step 2</div>
+<h3>Season the lentils and beetroot</h3>
+</div>
+<div class="step-section">Filling</div>
+<div class="step-meta"><span class="badge">Time: 2–3 min</span></div>
+<p class="instruction">Place the well-drained lentils and diced beetroot in the mixing bowl. Add the remaining 1 tbsp lemon juice, remaining chopped parsley, 1/8 tsp fine salt and remaining 1/4 tsp black pepper. Fold gently until evenly seasoned, then fold through the crumbled feta, keeping distinct pieces of cheese visible.</p>
+<div class="endpoint"><strong>Ready when:</strong> The filling tastes bright, savoury and properly seasoned, with no watery liquid pooling in the bottom of the bowl and distinct pieces of beetroot and feta remaining.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul><li><strong>If:</strong> Liquid accumulates at the bottom of the bowl.<br><strong>Do:</strong> Transfer the mixture briefly to the colander and allow the excess liquid to drain before filling the wraps.</li></ul>
+</details>
+
+</article><article class="method-step" data-step-index="2">
+<div class="step-heading">
+<div class="step-number">Step 3</div>
+<h3>Layer the wraps</h3>
+</div>
+<div class="step-section">Assembly</div>
+<div class="step-meta"><span class="badge">Time: 2–3 min</span></div>
+<p class="instruction">Lay the 2 wholemeal wraps flat. Divide the 40 g rocket between them, arranging it in a strip across the central third of each wrap. Divide the beetroot, lentil and feta mixture evenly over the rocket, leaving approximately 40 mm clear at the left and right edges.</p>
+<div class="endpoint"><strong>Ready when:</strong> Each wrap contains an even portion of filling positioned centrally, with the dry rocket forming a barrier between the moist filling and the tortilla.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul><li><strong>If:</strong> The filling is piled too high for the wrap to close comfortably.<br><strong>Do:</strong> Spread it into a longer, narrower strip rather than compressing it into a mound.</li></ul>
+</details>
+
+</article><article class="method-step" data-step-index="3">
+<div class="step-heading">
+<div class="step-number">Step 4</div>
+<h3>Roll the wraps tightly</h3>
+</div>
+<div class="step-section">Assembly</div>
+<div class="step-meta"><span class="badge">Time: 2–3 min</span></div>
+<p class="instruction">Fold the left and right edges of each tortilla inward over the filling. Bring the lower edge firmly over the filling, compress gently, then continue rolling away from you into a tight cylinder with the seam underneath.</p>
+<div class="endpoint"><strong>Ready when:</strong> Each wrap is tightly enclosed with both ends folded in, no loose filling escaping and the seam secured underneath.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul><li><strong>If:</strong> The tortilla begins to split while rolling.<br><strong>Do:</strong> Reduce the compression force and leave the wrap whole rather than attempting to tighten it further.</li></ul>
+</details>
+
+</article><article class="method-step" data-step-index="4">
+<div class="step-heading">
+<div class="step-number">Step 5</div>
+<h3>Pack the yoghurt separately</h3>
+</div>
+<div class="step-section">Packing</div>
+<div class="step-meta"><span class="badge">Time: 1–2 min</span></div>
+<p class="instruction">Place 1 wrap into each lunch container. Divide the Dijon-herb yoghurt evenly between 2 sealed small sauce pots, giving approximately 120 g per serving. Keep the sauce separate until eating.</p>
+<div class="endpoint"><strong>Ready when:</strong> Each lunch contains 1 sealed wrap and 1 separate portion of thick Dijon-herb yoghurt with no sauce contacting the tortilla during storage.</div>
+</article></div>
+
+    <div id="cookControls" class="cook-controls">
+        <button id="previousStep" type="button">Previous</button>
+        <div id="stepCounter"></div>
+        <button id="nextStep" type="button">Next</button>
+    </div>
+</section>
+
+
+<details class="section non-method">
+    <summary>Serving</summary>
+    <div class="section-content"><p>Serve each wholegrain wrap with its portion of Dijon-herb yoghurt. Dip each bite into the yoghurt or spoon small amounts into the open end as the wrap is eaten, keeping the remaining tortilla dry and structured.</p></div>
+</details>
+
+
+<details class="section non-method">
+    <summary>Storage & reheating</summary>
+    <div class="section-content"><p><strong>Refrigerator:</strong> 1 days</p><p>Refrigerate the assembled wraps and Dijon-herb yoghurt promptly and use within 24 hours for the best texture. Keep the yoghurt in separate sealed sauce pots. For transport to work or on a car journey, keep the lunch chilled in an insulated bag with an ice pack and refrigerate on arrival where possible. The seasoned lentil-beetroot filling and yoghurt sauce may separately be refrigerated for up to 2 days before final assembly.</p></div>
+</details>
+
+
+<details class="section non-method">
+    <summary>Shopping</summary>
+    <div class="section-content"><h3>Either retailer</h3><ul><li>Medium wholemeal tortilla wraps — 1 pack; use 2.</li><li>Canned green lentils — 1 approximately 400 g tin; use 190 g drained.</li><li>Plain cooked beetroot — 1 pack; use 160 g.</li><li>Feta cheese — 1 pack; use 50 g.</li><li>Rocket — 1 bag; use 40 g.</li><li>0% Greek yoghurt — 1 pot; use 240 g.</li><li>Dijon mustard — use 2 tsp.</li><li>Lemon juice — use 2 tbsp.</li><li>Fresh flat-leaf parsley — 1 small pack; use 15 g.</li><li>Fine salt — use 1/8 tsp.</li><li>Ground black pepper — use 1/2 tsp.</li></ul></div>
+</details>
+
+
+</main>
+
+<script>
+(function () {
+    const button = document.getElementById("cookModeButton");
+    const steps = Array.from(document.querySelectorAll(".method-step"));
+    const controls = document.getElementById("cookControls");
+    const previous = document.getElementById("previousStep");
+    const next = document.getElementById("nextStep");
+    const counter = document.getElementById("stepCounter");
+    let currentStep = 0;
+
+    function showStep(index) {
+        if (!steps.length) return;
+
+        currentStep = Math.max(0, Math.min(index, steps.length - 1));
+        steps.forEach((step, stepIndex) => {
+            step.classList.toggle("active", stepIndex === currentStep);
+        });
+
+        if (counter) counter.textContent = "Step " + (currentStep + 1) + " of " + steps.length;
+        if (previous) previous.disabled = currentStep === 0;
+        if (next) next.disabled = currentStep === steps.length - 1;
+
+        const active = steps[currentStep];
+        if (active) {
+            active.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+    }
+
+    if (button) {
+        button.addEventListener("click", () => {
+            const active = document.body.classList.toggle("cook-mode");
+            button.textContent = active ? "Exit cook mode" : "Cook mode";
+            if (active) showStep(currentStep);
+        });
+    }
+
+    if (previous) previous.addEventListener("click", () => showStep(currentStep - 1));
+    if (next) next.addEventListener("click", () => showStep(currentStep + 1));
+    if (!steps.length && controls) controls.style.display = "none";
+
+    /* Serving scaler */
+    const servingsMinus = document.getElementById("servingsMinus");
+    const servingsPlus = document.getElementById("servingsPlus");
+    const servingsValue = document.getElementById("servingsValue");
+    const servesFactValue = document.getElementById("servesFactValue");
+    const recipeId = "beetroot_green_lentil_feta_wholegrain_wraps_rocket_dijon_herb_yoghurt";
+
+    function formatFraction(value) {
+        const rounded = Math.round(value * 8) / 8;
+        const whole = Math.floor(rounded);
+        const remainder = Math.round((rounded - whole) * 8);
+        const fractions = { 0: "", 1: "⅛", 2: "¼", 3: "⅜", 4: "½", 5: "⅝", 6: "¾", 7: "⅞" };
+
+        if (whole > 0 && remainder > 0) return String(whole) + fractions[remainder];
+        if (whole > 0) return String(whole);
+        if (remainder > 0) return fractions[remainder];
+        return "0";
+    }
+
+    function formatScaledQuantity(value, unit) {
+        if (unit === "tsp" || unit === "tbsp" || unit === "integer") {
+            const number = formatFraction(value);
+            return unit === "integer" ? number : number + " " + unit;
+        }
+
+        const rounded = Math.round(value * 10) / 10;
+        return String(rounded) + (unit ? " " + unit : "");
+    }
+
+    function setServings(newServings) {
+        const baseServings = Number(servingsValue.dataset.baseServings);
+        newServings = Math.max(1, Math.min(12, newServings));
+        servingsValue.textContent = String(newServings);
+        if (servesFactValue) servesFactValue.textContent = String(newServings);
+
+        const factor = newServings / baseServings;
+        document.querySelectorAll(".ingredient-quantity").forEach(element => {
+            const baseQuantity = Number(element.dataset.baseQuantity);
+            const unit = element.dataset.unit;
+            if (!Number.isFinite(baseQuantity)) return;
+            element.textContent = formatScaledQuantity(baseQuantity * factor, unit);
+        });
+
+        localStorage.setItem("recipe-servings:" + recipeId, String(newServings));
+    }
+
+    if (servingsMinus && servingsPlus && servingsValue) {
+        servingsMinus.addEventListener("click", () => {
+            setServings(Number(servingsValue.textContent) - 1);
+        });
+        servingsPlus.addEventListener("click", () => {
+            setServings(Number(servingsValue.textContent) + 1);
+        });
+
+        const saved = Number(localStorage.getItem("recipe-servings:" + recipeId));
+        if (Number.isFinite(saved) && saved >= 1) setServings(saved);
+    }
+
+    /* Favourite / neutral / dislike */
+    const favouriteButton = document.getElementById("ratingFavourite");
+    const dislikeButton = document.getElementById("ratingDislike");
+    const ratingKey = "recipe-rating:" + recipeId;
+
+    function setRating(rating) {
+        localStorage.setItem(ratingKey, rating);
+        if (favouriteButton) favouriteButton.classList.toggle("active", rating === "favourite");
+        if (dislikeButton) dislikeButton.classList.toggle("active", rating === "dislike");
+    }
+
+    if (favouriteButton) favouriteButton.addEventListener("click", () => setRating("favourite"));
+    if (neutralButton) neutralButton.addEventListener("click", () => setRating("neutral"));
+    if (dislikeButton) dislikeButton.addEventListener("click", () => setRating("dislike"));
+
+    if (favouriteButton && neutralButton && dislikeButton) {
+        setRating(localStorage.getItem(ratingKey) || "neutral");
+    }
+})();
+</script>
+
+</body>
+</html>

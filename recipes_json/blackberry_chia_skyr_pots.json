@@ -1,0 +1,294 @@
+{
+  "schema_version": "1.0",
+  "recipe": {
+    "id": "blackberry_chia_skyr_pots",
+    "title": "Blackberry, Chia & Skyr Pots",
+    "description": "Thick, creamy skyr pots layered with juicy blackberries and chia seeds, lightly sweetened with honey for a simple portable snack with fresh fruit acidity and a gently set texture.",
+    "servings": 2,
+    "difficulty": "Easy",
+    "total_time_minutes": 15,
+    "active_time_minutes": 5,
+    "passive_time_minutes": 10,
+    "cuisine": [
+      "Modern European"
+    ],
+    "meal_types": [
+      "Morning snack"
+    ],
+    "dietary_tags": [
+      "Lacto-ovo vegetarian",
+      "Portable",
+      "No-cook",
+      "High fibre"
+    ],
+    "allergens": [
+      "Milk"
+    ]
+  },
+  "nutrition_per_serving": {
+    "energy_kcal": 202,
+    "protein_g": 19.2,
+    "carbohydrate_g": 24.0,
+    "fat_g": 3.6,
+    "saturated_fat_g": 0.5,
+    "fibre_g": 8.0,
+    "salt_g": 0.15
+  },
+  "ingredients": [
+    {
+      "ingredient_id": "skyr_plain",
+      "display_name": "Plain 0% skyr",
+      "category": "Dairy",
+      "required": true,
+      "quantity_used": 300,
+      "unit_used": "g",
+      "purchase_quantity": "1 pot",
+      "purchase_notes": "Use 300 g; retail pot size may vary.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Keep refrigerated until assembly.",
+      "notes": "Use a thick plain skyr without added sugar."
+    },
+    {
+      "ingredient_id": "blackberries_fresh",
+      "display_name": "Fresh blackberries",
+      "category": "Fruit",
+      "required": true,
+      "quantity_used": 180,
+      "unit_used": "g",
+      "purchase_quantity": "1 or more punnets",
+      "purchase_notes": "Use 180 g; retail punnet size may vary.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Inspect, rinse gently if required and dry thoroughly.",
+      "notes": "Choose ripe berries without leaking juice or mould."
+    },
+    {
+      "ingredient_id": "chia_seeds",
+      "display_name": "Chia seeds",
+      "category": "Seeds",
+      "required": true,
+      "quantity_used": 20,
+      "unit_used": "g",
+      "purchase_quantity": "1 pack",
+      "purchase_notes": "Use 20 g.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Use as purchased.",
+      "notes": "The chia seeds absorb moisture from the skyr and fruit, helping the pots remain thick during transport."
+    },
+    {
+      "ingredient_id": "runny_honey",
+      "display_name": "Runny honey",
+      "category": "Sweeteners",
+      "required": true,
+      "quantity_used": 2,
+      "unit_used": "tsp",
+      "purchase_quantity": "1 jar or squeezy bottle",
+      "purchase_notes": "Use 2 tsp in total.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": "Use 1 tsp per serving to balance the natural tartness of the berries and skyr."
+    }
+  ],
+  "equipment": [
+    {
+      "equipment_id": "mixing_bowl",
+      "display_name": "Small mixing bowl",
+      "required": true,
+      "notes": "Used to combine the skyr and chia seeds."
+    },
+    {
+      "equipment_id": "kitchen_scales",
+      "display_name": "Kitchen scales",
+      "required": true,
+      "notes": "Used to portion the skyr, blackberries and chia seeds."
+    },
+    {
+      "equipment_id": "measuring_spoons",
+      "display_name": "Measuring spoons",
+      "required": true,
+      "notes": ""
+    },
+    {
+      "equipment_id": "lidded_containers",
+      "display_name": "2 lidded snack pots",
+      "required": true,
+      "notes": "Use leak-resistant containers suitable for refrigerated transport."
+    }
+  ],
+  "mise_en_place": [
+    {
+      "prep_id": "PREP_01",
+      "ingredient_ids": [
+        "blackberries_fresh"
+      ],
+      "instruction": "Inspect the blackberries and discard any damaged or mouldy fruit. Rinse gently only if required, then dry thoroughly so excess water does not loosen the finished pots.",
+      "endpoint": "The blackberries are clean, intact and dry on the surface."
+    },
+    {
+      "prep_id": "PREP_02",
+      "ingredient_ids": [
+        "skyr_plain",
+        "chia_seeds",
+        "runny_honey"
+      ],
+      "instruction": "Measure 300 g skyr, 20 g chia seeds and 2 tsp runny honey.",
+      "endpoint": "All measured ingredients are ready for rapid assembly."
+    }
+  ],
+  "procedure": [
+    {
+      "step_id": "STEP_01",
+      "section": "Base",
+      "title": "Mix the chia skyr",
+      "depends_on": [
+        "PREP_02"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "skyr_plain",
+        "chia_seeds",
+        "runny_honey"
+      ],
+      "equipment_ids": [
+        "mixing_bowl",
+        "measuring_spoons"
+      ],
+      "instruction": "Combine the 300 g skyr, 20 g chia seeds and 2 tsp runny honey. Stir thoroughly for approximately 30-45 seconds, scraping around the bowl so the chia seeds are evenly dispersed rather than collecting in clumps.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 0.5,
+      "duration_max_minutes": 1,
+      "endpoint": "The mixture is smooth and evenly speckled with chia seeds, with no dry clumps remaining.",
+      "corrective_actions": [
+        {
+          "condition": "The chia seeds form dense clumps.",
+          "action": "Press the clumps against the side of the bowl with the spoon and continue mixing until the seeds are evenly distributed."
+        }
+      ],
+      "critical": false
+    },
+    {
+      "step_id": "STEP_02",
+      "section": "Assembly",
+      "title": "Layer the pots",
+      "depends_on": [
+        "STEP_01",
+        "PREP_01"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "skyr_plain",
+        "chia_seeds",
+        "runny_honey",
+        "blackberries_fresh"
+      ],
+      "equipment_ids": [
+        "lidded_containers",
+        "kitchen_scales"
+      ],
+      "instruction": "Divide approximately half of the chia-skyr mixture between the two pots. Divide approximately half of the blackberries over that layer. Add the remaining chia-skyr mixture, then finish with the remaining blackberries. Handle the berries gently so most remain intact rather than releasing excessive juice.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 2,
+      "duration_max_minutes": 3,
+      "endpoint": "Each pot contains an even portion of skyr mixture and approximately 90 g blackberries, with visible layers and minimal free fruit juice.",
+      "corrective_actions": [
+        {
+          "condition": "The blackberries are exceptionally ripe and release substantial juice during assembly.",
+          "action": "Place the juiciest berries on the top layer rather than underneath the skyr so the base remains thick."
+        }
+      ],
+      "critical": false
+    },
+    {
+      "step_id": "STEP_03",
+      "section": "Setting",
+      "title": "Allow the chia to hydrate",
+      "depends_on": [
+        "STEP_02"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "chia_seeds",
+        "skyr_plain"
+      ],
+      "equipment_ids": [
+        "lidded_containers"
+      ],
+      "instruction": "Seal the pots and refrigerate for at least 10 minutes before eating or transporting. They may instead be prepared the evening before.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 10,
+      "duration_max_minutes": null,
+      "endpoint": "The chia-skyr mixture has thickened slightly and holds its shape around the berries without becoming gelatinous.",
+      "corrective_actions": [
+        {
+          "condition": "The mixture appears looser than expected after 10 minutes.",
+          "action": "Refrigerate for another 10 minutes; do not add additional chia seeds because the mixture will continue thickening during storage."
+        }
+      ],
+      "critical": false
+    }
+  ],
+  "plating": [
+    {
+      "step_id": "PLATE_01",
+      "instruction": "Serve the pots chilled. Stir lightly while eating so some blackberries break into the creamy chia-skyr mixture while others remain intact for contrasting bursts of fruit."
+    }
+  ],
+  "storage": {
+    "refrigerator_days": 2,
+    "freezer_months": null,
+    "storage_instructions": "Keep sealed and refrigerated and use within 2 days. For taking to work or on a car journey, transport the pots in an insulated bag with an ice pack and refrigerate on arrival where possible. Keep chilled until shortly before eating.",
+    "reheating_methods": []
+  },
+  "shopping": {
+    "sainsburys": [],
+    "marks_and_spencer": [],
+    "either_retailer": [
+      "Plain 0% skyr — 1 pot; use 300 g.",
+      "Fresh blackberries — use 180 g; retail punnet size may vary.",
+      "Chia seeds — 1 pack; use 20 g.",
+      "Runny honey — use 2 tsp."
+    ]
+  },
+  "quality_checks": {
+    "protein_requirement_met": true,
+    "protein_g_per_serving": 19.2,
+    "restaurant_quality_features": [
+      "Fresh blackberries provide sharp, juicy contrast against thick creamy skyr.",
+      "Chia seeds create a gently thickened texture without requiring cooking.",
+      "A restrained amount of honey balances the fruit and dairy acidity without making the snack overly sweet.",
+      "Layered assembly preserves visible fruit pieces and contrasting textures."
+    ],
+    "nutrition_notes": [
+      "Approximately 202 kcal per serving.",
+      "Morning snacks have no minimum protein requirement.",
+      "Skyr nevertheless provides substantial protein and calcium.",
+      "Blackberries and chia seeds provide a high-fibre combination.",
+      "Chia seeds contribute unsaturated fats including alpha-linolenic acid.",
+      "Nutrition values are estimates and will vary slightly with the exact skyr product and blackberry sweetness."
+    ],
+    "critical_success_factors": [
+      "Dry the blackberries thoroughly before assembly.",
+      "Distribute the chia seeds evenly through the skyr so they hydrate consistently.",
+      "Allow at least 10 minutes of refrigerated hydration before eating.",
+      "Avoid crushing all of the blackberries during assembly.",
+      "Maintain refrigeration during storage and transport."
+    ]
+  }
+}

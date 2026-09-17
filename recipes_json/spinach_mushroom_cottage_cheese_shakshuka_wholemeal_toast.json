@@ -1,0 +1,717 @@
+{
+  "schema_version": "1.0",
+  "recipe": {
+    "id": "spinach_mushroom_cottage_cheese_shakshuka_wholemeal_toast",
+    "title": "Spinach, Mushroom & Cottage Cheese Shakshuka with Wholemeal Toast",
+    "description": "A protein-rich shakshuka with deeply browned mushrooms, spinach and a smoky cumin-tomato sauce, finished with softly set eggs, creamy cottage cheese and crisp wholemeal toast.",
+    "servings": 2,
+    "difficulty": "Easy",
+    "total_time_minutes": 30,
+    "active_time_minutes": 22,
+    "passive_time_minutes": 8,
+    "cuisine": [
+      "North African-inspired"
+    ],
+    "meal_types": [
+      "Breakfast"
+    ],
+    "dietary_tags": [
+      "Lacto-ovo vegetarian",
+      "High protein",
+      "High fibre"
+    ],
+    "allergens": [
+      "Milk",
+      "Egg",
+      "Wheat"
+    ]
+  },
+  "nutrition_per_serving": {
+    "energy_kcal": 410,
+    "protein_g": 38.5,
+    "carbohydrate_g": 45.0,
+    "fat_g": 12.0,
+    "saturated_fat_g": 3.5,
+    "fibre_g": 8.0,
+    "salt_g": 1.5
+  },
+  "ingredients": [
+    {
+      "ingredient_id": "eggs",
+      "display_name": "Medium eggs",
+      "category": "Eggs",
+      "required": true,
+      "quantity_used": 2,
+      "unit_used": "integer",
+      "purchase_quantity": "1 box",
+      "purchase_notes": "Use 2 medium eggs.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Keep refrigerated until required.",
+      "notes": "Whole eggs do not scale perfectly for every serving quantity; round sensibly when scaling."
+    },
+    {
+      "ingredient_id": "egg_whites_liquid",
+      "display_name": "Liquid egg whites",
+      "category": "Eggs",
+      "required": true,
+      "quantity_used": 200,
+      "unit_used": "g",
+      "purchase_quantity": "1 carton",
+      "purchase_notes": "Use 200 g; carton size may vary.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Keep refrigerated until required.",
+      "notes": ""
+    },
+    {
+      "ingredient_id": "cottage_cheese_low_fat",
+      "display_name": "Low-fat cottage cheese",
+      "category": "Dairy",
+      "required": true,
+      "quantity_used": 160,
+      "unit_used": "g",
+      "purchase_quantity": "1 tub",
+      "purchase_notes": "Use 160 g; retail tub size may vary.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Keep refrigerated until required.",
+      "notes": ""
+    },
+    {
+      "ingredient_id": "wholemeal_bread",
+      "display_name": "Wholemeal bread",
+      "category": "Bread",
+      "required": true,
+      "quantity_used": 2,
+      "unit_used": "integer",
+      "purchase_quantity": "1 loaf",
+      "purchase_notes": "Use 2 large slices, 1 per serving.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Keep sliced and ready for toasting.",
+      "notes": "Bread slice size varies between products, so nutrition will vary slightly."
+    },
+    {
+      "ingredient_id": "chopped_tomatoes_canned",
+      "display_name": "Canned chopped tomatoes",
+      "category": "Vegetables",
+      "required": true,
+      "quantity_used": 400,
+      "unit_used": "g",
+      "purchase_quantity": "1 x approximately 400 g tin",
+      "purchase_notes": "Use the entire contents of 1 approximately 400 g tin.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Open immediately before use.",
+      "notes": ""
+    },
+    {
+      "ingredient_id": "chestnut_mushrooms",
+      "display_name": "Chestnut mushrooms",
+      "category": "Vegetables",
+      "required": true,
+      "quantity_used": 200,
+      "unit_used": "g",
+      "purchase_quantity": "1 pack",
+      "purchase_notes": "Use 200 g.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Wipe clean rather than soaking.",
+      "notes": ""
+    },
+    {
+      "ingredient_id": "spinach_fresh",
+      "display_name": "Fresh spinach",
+      "category": "Leafy vegetables",
+      "required": true,
+      "quantity_used": 120,
+      "unit_used": "g",
+      "purchase_quantity": "1 bag",
+      "purchase_notes": "Use 120 g.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Wash if required and dry thoroughly.",
+      "notes": ""
+    },
+    {
+      "ingredient_id": "brown_onion",
+      "display_name": "Medium brown onion",
+      "category": "Aromatics",
+      "required": true,
+      "quantity_used": 1,
+      "unit_used": "integer",
+      "purchase_quantity": "1 medium brown onion",
+      "purchase_notes": "",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Peel before chopping.",
+      "notes": "Whole onions do not scale perfectly for every serving quantity; round sensibly when scaling."
+    },
+    {
+      "ingredient_id": "garlic",
+      "display_name": "Garlic cloves",
+      "category": "Aromatics",
+      "required": true,
+      "quantity_used": 2,
+      "unit_used": "integer",
+      "purchase_quantity": "1 bulb",
+      "purchase_notes": "Use 2 cloves.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Peel before finely grating or crushing.",
+      "notes": ""
+    },
+    {
+      "ingredient_id": "tomato_puree",
+      "display_name": "Tomato purée",
+      "category": "Condiments",
+      "required": true,
+      "quantity_used": 1,
+      "unit_used": "tbsp",
+      "purchase_quantity": "1 tube or small container",
+      "purchase_notes": "Use 1 tbsp.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": ""
+    },
+    {
+      "ingredient_id": "olive_oil",
+      "display_name": "Olive oil",
+      "category": "Oils",
+      "required": true,
+      "quantity_used": 1,
+      "unit_used": "tsp",
+      "purchase_quantity": "1 bottle",
+      "purchase_notes": "Use 1 tsp.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": ""
+    },
+    {
+      "ingredient_id": "smoked_paprika",
+      "display_name": "Smoked paprika",
+      "category": "Spices",
+      "required": true,
+      "quantity_used": 1,
+      "unit_used": "tsp",
+      "purchase_quantity": "1 jar",
+      "purchase_notes": "Use 1 tsp.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": ""
+    },
+    {
+      "ingredient_id": "ground_cumin",
+      "display_name": "Ground cumin",
+      "category": "Spices",
+      "required": true,
+      "quantity_used": 1,
+      "unit_used": "tsp",
+      "purchase_quantity": "1 jar",
+      "purchase_notes": "Use 1 tsp.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": ""
+    },
+    {
+      "ingredient_id": "chilli_flakes",
+      "display_name": "Chilli flakes",
+      "category": "Spices",
+      "required": true,
+      "quantity_used": 0.25,
+      "unit_used": "tsp",
+      "purchase_quantity": "1 jar",
+      "purchase_notes": "Use 1/4 tsp.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": "Provides gentle background heat rather than making the breakfast strongly spicy."
+    },
+    {
+      "ingredient_id": "red_wine_vinegar",
+      "display_name": "Red wine vinegar",
+      "category": "Condiments",
+      "required": true,
+      "quantity_used": 1,
+      "unit_used": "tsp",
+      "purchase_quantity": "1 bottle",
+      "purchase_notes": "Use 1 tsp.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": "Sharpens the tomato sauce and balances the dairy richness."
+    },
+    {
+      "ingredient_id": "fine_salt",
+      "display_name": "Fine salt",
+      "category": "Seasoning",
+      "required": true,
+      "quantity_used": 0.25,
+      "unit_used": "tsp",
+      "purchase_quantity": "1 container",
+      "purchase_notes": "Use 1/4 tsp.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": "Cottage cheese and bread contribute additional salt."
+    },
+    {
+      "ingredient_id": "black_pepper_ground",
+      "display_name": "Ground black pepper",
+      "category": "Seasoning",
+      "required": true,
+      "quantity_used": 0.25,
+      "unit_used": "tsp",
+      "purchase_quantity": "1 container",
+      "purchase_notes": "Use 1/4 tsp.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": ""
+    }
+  ],
+  "equipment": [
+    {
+      "equipment_id": "gas_hob",
+      "display_name": "Gas hob",
+      "required": true,
+      "notes": ""
+    },
+    {
+      "equipment_id": "saute_pan",
+      "display_name": "Large sauté pan with lid",
+      "required": true,
+      "notes": "Use a broad pan so the mushrooms can brown before the tomato base is added."
+    },
+    {
+      "equipment_id": "toaster",
+      "display_name": "Toaster",
+      "required": true,
+      "notes": "Used while the eggs cook so the toast is ready with the shakshuka."
+    },
+    {
+      "equipment_id": "chef_knife",
+      "display_name": "Chef's knife",
+      "required": true,
+      "notes": ""
+    },
+    {
+      "equipment_id": "chopping_board",
+      "display_name": "Chopping board",
+      "required": true,
+      "notes": ""
+    },
+    {
+      "equipment_id": "fine_grater",
+      "display_name": "Fine grater or Microplane",
+      "required": true,
+      "notes": "For the garlic."
+    },
+    {
+      "equipment_id": "measuring_spoons",
+      "display_name": "Measuring spoons",
+      "required": true,
+      "notes": ""
+    },
+    {
+      "equipment_id": "kitchen_scales",
+      "display_name": "Kitchen scales",
+      "required": true,
+      "notes": ""
+    },
+    {
+      "equipment_id": "spatula",
+      "display_name": "Heatproof spatula or wooden spoon",
+      "required": true,
+      "notes": ""
+    }
+  ],
+  "mise_en_place": [
+    {
+      "prep_id": "PREP_01",
+      "ingredient_ids": [
+        "brown_onion",
+        "garlic",
+        "chestnut_mushrooms"
+      ],
+      "instruction": "Peel the onion, trim the root and stem ends, then dice the usable flesh into approximately 5 mm pieces. Peel and finely grate or crush the garlic. Trim the mushroom stem ends and slice the mushrooms approximately 5 mm thick.",
+      "endpoint": "The onion is evenly diced, the garlic is finely prepared and the mushrooms are sliced to a consistent thickness."
+    },
+    {
+      "prep_id": "PREP_02",
+      "ingredient_ids": [
+        "spinach_fresh"
+      ],
+      "instruction": "Wash the spinach if required, then dry it thoroughly. Remove only any unusually thick or damaged stems.",
+      "endpoint": "The spinach is clean and dry enough that it will wilt without adding unnecessary water to the sauce."
+    },
+    {
+      "prep_id": "PREP_03",
+      "ingredient_ids": [
+        "eggs",
+        "egg_whites_liquid",
+        "cottage_cheese_low_fat"
+      ],
+      "instruction": "Keep the 2 eggs whole until required. Weigh 200 g liquid egg whites and 160 g cottage cheese into separate ready-to-use portions.",
+      "endpoint": "The eggs, egg whites and cottage cheese are ready to add without interrupting cooking."
+    },
+    {
+      "prep_id": "PREP_04",
+      "ingredient_ids": [
+        "smoked_paprika",
+        "ground_cumin",
+        "chilli_flakes",
+        "fine_salt",
+        "black_pepper_ground",
+        "tomato_puree",
+        "red_wine_vinegar"
+      ],
+      "instruction": "Measure 1 tsp smoked paprika, 1 tsp ground cumin, 1/4 tsp chilli flakes, 1/4 tsp fine salt, 1/4 tsp black pepper, 1 tbsp tomato purée and 1 tsp red wine vinegar so they are ready to add in sequence.",
+      "endpoint": "All seasoning and sauce ingredients are measured before cooking begins."
+    }
+  ],
+  "procedure": [
+    {
+      "step_id": "STEP_01",
+      "section": "Vegetable base",
+      "title": "Brown the mushrooms and soften the onion",
+      "depends_on": [
+        "PREP_01"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "olive_oil",
+        "brown_onion",
+        "chestnut_mushrooms"
+      ],
+      "equipment_ids": [
+        "gas_hob",
+        "saute_pan",
+        "spatula"
+      ],
+      "instruction": "Heat the sauté pan over medium-high heat for approximately 1 minute. Add 1 tsp olive oil, followed by the mushrooms and onion. Spread them across the pan and cook for approximately 7-9 minutes, stirring only every 60-90 seconds at first so the mushrooms can release their moisture and develop brown edges.",
+      "heat_source": "gas_hob",
+      "heat_level": "medium-high",
+      "temperature_c": null,
+      "duration_min_minutes": 7,
+      "duration_max_minutes": 9,
+      "endpoint": "The mushroom liquid has evaporated, the mushrooms are well browned and the onion is soft with lightly golden edges.",
+      "corrective_actions": [
+        {
+          "condition": "The mushrooms release liquid and remain grey rather than browning.",
+          "action": "Keep the pan uncovered at medium-high heat and avoid stirring until the visible liquid has evaporated."
+        },
+        {
+          "condition": "The onion begins darkening before the mushrooms have browned.",
+          "action": "Reduce the heat slightly and stir more frequently until the mushrooms catch up."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_02",
+      "section": "Tomato sauce",
+      "title": "Bloom the garlic, spices and tomato purée",
+      "depends_on": [
+        "STEP_01",
+        "PREP_04"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "garlic",
+        "smoked_paprika",
+        "ground_cumin",
+        "chilli_flakes",
+        "tomato_puree"
+      ],
+      "equipment_ids": [
+        "gas_hob",
+        "saute_pan",
+        "spatula"
+      ],
+      "instruction": "Reduce the heat to medium. Add the garlic, smoked paprika, cumin, chilli flakes and tomato purée. Stir continuously for approximately 45-60 seconds, scraping the purée across the base of the pan so it darkens slightly without scorching.",
+      "heat_source": "gas_hob",
+      "heat_level": "medium",
+      "temperature_c": null,
+      "duration_min_minutes": 0.75,
+      "duration_max_minutes": 1,
+      "endpoint": "The mixture smells strongly aromatic and the tomato purée has changed from bright red to a slightly darker brick-red colour.",
+      "corrective_actions": [
+        {
+          "condition": "The garlic or spices begin catching or smelling bitter.",
+          "action": "Immediately proceed to the next step and add the canned tomatoes to stop further browning."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_03",
+      "section": "Tomato sauce",
+      "title": "Reduce the shakshuka sauce",
+      "depends_on": [
+        "STEP_02"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "chopped_tomatoes_canned",
+        "red_wine_vinegar",
+        "fine_salt",
+        "black_pepper_ground"
+      ],
+      "equipment_ids": [
+        "gas_hob",
+        "saute_pan",
+        "spatula"
+      ],
+      "instruction": "Add the canned tomatoes, 1 tsp red wine vinegar, 1/4 tsp fine salt and 1/4 tsp black pepper. Stir thoroughly and bring to a lively simmer. Cook uncovered over medium heat for approximately 5-7 minutes, stirring occasionally and scraping the base of the pan.",
+      "heat_source": "gas_hob",
+      "heat_level": "medium",
+      "temperature_c": null,
+      "duration_min_minutes": 5,
+      "duration_max_minutes": 7,
+      "endpoint": "The sauce has visibly thickened, a spatula drawn through the centre leaves a trail that remains open for 1-2 seconds, and there is no watery liquid separating around the edges.",
+      "corrective_actions": [
+        {
+          "condition": "The sauce thickens and catches before the tomatoes have lost their raw canned flavour.",
+          "action": "Reduce the heat and add 1 tbsp water, then continue simmering."
+        },
+        {
+          "condition": "The sauce remains watery after 7 minutes.",
+          "action": "Increase the heat slightly and continue uncovered until the stated trail test is achieved."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_04",
+      "section": "Vegetables",
+      "title": "Wilt the spinach",
+      "depends_on": [
+        "STEP_03",
+        "PREP_02"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "spinach_fresh"
+      ],
+      "equipment_ids": [
+        "gas_hob",
+        "saute_pan",
+        "spatula"
+      ],
+      "instruction": "Add the spinach in 2 additions, folding each portion into the hot sauce before adding the next. Cook for approximately 1-2 minutes until all of the spinach has collapsed into the sauce.",
+      "heat_source": "gas_hob",
+      "heat_level": "medium",
+      "temperature_c": null,
+      "duration_min_minutes": 1,
+      "duration_max_minutes": 2,
+      "endpoint": "The spinach is fully wilted and evenly distributed, while the sauce remains thick rather than watery.",
+      "corrective_actions": [
+        {
+          "condition": "The spinach releases enough water to loosen the sauce noticeably.",
+          "action": "Continue cooking uncovered for another 1-2 minutes until the sauce returns to the previous thick consistency."
+        }
+      ],
+      "critical": false
+    },
+    {
+      "step_id": "STEP_05",
+      "section": "Eggs",
+      "title": "Add and set the eggs",
+      "depends_on": [
+        "STEP_04",
+        "PREP_03"
+      ],
+      "parallel_group": "P01",
+      "ingredient_ids": [
+        "eggs",
+        "egg_whites_liquid"
+      ],
+      "equipment_ids": [
+        "gas_hob",
+        "saute_pan"
+      ],
+      "instruction": "Reduce the heat to low-medium. Make 2 wells in the sauce and crack 1 egg into each well. Pour the 200 g liquid egg whites evenly into the spaces between the eggs rather than directly over the yolks. Cover the pan and cook for approximately 5-7 minutes.",
+      "heat_source": "gas_hob",
+      "heat_level": "low-medium",
+      "temperature_c": null,
+      "duration_min_minutes": 5,
+      "duration_max_minutes": 7,
+      "endpoint": "All egg white, including the added liquid egg white, is fully opaque and set with no translucent patches; the whole-egg yolks may remain soft if preferred.",
+      "corrective_actions": [
+        {
+          "condition": "The tomato sauce begins bubbling aggressively around the eggs.",
+          "action": "Reduce the heat so the eggs set gently rather than becoming tough at the base."
+        },
+        {
+          "condition": "The egg whites remain translucent after 7 minutes.",
+          "action": "Keep the pan covered and continue cooking in 1-minute increments until all white is opaque."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_06",
+      "section": "Toast",
+      "title": "Toast the wholemeal bread",
+      "depends_on": [
+        "STEP_05"
+      ],
+      "parallel_group": "P01",
+      "ingredient_ids": [
+        "wholemeal_bread"
+      ],
+      "equipment_ids": [
+        "toaster"
+      ],
+      "instruction": "While the eggs are setting, toast the 2 slices of wholemeal bread until crisp at the surface and golden at the edges while remaining tender inside.",
+      "heat_source": "toaster",
+      "heat_level": "medium",
+      "temperature_c": null,
+      "duration_min_minutes": 2,
+      "duration_max_minutes": 4,
+      "endpoint": "The toast is hot, crisp and evenly browned without scorched edges.",
+      "corrective_actions": [
+        {
+          "condition": "The bread is browning too quickly.",
+          "action": "Stop the toaster early rather than allowing the edges to burn."
+        }
+      ],
+      "critical": false
+    },
+    {
+      "step_id": "STEP_07",
+      "section": "Finishing",
+      "title": "Warm the cottage cheese",
+      "depends_on": [
+        "STEP_05"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "cottage_cheese_low_fat"
+      ],
+      "equipment_ids": [
+        "saute_pan"
+      ],
+      "instruction": "Once the egg whites are fully set, remove the lid and spoon the cottage cheese in small dollops across the sauce, keeping the egg yolks visible. Cover again for approximately 1 minute over low heat, just until the cottage cheese is warmed but still visibly curded.",
+      "heat_source": "gas_hob",
+      "heat_level": "low",
+      "temperature_c": null,
+      "duration_min_minutes": 1,
+      "duration_max_minutes": 1,
+      "endpoint": "The cottage cheese is warm and creamy while retaining distinct curds, and the eggs remain correctly cooked.",
+      "corrective_actions": [
+        {
+          "condition": "The sauce begins bubbling hard after the cottage cheese is added.",
+          "action": "Turn off the heat and allow the residual pan heat to warm the cottage cheese."
+        }
+      ],
+      "critical": false
+    }
+  ],
+  "plating": [
+    {
+      "step_id": "PLATE_01",
+      "instruction": "Divide the shakshuka between two warm bowls or shallow plates so each person receives 1 whole egg, approximately half of the extra egg white, vegetables, tomato sauce and cottage cheese. Serve each portion immediately with 1 slice of crisp wholemeal toast for scooping."
+    }
+  ],
+  "storage": {
+    "refrigerator_days": 1,
+    "freezer_months": null,
+    "storage_instructions": "The completed shakshuka is best eaten immediately. If necessary, cool leftovers promptly and refrigerate in a sealed container for up to 1 day. Store toast separately so it does not soften. For make-ahead preparation, the mushroom, spinach and tomato base may be prepared up to 2 days in advance and refrigerated; reheat it until piping hot before adding fresh eggs and cottage cheese.",
+    "reheating_methods": [
+      "Hob: place leftover shakshuka in a covered frying or sauté pan over low heat with 1 tbsp water and heat gently until piping hot throughout, avoiding prolonged heating that will toughen the eggs.",
+      "Oven: cover in a suitable ovenproof dish and heat at approximately 170°C until piping hot throughout.",
+      "Toast fresh wholemeal bread separately immediately before serving."
+    ]
+  },
+  "shopping": {
+    "sainsburys": [],
+    "marks_and_spencer": [],
+    "either_retailer": [
+      "Medium eggs — 1 box; use 2.",
+      "Liquid egg whites — 1 carton; use 200 g.",
+      "Low-fat cottage cheese — 1 tub; use 160 g.",
+      "Wholemeal bread — 1 loaf; use 2 large slices.",
+      "Canned chopped tomatoes — 1 approximately 400 g tin.",
+      "Chestnut mushrooms — 1 pack; use 200 g.",
+      "Fresh spinach — 1 bag; use 120 g.",
+      "Medium brown onion — 1.",
+      "Garlic — 1 bulb; use 2 cloves.",
+      "Tomato purée — use 1 tbsp.",
+      "Olive oil — use 1 tsp.",
+      "Smoked paprika — use 1 tsp.",
+      "Ground cumin — use 1 tsp.",
+      "Chilli flakes — use 1/4 tsp.",
+      "Red wine vinegar — use 1 tsp.",
+      "Fine salt — use 1/4 tsp.",
+      "Ground black pepper — use 1/4 tsp."
+    ]
+  },
+  "quality_checks": {
+    "protein_requirement_met": true,
+    "protein_g_per_serving": 38.5,
+    "restaurant_quality_features": [
+      "Mushrooms are browned until their moisture has evaporated before the tomato sauce is built.",
+      "Tomato purée and spices are briefly cooked in the pan to deepen their flavour before liquid is added.",
+      "The tomato base is properly reduced so the finished shakshuka is rich rather than watery.",
+      "Red wine vinegar supplies controlled acidity to balance the tomatoes, eggs and cottage cheese.",
+      "Whole eggs provide rich yolks while additional egg whites raise protein without excessive calories.",
+      "Cottage cheese is warmed only briefly so its creamy curd texture remains distinct.",
+      "Crisp wholemeal toast provides a contrasting texture and practical way to scoop the thick sauce."
+    ],
+    "nutrition_notes": [
+      "Approximately 410 kcal and 38.5 g protein per serving.",
+      "Eggs, liquid egg whites and cottage cheese provide the majority of the protein.",
+      "Mushrooms, spinach and tomatoes provide substantial vegetable volume for relatively few calories.",
+      "Wholemeal toast contributes complex carbohydrate and additional fibre.",
+      "Nutrition values are estimates and will vary with the exact cottage cheese, bread and liquid egg-white products used."
+    ],
+    "critical_success_factors": [
+      "Brown the mushrooms thoroughly before adding tomato ingredients.",
+      "Reduce the tomato sauce until it passes the stated spatula-trail test before adding spinach or eggs.",
+      "Cook the added liquid egg whites until fully opaque while avoiding unnecessarily hard whole-egg yolks.",
+      "Add the cottage cheese only after the egg whites have set so it retains texture.",
+      "Serve immediately with freshly toasted wholemeal bread."
+    ]
+  }
+}

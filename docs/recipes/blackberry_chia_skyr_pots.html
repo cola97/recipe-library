@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Blackberry, Chia &amp; Skyr Pots</title>
+
+<style>
+:root {
+    --background: #f4f2ec;
+    --panel: #ffffff;
+    --text: #000000;
+    --muted: #555555;
+    --border: #b9b5ad;
+    --accent: #e5f1dd;
+    --endpoint: #fff4c6;
+    --step: #f7f7f4;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--background);
+    color: var(--text);
+}
+
+body {
+    min-height: 100vh;
+    min-height: 100dvh;
+}
+
+button, input, select, summary { font: inherit; }
+
+.page {
+    width: min(calc(100% - 24px), 1050px);
+    margin: 0 auto;
+    padding: max(12px, env(safe-area-inset-top)) 0 max(40px, env(safe-area-inset-bottom)) 0;
+}
+
+.recipe-header {
+    position: static;
+    background: transparent;
+    padding: 12px 0 10px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.title-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+h1 {
+    margin: 0;
+    font-size: clamp(1.65rem, 5vw, 2.8rem);
+    line-height: 1.12;
+}
+
+.scheduled-date { margin-top: 8px; font-weight: 700; }
+.description { margin: 12px 0 0 0; line-height: 1.5; }
+
+.recipe-info {
+    margin-top: 10px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    background: #ffffff;
+    overflow: hidden;
+}
+
+.recipe-info > summary {
+    cursor: pointer;
+    padding: 9px 11px;
+    font-weight: 750;
+}
+
+.recipe-info-content { padding: 0 11px 11px 11px; }
+
+.tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: #ffffff;
+    color: #000000;
+    font-size: 0.82rem;
+}
+
+.allergens {
+    margin-top: 10px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    background: #ffe4df;
+}
+
+.facts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+    gap: 8px;
+    margin: 14px 0;
+}
+
+.fact {
+    display: grid;
+    gap: 2px;
+    padding: 9px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    background: #ffffff;
+}
+
+.fact span { font-size: 0.78rem; color: var(--muted); }
+
+.recipe-tools {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.serving-tool, .rating-tool {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: #ffffff;
+}
+
+.serving-controls, .rating-buttons {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.serving-controls button, .rating-buttons button {
+    min-height: 36px;
+    padding: 5px 9px;
+    border: 1px solid #000000;
+    border-radius: 7px;
+    background: #ffffff;
+    color: #000000;
+    font-weight: 700;
+}
+
+#servingsValue {
+    min-width: 30px;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 800;
+}
+
+.rating-buttons button.active {
+    background: #000000;
+    color: #ffffff;
+}
+
+.section {
+    display: block;
+    margin-top: 14px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--panel);
+    overflow: hidden;
+}
+
+details.section > summary {
+    cursor: pointer;
+    padding: 15px 16px;
+    font-size: 1.12rem;
+    font-weight: 800;
+    background: var(--accent);
+}
+
+.section-content { padding: 14px; }
+.method-section { padding: 14px; }
+.method-section > h2 { margin: 0 0 12px 0; }
+.ingredient-grid, .card-stack { display: grid; gap: 10px; }
+
+.ingredient-card, .prep-card, .method-step {
+    padding: 14px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--step);
+}
+
+.ingredient-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 14px;
+}
+
+.ingredient-quantity {
+    flex: 0 0 auto;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.subline { margin-top: 7px; line-height: 1.4; }
+.compact-list { margin: 0; padding-left: 22px; }
+.prep-card h3, .method-step h3 { margin: 0; }
+.prep-card p, .method-step p { margin: 10px 0; }
+
+.step-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+}
+
+.step-number {
+    flex: 0 0 auto;
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.step-section {
+    margin-top: 6px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--muted);
+}
+
+.step-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+}
+
+.instruction { font-size: 1rem; line-height: 1.55; }
+
+.endpoint {
+    margin-top: 10px;
+    padding: 10px 12px;
+    border-left: 4px solid #000000;
+    background: var(--endpoint);
+    line-height: 1.45;
+}
+
+.corrective { margin-top: 10px; }
+.corrective summary { cursor: pointer; font-weight: 750; }
+.corrective ul { margin-bottom: 0; }
+
+.cook-button {
+    flex: 0 0 auto;
+    min-height: 42px;
+    padding: 8px 12px;
+    border: 1px solid #000000;
+    border-radius: 9px;
+    background: #000000;
+    color: #ffffff;
+    font-weight: 750;
+}
+
+.cook-controls {
+    display: none;
+    position: sticky;
+    bottom: max(8px, env(safe-area-inset-bottom));
+    z-index: 30;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 14px;
+    padding: 10px;
+    border: 1px solid #000000;
+    border-radius: 12px;
+    background: #ffffff;
+}
+
+.cook-controls button {
+    min-height: 44px;
+    padding: 8px 14px;
+    border: 1px solid #000000;
+    border-radius: 8px;
+    background: #000000;
+    color: #ffffff;
+    font-weight: 750;
+}
+
+.method-step { scroll-margin-top: 58px; }
+
+/* Compact cook-mode header */
+body.cook-mode .recipe-header {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    margin: 0;
+    padding: 6px 0;
+    background: rgba(244, 242, 236, 0.98);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(8px);
+}
+
+body.cook-mode .recipe-header .recipe-info,
+body.cook-mode .recipe-header .scheduled-date,
+body.cook-mode .facts,
+body.cook-mode .recipe-tools,
+body.cook-mode .non-method,
+body.cook-mode .method-section > h2 {
+    display: none;
+}
+
+body.cook-mode .title-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 8px;
+}
+
+body.cook-mode .recipe-header h1 {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+body.cook-mode .cook-button {
+    width: auto;
+    min-height: 36px;
+    padding: 6px 10px;
+    font-size: 0.85rem;
+    white-space: nowrap;
+}
+
+body.cook-mode .method-step { display: none; }
+body.cook-mode .method-step.active { display: block; }
+body.cook-mode .cook-controls { display: flex; }
+body.cook-mode .method-section {
+    min-height: calc(100dvh - 60px);
+    margin-top: 6px;
+}
+
+@media (max-width: 600px) {
+    .page { width: calc(100% - 12px); }
+    .recipe-header { padding-top: 8px; }
+
+    h1 {
+        font-size: 1.35rem;
+        line-height: 1.18;
+    }
+
+    .title-row {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: start;
+    }
+
+    .cook-button {
+        width: auto;
+        min-height: 36px;
+        padding: 6px 10px;
+        font-size: 0.85rem;
+    }
+
+    .recipe-tools { grid-template-columns: 1fr; }
+
+    .serving-tool, .rating-tool {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .rating-buttons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .ingredient-heading {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 3px;
+    }
+
+    .ingredient-quantity { white-space: normal; }
+    .method-section, .section-content { padding: 10px; }
+    .ingredient-card, .prep-card, .method-step { padding: 12px; }
+}
+
+@media print {
+    .recipe-header { position: static; }
+    .cook-button, .cook-controls, .recipe-tools { display: none !important; }
+    body.cook-mode .non-method, body.cook-mode .method-step { display: block; }
+    .section { break-inside: avoid; }
+}
+</style>
+</head>
+
+<body>
+<main class="page">
+
+<header class="recipe-header">
+    <div class="title-row">
+        <h1>Blackberry, Chia &amp; Skyr Pots</h1>
+        <button id="cookModeButton" class="cook-button" type="button">Cook mode</button>
+    </div>
+
+    
+
+    <details class="recipe-info">
+        <summary>Recipe info</summary>
+        <div class="recipe-info-content">
+            <p class="description">Thick, creamy skyr pots layered with juicy blackberries and chia seeds, lightly sweetened with honey for a simple portable snack with fresh fruit acidity and a gently set texture.</p>
+            <div class="tag-row"><span class="badge">Morning snack</span><span class="badge">Lacto-ovo vegetarian</span><span class="badge">Portable</span><span class="badge">No-cook</span><span class="badge">High fibre</span></div>
+            <div class="allergens"><strong>Allergens:</strong> Milk</div>
+        </div>
+    </details>
+</header>
+
+<div class="facts"><div class="fact"><span>Serves</span><strong id="servesFactValue">2</strong></div><div class="fact"><span>Difficulty</span><strong>Easy</strong></div><div class="fact"><span>Active</span><strong>5 min</strong></div><div class="fact"><span>Total</span><strong>15 min</strong></div><div class="fact"><span>Energy</span><strong>202 kcal</strong></div><div class="fact"><span>Protein</span><strong>19.2 g</strong></div></div>
+
+<section class="recipe-tools">
+    <div class="serving-tool">
+        <strong>Servings</strong>
+        <div class="serving-controls">
+            <button id="servingsMinus" type="button">−</button>
+            <span id="servingsValue" data-base-servings="2">2</span>
+            <button id="servingsPlus" type="button">+</button>
+        </div>
+    </div>
+
+    <div class="rating-tool" data-recipe-id="blackberry_chia_skyr_pots">
+        <strong>Your rating</strong>
+        <div class="rating-buttons">
+            <button id="ratingFavourite" type="button">♥ Favourite</button>
+            <button id="ratingDislike" type="button">👎 Dislike</button>
+        </div>
+    </div>
+</section>
+
+
+<details class="section non-method" open>
+    <summary>Ingredients</summary>
+    <div class="section-content ingredient-grid">
+        <article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Plain 0% skyr</strong>
+<span class="ingredient-quantity" data-base-quantity="300" data-unit="g">300 g</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 pot</div>
+<div class="subline"><strong>Prep:</strong> Keep refrigerated until assembly.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Fresh blackberries</strong>
+<span class="ingredient-quantity" data-base-quantity="180" data-unit="g">180 g</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 or more punnets</div>
+<div class="subline"><strong>Prep:</strong> Inspect, rinse gently if required and dry thoroughly.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Chia seeds</strong>
+<span class="ingredient-quantity" data-base-quantity="20" data-unit="g">20 g</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 pack</div>
+<div class="subline"><strong>Prep:</strong> Use as purchased.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Runny honey</strong>
+<span class="ingredient-quantity" data-base-quantity="2" data-unit="tsp">2 tsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 jar or squeezy bottle</div>
+</article>
+    </div>
+</details>
+
+
+<details class="section non-method">
+    <summary>Equipment</summary>
+    <div class="section-content">
+        <ul class="compact-list"><li>Small mixing bowl</li><li>Kitchen scales</li><li>Measuring spoons</li><li>2 lidded snack pots</li></ul>
+    </div>
+</details>
+
+
+<details class="section non-method" open>
+    <summary>Mise en place</summary>
+    <div class="section-content card-stack"><article class="prep-card">
+<h3>Prep 1</h3>
+<p>Inspect the blackberries and discard any damaged or mouldy fruit. Rinse gently only if required, then dry thoroughly so excess water does not loosen the finished pots.</p>
+<div class="endpoint"><strong>Ready when:</strong> The blackberries are clean, intact and dry on the surface.</div>
+</article><article class="prep-card">
+<h3>Prep 2</h3>
+<p>Measure 300 g skyr, 20 g chia seeds and 2 tsp runny honey.</p>
+<div class="endpoint"><strong>Ready when:</strong> All measured ingredients are ready for rapid assembly.</div>
+</article></div>
+</details>
+
+
+<section class="section method-section">
+    <h2>Method</h2>
+    <div id="methodSteps" class="card-stack"><article class="method-step" data-step-index="0">
+<div class="step-heading">
+<div class="step-number">Step 1</div>
+<h3>Mix the chia skyr</h3>
+</div>
+<div class="step-section">Base</div>
+<div class="step-meta"><span class="badge">Time: 0.5–1 min</span></div>
+<p class="instruction">Combine the 300 g skyr, 20 g chia seeds and 2 tsp runny honey. Stir thoroughly for approximately 30-45 seconds, scraping around the bowl so the chia seeds are evenly dispersed rather than collecting in clumps.</p>
+<div class="endpoint"><strong>Ready when:</strong> The mixture is smooth and evenly speckled with chia seeds, with no dry clumps remaining.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul><li><strong>If:</strong> The chia seeds form dense clumps.<br><strong>Do:</strong> Press the clumps against the side of the bowl with the spoon and continue mixing until the seeds are evenly distributed.</li></ul>
+</details>
+
+</article><article class="method-step" data-step-index="1">
+<div class="step-heading">
+<div class="step-number">Step 2</div>
+<h3>Layer the pots</h3>
+</div>
+<div class="step-section">Assembly</div>
+<div class="step-meta"><span class="badge">Time: 2–3 min</span></div>
+<p class="instruction">Divide approximately half of the chia-skyr mixture between the two pots. Divide approximately half of the blackberries over that layer. Add the remaining chia-skyr mixture, then finish with the remaining blackberries. Handle the berries gently so most remain intact rather than releasing excessive juice.</p>
+<div class="endpoint"><strong>Ready when:</strong> Each pot contains an even portion of skyr mixture and approximately 90 g blackberries, with visible layers and minimal free fruit juice.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul><li><strong>If:</strong> The blackberries are exceptionally ripe and release substantial juice during assembly.<br><strong>Do:</strong> Place the juiciest berries on the top layer rather than underneath the skyr so the base remains thick.</li></ul>
+</details>
+
+</article><article class="method-step" data-step-index="2">
+<div class="step-heading">
+<div class="step-number">Step 3</div>
+<h3>Allow the chia to hydrate</h3>
+</div>
+<div class="step-section">Setting</div>
+<div class="step-meta"><span class="badge">Time: 10 min minimum</span></div>
+<p class="instruction">Seal the pots and refrigerate for at least 10 minutes before eating or transporting. They may instead be prepared the evening before.</p>
+<div class="endpoint"><strong>Ready when:</strong> The chia-skyr mixture has thickened slightly and holds its shape around the berries without becoming gelatinous.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul><li><strong>If:</strong> The mixture appears looser than expected after 10 minutes.<br><strong>Do:</strong> Refrigerate for another 10 minutes; do not add additional chia seeds because the mixture will continue thickening during storage.</li></ul>
+</details>
+
+</article></div>
+
+    <div id="cookControls" class="cook-controls">
+        <button id="previousStep" type="button">Previous</button>
+        <div id="stepCounter"></div>
+        <button id="nextStep" type="button">Next</button>
+    </div>
+</section>
+
+
+<details class="section non-method">
+    <summary>Serving</summary>
+    <div class="section-content"><p>Serve the pots chilled. Stir lightly while eating so some blackberries break into the creamy chia-skyr mixture while others remain intact for contrasting bursts of fruit.</p></div>
+</details>
+
+
+<details class="section non-method">
+    <summary>Storage & reheating</summary>
+    <div class="section-content"><p><strong>Refrigerator:</strong> 2 days</p><p>Keep sealed and refrigerated and use within 2 days. For taking to work or on a car journey, transport the pots in an insulated bag with an ice pack and refrigerate on arrival where possible. Keep chilled until shortly before eating.</p></div>
+</details>
+
+
+<details class="section non-method">
+    <summary>Shopping</summary>
+    <div class="section-content"><h3>Either retailer</h3><ul><li>Plain 0% skyr — 1 pot; use 300 g.</li><li>Fresh blackberries — use 180 g; retail punnet size may vary.</li><li>Chia seeds — 1 pack; use 20 g.</li><li>Runny honey — use 2 tsp.</li></ul></div>
+</details>
+
+
+</main>
+
+<script>
+(function () {
+    const button = document.getElementById("cookModeButton");
+    const steps = Array.from(document.querySelectorAll(".method-step"));
+    const controls = document.getElementById("cookControls");
+    const previous = document.getElementById("previousStep");
+    const next = document.getElementById("nextStep");
+    const counter = document.getElementById("stepCounter");
+    let currentStep = 0;
+
+    function showStep(index) {
+        if (!steps.length) return;
+
+        currentStep = Math.max(0, Math.min(index, steps.length - 1));
+        steps.forEach((step, stepIndex) => {
+            step.classList.toggle("active", stepIndex === currentStep);
+        });
+
+        if (counter) counter.textContent = "Step " + (currentStep + 1) + " of " + steps.length;
+        if (previous) previous.disabled = currentStep === 0;
+        if (next) next.disabled = currentStep === steps.length - 1;
+
+        const active = steps[currentStep];
+        if (active) {
+            active.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+    }
+
+    if (button) {
+        button.addEventListener("click", () => {
+            const active = document.body.classList.toggle("cook-mode");
+            button.textContent = active ? "Exit cook mode" : "Cook mode";
+            if (active) showStep(currentStep);
+        });
+    }
+
+    if (previous) previous.addEventListener("click", () => showStep(currentStep - 1));
+    if (next) next.addEventListener("click", () => showStep(currentStep + 1));
+    if (!steps.length && controls) controls.style.display = "none";
+
+    /* Serving scaler */
+    const servingsMinus = document.getElementById("servingsMinus");
+    const servingsPlus = document.getElementById("servingsPlus");
+    const servingsValue = document.getElementById("servingsValue");
+    const servesFactValue = document.getElementById("servesFactValue");
+    const recipeId = "blackberry_chia_skyr_pots";
+
+    function formatFraction(value) {
+        const rounded = Math.round(value * 8) / 8;
+        const whole = Math.floor(rounded);
+        const remainder = Math.round((rounded - whole) * 8);
+        const fractions = { 0: "", 1: "⅛", 2: "¼", 3: "⅜", 4: "½", 5: "⅝", 6: "¾", 7: "⅞" };
+
+        if (whole > 0 && remainder > 0) return String(whole) + fractions[remainder];
+        if (whole > 0) return String(whole);
+        if (remainder > 0) return fractions[remainder];
+        return "0";
+    }
+
+    function formatScaledQuantity(value, unit) {
+        if (unit === "tsp" || unit === "tbsp" || unit === "integer") {
+            const number = formatFraction(value);
+            return unit === "integer" ? number : number + " " + unit;
+        }
+
+        const rounded = Math.round(value * 10) / 10;
+        return String(rounded) + (unit ? " " + unit : "");
+    }
+
+    function setServings(newServings) {
+        const baseServings = Number(servingsValue.dataset.baseServings);
+        newServings = Math.max(1, Math.min(12, newServings));
+        servingsValue.textContent = String(newServings);
+        if (servesFactValue) servesFactValue.textContent = String(newServings);
+
+        const factor = newServings / baseServings;
+        document.querySelectorAll(".ingredient-quantity").forEach(element => {
+            const baseQuantity = Number(element.dataset.baseQuantity);
+            const unit = element.dataset.unit;
+            if (!Number.isFinite(baseQuantity)) return;
+            element.textContent = formatScaledQuantity(baseQuantity * factor, unit);
+        });
+
+        localStorage.setItem("recipe-servings:" + recipeId, String(newServings));
+    }
+
+    if (servingsMinus && servingsPlus && servingsValue) {
+        servingsMinus.addEventListener("click", () => {
+            setServings(Number(servingsValue.textContent) - 1);
+        });
+        servingsPlus.addEventListener("click", () => {
+            setServings(Number(servingsValue.textContent) + 1);
+        });
+
+        const saved = Number(localStorage.getItem("recipe-servings:" + recipeId));
+        if (Number.isFinite(saved) && saved >= 1) setServings(saved);
+    }
+
+    /* Favourite / neutral / dislike */
+    const favouriteButton = document.getElementById("ratingFavourite");
+    const dislikeButton = document.getElementById("ratingDislike");
+    const ratingKey = "recipe-rating:" + recipeId;
+
+    function setRating(rating) {
+        localStorage.setItem(ratingKey, rating);
+        if (favouriteButton) favouriteButton.classList.toggle("active", rating === "favourite");
+        if (dislikeButton) dislikeButton.classList.toggle("active", rating === "dislike");
+    }
+
+    if (favouriteButton) favouriteButton.addEventListener("click", () => setRating("favourite"));
+    if (neutralButton) neutralButton.addEventListener("click", () => setRating("neutral"));
+    if (dislikeButton) dislikeButton.addEventListener("click", () => setRating("dislike"));
+
+    if (favouriteButton && neutralButton && dislikeButton) {
+        setRating(localStorage.getItem(ratingKey) || "neutral");
+    }
+})();
+</script>
+
+</body>
+</html>

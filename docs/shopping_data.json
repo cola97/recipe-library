@@ -1,4 +1,165 @@
 {
+  "baked_plum_quark_pots_cinnamon_walnuts.html": {
+    "recipe_id": "baked_plum_quark_pots_cinnamon_walnuts",
+    "title": "Baked Plum & Quark Pots with Cinnamon and Walnuts",
+    "servings": 2,
+    "ingredients": [
+      {
+        "ingredient_id": "quark_low_fat",
+        "display_name": "Low-fat plain quark",
+        "category": "Dairy",
+        "quantity_used": 320,
+        "unit_used": "g"
+      },
+      {
+        "ingredient_id": "plums",
+        "display_name": "Ripe medium plums",
+        "category": "Fruit",
+        "quantity_used": 2,
+        "unit_used": "integer"
+      },
+      {
+        "ingredient_id": "walnuts",
+        "display_name": "Walnut halves or pieces",
+        "category": "Nuts",
+        "quantity_used": 16,
+        "unit_used": "g"
+      },
+      {
+        "ingredient_id": "runny_honey",
+        "display_name": "Runny honey",
+        "category": "Sweeteners",
+        "quantity_used": 1,
+        "unit_used": "tsp"
+      },
+      {
+        "ingredient_id": "cinnamon_ground",
+        "display_name": "Ground cinnamon",
+        "category": "Spices",
+        "quantity_used": 0.5,
+        "unit_used": "tsp"
+      }
+    ]
+  },
+  "beetroot_green_lentil_feta_wholegrain_wraps_rocket_dijon_herb_yoghurt.html": {
+    "recipe_id": "beetroot_green_lentil_feta_wholegrain_wraps_rocket_dijon_herb_yoghurt",
+    "title": "Beetroot, Green Lentil & Feta Wholegrain Wraps with Rocket and Dijon-Herb Yoghurt",
+    "servings": 2,
+    "ingredients": [
+      {
+        "ingredient_id": "wholemeal_tortilla_wraps",
+        "display_name": "Medium wholemeal tortilla wraps",
+        "category": "Bread",
+        "quantity_used": 2,
+        "unit_used": "integer"
+      },
+      {
+        "ingredient_id": "green_lentils_canned",
+        "display_name": "Canned green lentils",
+        "category": "Legumes",
+        "quantity_used": 190,
+        "unit_used": "g"
+      },
+      {
+        "ingredient_id": "beetroot_cooked",
+        "display_name": "Plain cooked beetroot",
+        "category": "Vegetables",
+        "quantity_used": 160,
+        "unit_used": "g"
+      },
+      {
+        "ingredient_id": "feta_cheese",
+        "display_name": "Feta cheese",
+        "category": "Dairy",
+        "quantity_used": 50,
+        "unit_used": "g"
+      },
+      {
+        "ingredient_id": "rocket",
+        "display_name": "Rocket",
+        "category": "Leafy vegetables",
+        "quantity_used": 40,
+        "unit_used": "g"
+      },
+      {
+        "ingredient_id": "greek_yoghurt_0_percent",
+        "display_name": "0% Greek yoghurt",
+        "category": "Dairy",
+        "quantity_used": 240,
+        "unit_used": "g"
+      },
+      {
+        "ingredient_id": "dijon_mustard",
+        "display_name": "Dijon mustard",
+        "category": "Condiments",
+        "quantity_used": 2,
+        "unit_used": "tsp"
+      },
+      {
+        "ingredient_id": "lemon_juice",
+        "display_name": "Lemon juice",
+        "category": "Condiments",
+        "quantity_used": 2,
+        "unit_used": "tbsp"
+      },
+      {
+        "ingredient_id": "fresh_parsley",
+        "display_name": "Fresh flat-leaf parsley",
+        "category": "Fresh herbs",
+        "quantity_used": 15,
+        "unit_used": "g"
+      },
+      {
+        "ingredient_id": "fine_salt",
+        "display_name": "Fine salt",
+        "category": "Seasoning",
+        "quantity_used": 0.125,
+        "unit_used": "tsp"
+      },
+      {
+        "ingredient_id": "black_pepper_ground",
+        "display_name": "Ground black pepper",
+        "category": "Seasoning",
+        "quantity_used": 0.5,
+        "unit_used": "tsp"
+      }
+    ]
+  },
+  "blackberry_chia_skyr_pots.html": {
+    "recipe_id": "blackberry_chia_skyr_pots",
+    "title": "Blackberry, Chia & Skyr Pots",
+    "servings": 2,
+    "ingredients": [
+      {
+        "ingredient_id": "skyr_plain",
+        "display_name": "Plain 0% skyr",
+        "category": "Dairy",
+        "quantity_used": 300,
+        "unit_used": "g"
+      },
+      {
+        "ingredient_id": "blackberries_fresh",
+        "display_name": "Fresh blackberries",
+        "category": "Fruit",
+        "quantity_used": 180,
+        "unit_used": "g"
+      },
+      {
+        "ingredient_id": "chia_seeds",
+        "display_name": "Chia seeds",
+        "category": "Seeds",
+        "quantity_used": 20,
+        "unit_used": "g"
+      },
+      {
+        "ingredient_id": "runny_honey",
+        "display_name": "Runny honey",
+        "category": "Sweeteners",
+        "quantity_used": 2,
+        "unit_used": "tsp"
+      }
+    ]
+  },
   "blackberry_skyr_jumbo_oat_overnight_pots_chia_toasted_walnuts.html": {
     "recipe_id": "blackberry_skyr_jumbo_oat_overnight_pots_chia_toasted_walnuts",
     "title": "Blackberry, Skyr & Jumbo Oat Overnight Pots with Chia and Toasted Walnuts",
@@ -265,6 +426,55 @@
       }
     ]
   },
+  "clementine_almond_snack_boxes.html": {
+    "recipe_id": "clementine_almond_snack_boxes",
+    "title": "Clementine & Almond Snack Boxes",
+    "servings": 2,
+    "ingredients": [
+      {
+        "ingredient_id": "clementines",
+        "display_name": "Clementines",
+        "category": "Fruit",
+        "quantity_used": 2,
+        "unit_used": "integer"
+      },
+      {
+        "ingredient_id": "almonds",
+        "display_name": "Unsalted almonds",
+        "category": "Nuts",
+        "quantity_used": 60,
+        "unit_used": "g"
+      }
+    ]
+  },
+  "clementine_pistachio_pumpkin_seed_snack_boxes.html": {
+    "recipe_id": "clementine_pistachio_pumpkin_seed_snack_boxes",
+    "title": "Clementine, Pistachio & Pumpkin Seed Snack Boxes",
+    "servings": 2,
+    "ingredients": [
+      {
+        "ingredient_id": "clementines",
+        "display_name": "Clementines",
+        "category": "Fruit",
+        "quantity_used": 2,
+        "unit_used": "integer"
+      },
+      {
+        "ingredient_id": "pistachios_unsalted",
+        "display_name": "Unsalted shelled pistachios",
+        "category": "Nuts",
+        "quantity_used": 40,
+        "unit_used": "g"
+      },
+      {
+        "ingredient_id": "pumpkin_seeds",
+        "display_name": "Pumpkin seeds",
+        "category": "Seeds",
+        "quantity_used": 20,
+        "unit_used": "g"
+      }
+    ]
+  },
   "clementine_pistachio_pumpkin_seed_snack_pots.html": {
     "recipe_id": "clementine_pistachio_pumpkin_seed_snack_pots",
     "title": "Clementine, Pistachio & Pumpkin Seed Snack Pots",
@@ -370,6 +580,139 @@
       }
     ]
   },
+  "gochujang_tempeh_aubergine_mushroom_rice_bowls_sesame_cabbage_cucumber.html": {
+    "recipe_id": "gochujang_tempeh_aubergine_mushroom_rice_bowls_sesame_cabbage_cucumber",
+    "title": "Gochujang Tempeh, Aubergine & Mushroom Rice Bowls with Sesame Cabbage and Cucumber",
+    "servings": 2,
+    "ingredients": [
+      {
+        "ingredient_id": "tempeh_plain",
+        "display_name": "Plain tempeh",
+        "category": "Plant protein",
+        "quantity_used": 300,
+        "unit_used": "g"
+      },
+      {
+        "ingredient_id": "brown_basmati_rice_dry",
+        "display_name": "Brown basmati rice",
+        "category": "Grains",
+        "quantity_used": 80,
+        "unit_used": "g"
+      },
+      {
+        "ingredient_id": "aubergine",
+        "display_name": "Medium aubergine",
+        "category": "Vegetables",
+        "quantity_used": 1,
+        "unit_used": "integer"
+      },
+      {
+        "ingredient_id": "chestnut_mushrooms",
+        "display_name": "Chestnut mushrooms",
+        "category": "Vegetables",
+        "quantity_used": 200,
+        "unit_used": "g"
+      },
+      {
+        "ingredient_id": "red_cabbage",
+        "display_name": "Red cabbage",
+        "category": "Vegetables",
+        "quantity_used": 160,
+        "unit_used": "g"
+      },
+      {
+        "ingredient_id": "cucumber",
+        "display_name": "Small cucumber",
+        "category": "Vegetables",
+        "quantity_used": 1,
+        "unit_used": "integer"
+      },
+      {
+        "ingredient_id": "gochujang",
+        "display_name": "Gochujang",
+        "category": "Condiments",
+        "quantity_used": 2,
+        "unit_used": "tbsp"
+      },
+      {
+        "ingredient_id": "soy_sauce_reduced_salt",
+        "display_name": "Reduced-salt soy sauce",
+        "category": "Condiments",
+        "quantity_used": 1,
+        "unit_used": "tbsp"
+      },
+      {
+        "ingredient_id": "rice_vinegar",
+        "display_name": "Rice vinegar",
+        "category": "Condiments",
+        "quantity_used": 2,
+        "unit_used": "tbsp"
+      },
+      {
+        "ingredient_id": "sesame_oil_toasted",
+        "display_name": "Toasted sesame oil",
+        "category": "Oils",
+        "quantity_used": 2,
+        "unit_used": "tsp"
+      },
+      {
+        "ingredient_id": "rapeseed_oil",
+        "display_name": "Rapeseed oil",
+        "category": "Oils",
+        "quantity_used": 2,
+        "unit_used": "tsp"
+      },
+      {
+        "ingredient_id": "runny_honey",
+        "display_name": "Runny honey",
+        "category": "Sweeteners",
+        "quantity_used": 1,
+        "unit_used": "tsp"
+      },
+      {
+        "ingredient_id": "fresh_ginger",
+        "display_name": "Fresh root ginger",
+        "category": "Aromatics",
+        "quantity_used": 2,
+        "unit_used": "tsp"
+      },
+      {
+        "ingredient_id": "garlic",
+        "display_name": "Garlic cloves",
+        "category": "Aromatics",
+        "quantity_used": 2,
+        "unit_used": "integer"
+      },
+      {
+        "ingredient_id": "sesame_seeds",
+        "display_name": "Sesame seeds",
+        "category": "Seeds",
+        "quantity_used": 2,
+        "unit_used": "tsp"
+      },
+      {
+        "ingredient_id": "fine_salt",
+        "display_name": "Fine salt",
+        "category": "Seasoning",
+        "quantity_used": 0.25,
+        "unit_used": "tsp"
+      },
+      {
+        "ingredient_id": "black_pepper_ground",
+        "display_name": "Ground black pepper",
+        "category": "Seasoning",
+        "quantity_used": 0.25,
+        "unit_used": "tsp"
+      },
+      {
+        "ingredient_id": "water",
+        "display_name": "Water",
+        "category": "Liquid",
+        "quantity_used": 2,
+        "unit_used": "tbsp"
+      }
+    ]
+  },
   "harissa_tempeh_roasted_pepper_bulgur_salad_lemon_yoghurt_parsley.html": {
     "recipe_id": "harissa_tempeh_roasted_pepper_bulgur_salad_lemon_yoghurt_parsley",
     "title": "Harissa Tempeh, Roasted Pepper & Bulgur Salad with Lemon Yoghurt and Parsley",
@@ -471,6 +814,132 @@
         "display_name": "Water",
         "category": "Liquid",
         "quantity_used": 100,
+        "unit_used": "ml"
+      }
+    ]
+  },
+  "herb_roasted_seitan_crispy_potatoes_carrots_savoy_cabbage_mushroom_onion_gravy.html": {
+    "recipe_id": "herb_roasted_seitan_crispy_potatoes_carrots_savoy_cabbage_mushroom_onion_gravy",
+    "title": "Herb-Roasted Seitan with Crispy Potatoes, Carrots, Savoy Cabbage and Mushroom-Onion Gravy",
+    "servings": 2,
+    "ingredients": [
+      {
+        "ingredient_id": "seitan",
+        "display_name": "Plain ready-made seitan",
+        "category": "Plant protein",
+        "quantity_used": 250,
+        "unit_used": "g"
+      },
+      {
+        "ingredient_id": "potatoes",
+        "display_name": "Floury potatoes",
+        "category": "Vegetables",
+        "quantity_used": 400,
+        "unit_used": "g"
+      },
+      {
+        "ingredient_id": "carrots",
+        "display_name": "Carrots",
+        "category": "Vegetables",
+        "quantity_used": 240,
+        "unit_used": "g"
+      },
+      {
+        "ingredient_id": "savoy_cabbage",
+        "display_name": "Savoy cabbage",
+        "category": "Leafy vegetables",
+        "quantity_used": 200,
+        "unit_used": "g"
+      },
+      {
+        "ingredient_id": "chestnut_mushrooms",
+        "display_name": "Chestnut mushrooms",
+        "category": "Vegetables",
+        "quantity_used": 200,
+        "unit_used": "g"
+      },
+      {
+        "ingredient_id": "brown_onion",
+        "display_name": "Medium brown onion",
+        "category": "Aromatics",
+        "quantity_used": 1,
+        "unit_used": "integer"
+      },
+      {
+        "ingredient_id": "garlic",
+        "display_name": "Garlic cloves",
+        "category": "Aromatics",
+        "quantity_used": 2,
+        "unit_used": "integer"
+      },
+      {
+        "ingredient_id": "rapeseed_oil",
+        "display_name": "Rapeseed oil",
+        "category": "Oils",
+        "quantity_used": 5,
+        "unit_used": "tsp"
+      },
+      {
+        "ingredient_id": "dried_thyme",
+        "display_name": "Dried thyme",
+        "category": "Spices",
+        "quantity_used": 1.5,
+        "unit_used": "tsp"
+      },
+      {
+        "ingredient_id": "dried_rosemary",
+        "display_name": "Dried rosemary",
+        "category": "Spices",
+        "quantity_used": 1,
+        "unit_used": "tsp"
+      },
+      {
+        "ingredient_id": "plain_flour",
+        "display_name": "Plain flour",
+        "category": "Cereals",
+        "quantity_used": 1,
+        "unit_used": "tbsp"
+      },
+      {
+        "ingredient_id": "vegetable_stock_concentrate",
+        "display_name": "Reduced-salt vegetable stock concentrate",
+        "category": "Flavourings",
+        "quantity_used": 2,
+        "unit_used": "tsp"
+      },
+      {
+        "ingredient_id": "soy_sauce_reduced_salt",
+        "display_name": "Reduced-salt soy sauce",
+        "category": "Condiments",
+        "quantity_used": 2,
+        "unit_used": "tsp"
+      },
+      {
+        "ingredient_id": "apple_cider_vinegar",
+        "display_name": "Apple cider vinegar",
+        "category": "Condiments",
+        "quantity_used": 2,
+        "unit_used": "tsp"
+      },
+      {
+        "ingredient_id": "fine_salt",
+        "display_name": "Fine salt",
+        "category": "Seasoning",
+        "quantity_used": 0.5,
+        "unit_used": "tsp"
+      },
+      {
+        "ingredient_id": "black_pepper_ground",
+        "display_name": "Ground black pepper",
+        "category": "Seasoning",
+        "quantity_used": 0.5,
+        "unit_used": "tsp"
+      },
+      {
+        "ingredient_id": "water",
+        "display_name": "Water",
+        "category": "Liquid",
+        "quantity_used": 580,
         "unit_used": "ml"
       }
     ]
@@ -643,6 +1112,237 @@
       }
     ]
   },
+  "miso_sesame_tofu_edamame_soba_noodle_salad_broccoli_carrot.html": {
+    "recipe_id": "miso_sesame_tofu_edamame_soba_noodle_salad_broccoli_carrot",
+    "title": "Miso-Sesame Tofu & Edamame Soba Noodle Salad with Broccoli and Carrot",
+    "servings": 2,
+    "ingredients": [
+      {
+        "ingredient_id": "tofu_extra_firm",
+        "display_name": "Extra-firm tofu",
+        "category": "Plant protein",
+        "quantity_used": 200,
+        "unit_used": "g"
+      },
+      {
+        "ingredient_id": "edamame_beans_frozen",
+        "display_name": "Frozen shelled edamame beans",
+        "category": "Legumes",
+        "quantity_used": 140,
+        "unit_used": "g"
+      },
+      {
+        "ingredient_id": "soba_noodles_dry",
+        "display_name": "Dried soba noodles",
+        "category": "Pasta and grains",
+        "quantity_used": 50,
+        "unit_used": "g"
+      },
+      {
+        "ingredient_id": "broccoli",
+        "display_name": "Broccoli",
+        "category": "Vegetables",
+        "quantity_used": 180,
+        "unit_used": "g"
+      },
+      {
+        "ingredient_id": "carrots",
+        "display_name": "Large carrot",
+        "category": "Vegetables",
+        "quantity_used": 1,
+        "unit_used": "integer"
+      },
+      {
+        "ingredient_id": "white_miso_paste",
+        "display_name": "White miso paste",
+        "category": "Condiments",
+        "quantity_used": 1,
+        "unit_used": "tbsp"
+      },
+      {
+        "ingredient_id": "soy_sauce_reduced_salt",
+        "display_name": "Reduced-salt soy sauce",
+        "category": "Condiments",
+        "quantity_used": 2,
+        "unit_used": "tsp"
+      },
+      {
+        "ingredient_id": "rice_vinegar",
+        "display_name": "Rice vinegar",
+        "category": "Condiments",
+        "quantity_used": 1,
+        "unit_used": "tbsp"
+      },
+      {
+        "ingredient_id": "sesame_oil_toasted",
+        "display_name": "Toasted sesame oil",
+        "category": "Oils",
+        "quantity_used": 1,
+        "unit_used": "tsp"
+      },
+      {
+        "ingredient_id": "sesame_seeds",
+        "display_name": "Sesame seeds",
+        "category": "Seeds",
+        "quantity_used": 2,
+        "unit_used": "tsp"
+      },
+      {
+        "ingredient_id": "fresh_ginger",
+        "display_name": "Fresh root ginger",
+        "category": "Aromatics",
+        "quantity_used": 2,
+        "unit_used": "tsp"
+      },
+      {
+        "ingredient_id": "garlic",
+        "display_name": "Garlic clove",
+        "category": "Aromatics",
+        "quantity_used": 1,
+        "unit_used": "integer"
+      },
+      {
+        "ingredient_id": "runny_honey",
+        "display_name": "Runny honey",
+        "category": "Sweeteners",
+        "quantity_used": 1,
+        "unit_used": "tsp"
+      },
+      {
+        "ingredient_id": "cornflour",
+        "display_name": "Cornflour",
+        "category": "Thickeners",
+        "quantity_used": 2,
+        "unit_used": "tsp"
+      },
+      {
+        "ingredient_id": "water",
+        "display_name": "Hot water",
+        "category": "Liquid",
+        "quantity_used": 1,
+        "unit_used": "tbsp"
+      }
+    ]
+  },
+  "oatcakes_hummus_cucumber.html": {
+    "recipe_id": "oatcakes_hummus_cucumber",
+    "title": "Oatcakes with Hummus and Cucumber",
+    "servings": 2,
+    "ingredients": [
+      {
+        "ingredient_id": "oatcakes_wholegrain",
+        "display_name": "Wholegrain oatcakes",
+        "category": "Bread",
+        "quantity_used": 4,
+        "unit_used": "integer"
+      },
+      {
+        "ingredient_id": "hummus_plain",
+        "display_name": "Plain hummus",
+        "category": "Legumes",
+        "quantity_used": 80,
+        "unit_used": "g"
+      },
+      {
+        "ingredient_id": "cucumber",
+        "display_name": "Small cucumber",
+        "category": "Vegetables",
+        "quantity_used": 1,
+        "unit_used": "integer"
+      },
+      {
+        "ingredient_id": "smoked_paprika",
+        "display_name": "Smoked paprika",
+        "category": "Spices",
+        "quantity_used": 0.25,
+        "unit_used": "tsp"
+      }
+    ]
+  },
+  "orange_cinnamon_skyr_pots_toasted_walnuts.html": {
+    "recipe_id": "orange_cinnamon_skyr_pots_toasted_walnuts",
+    "title": "Orange & Cinnamon Skyr Pots with Toasted Walnuts",
+    "servings": 2,
+    "ingredients": [
+      {
+        "ingredient_id": "skyr_plain",
+        "display_name": "Plain 0% skyr",
+        "category": "Dairy",
+        "quantity_used": 240,
+        "unit_used": "g"
+      },
+      {
+        "ingredient_id": "oranges",
+        "display_name": "Medium oranges",
+        "category": "Fruit",
+        "quantity_used": 2,
+        "unit_used": "integer"
+      },
+      {
+        "ingredient_id": "walnuts",
+        "display_name": "Walnut halves or pieces",
+        "category": "Nuts",
+        "quantity_used": 20,
+        "unit_used": "g"
+      },
+      {
+        "ingredient_id": "runny_honey",
+        "display_name": "Runny honey",
+        "category": "Sweeteners",
+        "quantity_used": 1,
+        "unit_used": "tsp"
+      },
+      {
+        "ingredient_id": "cinnamon_ground",
+        "display_name": "Ground cinnamon",
+        "category": "Spices",
+        "quantity_used": 0.5,
+        "unit_used": "tsp"
+      }
+    ]
+  },
+  "plum_almond_cinnamon_yoghurt_pots.html": {
+    "recipe_id": "plum_almond_cinnamon_yoghurt_pots",
+    "title": "Plum, Almond & Cinnamon Yoghurt Pots",
+    "servings": 2,
+    "ingredients": [
+      {
+        "ingredient_id": "greek_yoghurt_0_percent",
+        "display_name": "0% Greek yoghurt",
+        "category": "Dairy",
+        "quantity_used": 300,
+        "unit_used": "g"
+      },
+      {
+        "ingredient_id": "plums",
+        "display_name": "Ripe medium plums",
+        "category": "Fruit",
+        "quantity_used": 2,
+        "unit_used": "integer"
+      },
+      {
+        "ingredient_id": "almonds",
+        "display_name": "Unsalted almonds",
+        "category": "Nuts",
+        "quantity_used": 24,
+        "unit_used": "g"
+      },
+      {
+        "ingredient_id": "runny_honey",
+        "display_name": "Runny honey",
+        "category": "Sweeteners",
+        "quantity_used": 1,
+        "unit_used": "tsp"
+      },
+      {
+        "ingredient_id": "cinnamon_ground",
+        "display_name": "Ground cinnamon",
+        "category": "Spices",
+        "quantity_used": 0.5,
+        "unit_used": "tsp"
+      }
+    ]
+  },
   "plum_almond_skyr_pots_cinnamon.html": {
     "recipe_id": "plum_almond_skyr_pots_cinnamon",
     "title": "Plum & Almond Skyr Pots with Cinnamon",
@@ -702,6 +1402,97 @@
         "display_name": "Fine salt",
         "category": "Seasoning",
         "quantity_used": 0.03125,
+        "unit_used": "tsp"
+      }
+    ]
+  },
+  "raspberry_lemon_protein_pancakes_skyr_pistachios.html": {
+    "recipe_id": "raspberry_lemon_protein_pancakes_skyr_pistachios",
+    "title": "Raspberry-Lemon Protein Pancakes with Skyr and Pistachios",
+    "servings": 2,
+    "ingredients": [
+      {
+        "ingredient_id": "plain_flour",
+        "display_name": "Plain flour",
+        "category": "Cereals",
+        "quantity_used": 50,
+        "unit_used": "g"
+      },
+      {
+        "ingredient_id": "egg_whites_liquid",
+        "display_name": "Liquid egg whites",
+        "category": "Eggs",
+        "quantity_used": 200,
+        "unit_used": "g"
+      },
+      {
+        "ingredient_id": "eggs",
+        "display_name": "Medium egg",
+        "category": "Eggs",
+        "quantity_used": 1,
+        "unit_used": "integer"
+      },
+      {
+        "ingredient_id": "skyr_plain",
+        "display_name": "Plain 0% skyr",
+        "category": "Dairy",
+        "quantity_used": 240,
+        "unit_used": "g"
+      },
+      {
+        "ingredient_id": "raspberries_fresh",
+        "display_name": "Fresh raspberries",
+        "category": "Fruit",
+        "quantity_used": 140,
+        "unit_used": "g"
+      },
+      {
+        "ingredient_id": "lemon",
+        "display_name": "Unwaxed lemon",
+        "category": "Fruit",
+        "quantity_used": 1,
+        "unit_used": "integer"
+      },
+      {
+        "ingredient_id": "pistachios_unsalted",
+        "display_name": "Unsalted shelled pistachios",
+        "category": "Nuts",
+        "quantity_used": 16,
+        "unit_used": "g"
+      },
+      {
+        "ingredient_id": "maple_syrup",
+        "display_name": "Pure maple syrup",
+        "category": "Sweeteners",
+        "quantity_used": 1,
+        "unit_used": "tbsp"
+      },
+      {
+        "ingredient_id": "baking_powder",
+        "display_name": "Baking powder",
+        "category": "Baking ingredients",
+        "quantity_used": 1,
+        "unit_used": "tsp"
+      },
+      {
+        "ingredient_id": "vanilla_extract",
+        "display_name": "Vanilla extract",
+        "category": "Flavourings",
+        "quantity_used": 1,
+        "unit_used": "tsp"
+      },
+      {
+        "ingredient_id": "rapeseed_oil",
+        "display_name": "Rapeseed oil",
+        "category": "Oils",
+        "quantity_used": 1,
+        "unit_used": "tsp"
+      },
+      {
+        "ingredient_id": "fine_salt",
+        "display_name": "Fine salt",
+        "category": "Seasoning",
+        "quantity_used": 0.125,
         "unit_used": "tsp"
       }
     ]
@@ -937,6 +1728,188 @@
       }
     ]
   },
+  "smoked_paprika_roasted_chickpeas_satsuma_segments.html": {
+    "recipe_id": "smoked_paprika_roasted_chickpeas_satsuma_segments",
+    "title": "Smoked Paprika Roasted Chickpeas with Satsuma Segments",
+    "servings": 2,
+    "ingredients": [
+      {
+        "ingredient_id": "chickpeas_canned",
+        "display_name": "Canned chickpeas",
+        "category": "Legumes",
+        "quantity_used": 240,
+        "unit_used": "g"
+      },
+      {
+        "ingredient_id": "satsumas",
+        "display_name": "Satsumas",
+        "category": "Fruit",
+        "quantity_used": 2,
+        "unit_used": "integer"
+      },
+      {
+        "ingredient_id": "rapeseed_oil",
+        "display_name": "Rapeseed oil",
+        "category": "Oils",
+        "quantity_used": 1,
+        "unit_used": "tsp"
+      },
+      {
+        "ingredient_id": "smoked_paprika",
+        "display_name": "Smoked paprika",
+        "category": "Spices",
+        "quantity_used": 1.5,
+        "unit_used": "tsp"
+      },
+      {
+        "ingredient_id": "ground_cumin",
+        "display_name": "Ground cumin",
+        "category": "Spices",
+        "quantity_used": 0.5,
+        "unit_used": "tsp"
+      },
+      {
+        "ingredient_id": "fine_salt",
+        "display_name": "Fine salt",
+        "category": "Seasoning",
+        "quantity_used": 0.125,
+        "unit_used": "tsp"
+      }
+    ]
+  },
+  "smoky_black_bean_mycoprotein_fajitas_charred_peppers_sweetcorn_tomato_salsa_lime_yoghurt.html": {
+    "recipe_id": "smoky_black_bean_mycoprotein_fajitas_charred_peppers_sweetcorn_tomato_salsa_lime_yoghurt",
+    "title": "Smoky Black Bean & Mycoprotein Fajitas with Charred Peppers, Sweetcorn, Tomato Salsa and Lime Yoghurt",
+    "servings": 2,
+    "ingredients": [
+      {
+        "ingredient_id": "mycoprotein_pieces",
+        "display_name": "Plain mycoprotein pieces",
+        "category": "Plant protein",
+        "quantity_used": 300,
+        "unit_used": "g"
+      },
+      {
+        "ingredient_id": "black_beans_canned",
+        "display_name": "Canned black beans",
+        "category": "Legumes",
+        "quantity_used": 240,
+        "unit_used": "g"
+      },
+      {
+        "ingredient_id": "wholemeal_tortilla_wraps_small",
+        "display_name": "Small wholemeal tortilla wraps",
+        "category": "Bread",
+        "quantity_used": 4,
+        "unit_used": "integer"
+      },
+      {
+        "ingredient_id": "red_pepper",
+        "display_name": "Red peppers",
+        "category": "Vegetables",
+        "quantity_used": 2,
+        "unit_used": "integer"
+      },
+      {
+        "ingredient_id": "red_onion",
+        "display_name": "Small red onion",
+        "category": "Vegetables",
+        "quantity_used": 1,
+        "unit_used": "integer"
+      },
+      {
+        "ingredient_id": "sweetcorn_frozen",
+        "display_name": "Frozen sweetcorn",
+        "category": "Vegetables",
+        "quantity_used": 100,
+        "unit_used": "g"
+      },
+      {
+        "ingredient_id": "tomatoes",
+        "display_name": "Ripe tomatoes",
+        "category": "Vegetables",
+        "quantity_used": 200,
+        "unit_used": "g"
+      },
+      {
+        "ingredient_id": "greek_yoghurt_0_percent",
+        "display_name": "0% Greek yoghurt",
+        "category": "Dairy",
+        "quantity_used": 120,
+        "unit_used": "g"
+      },
+      {
+        "ingredient_id": "lime",
+        "display_name": "Unwaxed lime",
+        "category": "Fruit",
+        "quantity_used": 1,
+        "unit_used": "integer"
+      },
+      {
+        "ingredient_id": "fresh_coriander",
+        "display_name": "Fresh coriander",
+        "category": "Fresh herbs",
+        "quantity_used": 15,
+        "unit_used": "g"
+      },
+      {
+        "ingredient_id": "garlic",
+        "display_name": "Garlic cloves",
+        "category": "Aromatics",
+        "quantity_used": 2,
+        "unit_used": "integer"
+      },
+      {
+        "ingredient_id": "rapeseed_oil",
+        "display_name": "Rapeseed oil",
+        "category": "Oils",
+        "quantity_used": 2,
+        "unit_used": "tsp"
+      },
+      {
+        "ingredient_id": "smoked_paprika",
+        "display_name": "Smoked paprika",
+        "category": "Spices",
+        "quantity_used": 2,
+        "unit_used": "tsp"
+      },
+      {
+        "ingredient_id": "ground_cumin",
+        "display_name": "Ground cumin",
+        "category": "Spices",
+        "quantity_used": 1,
+        "unit_used": "tsp"
+      },
+      {
+        "ingredient_id": "dried_oregano",
+        "display_name": "Dried oregano",
+        "category": "Spices",
+        "quantity_used": 1,
+        "unit_used": "tsp"
+      },
+      {
+        "ingredient_id": "chilli_powder",
+        "display_name": "Mild chilli powder",
+        "category": "Spices",
+        "quantity_used": 0.5,
+        "unit_used": "tsp"
+      },
+      {
+        "ingredient_id": "fine_salt",
+        "display_name": "Fine salt",
+        "category": "Seasoning",
+        "quantity_used": 0.75,
+        "unit_used": "tsp"
+      },
+      {
+        "ingredient_id": "black_pepper_ground",
+        "display_name": "Ground black pepper",
+        "category": "Seasoning",
+        "quantity_used": 0.5,
+        "unit_used": "tsp"
+      }
+    ]
+  },
   "spinach_mushroom_cottage_cheese_egg_muffins_seeded_wholemeal_toast.html": {
     "recipe_id": "spinach_mushroom_cottage_cheese_egg_muffins_seeded_wholemeal_toast",
     "title": "Spinach, Mushroom & Cottage Cheese Egg Muffins with Seeded Wholemeal Toast",
@@ -1024,6 +1997,132 @@
         "display_name": "Fine salt",
         "category": "Seasoning",
         "quantity_used": 0.375,
+        "unit_used": "tsp"
+      },
+      {
+        "ingredient_id": "black_pepper_ground",
+        "display_name": "Ground black pepper",
+        "category": "Seasoning",
+        "quantity_used": 0.25,
+        "unit_used": "tsp"
+      }
+    ]
+  },
+  "spinach_mushroom_cottage_cheese_shakshuka_wholemeal_toast.html": {
+    "recipe_id": "spinach_mushroom_cottage_cheese_shakshuka_wholemeal_toast",
+    "title": "Spinach, Mushroom & Cottage Cheese Shakshuka with Wholemeal Toast",
+    "servings": 2,
+    "ingredients": [
+      {
+        "ingredient_id": "eggs",
+        "display_name": "Medium eggs",
+        "category": "Eggs",
+        "quantity_used": 2,
+        "unit_used": "integer"
+      },
+      {
+        "ingredient_id": "egg_whites_liquid",
+        "display_name": "Liquid egg whites",
+        "category": "Eggs",
+        "quantity_used": 200,
+        "unit_used": "g"
+      },
+      {
+        "ingredient_id": "cottage_cheese_low_fat",
+        "display_name": "Low-fat cottage cheese",
+        "category": "Dairy",
+        "quantity_used": 160,
+        "unit_used": "g"
+      },
+      {
+        "ingredient_id": "wholemeal_bread",
+        "display_name": "Wholemeal bread",
+        "category": "Bread",
+        "quantity_used": 2,
+        "unit_used": "integer"
+      },
+      {
+        "ingredient_id": "chopped_tomatoes_canned",
+        "display_name": "Canned chopped tomatoes",
+        "category": "Vegetables",
+        "quantity_used": 400,
+        "unit_used": "g"
+      },
+      {
+        "ingredient_id": "chestnut_mushrooms",
+        "display_name": "Chestnut mushrooms",
+        "category": "Vegetables",
+        "quantity_used": 200,
+        "unit_used": "g"
+      },
+      {
+        "ingredient_id": "spinach_fresh",
+        "display_name": "Fresh spinach",
+        "category": "Leafy vegetables",
+        "quantity_used": 120,
+        "unit_used": "g"
+      },
+      {
+        "ingredient_id": "brown_onion",
+        "display_name": "Medium brown onion",
+        "category": "Aromatics",
+        "quantity_used": 1,
+        "unit_used": "integer"
+      },
+      {
+        "ingredient_id": "garlic",
+        "display_name": "Garlic cloves",
+        "category": "Aromatics",
+        "quantity_used": 2,
+        "unit_used": "integer"
+      },
+      {
+        "ingredient_id": "tomato_puree",
+        "display_name": "Tomato purée",
+        "category": "Condiments",
+        "quantity_used": 1,
+        "unit_used": "tbsp"
+      },
+      {
+        "ingredient_id": "olive_oil",
+        "display_name": "Olive oil",
+        "category": "Oils",
+        "quantity_used": 1,
+        "unit_used": "tsp"
+      },
+      {
+        "ingredient_id": "smoked_paprika",
+        "display_name": "Smoked paprika",
+        "category": "Spices",
+        "quantity_used": 1,
+        "unit_used": "tsp"
+      },
+      {
+        "ingredient_id": "ground_cumin",
+        "display_name": "Ground cumin",
+        "category": "Spices",
+        "quantity_used": 1,
+        "unit_used": "tsp"
+      },
+      {
+        "ingredient_id": "chilli_flakes",
+        "display_name": "Chilli flakes",
+        "category": "Spices",
+        "quantity_used": 0.25,
+        "unit_used": "tsp"
+      },
+      {
+        "ingredient_id": "red_wine_vinegar",
+        "display_name": "Red wine vinegar",
+        "category": "Condiments",
+        "quantity_used": 1,
+        "unit_used": "tsp"
+      },
+      {
+        "ingredient_id": "fine_salt",
+        "display_name": "Fine salt",
+        "category": "Seasoning",
+        "quantity_used": 0.25,
         "unit_used": "tsp"
       },
       {

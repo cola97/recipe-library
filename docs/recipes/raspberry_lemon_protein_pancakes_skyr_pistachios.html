@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Raspberry-Lemon Protein Pancakes with Skyr and Pistachios</title>
+
+<style>
+:root {
+    --background: #f4f2ec;
+    --panel: #ffffff;
+    --text: #000000;
+    --muted: #555555;
+    --border: #b9b5ad;
+    --accent: #e5f1dd;
+    --endpoint: #fff4c6;
+    --step: #f7f7f4;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--background);
+    color: var(--text);
+}
+
+body {
+    min-height: 100vh;
+    min-height: 100dvh;
+}
+
+button, input, select, summary { font: inherit; }
+
+.page {
+    width: min(calc(100% - 24px), 1050px);
+    margin: 0 auto;
+    padding: max(12px, env(safe-area-inset-top)) 0 max(40px, env(safe-area-inset-bottom)) 0;
+}
+
+.recipe-header {
+    position: static;
+    background: transparent;
+    padding: 12px 0 10px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.title-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+h1 {
+    margin: 0;
+    font-size: clamp(1.65rem, 5vw, 2.8rem);
+    line-height: 1.12;
+}
+
+.scheduled-date { margin-top: 8px; font-weight: 700; }
+.description { margin: 12px 0 0 0; line-height: 1.5; }
+
+.recipe-info {
+    margin-top: 10px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    background: #ffffff;
+    overflow: hidden;
+}
+
+.recipe-info > summary {
+    cursor: pointer;
+    padding: 9px 11px;
+    font-weight: 750;
+}
+
+.recipe-info-content { padding: 0 11px 11px 11px; }
+
+.tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: #ffffff;
+    color: #000000;
+    font-size: 0.82rem;
+}
+
+.allergens {
+    margin-top: 10px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    background: #ffe4df;
+}
+
+.facts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+    gap: 8px;
+    margin: 14px 0;
+}
+
+.fact {
+    display: grid;
+    gap: 2px;
+    padding: 9px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    background: #ffffff;
+}
+
+.fact span { font-size: 0.78rem; color: var(--muted); }
+
+.recipe-tools {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.serving-tool, .rating-tool {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: #ffffff;
+}
+
+.serving-controls, .rating-buttons {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.serving-controls button, .rating-buttons button {
+    min-height: 36px;
+    padding: 5px 9px;
+    border: 1px solid #000000;
+    border-radius: 7px;
+    background: #ffffff;
+    color: #000000;
+    font-weight: 700;
+}
+
+#servingsValue {
+    min-width: 30px;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 800;
+}
+
+.rating-buttons button.active {
+    background: #000000;
+    color: #ffffff;
+}
+
+.section {
+    display: block;
+    margin-top: 14px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--panel);
+    overflow: hidden;
+}
+
+details.section > summary {
+    cursor: pointer;
+    padding: 15px 16px;
+    font-size: 1.12rem;
+    font-weight: 800;
+    background: var(--accent);
+}
+
+.section-content { padding: 14px; }
+.method-section { padding: 14px; }
+.method-section > h2 { margin: 0 0 12px 0; }
+.ingredient-grid, .card-stack { display: grid; gap: 10px; }
+
+.ingredient-card, .prep-card, .method-step {
+    padding: 14px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--step);
+}
+
+.ingredient-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 14px;
+}
+
+.ingredient-quantity {
+    flex: 0 0 auto;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.subline { margin-top: 7px; line-height: 1.4; }
+.compact-list { margin: 0; padding-left: 22px; }
+.prep-card h3, .method-step h3 { margin: 0; }
+.prep-card p, .method-step p { margin: 10px 0; }
+
+.step-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+}
+
+.step-number {
+    flex: 0 0 auto;
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.step-section {
+    margin-top: 6px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--muted);
+}
+
+.step-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+}
+
+.instruction { font-size: 1rem; line-height: 1.55; }
+
+.endpoint {
+    margin-top: 10px;
+    padding: 10px 12px;
+    border-left: 4px solid #000000;
+    background: var(--endpoint);
+    line-height: 1.45;
+}
+
+.corrective { margin-top: 10px; }
+.corrective summary { cursor: pointer; font-weight: 750; }
+.corrective ul { margin-bottom: 0; }
+
+.cook-button {
+    flex: 0 0 auto;
+    min-height: 42px;
+    padding: 8px 12px;
+    border: 1px solid #000000;
+    border-radius: 9px;
+    background: #000000;
+    color: #ffffff;
+    font-weight: 750;
+}
+
+.cook-controls {
+    display: none;
+    position: sticky;
+    bottom: max(8px, env(safe-area-inset-bottom));
+    z-index: 30;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 14px;
+    padding: 10px;
+    border: 1px solid #000000;
+    border-radius: 12px;
+    background: #ffffff;
+}
+
+.cook-controls button {
+    min-height: 44px;
+    padding: 8px 14px;
+    border: 1px solid #000000;
+    border-radius: 8px;
+    background: #000000;
+    color: #ffffff;
+    font-weight: 750;
+}
+
+.method-step { scroll-margin-top: 58px; }
+
+/* Compact cook-mode header */
+body.cook-mode .recipe-header {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    margin: 0;
+    padding: 6px 0;
+    background: rgba(244, 242, 236, 0.98);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(8px);
+}
+
+body.cook-mode .recipe-header .recipe-info,
+body.cook-mode .recipe-header .scheduled-date,
+body.cook-mode .facts,
+body.cook-mode .recipe-tools,
+body.cook-mode .non-method,
+body.cook-mode .method-section > h2 {
+    display: none;
+}
+
+body.cook-mode .title-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 8px;
+}
+
+body.cook-mode .recipe-header h1 {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+body.cook-mode .cook-button {
+    width: auto;
+    min-height: 36px;
+    padding: 6px 10px;
+    font-size: 0.85rem;
+    white-space: nowrap;
+}
+
+body.cook-mode .method-step { display: none; }
+body.cook-mode .method-step.active { display: block; }
+body.cook-mode .cook-controls { display: flex; }
+body.cook-mode .method-section {
+    min-height: calc(100dvh - 60px);
+    margin-top: 6px;
+}
+
+@media (max-width: 600px) {
+    .page { width: calc(100% - 12px); }
+    .recipe-header { padding-top: 8px; }
+
+    h1 {
+        font-size: 1.35rem;
+        line-height: 1.18;
+    }
+
+    .title-row {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: start;
+    }
+
+    .cook-button {
+        width: auto;
+        min-height: 36px;
+        padding: 6px 10px;
+        font-size: 0.85rem;
+    }
+
+    .recipe-tools { grid-template-columns: 1fr; }
+
+    .serving-tool, .rating-tool {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .rating-buttons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .ingredient-heading {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 3px;
+    }
+
+    .ingredient-quantity { white-space: normal; }
+    .method-section, .section-content { padding: 10px; }
+    .ingredient-card, .prep-card, .method-step { padding: 12px; }
+}
+
+@media print {
+    .recipe-header { position: static; }
+    .cook-button, .cook-controls, .recipe-tools { display: none !important; }
+    body.cook-mode .non-method, body.cook-mode .method-step { display: block; }
+    .section { break-inside: avoid; }
+}
+</style>
+</head>
+
+<body>
+<main class="page">
+
+<header class="recipe-header">
+    <div class="title-row">
+        <h1>Raspberry-Lemon Protein Pancakes with Skyr and Pistachios</h1>
+        <button id="cookModeButton" class="cook-button" type="button">Cook mode</button>
+    </div>
+
+    
+
+    <details class="recipe-info">
+        <summary>Recipe info</summary>
+        <div class="recipe-info-content">
+            <p class="description">Light, tender lemon protein pancakes made with egg whites and skyr, served with fresh raspberries, cool skyr, maple syrup and crunchy pistachios.</p>
+            <div class="tag-row"><span class="badge">Breakfast</span><span class="badge">Lacto-ovo vegetarian</span><span class="badge">High protein</span></div>
+            <div class="allergens"><strong>Allergens:</strong> Milk, Egg, Wheat, Nuts</div>
+        </div>
+    </details>
+</header>
+
+<div class="facts"><div class="fact"><span>Serves</span><strong id="servesFactValue">2</strong></div><div class="fact"><span>Difficulty</span><strong>Easy</strong></div><div class="fact"><span>Active</span><strong>14 min</strong></div><div class="fact"><span>Total</span><strong>20 min</strong></div><div class="fact"><span>Energy</span><strong>385 kcal</strong></div><div class="fact"><span>Protein</span><strong>32 g</strong></div></div>
+
+<section class="recipe-tools">
+    <div class="serving-tool">
+        <strong>Servings</strong>
+        <div class="serving-controls">
+            <button id="servingsMinus" type="button">−</button>
+            <span id="servingsValue" data-base-servings="2">2</span>
+            <button id="servingsPlus" type="button">+</button>
+        </div>
+    </div>
+
+    <div class="rating-tool" data-recipe-id="raspberry_lemon_protein_pancakes_skyr_pistachios">
+        <strong>Your rating</strong>
+        <div class="rating-buttons">
+            <button id="ratingFavourite" type="button">♥ Favourite</button>
+            <button id="ratingDislike" type="button">👎 Dislike</button>
+        </div>
+    </div>
+</section>
+
+
+<details class="section non-method" open>
+    <summary>Ingredients</summary>
+    <div class="section-content ingredient-grid">
+        <article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Plain flour</strong>
+<span class="ingredient-quantity" data-base-quantity="50" data-unit="g">50 g</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 bag</div>
+<div class="subline"><strong>Prep:</strong> Use as purchased.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Liquid egg whites</strong>
+<span class="ingredient-quantity" data-base-quantity="200" data-unit="g">200 g</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 carton</div>
+<div class="subline"><strong>Prep:</strong> Keep refrigerated until required.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Medium egg</strong>
+<span class="ingredient-quantity" data-base-quantity="1" data-unit="integer">1</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 box</div>
+<div class="subline"><strong>Prep:</strong> Crack immediately before mixing.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Plain 0% skyr</strong>
+<span class="ingredient-quantity" data-base-quantity="240" data-unit="g">240 g</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 pot</div>
+<div class="subline"><strong>Prep:</strong> Keep refrigerated until required.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Fresh raspberries</strong>
+<span class="ingredient-quantity" data-base-quantity="140" data-unit="g">140 g</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 punnet</div>
+<div class="subline"><strong>Prep:</strong> Inspect and rinse gently if required, then dry thoroughly.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Unwaxed lemon</strong>
+<span class="ingredient-quantity" data-base-quantity="1" data-unit="integer">1</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 lemon</div>
+<div class="subline"><strong>Prep:</strong> Wash and dry before zesting and juicing.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Unsalted shelled pistachios</strong>
+<span class="ingredient-quantity" data-base-quantity="16" data-unit="g">16 g</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 pack</div>
+<div class="subline"><strong>Prep:</strong> Roughly chop.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Pure maple syrup</strong>
+<span class="ingredient-quantity" data-base-quantity="1" data-unit="tbsp">1 tbsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 bottle</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Baking powder</strong>
+<span class="ingredient-quantity" data-base-quantity="1" data-unit="tsp">1 tsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 container</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Vanilla extract</strong>
+<span class="ingredient-quantity" data-base-quantity="1" data-unit="tsp">1 tsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 bottle</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Rapeseed oil</strong>
+<span class="ingredient-quantity" data-base-quantity="1" data-unit="tsp">1 tsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 bottle</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Fine salt</strong>
+<span class="ingredient-quantity" data-base-quantity="0.125" data-unit="tsp">⅛ tsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 container</div>
+</article>
+    </div>
+</details>
+
+
+<details class="section non-method">
+    <summary>Equipment</summary>
+    <div class="section-content">
+        <ul class="compact-list"><li>Gas hob</li><li>Large non-stick frying pan</li><li>Medium mixing bowl</li><li>Small bowl</li><li>Kitchen scales</li><li>Measuring spoons</li><li>Fine grater or Microplane</li><li>Chef&#x27;s knife</li><li>Chopping board</li><li>Thin flexible spatula</li></ul>
+    </div>
+</details>
+
+
+<details class="section non-method" open>
+    <summary>Mise en place</summary>
+    <div class="section-content card-stack"><article class="prep-card">
+<h3>Prep 1</h3>
+<p>Finely grate the zest from approximately half of the lemon. Halve the lemon and squeeze the juice. Stir approximately 1 tsp lemon juice into 180 g of the skyr reserved for serving; keep the remaining juice available for final adjustment.</p>
+<div class="endpoint"><strong>Ready when:</strong> The serving skyr is smooth with a clean lemon acidity but remains thick enough to spoon.</div>
+</article><article class="prep-card">
+<h3>Prep 2</h3>
+<p>Roughly chop the pistachios. Inspect the raspberries, rinse gently if necessary and dry thoroughly so they do not water down the finished pancakes.</p>
+<div class="endpoint"><strong>Ready when:</strong> The pistachios are in coarse crunchy pieces and the raspberries are clean and dry.</div>
+</article><article class="prep-card">
+<h3>Prep 3</h3>
+<p>Measure 50 g plain flour, 1 tsp baking powder and 1/8 tsp fine salt into the mixing bowl and whisk briefly to distribute the raising agent evenly.</p>
+<div class="endpoint"><strong>Ready when:</strong> The dry ingredients are evenly combined with no visible pockets of baking powder.</div>
+</article></div>
+</details>
+
+
+<section class="section method-section">
+    <h2>Method</h2>
+    <div id="methodSteps" class="card-stack"><article class="method-step" data-step-index="0">
+<div class="step-heading">
+<div class="step-number">Step 1</div>
+<h3>Mix the pancake batter</h3>
+</div>
+<div class="step-section">Batter</div>
+<div class="step-meta"><span class="badge">Time: 2–3 min</span></div>
+<p class="instruction">Add 200 g liquid egg whites, 1 medium egg, the remaining 60 g skyr, 1 tsp vanilla extract and the prepared lemon zest to the dry ingredients. Whisk just until the batter is smooth and no dry flour remains. Do not continue whisking once combined.</p>
+<div class="endpoint"><strong>Ready when:</strong> The batter is smooth, thick but pourable, and falls from the whisk in a broad ribbon.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul><li><strong>If:</strong> The batter is so thick that it does not spread at all when spooned.<br><strong>Do:</strong> Mix in 1 tsp lemon juice or cold water, then reassess before adding more.</li><li><strong>If:</strong> The batter appears thin and watery.<br><strong>Do:</strong> Leave it undisturbed for 2 minutes so the flour hydrates before deciding whether any correction is needed.</li></ul>
+</details>
+
+</article><article class="method-step" data-step-index="1">
+<div class="step-heading">
+<div class="step-number">Step 2</div>
+<h3>Heat the pan</h3>
+</div>
+<div class="step-section">Cooking</div>
+<div class="step-meta"><span class="badge">Heat source: gas_hob</span><span class="badge">Setting: medium</span><span class="badge">Time: 1–2 min</span></div>
+<p class="instruction">Place the frying pan over medium heat for approximately 1-2 minutes. Add approximately 1/2 tsp rapeseed oil and spread it into a very thin film over the cooking surface.</p>
+<div class="endpoint"><strong>Ready when:</strong> The pan is evenly hot and the oil flows readily across the surface without smoking.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul><li><strong>If:</strong> The oil begins smoking.<br><strong>Do:</strong> Remove the pan from the heat for approximately 30 seconds and reduce the burner before adding batter.</li></ul>
+</details>
+
+</article><article class="method-step" data-step-index="2">
+<div class="step-heading">
+<div class="step-number">Step 3</div>
+<h3>Cook the first batch</h3>
+</div>
+<div class="step-section">Cooking</div>
+<div class="step-meta"><span class="badge">Heat source: gas_hob</span><span class="badge">Setting: medium</span><span class="badge">Time: 3–5 min</span></div>
+<p class="instruction">Spoon 3 small pancakes into the pan, using approximately one-sixth of the batter for each. Leave space between them. Cook over medium heat for approximately 2-3 minutes, until the edges look set, the upper surfaces show bubbles and the undersides are evenly golden. Turn once and cook for a further 1-2 minutes, until the second side is golden and the centres are just set.</p>
+<div class="endpoint"><strong>Ready when:</strong> The pancakes are golden on both sides, spring lightly when pressed and have no wet batter visible at the centre.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul><li><strong>If:</strong> The undersides darken before bubbles appear and the edges set.<br><strong>Do:</strong> Reduce the heat before continuing; the pan is too hot.</li><li><strong>If:</strong> The pancakes remain pale after 3 minutes and spread excessively.<br><strong>Do:</strong> Increase the heat slightly and allow the pan to recover before turning.</li><li><strong>If:</strong> The pancakes tear when turned.<br><strong>Do:</strong> Wait another 30-45 seconds until the upper surface is more firmly set before trying again.</li></ul>
+</details>
+
+</article><article class="method-step" data-step-index="3">
+<div class="step-heading">
+<div class="step-number">Step 4</div>
+<h3>Cook the second batch</h3>
+</div>
+<div class="step-section">Cooking</div>
+<div class="step-meta"><span class="badge">Heat source: gas_hob</span><span class="badge">Setting: medium</span><span class="badge">Time: 3–5 min</span></div>
+<p class="instruction">Add the remaining rapeseed oil only if the pan surface is dry. Cook the remaining batter as 3 pancakes using the same method and endpoint as the first batch.</p>
+<div class="endpoint"><strong>Ready when:</strong> All 6 pancakes are evenly golden, tender and fully set through the centre without becoming dry.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul><li><strong>If:</strong> The second batch colours more rapidly than the first.<br><strong>Do:</strong> Reduce the heat slightly because the pan has accumulated additional heat.</li></ul>
+</details>
+
+</article><article class="method-step" data-step-index="4">
+<div class="step-heading">
+<div class="step-number">Step 5</div>
+<h3>Balance the lemon skyr</h3>
+</div>
+<div class="step-section">Finishing</div>
+<div class="step-meta"><span class="badge">Time: 1 min</span></div>
+<p class="instruction">Taste the lemon skyr. If it needs more brightness, stir in up to another 1 tsp lemon juice. Keep the texture thick enough to sit on the pancakes rather than run off them.</p>
+<div class="endpoint"><strong>Ready when:</strong> The skyr tastes distinctly lemony and fresh without becoming sharply sour or watery.</div>
+</article></div>
+
+    <div id="cookControls" class="cook-controls">
+        <button id="previousStep" type="button">Previous</button>
+        <div id="stepCounter"></div>
+        <button id="nextStep" type="button">Next</button>
+    </div>
+</section>
+
+
+<details class="section non-method">
+    <summary>Serving</summary>
+    <div class="section-content"><p>Place 3 warm pancakes on each plate. Spoon half of the lemon skyr alongside or over each stack, divide the raspberries and chopped pistachios evenly between the plates, then drizzle each serving with half of the 1 tbsp maple syrup. Serve immediately so the pancakes remain warm against the cool skyr and raspberries.</p></div>
+</details>
+
+
+<details class="section non-method">
+    <summary>Storage & reheating</summary>
+    <div class="section-content"><p><strong>Refrigerator:</strong> 2 days</p><p><strong>Freezer:</strong> 1 months</p><p>Cool leftover pancakes promptly and refrigerate in a sealed container for up to 2 days, keeping the skyr, raspberries, pistachios and maple syrup separate. Pancakes may be frozen with parchment between layers for up to 1 month. Refrigerate opened skyr according to its package instructions.</p><h3>Reheating</h3><ul><li>Toaster: reheat chilled pancakes briefly on a moderate setting until hot throughout, checking early to prevent excessive browning.</li><li>Frying pan: warm over low-medium heat for approximately 1-2 minutes per side until hot throughout.</li><li>Air fryer: heat at approximately 160°C for a few minutes until hot, checking frequently because the pancakes can dry quickly.</li></ul></div>
+</details>
+
+
+<details class="section non-method">
+    <summary>Shopping</summary>
+    <div class="section-content"><h3>Either retailer</h3><ul><li>Plain flour — 1 bag; use 50 g.</li><li>Liquid egg whites — 1 carton; use 200 g.</li><li>Medium eggs — 1 box; use 1 egg.</li><li>Plain 0% skyr — 1 pot; use 240 g.</li><li>Fresh raspberries — 1 punnet; use 140 g.</li><li>Unwaxed lemon — 1.</li><li>Unsalted shelled pistachios — 1 pack; use 16 g.</li><li>Pure maple syrup — 1 bottle; use 1 tbsp.</li><li>Baking powder — use 1 tsp.</li><li>Vanilla extract — use 1 tsp.</li><li>Rapeseed oil — use up to 1 tsp.</li><li>Fine salt — use 1/8 tsp.</li></ul></div>
+</details>
+
+
+</main>
+
+<script>
+(function () {
+    const button = document.getElementById("cookModeButton");
+    const steps = Array.from(document.querySelectorAll(".method-step"));
+    const controls = document.getElementById("cookControls");
+    const previous = document.getElementById("previousStep");
+    const next = document.getElementById("nextStep");
+    const counter = document.getElementById("stepCounter");
+    let currentStep = 0;
+
+    function showStep(index) {
+        if (!steps.length) return;
+
+        currentStep = Math.max(0, Math.min(index, steps.length - 1));
+        steps.forEach((step, stepIndex) => {
+            step.classList.toggle("active", stepIndex === currentStep);
+        });
+
+        if (counter) counter.textContent = "Step " + (currentStep + 1) + " of " + steps.length;
+        if (previous) previous.disabled = currentStep === 0;
+        if (next) next.disabled = currentStep === steps.length - 1;
+
+        const active = steps[currentStep];
+        if (active) {
+            active.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+    }
+
+    if (button) {
+        button.addEventListener("click", () => {
+            const active = document.body.classList.toggle("cook-mode");
+            button.textContent = active ? "Exit cook mode" : "Cook mode";
+            if (active) showStep(currentStep);
+        });
+    }
+
+    if (previous) previous.addEventListener("click", () => showStep(currentStep - 1));
+    if (next) next.addEventListener("click", () => showStep(currentStep + 1));
+    if (!steps.length && controls) controls.style.display = "none";
+
+    /* Serving scaler */
+    const servingsMinus = document.getElementById("servingsMinus");
+    const servingsPlus = document.getElementById("servingsPlus");
+    const servingsValue = document.getElementById("servingsValue");
+    const servesFactValue = document.getElementById("servesFactValue");
+    const recipeId = "raspberry_lemon_protein_pancakes_skyr_pistachios";
+
+    function formatFraction(value) {
+        const rounded = Math.round(value * 8) / 8;
+        const whole = Math.floor(rounded);
+        const remainder = Math.round((rounded - whole) * 8);
+        const fractions = { 0: "", 1: "⅛", 2: "¼", 3: "⅜", 4: "½", 5: "⅝", 6: "¾", 7: "⅞" };
+
+        if (whole > 0 && remainder > 0) return String(whole) + fractions[remainder];
+        if (whole > 0) return String(whole);
+        if (remainder > 0) return fractions[remainder];
+        return "0";
+    }
+
+    function formatScaledQuantity(value, unit) {
+        if (unit === "tsp" || unit === "tbsp" || unit === "integer") {
+            const number = formatFraction(value);
+            return unit === "integer" ? number : number + " " + unit;
+        }
+
+        const rounded = Math.round(value * 10) / 10;
+        return String(rounded) + (unit ? " " + unit : "");
+    }
+
+    function setServings(newServings) {
+        const baseServings = Number(servingsValue.dataset.baseServings);
+        newServings = Math.max(1, Math.min(12, newServings));
+        servingsValue.textContent = String(newServings);
+        if (servesFactValue) servesFactValue.textContent = String(newServings);
+
+        const factor = newServings / baseServings;
+        document.querySelectorAll(".ingredient-quantity").forEach(element => {
+            const baseQuantity = Number(element.dataset.baseQuantity);
+            const unit = element.dataset.unit;
+            if (!Number.isFinite(baseQuantity)) return;
+            element.textContent = formatScaledQuantity(baseQuantity * factor, unit);
+        });
+
+        localStorage.setItem("recipe-servings:" + recipeId, String(newServings));
+    }
+
+    if (servingsMinus && servingsPlus && servingsValue) {
+        servingsMinus.addEventListener("click", () => {
+            setServings(Number(servingsValue.textContent) - 1);
+        });
+        servingsPlus.addEventListener("click", () => {
+            setServings(Number(servingsValue.textContent) + 1);
+        });
+
+        const saved = Number(localStorage.getItem("recipe-servings:" + recipeId));
+        if (Number.isFinite(saved) && saved >= 1) setServings(saved);
+    }
+
+    /* Favourite / neutral / dislike */
+    const favouriteButton = document.getElementById("ratingFavourite");
+    const dislikeButton = document.getElementById("ratingDislike");
+    const ratingKey = "recipe-rating:" + recipeId;
+
+    function setRating(rating) {
+        localStorage.setItem(ratingKey, rating);
+        if (favouriteButton) favouriteButton.classList.toggle("active", rating === "favourite");
+        if (dislikeButton) dislikeButton.classList.toggle("active", rating === "dislike");
+    }
+
+    if (favouriteButton) favouriteButton.addEventListener("click", () => setRating("favourite"));
+    if (neutralButton) neutralButton.addEventListener("click", () => setRating("neutral"));
+    if (dislikeButton) dislikeButton.addEventListener("click", () => setRating("dislike"));
+
+    if (favouriteButton && neutralButton && dislikeButton) {
+        setRating(localStorage.getItem(ratingKey) || "neutral");
+    }
+})();
+</script>
+
+</body>
+</html>

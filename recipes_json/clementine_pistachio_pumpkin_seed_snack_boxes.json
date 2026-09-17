@@ -1,0 +1,216 @@
+{
+  "schema_version": "1.0",
+  "recipe": {
+    "id": "clementine_pistachio_pumpkin_seed_snack_boxes",
+    "title": "Clementine, Pistachio & Pumpkin Seed Snack Boxes",
+    "description": "A crisp, naturally sweet portable snack pairing whole clementines with unsalted pistachios and pumpkin seeds for contrasting freshness, crunch and satisfying healthy fats.",
+    "servings": 2,
+    "difficulty": "Easy",
+    "total_time_minutes": 4,
+    "active_time_minutes": 4,
+    "passive_time_minutes": 0,
+    "cuisine": [],
+    "meal_types": [
+      "Morning snack"
+    ],
+    "dietary_tags": [
+      "Lacto-ovo vegetarian",
+      "Portable",
+      "No-cook"
+    ],
+    "allergens": [
+      "Nuts"
+    ]
+  },
+  "nutrition_per_serving": {
+    "energy_kcal": 203,
+    "protein_g": 7.7,
+    "carbohydrate_g": 16.0,
+    "fat_g": 14.3,
+    "saturated_fat_g": 2.0,
+    "fibre_g": 4.0,
+    "salt_g": 0.01
+  },
+  "ingredients": [
+    {
+      "ingredient_id": "clementines",
+      "display_name": "Clementines",
+      "category": "Fruit",
+      "required": true,
+      "quantity_used": 2,
+      "unit_used": "integer",
+      "purchase_quantity": "1 pack",
+      "purchase_notes": "Use 2 medium clementines; retail pack size may vary.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Keep whole and unpeeled for transport.",
+      "notes": "Choose firm fruit with intact peel and no soft or damaged areas."
+    },
+    {
+      "ingredient_id": "pistachios_unsalted",
+      "display_name": "Unsalted shelled pistachios",
+      "category": "Nuts",
+      "required": true,
+      "quantity_used": 40,
+      "unit_used": "g",
+      "purchase_quantity": "1 pack",
+      "purchase_notes": "Use 40 g from the pack; retail pack size may vary.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Use as purchased.",
+      "notes": "Unsalted roasted pistachios are ideal for maximum crunch, but plain unsalted shelled pistachios are also suitable."
+    },
+    {
+      "ingredient_id": "pumpkin_seeds",
+      "display_name": "Pumpkin seeds",
+      "category": "Seeds",
+      "required": true,
+      "quantity_used": 20,
+      "unit_used": "g",
+      "purchase_quantity": "1 pack",
+      "purchase_notes": "Use 20 g from the pack; retail pack size may vary.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Use as purchased.",
+      "notes": "Use fresh seeds with a clean, nutty aroma and no stale or bitter flavour."
+    }
+  ],
+  "equipment": [
+    {
+      "equipment_id": "kitchen_scales",
+      "display_name": "Kitchen scales",
+      "required": true,
+      "notes": "Used to portion the nuts and seeds."
+    },
+    {
+      "equipment_id": "lidded_containers",
+      "display_name": "2 small lidded snack containers",
+      "required": true,
+      "notes": "Choose containers large enough to hold the clementine without crushing it."
+    }
+  ],
+  "mise_en_place": [
+    {
+      "prep_id": "PREP_01",
+      "ingredient_ids": [
+        "clementines"
+      ],
+      "instruction": "Inspect the clementines and select 2 firm, undamaged fruit. Leave them whole and unpeeled.",
+      "endpoint": "Two sound clementines with intact peel are ready for packing."
+    },
+    {
+      "prep_id": "PREP_02",
+      "ingredient_ids": [
+        "pistachios_unsalted",
+        "pumpkin_seeds"
+      ],
+      "instruction": "Weigh 40 g unsalted shelled pistachios and 20 g pumpkin seeds.",
+      "endpoint": "The nuts and seeds are accurately portioned and ready to divide between the two snack boxes."
+    }
+  ],
+  "procedure": [
+    {
+      "step_id": "STEP_01",
+      "section": "Assembly",
+      "title": "Divide the nuts and seeds",
+      "depends_on": [
+        "PREP_02"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "pistachios_unsalted",
+        "pumpkin_seeds"
+      ],
+      "equipment_ids": [
+        "kitchen_scales",
+        "lidded_containers"
+      ],
+      "instruction": "Divide the 40 g pistachios and 20 g pumpkin seeds evenly between the two snack containers, giving each serving approximately 20 g pistachios and 10 g pumpkin seeds.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 1,
+      "duration_max_minutes": 2,
+      "endpoint": "Each container holds approximately half of both the pistachios and pumpkin seeds.",
+      "corrective_actions": [],
+      "critical": false
+    },
+    {
+      "step_id": "STEP_02",
+      "section": "Assembly",
+      "title": "Pack the clementines",
+      "depends_on": [
+        "PREP_01",
+        "STEP_01"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "clementines"
+      ],
+      "equipment_ids": [
+        "lidded_containers"
+      ],
+      "instruction": "Place 1 whole, unpeeled clementine into each container with the pistachio and pumpkin-seed mixture, then close the lids securely. Keep the clementines whole until eating so citrus juice cannot soften the nuts and seeds.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 1,
+      "duration_max_minutes": 2,
+      "endpoint": "Each sealed snack box contains 1 clementine, approximately 20 g pistachios and approximately 10 g pumpkin seeds.",
+      "corrective_actions": [
+        {
+          "condition": "A clementine is too large to fit without being crushed.",
+          "action": "Carry that clementine separately rather than peeling or cutting it before transport."
+        }
+      ],
+      "critical": false
+    }
+  ],
+  "plating": [
+    {
+      "step_id": "PLATE_01",
+      "instruction": "At the time of eating, peel the clementine and eat the segments alongside the pistachios and pumpkin seeds."
+    }
+  ],
+  "storage": {
+    "refrigerator_days": 2,
+    "freezer_months": null,
+    "storage_instructions": "For same-day use, keep the sealed boxes in a cool, dry place away from direct heat. If assembled in advance, refrigerate for up to 2 days. Keep the clementines whole and unpeeled until eating so the nuts and seeds remain dry and crisp.",
+    "reheating_methods": []
+  },
+  "shopping": {
+    "sainsburys": [],
+    "marks_and_spencer": [],
+    "either_retailer": [
+      "Clementines — 1 pack; use 2 medium fruit.",
+      "Unsalted shelled pistachios — 1 pack; use 40 g.",
+      "Pumpkin seeds — 1 pack; use 20 g."
+    ]
+  },
+  "quality_checks": {
+    "protein_requirement_met": true,
+    "protein_g_per_serving": 7.7,
+    "restaurant_quality_features": [
+      "Sweet-acid fresh citrus against rich, nutty pistachios",
+      "Contrasting crisp pistachio and pumpkin-seed textures",
+      "Ingredients kept separate from citrus juice until eating for maximum crunch"
+    ],
+    "nutrition_notes": [
+      "Approximately 203 kcal per serving.",
+      "Morning snacks have no minimum protein requirement.",
+      "Pistachios and pumpkin seeds contribute predominantly unsaturated fats, fibre, protein and minerals.",
+      "Clementine contributes fruit, vitamin C and additional fibre."
+    ],
+    "critical_success_factors": [
+      "Keep the clementines whole until the snack is eaten.",
+      "Use fresh, unsalted nuts and seeds without stale or rancid flavours.",
+      "Portion the nuts and seeds evenly so both servings remain close to the intended energy target."
+    ]
+  }
+}

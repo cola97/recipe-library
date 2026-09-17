@@ -1,0 +1,379 @@
+{
+  "schema_version": "1.0",
+  "recipe": {
+    "id": "orange_cinnamon_skyr_pots_toasted_walnuts",
+    "title": "Orange & Cinnamon Skyr Pots with Toasted Walnuts",
+    "description": "Creamy cinnamon skyr layered with fresh orange segments and finished with warm, deeply toasted walnuts for a simple evening snack with bright citrus, aromatic spice and crisp texture.",
+    "servings": 2,
+    "difficulty": "Easy",
+    "total_time_minutes": 12,
+    "active_time_minutes": 9,
+    "passive_time_minutes": 3,
+    "cuisine": [
+      "Modern European"
+    ],
+    "meal_types": [
+      "Evening snack"
+    ],
+    "dietary_tags": [
+      "Lacto-ovo vegetarian",
+      "High protein"
+    ],
+    "allergens": [
+      "Milk",
+      "Nuts"
+    ]
+  },
+  "nutrition_per_serving": {
+    "energy_kcal": 208,
+    "protein_g": 14.2,
+    "carbohydrate_g": 24.5,
+    "fat_g": 6.8,
+    "saturated_fat_g": 0.8,
+    "fibre_g": 3.5,
+    "salt_g": 0.12
+  },
+  "ingredients": [
+    {
+      "ingredient_id": "skyr_plain",
+      "display_name": "Plain 0% skyr",
+      "category": "Dairy",
+      "required": true,
+      "quantity_used": 240,
+      "unit_used": "g",
+      "purchase_quantity": "1 pot",
+      "purchase_notes": "Use 240 g; retail pot size may vary.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Keep refrigerated until assembly.",
+      "notes": "Use a thick plain skyr without added sugar."
+    },
+    {
+      "ingredient_id": "oranges",
+      "display_name": "Medium oranges",
+      "category": "Fruit",
+      "required": true,
+      "quantity_used": 2,
+      "unit_used": "integer",
+      "purchase_quantity": "2 medium oranges",
+      "purchase_notes": "Choose firm, juicy oranges with intact peel.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Wash and dry before zesting and peeling.",
+      "notes": "Use 1 orange per serving. Whole fruit does not scale perfectly for every serving quantity; round sensibly when scaling."
+    },
+    {
+      "ingredient_id": "walnuts",
+      "display_name": "Walnut halves or pieces",
+      "category": "Nuts",
+      "required": true,
+      "quantity_used": 20,
+      "unit_used": "g",
+      "purchase_quantity": "1 pack",
+      "purchase_notes": "Use 20 g; retail pack size may vary.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Roughly chop before toasting.",
+      "notes": "Use fresh walnuts with no bitter or stale aroma."
+    },
+    {
+      "ingredient_id": "runny_honey",
+      "display_name": "Runny honey",
+      "category": "Sweeteners",
+      "required": true,
+      "quantity_used": 1,
+      "unit_used": "tsp",
+      "purchase_quantity": "1 jar or squeezy bottle",
+      "purchase_notes": "Use 1 tsp in total.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": "The small amount of honey rounds out the acidity of the orange and skyr without making the snack overly sweet."
+    },
+    {
+      "ingredient_id": "cinnamon_ground",
+      "display_name": "Ground cinnamon",
+      "category": "Spices",
+      "required": true,
+      "quantity_used": 0.5,
+      "unit_used": "tsp",
+      "purchase_quantity": "1 jar",
+      "purchase_notes": "Use 1/2 tsp.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": ""
+    }
+  ],
+  "equipment": [
+    {
+      "equipment_id": "gas_hob",
+      "display_name": "Gas hob",
+      "required": true,
+      "notes": ""
+    },
+    {
+      "equipment_id": "frying_pan",
+      "display_name": "Small dry frying pan",
+      "required": true,
+      "notes": "Used to toast the walnuts without additional oil."
+    },
+    {
+      "equipment_id": "chef_knife",
+      "display_name": "Chef's knife",
+      "required": true,
+      "notes": ""
+    },
+    {
+      "equipment_id": "chopping_board",
+      "display_name": "Chopping board",
+      "required": true,
+      "notes": ""
+    },
+    {
+      "equipment_id": "fine_grater",
+      "display_name": "Fine grater or Microplane",
+      "required": true,
+      "notes": "For finely grating orange zest."
+    },
+    {
+      "equipment_id": "mixing_bowl",
+      "display_name": "Small mixing bowl",
+      "required": true,
+      "notes": "For combining the cinnamon skyr."
+    },
+    {
+      "equipment_id": "kitchen_scales",
+      "display_name": "Kitchen scales",
+      "required": true,
+      "notes": "Used to portion the skyr and walnuts."
+    },
+    {
+      "equipment_id": "measuring_spoons",
+      "display_name": "Measuring spoons",
+      "required": true,
+      "notes": ""
+    },
+    {
+      "equipment_id": "lidded_containers",
+      "display_name": "2 serving pots or lidded snack containers",
+      "required": true,
+      "notes": "Useful if preparing the snack ahead; keep the toasted walnuts separate until serving."
+    }
+  ],
+  "mise_en_place": [
+    {
+      "prep_id": "PREP_01",
+      "ingredient_ids": [
+        "oranges"
+      ],
+      "instruction": "Finely grate the coloured zest from approximately half of 1 washed orange, avoiding the bitter white pith. Peel both oranges, separate them into segments and remove any loose strands of white pith.",
+      "endpoint": "The orange segments are intact and juicy, and the zest is fine and free from visible white pith."
+    },
+    {
+      "prep_id": "PREP_02",
+      "ingredient_ids": [
+        "walnuts"
+      ],
+      "instruction": "Weigh 20 g walnuts and roughly chop them into pieces approximately 5-8 mm across.",
+      "endpoint": "The walnuts remain coarse enough to provide distinct crunch."
+    },
+    {
+      "prep_id": "PREP_03",
+      "ingredient_ids": [
+        "skyr_plain",
+        "runny_honey",
+        "cinnamon_ground"
+      ],
+      "instruction": "Measure 240 g skyr, 1 tsp runny honey and 1/2 tsp ground cinnamon.",
+      "endpoint": "The skyr, honey and cinnamon are measured and ready for assembly."
+    }
+  ],
+  "procedure": [
+    {
+      "step_id": "STEP_01",
+      "section": "Walnuts",
+      "title": "Toast the walnuts",
+      "depends_on": [
+        "PREP_02"
+      ],
+      "parallel_group": "P01",
+      "ingredient_ids": [
+        "walnuts"
+      ],
+      "equipment_ids": [
+        "gas_hob",
+        "frying_pan"
+      ],
+      "instruction": "Place the dry frying pan over medium heat. Add the chopped walnuts and toast for approximately 3-4 minutes, shaking or stirring every 20-30 seconds so all sides heat evenly.",
+      "heat_source": "gas_hob",
+      "heat_level": "medium",
+      "temperature_c": null,
+      "duration_min_minutes": 3,
+      "duration_max_minutes": 4,
+      "endpoint": "The walnuts smell strongly nutty, have deepened slightly in colour and are hot throughout without any blackened or bitter-tasting pieces.",
+      "corrective_actions": [
+        {
+          "condition": "The walnuts begin darkening rapidly or smoking.",
+          "action": "Immediately remove the pan from the heat and transfer the walnuts to a cool plate."
+        },
+        {
+          "condition": "The walnuts remain pale and barely aromatic after 4 minutes.",
+          "action": "Continue toasting for up to 1 additional minute while stirring continuously."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_02",
+      "section": "Skyr",
+      "title": "Make the orange-cinnamon skyr",
+      "depends_on": [
+        "PREP_01",
+        "PREP_03"
+      ],
+      "parallel_group": "P01",
+      "ingredient_ids": [
+        "skyr_plain",
+        "runny_honey",
+        "cinnamon_ground",
+        "oranges"
+      ],
+      "equipment_ids": [
+        "mixing_bowl",
+        "measuring_spoons"
+      ],
+      "instruction": "Combine the 240 g skyr with 1 tsp runny honey, 1/2 tsp ground cinnamon and the prepared orange zest. Stir for approximately 30 seconds until the cinnamon and zest are evenly distributed.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 0.5,
+      "duration_max_minutes": 1,
+      "endpoint": "The skyr is smooth, evenly cinnamon-speckled and clearly fragrant with fresh orange zest.",
+      "corrective_actions": [
+        {
+          "condition": "The cinnamon forms visible dry clumps.",
+          "action": "Press the clumps against the side of the bowl and continue stirring until evenly dispersed."
+        }
+      ],
+      "critical": false
+    },
+    {
+      "step_id": "STEP_03",
+      "section": "Walnuts",
+      "title": "Cool the toasted walnuts",
+      "depends_on": [
+        "STEP_01"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "walnuts"
+      ],
+      "equipment_ids": [
+        "frying_pan"
+      ],
+      "instruction": "Transfer the toasted walnuts out of the hot pan and leave them uncovered for approximately 3 minutes so residual steam and heat can escape.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 3,
+      "duration_max_minutes": 3,
+      "endpoint": "The walnuts are warm or room temperature rather than hot and remain dry and crisp.",
+      "corrective_actions": [],
+      "critical": false
+    },
+    {
+      "step_id": "STEP_04",
+      "section": "Assembly",
+      "title": "Build the skyr pots",
+      "depends_on": [
+        "STEP_02",
+        "STEP_03"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "skyr_plain",
+        "oranges",
+        "walnuts",
+        "runny_honey",
+        "cinnamon_ground"
+      ],
+      "equipment_ids": [
+        "lidded_containers",
+        "kitchen_scales"
+      ],
+      "instruction": "Divide the orange-cinnamon skyr evenly between the two serving pots. Arrange the segments from 1 orange over each serving. If eating immediately, scatter half of the toasted walnuts over each pot. If preparing ahead, keep the walnuts in separate dry containers and add them only at the time of eating.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 2,
+      "duration_max_minutes": 3,
+      "endpoint": "Each serving contains an even portion of cinnamon-orange skyr, the segments from approximately 1 orange and half of the toasted walnuts, with the walnuts remaining crisp.",
+      "corrective_actions": [
+        {
+          "condition": "The orange segments release substantial juice during assembly.",
+          "action": "Leave excess free juice behind rather than pouring it into the skyr pot."
+        }
+      ],
+      "critical": false
+    }
+  ],
+  "plating": [
+    {
+      "step_id": "PLATE_01",
+      "instruction": "Serve the pots chilled or cool, with the toasted walnuts added immediately before eating. Take each spoonful with both orange and cinnamon skyr so the bright citrus contrasts with the creamy dairy and toasted nut flavour."
+    }
+  ],
+  "storage": {
+    "refrigerator_days": 2,
+    "freezer_months": null,
+    "storage_instructions": "Refrigerate the skyr and orange pots in sealed containers for up to 2 days. Store the toasted walnuts separately in a dry sealed container and add them only immediately before serving so they remain crisp. Do not freeze the assembled pots because the orange and skyr textures will deteriorate.",
+    "reheating_methods": []
+  },
+  "shopping": {
+    "sainsburys": [],
+    "marks_and_spencer": [],
+    "either_retailer": [
+      "Plain 0% skyr — 1 pot; use 240 g.",
+      "Medium oranges — 2.",
+      "Walnut halves or pieces — 1 pack; use 20 g.",
+      "Runny honey — use 1 tsp.",
+      "Ground cinnamon — use 1/2 tsp."
+    ]
+  },
+  "quality_checks": {
+    "protein_requirement_met": true,
+    "protein_g_per_serving": 14.2,
+    "restaurant_quality_features": [
+      "Fresh orange zest perfumes the skyr without requiring additional sweetener.",
+      "Dry-toasted walnuts develop deeper nutty flavour and a crisp texture without added oil.",
+      "Fresh orange segments provide juicy acidity against the thick creamy skyr.",
+      "Cinnamon links the sweet citrus and toasted walnut flavours with minimal added complexity.",
+      "Keeping the walnuts separate until serving preserves a strong creamy-crisp texture contrast."
+    ],
+    "nutrition_notes": [
+      "Approximately 208 kcal per serving.",
+      "Evening snacks have no minimum protein requirement.",
+      "Skyr contributes substantial protein and calcium.",
+      "Orange provides fruit, vitamin C and fibre.",
+      "Walnuts contribute predominantly unsaturated fats and alpha-linolenic acid.",
+      "Nutrition values are estimates and will vary slightly with orange size and the exact skyr product used."
+    ],
+    "critical_success_factors": [
+      "Toast the walnuts only until aromatic and lightly deepened in colour; burnt walnuts become strongly bitter.",
+      "Avoid grating the bitter white orange pith into the skyr.",
+      "Do not add excess orange juice to the pots because it will loosen the skyr.",
+      "Keep the toasted walnuts separate until immediately before eating when preparing the snack ahead."
+    ]
+  }
+}

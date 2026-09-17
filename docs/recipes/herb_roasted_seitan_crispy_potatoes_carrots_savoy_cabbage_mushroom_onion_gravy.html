@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Herb-Roasted Seitan with Crispy Potatoes, Carrots, Savoy Cabbage and Mushroom-Onion Gravy</title>
+
+<style>
+:root {
+    --background: #f4f2ec;
+    --panel: #ffffff;
+    --text: #000000;
+    --muted: #555555;
+    --border: #b9b5ad;
+    --accent: #e5f1dd;
+    --endpoint: #fff4c6;
+    --step: #f7f7f4;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--background);
+    color: var(--text);
+}
+
+body {
+    min-height: 100vh;
+    min-height: 100dvh;
+}
+
+button, input, select, summary { font: inherit; }
+
+.page {
+    width: min(calc(100% - 24px), 1050px);
+    margin: 0 auto;
+    padding: max(12px, env(safe-area-inset-top)) 0 max(40px, env(safe-area-inset-bottom)) 0;
+}
+
+.recipe-header {
+    position: static;
+    background: transparent;
+    padding: 12px 0 10px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.title-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+h1 {
+    margin: 0;
+    font-size: clamp(1.65rem, 5vw, 2.8rem);
+    line-height: 1.12;
+}
+
+.scheduled-date { margin-top: 8px; font-weight: 700; }
+.description { margin: 12px 0 0 0; line-height: 1.5; }
+
+.recipe-info {
+    margin-top: 10px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    background: #ffffff;
+    overflow: hidden;
+}
+
+.recipe-info > summary {
+    cursor: pointer;
+    padding: 9px 11px;
+    font-weight: 750;
+}
+
+.recipe-info-content { padding: 0 11px 11px 11px; }
+
+.tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: #ffffff;
+    color: #000000;
+    font-size: 0.82rem;
+}
+
+.allergens {
+    margin-top: 10px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    background: #ffe4df;
+}
+
+.facts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+    gap: 8px;
+    margin: 14px 0;
+}
+
+.fact {
+    display: grid;
+    gap: 2px;
+    padding: 9px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    background: #ffffff;
+}
+
+.fact span { font-size: 0.78rem; color: var(--muted); }
+
+.recipe-tools {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.serving-tool, .rating-tool {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: #ffffff;
+}
+
+.serving-controls, .rating-buttons {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.serving-controls button, .rating-buttons button {
+    min-height: 36px;
+    padding: 5px 9px;
+    border: 1px solid #000000;
+    border-radius: 7px;
+    background: #ffffff;
+    color: #000000;
+    font-weight: 700;
+}
+
+#servingsValue {
+    min-width: 30px;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 800;
+}
+
+.rating-buttons button.active {
+    background: #000000;
+    color: #ffffff;
+}
+
+.section {
+    display: block;
+    margin-top: 14px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--panel);
+    overflow: hidden;
+}
+
+details.section > summary {
+    cursor: pointer;
+    padding: 15px 16px;
+    font-size: 1.12rem;
+    font-weight: 800;
+    background: var(--accent);
+}
+
+.section-content { padding: 14px; }
+.method-section { padding: 14px; }
+.method-section > h2 { margin: 0 0 12px 0; }
+.ingredient-grid, .card-stack { display: grid; gap: 10px; }
+
+.ingredient-card, .prep-card, .method-step {
+    padding: 14px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--step);
+}
+
+.ingredient-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 14px;
+}
+
+.ingredient-quantity {
+    flex: 0 0 auto;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.subline { margin-top: 7px; line-height: 1.4; }
+.compact-list { margin: 0; padding-left: 22px; }
+.prep-card h3, .method-step h3 { margin: 0; }
+.prep-card p, .method-step p { margin: 10px 0; }
+
+.step-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+}
+
+.step-number {
+    flex: 0 0 auto;
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.step-section {
+    margin-top: 6px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--muted);
+}
+
+.step-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+}
+
+.instruction { font-size: 1rem; line-height: 1.55; }
+
+.endpoint {
+    margin-top: 10px;
+    padding: 10px 12px;
+    border-left: 4px solid #000000;
+    background: var(--endpoint);
+    line-height: 1.45;
+}
+
+.corrective { margin-top: 10px; }
+.corrective summary { cursor: pointer; font-weight: 750; }
+.corrective ul { margin-bottom: 0; }
+
+.cook-button {
+    flex: 0 0 auto;
+    min-height: 42px;
+    padding: 8px 12px;
+    border: 1px solid #000000;
+    border-radius: 9px;
+    background: #000000;
+    color: #ffffff;
+    font-weight: 750;
+}
+
+.cook-controls {
+    display: none;
+    position: sticky;
+    bottom: max(8px, env(safe-area-inset-bottom));
+    z-index: 30;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 14px;
+    padding: 10px;
+    border: 1px solid #000000;
+    border-radius: 12px;
+    background: #ffffff;
+}
+
+.cook-controls button {
+    min-height: 44px;
+    padding: 8px 14px;
+    border: 1px solid #000000;
+    border-radius: 8px;
+    background: #000000;
+    color: #ffffff;
+    font-weight: 750;
+}
+
+.method-step { scroll-margin-top: 58px; }
+
+/* Compact cook-mode header */
+body.cook-mode .recipe-header {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    margin: 0;
+    padding: 6px 0;
+    background: rgba(244, 242, 236, 0.98);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(8px);
+}
+
+body.cook-mode .recipe-header .recipe-info,
+body.cook-mode .recipe-header .scheduled-date,
+body.cook-mode .facts,
+body.cook-mode .recipe-tools,
+body.cook-mode .non-method,
+body.cook-mode .method-section > h2 {
+    display: none;
+}
+
+body.cook-mode .title-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 8px;
+}
+
+body.cook-mode .recipe-header h1 {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+body.cook-mode .cook-button {
+    width: auto;
+    min-height: 36px;
+    padding: 6px 10px;
+    font-size: 0.85rem;
+    white-space: nowrap;
+}
+
+body.cook-mode .method-step { display: none; }
+body.cook-mode .method-step.active { display: block; }
+body.cook-mode .cook-controls { display: flex; }
+body.cook-mode .method-section {
+    min-height: calc(100dvh - 60px);
+    margin-top: 6px;
+}
+
+@media (max-width: 600px) {
+    .page { width: calc(100% - 12px); }
+    .recipe-header { padding-top: 8px; }
+
+    h1 {
+        font-size: 1.35rem;
+        line-height: 1.18;
+    }
+
+    .title-row {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: start;
+    }
+
+    .cook-button {
+        width: auto;
+        min-height: 36px;
+        padding: 6px 10px;
+        font-size: 0.85rem;
+    }
+
+    .recipe-tools { grid-template-columns: 1fr; }
+
+    .serving-tool, .rating-tool {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .rating-buttons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .ingredient-heading {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 3px;
+    }
+
+    .ingredient-quantity { white-space: normal; }
+    .method-section, .section-content { padding: 10px; }
+    .ingredient-card, .prep-card, .method-step { padding: 12px; }
+}
+
+@media print {
+    .recipe-header { position: static; }
+    .cook-button, .cook-controls, .recipe-tools { display: none !important; }
+    body.cook-mode .non-method, body.cook-mode .method-step { display: block; }
+    .section { break-inside: avoid; }
+}
+</style>
+</head>
+
+<body>
+<main class="page">
+
+<header class="recipe-header">
+    <div class="title-row">
+        <h1>Herb-Roasted Seitan with Crispy Potatoes, Carrots, Savoy Cabbage and Mushroom-Onion Gravy</h1>
+        <button id="cookModeButton" class="cook-button" type="button">Cook mode</button>
+    </div>
+
+    
+
+    <details class="recipe-info">
+        <summary>Recipe info</summary>
+        <div class="recipe-info-content">
+            <p class="description">A high-protein vegetarian roast dinner with steamed then herb-roasted seitan, crisp golden potatoes, caramelised carrots, tender Savoy cabbage and a deeply savoury mushroom-onion gravy.</p>
+            <div class="tag-row"><span class="badge">Dinner</span><span class="badge">Lacto-ovo vegetarian</span><span class="badge">High protein</span><span class="badge">High fibre</span></div>
+            <div class="allergens"><strong>Allergens:</strong> Wheat, Soya, Celery</div>
+        </div>
+    </details>
+</header>
+
+<div class="facts"><div class="fact"><span>Serves</span><strong id="servesFactValue">2</strong></div><div class="fact"><span>Difficulty</span><strong>Moderate</strong></div><div class="fact"><span>Active</span><strong>38 min</strong></div><div class="fact"><span>Total</span><strong>55 min</strong></div><div class="fact"><span>Energy</span><strong>590 kcal</strong></div><div class="fact"><span>Protein</span><strong>42 g</strong></div></div>
+
+<section class="recipe-tools">
+    <div class="serving-tool">
+        <strong>Servings</strong>
+        <div class="serving-controls">
+            <button id="servingsMinus" type="button">−</button>
+            <span id="servingsValue" data-base-servings="2">2</span>
+            <button id="servingsPlus" type="button">+</button>
+        </div>
+    </div>
+
+    <div class="rating-tool" data-recipe-id="herb_roasted_seitan_crispy_potatoes_carrots_savoy_cabbage_mushroom_onion_gravy">
+        <strong>Your rating</strong>
+        <div class="rating-buttons">
+            <button id="ratingFavourite" type="button">♥ Favourite</button>
+            <button id="ratingDislike" type="button">👎 Dislike</button>
+        </div>
+    </div>
+</section>
+
+
+<details class="section non-method" open>
+    <summary>Ingredients</summary>
+    <div class="section-content ingredient-grid">
+        <article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Plain ready-made seitan</strong>
+<span class="ingredient-quantity" data-base-quantity="250" data-unit="g">250 g</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 or more packs</div>
+<div class="subline"><strong>Prep:</strong> Drain if packed in liquid and pat dry before steaming.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Floury potatoes</strong>
+<span class="ingredient-quantity" data-base-quantity="400" data-unit="g">400 g</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 bag</div>
+<div class="subline"><strong>Prep:</strong> Wash before cutting; peel only if the skins are damaged or very coarse.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Carrots</strong>
+<span class="ingredient-quantity" data-base-quantity="240" data-unit="g">240 g</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 bag</div>
+<div class="subline"><strong>Prep:</strong> Wash and peel only if required.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Savoy cabbage</strong>
+<span class="ingredient-quantity" data-base-quantity="200" data-unit="g">200 g</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 small cabbage</div>
+<div class="subline"><strong>Prep:</strong> Remove damaged outer leaves before cutting.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Chestnut mushrooms</strong>
+<span class="ingredient-quantity" data-base-quantity="200" data-unit="g">200 g</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 pack</div>
+<div class="subline"><strong>Prep:</strong> Brush or wipe clean rather than soaking.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Medium brown onion</strong>
+<span class="ingredient-quantity" data-base-quantity="1" data-unit="integer">1</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 medium brown onion</div>
+<div class="subline"><strong>Prep:</strong> Peel before chopping.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Garlic cloves</strong>
+<span class="ingredient-quantity" data-base-quantity="2" data-unit="integer">2</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 bulb</div>
+<div class="subline"><strong>Prep:</strong> Peel before finely grating or crushing.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Rapeseed oil</strong>
+<span class="ingredient-quantity" data-base-quantity="5" data-unit="tsp">5 tsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 bottle</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Dried thyme</strong>
+<span class="ingredient-quantity" data-base-quantity="1.5" data-unit="tsp">1½ tsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 jar</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Dried rosemary</strong>
+<span class="ingredient-quantity" data-base-quantity="1" data-unit="tsp">1 tsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 jar</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Plain flour</strong>
+<span class="ingredient-quantity" data-base-quantity="1" data-unit="tbsp">1 tbsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 bag</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Reduced-salt vegetable stock concentrate</strong>
+<span class="ingredient-quantity" data-base-quantity="2" data-unit="tsp">2 tsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 container</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Reduced-salt soy sauce</strong>
+<span class="ingredient-quantity" data-base-quantity="2" data-unit="tsp">2 tsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 bottle</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Apple cider vinegar</strong>
+<span class="ingredient-quantity" data-base-quantity="2" data-unit="tsp">2 tsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 bottle</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Fine salt</strong>
+<span class="ingredient-quantity" data-base-quantity="0.5" data-unit="tsp">½ tsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 container</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Ground black pepper</strong>
+<span class="ingredient-quantity" data-base-quantity="0.5" data-unit="tsp">½ tsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 container</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Water</strong>
+<span class="ingredient-quantity" data-base-quantity="580" data-unit="ml">580 ml</span>
+</div>
+</article>
+    </div>
+</details>
+
+
+<details class="section non-method">
+    <summary>Equipment</summary>
+    <div class="section-content">
+        <ul class="compact-list"><li>Oven</li><li>Instant Pot</li><li>Air fryer</li><li>Gas hob</li><li>Large sauté pan</li><li>Large baking tray</li><li>Chef&#x27;s knife</li><li>Chopping board</li><li>Fine grater or Microplane</li><li>Measuring spoons</li><li>Measuring jug</li><li>Kitchen scales</li><li>Heatproof spatula or wooden spoon</li></ul>
+    </div>
+</details>
+
+
+<details class="section non-method" open>
+    <summary>Mise en place</summary>
+    <div class="section-content card-stack"><article class="prep-card">
+<h3>Prep 1</h3>
+<p>Cut the potatoes into approximately 20 mm chunks, retaining clean edible skins. Trim the carrots and cut them into batons approximately 15 mm thick and 50 mm long. Remove the hard core from the Savoy cabbage, then slice the leaves into ribbons approximately 10 mm wide.</p>
+<div class="endpoint"><strong>Ready when:</strong> The potatoes and carrots are cut to sizes that will roast at similar rates, and the cabbage is evenly shredded for rapid cooking.</div>
+</article><article class="prep-card">
+<h3>Prep 2</h3>
+<p>Trim the mushroom stem ends and slice the mushrooms approximately 5 mm thick. Peel the onion, trim the ends and dice the usable flesh into approximately 5 mm pieces. Peel and finely grate or crush the garlic.</p>
+<div class="endpoint"><strong>Ready when:</strong> The mushrooms, onion and garlic are prepared and ready for the gravy.</div>
+</article><article class="prep-card">
+<h3>Prep 3</h3>
+<p>Drain the seitan if required and pat it dry. Cut or tear it into pieces approximately 25 mm across. Measure 1 tsp dried thyme, 1 tsp dried rosemary and 1 tsp reduced-salt soy sauce for the post-steaming herb coating.</p>
+<div class="endpoint"><strong>Ready when:</strong> The seitan is evenly portioned and the roasting seasonings are ready, but no roasting occurs before the required steaming stage.</div>
+</article><article class="prep-card">
+<h3>Prep 4</h3>
+<p>Mix the vegetable stock concentrate with approximately 300 ml hot water in the measuring jug. Keep 1 tbsp plain flour, the remaining 1 tsp soy sauce, 1/2 tsp dried thyme and 1 tsp apple cider vinegar ready for the gravy.</p>
+<div class="endpoint"><strong>Ready when:</strong> The stock and remaining gravy ingredients are measured before gravy cooking begins.</div>
+</article></div>
+</details>
+
+
+<section class="section method-section">
+    <h2>Method</h2>
+    <div id="methodSteps" class="card-stack"><article class="method-step" data-step-index="0">
+<div class="step-heading">
+<div class="step-number">Step 1</div>
+<h3>Roast the potatoes and carrots</h3>
+</div>
+<div class="step-section">Roast vegetables</div>
+<div class="step-meta"><span class="badge">Heat source: oven</span><span class="badge">Setting: 220°C</span><span class="badge">Temperature: 220°C</span><span class="badge">Time: 35–40 min</span></div>
+<p class="instruction">Preheat the oven to 220°C. Toss the potatoes and carrots on the baking tray with 3 tsp rapeseed oil, 1/4 tsp fine salt and approximately 1/4 tsp black pepper. Spread them into a mostly single layer and roast for approximately 35-40 minutes, turning once after approximately 20 minutes.</p>
+<div class="endpoint"><strong>Ready when:</strong> The potatoes are deeply golden and crisp at the edges with fluffy centres, and the carrots are tender with browned, caramelised edges.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul><li><strong>If:</strong> The vegetables are colouring rapidly while remaining firm inside.<br><strong>Do:</strong> Reduce the oven to 200°C and continue roasting until the centres are tender.</li><li><strong>If:</strong> The vegetables remain pale after 30 minutes.<br><strong>Do:</strong> Turn them, increase spacing where possible and continue at 220°C until clear browning develops.</li></ul>
+</details>
+
+</article><article class="method-step" data-step-index="1">
+<div class="step-heading">
+<div class="step-number">Step 2</div>
+<h3>Steam the seitan in the Instant Pot</h3>
+</div>
+<div class="step-section">Seitan</div>
+<div class="step-meta"><span class="badge">Heat source: instant_pot</span><span class="badge">Setting: Steam or High Pressure</span><span class="badge">Time: 15–18 min</span></div>
+<p class="instruction">Pour 250 ml water into the Instant Pot. Fit the trivet or steaming rack and arrange the seitan above the water so it is not submerged. Close the lid, set the valve to sealing and use the Steam or High Pressure programme for 5 minutes. When the programme ends, allow a 5-minute natural pressure release, then carefully release any remaining pressure before opening the lid.</p>
+<div class="endpoint"><strong>Ready when:</strong> The seitan is thoroughly heated and moist from steaming, and all pressure has been safely released before the lid is opened.</div>
+</article><article class="method-step" data-step-index="2">
+<div class="step-heading">
+<div class="step-number">Step 3</div>
+<h3>Herb-roast the steamed seitan</h3>
+</div>
+<div class="step-section">Seitan</div>
+<div class="step-meta"><span class="badge">Heat source: air_fryer</span><span class="badge">Setting: 190°C</span><span class="badge">Temperature: 190°C</span><span class="badge">Time: 10–13 min</span></div>
+<p class="instruction">Transfer the steamed seitan to a dry bowl or plate and allow surface steam to escape for approximately 1 minute. Toss with 1 tsp rapeseed oil, 1 tsp dried thyme, 1 tsp dried rosemary, 1 tsp reduced-salt soy sauce, 1/8 tsp fine salt and approximately 1/8 tsp black pepper. Air-fry at 190°C for approximately 10-13 minutes, shaking once after approximately 6 minutes.</p>
+<div class="endpoint"><strong>Ready when:</strong> The seitan is piping hot with browned, slightly crisp edges and a fragrant herb coating, while remaining moist rather than leathery.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul><li><strong>If:</strong> The edges darken rapidly before the seitan develops an even crust.<br><strong>Do:</strong> Reduce the air-fryer temperature to 175°C for the remaining cooking time.</li><li><strong>If:</strong> The seitan remains pale after 13 minutes.<br><strong>Do:</strong> Continue air-frying for 2 minutes, checking after each minute, until distinct browned edges develop.</li></ul>
+</details>
+
+</article><article class="method-step" data-step-index="3">
+<div class="step-heading">
+<div class="step-number">Step 4</div>
+<h3>Brown the onion and mushrooms</h3>
+</div>
+<div class="step-section">Gravy</div>
+<div class="step-meta"><span class="badge">Heat source: gas_hob</span><span class="badge">Setting: medium-high</span><span class="badge">Time: 8–10 min</span></div>
+<p class="instruction">Heat the sauté pan over medium-high heat. Add the remaining 1 tsp rapeseed oil, followed by the onion and mushrooms. Cook for approximately 8-10 minutes, stirring only occasionally at first, until the mushroom liquid has evaporated and both the mushrooms and onion have developed strong golden-brown edges. Add the garlic for the final 30-45 seconds.</p>
+<div class="endpoint"><strong>Ready when:</strong> The mushrooms are browned rather than grey, the onion is fully soft and golden, and no free mushroom liquid remains in the pan.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul><li><strong>If:</strong> The mushrooms release liquid and begin simmering.<br><strong>Do:</strong> Maintain medium-high heat, leave the pan uncovered and stir less frequently until the liquid evaporates.</li><li><strong>If:</strong> The garlic begins browning immediately.<br><strong>Do:</strong> Proceed straight to the flour and stock step to prevent scorching.</li></ul>
+</details>
+
+</article><article class="method-step" data-step-index="4">
+<div class="step-heading">
+<div class="step-number">Step 5</div>
+<h3>Build and reduce the mushroom-onion gravy</h3>
+</div>
+<div class="step-section">Gravy</div>
+<div class="step-meta"><span class="badge">Heat source: gas_hob</span><span class="badge">Setting: medium</span><span class="badge">Time: 5–7 min</span></div>
+<p class="instruction">Reduce the heat to medium. Sprinkle 1 tbsp plain flour over the browned mushroom-onion mixture and stir continuously for approximately 1 minute. Gradually pour in the prepared 300 ml vegetable stock while stirring to prevent lumps. Add the remaining 1 tsp soy sauce, 1/2 tsp dried thyme and remaining black pepper. Bring to a steady simmer and cook for approximately 4-6 minutes, stirring regularly. Stir in 1 tsp apple cider vinegar at the end.</p>
+<div class="endpoint"><strong>Ready when:</strong> The gravy coats the back of the spoon, flows rather than sits like a paste, and tastes deeply savoury with enough acidity to avoid heaviness.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul><li><strong>If:</strong> The gravy becomes thicker than a pourable sauce.<br><strong>Do:</strong> Add 1 tbsp hot water and stir; repeat only if still necessary.</li><li><strong>If:</strong> The gravy remains thin after 6 minutes.<br><strong>Do:</strong> Continue simmering uncovered for 1-2 minutes until it clearly coats the spoon.</li><li><strong>If:</strong> Flour lumps remain visible.<br><strong>Do:</strong> Press them firmly against the side of the pan with the spatula while simmering until smooth.</li></ul>
+</details>
+
+</article><article class="method-step" data-step-index="5">
+<div class="step-heading">
+<div class="step-number">Step 6</div>
+<h3>Cook the Savoy cabbage</h3>
+</div>
+<div class="step-section">Cabbage</div>
+<div class="step-meta"><span class="badge">Heat source: gas_hob</span><span class="badge">Setting: medium-high</span><span class="badge">Time: 4–5 min</span></div>
+<p class="instruction">Pour the finished gravy into the measuring jug and keep it warm. Return the same pan to medium-high heat. Add the shredded Savoy cabbage with 2 tbsp water and the remaining 1/8 tsp fine salt. Cover for approximately 2 minutes, then uncover and toss for another 2-3 minutes until the water has evaporated. Remove from the heat and stir through the remaining 1 tsp apple cider vinegar.</p>
+<div class="endpoint"><strong>Ready when:</strong> The cabbage is tender but retains some bite, remains bright green and has no free water left in the pan.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul><li><strong>If:</strong> The cabbage begins catching before becoming tender.<br><strong>Do:</strong> Add 1 tbsp water and cover for another minute.</li><li><strong>If:</strong> The cabbage is soft but water remains in the pan.<br><strong>Do:</strong> Uncover and cook over high heat briefly until the excess moisture evaporates.</li></ul>
+</details>
+
+</article><article class="method-step" data-step-index="6">
+<div class="step-heading">
+<div class="step-number">Step 7</div>
+<h3>Finish the roast components</h3>
+</div>
+<div class="step-section">Final checks</div>
+<div class="step-meta"><span class="badge">Time: 1–2 min</span></div>
+<p class="instruction">Check the potatoes, carrots and seitan against their stated endpoints. Remove each component as soon as it is correctly browned and tender. Do not continue cooking one component merely to synchronise it with another; keep completed components warm for the few minutes required to finish plating.</p>
+<div class="endpoint"><strong>Ready when:</strong> The potatoes are crisp, carrots caramelised, seitan browned and moist, cabbage tender-crisp and gravy hot and pourable.</div>
+</article></div>
+
+    <div id="cookControls" class="cook-controls">
+        <button id="previousStep" type="button">Previous</button>
+        <div id="stepCounter"></div>
+        <button id="nextStep" type="button">Next</button>
+    </div>
+</section>
+
+
+<details class="section non-method">
+    <summary>Serving</summary>
+    <div class="section-content"><p>Divide the herb-roasted seitan, crispy potatoes, roasted carrots and Savoy cabbage evenly between two warmed plates. Spoon the hot mushroom-onion gravy generously over the seitan and alongside the potatoes, leaving some crisp potato surfaces uncovered. Serve immediately.</p></div>
+</details>
+
+
+<details class="section non-method">
+    <summary>Storage & reheating</summary>
+    <div class="section-content"><p><strong>Refrigerator:</strong> 2 days</p><p><strong>Freezer:</strong> 1 months</p><p>Cool leftovers promptly. Refrigerate the seitan, potatoes, carrots, cabbage and gravy in sealed containers for up to 2 days, preferably keeping the gravy separate from the roasted components so they retain more texture. The seitan and gravy may be frozen separately for up to 1 month; potatoes and cabbage are best refrigerated rather than frozen.</p><h3>Reheating</h3><ul><li>Air fryer: reheat the potatoes, carrots and seitan at approximately 180°C until piping hot and the exterior has re-crisped, checking frequently.</li><li>Hob: reheat the mushroom-onion gravy over medium-low heat, stirring regularly and adding 1 tbsp water if it has thickened excessively.</li><li>Hob: reheat the Savoy cabbage briefly in a covered pan with 1 tbsp water until piping hot, avoiding prolonged cooking that would make it soft.</li><li>Oven: the roasted vegetables and seitan may alternatively be reheated at approximately 190°C until piping hot.</li></ul></div>
+</details>
+
+
+<details class="section non-method">
+    <summary>Shopping</summary>
+    <div class="section-content"><h3>Either retailer</h3><ul><li>Plain ready-made seitan — use 250 g; retail pack size may vary.</li><li>Floury potatoes — use 400 g.</li><li>Carrots — use 240 g.</li><li>Savoy cabbage — 1 small cabbage; use approximately 200 g.</li><li>Chestnut mushrooms — 1 pack; use 200 g.</li><li>Medium brown onion — 1.</li><li>Garlic — 1 bulb; use 2 cloves.</li><li>Rapeseed oil — use 5 tsp.</li><li>Dried thyme — use 1 1/2 tsp.</li><li>Dried rosemary — use 1 tsp.</li><li>Plain flour — use 1 tbsp.</li><li>Reduced-salt vegetable stock concentrate — use approximately 2 tsp or enough for 300 ml stock.</li><li>Reduced-salt soy sauce — use 2 tsp.</li><li>Apple cider vinegar — use 2 tsp.</li><li>Fine salt — use 1/2 tsp.</li><li>Ground black pepper — use 1/2 tsp.</li></ul></div>
+</details>
+
+
+</main>
+
+<script>
+(function () {
+    const button = document.getElementById("cookModeButton");
+    const steps = Array.from(document.querySelectorAll(".method-step"));
+    const controls = document.getElementById("cookControls");
+    const previous = document.getElementById("previousStep");
+    const next = document.getElementById("nextStep");
+    const counter = document.getElementById("stepCounter");
+    let currentStep = 0;
+
+    function showStep(index) {
+        if (!steps.length) return;
+
+        currentStep = Math.max(0, Math.min(index, steps.length - 1));
+        steps.forEach((step, stepIndex) => {
+            step.classList.toggle("active", stepIndex === currentStep);
+        });
+
+        if (counter) counter.textContent = "Step " + (currentStep + 1) + " of " + steps.length;
+        if (previous) previous.disabled = currentStep === 0;
+        if (next) next.disabled = currentStep === steps.length - 1;
+
+        const active = steps[currentStep];
+        if (active) {
+            active.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+    }
+
+    if (button) {
+        button.addEventListener("click", () => {
+            const active = document.body.classList.toggle("cook-mode");
+            button.textContent = active ? "Exit cook mode" : "Cook mode";
+            if (active) showStep(currentStep);
+        });
+    }
+
+    if (previous) previous.addEventListener("click", () => showStep(currentStep - 1));
+    if (next) next.addEventListener("click", () => showStep(currentStep + 1));
+    if (!steps.length && controls) controls.style.display = "none";
+
+    /* Serving scaler */
+    const servingsMinus = document.getElementById("servingsMinus");
+    const servingsPlus = document.getElementById("servingsPlus");
+    const servingsValue = document.getElementById("servingsValue");
+    const servesFactValue = document.getElementById("servesFactValue");
+    const recipeId = "herb_roasted_seitan_crispy_potatoes_carrots_savoy_cabbage_mushroom_onion_gravy";
+
+    function formatFraction(value) {
+        const rounded = Math.round(value * 8) / 8;
+        const whole = Math.floor(rounded);
+        const remainder = Math.round((rounded - whole) * 8);
+        const fractions = { 0: "", 1: "⅛", 2: "¼", 3: "⅜", 4: "½", 5: "⅝", 6: "¾", 7: "⅞" };
+
+        if (whole > 0 && remainder > 0) return String(whole) + fractions[remainder];
+        if (whole > 0) return String(whole);
+        if (remainder > 0) return fractions[remainder];
+        return "0";
+    }
+
+    function formatScaledQuantity(value, unit) {
+        if (unit === "tsp" || unit === "tbsp" || unit === "integer") {
+            const number = formatFraction(value);
+            return unit === "integer" ? number : number + " " + unit;
+        }
+
+        const rounded = Math.round(value * 10) / 10;
+        return String(rounded) + (unit ? " " + unit : "");
+    }
+
+    function setServings(newServings) {
+        const baseServings = Number(servingsValue.dataset.baseServings);
+        newServings = Math.max(1, Math.min(12, newServings));
+        servingsValue.textContent = String(newServings);
+        if (servesFactValue) servesFactValue.textContent = String(newServings);
+
+        const factor = newServings / baseServings;
+        document.querySelectorAll(".ingredient-quantity").forEach(element => {
+            const baseQuantity = Number(element.dataset.baseQuantity);
+            const unit = element.dataset.unit;
+            if (!Number.isFinite(baseQuantity)) return;
+            element.textContent = formatScaledQuantity(baseQuantity * factor, unit);
+        });
+
+        localStorage.setItem("recipe-servings:" + recipeId, String(newServings));
+    }
+
+    if (servingsMinus && servingsPlus && servingsValue) {
+        servingsMinus.addEventListener("click", () => {
+            setServings(Number(servingsValue.textContent) - 1);
+        });
+        servingsPlus.addEventListener("click", () => {
+            setServings(Number(servingsValue.textContent) + 1);
+        });
+
+        const saved = Number(localStorage.getItem("recipe-servings:" + recipeId));
+        if (Number.isFinite(saved) && saved >= 1) setServings(saved);
+    }
+
+    /* Favourite / neutral / dislike */
+    const favouriteButton = document.getElementById("ratingFavourite");
+    const dislikeButton = document.getElementById("ratingDislike");
+    const ratingKey = "recipe-rating:" + recipeId;
+
+    function setRating(rating) {
+        localStorage.setItem(ratingKey, rating);
+        if (favouriteButton) favouriteButton.classList.toggle("active", rating === "favourite");
+        if (dislikeButton) dislikeButton.classList.toggle("active", rating === "dislike");
+    }
+
+    if (favouriteButton) favouriteButton.addEventListener("click", () => setRating("favourite"));
+    if (neutralButton) neutralButton.addEventListener("click", () => setRating("neutral"));
+    if (dislikeButton) dislikeButton.addEventListener("click", () => setRating("dislike"));
+
+    if (favouriteButton && neutralButton && dislikeButton) {
+        setRating(localStorage.getItem(ratingKey) || "neutral");
+    }
+})();
+</script>
+
+</body>
+</html>

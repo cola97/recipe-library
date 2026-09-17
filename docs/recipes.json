@@ -1,5 +1,98 @@
 [
   {
+    "id": "baked_plum_quark_pots_cinnamon_walnuts",
+    "filename": "baked_plum_quark_pots_cinnamon_walnuts.html",
+    "title": "Baked Plum & Quark Pots with Cinnamon and Walnuts",
+    "description": "Warm cinnamon-baked plums spooned over cool creamy quark with crunchy walnuts, creating a simple sweet-tart evening snack with strong temperature and texture contrast.",
+    "servings": 2,
+    "difficulty": "Easy",
+    "active_time_minutes": 8,
+    "total_time_minutes": 17,
+    "cuisine": [
+      "Modern European"
+    ],
+    "meal_types": [
+      "Evening snack"
+    ],
+    "dietary_tags": [
+      "Lacto-ovo vegetarian",
+      "High protein"
+    ],
+    "allergens": [
+      "Milk",
+      "Nuts"
+    ],
+    "energy_kcal": 202,
+    "protein_g": 20.4,
+    "protein_sources": [
+      "Quark"
+    ]
+  },
+  {
+    "id": "beetroot_green_lentil_feta_wholegrain_wraps_rocket_dijon_herb_yoghurt",
+    "filename": "beetroot_green_lentil_feta_wholegrain_wraps_rocket_dijon_herb_yoghurt.html",
+    "title": "Beetroot, Green Lentil & Feta Wholegrain Wraps with Rocket and Dijon-Herb Yoghurt",
+    "description": "Portable wholegrain wraps filled with earthy beetroot, seasoned green lentils, salty feta and peppery rocket, served with a thick Dijon-parsley yoghurt for a bright, creamy finish without making the wraps soggy.",
+    "servings": 2,
+    "difficulty": "Easy",
+    "active_time_minutes": 18,
+    "total_time_minutes": 18,
+    "cuisine": [
+      "Mediterranean-inspired"
+    ],
+    "meal_types": [
+      "Lunch"
+    ],
+    "dietary_tags": [
+      "Lacto-ovo vegetarian",
+      "High protein",
+      "High fibre",
+      "Portable",
+      "No-cook"
+    ],
+    "allergens": [
+      "Milk",
+      "Wheat",
+      "Mustard"
+    ],
+    "energy_kcal": 450,
+    "protein_g": 31.5,
+    "protein_sources": [
+      "Lentils",
+      "Skyr / Greek yoghurt"
+    ]
+  },
+  {
+    "id": "blackberry_chia_skyr_pots",
+    "filename": "blackberry_chia_skyr_pots.html",
+    "title": "Blackberry, Chia & Skyr Pots",
+    "description": "Thick, creamy skyr pots layered with juicy blackberries and chia seeds, lightly sweetened with honey for a simple portable snack with fresh fruit acidity and a gently set texture.",
+    "servings": 2,
+    "difficulty": "Easy",
+    "active_time_minutes": 5,
+    "total_time_minutes": 15,
+    "cuisine": [
+      "Modern European"
+    ],
+    "meal_types": [
+      "Morning snack"
+    ],
+    "dietary_tags": [
+      "Lacto-ovo vegetarian",
+      "Portable",
+      "No-cook",
+      "High fibre"
+    ],
+    "allergens": [
+      "Milk"
+    ],
+    "energy_kcal": 202,
+    "protein_g": 19.2,
+    "protein_sources": [
+      "Skyr / Greek yoghurt"
+    ]
+  },
+  {
     "id": "blackberry_skyr_jumbo_oat_overnight_pots_chia_toasted_walnuts",
     "filename": "blackberry_skyr_jumbo_oat_overnight_pots_chia_toasted_walnuts.html",
     "title": "Blackberry, Skyr & Jumbo Oat Overnight Pots with Chia and Toasted Walnuts",
@@ -98,6 +191,56 @@
     ]
   },
   {
+    "id": "clementine_almond_snack_boxes",
+    "filename": "clementine_almond_snack_boxes.html",
+    "title": "Clementine & Almond Snack Boxes",
+    "description": "A simple portable snack of sweet whole clementines and crisp unsalted almonds, portioned for easy transport without unnecessary preparation.",
+    "servings": 2,
+    "difficulty": "Easy",
+    "active_time_minutes": 5,
+    "total_time_minutes": 5,
+    "cuisine": [],
+    "meal_types": [
+      "Morning snack"
+    ],
+    "dietary_tags": [
+      "Lacto-ovo vegetarian",
+      "Portable",
+      "No-cook"
+    ],
+    "allergens": [
+      "Nuts"
+    ],
+    "energy_kcal": 210,
+    "protein_g": 7.0,
+    "protein_sources": []
+  },
+  {
+    "id": "clementine_pistachio_pumpkin_seed_snack_boxes",
+    "filename": "clementine_pistachio_pumpkin_seed_snack_boxes.html",
+    "title": "Clementine, Pistachio & Pumpkin Seed Snack Boxes",
+    "description": "A crisp, naturally sweet portable snack pairing whole clementines with unsalted pistachios and pumpkin seeds for contrasting freshness, crunch and satisfying healthy fats.",
+    "servings": 2,
+    "difficulty": "Easy",
+    "active_time_minutes": 4,
+    "total_time_minutes": 4,
+    "cuisine": [],
+    "meal_types": [
+      "Morning snack"
+    ],
+    "dietary_tags": [
+      "Lacto-ovo vegetarian",
+      "Portable",
+      "No-cook"
+    ],
+    "allergens": [
+      "Nuts"
+    ],
+    "energy_kcal": 203,
+    "protein_g": 7.7,
+    "protein_sources": []
+  },
+  {
     "id": "clementine_pistachio_pumpkin_seed_snack_pots",
     "filename": "clementine_pistachio_pumpkin_seed_snack_pots.html",
     "title": "Clementine, Pistachio & Pumpkin Seed Snack Pots",
@@ -157,6 +300,37 @@
     ]
   },
   {
+    "id": "gochujang_tempeh_aubergine_mushroom_rice_bowls_sesame_cabbage_cucumber",
+    "filename": "gochujang_tempeh_aubergine_mushroom_rice_bowls_sesame_cabbage_cucumber.html",
+    "title": "Gochujang Tempeh, Aubergine & Mushroom Rice Bowls with Sesame Cabbage and Cucumber",
+    "description": "Korean-inspired brown rice bowls with deeply browned gochujang-glazed tempeh, caramelised aubergine and mushrooms, balanced by crisp sesame cabbage and cool cucumber.",
+    "servings": 2,
+    "difficulty": "Moderate",
+    "active_time_minutes": 34,
+    "total_time_minutes": 45,
+    "cuisine": [
+      "Korean-inspired"
+    ],
+    "meal_types": [
+      "Dinner"
+    ],
+    "dietary_tags": [
+      "Lacto-ovo vegetarian",
+      "High protein",
+      "High fibre"
+    ],
+    "allergens": [
+      "Soya",
+      "Sesame",
+      "Wheat"
+    ],
+    "energy_kcal": 610,
+    "protein_g": 36.0,
+    "protein_sources": [
+      "Tempeh"
+    ]
+  },
+  {
     "id": "harissa_tempeh_roasted_pepper_bulgur_salad_lemon_yoghurt_parsley",
     "filename": "harissa_tempeh_roasted_pepper_bulgur_salad_lemon_yoghurt_parsley.html",
     "title": "Harissa Tempeh, Roasted Pepper & Bulgur Salad with Lemon Yoghurt and Parsley",
@@ -188,6 +362,37 @@
     "protein_sources": [
       "Skyr / Greek yoghurt",
       "Tempeh"
+    ]
+  },
+  {
+    "id": "herb_roasted_seitan_crispy_potatoes_carrots_savoy_cabbage_mushroom_onion_gravy",
+    "filename": "herb_roasted_seitan_crispy_potatoes_carrots_savoy_cabbage_mushroom_onion_gravy.html",
+    "title": "Herb-Roasted Seitan with Crispy Potatoes, Carrots, Savoy Cabbage and Mushroom-Onion Gravy",
+    "description": "A high-protein vegetarian roast dinner with steamed then herb-roasted seitan, crisp golden potatoes, caramelised carrots, tender Savoy cabbage and a deeply savoury mushroom-onion gravy.",
+    "servings": 2,
+    "difficulty": "Moderate",
+    "active_time_minutes": 38,
+    "total_time_minutes": 55,
+    "cuisine": [
+      "British-inspired"
+    ],
+    "meal_types": [
+      "Dinner"
+    ],
+    "dietary_tags": [
+      "Lacto-ovo vegetarian",
+      "High protein",
+      "High fibre"
+    ],
+    "allergens": [
+      "Wheat",
+      "Soya",
+      "Celery"
+    ],
+    "energy_kcal": 590,
+    "protein_g": 42.0,
+    "protein_sources": [
+      "Seitan"
     ]
   },
   {
@@ -254,6 +459,98 @@
     ]
   },
   {
+    "id": "miso_sesame_tofu_edamame_soba_noodle_salad_broccoli_carrot",
+    "filename": "miso_sesame_tofu_edamame_soba_noodle_salad_broccoli_carrot.html",
+    "title": "Miso-Sesame Tofu & Edamame Soba Noodle Salad with Broccoli and Carrot",
+    "description": "A portable Japanese-inspired soba salad with crisp-edged sesame tofu, edamame, tender-crisp broccoli and raw carrot, coated in a punchy miso, ginger, soy and rice-vinegar dressing.",
+    "servings": 2,
+    "difficulty": "Easy",
+    "active_time_minutes": 21,
+    "total_time_minutes": 28,
+    "cuisine": [
+      "Japanese-inspired"
+    ],
+    "meal_types": [
+      "Lunch"
+    ],
+    "dietary_tags": [
+      "Lacto-ovo vegetarian",
+      "High protein",
+      "Portable"
+    ],
+    "allergens": [
+      "Soya",
+      "Sesame",
+      "Wheat"
+    ],
+    "energy_kcal": 445,
+    "protein_g": 32.1,
+    "protein_sources": [
+      "Edamame",
+      "Tofu"
+    ]
+  },
+  {
+    "id": "oatcakes_hummus_cucumber",
+    "filename": "oatcakes_hummus_cucumber.html",
+    "title": "Oatcakes with Hummus and Cucumber",
+    "description": "A simple portable snack of crisp wholegrain oatcakes with creamy hummus and cool cucumber, packed separately so the oatcakes stay crunchy until eating.",
+    "servings": 2,
+    "difficulty": "Easy",
+    "active_time_minutes": 7,
+    "total_time_minutes": 7,
+    "cuisine": [
+      "Mediterranean-inspired"
+    ],
+    "meal_types": [
+      "Afternoon snack"
+    ],
+    "dietary_tags": [
+      "Lacto-ovo vegetarian",
+      "Portable",
+      "No-cook",
+      "High fibre"
+    ],
+    "allergens": [
+      "Sesame",
+      "Gluten"
+    ],
+    "energy_kcal": 205,
+    "protein_g": 6.2,
+    "protein_sources": [
+      "Legumes"
+    ]
+  },
+  {
+    "id": "orange_cinnamon_skyr_pots_toasted_walnuts",
+    "filename": "orange_cinnamon_skyr_pots_toasted_walnuts.html",
+    "title": "Orange & Cinnamon Skyr Pots with Toasted Walnuts",
+    "description": "Creamy cinnamon skyr layered with fresh orange segments and finished with warm, deeply toasted walnuts for a simple evening snack with bright citrus, aromatic spice and crisp texture.",
+    "servings": 2,
+    "difficulty": "Easy",
+    "active_time_minutes": 9,
+    "total_time_minutes": 12,
+    "cuisine": [
+      "Modern European"
+    ],
+    "meal_types": [
+      "Evening snack"
+    ],
+    "dietary_tags": [
+      "Lacto-ovo vegetarian",
+      "High protein"
+    ],
+    "allergens": [
+      "Milk",
+      "Nuts"
+    ],
+    "energy_kcal": 208,
+    "protein_g": 14.2,
+    "protein_sources": [
+      "Skyr / Greek yoghurt"
+    ]
+  },
+  {
     "id": "plum_almond_skyr_pots_cinnamon",
     "filename": "plum_almond_skyr_pots_cinnamon.html",
     "title": "Plum & Almond Skyr Pots with Cinnamon",
@@ -281,6 +578,68 @@
     "energy_kcal": 198,
     "protein_g": 15,
     "protein_sources": [
+      "Skyr / Greek yoghurt"
+    ]
+  },
+  {
+    "id": "plum_almond_cinnamon_yoghurt_pots",
+    "filename": "plum_almond_cinnamon_yoghurt_pots.html",
+    "title": "Plum, Almond & Cinnamon Yoghurt Pots",
+    "description": "Creamy Greek yoghurt topped with ripe cinnamon-dressed plums and crunchy almonds, with just enough honey to round out the fruit's acidity while keeping the snack fresh, portable and simple.",
+    "servings": 2,
+    "difficulty": "Easy",
+    "active_time_minutes": 8,
+    "total_time_minutes": 8,
+    "cuisine": [
+      "Modern European"
+    ],
+    "meal_types": [
+      "Morning snack"
+    ],
+    "dietary_tags": [
+      "Lacto-ovo vegetarian",
+      "Portable",
+      "No-cook"
+    ],
+    "allergens": [
+      "Milk",
+      "Nuts"
+    ],
+    "energy_kcal": 207,
+    "protein_g": 18.5,
+    "protein_sources": [
+      "Skyr / Greek yoghurt"
+    ]
+  },
+  {
+    "id": "raspberry_lemon_protein_pancakes_skyr_pistachios",
+    "filename": "raspberry_lemon_protein_pancakes_skyr_pistachios.html",
+    "title": "Raspberry-Lemon Protein Pancakes with Skyr and Pistachios",
+    "description": "Light, tender lemon protein pancakes made with egg whites and skyr, served with fresh raspberries, cool skyr, maple syrup and crunchy pistachios.",
+    "servings": 2,
+    "difficulty": "Easy",
+    "active_time_minutes": 14,
+    "total_time_minutes": 20,
+    "cuisine": [
+      "Modern European"
+    ],
+    "meal_types": [
+      "Breakfast"
+    ],
+    "dietary_tags": [
+      "Lacto-ovo vegetarian",
+      "High protein"
+    ],
+    "allergens": [
+      "Milk",
+      "Egg",
+      "Wheat",
+      "Nuts"
+    ],
+    "energy_kcal": 385,
+    "protein_g": 32.0,
+    "protein_sources": [
+      "Eggs",
       "Skyr / Greek yoghurt"
     ]
   },
@@ -345,6 +704,66 @@
     ]
   },
   {
+    "id": "smoked_paprika_roasted_chickpeas_satsuma_segments",
+    "filename": "smoked_paprika_roasted_chickpeas_satsuma_segments.html",
+    "title": "Smoked Paprika Roasted Chickpeas with Satsuma Segments",
+    "description": "Crisp-edged chickpeas seasoned with smoked paprika and cumin, paired with juicy satsuma segments for a portable sweet-smoky snack with contrasting texture and freshness.",
+    "servings": 2,
+    "difficulty": "Easy",
+    "active_time_minutes": 8,
+    "total_time_minutes": 19,
+    "cuisine": [
+      "Mediterranean-inspired"
+    ],
+    "meal_types": [
+      "Afternoon snack"
+    ],
+    "dietary_tags": [
+      "Lacto-ovo vegetarian",
+      "Portable",
+      "High fibre"
+    ],
+    "allergens": [],
+    "energy_kcal": 202,
+    "protein_g": 8.1,
+    "protein_sources": [
+      "Chickpeas"
+    ]
+  },
+  {
+    "id": "smoky_black_bean_mycoprotein_fajitas_charred_peppers_sweetcorn_tomato_salsa_lime_yoghurt",
+    "filename": "smoky_black_bean_mycoprotein_fajitas_charred_peppers_sweetcorn_tomato_salsa_lime_yoghurt.html",
+    "title": "Smoky Black Bean & Mycoprotein Fajitas with Charred Peppers, Sweetcorn, Tomato Salsa and Lime Yoghurt",
+    "description": "Smoky, deeply browned mycoprotein and black beans with charred peppers and sweetcorn, served in warm wholemeal fajita wraps with a sharp fresh tomato salsa and cooling lime yoghurt.",
+    "servings": 2,
+    "difficulty": "Easy",
+    "active_time_minutes": 28,
+    "total_time_minutes": 35,
+    "cuisine": [
+      "Mexican-inspired"
+    ],
+    "meal_types": [
+      "Dinner"
+    ],
+    "dietary_tags": [
+      "Lacto-ovo vegetarian",
+      "High protein",
+      "High fibre"
+    ],
+    "allergens": [
+      "Milk",
+      "Egg",
+      "Wheat"
+    ],
+    "energy_kcal": 625,
+    "protein_g": 41.5,
+    "protein_sources": [
+      "Beans",
+      "Mycoprotein",
+      "Skyr / Greek yoghurt"
+    ]
+  },
+  {
     "id": "spinach_mushroom_cottage_cheese_egg_muffins_seeded_wholemeal_toast",
     "filename": "spinach_mushroom_cottage_cheese_egg_muffins_seeded_wholemeal_toast.html",
     "title": "Spinach, Mushroom & Cottage Cheese Egg Muffins with Seeded Wholemeal Toast",
@@ -373,6 +792,38 @@
     ],
     "energy_kcal": 400,
     "protein_g": 38,
+    "protein_sources": [
+      "Cottage cheese",
+      "Eggs"
+    ]
+  },
+  {
+    "id": "spinach_mushroom_cottage_cheese_shakshuka_wholemeal_toast",
+    "filename": "spinach_mushroom_cottage_cheese_shakshuka_wholemeal_toast.html",
+    "title": "Spinach, Mushroom & Cottage Cheese Shakshuka with Wholemeal Toast",
+    "description": "A protein-rich shakshuka with deeply browned mushrooms, spinach and a smoky cumin-tomato sauce, finished with softly set eggs, creamy cottage cheese and crisp wholemeal toast.",
+    "servings": 2,
+    "difficulty": "Easy",
+    "active_time_minutes": 22,
+    "total_time_minutes": 30,
+    "cuisine": [
+      "North African-inspired"
+    ],
+    "meal_types": [
+      "Breakfast"
+    ],
+    "dietary_tags": [
+      "Lacto-ovo vegetarian",
+      "High protein",
+      "High fibre"
+    ],
+    "allergens": [
+      "Milk",
+      "Egg",
+      "Wheat"
+    ],
+    "energy_kcal": 410,
+    "protein_g": 38.5,
     "protein_sources": [
       "Cottage cheese",
       "Eggs"

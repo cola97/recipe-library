@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Smoky Black Bean &amp; Mycoprotein Fajitas with Charred Peppers, Sweetcorn, Tomato Salsa and Lime Yoghurt</title>
+
+<style>
+:root {
+    --background: #f4f2ec;
+    --panel: #ffffff;
+    --text: #000000;
+    --muted: #555555;
+    --border: #b9b5ad;
+    --accent: #e5f1dd;
+    --endpoint: #fff4c6;
+    --step: #f7f7f4;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--background);
+    color: var(--text);
+}
+
+body {
+    min-height: 100vh;
+    min-height: 100dvh;
+}
+
+button, input, select, summary { font: inherit; }
+
+.page {
+    width: min(calc(100% - 24px), 1050px);
+    margin: 0 auto;
+    padding: max(12px, env(safe-area-inset-top)) 0 max(40px, env(safe-area-inset-bottom)) 0;
+}
+
+.recipe-header {
+    position: static;
+    background: transparent;
+    padding: 12px 0 10px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.title-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+h1 {
+    margin: 0;
+    font-size: clamp(1.65rem, 5vw, 2.8rem);
+    line-height: 1.12;
+}
+
+.scheduled-date { margin-top: 8px; font-weight: 700; }
+.description { margin: 12px 0 0 0; line-height: 1.5; }
+
+.recipe-info {
+    margin-top: 10px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    background: #ffffff;
+    overflow: hidden;
+}
+
+.recipe-info > summary {
+    cursor: pointer;
+    padding: 9px 11px;
+    font-weight: 750;
+}
+
+.recipe-info-content { padding: 0 11px 11px 11px; }
+
+.tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: #ffffff;
+    color: #000000;
+    font-size: 0.82rem;
+}
+
+.allergens {
+    margin-top: 10px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    background: #ffe4df;
+}
+
+.facts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+    gap: 8px;
+    margin: 14px 0;
+}
+
+.fact {
+    display: grid;
+    gap: 2px;
+    padding: 9px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    background: #ffffff;
+}
+
+.fact span { font-size: 0.78rem; color: var(--muted); }
+
+.recipe-tools {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.serving-tool, .rating-tool {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: #ffffff;
+}
+
+.serving-controls, .rating-buttons {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.serving-controls button, .rating-buttons button {
+    min-height: 36px;
+    padding: 5px 9px;
+    border: 1px solid #000000;
+    border-radius: 7px;
+    background: #ffffff;
+    color: #000000;
+    font-weight: 700;
+}
+
+#servingsValue {
+    min-width: 30px;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 800;
+}
+
+.rating-buttons button.active {
+    background: #000000;
+    color: #ffffff;
+}
+
+.section {
+    display: block;
+    margin-top: 14px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--panel);
+    overflow: hidden;
+}
+
+details.section > summary {
+    cursor: pointer;
+    padding: 15px 16px;
+    font-size: 1.12rem;
+    font-weight: 800;
+    background: var(--accent);
+}
+
+.section-content { padding: 14px; }
+.method-section { padding: 14px; }
+.method-section > h2 { margin: 0 0 12px 0; }
+.ingredient-grid, .card-stack { display: grid; gap: 10px; }
+
+.ingredient-card, .prep-card, .method-step {
+    padding: 14px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--step);
+}
+
+.ingredient-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 14px;
+}
+
+.ingredient-quantity {
+    flex: 0 0 auto;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.subline { margin-top: 7px; line-height: 1.4; }
+.compact-list { margin: 0; padding-left: 22px; }
+.prep-card h3, .method-step h3 { margin: 0; }
+.prep-card p, .method-step p { margin: 10px 0; }
+
+.step-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+}
+
+.step-number {
+    flex: 0 0 auto;
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.step-section {
+    margin-top: 6px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--muted);
+}
+
+.step-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+}
+
+.instruction { font-size: 1rem; line-height: 1.55; }
+
+.endpoint {
+    margin-top: 10px;
+    padding: 10px 12px;
+    border-left: 4px solid #000000;
+    background: var(--endpoint);
+    line-height: 1.45;
+}
+
+.corrective { margin-top: 10px; }
+.corrective summary { cursor: pointer; font-weight: 750; }
+.corrective ul { margin-bottom: 0; }
+
+.cook-button {
+    flex: 0 0 auto;
+    min-height: 42px;
+    padding: 8px 12px;
+    border: 1px solid #000000;
+    border-radius: 9px;
+    background: #000000;
+    color: #ffffff;
+    font-weight: 750;
+}
+
+.cook-controls {
+    display: none;
+    position: sticky;
+    bottom: max(8px, env(safe-area-inset-bottom));
+    z-index: 30;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 14px;
+    padding: 10px;
+    border: 1px solid #000000;
+    border-radius: 12px;
+    background: #ffffff;
+}
+
+.cook-controls button {
+    min-height: 44px;
+    padding: 8px 14px;
+    border: 1px solid #000000;
+    border-radius: 8px;
+    background: #000000;
+    color: #ffffff;
+    font-weight: 750;
+}
+
+.method-step { scroll-margin-top: 58px; }
+
+/* Compact cook-mode header */
+body.cook-mode .recipe-header {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    margin: 0;
+    padding: 6px 0;
+    background: rgba(244, 242, 236, 0.98);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(8px);
+}
+
+body.cook-mode .recipe-header .recipe-info,
+body.cook-mode .recipe-header .scheduled-date,
+body.cook-mode .facts,
+body.cook-mode .recipe-tools,
+body.cook-mode .non-method,
+body.cook-mode .method-section > h2 {
+    display: none;
+}
+
+body.cook-mode .title-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 8px;
+}
+
+body.cook-mode .recipe-header h1 {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+body.cook-mode .cook-button {
+    width: auto;
+    min-height: 36px;
+    padding: 6px 10px;
+    font-size: 0.85rem;
+    white-space: nowrap;
+}
+
+body.cook-mode .method-step { display: none; }
+body.cook-mode .method-step.active { display: block; }
+body.cook-mode .cook-controls { display: flex; }
+body.cook-mode .method-section {
+    min-height: calc(100dvh - 60px);
+    margin-top: 6px;
+}
+
+@media (max-width: 600px) {
+    .page { width: calc(100% - 12px); }
+    .recipe-header { padding-top: 8px; }
+
+    h1 {
+        font-size: 1.35rem;
+        line-height: 1.18;
+    }
+
+    .title-row {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: start;
+    }
+
+    .cook-button {
+        width: auto;
+        min-height: 36px;
+        padding: 6px 10px;
+        font-size: 0.85rem;
+    }
+
+    .recipe-tools { grid-template-columns: 1fr; }
+
+    .serving-tool, .rating-tool {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .rating-buttons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .ingredient-heading {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 3px;
+    }
+
+    .ingredient-quantity { white-space: normal; }
+    .method-section, .section-content { padding: 10px; }
+    .ingredient-card, .prep-card, .method-step { padding: 12px; }
+}
+
+@media print {
+    .recipe-header { position: static; }
+    .cook-button, .cook-controls, .recipe-tools { display: none !important; }
+    body.cook-mode .non-method, body.cook-mode .method-step { display: block; }
+    .section { break-inside: avoid; }
+}
+</style>
+</head>
+
+<body>
+<main class="page">
+
+<header class="recipe-header">
+    <div class="title-row">
+        <h1>Smoky Black Bean &amp; Mycoprotein Fajitas with Charred Peppers, Sweetcorn, Tomato Salsa and Lime Yoghurt</h1>
+        <button id="cookModeButton" class="cook-button" type="button">Cook mode</button>
+    </div>
+
+    
+
+    <details class="recipe-info">
+        <summary>Recipe info</summary>
+        <div class="recipe-info-content">
+            <p class="description">Smoky, deeply browned mycoprotein and black beans with charred peppers and sweetcorn, served in warm wholemeal fajita wraps with a sharp fresh tomato salsa and cooling lime yoghurt.</p>
+            <div class="tag-row"><span class="badge">Dinner</span><span class="badge">Lacto-ovo vegetarian</span><span class="badge">High protein</span><span class="badge">High fibre</span></div>
+            <div class="allergens"><strong>Allergens:</strong> Milk, Egg, Wheat</div>
+        </div>
+    </details>
+</header>
+
+<div class="facts"><div class="fact"><span>Serves</span><strong id="servesFactValue">2</strong></div><div class="fact"><span>Difficulty</span><strong>Easy</strong></div><div class="fact"><span>Active</span><strong>28 min</strong></div><div class="fact"><span>Total</span><strong>35 min</strong></div><div class="fact"><span>Energy</span><strong>625 kcal</strong></div><div class="fact"><span>Protein</span><strong>41.5 g</strong></div></div>
+
+<section class="recipe-tools">
+    <div class="serving-tool">
+        <strong>Servings</strong>
+        <div class="serving-controls">
+            <button id="servingsMinus" type="button">−</button>
+            <span id="servingsValue" data-base-servings="2">2</span>
+            <button id="servingsPlus" type="button">+</button>
+        </div>
+    </div>
+
+    <div class="rating-tool" data-recipe-id="smoky_black_bean_mycoprotein_fajitas_charred_peppers_sweetcorn_tomato_salsa_lime_yoghurt">
+        <strong>Your rating</strong>
+        <div class="rating-buttons">
+            <button id="ratingFavourite" type="button">♥ Favourite</button>
+            <button id="ratingDislike" type="button">👎 Dislike</button>
+        </div>
+    </div>
+</section>
+
+
+<details class="section non-method" open>
+    <summary>Ingredients</summary>
+    <div class="section-content ingredient-grid">
+        <article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Plain mycoprotein pieces</strong>
+<span class="ingredient-quantity" data-base-quantity="300" data-unit="g">300 g</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 pack</div>
+<div class="subline"><strong>Prep:</strong> Use chilled or fully defrosted according to the pack instructions.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Canned black beans</strong>
+<span class="ingredient-quantity" data-base-quantity="240" data-unit="g">240 g</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 x approximately 400 g tin</div>
+<div class="subline"><strong>Prep:</strong> Drain, rinse under cold water and drain thoroughly again.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Small wholemeal tortilla wraps</strong>
+<span class="ingredient-quantity" data-base-quantity="4" data-unit="integer">4</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 pack</div>
+<div class="subline"><strong>Prep:</strong> Keep covered until warming so they remain flexible.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Red peppers</strong>
+<span class="ingredient-quantity" data-base-quantity="2" data-unit="integer">2</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 2 medium red peppers</div>
+<div class="subline"><strong>Prep:</strong> Wash before preparation.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Small red onion</strong>
+<span class="ingredient-quantity" data-base-quantity="1" data-unit="integer">1</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 small red onion</div>
+<div class="subline"><strong>Prep:</strong> Use half in the hot filling and half in the tomato salsa.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Frozen sweetcorn</strong>
+<span class="ingredient-quantity" data-base-quantity="100" data-unit="g">100 g</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 bag</div>
+<div class="subline"><strong>Prep:</strong> No thawing required.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Ripe tomatoes</strong>
+<span class="ingredient-quantity" data-base-quantity="200" data-unit="g">200 g</span>
+</div>
+<div class="subline"><strong>Buy:</strong> Approximately 200 g</div>
+<div class="subline"><strong>Prep:</strong> Wash before preparation.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>0% Greek yoghurt</strong>
+<span class="ingredient-quantity" data-base-quantity="120" data-unit="g">120 g</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 pot</div>
+<div class="subline"><strong>Prep:</strong> Keep refrigerated until required.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Unwaxed lime</strong>
+<span class="ingredient-quantity" data-base-quantity="1" data-unit="integer">1</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 lime</div>
+<div class="subline"><strong>Prep:</strong> Wash and dry before zesting and juicing.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Fresh coriander</strong>
+<span class="ingredient-quantity" data-base-quantity="15" data-unit="g">15 g</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 small pack</div>
+<div class="subline"><strong>Prep:</strong> Wash and dry thoroughly.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Garlic cloves</strong>
+<span class="ingredient-quantity" data-base-quantity="2" data-unit="integer">2</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 bulb</div>
+<div class="subline"><strong>Prep:</strong> Peel before finely grating or crushing.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Rapeseed oil</strong>
+<span class="ingredient-quantity" data-base-quantity="2" data-unit="tsp">2 tsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 bottle</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Smoked paprika</strong>
+<span class="ingredient-quantity" data-base-quantity="2" data-unit="tsp">2 tsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 jar</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Ground cumin</strong>
+<span class="ingredient-quantity" data-base-quantity="1" data-unit="tsp">1 tsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 jar</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Dried oregano</strong>
+<span class="ingredient-quantity" data-base-quantity="1" data-unit="tsp">1 tsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 jar</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Mild chilli powder</strong>
+<span class="ingredient-quantity" data-base-quantity="0.5" data-unit="tsp">½ tsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 jar</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Fine salt</strong>
+<span class="ingredient-quantity" data-base-quantity="0.75" data-unit="tsp">¾ tsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 container</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Ground black pepper</strong>
+<span class="ingredient-quantity" data-base-quantity="0.5" data-unit="tsp">½ tsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 container</div>
+</article>
+    </div>
+</details>
+
+
+<details class="section non-method">
+    <summary>Equipment</summary>
+    <div class="section-content">
+        <ul class="compact-list"><li>Gas hob</li><li>Large heavy frying pan</li><li>Chef&#x27;s knife</li><li>Chopping board</li><li>Medium mixing bowl</li><li>Small bowl</li><li>Fine grater or Microplane</li><li>Measuring spoons</li><li>Colander or sieve</li><li>Heatproof spatula or wooden spoon</li></ul>
+    </div>
+</details>
+
+
+<details class="section non-method" open>
+    <summary>Mise en place</summary>
+    <div class="section-content card-stack"><article class="prep-card">
+<h3>Prep 1</h3>
+<p>Drain the black beans, rinse them thoroughly under cold running water and leave them to drain until no free water remains. Measure 100 g frozen sweetcorn and keep it frozen until cooking.</p>
+<div class="endpoint"><strong>Ready when:</strong> The beans are well drained rather than wet, and the sweetcorn is measured.</div>
+</article><article class="prep-card">
+<h3>Prep 2</h3>
+<p>Halve the peppers, remove the stems, seeds and white membranes, then cut the flesh into strips approximately 8 mm wide. Peel the red onion and dice it into approximately 5 mm pieces; reserve half for the salsa and half for cooking. Peel and finely grate or crush the 2 garlic cloves.</p>
+<div class="endpoint"><strong>Ready when:</strong> The peppers are evenly sliced, the onion is divided into two equal portions and the garlic is finely prepared.</div>
+</article><article class="prep-card">
+<h3>Prep 3</h3>
+<p>Dice the tomatoes into approximately 8 mm pieces. Finely chop the coriander leaves and tender stems. Finely grate the zest from half of the lime, then halve the lime and squeeze the juice.</p>
+<div class="endpoint"><strong>Ready when:</strong> The tomatoes are diced without excessive free liquid, the coriander is chopped, and the lime zest and juice are ready.</div>
+</article><article class="prep-card">
+<h3>Prep 4</h3>
+<p>Measure 2 tsp smoked paprika, 1 tsp ground cumin, 1 tsp dried oregano and 1/2 tsp mild chilli powder together. Keep the 3/4 tsp fine salt and 1/2 tsp black pepper available separately for staged seasoning.</p>
+<div class="endpoint"><strong>Ready when:</strong> The spice mixture and seasonings are measured before cooking begins.</div>
+</article></div>
+</details>
+
+
+<section class="section method-section">
+    <h2>Method</h2>
+    <div id="methodSteps" class="card-stack"><article class="method-step" data-step-index="0">
+<div class="step-heading">
+<div class="step-number">Step 1</div>
+<h3>Make the tomato salsa</h3>
+</div>
+<div class="step-section">Cold accompaniments</div>
+<div class="step-meta"><span class="badge">Time: 2–3 min</span></div>
+<p class="instruction">Combine the diced tomatoes, the reserved half of the diced red onion and approximately half of the chopped coriander. Add approximately half of the lime juice and 1/4 tsp fine salt. Fold together gently and leave at room temperature while the filling cooks.</p>
+<div class="endpoint"><strong>Ready when:</strong> The salsa tastes fresh, lightly salted and distinctly lime-sharp without a pool of liquid in the bottom of the bowl.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul><li><strong>If:</strong> The salsa releases a large amount of watery tomato juice.<br><strong>Do:</strong> Spoon off the excess liquid before serving so the tortillas do not become soggy.</li></ul>
+</details>
+
+</article><article class="method-step" data-step-index="1">
+<div class="step-heading">
+<div class="step-number">Step 2</div>
+<h3>Make the lime yoghurt</h3>
+</div>
+<div class="step-section">Cold accompaniments</div>
+<div class="step-meta"><span class="badge">Time: 1–2 min</span></div>
+<p class="instruction">Stir the 120 g Greek yoghurt with the lime zest and most of the remaining lime juice. Reserve a small amount of lime juice for final adjustment of the hot filling.</p>
+<div class="endpoint"><strong>Ready when:</strong> The yoghurt is smooth, cooling and clearly lime-scented while remaining thick enough to spoon onto the fajitas.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul><li><strong>If:</strong> The yoghurt becomes too loose after adding lime juice.<br><strong>Do:</strong> Do not add any more lime juice; reserve the remainder for the filling.</li></ul>
+</details>
+
+</article><article class="method-step" data-step-index="2">
+<div class="step-heading">
+<div class="step-number">Step 3</div>
+<h3>Warm the tortilla wraps</h3>
+</div>
+<div class="step-section">Tortillas</div>
+<div class="step-meta"><span class="badge">Heat source: gas_hob</span><span class="badge">Setting: medium-high</span><span class="badge">Time: 2–3 min</span></div>
+<p class="instruction">Place the dry frying pan over medium-high heat. Warm the tortilla wraps one at a time for approximately 15-20 seconds per side, just until pliable and lightly toasted in small spots. Stack them immediately and cover with a clean plate or clean tea towel while the filling cooks.</p>
+<div class="endpoint"><strong>Ready when:</strong> The tortillas are warm and flexible with a few light toasted spots but are not crisp or dry.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul><li><strong>If:</strong> A tortilla stiffens or develops dark spots within a few seconds.<br><strong>Do:</strong> Reduce the heat before warming the remaining tortillas.</li></ul>
+</details>
+
+</article><article class="method-step" data-step-index="3">
+<div class="step-heading">
+<div class="step-number">Step 4</div>
+<h3>Char the peppers and onion</h3>
+</div>
+<div class="step-section">Fajita filling</div>
+<div class="step-meta"><span class="badge">Heat source: gas_hob</span><span class="badge">Setting: high</span><span class="badge">Time: 6–8 min</span></div>
+<p class="instruction">Increase the pan to high heat. Add 1 tsp rapeseed oil, then add the pepper strips and the half of the red onion reserved for cooking. Spread them over the pan and leave undisturbed for approximately 1 minute before stirring. Continue cooking for approximately 6-8 minutes, stirring only every 45-60 seconds so the vegetables can develop dark charred edges while softening.</p>
+<div class="endpoint"><strong>Ready when:</strong> The peppers are tender but retain some bite, with distinct dark blistered edges, and the onion is softened and browned.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul><li><strong>If:</strong> The vegetables begin blackening before they soften.<br><strong>Do:</strong> Reduce the heat to medium-high and stir more frequently.</li><li><strong>If:</strong> The vegetables release liquid and steam without colouring.<br><strong>Do:</strong> Keep the heat high, spread them into a single layer and avoid stirring until the visible moisture has evaporated.</li></ul>
+</details>
+
+</article><article class="method-step" data-step-index="4">
+<div class="step-heading">
+<div class="step-number">Step 5</div>
+<h3>Brown the mycoprotein</h3>
+</div>
+<div class="step-section">Fajita filling</div>
+<div class="step-meta"><span class="badge">Heat source: gas_hob</span><span class="badge">Setting: medium-high</span><span class="badge">Time: 5–6 min</span></div>
+<p class="instruction">Push the vegetables towards the edge of the pan. Add the remaining 1 tsp rapeseed oil to the centre, followed by the mycoprotein pieces. Spread the pieces over the hottest area and cook for approximately 5-6 minutes, turning occasionally, until they are piping hot throughout and have developed clear golden-brown patches.</p>
+<div class="endpoint"><strong>Ready when:</strong> The mycoprotein is piping hot and visibly browned rather than pale or wet.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul><li><strong>If:</strong> The mycoprotein starts sticking before it browns.<br><strong>Do:</strong> Reduce the heat slightly and allow the pieces another 30-60 seconds before attempting to turn them.</li><li><strong>If:</strong> Liquid collects in the pan.<br><strong>Do:</strong> Continue cooking uncovered at medium-high heat until the liquid has evaporated before adding the spices.</li></ul>
+</details>
+
+</article><article class="method-step" data-step-index="5">
+<div class="step-heading">
+<div class="step-number">Step 6</div>
+<h3>Bloom the smoky spices</h3>
+</div>
+<div class="step-section">Fajita filling</div>
+<div class="step-meta"><span class="badge">Heat source: gas_hob</span><span class="badge">Setting: medium</span><span class="badge">Time: 0.5–0.75 min</span></div>
+<p class="instruction">Reduce the heat to medium. Add the garlic and the measured smoked-paprika spice mixture. Stir continuously for approximately 30-45 seconds, coating the vegetables and mycoprotein thoroughly.</p>
+<div class="endpoint"><strong>Ready when:</strong> The garlic and spices smell strongly aromatic and smoky but have not darkened or scorched.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul><li><strong>If:</strong> The spices begin catching or smelling bitter.<br><strong>Do:</strong> Immediately proceed to the next step and add the beans and sweetcorn to cool the pan.</li></ul>
+</details>
+
+</article><article class="method-step" data-step-index="6">
+<div class="step-heading">
+<div class="step-number">Step 7</div>
+<h3>Finish with black beans and sweetcorn</h3>
+</div>
+<div class="step-section">Fajita filling</div>
+<div class="step-meta"><span class="badge">Heat source: gas_hob</span><span class="badge">Setting: medium-high</span><span class="badge">Time: 4–5 min</span></div>
+<p class="instruction">Add the drained black beans and frozen sweetcorn. Add 1/2 tsp fine salt and 1/2 tsp black pepper. Cook over medium-high heat for approximately 4-5 minutes, folding everything together, until the beans and sweetcorn are piping hot and any surface moisture has evaporated. Remove from the heat, fold through the remaining coriander and add the reserved lime juice a little at a time.</p>
+<div class="endpoint"><strong>Ready when:</strong> The filling is hot, glossy rather than wet, smoky and savoury, with distinct charred vegetables and enough lime acidity to keep the beans and mycoprotein tasting fresh.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul><li><strong>If:</strong> The filling looks wet enough to soak the tortillas.<br><strong>Do:</strong> Continue cooking uncovered for 1-2 minutes until excess moisture has evaporated.</li><li><strong>If:</strong> The filling tastes heavy or flat after the stated seasoning.<br><strong>Do:</strong> Add the remaining reserved lime juice before adding any further salt.</li><li><strong>If:</strong> The filling becomes dry before the beans and sweetcorn are fully hot.<br><strong>Do:</strong> Add 1 tbsp water, toss through and continue heating briefly.</li></ul>
+</details>
+
+</article></div>
+
+    <div id="cookControls" class="cook-controls">
+        <button id="previousStep" type="button">Previous</button>
+        <div id="stepCounter"></div>
+        <button id="nextStep" type="button">Next</button>
+    </div>
+</section>
+
+
+<details class="section non-method">
+    <summary>Serving</summary>
+    <div class="section-content"><p>Give each person 2 warm small wholemeal tortillas. Divide the smoky black-bean and mycoprotein filling evenly between them, then spoon over the fresh tomato salsa and lime yoghurt. Serve immediately while the filling is hot, the salsa is fresh and the tortillas remain pliable.</p></div>
+</details>
+
+
+<details class="section non-method">
+    <summary>Storage & reheating</summary>
+    <div class="section-content"><p><strong>Refrigerator:</strong> 2 days</p><p>For leftovers, cool the cooked fajita filling promptly and refrigerate it separately from the tortillas, salsa and lime yoghurt in sealed containers. Refrigerate the salsa and yoghurt separately and use within 2 days. Keep unused tortillas sealed according to their pack instructions. Do not assemble fajitas before storage because the tortillas will become soggy.</p><h3>Reheating</h3><ul><li>Hob: reheat the filling in a frying pan over medium heat, stirring regularly, until piping hot throughout; add 1 tbsp water if it begins to dry.</li><li>Air fryer: place the filling in a suitable heatproof dish, cover loosely with foil and heat at approximately 170°C until piping hot, stirring once during reheating.</li><li>Warm the tortillas separately in a dry frying pan for approximately 15-20 seconds per side before serving.</li></ul></div>
+</details>
+
+
+<details class="section non-method">
+    <summary>Shopping</summary>
+    <div class="section-content"><h3>Either retailer</h3><ul><li>Plain vegetarian mycoprotein pieces — 1 pack; use 300 g.</li><li>Canned black beans — 1 approximately 400 g tin; use approximately 240 g drained.</li><li>Small wholemeal tortilla wraps — 1 pack; use 4.</li><li>Red peppers — 2 medium.</li><li>Small red onion — 1.</li><li>Frozen sweetcorn — 1 bag; use 100 g.</li><li>Ripe tomatoes — approximately 200 g.</li><li>0% Greek yoghurt — 1 pot; use 120 g.</li><li>Unwaxed lime — 1.</li><li>Fresh coriander — 1 small pack; use approximately 15 g.</li><li>Garlic — 1 bulb; use 2 cloves.</li><li>Rapeseed oil — use 2 tsp.</li><li>Smoked paprika — use 2 tsp.</li><li>Ground cumin — use 1 tsp.</li><li>Dried oregano — use 1 tsp.</li><li>Mild chilli powder — use 1/2 tsp.</li><li>Fine salt — use 3/4 tsp.</li><li>Ground black pepper — use 1/2 tsp.</li></ul></div>
+</details>
+
+
+</main>
+
+<script>
+(function () {
+    const button = document.getElementById("cookModeButton");
+    const steps = Array.from(document.querySelectorAll(".method-step"));
+    const controls = document.getElementById("cookControls");
+    const previous = document.getElementById("previousStep");
+    const next = document.getElementById("nextStep");
+    const counter = document.getElementById("stepCounter");
+    let currentStep = 0;
+
+    function showStep(index) {
+        if (!steps.length) return;
+
+        currentStep = Math.max(0, Math.min(index, steps.length - 1));
+        steps.forEach((step, stepIndex) => {
+            step.classList.toggle("active", stepIndex === currentStep);
+        });
+
+        if (counter) counter.textContent = "Step " + (currentStep + 1) + " of " + steps.length;
+        if (previous) previous.disabled = currentStep === 0;
+        if (next) next.disabled = currentStep === steps.length - 1;
+
+        const active = steps[currentStep];
+        if (active) {
+            active.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+    }
+
+    if (button) {
+        button.addEventListener("click", () => {
+            const active = document.body.classList.toggle("cook-mode");
+            button.textContent = active ? "Exit cook mode" : "Cook mode";
+            if (active) showStep(currentStep);
+        });
+    }
+
+    if (previous) previous.addEventListener("click", () => showStep(currentStep - 1));
+    if (next) next.addEventListener("click", () => showStep(currentStep + 1));
+    if (!steps.length && controls) controls.style.display = "none";
+
+    /* Serving scaler */
+    const servingsMinus = document.getElementById("servingsMinus");
+    const servingsPlus = document.getElementById("servingsPlus");
+    const servingsValue = document.getElementById("servingsValue");
+    const servesFactValue = document.getElementById("servesFactValue");
+    const recipeId = "smoky_black_bean_mycoprotein_fajitas_charred_peppers_sweetcorn_tomato_salsa_lime_yoghurt";
+
+    function formatFraction(value) {
+        const rounded = Math.round(value * 8) / 8;
+        const whole = Math.floor(rounded);
+        const remainder = Math.round((rounded - whole) * 8);
+        const fractions = { 0: "", 1: "⅛", 2: "¼", 3: "⅜", 4: "½", 5: "⅝", 6: "¾", 7: "⅞" };
+
+        if (whole > 0 && remainder > 0) return String(whole) + fractions[remainder];
+        if (whole > 0) return String(whole);
+        if (remainder > 0) return fractions[remainder];
+        return "0";
+    }
+
+    function formatScaledQuantity(value, unit) {
+        if (unit === "tsp" || unit === "tbsp" || unit === "integer") {
+            const number = formatFraction(value);
+            return unit === "integer" ? number : number + " " + unit;
+        }
+
+        const rounded = Math.round(value * 10) / 10;
+        return String(rounded) + (unit ? " " + unit : "");
+    }
+
+    function setServings(newServings) {
+        const baseServings = Number(servingsValue.dataset.baseServings);
+        newServings = Math.max(1, Math.min(12, newServings));
+        servingsValue.textContent = String(newServings);
+        if (servesFactValue) servesFactValue.textContent = String(newServings);
+
+        const factor = newServings / baseServings;
+        document.querySelectorAll(".ingredient-quantity").forEach(element => {
+            const baseQuantity = Number(element.dataset.baseQuantity);
+            const unit = element.dataset.unit;
+            if (!Number.isFinite(baseQuantity)) return;
+            element.textContent = formatScaledQuantity(baseQuantity * factor, unit);
+        });
+
+        localStorage.setItem("recipe-servings:" + recipeId, String(newServings));
+    }
+
+    if (servingsMinus && servingsPlus && servingsValue) {
+        servingsMinus.addEventListener("click", () => {
+            setServings(Number(servingsValue.textContent) - 1);
+        });
+        servingsPlus.addEventListener("click", () => {
+            setServings(Number(servingsValue.textContent) + 1);
+        });
+
+        const saved = Number(localStorage.getItem("recipe-servings:" + recipeId));
+        if (Number.isFinite(saved) && saved >= 1) setServings(saved);
+    }
+
+    /* Favourite / neutral / dislike */
+    const favouriteButton = document.getElementById("ratingFavourite");
+    const dislikeButton = document.getElementById("ratingDislike");
+    const ratingKey = "recipe-rating:" + recipeId;
+
+    function setRating(rating) {
+        localStorage.setItem(ratingKey, rating);
+        if (favouriteButton) favouriteButton.classList.toggle("active", rating === "favourite");
+        if (dislikeButton) dislikeButton.classList.toggle("active", rating === "dislike");
+    }
+
+    if (favouriteButton) favouriteButton.addEventListener("click", () => setRating("favourite"));
+    if (neutralButton) neutralButton.addEventListener("click", () => setRating("neutral"));
+    if (dislikeButton) dislikeButton.addEventListener("click", () => setRating("dislike"));
+
+    if (favouriteButton && neutralButton && dislikeButton) {
+        setRating(localStorage.getItem(ratingKey) || "neutral");
+    }
+})();
+</script>
+
+</body>
+</html>

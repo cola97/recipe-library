@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Spinach, Mushroom &amp; Cottage Cheese Shakshuka with Wholemeal Toast</title>
+
+<style>
+:root {
+    --background: #f4f2ec;
+    --panel: #ffffff;
+    --text: #000000;
+    --muted: #555555;
+    --border: #b9b5ad;
+    --accent: #e5f1dd;
+    --endpoint: #fff4c6;
+    --step: #f7f7f4;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--background);
+    color: var(--text);
+}
+
+body {
+    min-height: 100vh;
+    min-height: 100dvh;
+}
+
+button, input, select, summary { font: inherit; }
+
+.page {
+    width: min(calc(100% - 24px), 1050px);
+    margin: 0 auto;
+    padding: max(12px, env(safe-area-inset-top)) 0 max(40px, env(safe-area-inset-bottom)) 0;
+}
+
+.recipe-header {
+    position: static;
+    background: transparent;
+    padding: 12px 0 10px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.title-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+h1 {
+    margin: 0;
+    font-size: clamp(1.65rem, 5vw, 2.8rem);
+    line-height: 1.12;
+}
+
+.scheduled-date { margin-top: 8px; font-weight: 700; }
+.description { margin: 12px 0 0 0; line-height: 1.5; }
+
+.recipe-info {
+    margin-top: 10px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    background: #ffffff;
+    overflow: hidden;
+}
+
+.recipe-info > summary {
+    cursor: pointer;
+    padding: 9px 11px;
+    font-weight: 750;
+}
+
+.recipe-info-content { padding: 0 11px 11px 11px; }
+
+.tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: #ffffff;
+    color: #000000;
+    font-size: 0.82rem;
+}
+
+.allergens {
+    margin-top: 10px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    background: #ffe4df;
+}
+
+.facts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+    gap: 8px;
+    margin: 14px 0;
+}
+
+.fact {
+    display: grid;
+    gap: 2px;
+    padding: 9px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    background: #ffffff;
+}
+
+.fact span { font-size: 0.78rem; color: var(--muted); }
+
+.recipe-tools {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.serving-tool, .rating-tool {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: #ffffff;
+}
+
+.serving-controls, .rating-buttons {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.serving-controls button, .rating-buttons button {
+    min-height: 36px;
+    padding: 5px 9px;
+    border: 1px solid #000000;
+    border-radius: 7px;
+    background: #ffffff;
+    color: #000000;
+    font-weight: 700;
+}
+
+#servingsValue {
+    min-width: 30px;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 800;
+}
+
+.rating-buttons button.active {
+    background: #000000;
+    color: #ffffff;
+}
+
+.section {
+    display: block;
+    margin-top: 14px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--panel);
+    overflow: hidden;
+}
+
+details.section > summary {
+    cursor: pointer;
+    padding: 15px 16px;
+    font-size: 1.12rem;
+    font-weight: 800;
+    background: var(--accent);
+}
+
+.section-content { padding: 14px; }
+.method-section { padding: 14px; }
+.method-section > h2 { margin: 0 0 12px 0; }
+.ingredient-grid, .card-stack { display: grid; gap: 10px; }
+
+.ingredient-card, .prep-card, .method-step {
+    padding: 14px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--step);
+}
+
+.ingredient-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 14px;
+}
+
+.ingredient-quantity {
+    flex: 0 0 auto;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.subline { margin-top: 7px; line-height: 1.4; }
+.compact-list { margin: 0; padding-left: 22px; }
+.prep-card h3, .method-step h3 { margin: 0; }
+.prep-card p, .method-step p { margin: 10px 0; }
+
+.step-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+}
+
+.step-number {
+    flex: 0 0 auto;
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.step-section {
+    margin-top: 6px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--muted);
+}
+
+.step-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+}
+
+.instruction { font-size: 1rem; line-height: 1.55; }
+
+.endpoint {
+    margin-top: 10px;
+    padding: 10px 12px;
+    border-left: 4px solid #000000;
+    background: var(--endpoint);
+    line-height: 1.45;
+}
+
+.corrective { margin-top: 10px; }
+.corrective summary { cursor: pointer; font-weight: 750; }
+.corrective ul { margin-bottom: 0; }
+
+.cook-button {
+    flex: 0 0 auto;
+    min-height: 42px;
+    padding: 8px 12px;
+    border: 1px solid #000000;
+    border-radius: 9px;
+    background: #000000;
+    color: #ffffff;
+    font-weight: 750;
+}
+
+.cook-controls {
+    display: none;
+    position: sticky;
+    bottom: max(8px, env(safe-area-inset-bottom));
+    z-index: 30;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 14px;
+    padding: 10px;
+    border: 1px solid #000000;
+    border-radius: 12px;
+    background: #ffffff;
+}
+
+.cook-controls button {
+    min-height: 44px;
+    padding: 8px 14px;
+    border: 1px solid #000000;
+    border-radius: 8px;
+    background: #000000;
+    color: #ffffff;
+    font-weight: 750;
+}
+
+.method-step { scroll-margin-top: 58px; }
+
+/* Compact cook-mode header */
+body.cook-mode .recipe-header {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    margin: 0;
+    padding: 6px 0;
+    background: rgba(244, 242, 236, 0.98);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(8px);
+}
+
+body.cook-mode .recipe-header .recipe-info,
+body.cook-mode .recipe-header .scheduled-date,
+body.cook-mode .facts,
+body.cook-mode .recipe-tools,
+body.cook-mode .non-method,
+body.cook-mode .method-section > h2 {
+    display: none;
+}
+
+body.cook-mode .title-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 8px;
+}
+
+body.cook-mode .recipe-header h1 {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+body.cook-mode .cook-button {
+    width: auto;
+    min-height: 36px;
+    padding: 6px 10px;
+    font-size: 0.85rem;
+    white-space: nowrap;
+}
+
+body.cook-mode .method-step { display: none; }
+body.cook-mode .method-step.active { display: block; }
+body.cook-mode .cook-controls { display: flex; }
+body.cook-mode .method-section {
+    min-height: calc(100dvh - 60px);
+    margin-top: 6px;
+}
+
+@media (max-width: 600px) {
+    .page { width: calc(100% - 12px); }
+    .recipe-header { padding-top: 8px; }
+
+    h1 {
+        font-size: 1.35rem;
+        line-height: 1.18;
+    }
+
+    .title-row {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: start;
+    }
+
+    .cook-button {
+        width: auto;
+        min-height: 36px;
+        padding: 6px 10px;
+        font-size: 0.85rem;
+    }
+
+    .recipe-tools { grid-template-columns: 1fr; }
+
+    .serving-tool, .rating-tool {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .rating-buttons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .ingredient-heading {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 3px;
+    }
+
+    .ingredient-quantity { white-space: normal; }
+    .method-section, .section-content { padding: 10px; }
+    .ingredient-card, .prep-card, .method-step { padding: 12px; }
+}
+
+@media print {
+    .recipe-header { position: static; }
+    .cook-button, .cook-controls, .recipe-tools { display: none !important; }
+    body.cook-mode .non-method, body.cook-mode .method-step { display: block; }
+    .section { break-inside: avoid; }
+}
+</style>
+</head>
+
+<body>
+<main class="page">
+
+<header class="recipe-header">
+    <div class="title-row">
+        <h1>Spinach, Mushroom &amp; Cottage Cheese Shakshuka with Wholemeal Toast</h1>
+        <button id="cookModeButton" class="cook-button" type="button">Cook mode</button>
+    </div>
+
+    
+
+    <details class="recipe-info">
+        <summary>Recipe info</summary>
+        <div class="recipe-info-content">
+            <p class="description">A protein-rich shakshuka with deeply browned mushrooms, spinach and a smoky cumin-tomato sauce, finished with softly set eggs, creamy cottage cheese and crisp wholemeal toast.</p>
+            <div class="tag-row"><span class="badge">Breakfast</span><span class="badge">Lacto-ovo vegetarian</span><span class="badge">High protein</span><span class="badge">High fibre</span></div>
+            <div class="allergens"><strong>Allergens:</strong> Milk, Egg, Wheat</div>
+        </div>
+    </details>
+</header>
+
+<div class="facts"><div class="fact"><span>Serves</span><strong id="servesFactValue">2</strong></div><div class="fact"><span>Difficulty</span><strong>Easy</strong></div><div class="fact"><span>Active</span><strong>22 min</strong></div><div class="fact"><span>Total</span><strong>30 min</strong></div><div class="fact"><span>Energy</span><strong>410 kcal</strong></div><div class="fact"><span>Protein</span><strong>38.5 g</strong></div></div>
+
+<section class="recipe-tools">
+    <div class="serving-tool">
+        <strong>Servings</strong>
+        <div class="serving-controls">
+            <button id="servingsMinus" type="button">−</button>
+            <span id="servingsValue" data-base-servings="2">2</span>
+            <button id="servingsPlus" type="button">+</button>
+        </div>
+    </div>
+
+    <div class="rating-tool" data-recipe-id="spinach_mushroom_cottage_cheese_shakshuka_wholemeal_toast">
+        <strong>Your rating</strong>
+        <div class="rating-buttons">
+            <button id="ratingFavourite" type="button">♥ Favourite</button>
+            <button id="ratingDislike" type="button">👎 Dislike</button>
+        </div>
+    </div>
+</section>
+
+
+<details class="section non-method" open>
+    <summary>Ingredients</summary>
+    <div class="section-content ingredient-grid">
+        <article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Medium eggs</strong>
+<span class="ingredient-quantity" data-base-quantity="2" data-unit="integer">2</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 box</div>
+<div class="subline"><strong>Prep:</strong> Keep refrigerated until required.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Liquid egg whites</strong>
+<span class="ingredient-quantity" data-base-quantity="200" data-unit="g">200 g</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 carton</div>
+<div class="subline"><strong>Prep:</strong> Keep refrigerated until required.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Low-fat cottage cheese</strong>
+<span class="ingredient-quantity" data-base-quantity="160" data-unit="g">160 g</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 tub</div>
+<div class="subline"><strong>Prep:</strong> Keep refrigerated until required.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Wholemeal bread</strong>
+<span class="ingredient-quantity" data-base-quantity="2" data-unit="integer">2</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 loaf</div>
+<div class="subline"><strong>Prep:</strong> Keep sliced and ready for toasting.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Canned chopped tomatoes</strong>
+<span class="ingredient-quantity" data-base-quantity="400" data-unit="g">400 g</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 x approximately 400 g tin</div>
+<div class="subline"><strong>Prep:</strong> Open immediately before use.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Chestnut mushrooms</strong>
+<span class="ingredient-quantity" data-base-quantity="200" data-unit="g">200 g</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 pack</div>
+<div class="subline"><strong>Prep:</strong> Wipe clean rather than soaking.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Fresh spinach</strong>
+<span class="ingredient-quantity" data-base-quantity="120" data-unit="g">120 g</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 bag</div>
+<div class="subline"><strong>Prep:</strong> Wash if required and dry thoroughly.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Medium brown onion</strong>
+<span class="ingredient-quantity" data-base-quantity="1" data-unit="integer">1</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 medium brown onion</div>
+<div class="subline"><strong>Prep:</strong> Peel before chopping.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Garlic cloves</strong>
+<span class="ingredient-quantity" data-base-quantity="2" data-unit="integer">2</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 bulb</div>
+<div class="subline"><strong>Prep:</strong> Peel before finely grating or crushing.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Tomato purée</strong>
+<span class="ingredient-quantity" data-base-quantity="1" data-unit="tbsp">1 tbsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 tube or small container</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Olive oil</strong>
+<span class="ingredient-quantity" data-base-quantity="1" data-unit="tsp">1 tsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 bottle</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Smoked paprika</strong>
+<span class="ingredient-quantity" data-base-quantity="1" data-unit="tsp">1 tsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 jar</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Ground cumin</strong>
+<span class="ingredient-quantity" data-base-quantity="1" data-unit="tsp">1 tsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 jar</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Chilli flakes</strong>
+<span class="ingredient-quantity" data-base-quantity="0.25" data-unit="tsp">¼ tsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 jar</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Red wine vinegar</strong>
+<span class="ingredient-quantity" data-base-quantity="1" data-unit="tsp">1 tsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 bottle</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Fine salt</strong>
+<span class="ingredient-quantity" data-base-quantity="0.25" data-unit="tsp">¼ tsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 container</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Ground black pepper</strong>
+<span class="ingredient-quantity" data-base-quantity="0.25" data-unit="tsp">¼ tsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 container</div>
+</article>
+    </div>
+</details>
+
+
+<details class="section non-method">
+    <summary>Equipment</summary>
+    <div class="section-content">
+        <ul class="compact-list"><li>Gas hob</li><li>Large sauté pan with lid</li><li>Toaster</li><li>Chef&#x27;s knife</li><li>Chopping board</li><li>Fine grater or Microplane</li><li>Measuring spoons</li><li>Kitchen scales</li><li>Heatproof spatula or wooden spoon</li></ul>
+    </div>
+</details>
+
+
+<details class="section non-method" open>
+    <summary>Mise en place</summary>
+    <div class="section-content card-stack"><article class="prep-card">
+<h3>Prep 1</h3>
+<p>Peel the onion, trim the root and stem ends, then dice the usable flesh into approximately 5 mm pieces. Peel and finely grate or crush the garlic. Trim the mushroom stem ends and slice the mushrooms approximately 5 mm thick.</p>
+<div class="endpoint"><strong>Ready when:</strong> The onion is evenly diced, the garlic is finely prepared and the mushrooms are sliced to a consistent thickness.</div>
+</article><article class="prep-card">
+<h3>Prep 2</h3>
+<p>Wash the spinach if required, then dry it thoroughly. Remove only any unusually thick or damaged stems.</p>
+<div class="endpoint"><strong>Ready when:</strong> The spinach is clean and dry enough that it will wilt without adding unnecessary water to the sauce.</div>
+</article><article class="prep-card">
+<h3>Prep 3</h3>
+<p>Keep the 2 eggs whole until required. Weigh 200 g liquid egg whites and 160 g cottage cheese into separate ready-to-use portions.</p>
+<div class="endpoint"><strong>Ready when:</strong> The eggs, egg whites and cottage cheese are ready to add without interrupting cooking.</div>
+</article><article class="prep-card">
+<h3>Prep 4</h3>
+<p>Measure 1 tsp smoked paprika, 1 tsp ground cumin, 1/4 tsp chilli flakes, 1/4 tsp fine salt, 1/4 tsp black pepper, 1 tbsp tomato purée and 1 tsp red wine vinegar so they are ready to add in sequence.</p>
+<div class="endpoint"><strong>Ready when:</strong> All seasoning and sauce ingredients are measured before cooking begins.</div>
+</article></div>
+</details>
+
+
+<section class="section method-section">
+    <h2>Method</h2>
+    <div id="methodSteps" class="card-stack"><article class="method-step" data-step-index="0">
+<div class="step-heading">
+<div class="step-number">Step 1</div>
+<h3>Brown the mushrooms and soften the onion</h3>
+</div>
+<div class="step-section">Vegetable base</div>
+<div class="step-meta"><span class="badge">Heat source: gas_hob</span><span class="badge">Setting: medium-high</span><span class="badge">Time: 7–9 min</span></div>
+<p class="instruction">Heat the sauté pan over medium-high heat for approximately 1 minute. Add 1 tsp olive oil, followed by the mushrooms and onion. Spread them across the pan and cook for approximately 7-9 minutes, stirring only every 60-90 seconds at first so the mushrooms can release their moisture and develop brown edges.</p>
+<div class="endpoint"><strong>Ready when:</strong> The mushroom liquid has evaporated, the mushrooms are well browned and the onion is soft with lightly golden edges.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul><li><strong>If:</strong> The mushrooms release liquid and remain grey rather than browning.<br><strong>Do:</strong> Keep the pan uncovered at medium-high heat and avoid stirring until the visible liquid has evaporated.</li><li><strong>If:</strong> The onion begins darkening before the mushrooms have browned.<br><strong>Do:</strong> Reduce the heat slightly and stir more frequently until the mushrooms catch up.</li></ul>
+</details>
+
+</article><article class="method-step" data-step-index="1">
+<div class="step-heading">
+<div class="step-number">Step 2</div>
+<h3>Bloom the garlic, spices and tomato purée</h3>
+</div>
+<div class="step-section">Tomato sauce</div>
+<div class="step-meta"><span class="badge">Heat source: gas_hob</span><span class="badge">Setting: medium</span><span class="badge">Time: 0.75–1 min</span></div>
+<p class="instruction">Reduce the heat to medium. Add the garlic, smoked paprika, cumin, chilli flakes and tomato purée. Stir continuously for approximately 45-60 seconds, scraping the purée across the base of the pan so it darkens slightly without scorching.</p>
+<div class="endpoint"><strong>Ready when:</strong> The mixture smells strongly aromatic and the tomato purée has changed from bright red to a slightly darker brick-red colour.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul><li><strong>If:</strong> The garlic or spices begin catching or smelling bitter.<br><strong>Do:</strong> Immediately proceed to the next step and add the canned tomatoes to stop further browning.</li></ul>
+</details>
+
+</article><article class="method-step" data-step-index="2">
+<div class="step-heading">
+<div class="step-number">Step 3</div>
+<h3>Reduce the shakshuka sauce</h3>
+</div>
+<div class="step-section">Tomato sauce</div>
+<div class="step-meta"><span class="badge">Heat source: gas_hob</span><span class="badge">Setting: medium</span><span class="badge">Time: 5–7 min</span></div>
+<p class="instruction">Add the canned tomatoes, 1 tsp red wine vinegar, 1/4 tsp fine salt and 1/4 tsp black pepper. Stir thoroughly and bring to a lively simmer. Cook uncovered over medium heat for approximately 5-7 minutes, stirring occasionally and scraping the base of the pan.</p>
+<div class="endpoint"><strong>Ready when:</strong> The sauce has visibly thickened, a spatula drawn through the centre leaves a trail that remains open for 1-2 seconds, and there is no watery liquid separating around the edges.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul><li><strong>If:</strong> The sauce thickens and catches before the tomatoes have lost their raw canned flavour.<br><strong>Do:</strong> Reduce the heat and add 1 tbsp water, then continue simmering.</li><li><strong>If:</strong> The sauce remains watery after 7 minutes.<br><strong>Do:</strong> Increase the heat slightly and continue uncovered until the stated trail test is achieved.</li></ul>
+</details>
+
+</article><article class="method-step" data-step-index="3">
+<div class="step-heading">
+<div class="step-number">Step 4</div>
+<h3>Wilt the spinach</h3>
+</div>
+<div class="step-section">Vegetables</div>
+<div class="step-meta"><span class="badge">Heat source: gas_hob</span><span class="badge">Setting: medium</span><span class="badge">Time: 1–2 min</span></div>
+<p class="instruction">Add the spinach in 2 additions, folding each portion into the hot sauce before adding the next. Cook for approximately 1-2 minutes until all of the spinach has collapsed into the sauce.</p>
+<div class="endpoint"><strong>Ready when:</strong> The spinach is fully wilted and evenly distributed, while the sauce remains thick rather than watery.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul><li><strong>If:</strong> The spinach releases enough water to loosen the sauce noticeably.<br><strong>Do:</strong> Continue cooking uncovered for another 1-2 minutes until the sauce returns to the previous thick consistency.</li></ul>
+</details>
+
+</article><article class="method-step" data-step-index="4">
+<div class="step-heading">
+<div class="step-number">Step 5</div>
+<h3>Add and set the eggs</h3>
+</div>
+<div class="step-section">Eggs</div>
+<div class="step-meta"><span class="badge">Heat source: gas_hob</span><span class="badge">Setting: low-medium</span><span class="badge">Time: 5–7 min</span></div>
+<p class="instruction">Reduce the heat to low-medium. Make 2 wells in the sauce and crack 1 egg into each well. Pour the 200 g liquid egg whites evenly into the spaces between the eggs rather than directly over the yolks. Cover the pan and cook for approximately 5-7 minutes.</p>
+<div class="endpoint"><strong>Ready when:</strong> All egg white, including the added liquid egg white, is fully opaque and set with no translucent patches; the whole-egg yolks may remain soft if preferred.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul><li><strong>If:</strong> The tomato sauce begins bubbling aggressively around the eggs.<br><strong>Do:</strong> Reduce the heat so the eggs set gently rather than becoming tough at the base.</li><li><strong>If:</strong> The egg whites remain translucent after 7 minutes.<br><strong>Do:</strong> Keep the pan covered and continue cooking in 1-minute increments until all white is opaque.</li></ul>
+</details>
+
+</article><article class="method-step" data-step-index="5">
+<div class="step-heading">
+<div class="step-number">Step 6</div>
+<h3>Toast the wholemeal bread</h3>
+</div>
+<div class="step-section">Toast</div>
+<div class="step-meta"><span class="badge">Heat source: toaster</span><span class="badge">Setting: medium</span><span class="badge">Time: 2–4 min</span></div>
+<p class="instruction">While the eggs are setting, toast the 2 slices of wholemeal bread until crisp at the surface and golden at the edges while remaining tender inside.</p>
+<div class="endpoint"><strong>Ready when:</strong> The toast is hot, crisp and evenly browned without scorched edges.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul><li><strong>If:</strong> The bread is browning too quickly.<br><strong>Do:</strong> Stop the toaster early rather than allowing the edges to burn.</li></ul>
+</details>
+
+</article><article class="method-step" data-step-index="6">
+<div class="step-heading">
+<div class="step-number">Step 7</div>
+<h3>Warm the cottage cheese</h3>
+</div>
+<div class="step-section">Finishing</div>
+<div class="step-meta"><span class="badge">Heat source: gas_hob</span><span class="badge">Setting: low</span><span class="badge">Time: 1 min</span></div>
+<p class="instruction">Once the egg whites are fully set, remove the lid and spoon the cottage cheese in small dollops across the sauce, keeping the egg yolks visible. Cover again for approximately 1 minute over low heat, just until the cottage cheese is warmed but still visibly curded.</p>
+<div class="endpoint"><strong>Ready when:</strong> The cottage cheese is warm and creamy while retaining distinct curds, and the eggs remain correctly cooked.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul><li><strong>If:</strong> The sauce begins bubbling hard after the cottage cheese is added.<br><strong>Do:</strong> Turn off the heat and allow the residual pan heat to warm the cottage cheese.</li></ul>
+</details>
+
+</article></div>
+
+    <div id="cookControls" class="cook-controls">
+        <button id="previousStep" type="button">Previous</button>
+        <div id="stepCounter"></div>
+        <button id="nextStep" type="button">Next</button>
+    </div>
+</section>
+
+
+<details class="section non-method">
+    <summary>Serving</summary>
+    <div class="section-content"><p>Divide the shakshuka between two warm bowls or shallow plates so each person receives 1 whole egg, approximately half of the extra egg white, vegetables, tomato sauce and cottage cheese. Serve each portion immediately with 1 slice of crisp wholemeal toast for scooping.</p></div>
+</details>
+
+
+<details class="section non-method">
+    <summary>Storage & reheating</summary>
+    <div class="section-content"><p><strong>Refrigerator:</strong> 1 days</p><p>The completed shakshuka is best eaten immediately. If necessary, cool leftovers promptly and refrigerate in a sealed container for up to 1 day. Store toast separately so it does not soften. For make-ahead preparation, the mushroom, spinach and tomato base may be prepared up to 2 days in advance and refrigerated; reheat it until piping hot before adding fresh eggs and cottage cheese.</p><h3>Reheating</h3><ul><li>Hob: place leftover shakshuka in a covered frying or sauté pan over low heat with 1 tbsp water and heat gently until piping hot throughout, avoiding prolonged heating that will toughen the eggs.</li><li>Oven: cover in a suitable ovenproof dish and heat at approximately 170°C until piping hot throughout.</li><li>Toast fresh wholemeal bread separately immediately before serving.</li></ul></div>
+</details>
+
+
+<details class="section non-method">
+    <summary>Shopping</summary>
+    <div class="section-content"><h3>Either retailer</h3><ul><li>Medium eggs — 1 box; use 2.</li><li>Liquid egg whites — 1 carton; use 200 g.</li><li>Low-fat cottage cheese — 1 tub; use 160 g.</li><li>Wholemeal bread — 1 loaf; use 2 large slices.</li><li>Canned chopped tomatoes — 1 approximately 400 g tin.</li><li>Chestnut mushrooms — 1 pack; use 200 g.</li><li>Fresh spinach — 1 bag; use 120 g.</li><li>Medium brown onion — 1.</li><li>Garlic — 1 bulb; use 2 cloves.</li><li>Tomato purée — use 1 tbsp.</li><li>Olive oil — use 1 tsp.</li><li>Smoked paprika — use 1 tsp.</li><li>Ground cumin — use 1 tsp.</li><li>Chilli flakes — use 1/4 tsp.</li><li>Red wine vinegar — use 1 tsp.</li><li>Fine salt — use 1/4 tsp.</li><li>Ground black pepper — use 1/4 tsp.</li></ul></div>
+</details>
+
+
+</main>
+
+<script>
+(function () {
+    const button = document.getElementById("cookModeButton");
+    const steps = Array.from(document.querySelectorAll(".method-step"));
+    const controls = document.getElementById("cookControls");
+    const previous = document.getElementById("previousStep");
+    const next = document.getElementById("nextStep");
+    const counter = document.getElementById("stepCounter");
+    let currentStep = 0;
+
+    function showStep(index) {
+        if (!steps.length) return;
+
+        currentStep = Math.max(0, Math.min(index, steps.length - 1));
+        steps.forEach((step, stepIndex) => {
+            step.classList.toggle("active", stepIndex === currentStep);
+        });
+
+        if (counter) counter.textContent = "Step " + (currentStep + 1) + " of " + steps.length;
+        if (previous) previous.disabled = currentStep === 0;
+        if (next) next.disabled = currentStep === steps.length - 1;
+
+        const active = steps[currentStep];
+        if (active) {
+            active.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+    }
+
+    if (button) {
+        button.addEventListener("click", () => {
+            const active = document.body.classList.toggle("cook-mode");
+            button.textContent = active ? "Exit cook mode" : "Cook mode";
+            if (active) showStep(currentStep);
+        });
+    }
+
+    if (previous) previous.addEventListener("click", () => showStep(currentStep - 1));
+    if (next) next.addEventListener("click", () => showStep(currentStep + 1));
+    if (!steps.length && controls) controls.style.display = "none";
+
+    /* Serving scaler */
+    const servingsMinus = document.getElementById("servingsMinus");
+    const servingsPlus = document.getElementById("servingsPlus");
+    const servingsValue = document.getElementById("servingsValue");
+    const servesFactValue = document.getElementById("servesFactValue");
+    const recipeId = "spinach_mushroom_cottage_cheese_shakshuka_wholemeal_toast";
+
+    function formatFraction(value) {
+        const rounded = Math.round(value * 8) / 8;
+        const whole = Math.floor(rounded);
+        const remainder = Math.round((rounded - whole) * 8);
+        const fractions = { 0: "", 1: "⅛", 2: "¼", 3: "⅜", 4: "½", 5: "⅝", 6: "¾", 7: "⅞" };
+
+        if (whole > 0 && remainder > 0) return String(whole) + fractions[remainder];
+        if (whole > 0) return String(whole);
+        if (remainder > 0) return fractions[remainder];
+        return "0";
+    }
+
+    function formatScaledQuantity(value, unit) {
+        if (unit === "tsp" || unit === "tbsp" || unit === "integer") {
+            const number = formatFraction(value);
+            return unit === "integer" ? number : number + " " + unit;
+        }
+
+        const rounded = Math.round(value * 10) / 10;
+        return String(rounded) + (unit ? " " + unit : "");
+    }
+
+    function setServings(newServings) {
+        const baseServings = Number(servingsValue.dataset.baseServings);
+        newServings = Math.max(1, Math.min(12, newServings));
+        servingsValue.textContent = String(newServings);
+        if (servesFactValue) servesFactValue.textContent = String(newServings);
+
+        const factor = newServings / baseServings;
+        document.querySelectorAll(".ingredient-quantity").forEach(element => {
+            const baseQuantity = Number(element.dataset.baseQuantity);
+            const unit = element.dataset.unit;
+            if (!Number.isFinite(baseQuantity)) return;
+            element.textContent = formatScaledQuantity(baseQuantity * factor, unit);
+        });
+
+        localStorage.setItem("recipe-servings:" + recipeId, String(newServings));
+    }
+
+    if (servingsMinus && servingsPlus && servingsValue) {
+        servingsMinus.addEventListener("click", () => {
+            setServings(Number(servingsValue.textContent) - 1);
+        });
+        servingsPlus.addEventListener("click", () => {
+            setServings(Number(servingsValue.textContent) + 1);
+        });
+
+        const saved = Number(localStorage.getItem("recipe-servings:" + recipeId));
+        if (Number.isFinite(saved) && saved >= 1) setServings(saved);
+    }
+
+    /* Favourite / neutral / dislike */
+    const favouriteButton = document.getElementById("ratingFavourite");
+    const dislikeButton = document.getElementById("ratingDislike");
+    const ratingKey = "recipe-rating:" + recipeId;
+
+    function setRating(rating) {
+        localStorage.setItem(ratingKey, rating);
+        if (favouriteButton) favouriteButton.classList.toggle("active", rating === "favourite");
+        if (dislikeButton) dislikeButton.classList.toggle("active", rating === "dislike");
+    }
+
+    if (favouriteButton) favouriteButton.addEventListener("click", () => setRating("favourite"));
+    if (neutralButton) neutralButton.addEventListener("click", () => setRating("neutral"));
+    if (dislikeButton) dislikeButton.addEventListener("click", () => setRating("dislike"));
+
+    if (favouriteButton && neutralButton && dislikeButton) {
+        setRating(localStorage.getItem(ratingKey) || "neutral");
+    }
+})();
+</script>
+
+</body>
+</html>

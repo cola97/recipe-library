@@ -377,6 +377,494 @@ PLAN = {
         "Afternoon snack": "Chilli-Lime Roasted Edamame with Satsuma",
         "Dinner": "Smoky Mycoprotein, Black Bean & Mushroom Chilli-Stuffed Roasted Squash with Lime Yoghurt",
         "Evening snack": "Dark Cocoa Skyr Pots with Orange Zest and Pumpkin Seeds"
+    },
+    "2026-11-01": {
+        "Breakfast": "Mushroom, Leek & Cottage Cheese Frittata with Seeded Wholemeal Toast",
+        "Morning snack": "Clementine, Pistachio & Pumpkin Seed Pots",
+        "Lunch": "Harissa Butter Bean, Roasted Beetroot & Bulgur Salad with Lemon Yoghurt",
+        "Afternoon snack": "Oatcakes with Edamame Hummus and Cucumber",
+        "Dinner": "Mustard-Herb Seitan Roast with Crispy Potatoes, Carrots, Brussels Sprouts and Mushroom-Onion Gravy",
+        "Evening snack": "Cinnamon Quark Pots with Orange and Walnuts"
+    },
+    "2026-11-02": {
+        "Breakfast": "Raspberry-Cocoa Skyr Overnight Oats with Ground Flaxseed",
+        "Morning snack": "Kiwi & Almond Snack Boxes",
+        "Lunch": "Cannellini Bean, Roasted Carrot & Cottage Cheese Barley Salad with Dijon-Herb Dressing",
+        "Afternoon snack": "Red Pepper Batons with Lemon Hummus",
+        "Dinner": "Miso-Ginger Tempeh, Broccoli & Mushroom Soba Stir-Fry with Edamame",
+        "Evening snack": "Blackberry Greek Yoghurt Pots with Chia"
+    },
+    "2026-11-03": {
+        "Breakfast": "Spinach, Tomato & Cottage Cheese Egg Muffins with Rye Toast",
+        "Morning snack": "Satsuma & Walnut Snack Boxes",
+        "Lunch": "Chipotle Black Bean & Mycoprotein Wholegrain Wraps with Cabbage, Sweetcorn and Lime Yoghurt",
+        "Afternoon snack": "Smoked Paprika Roasted Chickpeas with Cucumber",
+        "Dinner": "Red Lentil, Cauliflower & Spinach Dal with Brown Basmati Rice and Cucumber Raita",
+        "Evening snack": "Cocoa Quark Pots with Raspberries"
+    },
+    "2026-11-04": {
+        "Breakfast": "Vanilla Protein Porridge with Frozen Berries and Pumpkin Seeds",
+        "Morning snack": "Clementine & Pistachio Snack Pots",
+        "Lunch": "Miso Tofu, Edamame & Brown Rice Salad with Broccoli and Sesame-Ginger Dressing",
+        "Afternoon snack": "Carrot & Cucumber Batons with Edamame Hummus",
+        "Dinner": "Tomato, Mushroom & Mycoprotein Wholewheat Bolognese with Spinach and Vegetarian Parmesan-Style Cheese",
+        "Evening snack": "Kiwi Skyr Pots with Ground Flaxseed"
+    },
+    "2026-11-05": {
+        "Breakfast": "Herbed Cottage Cheese, Egg & Spinach Breakfast Wraps with Tomato",
+        "Morning snack": "Orange & Almond Snack Boxes",
+        "Lunch": "Curried Green Lentil, Roasted Cauliflower & Bulgur Salad with Mint Yoghurt",
+        "Afternoon snack": "Rosemary Roasted Broad Beans with Cucumber",
+        "Dinner": "Smoky Tempeh, Black Bean & Sweet Potato Chilli with Lime Yoghurt",
+        "Evening snack": "Cinnamon Greek Yoghurt Pots with Blackberries"
+    },
+    "2026-11-06": {
+        "Breakfast": "Blackberry, Skyr & Jumbo Oat Overnight Pots with Chia",
+        "Morning snack": "Kiwi & Pumpkin Seed Snack Pots",
+        "Lunch": "Basil-Pesto Mycoprotein, Green Bean & Wholewheat Pasta Salad with Rocket",
+        "Afternoon snack": "Red Pepper & Carrot Batons with Harissa Hummus",
+        "Dinner": "Gochujang Tofu & Edamame Rice Bowls with Sesame Broccoli, Mushrooms and Vegetarian Kimchi",
+        "Evening snack": "Cocoa Cottage Cheese Pots with Raspberries"
+    },
+    "2026-11-07": {
+        "Breakfast": "Sweetcorn, Black Bean & Cottage Cheese Breakfast Burritos with Scrambled Egg and Tomato Salsa",
+        "Morning snack": "Clementine, Walnut & Greek Yoghurt Pots",
+        "Lunch": "Za’atar Tempeh, Roasted Squash & Chickpea Couscous Salad with Lemon Yoghurt",
+        "Afternoon snack": "Chilli-Lime Roasted Edamame",
+        "Dinner": "Mushroom, Spinach & Green Lentil Filo Pie with Roasted Carrots and Red-Wine Onion Gravy",
+        "Evening snack": "Warm Spiced Blackberry Skyr Pots with Hazelnuts"
+    },
+    "2026-11-08": {
+        "Breakfast": "Tofu Scramble with Chestnut Mushrooms, Spinach, Tomatoes and Wholemeal Toast",
+        "Morning snack": "Kiwi, Chia & Skyr Pots",
+        "Lunch": "Beetroot, Puy Lentil & Feta Wholemeal Pitta Pockets with Rocket and Dijon Yoghurt",
+        "Afternoon snack": "Oatcakes with Smoky Chickpea Hummus",
+        "Dinner": "Rosemary Seitan & Cannellini Bean Casserole with Leeks, Carrots and Crispy Herb Potatoes",
+        "Evening snack": "Orange, Cocoa & Quark Pots"
+    },
+    "2026-11-09": {
+        "Breakfast": "Cinnamon Protein Porridge with Frozen Raspberries and Skyr",
+        "Morning snack": "Satsuma & Pistachio Snack Boxes",
+        "Lunch": "Cannellini Bean, Roasted Squash & Cottage Cheese Wholegrain Wraps with Spinach and Mustard Dressing",
+        "Afternoon snack": "Cucumber Sticks with Lemon-Tahini Hummus",
+        "Dinner": "Thai Red Curry Mycoprotein with Green Beans, Peppers and Brown Basmati Rice",
+        "Evening snack": "Blackberry Greek Yoghurt Pots with Ground Flaxseed"
+    },
+    "2026-11-10": {
+        "Breakfast": "Mushroom, Spinach & Cottage Cheese Egg Muffins with Seeded Toast",
+        "Morning snack": "Kiwi & Unsalted Mixed Nut Snack Boxes",
+        "Lunch": "Harissa Tofu, Roasted Carrot & Quinoa Salad with Parsley and Lemon Yoghurt",
+        "Afternoon snack": "Paprika Roasted Chickpeas with Cucumber",
+        "Dinner": "Tomato-Braised Tempeh, Butter Beans & Cavolo Nero with Wholegrain Couscous",
+        "Evening snack": "Cocoa Skyr Pots with Orange Zest"
+    },
+    "2026-11-11": {
+        "Breakfast": "Frozen Berry, Skyr & Oat Breakfast Pots with Hemp Seeds",
+        "Morning snack": "Clementine & Pumpkin Seed Snack Boxes",
+        "Lunch": "Miso Tempeh, Edamame & Soba Noodle Salad with Cabbage and Carrot",
+        "Afternoon snack": "Red Pepper Batons with Edamame Hummus",
+        "Dinner": "Lentil, Mushroom & Mycoprotein Cottage Pie with Carrot-Swede Mash and Peas",
+        "Evening snack": "Kiwi Quark Pots with Cinnamon"
+    },
+    "2026-11-12": {
+        "Breakfast": "Spinach, Tomato & Cottage Cheese Breakfast Wraps with Scrambled Egg",
+        "Morning snack": "Orange & Walnut Snack Boxes",
+        "Lunch": "Mediterranean Mycoprotein, Cannellini Bean & Bulgur Salad with Roasted Peppers and Basil Yoghurt",
+        "Afternoon snack": "Rosemary Roasted Broad Beans with Cucumber",
+        "Dinner": "Miso-Glazed Tofu, Broccoli & Mushroom Stir-Fry with Brown Rice and Edamame",
+        "Evening snack": "Raspberry Greek Yoghurt Pots with Chia"
+    },
+    "2026-11-13": {
+        "Breakfast": "Cocoa Protein Porridge with Blackberries and Almonds",
+        "Morning snack": "Kiwi & Pistachio Snack Pots",
+        "Lunch": "Pesto Tofu, Green Bean & Wholewheat Pasta Salad with Spinach",
+        "Afternoon snack": "Carrot Batons with Smoky Hummus",
+        "Dinner": "Chipotle Tempeh & Black Bean Burgers with Red Cabbage Slaw and Air-Fried Sweet Potato Wedges",
+        "Evening snack": "Clementine Skyr Pots with Cacao Nibs"
+    },
+    "2026-11-14": {
+        "Breakfast": "Shakshuka with Eggs, Cottage Cheese, Spinach and Wholemeal Toast",
+        "Morning snack": "Frozen Berry, Walnut & Skyr Pots",
+        "Lunch": "Chimichurri Tofu, Roasted Beetroot & Barley Salad with Watercress",
+        "Afternoon snack": "Chilli-Lime Roasted Edamame with Satsuma",
+        "Dinner": "Ras el Hanout Seitan, Chickpea & Roasted Squash Tagine with Wholewheat Couscous",
+        "Evening snack": "Cinnamon Quark Pots with Kiwi and Pistachios"
+    },
+    "2026-11-15": {
+        "Breakfast": "Mushroom, Leek & Cottage Cheese Omelette with Rye Toast and Wilted Spinach",
+        "Morning snack": "Clementine, Chia & Greek Yoghurt Pots",
+        "Lunch": "Harissa Butter Bean, Roasted Cauliflower & Bulgur Salad with Mint Yoghurt",
+        "Afternoon snack": "Oatcakes with Edamame Hummus and Cucumber",
+        "Dinner": "Herb-Roasted Mycoprotein Loaf with Crispy Potatoes, Savoy Cabbage, Carrots and Mushroom Gravy",
+        "Evening snack": "Cocoa Blackberry Skyr Pots with Ground Flaxseed"
+    },
+    "2026-11-16": {
+        "Breakfast": "Raspberry-Cinnamon Skyr Overnight Oats with Pumpkin Seeds",
+        "Morning snack": "Kiwi & Almond Snack Boxes",
+        "Lunch": "Green Lentil, Roasted Carrot & Cottage Cheese Barley Salad with Dijon Dressing",
+        "Afternoon snack": "Red Pepper Batons with Lemon Hummus",
+        "Dinner": "Gochujang Tempeh, Mushroom & Broccoli Noodle Stir-Fry with Edamame",
+        "Evening snack": "Orange Quark Pots with Cinnamon"
+    },
+    "2026-11-17": {
+        "Breakfast": "Spinach & Cottage Cheese Egg Muffins with Wholemeal Toast and Tomatoes",
+        "Morning snack": "Satsuma & Walnut Snack Boxes",
+        "Lunch": "Chipotle Black Bean & Mycoprotein Brown Rice Salad with Sweetcorn and Lime Yoghurt",
+        "Afternoon snack": "Smoked Paprika Roasted Chickpeas with Cucumber",
+        "Dinner": "Jalfrezi Tofu, Chickpea & Cauliflower Curry with Brown Basmati Rice and Cucumber Raita",
+        "Evening snack": "Blackberry Greek Yoghurt Pots with Chia"
+    },
+    "2026-11-18": {
+        "Breakfast": "Blackberry Protein Porridge with Skyr and Ground Flaxseed",
+        "Morning snack": "Kiwi & Pistachio Snack Pots",
+        "Lunch": "Za’atar Tempeh, Roasted Squash & Wholewheat Couscous Salad with Spinach",
+        "Afternoon snack": "Carrot & Cucumber Batons with Edamame Hummus",
+        "Dinner": "Mycoprotein, Mushroom & Spinach Wholewheat Pasta with Rosemary Tomato Sauce",
+        "Evening snack": "Cocoa Cottage Cheese Pots with Frozen Raspberries"
+    },
+    "2026-11-19": {
+        "Breakfast": "Herbed Cottage Cheese & Egg Breakfast Wraps with Mushrooms and Spinach",
+        "Morning snack": "Clementine & Pumpkin Seed Snack Boxes",
+        "Lunch": "Curried Red Lentil, Cauliflower & Bulgur Pots with Lemon Yoghurt",
+        "Afternoon snack": "Rosemary Roasted Broad Beans with Red Pepper",
+        "Dinner": "Mustard-Herb Tempeh, Brussels Sprouts & Carrot Traybake with Crispy New Potatoes",
+        "Evening snack": "Kiwi Skyr Pots with Cacao Nibs"
+    },
+    "2026-11-20": {
+        "Breakfast": "Frozen Berry, Skyr & Jumbo Oat Overnight Pots with Hemp Seeds",
+        "Morning snack": "Orange & Almond Snack Boxes",
+        "Lunch": "Miso Tofu, Edamame & Soba Noodle Salad with Broccoli and Red Cabbage",
+        "Afternoon snack": "Cucumber Sticks with Harissa Hummus",
+        "Dinner": "Smoky Mycoprotein & Black Bean Enchiladas with Roasted Peppers and Lime Yoghurt",
+        "Evening snack": "Cocoa Quark Pots with Blackberries"
+    },
+    "2026-11-21": {
+        "Breakfast": "Savoury Tempeh, Mushroom & Spinach Breakfast Hash with Cottage Cheese and Potatoes",
+        "Morning snack": "Kiwi, Walnut & Greek Yoghurt Pots",
+        "Lunch": "Chermoula Tofu, Roasted Carrot & Chickpea Quinoa Salad with Parsley",
+        "Afternoon snack": "Chilli-Lime Roasted Edamame with Clementine",
+        "Dinner": "Spinach, Mushroom & Green Lentil Lasagne with Rosemary Tomato Sauce and Vegetarian Parmesan-Style Cheese",
+        "Evening snack": "Raspberry Skyr Pots with Toasted Hazelnuts"
+    },
+    "2026-11-22": {
+        "Breakfast": "Cottage Cheese, Spinach & Mushroom Frittata with Seeded Wholemeal Toast",
+        "Morning snack": "Satsuma, Chia & Skyr Pots",
+        "Lunch": "Beetroot, Butter Bean & Feta Wholegrain Wraps with Rocket and Mustard Yoghurt",
+        "Afternoon snack": "Oatcakes with Smoky Chickpea Hummus",
+        "Dinner": "Mustard Seitan, Leek & Cannellini Bean Pot Pie with Roasted Carrots and Savoy Cabbage",
+        "Evening snack": "Orange-Cocoa Quark Pots with Walnuts"
+    },
+    "2026-11-23": {
+        "Breakfast": "Cinnamon Skyr Overnight Oats with Frozen Blackberries and Flaxseed",
+        "Morning snack": "Kiwi & Pistachio Snack Boxes",
+        "Lunch": "Cannellini Bean, Roasted Squash & Cottage Cheese Wholewheat Pasta Salad with Spinach",
+        "Afternoon snack": "Carrot & Cucumber Batons with Lemon Hummus",
+        "Dinner": "Thai Green Curry Tempeh with Broccoli, Green Beans and Brown Basmati Rice",
+        "Evening snack": "Raspberry Greek Yoghurt Pots with Pumpkin Seeds"
+    },
+    "2026-11-24": {
+        "Breakfast": "Spinach, Tomato & Cottage Cheese Egg Muffins with Rye Toast",
+        "Morning snack": "Clementine & Almond Snack Boxes",
+        "Lunch": "Harissa Mycoprotein, Roasted Cauliflower & Bulgur Salad with Lemon Yoghurt",
+        "Afternoon snack": "Paprika Roasted Chickpeas with Cucumber",
+        "Dinner": "Tomato-Braised Tofu, Butter Beans & Cavolo Nero with Wholegrain Couscous",
+        "Evening snack": "Kiwi Quark Pots with Chia"
+    },
+    "2026-11-25": {
+        "Breakfast": "Cocoa Protein Porridge with Frozen Raspberries and Skyr",
+        "Morning snack": "Orange & Walnut Snack Boxes",
+        "Lunch": "Miso Tempeh, Edamame & Brown Rice Salad with Cabbage and Carrot",
+        "Afternoon snack": "Red Pepper Batons with Edamame Hummus",
+        "Dinner": "Smoky Red Lentil, Mycoprotein & Mushroom Chilli with Sweet Potato and Lime Yoghurt",
+        "Evening snack": "Blackberry Cottage Cheese Pots with Cinnamon"
+    },
+    "2026-11-26": {
+        "Breakfast": "Herbed Cottage Cheese, Mushroom & Egg Breakfast Wraps with Spinach",
+        "Morning snack": "Kiwi & Pumpkin Seed Snack Pots",
+        "Lunch": "Pesto Tofu, Green Bean & Wholewheat Pasta Salad with Rocket",
+        "Afternoon snack": "Rosemary Roasted Broad Beans with Clementine",
+        "Dinner": "Miso-Ginger Mycoprotein, Broccoli & Mushroom Stir-Fry with Soba Noodles",
+        "Evening snack": "Cocoa Skyr Pots with Ground Flaxseed"
+    },
+    "2026-11-27": {
+        "Breakfast": "Blackberry, Skyr & Jumbo Oat Overnight Pots with Chia",
+        "Morning snack": "Satsuma & Pistachio Snack Boxes",
+        "Lunch": "Chipotle Black Bean, Sweetcorn & Tempeh Wholegrain Wraps with Red Cabbage and Lime Yoghurt",
+        "Afternoon snack": "Carrot Batons with Smoky Hummus",
+        "Dinner": "Harissa Tofu & Roasted Squash Flatbreads with Cabbage Slaw and Tahini-Lemon Yoghurt",
+        "Evening snack": "Kiwi Quark Pots with Cacao Nibs"
+    },
+    "2026-11-28": {
+        "Breakfast": "Spiced Pumpkin Protein Pancakes with Skyr and Toasted Walnuts",
+        "Morning snack": "Orange, Almond & Greek Yoghurt Pots",
+        "Lunch": "Warm Puy Lentil, Roasted Beetroot & Tempeh Salad with Spinach and Dijon-Herb Dressing",
+        "Afternoon snack": "Chilli-Lime Roasted Edamame",
+        "Dinner": "Mushroom, Leek & Seitan Stroganoff with Pearl Barley and Roasted Green Beans",
+        "Evening snack": "Cocoa Raspberry Skyr Pots with Pistachios"
+    },
+    "2026-11-29": {
+        "Breakfast": "Tofu Scramble with Chestnut Mushrooms, Spinach and Seeded Wholemeal Toast",
+        "Morning snack": "Kiwi, Chia & Quark Pots",
+        "Lunch": "Harissa Chickpea, Roasted Carrot & Cottage Cheese Bulgur Salad with Parsley",
+        "Afternoon snack": "Oatcakes with Edamame Hummus and Cucumber",
+        "Dinner": "Rosemary Mycoprotein & Cannellini Bean Casserole with Butternut Squash, Brussels Sprouts and Crispy Potatoes",
+        "Evening snack": "Clementine Greek Yoghurt Pots with Walnuts"
+    },
+    "2026-11-30": {
+        "Breakfast": "Frozen Berry, Skyr & Oat Breakfast Pots with Ground Flaxseed",
+        "Morning snack": "Satsuma & Almond Snack Boxes",
+        "Lunch": "Curried Green Lentil, Roasted Cauliflower & Cottage Cheese Barley Salad with Mint Yoghurt",
+        "Afternoon snack": "Red Pepper & Cucumber Batons with Lemon Hummus",
+        "Dinner": "Gochujang Tofu, Edamame & Mushroom Brown Rice Stir-Fry with Broccoli",
+        "Evening snack": "Cocoa Quark Pots with Orange Zest"
+    },
+    "2026-12-01": {
+        "Breakfast": "Blackberry, Skyr & Jumbo Oat Overnight Pots with Chia and Ground Flaxseed",
+        "Morning snack": "Clementine & Pistachio Snack Boxes",
+        "Lunch": "Miso Tofu, Edamame & Brown Rice Salad with Broccoli and Sesame-Ginger Dressing",
+        "Afternoon snack": "Carrot & Cucumber Batons with Lemon Hummus",
+        "Dinner": "Mushroom, Spinach & Mycoprotein Wholewheat Bolognese with Vegetarian Parmesan-Style Cheese",
+        "Evening snack": "Cocoa Quark Pots with Frozen Raspberries"
+    },
+    "2026-12-02": {
+        "Breakfast": "Cinnamon Protein Porridge with Skyr, Blackberries and Pumpkin Seeds",
+        "Morning snack": "Kiwi & Walnut Snack Boxes",
+        "Lunch": "Green Lentil, Roasted Carrot & Cottage Cheese Barley Salad with Dijon-Herb Dressing",
+        "Afternoon snack": "Smoked Paprika Roasted Chickpeas with Cucumber",
+        "Dinner": "Miso-Ginger Tempeh, Broccoli & Mushroom Soba Stir-Fry with Edamame",
+        "Evening snack": "Orange & Cinnamon Greek Yoghurt Pots"
+    },
+    "2026-12-03": {
+        "Breakfast": "Spinach, Mushroom & Cottage Cheese Egg Muffins with Seeded Wholemeal Toast",
+        "Morning snack": "Satsuma & Almond Snack Boxes",
+        "Lunch": "Harissa Mycoprotein, Roasted Cauliflower & Bulgur Salad with Lemon Yoghurt",
+        "Afternoon snack": "Red Pepper Batons with Edamame Hummus",
+        "Dinner": "Gochujang Tofu, Edamame & Green Bean Brown Rice Stir-Fry with Sesame",
+        "Evening snack": "Blackberry Skyr Pots with Chia"
+    },
+    "2026-12-04": {
+        "Breakfast": "Raspberry-Cocoa Skyr Overnight Oats with Hemp Seeds",
+        "Morning snack": "Clementine & Pumpkin Seed Snack Pots",
+        "Lunch": "Chickpea, Cottage Cheese & Roasted Squash Wholegrain Wraps with Rocket and Mint Yoghurt",
+        "Afternoon snack": "Rosemary Roasted Broad Beans with Cucumber",
+        "Dinner": "Smoky Black Bean & Mycoprotein Tacos with Red Cabbage Slaw, Charred Sweetcorn and Lime Yoghurt",
+        "Evening snack": "Cocoa Quark Pots with Orange Zest"
+    },
+    "2026-12-05": {
+        "Breakfast": "Shakshuka with Eggs, Cottage Cheese, Spinach and Wholemeal Toast",
+        "Morning snack": "Kiwi, Chia & Greek Yoghurt Pots",
+        "Lunch": "Za’atar Tempeh, Roasted Beetroot & Wholewheat Couscous Salad with Lemon Yoghurt",
+        "Afternoon snack": "Chilli-Lime Roasted Edamame with Clementine",
+        "Dinner": "Rosemary Seitan, Cannellini Bean & Mushroom Casserole with Crispy Potatoes and Savoy Cabbage",
+        "Evening snack": "Warm Spiced Blackberry Skyr Pots with Toasted Hazelnuts"
+    },
+    "2026-12-06": {
+        "Breakfast": "Tofu Scramble with Chestnut Mushrooms, Spinach and Seeded Wholemeal Toast",
+        "Morning snack": "Orange, Walnut & Skyr Pots",
+        "Lunch": "Puy Lentil, Roasted Carrot & Feta Wholemeal Pitta Pockets with Watercress and Mustard Yoghurt",
+        "Afternoon snack": "Oatcakes with Smoky Chickpea Hummus",
+        "Dinner": "Herb-Roasted Mycoprotein Loaf with Crispy Potatoes, Brussels Sprouts, Carrots and Mushroom-Onion Gravy",
+        "Evening snack": "Raspberry Quark Pots with Ground Flaxseed"
+    },
+    "2026-12-07": {
+        "Breakfast": "Frozen Berry, Skyr & Oat Breakfast Pots with Chia",
+        "Morning snack": "Kiwi & Pistachio Snack Boxes",
+        "Lunch": "Miso Tofu, Edamame & Soba Noodle Salad with Cabbage and Carrot",
+        "Afternoon snack": "Red Pepper & Cucumber Batons with Lemon Hummus",
+        "Dinner": "Red Lentil, Cauliflower & Spinach Dal with Brown Basmati Rice and Cucumber Raita",
+        "Evening snack": "Cocoa Greek Yoghurt Pots with Blackberries"
+    },
+    "2026-12-08": {
+        "Breakfast": "Herbed Cottage Cheese & Egg Breakfast Wraps with Spinach and Tomato",
+        "Morning snack": "Clementine & Almond Snack Boxes",
+        "Lunch": "Mediterranean Mycoprotein, Cannellini Bean & Bulgur Salad with Roasted Peppers and Basil Yoghurt",
+        "Afternoon snack": "Paprika Roasted Chickpeas with Cucumber",
+        "Dinner": "Mustard-Herb Tempeh, Brussels Sprouts & Carrot Traybake with Crispy New Potatoes",
+        "Evening snack": "Kiwi Skyr Pots with Ground Flaxseed"
+    },
+    "2026-12-09": {
+        "Breakfast": "Vanilla Protein Porridge with Frozen Raspberries and Walnuts",
+        "Morning snack": "Satsuma & Pumpkin Seed Snack Pots",
+        "Lunch": "Curried Green Lentil, Roasted Cauliflower & Cottage Cheese Barley Salad with Mint Yoghurt",
+        "Afternoon snack": "Carrot Batons with Edamame Hummus",
+        "Dinner": "Thai Green Curry Tofu with Broccoli, Green Beans, Edamame and Brown Basmati Rice",
+        "Evening snack": "Cocoa Quark Pots with Orange Zest"
+    },
+    "2026-12-10": {
+        "Breakfast": "Blackberry, Skyr & Jumbo Oat Overnight Pots with Ground Flaxseed",
+        "Morning snack": "Kiwi & Walnut Snack Boxes",
+        "Lunch": "Basil-Pesto Tempeh, Green Bean & Wholewheat Pasta Salad with Spinach",
+        "Afternoon snack": "Rosemary Roasted Broad Beans with Red Pepper",
+        "Dinner": "Tomato-Braised Butter Beans, Mycoprotein & Cavolo Nero with Wholegrain Couscous",
+        "Evening snack": "Raspberry Greek Yoghurt Pots with Chia"
+    },
+    "2026-12-11": {
+        "Breakfast": "Spinach, Tomato & Cottage Cheese Egg Muffins with Rye Toast",
+        "Morning snack": "Clementine & Pistachio Snack Boxes",
+        "Lunch": "Chipotle Black Bean & Mycoprotein Brown Rice Salad with Sweetcorn, Cabbage and Lime Yoghurt",
+        "Afternoon snack": "Cucumber Sticks with Harissa Hummus",
+        "Dinner": "Za’atar Tofu & Roasted Squash Flatbreads with Red Cabbage, Tomato and Tahini-Lemon Yoghurt",
+        "Evening snack": "Cocoa Skyr Pots with Cacao Nibs"
+    },
+    "2026-12-12": {
+        "Breakfast": "Sweetcorn, Black Bean & Cottage Cheese Breakfast Burritos with Scrambled Egg and Tomato Salsa",
+        "Morning snack": "Kiwi, Almond & Greek Yoghurt Pots",
+        "Lunch": "Chimichurri Tempeh, Roasted Beetroot & Quinoa Salad with Watercress",
+        "Afternoon snack": "Chilli-Lime Roasted Edamame with Satsuma",
+        "Dinner": "Mushroom, Spinach & Green Lentil Lasagne with Rosemary Tomato Sauce and Vegetarian Parmesan-Style Cheese",
+        "Evening snack": "Blackberry Quark Pots with Toasted Walnuts"
+    },
+    "2026-12-13": {
+        "Breakfast": "Mushroom, Leek & Cottage Cheese Frittata with Seeded Wholemeal Toast",
+        "Morning snack": "Clementine, Chia & Skyr Pots",
+        "Lunch": "Harissa Butter Bean, Roasted Cauliflower & Bulgur Salad with Lemon Yoghurt",
+        "Afternoon snack": "Oatcakes with Edamame Hummus and Cucumber",
+        "Dinner": "Mustard-Herb Seitan Roast with Crispy Potatoes, Carrots, Savoy Cabbage and Mushroom Gravy",
+        "Evening snack": "Orange-Cocoa Greek Yoghurt Pots with Hazelnuts"
+    },
+    "2026-12-14": {
+        "Breakfast": "Raspberry-Cinnamon Skyr Overnight Oats with Pumpkin Seeds",
+        "Morning snack": "Kiwi & Mixed Nut Snack Boxes",
+        "Lunch": "Cannellini Bean, Roasted Squash & Cottage Cheese Wholewheat Pasta Salad with Spinach",
+        "Afternoon snack": "Carrot & Cucumber Batons with Lemon Hummus",
+        "Dinner": "Miso-Glazed Tempeh, Mushroom & Broccoli Stir-Fry with Brown Rice and Edamame",
+        "Evening snack": "Blackberry Quark Pots with Ground Flaxseed"
+    },
+    "2026-12-15": {
+        "Breakfast": "Cocoa Protein Porridge with Skyr, Frozen Blackberries and Almonds",
+        "Morning snack": "Clementine & Pumpkin Seed Snack Pots",
+        "Lunch": "Harissa Tofu, Roasted Carrot & Quinoa Salad with Parsley and Lemon Yoghurt",
+        "Afternoon snack": "Smoked Paprika Roasted Chickpeas with Cucumber",
+        "Dinner": "Mycoprotein, Red Lentil & Mushroom Cottage Pie with Carrot-Swede Mash and Peas",
+        "Evening snack": "Kiwi Greek Yoghurt Pots with Chia"
+    },
+    "2026-12-16": {
+        "Breakfast": "Spinach, Mushroom & Cottage Cheese Breakfast Wraps with Scrambled Egg",
+        "Morning snack": "Satsuma & Walnut Snack Boxes",
+        "Lunch": "Miso Tempeh, Edamame & Soba Noodle Salad with Red Cabbage and Carrot",
+        "Afternoon snack": "Red Pepper Batons with Edamame Hummus",
+        "Dinner": "Tomato, Aubergine & Mycoprotein Wholewheat Pasta with Basil and Vegetarian Parmesan-Style Cheese",
+        "Evening snack": "Cocoa Skyr Pots with Raspberries"
+    },
+    "2026-12-17": {
+        "Breakfast": "Frozen Berry, Skyr & Jumbo Oat Overnight Pots with Hemp Seeds",
+        "Morning snack": "Kiwi & Pistachio Snack Boxes",
+        "Lunch": "Curried Red Lentil, Roasted Cauliflower & Cottage Cheese Bulgur Pots with Mint Yoghurt",
+        "Afternoon snack": "Rosemary Roasted Broad Beans with Cucumber",
+        "Dinner": "Gochujang Tofu, Edamame, Mushroom & Broccoli Brown Rice Stir-Fry",
+        "Evening snack": "Orange & Cinnamon Quark Pots"
+    },
+    "2026-12-18": {
+        "Breakfast": "Spinach, Tomato & Cottage Cheese Egg Muffins with Seeded Toast",
+        "Morning snack": "Clementine & Almond Snack Boxes",
+        "Lunch": "Pesto Mycoprotein, Green Bean & Wholewheat Pasta Salad with Rocket",
+        "Afternoon snack": "Carrot Batons with Smoky Chickpea Hummus",
+        "Dinner": "Chipotle Tempeh & Black Bean Burgers with Red Cabbage Slaw and Air-Fried Sweet Potato Wedges",
+        "Evening snack": "Blackberry Greek Yoghurt Pots with Cacao Nibs"
+    },
+    "2026-12-19": {
+        "Breakfast": "Spiced Pumpkin Protein Pancakes with Skyr and Toasted Walnuts",
+        "Morning snack": "Kiwi, Chia & Greek Yoghurt Pots",
+        "Lunch": "Chermoula Tofu, Roasted Squash & Chickpea Couscous Salad with Parsley",
+        "Afternoon snack": "Chilli-Lime Roasted Edamame with Clementine",
+        "Dinner": "Mushroom, Leek & Seitan Stroganoff with Pearl Barley and Roasted Green Beans",
+        "Evening snack": "Cocoa Raspberry Skyr Pots with Pistachios"
+    },
+    "2026-12-20": {
+        "Breakfast": "Roasted Mushroom, Spinach & Cottage Cheese Omelette with Rye Toast",
+        "Morning snack": "Satsuma, Walnut & Skyr Pots",
+        "Lunch": "Beetroot, Green Lentil & Feta Wholegrain Wraps with Watercress and Dijon Yoghurt",
+        "Afternoon snack": "Oatcakes with Lemon Hummus and Cucumber",
+        "Dinner": "Rosemary Mycoprotein & Cannellini Bean Casserole with Butternut Squash, Brussels Sprouts and Crispy Potatoes",
+        "Evening snack": "Orange-Cocoa Quark Pots with Ground Flaxseed"
+    },
+    "2026-12-21": {
+        "Breakfast": "Blackberry Skyr Overnight Oats with Chia and Pumpkin Seeds",
+        "Morning snack": "Kiwi & Almond Snack Boxes",
+        "Lunch": "Miso Tofu, Edamame & Brown Rice Salad with Broccoli and Sesame-Ginger Dressing",
+        "Afternoon snack": "Red Pepper Batons with Edamame Hummus",
+        "Dinner": "Smoky Tempeh, Black Bean & Sweet Potato Chilli with Lime Yoghurt",
+        "Evening snack": "Raspberry Greek Yoghurt Pots with Cinnamon"
+    },
+    "2026-12-22": {
+        "Breakfast": "Cinnamon Protein Porridge with Skyr, Frozen Raspberries and Walnuts",
+        "Morning snack": "Clementine & Pistachio Snack Boxes",
+        "Lunch": "Za’atar Mycoprotein, Roasted Cauliflower & Bulgur Salad with Lemon Yoghurt",
+        "Afternoon snack": "Paprika Roasted Chickpeas with Cucumber",
+        "Dinner": "Thai Red Curry Tofu with Green Beans, Broccoli, Edamame and Brown Basmati Rice",
+        "Evening snack": "Cocoa Quark Pots with Orange Zest"
+    },
+    "2026-12-23": {
+        "Breakfast": "Herbed Cottage Cheese, Spinach & Egg Breakfast Wraps with Tomato",
+        "Morning snack": "Kiwi & Pumpkin Seed Snack Pots",
+        "Lunch": "Cannellini Bean, Roasted Carrot & Cottage Cheese Barley Salad with Mustard-Herb Dressing",
+        "Afternoon snack": "Carrot & Cucumber Batons with Lemon Hummus",
+        "Dinner": "Miso-Ginger Mycoprotein, Mushroom & Broccoli Soba Stir-Fry",
+        "Evening snack": "Blackberry Skyr Pots with Chia"
+    },
+    "2026-12-24": {
+        "Breakfast": "Orange-Cinnamon Skyr Overnight Oats with Cocoa and Hazelnuts",
+        "Morning snack": "Clementine & Pistachio Snack Boxes",
+        "Lunch": "Cranberry-Free Festive Tempeh, Roasted Squash & Bulgur Salad with Spinach and Mustard Yoghurt",
+        "Afternoon snack": "Rosemary Roasted Broad Beans with Red Pepper",
+        "Dinner": "Mushroom, Spinach & Green Lentil Filo Pie with Roasted Brussels Sprouts and Red-Wine Onion Gravy",
+        "Evening snack": "Dark Cocoa Quark Pots with Orange Zest and Toasted Walnuts"
+    },
+    "2026-12-25": {
+        "Breakfast": "Festive Mushroom, Spinach & Cottage Cheese Eggs with Seeded Sourdough",
+        "Morning snack": "Clementine, Pistachio & Dark Cocoa Skyr Pots",
+        "Lunch": "Roasted Beetroot, Puy Lentil & Feta Wholegrain Pitta Pockets with Rocket and Mustard Yoghurt",
+        "Afternoon snack": "Cinnamon-Spiced Roasted Chickpeas with Satsuma",
+        "Dinner": "Herb-Roasted Seitan with Crispy Potatoes, Brussels Sprouts, Maple-Mustard Carrots, Savoy Cabbage and Mushroom Gravy",
+        "Evening snack": "Chocolate-Orange Skyr Pots with Hazelnuts"
+    },
+    "2026-12-26": {
+        "Breakfast": "Savoury Potato, Tempeh & Spinach Breakfast Hash with Cottage Cheese",
+        "Morning snack": "Kiwi, Walnut & Greek Yoghurt Pots",
+        "Lunch": "Mustard-Herb Seitan, Roasted Vegetable & Barley Salad with Watercress",
+        "Afternoon snack": "Oatcakes with Edamame Hummus and Cucumber",
+        "Dinner": "Smoky Mycoprotein, Black Bean & Roasted Pepper Enchiladas with Lime Yoghurt",
+        "Evening snack": "Cocoa Raspberry Quark Pots with Chia"
+    },
+    "2026-12-27": {
+        "Breakfast": "Tofu Scramble with Mushrooms, Brussels Sprouts and Wholemeal Toast",
+        "Morning snack": "Clementine & Almond Skyr Pots",
+        "Lunch": "Harissa Butter Bean, Roasted Carrot & Couscous Salad with Mint Yoghurt",
+        "Afternoon snack": "Chilli-Lime Roasted Edamame",
+        "Dinner": "Leek, Mushroom & Cannellini Bean Cottage Pie with Mycoprotein and Carrot-Swede Mash",
+        "Evening snack": "Kiwi Greek Yoghurt Pots with Ground Flaxseed"
+    },
+    "2026-12-28": {
+        "Breakfast": "Frozen Berry, Skyr & Oat Breakfast Pots with Hemp Seeds",
+        "Morning snack": "Satsuma & Pistachio Snack Boxes",
+        "Lunch": "Miso Tempeh, Edamame & Soba Noodle Salad with Cabbage and Carrot",
+        "Afternoon snack": "Red Pepper Batons with Lemon Hummus",
+        "Dinner": "Tomato-Braised Tofu, Butter Beans & Cavolo Nero with Wholegrain Couscous",
+        "Evening snack": "Cocoa Quark Pots with Raspberries"
+    },
+    "2026-12-29": {
+        "Breakfast": "Spinach, Tomato & Cottage Cheese Egg Muffins with Rye Toast",
+        "Morning snack": "Kiwi & Walnut Snack Boxes",
+        "Lunch": "Chipotle Black Bean & Mycoprotein Brown Rice Salad with Sweetcorn and Lime Yoghurt",
+        "Afternoon snack": "Rosemary Roasted Chickpeas with Cucumber",
+        "Dinner": "Jalfrezi Tempeh, Chickpea & Cauliflower Curry with Brown Basmati Rice and Cucumber Raita",
+        "Evening snack": "Orange Skyr Pots with Chia"
+    },
+    "2026-12-30": {
+        "Breakfast": "Raspberry-Cocoa Protein Porridge with Skyr and Pumpkin Seeds",
+        "Morning snack": "Clementine & Almond Snack Boxes",
+        "Lunch": "Basil-Pesto Tofu, Green Bean & Wholewheat Pasta Salad with Spinach",
+        "Afternoon snack": "Carrot & Cucumber Batons with Edamame Hummus",
+        "Dinner": "Lentil, Mushroom & Mycoprotein Wholewheat Pasta with Rosemary Tomato Sauce",
+        "Evening snack": "Blackberry Quark Pots with Ground Flaxseed"
+    },
+    "2026-12-31": {
+        "Breakfast": "Blackberry, Skyr & Jumbo Oat Overnight Pots with Chia and Pistachios",
+        "Morning snack": "Kiwi & Walnut Snack Pots",
+        "Lunch": "Chimichurri Tempeh, Roasted Beetroot & Bulgur Salad with Watercress",
+        "Afternoon snack": "Smoked Paprika Roasted Broad Beans with Clementine",
+        "Dinner": "Gochujang Tofu & Edamame Rice Bowls with Sesame Broccoli, Mushrooms and Vegetarian Kimchi",
+        "Evening snack": "Dark Cocoa, Orange & Skyr Pots with Cacao Nibs"
     }
 }
 
@@ -437,7 +925,6 @@ def main():
         PLAN
     ):
         for meal_type in MEAL_ORDER:
-
             title = (
                 PLAN[
                     date_value

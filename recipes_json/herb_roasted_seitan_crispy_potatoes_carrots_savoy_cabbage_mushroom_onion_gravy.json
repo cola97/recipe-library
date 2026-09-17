@@ -1,0 +1,762 @@
+{
+  "schema_version": "1.0",
+  "recipe": {
+    "id": "herb_roasted_seitan_crispy_potatoes_carrots_savoy_cabbage_mushroom_onion_gravy",
+    "title": "Herb-Roasted Seitan with Crispy Potatoes, Carrots, Savoy Cabbage and Mushroom-Onion Gravy",
+    "description": "A high-protein vegetarian roast dinner with steamed then herb-roasted seitan, crisp golden potatoes, caramelised carrots, tender Savoy cabbage and a deeply savoury mushroom-onion gravy.",
+    "servings": 2,
+    "difficulty": "Moderate",
+    "total_time_minutes": 55,
+    "active_time_minutes": 38,
+    "passive_time_minutes": 17,
+    "cuisine": [
+      "British-inspired"
+    ],
+    "meal_types": [
+      "Dinner"
+    ],
+    "dietary_tags": [
+      "Lacto-ovo vegetarian",
+      "High protein",
+      "High fibre"
+    ],
+    "allergens": [
+      "Wheat",
+      "Soya",
+      "Celery"
+    ]
+  },
+  "nutrition_per_serving": {
+    "energy_kcal": 590,
+    "protein_g": 42.0,
+    "carbohydrate_g": 72.0,
+    "fat_g": 17.0,
+    "saturated_fat_g": 2.1,
+    "fibre_g": 14.0,
+    "salt_g": 1.7
+  },
+  "ingredients": [
+    {
+      "ingredient_id": "seitan",
+      "display_name": "Plain ready-made seitan",
+      "category": "Plant protein",
+      "required": true,
+      "quantity_used": 250,
+      "unit_used": "g",
+      "purchase_quantity": "1 or more packs",
+      "purchase_notes": "Use 250 g in total; retail pack size may vary.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Drain if packed in liquid and pat dry before steaming.",
+      "notes": "Use plain unflavoured seitan so the herb seasoning and gravy define the dish."
+    },
+    {
+      "ingredient_id": "potatoes",
+      "display_name": "Floury potatoes",
+      "category": "Vegetables",
+      "required": true,
+      "quantity_used": 400,
+      "unit_used": "g",
+      "purchase_quantity": "1 bag",
+      "purchase_notes": "Use 400 g; choose a floury or all-purpose roasting potato.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Wash before cutting; peel only if the skins are damaged or very coarse.",
+      "notes": ""
+    },
+    {
+      "ingredient_id": "carrots",
+      "display_name": "Carrots",
+      "category": "Vegetables",
+      "required": true,
+      "quantity_used": 240,
+      "unit_used": "g",
+      "purchase_quantity": "1 bag",
+      "purchase_notes": "Use 240 g.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Wash and peel only if required.",
+      "notes": ""
+    },
+    {
+      "ingredient_id": "savoy_cabbage",
+      "display_name": "Savoy cabbage",
+      "category": "Leafy vegetables",
+      "required": true,
+      "quantity_used": 200,
+      "unit_used": "g",
+      "purchase_quantity": "1 small cabbage",
+      "purchase_notes": "Use approximately 200 g prepared cabbage.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Remove damaged outer leaves before cutting.",
+      "notes": ""
+    },
+    {
+      "ingredient_id": "chestnut_mushrooms",
+      "display_name": "Chestnut mushrooms",
+      "category": "Vegetables",
+      "required": true,
+      "quantity_used": 200,
+      "unit_used": "g",
+      "purchase_quantity": "1 pack",
+      "purchase_notes": "Use 200 g.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Brush or wipe clean rather than soaking.",
+      "notes": ""
+    },
+    {
+      "ingredient_id": "brown_onion",
+      "display_name": "Medium brown onion",
+      "category": "Aromatics",
+      "required": true,
+      "quantity_used": 1,
+      "unit_used": "integer",
+      "purchase_quantity": "1 medium brown onion",
+      "purchase_notes": "",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Peel before chopping.",
+      "notes": "Whole onions do not scale perfectly for every serving quantity; round sensibly when scaling."
+    },
+    {
+      "ingredient_id": "garlic",
+      "display_name": "Garlic cloves",
+      "category": "Aromatics",
+      "required": true,
+      "quantity_used": 2,
+      "unit_used": "integer",
+      "purchase_quantity": "1 bulb",
+      "purchase_notes": "Use 2 cloves.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Peel before finely grating or crushing.",
+      "notes": ""
+    },
+    {
+      "ingredient_id": "rapeseed_oil",
+      "display_name": "Rapeseed oil",
+      "category": "Oils",
+      "required": true,
+      "quantity_used": 5,
+      "unit_used": "tsp",
+      "purchase_quantity": "1 bottle",
+      "purchase_notes": "Use 5 tsp in total.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": "Use 3 tsp for the potatoes and carrots, 1 tsp for the seitan and 1 tsp for the mushroom-onion gravy."
+    },
+    {
+      "ingredient_id": "dried_thyme",
+      "display_name": "Dried thyme",
+      "category": "Spices",
+      "required": true,
+      "quantity_used": 1.5,
+      "unit_used": "tsp",
+      "purchase_quantity": "1 jar",
+      "purchase_notes": "Use 1 1/2 tsp in total.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": "Use 1 tsp on the seitan and 1/2 tsp in the gravy."
+    },
+    {
+      "ingredient_id": "dried_rosemary",
+      "display_name": "Dried rosemary",
+      "category": "Spices",
+      "required": true,
+      "quantity_used": 1,
+      "unit_used": "tsp",
+      "purchase_quantity": "1 jar",
+      "purchase_notes": "Use 1 tsp.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": "Crush lightly between clean fingers before using so the leaves are not excessively coarse."
+    },
+    {
+      "ingredient_id": "plain_flour",
+      "display_name": "Plain flour",
+      "category": "Cereals",
+      "required": true,
+      "quantity_used": 1,
+      "unit_used": "tbsp",
+      "purchase_quantity": "1 bag",
+      "purchase_notes": "Use 1 tbsp.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": "Used to thicken the mushroom-onion gravy."
+    },
+    {
+      "ingredient_id": "vegetable_stock_concentrate",
+      "display_name": "Reduced-salt vegetable stock concentrate",
+      "category": "Flavourings",
+      "required": true,
+      "quantity_used": 2,
+      "unit_used": "tsp",
+      "purchase_quantity": "1 container",
+      "purchase_notes": "Use 2 tsp or the equivalent amount required to make approximately 300 ml stock; package strength varies.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": "Check the allergen declaration; vegetable stock commonly contains celery."
+    },
+    {
+      "ingredient_id": "soy_sauce_reduced_salt",
+      "display_name": "Reduced-salt soy sauce",
+      "category": "Condiments",
+      "required": true,
+      "quantity_used": 2,
+      "unit_used": "tsp",
+      "purchase_quantity": "1 bottle",
+      "purchase_notes": "Use 2 tsp in total.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": "Use 1 tsp on the seitan and 1 tsp in the gravy."
+    },
+    {
+      "ingredient_id": "apple_cider_vinegar",
+      "display_name": "Apple cider vinegar",
+      "category": "Condiments",
+      "required": true,
+      "quantity_used": 2,
+      "unit_used": "tsp",
+      "purchase_quantity": "1 bottle",
+      "purchase_notes": "Use 2 tsp in total.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": "Use 1 tsp to brighten the gravy and 1 tsp to finish the cabbage."
+    },
+    {
+      "ingredient_id": "fine_salt",
+      "display_name": "Fine salt",
+      "category": "Seasoning",
+      "required": true,
+      "quantity_used": 0.5,
+      "unit_used": "tsp",
+      "purchase_quantity": "1 container",
+      "purchase_notes": "Use 1/2 tsp in total.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": "Use 1/4 tsp on the potatoes and carrots, 1/8 tsp on the seitan and 1/8 tsp on the cabbage. Soy sauce and stock provide additional salt."
+    },
+    {
+      "ingredient_id": "black_pepper_ground",
+      "display_name": "Ground black pepper",
+      "category": "Seasoning",
+      "required": true,
+      "quantity_used": 0.5,
+      "unit_used": "tsp",
+      "purchase_quantity": "1 container",
+      "purchase_notes": "Use 1/2 tsp in total.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": "Divide between the roast vegetables, seitan and gravy."
+    },
+    {
+      "ingredient_id": "water",
+      "display_name": "Water",
+      "category": "Liquid",
+      "required": true,
+      "quantity_used": 580,
+      "unit_used": "ml",
+      "purchase_quantity": "",
+      "purchase_notes": "Use 250 ml for steaming the seitan, approximately 300 ml for the gravy and 2 tbsp for the cabbage.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": ""
+    }
+  ],
+  "equipment": [
+    {
+      "equipment_id": "oven",
+      "display_name": "Oven",
+      "required": true,
+      "notes": "Used for roasting the potatoes and carrots."
+    },
+    {
+      "equipment_id": "instant_pot",
+      "display_name": "Instant Pot",
+      "required": true,
+      "notes": "Use with its trivet or steaming rack to steam the seitan before air roasting."
+    },
+    {
+      "equipment_id": "air_fryer",
+      "display_name": "Air fryer",
+      "required": true,
+      "notes": "Used to brown and roast the steamed seitan."
+    },
+    {
+      "equipment_id": "gas_hob",
+      "display_name": "Gas hob",
+      "required": true,
+      "notes": ""
+    },
+    {
+      "equipment_id": "saute_pan",
+      "display_name": "Large sauté pan",
+      "required": true,
+      "notes": "Used first for the gravy and then reused for the Savoy cabbage."
+    },
+    {
+      "equipment_id": "baking_tray",
+      "display_name": "Large baking tray",
+      "required": true,
+      "notes": "Use a tray large enough to keep the potatoes and carrots in a mostly single layer."
+    },
+    {
+      "equipment_id": "chef_knife",
+      "display_name": "Chef's knife",
+      "required": true,
+      "notes": ""
+    },
+    {
+      "equipment_id": "chopping_board",
+      "display_name": "Chopping board",
+      "required": true,
+      "notes": ""
+    },
+    {
+      "equipment_id": "fine_grater",
+      "display_name": "Fine grater or Microplane",
+      "required": true,
+      "notes": "For the garlic."
+    },
+    {
+      "equipment_id": "measuring_spoons",
+      "display_name": "Measuring spoons",
+      "required": true,
+      "notes": ""
+    },
+    {
+      "equipment_id": "measuring_jug",
+      "display_name": "Measuring jug",
+      "required": true,
+      "notes": "Used to mix and temporarily hold the gravy."
+    },
+    {
+      "equipment_id": "kitchen_scales",
+      "display_name": "Kitchen scales",
+      "required": true,
+      "notes": ""
+    },
+    {
+      "equipment_id": "spatula",
+      "display_name": "Heatproof spatula or wooden spoon",
+      "required": true,
+      "notes": ""
+    }
+  ],
+  "mise_en_place": [
+    {
+      "prep_id": "PREP_01",
+      "ingredient_ids": [
+        "potatoes",
+        "carrots",
+        "savoy_cabbage"
+      ],
+      "instruction": "Cut the potatoes into approximately 20 mm chunks, retaining clean edible skins. Trim the carrots and cut them into batons approximately 15 mm thick and 50 mm long. Remove the hard core from the Savoy cabbage, then slice the leaves into ribbons approximately 10 mm wide.",
+      "endpoint": "The potatoes and carrots are cut to sizes that will roast at similar rates, and the cabbage is evenly shredded for rapid cooking."
+    },
+    {
+      "prep_id": "PREP_02",
+      "ingredient_ids": [
+        "chestnut_mushrooms",
+        "brown_onion",
+        "garlic"
+      ],
+      "instruction": "Trim the mushroom stem ends and slice the mushrooms approximately 5 mm thick. Peel the onion, trim the ends and dice the usable flesh into approximately 5 mm pieces. Peel and finely grate or crush the garlic.",
+      "endpoint": "The mushrooms, onion and garlic are prepared and ready for the gravy."
+    },
+    {
+      "prep_id": "PREP_03",
+      "ingredient_ids": [
+        "seitan",
+        "dried_thyme",
+        "dried_rosemary",
+        "soy_sauce_reduced_salt"
+      ],
+      "instruction": "Drain the seitan if required and pat it dry. Cut or tear it into pieces approximately 25 mm across. Measure 1 tsp dried thyme, 1 tsp dried rosemary and 1 tsp reduced-salt soy sauce for the post-steaming herb coating.",
+      "endpoint": "The seitan is evenly portioned and the roasting seasonings are ready, but no roasting occurs before the required steaming stage."
+    },
+    {
+      "prep_id": "PREP_04",
+      "ingredient_ids": [
+        "vegetable_stock_concentrate",
+        "water",
+        "plain_flour",
+        "soy_sauce_reduced_salt",
+        "dried_thyme",
+        "apple_cider_vinegar"
+      ],
+      "instruction": "Mix the vegetable stock concentrate with approximately 300 ml hot water in the measuring jug. Keep 1 tbsp plain flour, the remaining 1 tsp soy sauce, 1/2 tsp dried thyme and 1 tsp apple cider vinegar ready for the gravy.",
+      "endpoint": "The stock and remaining gravy ingredients are measured before gravy cooking begins."
+    }
+  ],
+  "procedure": [
+    {
+      "step_id": "STEP_01",
+      "section": "Roast vegetables",
+      "title": "Roast the potatoes and carrots",
+      "depends_on": [
+        "PREP_01"
+      ],
+      "parallel_group": "P01",
+      "ingredient_ids": [
+        "potatoes",
+        "carrots",
+        "rapeseed_oil",
+        "fine_salt",
+        "black_pepper_ground"
+      ],
+      "equipment_ids": [
+        "oven",
+        "baking_tray"
+      ],
+      "instruction": "Preheat the oven to 220°C. Toss the potatoes and carrots on the baking tray with 3 tsp rapeseed oil, 1/4 tsp fine salt and approximately 1/4 tsp black pepper. Spread them into a mostly single layer and roast for approximately 35-40 minutes, turning once after approximately 20 minutes.",
+      "heat_source": "oven",
+      "heat_level": "220°C",
+      "temperature_c": 220,
+      "duration_min_minutes": 35,
+      "duration_max_minutes": 40,
+      "endpoint": "The potatoes are deeply golden and crisp at the edges with fluffy centres, and the carrots are tender with browned, caramelised edges.",
+      "corrective_actions": [
+        {
+          "condition": "The vegetables are colouring rapidly while remaining firm inside.",
+          "action": "Reduce the oven to 200°C and continue roasting until the centres are tender."
+        },
+        {
+          "condition": "The vegetables remain pale after 30 minutes.",
+          "action": "Turn them, increase spacing where possible and continue at 220°C until clear browning develops."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_02",
+      "section": "Seitan",
+      "title": "Steam the seitan in the Instant Pot",
+      "depends_on": [
+        "PREP_03"
+      ],
+      "parallel_group": "P01",
+      "ingredient_ids": [
+        "seitan",
+        "water"
+      ],
+      "equipment_ids": [
+        "instant_pot"
+      ],
+      "instruction": "Pour 250 ml water into the Instant Pot. Fit the trivet or steaming rack and arrange the seitan above the water so it is not submerged. Close the lid, set the valve to sealing and use the Steam or High Pressure programme for 5 minutes. When the programme ends, allow a 5-minute natural pressure release, then carefully release any remaining pressure before opening the lid.",
+      "heat_source": "instant_pot",
+      "heat_level": "Steam or High Pressure",
+      "temperature_c": null,
+      "duration_min_minutes": 15,
+      "duration_max_minutes": 18,
+      "endpoint": "The seitan is thoroughly heated and moist from steaming, and all pressure has been safely released before the lid is opened.",
+      "corrective_actions": [],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_03",
+      "section": "Seitan",
+      "title": "Herb-roast the steamed seitan",
+      "depends_on": [
+        "STEP_02"
+      ],
+      "parallel_group": "P02",
+      "ingredient_ids": [
+        "seitan",
+        "rapeseed_oil",
+        "dried_thyme",
+        "dried_rosemary",
+        "soy_sauce_reduced_salt",
+        "fine_salt",
+        "black_pepper_ground"
+      ],
+      "equipment_ids": [
+        "air_fryer"
+      ],
+      "instruction": "Transfer the steamed seitan to a dry bowl or plate and allow surface steam to escape for approximately 1 minute. Toss with 1 tsp rapeseed oil, 1 tsp dried thyme, 1 tsp dried rosemary, 1 tsp reduced-salt soy sauce, 1/8 tsp fine salt and approximately 1/8 tsp black pepper. Air-fry at 190°C for approximately 10-13 minutes, shaking once after approximately 6 minutes.",
+      "heat_source": "air_fryer",
+      "heat_level": "190°C",
+      "temperature_c": 190,
+      "duration_min_minutes": 10,
+      "duration_max_minutes": 13,
+      "endpoint": "The seitan is piping hot with browned, slightly crisp edges and a fragrant herb coating, while remaining moist rather than leathery.",
+      "corrective_actions": [
+        {
+          "condition": "The edges darken rapidly before the seitan develops an even crust.",
+          "action": "Reduce the air-fryer temperature to 175°C for the remaining cooking time."
+        },
+        {
+          "condition": "The seitan remains pale after 13 minutes.",
+          "action": "Continue air-frying for 2 minutes, checking after each minute, until distinct browned edges develop."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_04",
+      "section": "Gravy",
+      "title": "Brown the onion and mushrooms",
+      "depends_on": [
+        "PREP_02"
+      ],
+      "parallel_group": "P02",
+      "ingredient_ids": [
+        "brown_onion",
+        "chestnut_mushrooms",
+        "garlic",
+        "rapeseed_oil"
+      ],
+      "equipment_ids": [
+        "gas_hob",
+        "saute_pan",
+        "spatula"
+      ],
+      "instruction": "Heat the sauté pan over medium-high heat. Add the remaining 1 tsp rapeseed oil, followed by the onion and mushrooms. Cook for approximately 8-10 minutes, stirring only occasionally at first, until the mushroom liquid has evaporated and both the mushrooms and onion have developed strong golden-brown edges. Add the garlic for the final 30-45 seconds.",
+      "heat_source": "gas_hob",
+      "heat_level": "medium-high",
+      "temperature_c": null,
+      "duration_min_minutes": 8,
+      "duration_max_minutes": 10,
+      "endpoint": "The mushrooms are browned rather than grey, the onion is fully soft and golden, and no free mushroom liquid remains in the pan.",
+      "corrective_actions": [
+        {
+          "condition": "The mushrooms release liquid and begin simmering.",
+          "action": "Maintain medium-high heat, leave the pan uncovered and stir less frequently until the liquid evaporates."
+        },
+        {
+          "condition": "The garlic begins browning immediately.",
+          "action": "Proceed straight to the flour and stock step to prevent scorching."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_05",
+      "section": "Gravy",
+      "title": "Build and reduce the mushroom-onion gravy",
+      "depends_on": [
+        "STEP_04",
+        "PREP_04"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "plain_flour",
+        "vegetable_stock_concentrate",
+        "water",
+        "soy_sauce_reduced_salt",
+        "dried_thyme",
+        "apple_cider_vinegar",
+        "black_pepper_ground"
+      ],
+      "equipment_ids": [
+        "gas_hob",
+        "saute_pan",
+        "spatula",
+        "measuring_jug"
+      ],
+      "instruction": "Reduce the heat to medium. Sprinkle 1 tbsp plain flour over the browned mushroom-onion mixture and stir continuously for approximately 1 minute. Gradually pour in the prepared 300 ml vegetable stock while stirring to prevent lumps. Add the remaining 1 tsp soy sauce, 1/2 tsp dried thyme and remaining black pepper. Bring to a steady simmer and cook for approximately 4-6 minutes, stirring regularly. Stir in 1 tsp apple cider vinegar at the end.",
+      "heat_source": "gas_hob",
+      "heat_level": "medium",
+      "temperature_c": null,
+      "duration_min_minutes": 5,
+      "duration_max_minutes": 7,
+      "endpoint": "The gravy coats the back of the spoon, flows rather than sits like a paste, and tastes deeply savoury with enough acidity to avoid heaviness.",
+      "corrective_actions": [
+        {
+          "condition": "The gravy becomes thicker than a pourable sauce.",
+          "action": "Add 1 tbsp hot water and stir; repeat only if still necessary."
+        },
+        {
+          "condition": "The gravy remains thin after 6 minutes.",
+          "action": "Continue simmering uncovered for 1-2 minutes until it clearly coats the spoon."
+        },
+        {
+          "condition": "Flour lumps remain visible.",
+          "action": "Press them firmly against the side of the pan with the spatula while simmering until smooth."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_06",
+      "section": "Cabbage",
+      "title": "Cook the Savoy cabbage",
+      "depends_on": [
+        "STEP_05",
+        "PREP_01"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "savoy_cabbage",
+        "water",
+        "fine_salt",
+        "apple_cider_vinegar"
+      ],
+      "equipment_ids": [
+        "gas_hob",
+        "saute_pan",
+        "measuring_jug",
+        "spatula"
+      ],
+      "instruction": "Pour the finished gravy into the measuring jug and keep it warm. Return the same pan to medium-high heat. Add the shredded Savoy cabbage with 2 tbsp water and the remaining 1/8 tsp fine salt. Cover for approximately 2 minutes, then uncover and toss for another 2-3 minutes until the water has evaporated. Remove from the heat and stir through the remaining 1 tsp apple cider vinegar.",
+      "heat_source": "gas_hob",
+      "heat_level": "medium-high",
+      "temperature_c": null,
+      "duration_min_minutes": 4,
+      "duration_max_minutes": 5,
+      "endpoint": "The cabbage is tender but retains some bite, remains bright green and has no free water left in the pan.",
+      "corrective_actions": [
+        {
+          "condition": "The cabbage begins catching before becoming tender.",
+          "action": "Add 1 tbsp water and cover for another minute."
+        },
+        {
+          "condition": "The cabbage is soft but water remains in the pan.",
+          "action": "Uncover and cook over high heat briefly until the excess moisture evaporates."
+        }
+      ],
+      "critical": false
+    },
+    {
+      "step_id": "STEP_07",
+      "section": "Final checks",
+      "title": "Finish the roast components",
+      "depends_on": [
+        "STEP_01",
+        "STEP_03",
+        "STEP_06"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "potatoes",
+        "carrots",
+        "seitan"
+      ],
+      "equipment_ids": [
+        "oven",
+        "air_fryer"
+      ],
+      "instruction": "Check the potatoes, carrots and seitan against their stated endpoints. Remove each component as soon as it is correctly browned and tender. Do not continue cooking one component merely to synchronise it with another; keep completed components warm for the few minutes required to finish plating.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 1,
+      "duration_max_minutes": 2,
+      "endpoint": "The potatoes are crisp, carrots caramelised, seitan browned and moist, cabbage tender-crisp and gravy hot and pourable.",
+      "corrective_actions": [],
+      "critical": false
+    }
+  ],
+  "plating": [
+    {
+      "step_id": "PLATE_01",
+      "instruction": "Divide the herb-roasted seitan, crispy potatoes, roasted carrots and Savoy cabbage evenly between two warmed plates. Spoon the hot mushroom-onion gravy generously over the seitan and alongside the potatoes, leaving some crisp potato surfaces uncovered. Serve immediately."
+    }
+  ],
+  "storage": {
+    "refrigerator_days": 2,
+    "freezer_months": 1,
+    "storage_instructions": "Cool leftovers promptly. Refrigerate the seitan, potatoes, carrots, cabbage and gravy in sealed containers for up to 2 days, preferably keeping the gravy separate from the roasted components so they retain more texture. The seitan and gravy may be frozen separately for up to 1 month; potatoes and cabbage are best refrigerated rather than frozen.",
+    "reheating_methods": [
+      "Air fryer: reheat the potatoes, carrots and seitan at approximately 180°C until piping hot and the exterior has re-crisped, checking frequently.",
+      "Hob: reheat the mushroom-onion gravy over medium-low heat, stirring regularly and adding 1 tbsp water if it has thickened excessively.",
+      "Hob: reheat the Savoy cabbage briefly in a covered pan with 1 tbsp water until piping hot, avoiding prolonged cooking that would make it soft.",
+      "Oven: the roasted vegetables and seitan may alternatively be reheated at approximately 190°C until piping hot."
+    ]
+  },
+  "shopping": {
+    "sainsburys": [],
+    "marks_and_spencer": [],
+    "either_retailer": [
+      "Plain ready-made seitan — use 250 g; retail pack size may vary.",
+      "Floury potatoes — use 400 g.",
+      "Carrots — use 240 g.",
+      "Savoy cabbage — 1 small cabbage; use approximately 200 g.",
+      "Chestnut mushrooms — 1 pack; use 200 g.",
+      "Medium brown onion — 1.",
+      "Garlic — 1 bulb; use 2 cloves.",
+      "Rapeseed oil — use 5 tsp.",
+      "Dried thyme — use 1 1/2 tsp.",
+      "Dried rosemary — use 1 tsp.",
+      "Plain flour — use 1 tbsp.",
+      "Reduced-salt vegetable stock concentrate — use approximately 2 tsp or enough for 300 ml stock.",
+      "Reduced-salt soy sauce — use 2 tsp.",
+      "Apple cider vinegar — use 2 tsp.",
+      "Fine salt — use 1/2 tsp.",
+      "Ground black pepper — use 1/2 tsp."
+    ]
+  },
+  "quality_checks": {
+    "protein_requirement_met": true,
+    "protein_g_per_serving": 42.0,
+    "restaurant_quality_features": [
+      "Seitan is steamed in the Instant Pot before roasting, then browned at high dry heat for crisp edges without becoming tough.",
+      "Potatoes and carrots are roasted at high temperature to develop strong caramelisation and crispness.",
+      "Mushrooms are browned until their released liquid evaporates before the gravy is built.",
+      "The gravy develops savoury depth from browned mushrooms, onion, stock, soy sauce and thyme.",
+      "Apple cider vinegar provides controlled acidity to both the gravy and cabbage, preventing the roast from tasting heavy.",
+      "Savoy cabbage is cooked only until tender-crisp so the plate retains fresh colour and textural contrast."
+    ],
+    "nutrition_notes": [
+      "Approximately 590 kcal and 42 g protein per serving.",
+      "Seitan provides the principal protein contribution.",
+      "Potatoes provide the main carbohydrate component while carrots and cabbage increase vegetable volume and fibre.",
+      "Mushrooms and onion add savoury depth without requiring a calorie-dense cream-based gravy.",
+      "Nutrition values are estimates and will vary with the exact seitan and stock products used."
+    ],
+    "critical_success_factors": [
+      "Steam the seitan in the Instant Pot before any roasting stage.",
+      "Keep the potatoes and carrots well spaced so they roast rather than steam.",
+      "Brown the mushrooms completely before adding flour or stock.",
+      "Reduce the gravy until it coats a spoon while remaining pourable.",
+      "Cook the cabbage only until tender-crisp and finish it with vinegar.",
+      "Stop roasting the seitan once the exterior is browned so the interior remains moist."
+    ]
+  }
+}

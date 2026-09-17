@@ -1,0 +1,515 @@
+{
+  "schema_version": "1.0",
+  "recipe": {
+    "id": "beetroot_green_lentil_feta_wholegrain_wraps_rocket_dijon_herb_yoghurt",
+    "title": "Beetroot, Green Lentil & Feta Wholegrain Wraps with Rocket and Dijon-Herb Yoghurt",
+    "description": "Portable wholegrain wraps filled with earthy beetroot, seasoned green lentils, salty feta and peppery rocket, served with a thick Dijon-parsley yoghurt for a bright, creamy finish without making the wraps soggy.",
+    "servings": 2,
+    "difficulty": "Easy",
+    "total_time_minutes": 18,
+    "active_time_minutes": 18,
+    "passive_time_minutes": 0,
+    "cuisine": [
+      "Mediterranean-inspired"
+    ],
+    "meal_types": [
+      "Lunch"
+    ],
+    "dietary_tags": [
+      "Lacto-ovo vegetarian",
+      "High protein",
+      "High fibre",
+      "Portable",
+      "No-cook"
+    ],
+    "allergens": [
+      "Milk",
+      "Wheat",
+      "Mustard"
+    ]
+  },
+  "nutrition_per_serving": {
+    "energy_kcal": 450,
+    "protein_g": 31.5,
+    "carbohydrate_g": 63.0,
+    "fat_g": 10.5,
+    "saturated_fat_g": 4.8,
+    "fibre_g": 15.0,
+    "salt_g": 1.6
+  },
+  "ingredients": [
+    {
+      "ingredient_id": "wholemeal_tortilla_wraps",
+      "display_name": "Medium wholemeal tortilla wraps",
+      "category": "Bread",
+      "required": true,
+      "quantity_used": 2,
+      "unit_used": "integer",
+      "purchase_quantity": "1 pack",
+      "purchase_notes": "Use 2 medium wraps, 1 per serving; retail size and nutrition vary.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Keep sealed until assembly so the wraps remain flexible.",
+      "notes": "Whole wraps do not scale perfectly for every serving quantity; round sensibly when scaling."
+    },
+    {
+      "ingredient_id": "green_lentils_canned",
+      "display_name": "Canned green lentils",
+      "category": "Legumes",
+      "required": true,
+      "quantity_used": 190,
+      "unit_used": "g",
+      "purchase_quantity": "1 x approximately 400 g tin",
+      "purchase_notes": "Use 190 g drained lentils; drained yield varies and some lentils may remain for another meal.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Drain, rinse thoroughly and drain again.",
+      "notes": ""
+    },
+    {
+      "ingredient_id": "beetroot_cooked",
+      "display_name": "Plain cooked beetroot",
+      "category": "Vegetables",
+      "required": true,
+      "quantity_used": 160,
+      "unit_used": "g",
+      "purchase_quantity": "1 pack",
+      "purchase_notes": "Use 160 g plain cooked beetroot; choose beetroot not preserved in vinegar. Pack size may vary.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Drain any package liquid and pat thoroughly dry.",
+      "notes": ""
+    },
+    {
+      "ingredient_id": "feta_cheese",
+      "display_name": "Feta cheese",
+      "category": "Dairy",
+      "required": true,
+      "quantity_used": 50,
+      "unit_used": "g",
+      "purchase_quantity": "1 pack",
+      "purchase_notes": "Use 50 g; retail pack size may vary.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Keep refrigerated until required.",
+      "notes": ""
+    },
+    {
+      "ingredient_id": "rocket",
+      "display_name": "Rocket",
+      "category": "Leafy vegetables",
+      "required": true,
+      "quantity_used": 40,
+      "unit_used": "g",
+      "purchase_quantity": "1 bag",
+      "purchase_notes": "Use 40 g.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Wash if required and dry thoroughly.",
+      "notes": ""
+    },
+    {
+      "ingredient_id": "greek_yoghurt_0_percent",
+      "display_name": "0% Greek yoghurt",
+      "category": "Dairy",
+      "required": true,
+      "quantity_used": 240,
+      "unit_used": "g",
+      "purchase_quantity": "1 pot",
+      "purchase_notes": "Use 240 g; retail pot size may vary.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Keep refrigerated until required.",
+      "notes": "Use a thick strained yoghurt so the sauce works as a dip without running into the wraps."
+    },
+    {
+      "ingredient_id": "dijon_mustard",
+      "display_name": "Dijon mustard",
+      "category": "Condiments",
+      "required": true,
+      "quantity_used": 2,
+      "unit_used": "tsp",
+      "purchase_quantity": "1 jar",
+      "purchase_notes": "Use 2 tsp.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": ""
+    },
+    {
+      "ingredient_id": "lemon_juice",
+      "display_name": "Lemon juice",
+      "category": "Condiments",
+      "required": true,
+      "quantity_used": 2,
+      "unit_used": "tbsp",
+      "purchase_quantity": "1 bottle",
+      "purchase_notes": "Use 2 tbsp.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": "Provides acidity to both the lentil filling and yoghurt sauce."
+    },
+    {
+      "ingredient_id": "fresh_parsley",
+      "display_name": "Fresh flat-leaf parsley",
+      "category": "Fresh herbs",
+      "required": true,
+      "quantity_used": 15,
+      "unit_used": "g",
+      "purchase_quantity": "1 small pack",
+      "purchase_notes": "Use 15 g leaves and tender stems.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Wash and dry thoroughly.",
+      "notes": ""
+    },
+    {
+      "ingredient_id": "fine_salt",
+      "display_name": "Fine salt",
+      "category": "Seasoning",
+      "required": true,
+      "quantity_used": 0.125,
+      "unit_used": "tsp",
+      "purchase_quantity": "1 container",
+      "purchase_notes": "Use 1/8 tsp.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": "Feta, mustard and wraps supply additional salt."
+    },
+    {
+      "ingredient_id": "black_pepper_ground",
+      "display_name": "Ground black pepper",
+      "category": "Seasoning",
+      "required": true,
+      "quantity_used": 0.5,
+      "unit_used": "tsp",
+      "purchase_quantity": "1 container",
+      "purchase_notes": "Use 1/2 tsp in total.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": "Use 1/4 tsp in the lentils and 1/4 tsp in the yoghurt sauce."
+    }
+  ],
+  "equipment": [
+    {
+      "equipment_id": "colander",
+      "display_name": "Colander or sieve",
+      "required": true,
+      "notes": "For rinsing and thoroughly draining the lentils."
+    },
+    {
+      "equipment_id": "chef_knife",
+      "display_name": "Chef's knife",
+      "required": true,
+      "notes": ""
+    },
+    {
+      "equipment_id": "chopping_board",
+      "display_name": "Chopping board",
+      "required": true,
+      "notes": ""
+    },
+    {
+      "equipment_id": "mixing_bowl",
+      "display_name": "Medium mixing bowl",
+      "required": true,
+      "notes": "For the beetroot and lentil filling."
+    },
+    {
+      "equipment_id": "small_bowl",
+      "display_name": "Small bowl",
+      "required": true,
+      "notes": "For the Dijon-herb yoghurt."
+    },
+    {
+      "equipment_id": "kitchen_scales",
+      "display_name": "Kitchen scales",
+      "required": true,
+      "notes": ""
+    },
+    {
+      "equipment_id": "measuring_spoons",
+      "display_name": "Measuring spoons",
+      "required": true,
+      "notes": ""
+    },
+    {
+      "equipment_id": "lidded_containers",
+      "display_name": "2 lunch containers with 2 small sauce pots",
+      "required": true,
+      "notes": "Keep the yoghurt sauce separate from the wraps during transport."
+    }
+  ],
+  "mise_en_place": [
+    {
+      "prep_id": "PREP_01",
+      "ingredient_ids": [
+        "green_lentils_canned"
+      ],
+      "instruction": "Drain the green lentils into the colander, rinse thoroughly under cold running water, then shake firmly and leave them to drain while preparing the other ingredients.",
+      "endpoint": "The lentils are cool, clean-tasting and sufficiently dry that no water collects beneath the colander."
+    },
+    {
+      "prep_id": "PREP_02",
+      "ingredient_ids": [
+        "beetroot_cooked",
+        "feta_cheese",
+        "rocket"
+      ],
+      "instruction": "Pat the cooked beetroot thoroughly dry, then cut it into approximately 8 mm dice. Crumble the feta into pieces approximately 5-10 mm across. Check that the rocket is completely dry.",
+      "endpoint": "The beetroot is evenly diced without excessive surface liquid, the feta is coarsely crumbled and the rocket is dry."
+    },
+    {
+      "prep_id": "PREP_03",
+      "ingredient_ids": [
+        "fresh_parsley"
+      ],
+      "instruction": "Finely chop the parsley leaves and tender stems.",
+      "endpoint": "The parsley is finely and evenly chopped without being crushed into a paste."
+    }
+  ],
+  "procedure": [
+    {
+      "step_id": "STEP_01",
+      "section": "Sauce",
+      "title": "Make the Dijon-herb yoghurt",
+      "depends_on": [
+        "PREP_03"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "greek_yoghurt_0_percent",
+        "dijon_mustard",
+        "lemon_juice",
+        "fresh_parsley",
+        "black_pepper_ground"
+      ],
+      "equipment_ids": [
+        "small_bowl",
+        "measuring_spoons"
+      ],
+      "instruction": "Combine the 240 g Greek yoghurt with 2 tsp Dijon mustard, 1 tbsp lemon juice, approximately two-thirds of the chopped parsley and 1/4 tsp black pepper. Stir until completely even.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 1,
+      "duration_max_minutes": 2,
+      "endpoint": "The sauce is thick, smooth and spoonable, with clear mustard acidity and fresh parsley flavour.",
+      "corrective_actions": [
+        {
+          "condition": "The sauce seems excessively thick for dipping.",
+          "action": "Stir in 1 tsp cold water; add no more unless required."
+        }
+      ],
+      "critical": false
+    },
+    {
+      "step_id": "STEP_02",
+      "section": "Filling",
+      "title": "Season the lentils and beetroot",
+      "depends_on": [
+        "PREP_01",
+        "PREP_02",
+        "PREP_03"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "green_lentils_canned",
+        "beetroot_cooked",
+        "feta_cheese",
+        "lemon_juice",
+        "fresh_parsley",
+        "fine_salt",
+        "black_pepper_ground"
+      ],
+      "equipment_ids": [
+        "mixing_bowl",
+        "measuring_spoons"
+      ],
+      "instruction": "Place the well-drained lentils and diced beetroot in the mixing bowl. Add the remaining 1 tbsp lemon juice, remaining chopped parsley, 1/8 tsp fine salt and remaining 1/4 tsp black pepper. Fold gently until evenly seasoned, then fold through the crumbled feta, keeping distinct pieces of cheese visible.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 2,
+      "duration_max_minutes": 3,
+      "endpoint": "The filling tastes bright, savoury and properly seasoned, with no watery liquid pooling in the bottom of the bowl and distinct pieces of beetroot and feta remaining.",
+      "corrective_actions": [
+        {
+          "condition": "Liquid accumulates at the bottom of the bowl.",
+          "action": "Transfer the mixture briefly to the colander and allow the excess liquid to drain before filling the wraps."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_03",
+      "section": "Assembly",
+      "title": "Layer the wraps",
+      "depends_on": [
+        "STEP_02"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "wholemeal_tortilla_wraps",
+        "rocket",
+        "green_lentils_canned",
+        "beetroot_cooked",
+        "feta_cheese"
+      ],
+      "equipment_ids": [
+        "chopping_board"
+      ],
+      "instruction": "Lay the 2 wholemeal wraps flat. Divide the 40 g rocket between them, arranging it in a strip across the central third of each wrap. Divide the beetroot, lentil and feta mixture evenly over the rocket, leaving approximately 40 mm clear at the left and right edges.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 2,
+      "duration_max_minutes": 3,
+      "endpoint": "Each wrap contains an even portion of filling positioned centrally, with the dry rocket forming a barrier between the moist filling and the tortilla.",
+      "corrective_actions": [
+        {
+          "condition": "The filling is piled too high for the wrap to close comfortably.",
+          "action": "Spread it into a longer, narrower strip rather than compressing it into a mound."
+        }
+      ],
+      "critical": false
+    },
+    {
+      "step_id": "STEP_04",
+      "section": "Assembly",
+      "title": "Roll the wraps tightly",
+      "depends_on": [
+        "STEP_03"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "wholemeal_tortilla_wraps"
+      ],
+      "equipment_ids": [
+        "chopping_board"
+      ],
+      "instruction": "Fold the left and right edges of each tortilla inward over the filling. Bring the lower edge firmly over the filling, compress gently, then continue rolling away from you into a tight cylinder with the seam underneath.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 2,
+      "duration_max_minutes": 3,
+      "endpoint": "Each wrap is tightly enclosed with both ends folded in, no loose filling escaping and the seam secured underneath.",
+      "corrective_actions": [
+        {
+          "condition": "The tortilla begins to split while rolling.",
+          "action": "Reduce the compression force and leave the wrap whole rather than attempting to tighten it further."
+        }
+      ],
+      "critical": false
+    },
+    {
+      "step_id": "STEP_05",
+      "section": "Packing",
+      "title": "Pack the yoghurt separately",
+      "depends_on": [
+        "STEP_01",
+        "STEP_04"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "greek_yoghurt_0_percent",
+        "dijon_mustard",
+        "fresh_parsley"
+      ],
+      "equipment_ids": [
+        "lidded_containers"
+      ],
+      "instruction": "Place 1 wrap into each lunch container. Divide the Dijon-herb yoghurt evenly between 2 sealed small sauce pots, giving approximately 120 g per serving. Keep the sauce separate until eating.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 1,
+      "duration_max_minutes": 2,
+      "endpoint": "Each lunch contains 1 sealed wrap and 1 separate portion of thick Dijon-herb yoghurt with no sauce contacting the tortilla during storage.",
+      "corrective_actions": [],
+      "critical": false
+    }
+  ],
+  "plating": [
+    {
+      "step_id": "PLATE_01",
+      "instruction": "Serve each wholegrain wrap with its portion of Dijon-herb yoghurt. Dip each bite into the yoghurt or spoon small amounts into the open end as the wrap is eaten, keeping the remaining tortilla dry and structured."
+    }
+  ],
+  "storage": {
+    "refrigerator_days": 1,
+    "freezer_months": null,
+    "storage_instructions": "Refrigerate the assembled wraps and Dijon-herb yoghurt promptly and use within 24 hours for the best texture. Keep the yoghurt in separate sealed sauce pots. For transport to work or on a car journey, keep the lunch chilled in an insulated bag with an ice pack and refrigerate on arrival where possible. The seasoned lentil-beetroot filling and yoghurt sauce may separately be refrigerated for up to 2 days before final assembly.",
+    "reheating_methods": []
+  },
+  "shopping": {
+    "sainsburys": [],
+    "marks_and_spencer": [],
+    "either_retailer": [
+      "Medium wholemeal tortilla wraps — 1 pack; use 2.",
+      "Canned green lentils — 1 approximately 400 g tin; use 190 g drained.",
+      "Plain cooked beetroot — 1 pack; use 160 g.",
+      "Feta cheese — 1 pack; use 50 g.",
+      "Rocket — 1 bag; use 40 g.",
+      "0% Greek yoghurt — 1 pot; use 240 g.",
+      "Dijon mustard — use 2 tsp.",
+      "Lemon juice — use 2 tbsp.",
+      "Fresh flat-leaf parsley — 1 small pack; use 15 g.",
+      "Fine salt — use 1/8 tsp.",
+      "Ground black pepper — use 1/2 tsp."
+    ]
+  },
+  "quality_checks": {
+    "protein_requirement_met": true,
+    "protein_g_per_serving": 31.5,
+    "restaurant_quality_features": [
+      "Earthy beetroot and lentils are sharpened with lemon rather than left tasting heavy.",
+      "Salty feta provides concentrated savoury contrast without requiring a large quantity.",
+      "Peppery rocket adds freshness and creates a practical moisture barrier inside the wrap.",
+      "Dijon, parsley and lemon turn high-protein Greek yoghurt into a strongly flavoured creamy accompaniment.",
+      "Keeping the yoghurt separate maintains tortilla structure during transport.",
+      "Distinct beetroot, feta, lentil and rocket textures are preserved rather than mixing everything into a uniform filling."
+    ],
+    "nutrition_notes": [
+      "Approximately 450 kcal and 31.5 g protein per serving.",
+      "Green lentils, Greek yoghurt and feta collectively provide sufficient protein for the lunch target.",
+      "Lentils, beetroot, rocket and wholegrain wraps contribute substantial fibre.",
+      "The yoghurt sauce increases protein and creaminess without requiring mayonnaise or a large amount of oil.",
+      "Nutrition values are estimates and will vary with the exact wrap, yoghurt, feta and lentil products used."
+    ],
+    "critical_success_factors": [
+      "Drain both the lentils and beetroot thoroughly so the wraps do not become soggy.",
+      "Keep the rocket dry before assembly.",
+      "Use the rocket as the first layer between the tortilla and moist filling.",
+      "Roll firmly enough to contain the filling without splitting the tortilla.",
+      "Keep the Dijon-herb yoghurt separate until eating.",
+      "Maintain refrigeration during storage and transport."
+    ]
+  }
+}
