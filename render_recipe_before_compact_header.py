@@ -1132,22 +1132,33 @@ def build_html(
             0;
     }}
 
-    .recipe-header {
-    position: static;
+    .recipe-header {{
+        position: sticky;
+        top: 0;
+        z-index: 20;
 
-    background: transparent;
+        background:
+            rgba(
+                244,
+                242,
+                236,
+                0.96
+            );
 
-    padding:
-        12px
-        0
-        10px
-        0;
+        backdrop-filter:
+            blur(10px);
 
-    border-bottom:
-        1px
-        solid
-        var(--border);
-}
+        padding:
+            12px
+            0
+            10px
+            0;
+
+        border-bottom:
+            1px
+            solid
+            var(--border);
+    }}
 
     .title-row {{
         display: flex;
@@ -1516,85 +1527,7 @@ def build_html(
 
         font-weight: 750;
     }}
-/* ==========================================================
-   Compact cook-mode header
-   ========================================================== */
 
-body.cook-mode .recipe-header {
-    position: sticky;
-    top: 0;
-    z-index: 30;
-
-    margin: 0;
-
-    padding:
-        6px
-        0;
-
-    background:
-        rgba(
-            244,
-            242,
-            236,
-            0.98
-        );
-
-    border-bottom:
-        1px
-        solid
-        var(--border);
-
-    backdrop-filter:
-        blur(8px);
-}
-
-body.cook-mode .recipe-header .description,
-body.cook-mode .recipe-header .scheduled-date,
-body.cook-mode .recipe-header .tag-row,
-body.cook-mode .recipe-header .allergens,
-body.cook-mode .facts {
-    display: none;
-}
-
-body.cook-mode .title-row {
-    display: grid;
-
-    grid-template-columns:
-        minmax(0, 1fr)
-        auto;
-
-    align-items: center;
-
-    gap: 8px;
-}
-
-body.cook-mode .recipe-header h1 {
-    margin: 0;
-
-    font-size: 1rem;
-
-    line-height: 1.2;
-
-    white-space: nowrap;
-
-    overflow: hidden;
-
-    text-overflow: ellipsis;
-}
-
-body.cook-mode .cook-button {
-    width: auto;
-
-    min-height: 36px;
-
-    padding:
-        6px
-        10px;
-
-    font-size: 0.85rem;
-
-    white-space: nowrap;
-}
     body.cook-mode .non-method {{
         display: none;
     }}
@@ -1611,31 +1544,30 @@ body.cook-mode .cook-button {
         display: flex;
     }}
 
-    body.cook-mode .method-section {
-    min-height:
-        calc(100dvh - 60px);
+    body.cook-mode .method-section {{
+        min-height:
+            70vh;
+    }}
 
-    margin-top: 6px;
-}
+    @media (max-width: 600px) {{
 
-    .title-row {
-    display: grid;
-    grid-template-columns: 1fr;
-}
+        .page {{
+            width:
+                calc(100% - 12px);
+        }}
 
-.cook-button {
-    width: 100%;
-}
+        .recipe-header {{
+            padding-top: 8px;
+        }}
 
-body.cook-mode .title-row {
-    grid-template-columns:
-        minmax(0, 1fr)
-        auto;
-}
+        .title-row {{
+            display: grid;
+            grid-template-columns: 1fr;
+        }}
 
-body.cook-mode .cook-button {
-    width: auto;
-}
+        .cook-button {{
+            width: 100%;
+        }}
 
         .ingredient-heading {{
             display: grid;
