@@ -1132,22 +1132,22 @@ def build_html(
             0;
     }}
 
-    .recipe-header {
-    position: static;
+    .recipe-header {{
+        position: static;
 
-    background: transparent;
+        background: transparent;
 
-    padding:
-        12px
-        0
-        10px
-        0;
+        padding:
+            12px
+            0
+            10px
+            0;
 
-    border-bottom:
-        1px
-        solid
-        var(--border);
-}
+        border-bottom:
+            1px
+            solid
+            var(--border);
+    }}
 
     .title-row {{
         display: flex;
@@ -1516,85 +1516,91 @@ def build_html(
 
         font-weight: 750;
     }}
-/* ==========================================================
-   Compact cook-mode header
-   ========================================================== */
 
-body.cook-mode .recipe-header {
-    position: sticky;
-    top: 0;
-    z-index: 30;
+    /* ==========================================================
+       Compact cook-mode header
+       ========================================================== */
 
-    margin: 0;
+    body.cook-mode .recipe-header {{
+        position: sticky;
+        top: 0;
+        z-index: 30;
 
-    padding:
-        6px
-        0;
+        margin: 0;
 
-    background:
-        rgba(
-            244,
-            242,
-            236,
-            0.98
-        );
+        padding:
+            6px
+            0;
 
-    border-bottom:
-        1px
-        solid
-        var(--border);
+        background:
+            rgba(
+                244,
+                242,
+                236,
+                0.98
+            );
 
-    backdrop-filter:
-        blur(8px);
-}
+        border-bottom:
+            1px
+            solid
+            var(--border);
 
-body.cook-mode .recipe-header .description,
-body.cook-mode .recipe-header .scheduled-date,
-body.cook-mode .recipe-header .tag-row,
-body.cook-mode .recipe-header .allergens,
-body.cook-mode .facts {
-    display: none;
-}
+        backdrop-filter:
+            blur(8px);
+    }}
 
-body.cook-mode .title-row {
-    display: grid;
+    body.cook-mode .recipe-header .description,
+    body.cook-mode .recipe-header .scheduled-date,
+    body.cook-mode .recipe-header .tag-row,
+    body.cook-mode .recipe-header .allergens,
+    body.cook-mode .facts {{
+        display: none;
+    }}
 
-    grid-template-columns:
-        minmax(0, 1fr)
-        auto;
+    body.cook-mode .title-row {{
+        display: grid;
 
-    align-items: center;
+        grid-template-columns:
+            minmax(0, 1fr)
+            auto;
 
-    gap: 8px;
-}
+        align-items: center;
 
-body.cook-mode .recipe-header h1 {
-    margin: 0;
+        gap: 8px;
+    }}
 
-    font-size: 1rem;
+    body.cook-mode .recipe-header h1 {{
+        margin: 0;
 
-    line-height: 1.2;
+        font-size: 1rem;
 
-    white-space: nowrap;
+        line-height: 1.2;
 
-    overflow: hidden;
+        white-space: nowrap;
 
-    text-overflow: ellipsis;
-}
+        overflow: hidden;
 
-body.cook-mode .cook-button {
-    width: auto;
+        text-overflow: ellipsis;
+    }}
 
-    min-height: 36px;
+    body.cook-mode .cook-button {{
+        width: auto;
 
-    padding:
-        6px
-        10px;
+        min-height: 36px;
 
-    font-size: 0.85rem;
+        padding:
+            6px
+            10px;
 
-    white-space: nowrap;
-}
+        font-size: 0.85rem;
+
+        white-space: nowrap;
+    }}
+
+    body.cook-mode .method-section > h2 {{
+        display: none;
+    }}
+
     body.cook-mode .non-method {{
         display: none;
     }}
@@ -1611,31 +1617,42 @@ body.cook-mode .cook-button {
         display: flex;
     }}
 
-    body.cook-mode .method-section {
-    min-height:
-        calc(100dvh - 60px);
+    body.cook-mode .method-section {{
+        min-height:
+            calc(100dvh - 60px);
 
-    margin-top: 6px;
-}
+        margin-top: 6px;
+    }}
 
-    .title-row {
-    display: grid;
-    grid-template-columns: 1fr;
-}
+    @media (max-width: 600px) {{
 
-.cook-button {
-    width: 100%;
-}
+        .page {{
+            width:
+                calc(100% - 12px);
+        }}
 
-body.cook-mode .title-row {
-    grid-template-columns:
-        minmax(0, 1fr)
-        auto;
-}
+        .recipe-header {{
+            padding-top: 8px;
+        }}
 
-body.cook-mode .cook-button {
-    width: auto;
-}
+        .title-row {{
+            display: grid;
+            grid-template-columns: 1fr;
+        }}
+
+        .cook-button {{
+            width: 100%;
+        }}
+
+        body.cook-mode .title-row {{
+            grid-template-columns:
+                minmax(0, 1fr)
+                auto;
+        }}
+
+        body.cook-mode .cook-button {{
+            width: auto;
+        }}
 
         .ingredient-heading {{
             display: grid;

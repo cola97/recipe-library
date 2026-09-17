@@ -75,20 +75,9 @@
     }
 
     .recipe-header {
-        position: sticky;
-        top: 0;
-        z-index: 20;
+        position: static;
 
-        background:
-            rgba(
-                244,
-                242,
-                236,
-                0.96
-            );
-
-        backdrop-filter:
-            blur(10px);
+        background: transparent;
 
         padding:
             12px
@@ -470,6 +459,90 @@
         font-weight: 750;
     }
 
+    /* ==========================================================
+       Compact cook-mode header
+       ========================================================== */
+
+    body.cook-mode .recipe-header {
+        position: sticky;
+        top: 0;
+        z-index: 30;
+
+        margin: 0;
+
+        padding:
+            6px
+            0;
+
+        background:
+            rgba(
+                244,
+                242,
+                236,
+                0.98
+            );
+
+        border-bottom:
+            1px
+            solid
+            var(--border);
+
+        backdrop-filter:
+            blur(8px);
+    }
+
+    body.cook-mode .recipe-header .description,
+    body.cook-mode .recipe-header .scheduled-date,
+    body.cook-mode .recipe-header .tag-row,
+    body.cook-mode .recipe-header .allergens,
+    body.cook-mode .facts {
+        display: none;
+    }
+
+    body.cook-mode .title-row {
+        display: grid;
+
+        grid-template-columns:
+            minmax(0, 1fr)
+            auto;
+
+        align-items: center;
+
+        gap: 8px;
+    }
+
+    body.cook-mode .recipe-header h1 {
+        margin: 0;
+
+        font-size: 1rem;
+
+        line-height: 1.2;
+
+        white-space: nowrap;
+
+        overflow: hidden;
+
+        text-overflow: ellipsis;
+    }
+
+    body.cook-mode .cook-button {
+        width: auto;
+
+        min-height: 36px;
+
+        padding:
+            6px
+            10px;
+
+        font-size: 0.85rem;
+
+        white-space: nowrap;
+    }
+
+    body.cook-mode .method-section > h2 {
+        display: none;
+    }
+
     body.cook-mode .non-method {
         display: none;
     }
@@ -488,7 +561,9 @@
 
     body.cook-mode .method-section {
         min-height:
-            70vh;
+            calc(100dvh - 60px);
+
+        margin-top: 6px;
     }
 
     @media (max-width: 600px) {
@@ -509,6 +584,16 @@
 
         .cook-button {
             width: 100%;
+        }
+
+        body.cook-mode .title-row {
+            grid-template-columns:
+                minmax(0, 1fr)
+                auto;
+        }
+
+        body.cook-mode .cook-button {
+            width: auto;
         }
 
         .ingredient-heading {
