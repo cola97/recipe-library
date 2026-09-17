@@ -1,4 +1,5 @@
-const CACHE_NAME = "recipe-library-v6";
+const CACHE_NAME =
+    "recipe-library-v3";
 
 
 const CORE_FILES = [
@@ -6,11 +7,9 @@ const CORE_FILES = [
     "./index.html",
     "./styles.css",
     "./app.js",
-    "./shopping.js",
     "./manifest.webmanifest",
     "./recipes.json",
-    "./schedule.json",
-    "./shopping_data.json"
+    "./schedule.json"
 ];
 
 

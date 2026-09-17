@@ -24,11 +24,6 @@ RENDERER = (
     "render_recipe.py"
 )
 
-STRICT_TIMERS = (
-    BASE_DIR
-    /
-    "strict_timers.json"
-)
 
 def needs_render(
     json_file,
@@ -54,20 +49,13 @@ def needs_render(
         RENDERER.stat().st_mtime
     )
 
-    timer_time = (
-        STRICT_TIMERS.stat().st_mtime
-        if STRICT_TIMERS.exists()
-        else 0
-    )
-
     return (
         output_time
         <
         max(
-    json_time,
-    renderer_time,
-    timer_time
-)
+            json_time,
+            renderer_time
+        )
     )
 
 

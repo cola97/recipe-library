@@ -2,13 +2,21 @@
     --background: #f5f3ec;
     --panel: #ffffff;
     --text: #000000;
+    --muted: #5d5a53;
     --border: #b7b2a8;
     --button: #232323;
     --button-text: #ffffff;
+    --soft: #efede5;
+    --green: #dff3df;
+    --green-strong: #b9e5ba;
+    --yellow: #fff1c7;
+    --yellow-strong: #ffd978;
+    --pink: #ffe4df;
 }
 
+
 /* ==========================================================
-   Global reset
+   Reset
    ========================================================== */
 
 * {
@@ -24,6 +32,7 @@
         sans-serif;
 }
 
+
 html,
 body {
     margin: 0;
@@ -32,201 +41,165 @@ body {
     width: 100%;
     min-height: 100%;
 
-    background: var(--background);
-    color: var(--text);
+    background:
+        var(--background);
 
-    font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        Roboto,
-        Helvetica,
-        Arial,
-        sans-serif;
+    color:
+        var(--text);
 }
+
 
 body {
-    min-height: 100dvh;
+    min-height:
+        100dvh;
 }
 
-/*
-   Explicitly prevent browser-default serif fonts on
-   headings and controls.
-*/
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-div,
-span,
-label,
-summary,
 button,
 input,
 select,
-option {
-    font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        Roboto,
-        Helvetica,
-        Arial,
-        sans-serif;
-}
-
-button,
-input,
-select {
+summary {
     font: inherit;
 }
 
-/* ==========================================================
-   Main application container
-   ========================================================== */
 
-.app {
-    width: min(
-        calc(100% - 24px),
-        1500px
-    );
-
-    margin: 0 auto;
-
-    padding:
-        max(14px, env(safe-area-inset-top))
-        max(12px, env(safe-area-inset-right))
-        max(24px, env(safe-area-inset-bottom))
-        max(12px, env(safe-area-inset-left));
-}
-
-/* ==========================================================
-   Header
-   ========================================================== */
-
-.app-header {
-    background: var(--panel);
+button,
+input,
+select {
+    min-height: 46px;
 
     border:
         1px
         solid
         var(--border);
-
-    border-radius: 16px;
-
-    padding: 20px;
-
-    margin-bottom: 14px;
-}
-
-.app-header h1 {
-    margin: 0;
-
-    font-size:
-        clamp(
-            1.8rem,
-            5vw,
-            2.8rem
-        );
-
-    line-height: 1.1;
-
-    font-weight: 750;
-}
-
-.context {
-    margin-top: 10px;
-
-    font-size: 1rem;
-
-    font-weight: 650;
-}
-
-/* ==========================================================
-   Date and meal controls
-   ========================================================== */
-
-.controls {
-    display: grid;
-
-    grid-template-columns:
-        minmax(0, 1fr)
-        minmax(0, 1fr);
-
-    gap: 12px;
-
-    margin-bottom: 14px;
-}
-
-.control-group {
-    display: grid;
-
-    gap: 6px;
-}
-
-label {
-    font-weight: 700;
-}
-
-input,
-select,
-button {
-    width: 100%;
-
-    min-height: 48px;
 
     border-radius: 10px;
-
-    border:
-        1px
-        solid
-        var(--border);
 }
+
 
 input,
 select {
+    width: 100%;
+
     padding:
-        10px
-        12px;
+        9px
+        11px;
 
-    color: #000000;
+    background:
+        #ffffff;
 
-    background: #ffffff;
+    color:
+        #000000;
 }
+
 
 button {
     padding:
-        10px
-        14px;
+        9px
+        13px;
 
-    border:
-        1px
-        solid
+    background:
+        var(--button);
+
+    color:
+        var(--button-text);
+
+    border-color:
         #000000;
 
-    background: var(--button);
-
-    color: var(--button-text);
-
-    font-weight: 700;
+    font-weight: 750;
 
     cursor: pointer;
 }
 
+
 button:hover {
-    filter: brightness(1.08);
+    filter:
+        brightness(1.06);
 }
 
+
+button[hidden],
+[hidden] {
+    display:
+        none
+        !important;
+}
+
+
+label {
+    font-weight: 750;
+}
+
+
 /* ==========================================================
-   Scheduled recipe section
+   App
    ========================================================== */
 
-.scheduled-panel {
-    background: var(--panel);
+.app {
+    width:
+        min(
+            calc(100% - 24px),
+            1200px
+        );
+
+    margin:
+        0
+        auto;
+
+    padding:
+        max(
+            12px,
+            env(safe-area-inset-top)
+        )
+        max(
+            12px,
+            env(safe-area-inset-right)
+        )
+        max(
+            28px,
+            env(safe-area-inset-bottom)
+        )
+        max(
+            12px,
+            env(safe-area-inset-left)
+        );
+}
+
+
+.app-shell {
+    min-width: 0;
+}
+
+
+/* ==========================================================
+   Top navigation
+   ========================================================== */
+
+.top-nav {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            3,
+            minmax(0, 1fr)
+        );
+
+    gap: 8px;
+
+    position: sticky;
+
+    top:
+        max(
+            6px,
+            env(safe-area-inset-top)
+        );
+
+    z-index: 40;
+
+    margin-bottom: 18px;
+
+    padding: 6px;
 
     border:
         1px
@@ -235,31 +208,176 @@ button:hover {
 
     border-radius: 14px;
 
-    margin-bottom: 14px;
+    background:
+        rgba(
+            245,
+            243,
+            236,
+            0.96
+        );
 
-    padding: 16px;
+    backdrop-filter:
+        blur(8px);
 }
+
+
+.nav-button {
+    width: 100%;
+
+    min-height: 44px;
+
+    background:
+        #ffffff;
+
+    color:
+        #000000;
+
+    border:
+        1px
+        solid
+        var(--border);
+}
+
+
+.nav-button.active {
+    background:
+        #000000;
+
+    color:
+        #ffffff;
+
+    border-color:
+        #000000;
+}
+
+
+/* ==========================================================
+   Screens
+   ========================================================== */
+
+.app-screen {
+    display: block;
+}
+
+
+.screen-heading {
+    margin:
+        2px
+        0
+        16px
+        0;
+}
+
+
+.screen-heading h1 {
+    margin:
+        0
+        0
+        5px
+        0;
+
+    font-size:
+        clamp(
+            1.7rem,
+            5vw,
+            2.35rem
+        );
+
+    line-height: 1.1;
+}
+
+
+.screen-heading p {
+    margin: 0;
+
+    color:
+        var(--muted);
+
+    line-height: 1.45;
+}
+
+
+/* ==========================================================
+   Generic controls
+   ========================================================== */
+
+.controls {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(0, 1fr)
+        );
+
+    gap: 12px;
+
+    margin-bottom: 14px;
+}
+
+
+.control-group {
+    display: grid;
+
+    gap: 6px;
+
+    min-width: 0;
+}
+
+
+.secondary-button {
+    background:
+        #ffffff;
+
+    color:
+        #000000;
+
+    border:
+        1px
+        solid
+        #000000;
+}
+
+
+/* ==========================================================
+   Meals
+   ========================================================== */
+
+.scheduled-panel {
+    padding: 15px;
+
+    border:
+        1px
+        solid
+        var(--border);
+
+    border-radius: 14px;
+
+    background:
+        #ffffff;
+}
+
 
 .scheduled-panel h2 {
     margin:
         0
         0
-        12px
+        11px
         0;
 
-    font-size: 1.2rem;
-
-    font-weight: 750;
+    font-size: 1.1rem;
 }
+
 
 #scheduledRecipes {
     display: grid;
 
-    gap: 12px;
+    gap: 10px;
 }
 
+
 .scheduled-card {
-    padding: 16px;
+    padding: 15px;
 
     border:
         2px
@@ -267,27 +385,33 @@ button:hover {
         #000000;
 
     border-radius: 12px;
-
-    color: #000000;
 }
+
 
 .scheduled-available {
-    background: #dff3df;
+    background:
+        var(--green);
 }
 
+
 .scheduled-missing {
-    background: #fff1c7;
+    background:
+        var(--yellow);
 }
+
 
 .scheduled-card-header {
     display: flex;
 
-    align-items: flex-start;
+    align-items:
+        flex-start;
 
-    justify-content: space-between;
+    justify-content:
+        space-between;
 
     gap: 12px;
 }
+
 
 .scheduled-title {
     flex: 1;
@@ -296,75 +420,78 @@ button:hover {
 
     line-height: 1.35;
 
-    font-weight: 750;
-
-    color: #000000;
+    font-weight: 800;
 }
 
-.status-badge {
-    flex: 0 0 auto;
 
-    display: inline-block;
+.scheduled-context {
+    margin-top: 7px;
+
+    color:
+        var(--muted);
+
+    font-size: 0.9rem;
+
+    font-weight: 650;
+}
+
+
+.status-badge {
+    flex:
+        0
+        0
+        auto;
 
     padding:
         5px
-        9px;
+        8px;
 
     border:
         1px
         solid
         #000000;
 
-    border-radius: 999px;
+    border-radius:
+        999px;
 
-    font-size: 0.78rem;
+    font-size:
+        0.76rem;
 
-    line-height: 1.1;
+    font-weight:
+        800;
 
-    font-weight: 800;
-
-    color: #000000;
-
-    white-space: nowrap;
+    white-space:
+        nowrap;
 }
+
 
 .status-available {
-    background: #b9e5ba;
+    background:
+        var(--green-strong);
 }
+
 
 .status-missing {
-    background: #ffd978;
+    background:
+        var(--yellow-strong);
 }
 
-.scheduled-filename {
-    margin-top: 10px;
-
-    font-family:
-        "Cascadia Mono",
-        Consolas,
-        monospace;
-
-    font-size: 0.78rem;
-
-    color: #000000;
-
-    overflow-wrap: anywhere;
-}
 
 .scheduled-open-button {
-    margin-top: 14px;
-
     width: auto;
 
-    min-width: 140px;
+    min-width: 150px;
+
+    margin-top: 12px;
 }
 
+
 .not-generated-message {
-    margin-top: 14px;
+    margin-top: 12px;
 
     padding:
-        10px
-        12px;
+        9px
+        11px;
 
     border-left:
         4px
@@ -376,24 +503,47 @@ button:hover {
             255,
             255,
             255,
-            0.45
+            0.52
         );
-
-    color: #000000;
 }
 
-.empty-schedule-message {
-    padding: 12px;
 
-    color: #000000;
+.compact-hint {
+    margin-top: 12px;
+
+    padding:
+        10px
+        12px;
+
+    border:
+        1px
+        solid
+        var(--border);
+
+    border-radius: 10px;
+
+    background:
+        #ffffff;
+
+    color:
+        var(--muted);
+
+    text-align: center;
 }
+
 
 /* ==========================================================
-   All recipes library
+   Recipe browser
    ========================================================== */
 
-.library-panel {
-    background: var(--panel);
+.filter-panel {
+    display: grid;
+
+    gap: 12px;
+
+    margin-bottom: 14px;
+
+    padding: 14px;
 
     border:
         1px
@@ -402,51 +552,643 @@ button:hover {
 
     border-radius: 14px;
 
-    margin-bottom: 14px;
-
-    padding:
-        4px
-        16px
-        16px
-        16px;
+    background:
+        #ffffff;
 }
 
-.library-panel summary {
-    padding:
-        14px
-        0;
 
-    cursor: pointer;
-
-    font-weight: 750;
-
-    font-size: 1.1rem;
-}
-
-.library-content {
+.filter-grid {
     display: grid;
+
+    grid-template-columns:
+        repeat(
+            5,
+            minmax(0, 1fr)
+        );
 
     gap: 10px;
 }
 
-#allRecipes {
+
+.advanced-filters {
+    border-top:
+        1px
+        solid
+        #dedbd2;
+
+    padding-top: 10px;
+}
+
+
+.advanced-filters > summary {
+    cursor: pointer;
+
+    font-weight: 800;
+}
+
+
+.advanced-filter-grid {
+    grid-template-columns:
+        repeat(
+            4,
+            minmax(0, 1fr)
+        );
+
+    margin-top: 10px;
+}
+
+
+.filter-footer {
+    display: flex;
+
+    align-items: center;
+
+    justify-content:
+        space-between;
+
+    gap: 12px;
+}
+
+
+.result-count {
+    font-weight: 750;
+
+    color:
+        var(--muted);
+}
+
+
+#clearRecipeFilters {
+    width: auto;
+}
+
+
+.recipe-card-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(
+                min(100%, 320px),
+                1fr
+            )
+        );
+
+    gap: 12px;
+}
+
+
+.recipe-result-card {
+    display: grid;
+
+    gap: 11px;
+
+    align-content:
+        start;
+
+    padding: 15px;
+
+    border:
+        1px
+        solid
+        var(--border);
+
+    border-radius: 14px;
+
+    background:
+        #ffffff;
+
+    cursor: pointer;
+}
+
+
+.recipe-result-card:hover,
+.recipe-result-card:focus-visible {
+    border-color:
+        #000000;
+
+    outline: none;
+}
+
+
+.recipe-result-top {
+    display: flex;
+
+    align-items:
+        flex-start;
+
+    justify-content:
+        space-between;
+
+    gap: 10px;
+}
+
+
+.recipe-result-top h2 {
+    margin: 0;
+
+    font-size: 1.08rem;
+
+    line-height: 1.28;
+}
+
+
+.recipe-rating-badge {
+    flex:
+        0
+        0
+        auto;
+
+    padding:
+        4px
+        7px;
+
+    border:
+        1px
+        solid
+        #000000;
+
+    border-radius:
+        999px;
+
+    font-size:
+        0.72rem;
+
+    font-weight:
+        800;
+
+    white-space:
+        nowrap;
+}
+
+
+.rating-favourite {
+    background:
+        #e1f1da;
+}
+
+
+.rating-dislike {
+    background:
+        var(--pink);
+}
+
+
+.recipe-result-meta {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 5px;
+}
+
+
+.recipe-meta-chip {
+    display: inline-block;
+
+    padding:
+        4px
+        7px;
+
+    border:
+        1px
+        solid
+        #d0ccc2;
+
+    border-radius:
+        999px;
+
+    background:
+        #faf9f5;
+
+    font-size:
+        0.76rem;
+}
+
+
+.recipe-card-open {
     width: 100%;
 
-    min-height: 180px;
-
-    padding: 6px;
-
-    background: #ffffff;
-
-    color: #000000;
+    margin-top:
+        auto;
 }
 
-#openLibraryRecipe {
-    max-width: 260px;
+
+.empty-results {
+    padding:
+        18px;
+
+    border:
+        1px
+        solid
+        var(--border);
+
+    border-radius: 12px;
+
+    background:
+        #ffffff;
+
+    text-align: center;
+
+    color:
+        var(--muted);
 }
+
 
 /* ==========================================================
-   Recipe viewer
+   Shopping setup
+   ========================================================== */
+
+.shopping-range-card {
+    display: grid;
+
+    gap: 12px;
+
+    padding: 14px;
+
+    border:
+        1px
+        solid
+        var(--border);
+
+    border-radius: 14px;
+
+    background:
+        #ffffff;
+}
+
+
+.shopping-date-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(0, 1fr)
+        );
+
+    gap: 10px;
+}
+
+
+.date-input-shell {
+    cursor: pointer;
+}
+
+
+.date-input-shell input {
+    cursor: pointer;
+}
+
+
+#loadShoppingMeals {
+    width: auto;
+
+    min-width: 160px;
+}
+
+
+/* ==========================================================
+   Shopping meal selection
+   ========================================================== */
+
+#shoppingMealSelection {
+    display: grid;
+
+    gap: 12px;
+
+    margin-top: 14px;
+}
+
+
+.shopping-day {
+    overflow: hidden;
+
+    border:
+        1px
+        solid
+        var(--border);
+
+    border-radius: 14px;
+
+    background:
+        #ffffff;
+}
+
+
+.shopping-day-header {
+    display: flex;
+
+    align-items: center;
+
+    justify-content:
+        space-between;
+
+    gap: 10px;
+
+    padding:
+        10px
+        12px;
+
+    background:
+        var(--soft);
+
+    border-bottom:
+        1px
+        solid
+        var(--border);
+}
+
+
+.shopping-day-header h3 {
+    margin: 0;
+
+    font-size: 1rem;
+}
+
+
+.shopping-day-actions {
+    display: flex;
+
+    gap: 6px;
+}
+
+
+.shopping-day-actions button {
+    width: auto;
+
+    min-height: 34px;
+
+    padding:
+        4px
+        8px;
+
+    background:
+        #ffffff;
+
+    color:
+        #000000;
+}
+
+
+.shopping-meal-list {
+    display: grid;
+}
+
+
+.shopping-meal-row {
+    display: grid;
+
+    grid-template-columns:
+        24px
+        minmax(0, 1fr);
+
+    gap: 9px;
+
+    align-items: start;
+
+    padding:
+        10px
+        12px;
+
+    border-bottom:
+        1px
+        solid
+        #e4e1d9;
+
+    font-weight: 400;
+}
+
+
+.shopping-meal-row:last-child {
+    border-bottom: 0;
+}
+
+
+.shopping-meal-row input {
+    width: 20px;
+
+    min-height: 20px;
+
+    margin:
+        2px
+        0
+        0
+        0;
+}
+
+
+.shopping-meal-type {
+    display: block;
+
+    margin-bottom: 2px;
+
+    font-size: 0.78rem;
+
+    font-weight: 800;
+
+    color:
+        var(--muted);
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        0.02em;
+}
+
+
+.shopping-meal-title {
+    display: block;
+
+    line-height: 1.35;
+}
+
+
+.shopping-unavailable {
+    color:
+        #8a332d;
+}
+
+
+.shopping-generate-bar {
+    display: flex;
+
+    align-items: center;
+
+    justify-content:
+        space-between;
+
+    gap: 12px;
+
+    margin-top: 14px;
+
+    padding: 12px;
+
+    border:
+        1px
+        solid
+        var(--border);
+
+    border-radius: 12px;
+
+    background:
+        #ffffff;
+}
+
+
+.shopping-selected-count {
+    font-weight: 750;
+}
+
+
+#generateShoppingList {
+    width: auto;
+}
+
+
+/* ==========================================================
+   Shopping results
+   ========================================================== */
+
+.shopping-result-section {
+    margin-top: 18px;
+}
+
+
+.shopping-result-toolbar {
+    display: flex;
+
+    align-items: center;
+
+    justify-content:
+        space-between;
+
+    gap: 12px;
+
+    margin-bottom: 12px;
+}
+
+
+.shopping-result-toolbar h2 {
+    margin: 0;
+}
+
+
+.shopping-result-toolbar button {
+    width: auto;
+}
+
+
+#shoppingResults {
+    display: grid;
+
+    gap: 14px;
+}
+
+
+.shopping-category-card {
+    overflow: hidden;
+
+    border:
+        1px
+        solid
+        var(--border);
+
+    border-radius: 14px;
+
+    background:
+        #ffffff;
+}
+
+
+.shopping-category-heading {
+    margin: 0;
+
+    padding:
+        10px
+        13px;
+
+    background:
+        #e7eadf;
+
+    border-bottom:
+        1px
+        solid
+        var(--border);
+
+    font-size: 0.94rem;
+
+    font-weight: 900;
+
+    letter-spacing:
+        0.035em;
+
+    text-transform:
+        uppercase;
+}
+
+
+.shopping-category-items {
+    display: grid;
+}
+
+
+.shopping-result-row {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(90px, auto);
+
+    gap: 24px;
+
+    align-items: baseline;
+
+    padding:
+        10px
+        13px;
+
+    border-bottom:
+        1px
+        solid
+        #e4e1d9;
+}
+
+
+.shopping-result-row:last-child {
+    border-bottom: 0;
+}
+
+
+.shopping-result-name {
+    min-width: 0;
+
+    line-height: 1.35;
+}
+
+
+.shopping-result-quantity {
+    justify-self: end;
+
+    text-align: right;
+
+    font-weight: 850;
+
+    white-space: nowrap;
+}
+
+
+.copy-bottom {
+    width: 100%;
+
+    margin-top: 14px;
+}
+
+
+/* ==========================================================
+   Recipe reader
    ========================================================== */
 
 .viewer-panel {
@@ -454,245 +1196,46 @@ button:hover {
 
     min-width: 0;
 
-    background: #ffffff;
-
-    border:
-        1px
-        solid
-        var(--border);
-
-    border-radius: 14px;
-
-    overflow: hidden;
-
-    margin-top: 14px;
-}
-
-.viewer-placeholder {
-    width: 100%;
-
-    min-height: 240px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    padding: 40px 20px;
-
-    text-align: center;
-
-    font-size: 1.05rem;
-}
-
-/*
-   The critical part:
-
-   The recipe iframe always occupies the full available width
-   and most of the screen height.
-*/
-
-#recipeFrame {
-    display: block;
-
-    width: 100%;
-
-    max-width: none;
-
-    height: 80vh;
-
-    height: 80dvh;
-
-    min-height: 700px;
-
-    border: 0;
-
     margin: 0;
 
-    padding: 0;
-
-    background: #ffffff;
+    background:
+        #ffffff;
 }
 
-/* ==========================================================
-   Tablet and phone
-   ========================================================== */
-
-@media (max-width: 700px) {
-
-    .app {
-        width: 100%;
-
-        padding:
-            max(8px, env(safe-area-inset-top))
-            max(8px, env(safe-area-inset-right))
-            max(16px, env(safe-area-inset-bottom))
-            max(8px, env(safe-area-inset-left));
-    }
-
-    .app-header {
-        padding: 15px;
-    }
-
-    .controls {
-        grid-template-columns: 1fr;
-    }
-
-    .scheduled-panel,
-    .library-panel {
-        border-radius: 10px;
-    }
-
-    .scheduled-card-header {
-        display: grid;
-
-        grid-template-columns: 1fr;
-    }
-
-    .status-badge {
-        width: fit-content;
-    }
-
-    .scheduled-open-button {
-        width: 100%;
-    }
-
-    /*
-       On a phone the recipe itself becomes almost
-       a full-screen reading pane.
-    */
-
-    #recipeFrame {
-        width: 100%;
-
-        height: 85vh;
-
-        height: 85dvh;
-
-        min-height: 650px;
-    }
-}
-
-/* ==========================================================
-   Very small phones
-   ========================================================== */
-
-@media (max-width: 420px) {
-
-    .app-header h1 {
-        font-size: 1.65rem;
-    }
-
-    .scheduled-panel,
-    .library-panel {
-        padding-left: 10px;
-        padding-right: 10px;
-    }
-
-    #recipeFrame {
-        height: 88vh;
-
-        height: 88dvh;
-
-        min-height: 600px;
-    }
-}
-
-/* ==========================================================
-   Correct hidden viewer elements
-   ========================================================== */
-
-.viewer-placeholder[hidden],
-#recipeFrame[hidden] {
-    display: none !important;
-}
-
-.viewer-placeholder {
-    min-height: 0;
-    padding: 18px 12px;
-}
-
-/* ==========================================================
-   Dedicated recipe-reading view
-   ========================================================== */
 
 .back-to-planner {
-    display: none;
+    position: sticky;
+
+    top: 0;
+
+    z-index: 60;
 
     width: 100%;
 
     min-height: 44px;
-
-    padding:
-        8px
-        12px;
 
     border: 0;
 
     border-bottom:
         1px
         solid
-        #b7b2a8;
+        var(--border);
 
     border-radius: 0;
 
-    background: #ffffff;
+    background:
+        #ffffff;
 
-    color: #000000;
-
-    font-weight: 750;
+    color:
+        #000000;
 
     text-align: left;
 }
 
 
-body.recipe-open .app-header,
-body.recipe-open .controls,
-body.recipe-open .scheduled-panel,
-body.recipe-open .library-panel {
-    display: none;
-}
-
-
-body.recipe-open .back-to-planner {
+#recipeFrame {
     display: block;
 
-    position: sticky;
-
-    top: 0;
-
-    z-index: 50;
-}
-
-
-body.recipe-open .app {
-    width: 100%;
-    max-width: none;
-
-    margin: 0;
-
-    padding: 0;
-}
-
-
-body.recipe-open .viewer-panel {
-    width: 100%;
-
-    margin: 0;
-
-    border: 0;
-
-    border-radius: 0;
-}
-
-
-body.recipe-open .viewer-placeholder {
-    display: none !important;
-}
-
-
-body.recipe-open #recipeFrame {
     width: 100%;
 
     height:
@@ -710,4 +1253,176 @@ body.recipe-open #recipeFrame {
         );
 
     border: 0;
+
+    margin: 0;
+
+    padding: 0;
+
+    background:
+        #ffffff;
+}
+
+
+body.recipe-open .app {
+    width: 100%;
+
+    max-width: none;
+
+    margin: 0;
+
+    padding: 0;
+}
+
+
+/* ==========================================================
+   Tablet
+   ========================================================== */
+
+@media (max-width: 900px) {
+
+    .filter-grid {
+        grid-template-columns:
+            repeat(
+                2,
+                minmax(0, 1fr)
+            );
+    }
+
+
+    .advanced-filter-grid {
+        grid-template-columns:
+            repeat(
+                2,
+                minmax(0, 1fr)
+            );
+    }
+}
+
+
+/* ==========================================================
+   Phone
+   ========================================================== */
+
+@media (max-width: 650px) {
+
+    .app {
+        width: 100%;
+
+        padding:
+            max(
+                7px,
+                env(safe-area-inset-top)
+            )
+            max(
+                7px,
+                env(safe-area-inset-right)
+            )
+            max(
+                18px,
+                env(safe-area-inset-bottom)
+            )
+            max(
+                7px,
+                env(safe-area-inset-left)
+            );
+    }
+
+
+    .top-nav {
+        gap: 5px;
+
+        margin-bottom: 14px;
+
+        padding: 5px;
+    }
+
+
+    .nav-button {
+        min-height: 42px;
+
+        padding:
+            7px
+            6px;
+
+        font-size:
+            0.9rem;
+    }
+
+
+    .controls,
+    .shopping-date-grid,
+    .filter-grid,
+    .advanced-filter-grid {
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .scheduled-card-header {
+        display: grid;
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .status-badge {
+        width:
+            fit-content;
+    }
+
+
+    .scheduled-open-button,
+    #loadShoppingMeals,
+    #generateShoppingList {
+        width: 100%;
+    }
+
+
+    .filter-footer,
+    .shopping-generate-bar,
+    .shopping-result-toolbar {
+        align-items: stretch;
+
+        flex-direction: column;
+    }
+
+
+    #clearRecipeFilters,
+    .shopping-result-toolbar button {
+        width: 100%;
+    }
+
+
+    .recipe-card-grid {
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .recipe-result-top {
+        display: grid;
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .recipe-rating-badge {
+        width:
+            fit-content;
+    }
+
+
+    .shopping-result-row {
+        grid-template-columns:
+            minmax(0, 1fr)
+            auto;
+
+        gap: 18px;
+
+        padding:
+            11px
+            12px;
+    }
 }

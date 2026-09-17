@@ -3,96 +3,379 @@
     "id": "blackberry_skyr_jumbo_oat_overnight_pots_chia_toasted_walnuts",
     "filename": "blackberry_skyr_jumbo_oat_overnight_pots_chia_toasted_walnuts.html",
     "title": "Blackberry, Skyr & Jumbo Oat Overnight Pots with Chia and Toasted Walnuts",
+    "description": "High-protein overnight pots combining creamy plain skyr, chewy jumbo oats and chia with a sharp-sweet crushed blackberry and lemon ripple, finished with fresh blackberries and walnuts toasted immediately before serving for aromatic crunch.",
+    "servings": 2,
+    "difficulty": "Easy",
+    "active_time_minutes": 20,
+    "total_time_minutes": 500,
+    "cuisine": [
+      "British",
+      "Contemporary"
+    ],
     "meal_types": [
       "Breakfast"
+    ],
+    "dietary_tags": [
+      "Vegetarian",
+      "High protein",
+      "High fibre"
+    ],
+    "allergens": [
+      "Milk",
+      "Walnuts"
+    ],
+    "energy_kcal": 520,
+    "protein_g": 36,
+    "protein_sources": [
+      "Skyr / Greek yoghurt"
     ]
   },
   {
     "id": "cannellini_bean_tomato_wholewheat_pasta_salad_basil_pesto_rocket",
     "filename": "cannellini_bean_tomato_wholewheat_pasta_salad_basil_pesto_rocket.html",
     "title": "Cannellini Bean, Tomato & Wholewheat Pasta Salad with Basil Pesto and Rocket",
+    "description": "A portable high-protein wholewheat pasta salad with creamy cannellini beans, ripe tomatoes and peppery rocket, bound with a bright basil-pesto dressing enriched with blended cottage cheese and lemon for additional protein and freshness without excessive oil.",
+    "servings": 2,
+    "difficulty": "Easy",
+    "active_time_minutes": 25,
+    "total_time_minutes": 35,
+    "cuisine": [
+      "Italian-inspired",
+      "Contemporary"
+    ],
     "meal_types": [
       "Lunch"
+    ],
+    "dietary_tags": [
+      "Vegetarian",
+      "High protein",
+      "High fibre",
+      "Portable"
+    ],
+    "allergens": [
+      "Milk",
+      "Wheat",
+      "Gluten",
+      "Nuts"
+    ],
+    "energy_kcal": 400,
+    "protein_g": 31,
+    "protein_sources": [
+      "Beans",
+      "Cottage cheese"
     ]
   },
   {
     "id": "carrot_cucumber_batons_edamame_hummus",
     "filename": "carrot_cucumber_batons_edamame_hummus.html",
     "title": "Carrot & Cucumber Batons with Edamame Hummus",
+    "description": "A portable afternoon snack of crisp carrot and cucumber batons with a bright, savoury edamame hummus flavoured with lemon, tahini, garlic and cumin. The hummus is blended until smooth but substantial, while the vegetables are kept dry and separate until eating to preserve crunch.",
+    "servings": 2,
+    "difficulty": "Easy",
+    "active_time_minutes": 20,
+    "total_time_minutes": 25,
+    "cuisine": [
+      "Middle Eastern-inspired",
+      "Contemporary"
+    ],
     "meal_types": [
       "Afternoon snack"
+    ],
+    "dietary_tags": [
+      "Vegetarian",
+      "Vegan",
+      "Portable",
+      "High fibre"
+    ],
+    "allergens": [
+      "Soy",
+      "Sesame"
+    ],
+    "energy_kcal": 198,
+    "protein_g": 11,
+    "protein_sources": [
+      "Edamame"
     ]
   },
   {
     "id": "clementine_pistachio_pumpkin_seed_snack_pots",
     "filename": "clementine_pistachio_pumpkin_seed_snack_pots.html",
     "title": "Clementine, Pistachio & Pumpkin Seed Snack Pots",
+    "description": "Portable morning snack pots combining fresh clementine segments with lightly toasted pistachios and pumpkin seeds, finished with a restrained maple-cinnamon glaze and a small amount of salt for contrast.",
+    "servings": 2,
+    "difficulty": "Easy",
+    "active_time_minutes": 12,
+    "total_time_minutes": 20,
+    "cuisine": [
+      "Contemporary",
+      "British"
+    ],
     "meal_types": [
       "Morning snack"
-    ]
+    ],
+    "dietary_tags": [
+      "Vegetarian",
+      "Vegan",
+      "Portable",
+      "High fibre"
+    ],
+    "allergens": [
+      "Pistachios"
+    ],
+    "energy_kcal": 190,
+    "protein_g": 6,
+    "protein_sources": []
   },
   {
     "id": "cocoa_raspberry_skyr_pots_ground_flaxseed",
     "filename": "cocoa_raspberry_skyr_pots_ground_flaxseed.html",
     "title": "Cocoa, Raspberry & Skyr Pots with Ground Flaxseed",
+    "description": "Creamy cocoa-vanilla skyr layered with lightly crushed raspberries and ground flaxseed for a sharp-sweet, chocolatey evening snack with contrasting smooth, juicy and gently nutty textures.",
+    "servings": 2,
+    "difficulty": "Easy",
+    "active_time_minutes": 10,
+    "total_time_minutes": 20,
+    "cuisine": [
+      "Contemporary",
+      "British"
+    ],
     "meal_types": [
       "Evening snack"
+    ],
+    "dietary_tags": [
+      "Vegetarian",
+      "High protein",
+      "High fibre"
+    ],
+    "allergens": [
+      "Milk"
+    ],
+    "energy_kcal": 196,
+    "protein_g": 19,
+    "protein_sources": [
+      "Skyr / Greek yoghurt"
     ]
   },
   {
     "id": "harissa_tempeh_roasted_pepper_bulgur_salad_lemon_yoghurt_parsley",
     "filename": "harissa_tempeh_roasted_pepper_bulgur_salad_lemon_yoghurt_parsley.html",
     "title": "Harissa Tempeh, Roasted Pepper & Bulgur Salad with Lemon Yoghurt and Parsley",
+    "description": "A portable high-protein lunch salad of deeply browned harissa-coated tempeh, sweet roasted red pepper and nutty bulgur, balanced with sharp lemon yoghurt, fresh parsley and restrained seasoning. Components are cooled before packing so the salad remains fresh rather than steaming itself in transit.",
+    "servings": 2,
+    "difficulty": "Moderate",
+    "active_time_minutes": 30,
+    "total_time_minutes": 45,
+    "cuisine": [
+      "North African-inspired",
+      "Contemporary"
+    ],
     "meal_types": [
       "Lunch"
+    ],
+    "dietary_tags": [
+      "Vegetarian",
+      "High protein",
+      "Portable",
+      "High fibre"
+    ],
+    "allergens": [
+      "Soy",
+      "Milk",
+      "Wheat"
+    ],
+    "energy_kcal": 405,
+    "protein_g": 31,
+    "protein_sources": [
+      "Skyr / Greek yoghurt",
+      "Tempeh"
     ]
   },
   {
     "id": "kiwi_greek_yoghurt_hemp_seed_pots",
     "filename": "kiwi_greek_yoghurt_hemp_seed_pots.html",
     "title": "Kiwi, Greek Yoghurt & Hemp Seed Pots",
+    "description": "Chilled evening snack pots combining thick Greek yoghurt with fresh lime and vanilla, ripe kiwi and lightly toasted hemp seeds. The kiwi provides bright acidity and juicy texture while the toasted hemp seeds add nutty aroma and gentle crunch.",
+    "servings": 2,
+    "difficulty": "Easy",
+    "active_time_minutes": 12,
+    "total_time_minutes": 20,
+    "cuisine": [
+      "Contemporary",
+      "British"
+    ],
     "meal_types": [
       "Evening snack"
+    ],
+    "dietary_tags": [
+      "Vegetarian",
+      "High protein"
+    ],
+    "allergens": [
+      "Milk"
+    ],
+    "energy_kcal": 195,
+    "protein_g": 17,
+    "protein_sources": [
+      "Skyr / Greek yoghurt"
     ]
   },
   {
     "id": "miso_ginger_tofu_broccoli_brown_basmati_stir_fry_sesame_edamame",
     "filename": "miso_ginger_tofu_broccoli_brown_basmati_stir_fry_sesame_edamame.html",
     "title": "Miso-Ginger Tofu, Broccoli & Brown Basmati Stir-Fry with Sesame and Edamame",
+    "description": "A high-protein dinner of crisp-edged tofu, broccoli and edamame tossed through a glossy miso-ginger sauce and served with nutty brown basmati rice. High wok heat develops browning before the sauce is added, while rice vinegar, ginger and toasted sesame keep the finished dish savoury, aromatic and balanced rather than heavy.",
+    "servings": 2,
+    "difficulty": "Moderate",
+    "active_time_minutes": 25,
+    "total_time_minutes": 50,
+    "cuisine": [
+      "Japanese-inspired",
+      "East Asian-inspired",
+      "Contemporary"
+    ],
     "meal_types": [
       "Dinner"
+    ],
+    "dietary_tags": [
+      "Vegetarian",
+      "Vegan",
+      "High protein",
+      "High fibre"
+    ],
+    "allergens": [
+      "Soy",
+      "Sesame"
+    ],
+    "energy_kcal": 595,
+    "protein_g": 39,
+    "protein_sources": [
+      "Edamame",
+      "Tofu"
     ]
   },
   {
     "id": "plum_almond_skyr_pots_cinnamon",
     "filename": "plum_almond_skyr_pots_cinnamon.html",
     "title": "Plum & Almond Skyr Pots with Cinnamon",
+    "description": "Portable morning snack pots of thick plain skyr layered with lightly macerated fresh plum and finished with cinnamon-toasted almonds. Lemon and a restrained amount of honey sharpen the fruit while the toasted nuts provide crisp contrast against the cool dairy.",
+    "servings": 2,
+    "difficulty": "Easy",
+    "active_time_minutes": 12,
+    "total_time_minutes": 20,
+    "cuisine": [
+      "Contemporary",
+      "British"
+    ],
     "meal_types": [
       "Morning snack"
+    ],
+    "dietary_tags": [
+      "Vegetarian",
+      "Portable",
+      "High protein"
+    ],
+    "allergens": [
+      "Milk",
+      "Almonds"
+    ],
+    "energy_kcal": 198,
+    "protein_g": 15,
+    "protein_sources": [
+      "Skyr / Greek yoghurt"
     ]
   },
   {
     "id": "red_lentil_spinach_cauliflower_dal_brown_basmati_rice_cucumber_raita",
     "filename": "red_lentil_spinach_cauliflower_dal_brown_basmati_rice_cucumber_raita.html",
     "title": "Red Lentil, Spinach & Cauliflower Dal with Brown Basmati Rice and Cucumber Raita",
+    "description": "A high-protein red lentil dal with browned cauliflower, wilted spinach and a deeply aromatic cumin, ginger, garlic and tomato base, served with nutty brown basmati rice and a cool lemon-mint cucumber raita. The cauliflower is roasted separately for caramelised edges before being folded through the finished dal so it retains texture.",
+    "servings": 2,
+    "difficulty": "Moderate",
+    "active_time_minutes": 30,
+    "total_time_minutes": 50,
+    "cuisine": [
+      "Indian-inspired",
+      "South Asian-inspired"
+    ],
     "meal_types": [
       "Dinner"
+    ],
+    "dietary_tags": [
+      "Vegetarian",
+      "High protein",
+      "High fibre"
+    ],
+    "allergens": [
+      "Milk"
+    ],
+    "energy_kcal": 600,
+    "protein_g": 39,
+    "protein_sources": [
+      "Lentils",
+      "Skyr / Greek yoghurt"
     ]
   },
   {
     "id": "smoked_paprika_roasted_chickpeas_cucumber_sticks",
     "filename": "smoked_paprika_roasted_chickpeas_cucumber_sticks.html",
     "title": "Smoked Paprika Roasted Chickpeas with Cucumber Sticks",
+    "description": "A portable afternoon snack of crisp roasted chickpeas coated with smoked paprika, cumin and lemon zest, served with cool cucumber sticks for fresh contrast. The chickpeas are dried thoroughly before roasting and packed separately from the cucumber to preserve crunch.",
+    "servings": 2,
+    "difficulty": "Easy",
+    "active_time_minutes": 15,
+    "total_time_minutes": 35,
+    "cuisine": [
+      "Mediterranean-inspired",
+      "Contemporary"
+    ],
     "meal_types": [
       "Afternoon snack"
+    ],
+    "dietary_tags": [
+      "Vegetarian",
+      "Vegan",
+      "Portable",
+      "High fibre"
+    ],
+    "allergens": [],
+    "energy_kcal": 196,
+    "protein_g": 8,
+    "protein_sources": [
+      "Chickpeas"
     ]
   },
   {
     "id": "spinach_mushroom_cottage_cheese_egg_muffins_seeded_wholemeal_toast",
     "filename": "spinach_mushroom_cottage_cheese_egg_muffins_seeded_wholemeal_toast.html",
     "title": "Spinach, Mushroom & Cottage Cheese Egg Muffins with Seeded Wholemeal Toast",
+    "description": "Savoury high-protein breakfast muffins with deeply browned mushrooms, wilted spinach, cottage cheese and seasoned egg, served with crisp seeded wholemeal toast. The vegetables are cooked dry before assembly so the muffins remain tender and structured rather than watery.",
+    "servings": 2,
+    "difficulty": "Easy",
+    "active_time_minutes": 25,
+    "total_time_minutes": 45,
+    "cuisine": [
+      "Contemporary",
+      "British"
+    ],
     "meal_types": [
       "Breakfast"
+    ],
+    "dietary_tags": [
+      "Vegetarian",
+      "High protein",
+      "High fibre"
+    ],
+    "allergens": [
+      "Egg",
+      "Milk",
+      "Wheat",
+      "Gluten"
+    ],
+    "energy_kcal": 400,
+    "protein_g": 38,
+    "protein_sources": [
+      "Cottage cheese",
+      "Eggs"
     ]
   }
 ]

@@ -3,7 +3,6 @@ import shutil
 from datetime import datetime
 from html.parser import HTMLParser
 from pathlib import Path
-from build_shopping_data import build_shopping_data
 
 
 BASE_DIR = Path(__file__).resolve().parent
@@ -610,8 +609,6 @@ def main():
         -
         available_count
     )
-
-    build_shopping_data()
 
     print()
     print(

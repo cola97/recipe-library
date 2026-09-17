@@ -1,685 +1,448 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="utf-8">
-
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1, viewport-fit=cover"
->
-
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Red Lentil, Spinach &amp; Cauliflower Dal with Brown Basmati Rice and Cucumber Raita</title>
 
 <style>
+:root {
+    --background: #f4f2ec;
+    --panel: #ffffff;
+    --text: #000000;
+    --muted: #555555;
+    --border: #b9b5ad;
+    --accent: #e5f1dd;
+    --endpoint: #fff4c6;
+    --step: #f7f7f4;
+}
 
-    :root {
-        --background: #f4f2ec;
-        --panel: #ffffff;
-        --text: #000000;
-        --muted: #555555;
-        --border: #b9b5ad;
-        --accent: #e5f1dd;
-        --endpoint: #fff4c6;
-        --step: #f7f7f4;
-    }
+* {
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
 
-    * {
-        box-sizing: border-box;
+html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--background);
+    color: var(--text);
+}
 
-        font-family:
-            -apple-system,
-            BlinkMacSystemFont,
-            "Segoe UI",
-            Roboto,
-            Helvetica,
-            Arial,
-            sans-serif;
-    }
+body {
+    min-height: 100vh;
+    min-height: 100dvh;
+}
 
-    html,
-    body {
-        margin: 0;
-        padding: 0;
+button, input, select, summary { font: inherit; }
 
-        background: var(--background);
-        color: var(--text);
-    }
+.page {
+    width: min(calc(100% - 24px), 1050px);
+    margin: 0 auto;
+    padding: max(12px, env(safe-area-inset-top)) 0 max(40px, env(safe-area-inset-bottom)) 0;
+}
 
-    body {
-        min-height: 100vh;
-        min-height: 100dvh;
-    }
+.recipe-header {
+    position: static;
+    background: transparent;
+    padding: 12px 0 10px 0;
+    border-bottom: 1px solid var(--border);
+}
 
-    button,
-    input,
-    select,
-    summary {
-        font: inherit;
-    }
+.title-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+}
 
-    .page {
-        width: min(
-            calc(100% - 24px),
-            1050px
-        );
+h1 {
+    margin: 0;
+    font-size: clamp(1.65rem, 5vw, 2.8rem);
+    line-height: 1.12;
+}
 
-        margin: 0 auto;
+.scheduled-date { margin-top: 8px; font-weight: 700; }
+.description { margin: 12px 0 0 0; line-height: 1.5; }
 
-        padding:
-            max(12px, env(safe-area-inset-top))
-            0
-            max(40px, env(safe-area-inset-bottom))
-            0;
-    }
+.recipe-info {
+    margin-top: 10px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    background: #ffffff;
+    overflow: hidden;
+}
 
-    .recipe-header {
-        position: static;
+.recipe-info > summary {
+    cursor: pointer;
+    padding: 9px 11px;
+    font-weight: 750;
+}
 
-        background: transparent;
+.recipe-info-content { padding: 0 11px 11px 11px; }
 
-        padding:
-            12px
-            0
-            10px
-            0;
+.tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+}
 
-        border-bottom:
-            1px
-            solid
-            var(--border);
+.badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: #ffffff;
+    color: #000000;
+    font-size: 0.82rem;
+}
+
+.allergens {
+    margin-top: 10px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    background: #ffe4df;
+}
+
+.facts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+    gap: 8px;
+    margin: 14px 0;
+}
+
+.fact {
+    display: grid;
+    gap: 2px;
+    padding: 9px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    background: #ffffff;
+}
+
+.fact span { font-size: 0.78rem; color: var(--muted); }
+
+.recipe-tools {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.serving-tool, .rating-tool {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: #ffffff;
+}
+
+.serving-controls, .rating-buttons {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.serving-controls button, .rating-buttons button {
+    min-height: 36px;
+    padding: 5px 9px;
+    border: 1px solid #000000;
+    border-radius: 7px;
+    background: #ffffff;
+    color: #000000;
+    font-weight: 700;
+}
+
+#servingsValue {
+    min-width: 30px;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 800;
+}
+
+.rating-buttons button.active {
+    background: #000000;
+    color: #ffffff;
+}
+
+.section {
+    display: block;
+    margin-top: 14px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--panel);
+    overflow: hidden;
+}
+
+details.section > summary {
+    cursor: pointer;
+    padding: 15px 16px;
+    font-size: 1.12rem;
+    font-weight: 800;
+    background: var(--accent);
+}
+
+.section-content { padding: 14px; }
+.method-section { padding: 14px; }
+.method-section > h2 { margin: 0 0 12px 0; }
+.ingredient-grid, .card-stack { display: grid; gap: 10px; }
+
+.ingredient-card, .prep-card, .method-step {
+    padding: 14px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--step);
+}
+
+.ingredient-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 14px;
+}
+
+.ingredient-quantity {
+    flex: 0 0 auto;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.subline { margin-top: 7px; line-height: 1.4; }
+.compact-list { margin: 0; padding-left: 22px; }
+.prep-card h3, .method-step h3 { margin: 0; }
+.prep-card p, .method-step p { margin: 10px 0; }
+
+.step-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+}
+
+.step-number {
+    flex: 0 0 auto;
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.step-section {
+    margin-top: 6px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--muted);
+}
+
+.step-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+}
+
+.instruction { font-size: 1rem; line-height: 1.55; }
+
+.endpoint {
+    margin-top: 10px;
+    padding: 10px 12px;
+    border-left: 4px solid #000000;
+    background: var(--endpoint);
+    line-height: 1.45;
+}
+
+.corrective { margin-top: 10px; }
+.corrective summary { cursor: pointer; font-weight: 750; }
+.corrective ul { margin-bottom: 0; }
+
+.cook-button {
+    flex: 0 0 auto;
+    min-height: 42px;
+    padding: 8px 12px;
+    border: 1px solid #000000;
+    border-radius: 9px;
+    background: #000000;
+    color: #ffffff;
+    font-weight: 750;
+}
+
+.cook-controls {
+    display: none;
+    position: sticky;
+    bottom: max(8px, env(safe-area-inset-bottom));
+    z-index: 30;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 14px;
+    padding: 10px;
+    border: 1px solid #000000;
+    border-radius: 12px;
+    background: #ffffff;
+}
+
+.cook-controls button {
+    min-height: 44px;
+    padding: 8px 14px;
+    border: 1px solid #000000;
+    border-radius: 8px;
+    background: #000000;
+    color: #ffffff;
+    font-weight: 750;
+}
+
+.method-step { scroll-margin-top: 58px; }
+
+/* Compact cook-mode header */
+body.cook-mode .recipe-header {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    margin: 0;
+    padding: 6px 0;
+    background: rgba(244, 242, 236, 0.98);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(8px);
+}
+
+body.cook-mode .recipe-header .recipe-info,
+body.cook-mode .recipe-header .scheduled-date,
+body.cook-mode .facts,
+body.cook-mode .recipe-tools,
+body.cook-mode .non-method,
+body.cook-mode .method-section > h2 {
+    display: none;
+}
+
+body.cook-mode .title-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 8px;
+}
+
+body.cook-mode .recipe-header h1 {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+body.cook-mode .cook-button {
+    width: auto;
+    min-height: 36px;
+    padding: 6px 10px;
+    font-size: 0.85rem;
+    white-space: nowrap;
+}
+
+body.cook-mode .method-step { display: none; }
+body.cook-mode .method-step.active { display: block; }
+body.cook-mode .cook-controls { display: flex; }
+body.cook-mode .method-section {
+    min-height: calc(100dvh - 60px);
+    margin-top: 6px;
+}
+
+@media (max-width: 600px) {
+    .page { width: calc(100% - 12px); }
+    .recipe-header { padding-top: 8px; }
+
+    h1 {
+        font-size: 1.35rem;
+        line-height: 1.18;
     }
 
     .title-row {
-        display: flex;
-        align-items: flex-start;
-        justify-content: space-between;
-        gap: 12px;
-    }
-
-    h1 {
-        margin: 0;
-
-        font-size:
-            clamp(
-                1.65rem,
-                5vw,
-                2.8rem
-            );
-
-        line-height: 1.12;
-    }
-
-    .description {
-        margin:
-            12px
-            0
-            0
-            0;
-
-        line-height: 1.5;
-    }
-
-    .scheduled-date {
-        margin-top: 8px;
-        font-weight: 700;
-    }
-
-    .tag-row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 6px;
-
-        margin-top: 10px;
-    }
-
-    .badge {
-        display: inline-block;
-
-        padding:
-            4px
-            8px;
-
-        border:
-            1px
-            solid
-            var(--border);
-
-        border-radius: 999px;
-
-        background: #ffffff;
-
-        color: #000000;
-
-        font-size: 0.82rem;
-    }
-
-    .allergens {
-        margin-top: 10px;
-
-        padding:
-            8px
-            10px;
-
-        border-radius: 8px;
-
-        background: #ffe4df;
-    }
-
-    .facts {
         display: grid;
-
-        grid-template-columns:
-            repeat(
-                auto-fit,
-                minmax(90px, 1fr)
-            );
-
-        gap: 8px;
-
-        margin:
-            14px
-            0;
-    }
-
-    .fact {
-        display: grid;
-        gap: 2px;
-
-        padding: 9px;
-
-        border:
-            1px
-            solid
-            var(--border);
-
-        border-radius: 9px;
-
-        background: #ffffff;
-    }
-
-    .fact span {
-        font-size: 0.78rem;
-        color: var(--muted);
-    }
-
-    .section {
-        display: block;
-
-        margin-top: 14px;
-
-        border:
-            1px
-            solid
-            var(--border);
-
-        border-radius: 12px;
-
-        background: var(--panel);
-
-        overflow: hidden;
-    }
-
-    details.section > summary {
-        cursor: pointer;
-
-        padding:
-            15px
-            16px;
-
-        font-size: 1.12rem;
-
-        font-weight: 800;
-
-        background: var(--accent);
-    }
-
-    .section-content {
-        padding: 14px;
-    }
-
-    .method-section {
-        padding:
-            14px;
-    }
-
-    .method-section > h2 {
-        margin:
-            0
-            0
-            12px
-            0;
-    }
-
-    .ingredient-grid {
-        display: grid;
-        gap: 10px;
-    }
-
-    .ingredient-card,
-    .prep-card,
-    .method-step {
-        padding: 14px;
-
-        border:
-            1px
-            solid
-            var(--border);
-
-        border-radius: 10px;
-
-        background: var(--step);
-    }
-
-    .ingredient-heading {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        gap: 14px;
-    }
-
-    .ingredient-quantity {
-        flex: 0 0 auto;
-
-        font-weight: 800;
-
-        white-space: nowrap;
-    }
-
-    .subline {
-        margin-top: 7px;
-        line-height: 1.4;
-    }
-
-    .compact-list {
-        margin:
-            0;
-        padding-left:
-            22px;
-    }
-
-    .card-stack {
-        display: grid;
-        gap: 12px;
-    }
-
-    .prep-card h3,
-    .method-step h3 {
-        margin:
-            0;
-    }
-
-    .prep-card p,
-    .method-step p {
-        margin:
-            10px
-            0;
-    }
-
-    .step-heading {
-        display: flex;
-        align-items: baseline;
-        gap: 10px;
-    }
-
-    .step-number {
-        flex: 0 0 auto;
-
-        font-size: 0.8rem;
-        font-weight: 800;
-
-        text-transform: uppercase;
-    }
-
-    .step-section {
-        margin-top: 6px;
-
-        font-size: 0.85rem;
-        font-weight: 700;
-
-        color: var(--muted);
-    }
-
-    .step-meta {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 6px;
-
-        margin-top: 10px;
-    }
-
-    .instruction {
-        font-size: 1rem;
-        line-height: 1.55;
-    }
-
-    .endpoint {
-        margin-top: 10px;
-
-        padding:
-            10px
-            12px;
-
-        border-left:
-            4px
-            solid
-            #000000;
-
-        background: var(--endpoint);
-
-        line-height: 1.45;
-    }
-
-    .corrective {
-        margin-top: 10px;
-    }
-
-    .corrective summary {
-        cursor: pointer;
-        font-weight: 750;
-    }
-
-    .corrective ul {
-        margin-bottom: 0;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: start;
     }
 
     .cook-button {
-        flex: 0 0 auto;
-
-        min-height: 42px;
-
-        padding:
-            8px
-            12px;
-
-        border:
-            1px
-            solid
-            #000000;
-
-        border-radius: 9px;
-
-        background: #000000;
-        color: #ffffff;
-
-        font-weight: 750;
-    }
-
-    .cook-controls {
-        display: none;
-
-        position: sticky;
-
-        bottom:
-            max(
-                8px,
-                env(safe-area-inset-bottom)
-            );
-
-        z-index: 30;
-
-        align-items: center;
-
-        justify-content: space-between;
-
-        gap: 10px;
-
-        margin-top: 14px;
-
-        padding: 10px;
-
-        border:
-            1px
-            solid
-            #000000;
-
-        border-radius: 12px;
-
-        background: #ffffff;
-    }
-
-    .cook-controls button {
-        min-height: 44px;
-
-        padding:
-            8px
-            14px;
-
-        border:
-            1px
-            solid
-            #000000;
-
-        border-radius: 8px;
-
-        background: #000000;
-        color: #ffffff;
-
-        font-weight: 750;
-    }
-
-    /* ==========================================================
-       Compact cook-mode header
-       ========================================================== */
-
-    body.cook-mode .recipe-header {
-        position: sticky;
-        top: 0;
-        z-index: 30;
-
-        margin: 0;
-
-        padding:
-            6px
-            0;
-
-        background:
-            rgba(
-                244,
-                242,
-                236,
-                0.98
-            );
-
-        border-bottom:
-            1px
-            solid
-            var(--border);
-
-        backdrop-filter:
-            blur(8px);
-    }
-
-    body.cook-mode .recipe-header .description,
-    body.cook-mode .recipe-header .scheduled-date,
-    body.cook-mode .recipe-header .tag-row,
-    body.cook-mode .recipe-header .allergens,
-    body.cook-mode .facts {
-        display: none;
-    }
-
-    body.cook-mode .title-row {
-        display: grid;
-
-        grid-template-columns:
-            minmax(0, 1fr)
-            auto;
-
-        align-items: center;
-
-        gap: 8px;
-    }
-
-    body.cook-mode .recipe-header h1 {
-        margin: 0;
-
-        font-size: 1rem;
-
-        line-height: 1.2;
-
-        white-space: nowrap;
-
-        overflow: hidden;
-
-        text-overflow: ellipsis;
-    }
-
-    body.cook-mode .cook-button {
         width: auto;
-
         min-height: 36px;
-
-        padding:
-            6px
-            10px;
-
+        padding: 6px 10px;
         font-size: 0.85rem;
-
-        white-space: nowrap;
     }
 
-    body.cook-mode .method-section > h2 {
-        display: none;
+    .recipe-tools { grid-template-columns: 1fr; }
+
+    .serving-tool, .rating-tool {
+        display: grid;
+        grid-template-columns: 1fr;
     }
 
-    body.cook-mode .non-method {
-        display: none;
+    .rating-buttons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
     }
 
-    body.cook-mode .method-step {
-        display: none;
+    .ingredient-heading {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 3px;
     }
 
-    body.cook-mode .method-step.active {
-        display: block;
-    }
+    .ingredient-quantity { white-space: normal; }
+    .method-section, .section-content { padding: 10px; }
+    .ingredient-card, .prep-card, .method-step { padding: 12px; }
+}
 
-    body.cook-mode .cook-controls {
-        display: flex;
-    }
-
-    body.cook-mode .method-section {
-        min-height:
-            calc(100dvh - 60px);
-
-        margin-top: 6px;
-    }
-
-    @media (max-width: 600px) {
-
-        .page {
-            width:
-                calc(100% - 12px);
-        }
-
-        .recipe-header {
-            padding-top: 8px;
-        }
-
-        .title-row {
-            display: grid;
-            grid-template-columns: 1fr;
-        }
-
-        .cook-button {
-            width: 100%;
-        }
-
-        body.cook-mode .title-row {
-            grid-template-columns:
-                minmax(0, 1fr)
-                auto;
-        }
-
-        body.cook-mode .cook-button {
-            width: auto;
-        }
-
-        .ingredient-heading {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 3px;
-        }
-
-        .ingredient-quantity {
-            white-space: normal;
-        }
-
-        .method-section,
-        .section-content {
-            padding: 10px;
-        }
-
-        .ingredient-card,
-        .prep-card,
-        .method-step {
-            padding: 12px;
-        }
-    }
-
-    @media print {
-
-        .recipe-header {
-            position: static;
-        }
-
-        .cook-button,
-        .cook-controls {
-            display: none !important;
-        }
-
-        body.cook-mode .non-method,
-        body.cook-mode .method-step {
-            display: block;
-        }
-
-        .section {
-            break-inside: avoid;
-        }
-    }
-
+@media print {
+    .recipe-header { position: static; }
+    .cook-button, .cook-controls, .recipe-tools { display: none !important; }
+    body.cook-mode .non-method, body.cook-mode .method-step { display: block; }
+    .section { break-inside: avoid; }
+}
 </style>
-
 </head>
 
 <body>
-
 <main class="page">
 
 <header class="recipe-header">
-
     <div class="title-row">
-
         <h1>Red Lentil, Spinach &amp; Cauliflower Dal with Brown Basmati Rice and Cucumber Raita</h1>
-
-        <button
-            id="cookModeButton"
-            class="cook-button"
-            type="button"
-        >
-            Cook mode
-        </button>
-
+        <button id="cookModeButton" class="cook-button" type="button">Cook mode</button>
     </div>
 
     
 
-    <p class="description">
-        A high-protein red lentil dal with browned cauliflower, wilted spinach and a deeply aromatic cumin, ginger, garlic and tomato base, served with nutty brown basmati rice and a cool lemon-mint cucumber raita. The cauliflower is roasted separately for caramelised edges before being folded through the finished dal so it retains texture.
-    </p>
-
-    <div class="tag-row">
-        <span class="badge">Dinner</span><span class="badge">Vegetarian</span><span class="badge">High protein</span><span class="badge">High fibre</span>
-    </div>
-
-    <div class="allergens"><strong>Allergens:</strong> Milk</div>
-
+    <details class="recipe-info">
+        <summary>Recipe info</summary>
+        <div class="recipe-info-content">
+            <p class="description">A high-protein red lentil dal with browned cauliflower, wilted spinach and a deeply aromatic cumin, ginger, garlic and tomato base, served with nutty brown basmati rice and a cool lemon-mint cucumber raita. The cauliflower is roasted separately for caramelised edges before being folded through the finished dal so it retains texture.</p>
+            <div class="tag-row"><span class="badge">Dinner</span><span class="badge">Vegetarian</span><span class="badge">High protein</span><span class="badge">High fibre</span></div>
+            <div class="allergens"><strong>Allergens:</strong> Milk</div>
+        </div>
+    </details>
 </header>
 
-<div class="facts">
-    <div class="fact"><span>Serves</span><strong>2</strong></div><div class="fact"><span>Difficulty</span><strong>Moderate</strong></div><div class="fact"><span>Active</span><strong>30 min</strong></div><div class="fact"><span>Total</span><strong>50 min</strong></div><div class="fact"><span>Energy</span><strong>600 kcal</strong></div><div class="fact"><span>Protein</span><strong>39 g</strong></div>
-</div>
+<div class="facts"><div class="fact"><span>Serves</span><strong id="servesFactValue">2</strong></div><div class="fact"><span>Difficulty</span><strong>Moderate</strong></div><div class="fact"><span>Active</span><strong>30 min</strong></div><div class="fact"><span>Total</span><strong>50 min</strong></div><div class="fact"><span>Energy</span><strong>600 kcal</strong></div><div class="fact"><span>Protein</span><strong>39 g</strong></div></div>
+
+<section class="recipe-tools">
+    <div class="serving-tool">
+        <strong>Servings</strong>
+        <div class="serving-controls">
+            <button id="servingsMinus" type="button">−</button>
+            <span id="servingsValue" data-base-servings="2">2</span>
+            <button id="servingsPlus" type="button">+</button>
+        </div>
+    </div>
+
+    <div class="rating-tool" data-recipe-id="red_lentil_spinach_cauliflower_dal_brown_basmati_rice_cucumber_raita">
+        <strong>Your rating</strong>
+        <div class="rating-buttons">
+            <button id="ratingFavourite" type="button">♥ Favourite</button>
+            <button id="ratingDislike" type="button">👎 Dislike</button>
+        </div>
+    </div>
+</section>
 
 
 <details class="section non-method" open>
@@ -688,154 +451,154 @@
         <article class="ingredient-card">
 <div class="ingredient-heading">
 <strong>Dried red split lentils</strong>
-<span class="ingredient-quantity">120 g</span>
+<span class="ingredient-quantity" data-base-quantity="120" data-unit="g">120 g</span>
 </div>
 <div class="subline"><strong>Buy:</strong> Buy: 1 standard packet</div>
 <div class="subline"><strong>Prep:</strong> Inspect for foreign material, rinse repeatedly under cold running water and drain thoroughly.</div>
 </article><article class="ingredient-card">
 <div class="ingredient-heading">
 <strong>Brown basmati rice</strong>
-<span class="ingredient-quantity">70 g</span>
+<span class="ingredient-quantity" data-base-quantity="70" data-unit="g">70 g</span>
 </div>
 <div class="subline"><strong>Buy:</strong> Buy: 1 standard packet</div>
 <div class="subline"><strong>Prep:</strong> Rinse under cold running water until the runoff becomes substantially clearer.</div>
 </article><article class="ingredient-card">
 <div class="ingredient-heading">
 <strong>Cauliflower</strong>
-<span class="ingredient-quantity">1</span>
+<span class="ingredient-quantity" data-base-quantity="1" data-unit="integer">1</span>
 </div>
 <div class="subline"><strong>Buy:</strong> Buy: 1 medium-large cauliflower, approximately 550-700 g as bought</div>
 <div class="subline"><strong>Prep:</strong> Remove leaves and tough base. Cut approximately 400 g usable florets and tender stem into pieces approximately 30-40 mm across.</div>
 </article><article class="ingredient-card">
 <div class="ingredient-heading">
 <strong>Baby spinach</strong>
-<span class="ingredient-quantity">160 g</span>
+<span class="ingredient-quantity" data-base-quantity="160" data-unit="g">160 g</span>
 </div>
 <div class="subline"><strong>Buy:</strong> Buy: 1 bag containing at least 160 g</div>
 <div class="subline"><strong>Prep:</strong> Wash if required by pack instructions and dry thoroughly. Remove damaged leaves.</div>
 </article><article class="ingredient-card">
 <div class="ingredient-heading">
 <strong>Brown onion</strong>
-<span class="ingredient-quantity">1</span>
+<span class="ingredient-quantity" data-base-quantity="1" data-unit="integer">1</span>
 </div>
 <div class="subline"><strong>Buy:</strong> Buy: 1 medium brown onion, approximately 160-180 g as bought</div>
 <div class="subline"><strong>Prep:</strong> Peel, trim and finely dice the usable flesh into approximately 4 mm pieces.</div>
 </article><article class="ingredient-card">
 <div class="ingredient-heading">
 <strong>Canned chopped tomatoes</strong>
-<span class="ingredient-quantity">200 g</span>
+<span class="ingredient-quantity" data-base-quantity="200" data-unit="g">200 g</span>
 </div>
 <div class="subline"><strong>Buy:</strong> Buy: 1 x 400 g tin</div>
 <div class="subline"><strong>Prep:</strong> Measure directly from the opened tin, including tomato juice.</div>
 </article><article class="ingredient-card">
 <div class="ingredient-heading">
 <strong>0% Greek yoghurt</strong>
-<span class="ingredient-quantity">250 g</span>
+<span class="ingredient-quantity" data-base-quantity="250" data-unit="g">250 g</span>
 </div>
 <div class="subline"><strong>Buy:</strong> Buy: 1 tub containing at least 250 g</div>
 <div class="subline"><strong>Prep:</strong> Keep refrigerated until the raita is prepared.</div>
 </article><article class="ingredient-card">
 <div class="ingredient-heading">
 <strong>Cucumber</strong>
-<span class="ingredient-quantity">0.5</span>
+<span class="ingredient-quantity" data-base-quantity="0.5" data-unit="integer">0.5</span>
 </div>
 <div class="subline"><strong>Buy:</strong> Buy: 1 whole cucumber</div>
 <div class="subline"><strong>Prep:</strong> Wash and dry. Use approximately 160 g, coarsely grate and gently squeeze out excess free water.</div>
 </article><article class="ingredient-card">
 <div class="ingredient-heading">
 <strong>Fresh root ginger</strong>
-<span class="ingredient-quantity">20 g</span>
+<span class="ingredient-quantity" data-base-quantity="20" data-unit="g">20 g</span>
 </div>
 <div class="subline"><strong>Buy:</strong> Buy: 1 piece containing at least 20 g usable ginger</div>
 <div class="subline"><strong>Prep:</strong> Wash, peel only if the skin is tough, then finely grate 20 g usable flesh.</div>
 </article><article class="ingredient-card">
 <div class="ingredient-heading">
 <strong>Garlic</strong>
-<span class="ingredient-quantity">3</span>
+<span class="ingredient-quantity" data-base-quantity="3" data-unit="integer">3</span>
 </div>
 <div class="subline"><strong>Buy:</strong> Buy: 1 garlic bulb</div>
 <div class="subline"><strong>Prep:</strong> Separate 3 cloves, peel, trim the root ends and finely grate.</div>
 </article><article class="ingredient-card">
 <div class="ingredient-heading">
 <strong>Unwaxed lemon</strong>
-<span class="ingredient-quantity">1</span>
+<span class="ingredient-quantity" data-base-quantity="1" data-unit="integer">1</span>
 </div>
 <div class="subline"><strong>Buy:</strong> Buy: 1 lemon</div>
 <div class="subline"><strong>Prep:</strong> Wash and dry, cut and squeeze 30 ml juice, removing all seeds.</div>
 </article><article class="ingredient-card">
 <div class="ingredient-heading">
 <strong>Fresh mint</strong>
-<span class="ingredient-quantity">10 g</span>
+<span class="ingredient-quantity" data-base-quantity="10" data-unit="g">10 g</span>
 </div>
 <div class="subline"><strong>Buy:</strong> Buy: 1 packet or pot containing at least 10 g usable leaves</div>
 <div class="subline"><strong>Prep:</strong> Wash, dry, remove coarse stems and finely chop the leaves and tender upper stems.</div>
 </article><article class="ingredient-card">
 <div class="ingredient-heading">
 <strong>Fresh coriander</strong>
-<span class="ingredient-quantity">15 g</span>
+<span class="ingredient-quantity" data-base-quantity="15" data-unit="g">15 g</span>
 </div>
 <div class="subline"><strong>Buy:</strong> Buy: 1 packet or bunch containing at least 15 g</div>
 <div class="subline"><strong>Prep:</strong> Wash and dry thoroughly. Remove coarse lower stems and chop leaves and tender stems into approximately 5 mm pieces.</div>
 </article><article class="ingredient-card">
 <div class="ingredient-heading">
 <strong>Rapeseed oil</strong>
-<span class="ingredient-quantity">12 g</span>
+<span class="ingredient-quantity" data-base-quantity="12" data-unit="g">12 g</span>
 </div>
 <div class="subline"><strong>Buy:</strong> Buy: 1 bottle if not already stocked</div>
 <div class="subline"><strong>Prep:</strong> Measure 4 g for cauliflower roasting and 8 g for the dal.</div>
 </article><article class="ingredient-card">
 <div class="ingredient-heading">
 <strong>Cumin seeds</strong>
-<span class="ingredient-quantity">1 tsp</span>
+<span class="ingredient-quantity" data-base-quantity="1" data-unit="tsp">1 tsp</span>
 </div>
 <div class="subline"><strong>Buy:</strong> Buy: 1 jar</div>
 <div class="subline"><strong>Prep:</strong> Measure before cooking.</div>
 </article><article class="ingredient-card">
 <div class="ingredient-heading">
 <strong>Ground coriander</strong>
-<span class="ingredient-quantity">1½ tsp</span>
+<span class="ingredient-quantity" data-base-quantity="1.5" data-unit="tsp">1½ tsp</span>
 </div>
 <div class="subline"><strong>Buy:</strong> Buy: 1 jar</div>
 <div class="subline"><strong>Prep:</strong> Measure before cooking.</div>
 </article><article class="ingredient-card">
 <div class="ingredient-heading">
 <strong>Ground turmeric</strong>
-<span class="ingredient-quantity">½ tsp</span>
+<span class="ingredient-quantity" data-base-quantity="0.5" data-unit="tsp">½ tsp</span>
 </div>
 <div class="subline"><strong>Buy:</strong> Buy: 1 jar</div>
 <div class="subline"><strong>Prep:</strong> Measure before cooking.</div>
 </article><article class="ingredient-card">
 <div class="ingredient-heading">
 <strong>Garam masala</strong>
-<span class="ingredient-quantity">1 tsp</span>
+<span class="ingredient-quantity" data-base-quantity="1" data-unit="tsp">1 tsp</span>
 </div>
 <div class="subline"><strong>Buy:</strong> Buy: 1 jar</div>
 <div class="subline"><strong>Prep:</strong> Measure before cooking and reserve for the finishing stage.</div>
 </article><article class="ingredient-card">
 <div class="ingredient-heading">
 <strong>Mild chilli powder</strong>
-<span class="ingredient-quantity">¼ tsp</span>
+<span class="ingredient-quantity" data-base-quantity="0.25" data-unit="tsp">¼ tsp</span>
 </div>
 <div class="subline"><strong>Buy:</strong> Buy: 1 jar if not already stocked</div>
 <div class="subline"><strong>Prep:</strong> Measure before cooking.</div>
 </article><article class="ingredient-card">
 <div class="ingredient-heading">
 <strong>Ground cumin</strong>
-<span class="ingredient-quantity">½ tsp</span>
+<span class="ingredient-quantity" data-base-quantity="0.5" data-unit="tsp">½ tsp</span>
 </div>
 <div class="subline"><strong>Buy:</strong> Buy: 1 jar if not already stocked</div>
 <div class="subline"><strong>Prep:</strong> Measure for the cucumber raita.</div>
 </article><article class="ingredient-card">
 <div class="ingredient-heading">
 <strong>Fine salt</strong>
-<span class="ingredient-quantity">½ tsp</span>
+<span class="ingredient-quantity" data-base-quantity="0.5" data-unit="tsp">½ tsp</span>
 </div>
 <div class="subline"><strong>Buy:</strong> Buy: 1 standard container if not already stocked</div>
 <div class="subline"><strong>Prep:</strong> Measure 0.25 tsp for the dal, 0.125 tsp for the cauliflower and 0.125 tsp for the raita.</div>
 </article><article class="ingredient-card">
 <div class="ingredient-heading">
 <strong>Water</strong>
-<span class="ingredient-quantity">550 ml</span>
+<span class="ingredient-quantity" data-base-quantity="550" data-unit="ml">550 ml</span>
 </div>
 <div class="subline"><strong>Buy:</strong> Use: 550 ml tap water plus the quantity required by the rice cooker</div>
 <div class="subline"><strong>Prep:</strong> Measure 550 ml for cooking the dal. Rice-cooking water is additional and should follow the rice-cooker manufacturer&#x27;s brown-rice guidance.</div>
@@ -847,17 +610,14 @@
 <details class="section non-method">
     <summary>Equipment</summary>
     <div class="section-content">
-        <ul class="compact-list">
-            <li>Rice cooker</li><li>Duo Stack air fryer</li><li>Gas hob</li><li>Large sauté pan or wide saucepan</li><li>Electric kettle</li><li>Medium mixing bowl</li><li>Small mixing bowl</li><li>Fine colander or sieve</li><li>Box grater</li><li>Fine grater or Microplane</li><li>Chef&#x27;s knife</li><li>Chopping board</li><li>Measuring jug</li><li>Measuring spoons</li><li>Kitchen scales</li><li>Heatproof spatula or wooden spoon</li>
-        </ul>
+        <ul class="compact-list"><li>Rice cooker</li><li>Duo Stack air fryer</li><li>Gas hob</li><li>Large sauté pan or wide saucepan</li><li>Electric kettle</li><li>Medium mixing bowl</li><li>Small mixing bowl</li><li>Fine colander or sieve</li><li>Box grater</li><li>Fine grater or Microplane</li><li>Chef&#x27;s knife</li><li>Chopping board</li><li>Measuring jug</li><li>Measuring spoons</li><li>Kitchen scales</li><li>Heatproof spatula or wooden spoon</li></ul>
     </div>
 </details>
 
 
 <details class="section non-method" open>
     <summary>Mise en place</summary>
-    <div class="section-content card-stack">
-        <article class="prep-card">
+    <div class="section-content card-stack"><article class="prep-card">
 <h3>Prep 1</h3>
 <p>Inspect 120 g dried red lentils for foreign material. Place in the fine colander or sieve and rinse under cold running water while agitating the lentils until the runoff becomes substantially clearer. Drain thoroughly.</p>
 <div class="endpoint"><strong>Ready when:</strong> The lentils are clean, fully drained and ready for cooking.</div>
@@ -885,16 +645,13 @@
 <h3>Prep 7</h3>
 <p>Squeeze 30 ml lemon juice and remove all seeds. Measure 12 g rapeseed oil, allocating 4 g to the cauliflower and 8 g to the dal. Measure 1 tsp cumin seeds, 1.5 tsp ground coriander, 0.5 tsp turmeric, 1 tsp garam masala, 0.25 tsp chilli powder, 0.5 tsp ground cumin and 0.5 tsp fine salt, allocating the salt as specified in the ingredient notes. Measure 200 g canned chopped tomatoes and 550 ml water.</p>
 <div class="endpoint"><strong>Ready when:</strong> All remaining ingredients are accurately measured and allocated to their intended components.</div>
-</article>
-    </div>
+</article></div>
 </details>
 
 
 <section class="section method-section">
     <h2>Method</h2>
-
-    <div id="methodSteps" class="card-stack">
-        <article class="method-step" data-step-index="0">
+    <div id="methodSteps" class="card-stack"><article class="method-step" data-step-index="0">
 <div class="step-heading">
 <div class="step-number">Step 1</div>
 <h3>Cook the brown basmati rice</h3>
@@ -906,9 +663,7 @@
 
 <details class="corrective">
     <summary>Corrective actions</summary>
-    <ul>
-        <li><strong>If:</strong> The rice remains firm after the cycle and no free water remains.<br><strong>Do:</strong> Add 30 ml hot water, close the lid and continue cooking or holding hot for 5-10 minutes before reassessing.</li><li><strong>If:</strong> The grains are tender but visibly wet.<br><strong>Do:</strong> Leave the lid open on keep-warm for several minutes until excess moisture evaporates.</li>
-    </ul>
+    <ul><li><strong>If:</strong> The rice remains firm after the cycle and no free water remains.<br><strong>Do:</strong> Add 30 ml hot water, close the lid and continue cooking or holding hot for 5-10 minutes before reassessing.</li><li><strong>If:</strong> The grains are tender but visibly wet.<br><strong>Do:</strong> Leave the lid open on keep-warm for several minutes until excess moisture evaporates.</li></ul>
 </details>
 
 </article><article class="method-step" data-step-index="1">
@@ -923,9 +678,7 @@
 
 <details class="corrective">
     <summary>Corrective actions</summary>
-    <ul>
-        <li><strong>If:</strong> The appliance has not reached temperature after 5 minutes.<br><strong>Do:</strong> Confirm the setting and continue preheating for an additional 2 minutes.</li>
-    </ul>
+    <ul><li><strong>If:</strong> The appliance has not reached temperature after 5 minutes.<br><strong>Do:</strong> Confirm the setting and continue preheating for an additional 2 minutes.</li></ul>
 </details>
 
 </article><article class="method-step" data-step-index="2">
@@ -940,9 +693,7 @@
 
 <details class="corrective">
     <summary>Corrective actions</summary>
-    <ul>
-        <li><strong>If:</strong> Edges darken substantially before the stems become tender.<br><strong>Do:</strong> Reduce the temperature to 185°C and continue in 2-minute intervals.</li><li><strong>If:</strong> The cauliflower is tender but remains pale.<br><strong>Do:</strong> Increase airflow by spreading the pieces more widely and continue at 200°C for 2-3 minutes.</li>
-    </ul>
+    <ul><li><strong>If:</strong> Edges darken substantially before the stems become tender.<br><strong>Do:</strong> Reduce the temperature to 185°C and continue in 2-minute intervals.</li><li><strong>If:</strong> The cauliflower is tender but remains pale.<br><strong>Do:</strong> Increase airflow by spreading the pieces more widely and continue at 200°C for 2-3 minutes.</li></ul>
 </details>
 
 </article><article class="method-step" data-step-index="3">
@@ -957,9 +708,7 @@
 
 <details class="corrective">
     <summary>Corrective actions</summary>
-    <ul>
-        <li><strong>If:</strong> The cumin seeds darken rapidly or smell burnt.<br><strong>Do:</strong> Reduce the heat immediately and add the onion to lower the pan temperature.</li><li><strong>If:</strong> The onion browns before becoming tender.<br><strong>Do:</strong> Reduce the flame and continue cooking more slowly until fully soft.</li><li><strong>If:</strong> The onion remains pale after 10 minutes.<br><strong>Do:</strong> Increase the heat slightly and stir less frequently, allowing brief contact with the pan surface.</li>
-    </ul>
+    <ul><li><strong>If:</strong> The cumin seeds darken rapidly or smell burnt.<br><strong>Do:</strong> Reduce the heat immediately and add the onion to lower the pan temperature.</li><li><strong>If:</strong> The onion browns before becoming tender.<br><strong>Do:</strong> Reduce the flame and continue cooking more slowly until fully soft.</li><li><strong>If:</strong> The onion remains pale after 10 minutes.<br><strong>Do:</strong> Increase the heat slightly and stir less frequently, allowing brief contact with the pan surface.</li></ul>
 </details>
 
 </article><article class="method-step" data-step-index="4">
@@ -974,9 +723,7 @@
 
 <details class="corrective">
     <summary>Corrective actions</summary>
-    <ul>
-        <li><strong>If:</strong> The garlic or spices begin catching on the pan.<br><strong>Do:</strong> Immediately proceed to the tomato addition in Step 6 and scrape the pan thoroughly as the tomato liquid is introduced.</li>
-    </ul>
+    <ul><li><strong>If:</strong> The garlic or spices begin catching on the pan.<br><strong>Do:</strong> Immediately proceed to the tomato addition in Step 6 and scrape the pan thoroughly as the tomato liquid is introduced.</li></ul>
 </details>
 
 </article><article class="method-step" data-step-index="5">
@@ -991,9 +738,7 @@
 
 <details class="corrective">
     <summary>Corrective actions</summary>
-    <ul>
-        <li><strong>If:</strong> The tomato mixture begins sticking before it thickens.<br><strong>Do:</strong> Reduce the heat and add 15 ml of the measured dal water, then continue cooking.</li><li><strong>If:</strong> The mixture remains watery after 7 minutes.<br><strong>Do:</strong> Increase the heat slightly and continue stirring until the stated thickened endpoint is reached.</li>
-    </ul>
+    <ul><li><strong>If:</strong> The tomato mixture begins sticking before it thickens.<br><strong>Do:</strong> Reduce the heat and add 15 ml of the measured dal water, then continue cooking.</li><li><strong>If:</strong> The mixture remains watery after 7 minutes.<br><strong>Do:</strong> Increase the heat slightly and continue stirring until the stated thickened endpoint is reached.</li></ul>
 </details>
 
 </article><article class="method-step" data-step-index="6">
@@ -1008,9 +753,7 @@
 
 <details class="corrective">
     <summary>Corrective actions</summary>
-    <ul>
-        <li><strong>If:</strong> The lentils remain firm but the mixture becomes too thick to stir freely.<br><strong>Do:</strong> Add 50 ml hot water and continue simmering until the lentils pass the tenderness endpoint.</li><li><strong>If:</strong> The dal remains very watery after the lentils become tender.<br><strong>Do:</strong> Increase the heat to medium and simmer uncovered while stirring frequently until the required thick spoonable consistency is reached.</li><li><strong>If:</strong> The dal begins sticking to the pan base.<br><strong>Do:</strong> Reduce the heat immediately, scrape the base thoroughly and add 30-50 ml hot water if required.</li>
-    </ul>
+    <ul><li><strong>If:</strong> The lentils remain firm but the mixture becomes too thick to stir freely.<br><strong>Do:</strong> Add 50 ml hot water and continue simmering until the lentils pass the tenderness endpoint.</li><li><strong>If:</strong> The dal remains very watery after the lentils become tender.<br><strong>Do:</strong> Increase the heat to medium and simmer uncovered while stirring frequently until the required thick spoonable consistency is reached.</li><li><strong>If:</strong> The dal begins sticking to the pan base.<br><strong>Do:</strong> Reduce the heat immediately, scrape the base thoroughly and add 30-50 ml hot water if required.</li></ul>
 </details>
 
 </article><article class="method-step" data-step-index="7">
@@ -1025,9 +768,7 @@
 
 <details class="corrective">
     <summary>Corrective actions</summary>
-    <ul>
-        <li><strong>If:</strong> The raita becomes watery immediately after mixing.<br><strong>Do:</strong> Drain off any obvious free liquid and confirm that the remaining grated cucumber has been adequately squeezed.</li>
-    </ul>
+    <ul><li><strong>If:</strong> The raita becomes watery immediately after mixing.<br><strong>Do:</strong> Drain off any obvious free liquid and confirm that the remaining grated cucumber has been adequately squeezed.</li></ul>
 </details>
 
 </article><article class="method-step" data-step-index="8">
@@ -1042,9 +783,7 @@
 
 <details class="corrective">
     <summary>Corrective actions</summary>
-    <ul>
-        <li><strong>If:</strong> The dal becomes too thick after the spinach and cauliflower are added.<br><strong>Do:</strong> Add hot water in 20 ml increments and fold after each addition until the dal returns to a spoonable consistency.</li><li><strong>If:</strong> The dal tastes flat despite adequate salt.<br><strong>Do:</strong> Allow the measured lemon and garam masala to disperse for 30 seconds before reassessing; do not add unlisted seasoning.</li><li><strong>If:</strong> The cauliflower begins breaking apart excessively.<br><strong>Do:</strong> Stop vigorous stirring and use broad folding motions only.</li>
-    </ul>
+    <ul><li><strong>If:</strong> The dal becomes too thick after the spinach and cauliflower are added.<br><strong>Do:</strong> Add hot water in 20 ml increments and fold after each addition until the dal returns to a spoonable consistency.</li><li><strong>If:</strong> The dal tastes flat despite adequate salt.<br><strong>Do:</strong> Allow the measured lemon and garam masala to disperse for 30 seconds before reassessing; do not add unlisted seasoning.</li><li><strong>If:</strong> The cauliflower begins breaking apart excessively.<br><strong>Do:</strong> Stop vigorous stirring and use broad folding motions only.</li></ul>
 </details>
 
 </article><article class="method-step" data-step-index="9">
@@ -1059,9 +798,7 @@
 
 <details class="corrective">
     <summary>Corrective actions</summary>
-    <ul>
-        <li><strong>If:</strong> The rice is compacted.<br><strong>Do:</strong> Lift and separate the grains gently rather than stirring vigorously.</li>
-    </ul>
+    <ul><li><strong>If:</strong> The rice is compacted.<br><strong>Do:</strong> Lift and separate the grains gently rather than stirring vigorously.</li></ul>
 </details>
 
 </article><article class="method-step" data-step-index="10">
@@ -1076,227 +813,157 @@
 
 <details class="corrective">
     <summary>Corrective actions</summary>
-    <ul>
-        <li><strong>If:</strong> One serving is visibly heavier than the other.<br><strong>Do:</strong> Use the kitchen scales to transfer components until both servings are approximately equal.</li>
-    </ul>
+    <ul><li><strong>If:</strong> One serving is visibly heavier than the other.<br><strong>Do:</strong> Use the kitchen scales to transfer components until both servings are approximately equal.</li></ul>
 </details>
 
-</article>
-    </div>
+</article></div>
 
     <div id="cookControls" class="cook-controls">
-        <button
-            id="previousStep"
-            type="button"
-        >
-            Previous
-        </button>
-
+        <button id="previousStep" type="button">Previous</button>
         <div id="stepCounter"></div>
-
-        <button
-            id="nextStep"
-            type="button"
-        >
-            Next
-        </button>
+        <button id="nextStep" type="button">Next</button>
     </div>
 </section>
 
 
 <details class="section non-method">
     <summary>Serving</summary>
-    <div class="section-content">
-        <p>Serve the brown basmati rice as a compact base or side portion, spoon the thick red lentil, spinach and cauliflower dal alongside it, and place the chilled cucumber raita separately so each mouthful can alternate between hot spiced dal and cool yoghurt. Keep any reserved browned cauliflower visible on top for textural contrast.</p>
-    </div>
+    <div class="section-content"><p>Serve the brown basmati rice as a compact base or side portion, spoon the thick red lentil, spinach and cauliflower dal alongside it, and place the chilled cucumber raita separately so each mouthful can alternate between hot spiced dal and cool yoghurt. Keep any reserved browned cauliflower visible on top for textural contrast.</p></div>
 </details>
 
 
 <details class="section non-method">
     <summary>Storage & reheating</summary>
-    <div class="section-content">
-        <p><strong>Refrigerator:</strong> 3 days</p><p><strong>Freezer:</strong> 2 months</p><p>Cool the dal and rice promptly and store in separate sealed containers at 5°C or below for up to 3 days. Store the raita separately and consume within 2 days. The dal may be frozen for up to 2 months; the raita should not be frozen because the yoghurt and cucumber texture will deteriorate. Reheat cooked components only once and ensure they are steaming hot throughout before serving. Keep refrigerated raita cold and add only after reheating is complete.</p><h3>Reheating</h3><ul><li>Hob: place the dal in a saucepan with 30-60 ml water per serving and reheat over medium-low heat, stirring frequently, until steaming hot throughout.</li><li>Hob for rice: place the rice in a small saucepan with 15-30 ml water per serving, cover and heat over low heat until steaming hot throughout, stirring once or twice.</li><li>Air fryer: roasted cauliflower reserved separately may be reheated at 170°C for approximately 4-6 minutes until hot and lightly crisp before being added back to the reheated dal.</li><li>From frozen: thaw the dal overnight in the refrigerator before reheating on the hob.</li></ul>
-    </div>
+    <div class="section-content"><p><strong>Refrigerator:</strong> 3 days</p><p><strong>Freezer:</strong> 2 months</p><p>Cool the dal and rice promptly and store in separate sealed containers at 5°C or below for up to 3 days. Store the raita separately and consume within 2 days. The dal may be frozen for up to 2 months; the raita should not be frozen because the yoghurt and cucumber texture will deteriorate. Reheat cooked components only once and ensure they are steaming hot throughout before serving. Keep refrigerated raita cold and add only after reheating is complete.</p><h3>Reheating</h3><ul><li>Hob: place the dal in a saucepan with 30-60 ml water per serving and reheat over medium-low heat, stirring frequently, until steaming hot throughout.</li><li>Hob for rice: place the rice in a small saucepan with 15-30 ml water per serving, cover and heat over low heat until steaming hot throughout, stirring once or twice.</li><li>Air fryer: roasted cauliflower reserved separately may be reheated at 170°C for approximately 4-6 minutes until hot and lightly crisp before being added back to the reheated dal.</li><li>From frozen: thaw the dal overnight in the refrigerator before reheating on the hob.</li></ul></div>
 </details>
 
 
 <details class="section non-method">
     <summary>Shopping</summary>
-    <div class="section-content">
-        
-            <h3>Either retailer</h3>
-            <ul><li>Dried red split lentils: buy 1 standard packet</li><li>Brown basmati rice: buy 1 standard packet</li><li>Medium-large cauliflower: buy 1</li><li>Baby spinach: buy 1 bag containing at least 160 g</li><li>Medium brown onion: buy 1</li><li>Canned chopped tomatoes: buy 1 x 400 g tin</li><li>0% Greek yoghurt: buy 1 tub containing at least 250 g</li><li>Cucumber: buy 1 whole cucumber</li><li>Fresh root ginger: buy 1 piece containing at least 20 g usable flesh</li><li>Garlic: buy 1 bulb</li><li>Unwaxed lemon: buy 1</li><li>Fresh mint: buy 1 packet or pot containing at least 10 g</li><li>Fresh coriander: buy 1 packet or bunch containing at least 15 g</li><li>Rapeseed oil: buy 1 bottle if not already stocked</li><li>Cumin seeds: buy 1 jar</li><li>Ground coriander: buy 1 jar</li><li>Ground turmeric: buy 1 jar</li><li>Garam masala: buy 1 jar</li><li>Mild chilli powder: buy 1 jar if not already stocked</li><li>Ground cumin: buy 1 jar if not already stocked</li><li>Fine salt: buy 1 container if not already stocked</li></ul>
-            
-    </div>
+    <div class="section-content"><h3>Either retailer</h3><ul><li>Dried red split lentils: buy 1 standard packet</li><li>Brown basmati rice: buy 1 standard packet</li><li>Medium-large cauliflower: buy 1</li><li>Baby spinach: buy 1 bag containing at least 160 g</li><li>Medium brown onion: buy 1</li><li>Canned chopped tomatoes: buy 1 x 400 g tin</li><li>0% Greek yoghurt: buy 1 tub containing at least 250 g</li><li>Cucumber: buy 1 whole cucumber</li><li>Fresh root ginger: buy 1 piece containing at least 20 g usable flesh</li><li>Garlic: buy 1 bulb</li><li>Unwaxed lemon: buy 1</li><li>Fresh mint: buy 1 packet or pot containing at least 10 g</li><li>Fresh coriander: buy 1 packet or bunch containing at least 15 g</li><li>Rapeseed oil: buy 1 bottle if not already stocked</li><li>Cumin seeds: buy 1 jar</li><li>Ground coriander: buy 1 jar</li><li>Ground turmeric: buy 1 jar</li><li>Garam masala: buy 1 jar</li><li>Mild chilli powder: buy 1 jar if not already stocked</li><li>Ground cumin: buy 1 jar if not already stocked</li><li>Fine salt: buy 1 container if not already stocked</li></ul></div>
 </details>
 
 
 </main>
 
-
 <script>
-
 (function () {
-
-    const button =
-        document.getElementById(
-            "cookModeButton"
-        );
-
-    const steps =
-        Array.from(
-            document.querySelectorAll(
-                ".method-step"
-            )
-        );
-
-    const controls =
-        document.getElementById(
-            "cookControls"
-        );
-
-    const previous =
-        document.getElementById(
-            "previousStep"
-        );
-
-    const next =
-        document.getElementById(
-            "nextStep"
-        );
-
-    const counter =
-        document.getElementById(
-            "stepCounter"
-        );
-
+    const button = document.getElementById("cookModeButton");
+    const steps = Array.from(document.querySelectorAll(".method-step"));
+    const controls = document.getElementById("cookControls");
+    const previous = document.getElementById("previousStep");
+    const next = document.getElementById("nextStep");
+    const counter = document.getElementById("stepCounter");
     let currentStep = 0;
 
-
     function showStep(index) {
+        if (!steps.length) return;
 
-        if (!steps.length) {
-            return;
-        }
+        currentStep = Math.max(0, Math.min(index, steps.length - 1));
+        steps.forEach((step, stepIndex) => {
+            step.classList.toggle("active", stepIndex === currentStep);
+        });
 
-        currentStep =
-            Math.max(
-                0,
-                Math.min(
-                    index,
-                    steps.length - 1
-                )
-            );
+        if (counter) counter.textContent = "Step " + (currentStep + 1) + " of " + steps.length;
+        if (previous) previous.disabled = currentStep === 0;
+        if (next) next.disabled = currentStep === steps.length - 1;
 
-        steps.forEach(
-            (step, stepIndex) => {
-
-                step.classList.toggle(
-                    "active",
-                    stepIndex === currentStep
-                );
-
-            }
-        );
-
-        if (counter) {
-
-            counter.textContent =
-                (
-                    "Step "
-                    +
-                    (currentStep + 1)
-                    +
-                    " of "
-                    +
-                    steps.length
-                );
-        }
-
-        if (previous) {
-            previous.disabled =
-                currentStep === 0;
-        }
-
-        if (next) {
-            next.disabled =
-                currentStep ===
-                steps.length - 1;
-        }
-
-        const active =
-            steps[currentStep];
-
+        const active = steps[currentStep];
         if (active) {
-
-            active.scrollIntoView({
-                behavior: "smooth",
-                block: "start"
-            });
+            active.scrollIntoView({ behavior: "smooth", block: "start" });
         }
     }
-
 
     if (button) {
-
-        button.addEventListener(
-            "click",
-            () => {
-
-                const active =
-                    document.body.classList.toggle(
-                        "cook-mode"
-                    );
-
-                button.textContent =
-                    active
-                        ? "Exit cook mode"
-                        : "Cook mode";
-
-                if (active) {
-                    showStep(
-                        currentStep
-                    );
-                }
-            }
-        );
+        button.addEventListener("click", () => {
+            const active = document.body.classList.toggle("cook-mode");
+            button.textContent = active ? "Exit cook mode" : "Cook mode";
+            if (active) showStep(currentStep);
+        });
     }
 
+    if (previous) previous.addEventListener("click", () => showStep(currentStep - 1));
+    if (next) next.addEventListener("click", () => showStep(currentStep + 1));
+    if (!steps.length && controls) controls.style.display = "none";
 
-    if (previous) {
+    /* Serving scaler */
+    const servingsMinus = document.getElementById("servingsMinus");
+    const servingsPlus = document.getElementById("servingsPlus");
+    const servingsValue = document.getElementById("servingsValue");
+    const servesFactValue = document.getElementById("servesFactValue");
+    const recipeId = "red_lentil_spinach_cauliflower_dal_brown_basmati_rice_cucumber_raita";
 
-        previous.addEventListener(
-            "click",
-            () => {
-                showStep(
-                    currentStep - 1
-                );
-            }
-        );
+    function formatFraction(value) {
+        const rounded = Math.round(value * 8) / 8;
+        const whole = Math.floor(rounded);
+        const remainder = Math.round((rounded - whole) * 8);
+        const fractions = { 0: "", 1: "⅛", 2: "¼", 3: "⅜", 4: "½", 5: "⅝", 6: "¾", 7: "⅞" };
+
+        if (whole > 0 && remainder > 0) return String(whole) + fractions[remainder];
+        if (whole > 0) return String(whole);
+        if (remainder > 0) return fractions[remainder];
+        return "0";
     }
 
+    function formatScaledQuantity(value, unit) {
+        if (unit === "tsp" || unit === "tbsp" || unit === "integer") {
+            const number = formatFraction(value);
+            return unit === "integer" ? number : number + " " + unit;
+        }
 
-    if (next) {
-
-        next.addEventListener(
-            "click",
-            () => {
-                showStep(
-                    currentStep + 1
-                );
-            }
-        );
+        const rounded = Math.round(value * 10) / 10;
+        return String(rounded) + (unit ? " " + unit : "");
     }
 
+    function setServings(newServings) {
+        const baseServings = Number(servingsValue.dataset.baseServings);
+        newServings = Math.max(1, Math.min(12, newServings));
+        servingsValue.textContent = String(newServings);
+        if (servesFactValue) servesFactValue.textContent = String(newServings);
 
-    if (!steps.length && controls) {
-        controls.style.display = "none";
+        const factor = newServings / baseServings;
+        document.querySelectorAll(".ingredient-quantity").forEach(element => {
+            const baseQuantity = Number(element.dataset.baseQuantity);
+            const unit = element.dataset.unit;
+            if (!Number.isFinite(baseQuantity)) return;
+            element.textContent = formatScaledQuantity(baseQuantity * factor, unit);
+        });
+
+        localStorage.setItem("recipe-servings:" + recipeId, String(newServings));
     }
 
+    if (servingsMinus && servingsPlus && servingsValue) {
+        servingsMinus.addEventListener("click", () => {
+            setServings(Number(servingsValue.textContent) - 1);
+        });
+        servingsPlus.addEventListener("click", () => {
+            setServings(Number(servingsValue.textContent) + 1);
+        });
+
+        const saved = Number(localStorage.getItem("recipe-servings:" + recipeId));
+        if (Number.isFinite(saved) && saved >= 1) setServings(saved);
+    }
+
+    /* Favourite / neutral / dislike */
+    const favouriteButton = document.getElementById("ratingFavourite");
+    const dislikeButton = document.getElementById("ratingDislike");
+    const ratingKey = "recipe-rating:" + recipeId;
+
+    function setRating(rating) {
+        localStorage.setItem(ratingKey, rating);
+        if (favouriteButton) favouriteButton.classList.toggle("active", rating === "favourite");
+        if (dislikeButton) dislikeButton.classList.toggle("active", rating === "dislike");
+    }
+
+    if (favouriteButton) favouriteButton.addEventListener("click", () => setRating("favourite"));
+    if (neutralButton) neutralButton.addEventListener("click", () => setRating("neutral"));
+    if (dislikeButton) dislikeButton.addEventListener("click", () => setRating("dislike"));
+
+    if (favouriteButton && neutralButton && dislikeButton) {
+        setRating(localStorage.getItem(ratingKey) || "neutral");
+    }
 })();
-
 </script>
 
 </body>
-
 </html>

@@ -1,6 +1,27 @@
 let recipes = [];
 let schedule = [];
-let filteredRecipes = [];
+let currentScreen = "meals";
+let screenBeforeRecipe = "meals";
+
+
+const appShell =
+    document.getElementById(
+        "appShell"
+    );
+
+const navButtons =
+    Array.from(
+        document.querySelectorAll(
+            ".nav-button"
+        )
+    );
+
+const screenPanels =
+    Array.from(
+        document.querySelectorAll(
+            "[data-screen-panel]"
+        )
+    );
 
 
 const dateSelect =
@@ -18,34 +39,81 @@ const scheduledRecipes =
         "scheduledRecipes"
     );
 
+
 const recipeSearch =
     document.getElementById(
         "recipeSearch"
     );
 
-const allRecipes =
+const ratingFilter =
     document.getElementById(
-        "allRecipes"
+        "ratingFilter"
     );
 
-const openLibraryRecipe =
+const mealTypeFilter =
     document.getElementById(
-        "openLibraryRecipe"
+        "mealTypeFilter"
+    );
+
+const proteinSourceFilter =
+    document.getElementById(
+        "proteinSourceFilter"
+    );
+
+const activeTimeFilter =
+    document.getElementById(
+        "activeTimeFilter"
+    );
+
+const totalTimeFilter =
+    document.getElementById(
+        "totalTimeFilter"
+    );
+
+const minimumProteinFilter =
+    document.getElementById(
+        "minimumProteinFilter"
+    );
+
+const cuisineFilter =
+    document.getElementById(
+        "cuisineFilter"
+    );
+
+const difficultyFilter =
+    document.getElementById(
+        "difficultyFilter"
+    );
+
+const recipeSort =
+    document.getElementById(
+        "recipeSort"
+    );
+
+const clearRecipeFilters =
+    document.getElementById(
+        "clearRecipeFilters"
+    );
+
+const recipeResultCount =
+    document.getElementById(
+        "recipeResultCount"
+    );
+
+const recipeCards =
+    document.getElementById(
+        "recipeCards"
+    );
+
+
+const viewerPanel =
+    document.getElementById(
+        "viewerPanel"
     );
 
 const recipeFrame =
     document.getElementById(
         "recipeFrame"
-    );
-
-const viewerPlaceholder =
-    document.getElementById(
-        "viewerPlaceholder"
-    );
-
-const currentContext =
-    document.getElementById(
-        "currentContext"
     );
 
 const backToPlanner =
@@ -104,6 +172,60 @@ function displayDate(
 }
 
 
+function setScreen(
+    screenName
+) {
+
+    currentScreen =
+        screenName;
+
+    for (
+        const button
+        of navButtons
+    ) {
+
+        button.classList.toggle(
+            "active",
+            button.dataset.screen === screenName
+        );
+    }
+
+
+    for (
+        const panel
+        of screenPanels
+    ) {
+
+        const active =
+            panel.dataset.screenPanel
+            ===
+            screenName;
+
+        panel.hidden =
+            !active;
+
+        panel.classList.toggle(
+            "active",
+            active
+        );
+    }
+
+
+    if (
+        screenName === "recipes"
+    ) {
+
+        renderRecipeCards();
+    }
+
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+
 function getRecipe(
     filename
 ) {
@@ -115,36 +237,8 @@ function getRecipe(
 }
 
 
-function clearViewer(
-    message
-) {
-
-    recipeFrame.hidden =
-        true;
-
-    recipeFrame.removeAttribute(
-        "src"
-    );
-
-    viewerPlaceholder.hidden =
-        false;
-
-    viewerPlaceholder.textContent =
-        message;
-
-     document.body.classList.remove(
-            "recipe-open"
-        );
-
-        backToPlanner.hidden =
-            true;
-
-}
-
-
 function openRecipe(
-    filename,
-    contextText = ""
+    filename
 ) {
 
     const recipe =
@@ -152,51 +246,58 @@ function openRecipe(
             filename
         );
 
-    /*
-       Only HTML recipes that actually exist in
-       recipes.json may be opened.
-    */
-
     if (!recipe) {
-
-        clearViewer(
-            "Recipe not generated yet."
-        );
-
         return;
     }
 
-    recipeFrame.src =
-        `./recipes/${encodeURIComponent(filename)}`;
+    screenBeforeRecipe =
+        currentScreen;
 
-    recipeFrame.hidden =
-        false;
-
-    viewerPlaceholder.hidden =
+    appShell.hidden =
         true;
+
+    viewerPanel.hidden =
+        false;
 
     document.body.classList.add(
         "recipe-open"
+    );
+
+    recipeFrame.src =
+        (
+            "./recipes/"
+            +
+            encodeURIComponent(
+                filename
+            )
         );
-
-    backToPlanner.hidden =
-        false;
-
-    if (contextText) {
-
-        currentContext.textContent =
-            contextText;
-
-    } else {
-
-        currentContext.textContent =
-            recipe.title;
-    }
 
     window.scrollTo({
         top: 0,
         behavior: "smooth"
     });
+}
+
+
+function closeRecipe() {
+
+    recipeFrame.removeAttribute(
+        "src"
+    );
+
+    viewerPanel.hidden =
+        true;
+
+    appShell.hidden =
+        false;
+
+    document.body.classList.remove(
+        "recipe-open"
+    );
+
+    setScreen(
+        screenBeforeRecipe
+    );
 }
 
 
@@ -215,7 +316,6 @@ function getMealsForDate(
 
     const present =
         new Set(
-
             schedule
 
                 .filter(
@@ -229,16 +329,12 @@ function getMealsForDate(
                 )
         );
 
-    /*
-       Standard meal types are shown in their normal
-       order. Any future/custom meal types are appended
-       alphabetically afterwards.
-    */
-
     const standard =
         mealOrder.filter(
             meal =>
-                present.has(meal)
+                present.has(
+                    meal
+                )
         );
 
     const custom =
@@ -253,7 +349,9 @@ function getMealsForDate(
 
             .sort(
                 (a, b) =>
-                    a.localeCompare(b)
+                    a.localeCompare(
+                        b
+                    )
             );
 
     return [
@@ -279,9 +377,8 @@ function updateMealSelector() {
     mealSelect.innerHTML =
         "";
 
-    if (
-        meals.length === 0
-    ) {
+
+    if (!meals.length) {
 
         const option =
             document.createElement(
@@ -303,6 +400,7 @@ function updateMealSelector() {
         return;
     }
 
+
     for (
         const meal
         of meals
@@ -323,6 +421,7 @@ function updateMealSelector() {
             option
         );
     }
+
 
     if (
         meals.includes(
@@ -348,6 +447,7 @@ function updateMealSelector() {
             meals[0];
     }
 
+
     updateScheduledRecipes();
 }
 
@@ -362,14 +462,18 @@ function createStatusBadge(
         );
 
     badge.className =
-        available
-            ? "status-badge status-available"
-            : "status-badge status-missing";
+        (
+            available
+                ? "status-badge status-available"
+                : "status-badge status-missing"
+        );
 
     badge.textContent =
-        available
-            ? "Available"
-            : "Not generated yet";
+        (
+            available
+                ? "Available"
+                : "Not generated yet"
+        );
 
     return badge;
 }
@@ -386,68 +490,37 @@ function updateScheduledRecipes() {
     scheduledRecipes.innerHTML =
         "";
 
+
     if (
-        !date ||
+        !date
+        ||
         !meal
     ) {
 
-        const message =
-            document.createElement(
-                "div"
-            );
-
-        message.className =
-            "empty-schedule-message";
-
-        message.textContent =
+        scheduledRecipes.textContent =
             "No scheduled recipe.";
-
-        scheduledRecipes.appendChild(
-            message
-        );
-
-        clearViewer(
-            "Choose a scheduled meal or select a recipe from the library."
-        );
 
         return;
     }
+
 
     const matches =
         schedule.filter(
             item =>
-                item.date === date &&
+                item.date === date
+                &&
                 item.meal_type === meal
         );
 
-    currentContext.textContent =
-        `${displayDate(date)} — ${meal}`;
 
-    if (
-        matches.length === 0
-    ) {
+    if (!matches.length) {
 
-        const message =
-            document.createElement(
-                "div"
-            );
-
-        message.className =
-            "empty-schedule-message";
-
-        message.textContent =
+        scheduledRecipes.textContent =
             "No recipe is scheduled for this meal.";
-
-        scheduledRecipes.appendChild(
-            message
-        );
-
-        clearViewer(
-            "No recipe is scheduled for this meal."
-        );
 
         return;
     }
+
 
     for (
         const item
@@ -460,17 +533,21 @@ function updateScheduledRecipes() {
             );
 
         card.className =
-            item.available
-                ? "scheduled-card scheduled-available"
-                : "scheduled-card scheduled-missing";
+            (
+                item.available
+                    ? "scheduled-card scheduled-available"
+                    : "scheduled-card scheduled-missing"
+            );
 
-        const header =
+
+        const top =
             document.createElement(
                 "div"
             );
 
-        header.className =
+        top.className =
             "scheduled-card-header";
+
 
         const title =
             document.createElement(
@@ -483,34 +560,41 @@ function updateScheduledRecipes() {
         title.textContent =
             item.title;
 
-        header.appendChild(
+
+        top.appendChild(
             title
         );
 
-        header.appendChild(
+        top.appendChild(
             createStatusBadge(
                 item.available
             )
         );
 
         card.appendChild(
-            header
+            top
         );
 
-        const filename =
+
+        const context =
             document.createElement(
                 "div"
             );
 
-        filename.className =
-            "scheduled-filename";
+        context.className =
+            "scheduled-context";
 
-        filename.textContent =
-            item.file;
+        context.textContent =
+            (
+                `${displayDate(item.date)}`
+                +
+                ` · ${item.meal_type}`
+            );
 
         card.appendChild(
-            filename
+            context
         );
+
 
         if (
             item.available
@@ -535,14 +619,7 @@ function updateScheduledRecipes() {
                 () => {
 
                     openRecipe(
-                        item.file,
-                        (
-                            `${displayDate(item.date)}`
-                            +
-                            ` — ${item.meal_type}`
-                            +
-                            ` — ${item.title}`
-                        )
+                        item.file
                     );
                 }
             );
@@ -553,112 +630,103 @@ function updateScheduledRecipes() {
 
         } else {
 
-            const unavailableMessage =
+            const message =
                 document.createElement(
                     "div"
                 );
 
-            unavailableMessage.className =
+            message.className =
                 "not-generated-message";
 
-            unavailableMessage.textContent =
+            message.textContent =
                 (
                     "This meal is in the plan, "
                     +
-                    "but its HTML recipe has not been generated yet."
+                    "but its recipe has not been generated yet."
                 );
 
             card.appendChild(
-                unavailableMessage
+                message
             );
         }
+
 
         scheduledRecipes.appendChild(
             card
         );
     }
-
-    /*
-       Automatically open the recipe only when
-       the selected date + meal resolves to exactly
-       one available recipe.
-    */
-
-    if (
-        matches.length === 1 &&
-        matches[0].available
-    ) {
-
-        const item =
-            matches[0];
-
-        openRecipe(
-            item.file,
-            (
-                `${displayDate(item.date)}`
-                +
-                ` — ${item.meal_type}`
-                +
-                ` — ${item.title}`
-            )
-        );
-
-    } else if (
-        matches.length === 1 &&
-        !matches[0].available
-    ) {
-
-        clearViewer(
-            "Recipe not generated yet."
-        );
-    }
 }
 
 
-function populateRecipeLibrary(
-    searchText = ""
+function recipeRating(
+    recipe
 ) {
 
-    const query =
-        searchText
-            .trim()
-            .toLocaleLowerCase();
+    return (
+        localStorage.getItem(
+            (
+                "recipe-rating:"
+                +
+                recipe.id
+            )
+        )
+        ||
+        "neutral"
+    );
+}
 
-    filteredRecipes =
-        recipes.filter(
-            recipe => {
 
-                const searchable = [
+function ratingLabel(
+    rating
+) {
 
-                    recipe.title,
+    if (
+        rating === "favourite"
+    ) {
+        return "♥ Favourite";
+    }
 
-                    recipe.filename,
+    if (
+        rating === "dislike"
+    ) {
+        return "👎 Disliked";
+    }
 
-                    ...(
-                        recipe.meal_types
-                        ||
-                        []
-                    )
+    return "";
+}
 
-                ]
-                    .join(" ")
-                    .toLocaleLowerCase();
 
-                return (
-                    searchable.includes(
-                        query
-                    )
-                );
-            }
+function addOptions(
+    select,
+    values
+) {
+
+    const existing =
+        new Set(
+            Array.from(
+                select.options
+            )
+            .map(
+                option =>
+                    option.value
+            )
         );
 
-    allRecipes.innerHTML =
-        "";
 
     for (
-        const recipe
-        of filteredRecipes
+        const value
+        of values
     ) {
+
+        if (
+            !value
+            ||
+            existing.has(
+                value
+            )
+        ) {
+            continue;
+        }
 
         const option =
             document.createElement(
@@ -666,32 +734,837 @@ function populateRecipeLibrary(
             );
 
         option.value =
-            recipe.filename;
-
-        const typeText =
-            recipe.meal_types?.length
-
-                ? (
-                    ` — ${
-                        recipe.meal_types.join(
-                            ", "
-                        )
-                    }`
-                )
-
-                : "";
+            value;
 
         option.textContent =
-            (
-                recipe.title
-                +
-                typeText
-            );
+            value;
 
-        allRecipes.appendChild(
+        select.appendChild(
             option
         );
     }
+}
+
+
+function populateRecipeFilterOptions() {
+
+    const mealTypes =
+        new Set();
+
+    const proteinSources =
+        new Set();
+
+    const cuisines =
+        new Set();
+
+    const difficulties =
+        new Set();
+
+
+    for (
+        const recipe
+        of recipes
+    ) {
+
+        for (
+            const value
+            of recipe.meal_types || []
+        ) {
+            mealTypes.add(
+                value
+            );
+        }
+
+        for (
+            const value
+            of recipe.protein_sources || []
+        ) {
+            proteinSources.add(
+                value
+            );
+        }
+
+        for (
+            const value
+            of recipe.cuisine || []
+        ) {
+            cuisines.add(
+                value
+            );
+        }
+
+        if (
+            recipe.difficulty
+        ) {
+            difficulties.add(
+                recipe.difficulty
+            );
+        }
+    }
+
+
+    addOptions(
+        mealTypeFilter,
+        [...mealTypes].sort()
+    );
+
+    addOptions(
+        proteinSourceFilter,
+        [...proteinSources].sort()
+    );
+
+    addOptions(
+        cuisineFilter,
+        [...cuisines].sort()
+    );
+
+    addOptions(
+        difficultyFilter,
+        [...difficulties].sort()
+    );
+}
+
+
+function numericOrInfinity(
+    value
+) {
+
+    const number =
+        Number(value);
+
+    return (
+        Number.isFinite(
+            number
+        )
+            ? number
+            : Infinity
+    );
+}
+
+
+function numericOrZero(
+    value
+) {
+
+    const number =
+        Number(value);
+
+    return (
+        Number.isFinite(
+            number
+        )
+            ? number
+            : 0
+    );
+}
+
+
+function filteredAndSortedRecipes() {
+
+    const search =
+        recipeSearch.value
+            .trim()
+            .toLocaleLowerCase();
+
+    const selectedRating =
+        ratingFilter.value;
+
+    const selectedMeal =
+        mealTypeFilter.value;
+
+    const selectedProteinSource =
+        proteinSourceFilter.value;
+
+    const maxActive =
+        activeTimeFilter.value
+            ? Number(
+                activeTimeFilter.value
+            )
+            : null;
+
+    const maxTotal =
+        totalTimeFilter.value
+            ? Number(
+                totalTimeFilter.value
+            )
+            : null;
+
+    const minimumProtein =
+        minimumProteinFilter.value
+            ? Number(
+                minimumProteinFilter.value
+            )
+            : null;
+
+    const selectedCuisine =
+        cuisineFilter.value;
+
+    const selectedDifficulty =
+        difficultyFilter.value;
+
+
+    const filtered =
+        recipes.filter(
+            recipe => {
+
+                const rating =
+                    recipeRating(
+                        recipe
+                    );
+
+
+                if (
+                    selectedRating
+                    &&
+                    rating !== selectedRating
+                ) {
+                    return false;
+                }
+
+
+                if (
+                    selectedMeal
+                    &&
+                    !(
+                        recipe.meal_types
+                        ||
+                        []
+                    ).includes(
+                        selectedMeal
+                    )
+                ) {
+                    return false;
+                }
+
+
+                if (
+                    selectedProteinSource
+                    &&
+                    !(
+                        recipe.protein_sources
+                        ||
+                        []
+                    ).includes(
+                        selectedProteinSource
+                    )
+                ) {
+                    return false;
+                }
+
+
+                if (
+                    maxActive !== null
+                    &&
+                    numericOrInfinity(
+                        recipe.active_time_minutes
+                    )
+                    >
+                    maxActive
+                ) {
+                    return false;
+                }
+
+
+                if (
+                    maxTotal !== null
+                    &&
+                    numericOrInfinity(
+                        recipe.total_time_minutes
+                    )
+                    >
+                    maxTotal
+                ) {
+                    return false;
+                }
+
+
+                if (
+                    minimumProtein !== null
+                    &&
+                    numericOrZero(
+                        recipe.protein_g
+                    )
+                    <
+                    minimumProtein
+                ) {
+                    return false;
+                }
+
+
+                if (
+                    selectedCuisine
+                    &&
+                    !(
+                        recipe.cuisine
+                        ||
+                        []
+                    ).includes(
+                        selectedCuisine
+                    )
+                ) {
+                    return false;
+                }
+
+
+                if (
+                    selectedDifficulty
+                    &&
+                    recipe.difficulty
+                    !==
+                    selectedDifficulty
+                ) {
+                    return false;
+                }
+
+
+                if (search) {
+
+                    const searchable =
+                        [
+                            recipe.title,
+                            recipe.description,
+                            recipe.filename,
+                            ...(
+                                recipe.meal_types
+                                ||
+                                []
+                            ),
+                            ...(
+                                recipe.protein_sources
+                                ||
+                                []
+                            ),
+                            ...(
+                                recipe.cuisine
+                                ||
+                                []
+                            ),
+                            ...(
+                                recipe.dietary_tags
+                                ||
+                                []
+                            )
+                        ]
+                            .filter(Boolean)
+                            .join(" ")
+                            .toLocaleLowerCase();
+
+
+                    if (
+                        !searchable.includes(
+                            search
+                        )
+                    ) {
+                        return false;
+                    }
+                }
+
+
+                return true;
+            }
+        );
+
+
+    const sortMode =
+        recipeSort.value;
+
+
+    filtered.sort(
+        (a, b) => {
+
+            if (
+                sortMode === "active_asc"
+            ) {
+
+                return (
+                    numericOrInfinity(
+                        a.active_time_minutes
+                    )
+                    -
+                    numericOrInfinity(
+                        b.active_time_minutes
+                    )
+                    ||
+                    a.title.localeCompare(
+                        b.title
+                    )
+                );
+            }
+
+
+            if (
+                sortMode === "total_asc"
+            ) {
+
+                return (
+                    numericOrInfinity(
+                        a.total_time_minutes
+                    )
+                    -
+                    numericOrInfinity(
+                        b.total_time_minutes
+                    )
+                    ||
+                    a.title.localeCompare(
+                        b.title
+                    )
+                );
+            }
+
+
+            if (
+                sortMode === "protein_desc"
+            ) {
+
+                return (
+                    numericOrZero(
+                        b.protein_g
+                    )
+                    -
+                    numericOrZero(
+                        a.protein_g
+                    )
+                    ||
+                    a.title.localeCompare(
+                        b.title
+                    )
+                );
+            }
+
+
+            if (
+                sortMode === "energy_asc"
+            ) {
+
+                return (
+                    numericOrInfinity(
+                        a.energy_kcal
+                    )
+                    -
+                    numericOrInfinity(
+                        b.energy_kcal
+                    )
+                    ||
+                    a.title.localeCompare(
+                        b.title
+                    )
+                );
+            }
+
+
+            if (
+                sortMode === "energy_desc"
+            ) {
+
+                return (
+                    numericOrZero(
+                        b.energy_kcal
+                    )
+                    -
+                    numericOrZero(
+                        a.energy_kcal
+                    )
+                    ||
+                    a.title.localeCompare(
+                        b.title
+                    )
+                );
+            }
+
+
+            if (
+                sortMode === "favourite_first"
+            ) {
+
+                const rank = {
+                    favourite: 0,
+                    neutral: 1,
+                    dislike: 2
+                };
+
+                return (
+                    rank[
+                        recipeRating(
+                            a
+                        )
+                    ]
+                    -
+                    rank[
+                        recipeRating(
+                            b
+                        )
+                    ]
+                    ||
+                    a.title.localeCompare(
+                        b.title
+                    )
+                );
+            }
+
+
+            return (
+                a.title.localeCompare(
+                    b.title
+                )
+            );
+        }
+    );
+
+
+    return filtered;
+}
+
+
+function createMetaChip(
+    text
+) {
+
+    const chip =
+        document.createElement(
+            "span"
+        );
+
+    chip.className =
+        "recipe-meta-chip";
+
+    chip.textContent =
+        text;
+
+    return chip;
+}
+
+
+function renderRecipeCards() {
+
+    const matches =
+        filteredAndSortedRecipes();
+
+    recipeCards.innerHTML =
+        "";
+
+    recipeResultCount.textContent =
+        (
+            `${matches.length} `
+            +
+            (
+                matches.length === 1
+                    ? "recipe"
+                    : "recipes"
+            )
+        );
+
+
+    if (!matches.length) {
+
+        const empty =
+            document.createElement(
+                "div"
+            );
+
+        empty.className =
+            "empty-results";
+
+        empty.textContent =
+            "No recipes match these filters.";
+
+        recipeCards.appendChild(
+            empty
+        );
+
+        return;
+    }
+
+
+    for (
+        const recipe
+        of matches
+    ) {
+
+        const card =
+            document.createElement(
+                "article"
+            );
+
+        card.className =
+            "recipe-result-card";
+
+        card.tabIndex =
+            0;
+
+
+        const top =
+            document.createElement(
+                "div"
+            );
+
+        top.className =
+            "recipe-result-top";
+
+
+        const title =
+            document.createElement(
+                "h2"
+            );
+
+        title.textContent =
+            recipe.title;
+
+        top.appendChild(
+            title
+        );
+
+
+        const rating =
+            recipeRating(
+                recipe
+            );
+
+        const ratingText =
+            ratingLabel(
+                rating
+            );
+
+
+        if (ratingText) {
+
+            const ratingBadge =
+                document.createElement(
+                    "span"
+                );
+
+            ratingBadge.className =
+                (
+                    "recipe-rating-badge "
+                    +
+                    (
+                        rating === "favourite"
+                            ? "rating-favourite"
+                            : "rating-dislike"
+                    )
+                );
+
+            ratingBadge.textContent =
+                ratingText;
+
+            top.appendChild(
+                ratingBadge
+            );
+        }
+
+
+        card.appendChild(
+            top
+        );
+
+
+        const meta =
+            document.createElement(
+                "div"
+            );
+
+        meta.className =
+            "recipe-result-meta";
+
+
+        for (
+            const meal
+            of recipe.meal_types || []
+        ) {
+
+            meta.appendChild(
+                createMetaChip(
+                    meal
+                )
+            );
+        }
+
+
+        for (
+            const source
+            of recipe.protein_sources || []
+        ) {
+
+            meta.appendChild(
+                createMetaChip(
+                    source
+                )
+            );
+        }
+
+
+        if (
+            recipe.active_time_minutes
+            !==
+            null
+            &&
+            recipe.active_time_minutes
+            !==
+            undefined
+        ) {
+
+            meta.appendChild(
+                createMetaChip(
+                    (
+                        `${recipe.active_time_minutes}`
+                        +
+                        " min active"
+                    )
+                )
+            );
+        }
+
+
+        if (
+            recipe.total_time_minutes
+            !==
+            null
+            &&
+            recipe.total_time_minutes
+            !==
+            undefined
+        ) {
+
+            meta.appendChild(
+                createMetaChip(
+                    (
+                        `${recipe.total_time_minutes}`
+                        +
+                        " min total"
+                    )
+                )
+            );
+        }
+
+
+        if (
+            recipe.protein_g
+            !==
+            null
+            &&
+            recipe.protein_g
+            !==
+            undefined
+        ) {
+
+            meta.appendChild(
+                createMetaChip(
+                    (
+                        `${recipe.protein_g}`
+                        +
+                        " g protein"
+                    )
+                )
+            );
+        }
+
+
+        card.appendChild(
+            meta
+        );
+
+
+        const open =
+            document.createElement(
+                "button"
+            );
+
+        open.type =
+            "button";
+
+        open.className =
+            "recipe-card-open";
+
+        open.textContent =
+            "Open recipe";
+
+        open.addEventListener(
+            "click",
+            event => {
+
+                event.stopPropagation();
+
+                openRecipe(
+                    recipe.filename
+                );
+            }
+        );
+
+        card.appendChild(
+            open
+        );
+
+
+        card.addEventListener(
+            "click",
+            () => {
+
+                openRecipe(
+                    recipe.filename
+                );
+            }
+        );
+
+
+        card.addEventListener(
+            "keydown",
+            event => {
+
+                if (
+                    event.key === "Enter"
+                    ||
+                    event.key === " "
+                ) {
+
+                    event.preventDefault();
+
+                    openRecipe(
+                        recipe.filename
+                    );
+                }
+            }
+        );
+
+
+        recipeCards.appendChild(
+            card
+        );
+    }
+}
+
+
+function clearFilters() {
+
+    recipeSearch.value =
+        "";
+
+    ratingFilter.value =
+        "";
+
+    mealTypeFilter.value =
+        "";
+
+    proteinSourceFilter.value =
+        "";
+
+    activeTimeFilter.value =
+        "";
+
+    totalTimeFilter.value =
+        "";
+
+    minimumProteinFilter.value =
+        "";
+
+    cuisineFilter.value =
+        "";
+
+    difficultyFilter.value =
+        "";
+
+    recipeSort.value =
+        "title";
+
+    renderRecipeCards();
 }
 
 
@@ -723,23 +1596,22 @@ async function loadData() {
 
             ]);
 
-        if (
-            !recipeResponse.ok
-        ) {
+
+        if (!recipeResponse.ok) {
 
             throw new Error(
                 "Could not load recipes.json"
             );
         }
 
-        if (
-            !scheduleResponse.ok
-        ) {
+
+        if (!scheduleResponse.ok) {
 
             throw new Error(
                 "Could not load schedule.json"
             );
         }
+
 
         recipes =
             await recipeResponse.json();
@@ -747,21 +1619,24 @@ async function loadData() {
         schedule =
             await scheduleResponse.json();
 
-        populateRecipeLibrary();
+
+        populateRecipeFilterOptions();
+
 
         const today =
             localTodayISO();
 
-        const scheduledDates = [
-
-            ...new Set(
-                schedule.map(
-                    item =>
-                        item.date
+        const scheduledDates =
+            [
+                ...new Set(
+                    schedule.map(
+                        item =>
+                            item.date
+                    )
                 )
-            )
+            ]
+                .sort();
 
-        ].sort();
 
         if (
             schedule.some(
@@ -786,7 +1661,10 @@ async function loadData() {
                 today;
         }
 
+
         updateMealSelector();
+
+        renderRecipeCards();
 
     } catch (
         error
@@ -796,16 +1674,29 @@ async function loadData() {
             error
         );
 
-        currentContext.textContent =
-            "The recipe library could not be loaded.";
-
         scheduledRecipes.textContent =
             error.message;
 
-        clearViewer(
-            "The recipe library could not be loaded."
-        );
+        recipeCards.textContent =
+            error.message;
     }
+}
+
+
+for (
+    const button
+    of navButtons
+) {
+
+    button.addEventListener(
+        "click",
+        () => {
+
+            setScreen(
+                button.dataset.screen
+            );
+        }
+    );
 }
 
 
@@ -821,87 +1712,70 @@ mealSelect.addEventListener(
 );
 
 
-recipeSearch.addEventListener(
-    "input",
-    () => {
+const recipeFilterControls = [
+    recipeSearch,
+    ratingFilter,
+    mealTypeFilter,
+    proteinSourceFilter,
+    activeTimeFilter,
+    totalTimeFilter,
+    minimumProteinFilter,
+    cuisineFilter,
+    difficultyFilter,
+    recipeSort
+];
 
-        populateRecipeLibrary(
-            recipeSearch.value
-        );
-    }
-);
+
+for (
+    const control
+    of recipeFilterControls
+) {
+
+    control.addEventListener(
+        control === recipeSearch
+            ? "input"
+            : "change",
+        renderRecipeCards
+    );
+}
 
 
-openLibraryRecipe.addEventListener(
+clearRecipeFilters.addEventListener(
     "click",
-    () => {
-
-        const filename =
-            allRecipes.value;
-
-        if (!filename) {
-            return;
-        }
-
-        openRecipe(
-            filename
-        );
-    }
+    clearFilters
 );
 
-
-allRecipes.addEventListener(
-    "dblclick",
-    () => {
-
-        const filename =
-            allRecipes.value;
-
-        if (!filename) {
-            return;
-        }
-
-        openRecipe(
-            filename
-        );
-    }
-);
 
 backToPlanner.addEventListener(
     "click",
+    closeRecipe
+);
+
+
+dateSelect.addEventListener(
+    "click",
     () => {
 
-        document.body.classList.remove(
-            "recipe-open"
-        );
+        if (
+            typeof dateSelect.showPicker
+            ===
+            "function"
+        ) {
 
-        backToPlanner.hidden =
-            true;
-
-        recipeFrame.hidden =
-            true;
-
-        recipeFrame.removeAttribute(
-            "src"
-        );
-
-        viewerPlaceholder.hidden =
-            false;
-
-        viewerPlaceholder.textContent =
-            (
-                "Choose a scheduled meal "
-                +
-                "or select a recipe "
-                +
-                "from the library."
-            );
-
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
+            try {
+                dateSelect.showPicker();
+            } catch (
+                error
+            ) {
+                // Browser fallback: normal date-input behaviour.
+            }
+        }
     }
+);
+
+
+setScreen(
+    "meals"
 );
 
 loadData();

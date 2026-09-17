@@ -1,685 +1,448 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="utf-8">
-
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1, viewport-fit=cover"
->
-
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Cocoa, Raspberry &amp; Skyr Pots with Ground Flaxseed</title>
 
 <style>
+:root {
+    --background: #f4f2ec;
+    --panel: #ffffff;
+    --text: #000000;
+    --muted: #555555;
+    --border: #b9b5ad;
+    --accent: #e5f1dd;
+    --endpoint: #fff4c6;
+    --step: #f7f7f4;
+}
 
-    :root {
-        --background: #f4f2ec;
-        --panel: #ffffff;
-        --text: #000000;
-        --muted: #555555;
-        --border: #b9b5ad;
-        --accent: #e5f1dd;
-        --endpoint: #fff4c6;
-        --step: #f7f7f4;
-    }
+* {
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
 
-    * {
-        box-sizing: border-box;
+html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--background);
+    color: var(--text);
+}
 
-        font-family:
-            -apple-system,
-            BlinkMacSystemFont,
-            "Segoe UI",
-            Roboto,
-            Helvetica,
-            Arial,
-            sans-serif;
-    }
+body {
+    min-height: 100vh;
+    min-height: 100dvh;
+}
 
-    html,
-    body {
-        margin: 0;
-        padding: 0;
+button, input, select, summary { font: inherit; }
 
-        background: var(--background);
-        color: var(--text);
-    }
+.page {
+    width: min(calc(100% - 24px), 1050px);
+    margin: 0 auto;
+    padding: max(12px, env(safe-area-inset-top)) 0 max(40px, env(safe-area-inset-bottom)) 0;
+}
 
-    body {
-        min-height: 100vh;
-        min-height: 100dvh;
-    }
+.recipe-header {
+    position: static;
+    background: transparent;
+    padding: 12px 0 10px 0;
+    border-bottom: 1px solid var(--border);
+}
 
-    button,
-    input,
-    select,
-    summary {
-        font: inherit;
-    }
+.title-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+}
 
-    .page {
-        width: min(
-            calc(100% - 24px),
-            1050px
-        );
+h1 {
+    margin: 0;
+    font-size: clamp(1.65rem, 5vw, 2.8rem);
+    line-height: 1.12;
+}
 
-        margin: 0 auto;
+.scheduled-date { margin-top: 8px; font-weight: 700; }
+.description { margin: 12px 0 0 0; line-height: 1.5; }
 
-        padding:
-            max(12px, env(safe-area-inset-top))
-            0
-            max(40px, env(safe-area-inset-bottom))
-            0;
-    }
+.recipe-info {
+    margin-top: 10px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    background: #ffffff;
+    overflow: hidden;
+}
 
-    .recipe-header {
-        position: static;
+.recipe-info > summary {
+    cursor: pointer;
+    padding: 9px 11px;
+    font-weight: 750;
+}
 
-        background: transparent;
+.recipe-info-content { padding: 0 11px 11px 11px; }
 
-        padding:
-            12px
-            0
-            10px
-            0;
+.tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+}
 
-        border-bottom:
-            1px
-            solid
-            var(--border);
+.badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: #ffffff;
+    color: #000000;
+    font-size: 0.82rem;
+}
+
+.allergens {
+    margin-top: 10px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    background: #ffe4df;
+}
+
+.facts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+    gap: 8px;
+    margin: 14px 0;
+}
+
+.fact {
+    display: grid;
+    gap: 2px;
+    padding: 9px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    background: #ffffff;
+}
+
+.fact span { font-size: 0.78rem; color: var(--muted); }
+
+.recipe-tools {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.serving-tool, .rating-tool {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: #ffffff;
+}
+
+.serving-controls, .rating-buttons {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.serving-controls button, .rating-buttons button {
+    min-height: 36px;
+    padding: 5px 9px;
+    border: 1px solid #000000;
+    border-radius: 7px;
+    background: #ffffff;
+    color: #000000;
+    font-weight: 700;
+}
+
+#servingsValue {
+    min-width: 30px;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 800;
+}
+
+.rating-buttons button.active {
+    background: #000000;
+    color: #ffffff;
+}
+
+.section {
+    display: block;
+    margin-top: 14px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--panel);
+    overflow: hidden;
+}
+
+details.section > summary {
+    cursor: pointer;
+    padding: 15px 16px;
+    font-size: 1.12rem;
+    font-weight: 800;
+    background: var(--accent);
+}
+
+.section-content { padding: 14px; }
+.method-section { padding: 14px; }
+.method-section > h2 { margin: 0 0 12px 0; }
+.ingredient-grid, .card-stack { display: grid; gap: 10px; }
+
+.ingredient-card, .prep-card, .method-step {
+    padding: 14px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--step);
+}
+
+.ingredient-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 14px;
+}
+
+.ingredient-quantity {
+    flex: 0 0 auto;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.subline { margin-top: 7px; line-height: 1.4; }
+.compact-list { margin: 0; padding-left: 22px; }
+.prep-card h3, .method-step h3 { margin: 0; }
+.prep-card p, .method-step p { margin: 10px 0; }
+
+.step-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+}
+
+.step-number {
+    flex: 0 0 auto;
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.step-section {
+    margin-top: 6px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--muted);
+}
+
+.step-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+}
+
+.instruction { font-size: 1rem; line-height: 1.55; }
+
+.endpoint {
+    margin-top: 10px;
+    padding: 10px 12px;
+    border-left: 4px solid #000000;
+    background: var(--endpoint);
+    line-height: 1.45;
+}
+
+.corrective { margin-top: 10px; }
+.corrective summary { cursor: pointer; font-weight: 750; }
+.corrective ul { margin-bottom: 0; }
+
+.cook-button {
+    flex: 0 0 auto;
+    min-height: 42px;
+    padding: 8px 12px;
+    border: 1px solid #000000;
+    border-radius: 9px;
+    background: #000000;
+    color: #ffffff;
+    font-weight: 750;
+}
+
+.cook-controls {
+    display: none;
+    position: sticky;
+    bottom: max(8px, env(safe-area-inset-bottom));
+    z-index: 30;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 14px;
+    padding: 10px;
+    border: 1px solid #000000;
+    border-radius: 12px;
+    background: #ffffff;
+}
+
+.cook-controls button {
+    min-height: 44px;
+    padding: 8px 14px;
+    border: 1px solid #000000;
+    border-radius: 8px;
+    background: #000000;
+    color: #ffffff;
+    font-weight: 750;
+}
+
+.method-step { scroll-margin-top: 58px; }
+
+/* Compact cook-mode header */
+body.cook-mode .recipe-header {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    margin: 0;
+    padding: 6px 0;
+    background: rgba(244, 242, 236, 0.98);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(8px);
+}
+
+body.cook-mode .recipe-header .recipe-info,
+body.cook-mode .recipe-header .scheduled-date,
+body.cook-mode .facts,
+body.cook-mode .recipe-tools,
+body.cook-mode .non-method,
+body.cook-mode .method-section > h2 {
+    display: none;
+}
+
+body.cook-mode .title-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 8px;
+}
+
+body.cook-mode .recipe-header h1 {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+body.cook-mode .cook-button {
+    width: auto;
+    min-height: 36px;
+    padding: 6px 10px;
+    font-size: 0.85rem;
+    white-space: nowrap;
+}
+
+body.cook-mode .method-step { display: none; }
+body.cook-mode .method-step.active { display: block; }
+body.cook-mode .cook-controls { display: flex; }
+body.cook-mode .method-section {
+    min-height: calc(100dvh - 60px);
+    margin-top: 6px;
+}
+
+@media (max-width: 600px) {
+    .page { width: calc(100% - 12px); }
+    .recipe-header { padding-top: 8px; }
+
+    h1 {
+        font-size: 1.35rem;
+        line-height: 1.18;
     }
 
     .title-row {
-        display: flex;
-        align-items: flex-start;
-        justify-content: space-between;
-        gap: 12px;
-    }
-
-    h1 {
-        margin: 0;
-
-        font-size:
-            clamp(
-                1.65rem,
-                5vw,
-                2.8rem
-            );
-
-        line-height: 1.12;
-    }
-
-    .description {
-        margin:
-            12px
-            0
-            0
-            0;
-
-        line-height: 1.5;
-    }
-
-    .scheduled-date {
-        margin-top: 8px;
-        font-weight: 700;
-    }
-
-    .tag-row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 6px;
-
-        margin-top: 10px;
-    }
-
-    .badge {
-        display: inline-block;
-
-        padding:
-            4px
-            8px;
-
-        border:
-            1px
-            solid
-            var(--border);
-
-        border-radius: 999px;
-
-        background: #ffffff;
-
-        color: #000000;
-
-        font-size: 0.82rem;
-    }
-
-    .allergens {
-        margin-top: 10px;
-
-        padding:
-            8px
-            10px;
-
-        border-radius: 8px;
-
-        background: #ffe4df;
-    }
-
-    .facts {
         display: grid;
-
-        grid-template-columns:
-            repeat(
-                auto-fit,
-                minmax(90px, 1fr)
-            );
-
-        gap: 8px;
-
-        margin:
-            14px
-            0;
-    }
-
-    .fact {
-        display: grid;
-        gap: 2px;
-
-        padding: 9px;
-
-        border:
-            1px
-            solid
-            var(--border);
-
-        border-radius: 9px;
-
-        background: #ffffff;
-    }
-
-    .fact span {
-        font-size: 0.78rem;
-        color: var(--muted);
-    }
-
-    .section {
-        display: block;
-
-        margin-top: 14px;
-
-        border:
-            1px
-            solid
-            var(--border);
-
-        border-radius: 12px;
-
-        background: var(--panel);
-
-        overflow: hidden;
-    }
-
-    details.section > summary {
-        cursor: pointer;
-
-        padding:
-            15px
-            16px;
-
-        font-size: 1.12rem;
-
-        font-weight: 800;
-
-        background: var(--accent);
-    }
-
-    .section-content {
-        padding: 14px;
-    }
-
-    .method-section {
-        padding:
-            14px;
-    }
-
-    .method-section > h2 {
-        margin:
-            0
-            0
-            12px
-            0;
-    }
-
-    .ingredient-grid {
-        display: grid;
-        gap: 10px;
-    }
-
-    .ingredient-card,
-    .prep-card,
-    .method-step {
-        padding: 14px;
-
-        border:
-            1px
-            solid
-            var(--border);
-
-        border-radius: 10px;
-
-        background: var(--step);
-    }
-
-    .ingredient-heading {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        gap: 14px;
-    }
-
-    .ingredient-quantity {
-        flex: 0 0 auto;
-
-        font-weight: 800;
-
-        white-space: nowrap;
-    }
-
-    .subline {
-        margin-top: 7px;
-        line-height: 1.4;
-    }
-
-    .compact-list {
-        margin:
-            0;
-        padding-left:
-            22px;
-    }
-
-    .card-stack {
-        display: grid;
-        gap: 12px;
-    }
-
-    .prep-card h3,
-    .method-step h3 {
-        margin:
-            0;
-    }
-
-    .prep-card p,
-    .method-step p {
-        margin:
-            10px
-            0;
-    }
-
-    .step-heading {
-        display: flex;
-        align-items: baseline;
-        gap: 10px;
-    }
-
-    .step-number {
-        flex: 0 0 auto;
-
-        font-size: 0.8rem;
-        font-weight: 800;
-
-        text-transform: uppercase;
-    }
-
-    .step-section {
-        margin-top: 6px;
-
-        font-size: 0.85rem;
-        font-weight: 700;
-
-        color: var(--muted);
-    }
-
-    .step-meta {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 6px;
-
-        margin-top: 10px;
-    }
-
-    .instruction {
-        font-size: 1rem;
-        line-height: 1.55;
-    }
-
-    .endpoint {
-        margin-top: 10px;
-
-        padding:
-            10px
-            12px;
-
-        border-left:
-            4px
-            solid
-            #000000;
-
-        background: var(--endpoint);
-
-        line-height: 1.45;
-    }
-
-    .corrective {
-        margin-top: 10px;
-    }
-
-    .corrective summary {
-        cursor: pointer;
-        font-weight: 750;
-    }
-
-    .corrective ul {
-        margin-bottom: 0;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: start;
     }
 
     .cook-button {
-        flex: 0 0 auto;
-
-        min-height: 42px;
-
-        padding:
-            8px
-            12px;
-
-        border:
-            1px
-            solid
-            #000000;
-
-        border-radius: 9px;
-
-        background: #000000;
-        color: #ffffff;
-
-        font-weight: 750;
-    }
-
-    .cook-controls {
-        display: none;
-
-        position: sticky;
-
-        bottom:
-            max(
-                8px,
-                env(safe-area-inset-bottom)
-            );
-
-        z-index: 30;
-
-        align-items: center;
-
-        justify-content: space-between;
-
-        gap: 10px;
-
-        margin-top: 14px;
-
-        padding: 10px;
-
-        border:
-            1px
-            solid
-            #000000;
-
-        border-radius: 12px;
-
-        background: #ffffff;
-    }
-
-    .cook-controls button {
-        min-height: 44px;
-
-        padding:
-            8px
-            14px;
-
-        border:
-            1px
-            solid
-            #000000;
-
-        border-radius: 8px;
-
-        background: #000000;
-        color: #ffffff;
-
-        font-weight: 750;
-    }
-
-    /* ==========================================================
-       Compact cook-mode header
-       ========================================================== */
-
-    body.cook-mode .recipe-header {
-        position: sticky;
-        top: 0;
-        z-index: 30;
-
-        margin: 0;
-
-        padding:
-            6px
-            0;
-
-        background:
-            rgba(
-                244,
-                242,
-                236,
-                0.98
-            );
-
-        border-bottom:
-            1px
-            solid
-            var(--border);
-
-        backdrop-filter:
-            blur(8px);
-    }
-
-    body.cook-mode .recipe-header .description,
-    body.cook-mode .recipe-header .scheduled-date,
-    body.cook-mode .recipe-header .tag-row,
-    body.cook-mode .recipe-header .allergens,
-    body.cook-mode .facts {
-        display: none;
-    }
-
-    body.cook-mode .title-row {
-        display: grid;
-
-        grid-template-columns:
-            minmax(0, 1fr)
-            auto;
-
-        align-items: center;
-
-        gap: 8px;
-    }
-
-    body.cook-mode .recipe-header h1 {
-        margin: 0;
-
-        font-size: 1rem;
-
-        line-height: 1.2;
-
-        white-space: nowrap;
-
-        overflow: hidden;
-
-        text-overflow: ellipsis;
-    }
-
-    body.cook-mode .cook-button {
         width: auto;
-
         min-height: 36px;
-
-        padding:
-            6px
-            10px;
-
+        padding: 6px 10px;
         font-size: 0.85rem;
-
-        white-space: nowrap;
     }
 
-    body.cook-mode .method-section > h2 {
-        display: none;
+    .recipe-tools { grid-template-columns: 1fr; }
+
+    .serving-tool, .rating-tool {
+        display: grid;
+        grid-template-columns: 1fr;
     }
 
-    body.cook-mode .non-method {
-        display: none;
+    .rating-buttons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
     }
 
-    body.cook-mode .method-step {
-        display: none;
+    .ingredient-heading {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 3px;
     }
 
-    body.cook-mode .method-step.active {
-        display: block;
-    }
+    .ingredient-quantity { white-space: normal; }
+    .method-section, .section-content { padding: 10px; }
+    .ingredient-card, .prep-card, .method-step { padding: 12px; }
+}
 
-    body.cook-mode .cook-controls {
-        display: flex;
-    }
-
-    body.cook-mode .method-section {
-        min-height:
-            calc(100dvh - 60px);
-
-        margin-top: 6px;
-    }
-
-    @media (max-width: 600px) {
-
-        .page {
-            width:
-                calc(100% - 12px);
-        }
-
-        .recipe-header {
-            padding-top: 8px;
-        }
-
-        .title-row {
-            display: grid;
-            grid-template-columns: 1fr;
-        }
-
-        .cook-button {
-            width: 100%;
-        }
-
-        body.cook-mode .title-row {
-            grid-template-columns:
-                minmax(0, 1fr)
-                auto;
-        }
-
-        body.cook-mode .cook-button {
-            width: auto;
-        }
-
-        .ingredient-heading {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 3px;
-        }
-
-        .ingredient-quantity {
-            white-space: normal;
-        }
-
-        .method-section,
-        .section-content {
-            padding: 10px;
-        }
-
-        .ingredient-card,
-        .prep-card,
-        .method-step {
-            padding: 12px;
-        }
-    }
-
-    @media print {
-
-        .recipe-header {
-            position: static;
-        }
-
-        .cook-button,
-        .cook-controls {
-            display: none !important;
-        }
-
-        body.cook-mode .non-method,
-        body.cook-mode .method-step {
-            display: block;
-        }
-
-        .section {
-            break-inside: avoid;
-        }
-    }
-
+@media print {
+    .recipe-header { position: static; }
+    .cook-button, .cook-controls, .recipe-tools { display: none !important; }
+    body.cook-mode .non-method, body.cook-mode .method-step { display: block; }
+    .section { break-inside: avoid; }
+}
 </style>
-
 </head>
 
 <body>
-
 <main class="page">
 
 <header class="recipe-header">
-
     <div class="title-row">
-
         <h1>Cocoa, Raspberry &amp; Skyr Pots with Ground Flaxseed</h1>
-
-        <button
-            id="cookModeButton"
-            class="cook-button"
-            type="button"
-        >
-            Cook mode
-        </button>
-
+        <button id="cookModeButton" class="cook-button" type="button">Cook mode</button>
     </div>
 
     
 
-    <p class="description">
-        Creamy cocoa-vanilla skyr layered with lightly crushed raspberries and ground flaxseed for a sharp-sweet, chocolatey evening snack with contrasting smooth, juicy and gently nutty textures.
-    </p>
-
-    <div class="tag-row">
-        <span class="badge">Evening snack</span><span class="badge">Vegetarian</span><span class="badge">High protein</span><span class="badge">High fibre</span>
-    </div>
-
-    <div class="allergens"><strong>Allergens:</strong> Milk</div>
-
+    <details class="recipe-info">
+        <summary>Recipe info</summary>
+        <div class="recipe-info-content">
+            <p class="description">Creamy cocoa-vanilla skyr layered with lightly crushed raspberries and ground flaxseed for a sharp-sweet, chocolatey evening snack with contrasting smooth, juicy and gently nutty textures.</p>
+            <div class="tag-row"><span class="badge">Evening snack</span><span class="badge">Vegetarian</span><span class="badge">High protein</span><span class="badge">High fibre</span></div>
+            <div class="allergens"><strong>Allergens:</strong> Milk</div>
+        </div>
+    </details>
 </header>
 
-<div class="facts">
-    <div class="fact"><span>Serves</span><strong>2</strong></div><div class="fact"><span>Difficulty</span><strong>Easy</strong></div><div class="fact"><span>Active</span><strong>10 min</strong></div><div class="fact"><span>Total</span><strong>20 min</strong></div><div class="fact"><span>Energy</span><strong>196 kcal</strong></div><div class="fact"><span>Protein</span><strong>19 g</strong></div>
-</div>
+<div class="facts"><div class="fact"><span>Serves</span><strong id="servesFactValue">2</strong></div><div class="fact"><span>Difficulty</span><strong>Easy</strong></div><div class="fact"><span>Active</span><strong>10 min</strong></div><div class="fact"><span>Total</span><strong>20 min</strong></div><div class="fact"><span>Energy</span><strong>196 kcal</strong></div><div class="fact"><span>Protein</span><strong>19 g</strong></div></div>
+
+<section class="recipe-tools">
+    <div class="serving-tool">
+        <strong>Servings</strong>
+        <div class="serving-controls">
+            <button id="servingsMinus" type="button">−</button>
+            <span id="servingsValue" data-base-servings="2">2</span>
+            <button id="servingsPlus" type="button">+</button>
+        </div>
+    </div>
+
+    <div class="rating-tool" data-recipe-id="cocoa_raspberry_skyr_pots_ground_flaxseed">
+        <strong>Your rating</strong>
+        <div class="rating-buttons">
+            <button id="ratingFavourite" type="button">♥ Favourite</button>
+            <button id="ratingDislike" type="button">👎 Dislike</button>
+        </div>
+    </div>
+</section>
 
 
 <details class="section non-method" open>
@@ -688,49 +451,49 @@
         <article class="ingredient-card">
 <div class="ingredient-heading">
 <strong>Plain 0% skyr</strong>
-<span class="ingredient-quantity">300 g</span>
+<span class="ingredient-quantity" data-base-quantity="300" data-unit="g">300 g</span>
 </div>
 <div class="subline"><strong>Buy:</strong> Buy: 1 tub containing at least 300 g</div>
 <div class="subline"><strong>Prep:</strong> Keep refrigerated until immediately before mixing.</div>
 </article><article class="ingredient-card">
 <div class="ingredient-heading">
 <strong>Fresh raspberries</strong>
-<span class="ingredient-quantity">140 g</span>
+<span class="ingredient-quantity" data-base-quantity="140" data-unit="g">140 g</span>
 </div>
 <div class="subline"><strong>Buy:</strong> Buy: enough fresh raspberries to provide at least 140 g</div>
 <div class="subline"><strong>Prep:</strong> Inspect carefully, rinse gently only if necessary, then dry thoroughly. Reserve 40 g whole for finishing and use 100 g for the raspberry layer.</div>
 </article><article class="ingredient-card">
 <div class="ingredient-heading">
 <strong>Ground flaxseed</strong>
-<span class="ingredient-quantity">14 g</span>
+<span class="ingredient-quantity" data-base-quantity="14" data-unit="g">14 g</span>
 </div>
 <div class="subline"><strong>Buy:</strong> Buy: 1 standard packet</div>
 <div class="subline"><strong>Prep:</strong> Measure immediately before use.</div>
 </article><article class="ingredient-card">
 <div class="ingredient-heading">
 <strong>Unsweetened cocoa powder</strong>
-<span class="ingredient-quantity">10 g</span>
+<span class="ingredient-quantity" data-base-quantity="10" data-unit="g">10 g</span>
 </div>
 <div class="subline"><strong>Buy:</strong> Buy: 1 standard container</div>
 <div class="subline"><strong>Prep:</strong> Sift or break up visible lumps before mixing.</div>
 </article><article class="ingredient-card">
 <div class="ingredient-heading">
 <strong>Runny honey</strong>
-<span class="ingredient-quantity">8 g</span>
+<span class="ingredient-quantity" data-base-quantity="8" data-unit="g">8 g</span>
 </div>
 <div class="subline"><strong>Buy:</strong> Buy: 1 jar or squeeze bottle</div>
 <div class="subline"><strong>Prep:</strong> Measure accurately before mixing.</div>
 </article><article class="ingredient-card">
 <div class="ingredient-heading">
 <strong>Vanilla extract</strong>
-<span class="ingredient-quantity">1 tsp</span>
+<span class="ingredient-quantity" data-base-quantity="1" data-unit="tsp">1 tsp</span>
 </div>
 <div class="subline"><strong>Buy:</strong> Buy: 1 small bottle</div>
 <div class="subline"><strong>Prep:</strong> Measure immediately before mixing.</div>
 </article><article class="ingredient-card">
 <div class="ingredient-heading">
 <strong>Fine salt</strong>
-<span class="ingredient-quantity">1/16 tsp</span>
+<span class="ingredient-quantity" data-base-quantity="0.0625" data-unit="tsp">1/16 tsp</span>
 </div>
 <div class="subline"><strong>Buy:</strong> Buy: 1 standard container</div>
 <div class="subline"><strong>Prep:</strong> Measure accurately before mixing.</div>
@@ -742,17 +505,14 @@
 <details class="section non-method">
     <summary>Equipment</summary>
     <div class="section-content">
-        <ul class="compact-list">
-            <li>Kitchen scales</li><li>Measuring spoons</li><li>Medium mixing bowl</li><li>Small mixing bowl</li><li>2 individual lidded dessert or snack pots</li>
-        </ul>
+        <ul class="compact-list"><li>Kitchen scales</li><li>Measuring spoons</li><li>Medium mixing bowl</li><li>Small mixing bowl</li><li>2 individual lidded dessert or snack pots</li></ul>
     </div>
 </details>
 
 
 <details class="section non-method" open>
     <summary>Mise en place</summary>
-    <div class="section-content card-stack">
-        <article class="prep-card">
+    <div class="section-content card-stack"><article class="prep-card">
 <h3>Prep 1</h3>
 <p>Inspect 140 g raspberries and discard any mouldy, leaking or damaged berries. If washing is necessary, rinse gently under cold running water and dry thoroughly on clean kitchen paper without crushing. Weigh 100 g into the small mixing bowl and reserve the remaining 40 g whole for final assembly.</p>
 <div class="endpoint"><strong>Ready when:</strong> 100 g clean raspberries are allocated to the crushed fruit layer and 40 g intact raspberries are reserved for finishing.</div>
@@ -760,16 +520,13 @@
 <h3>Prep 2</h3>
 <p>Weigh 300 g plain skyr, 10 g cocoa powder, 14 g ground flaxseed and 8 g honey. Measure 1 tsp vanilla extract and 0.0625 tsp fine salt. Break apart or sift any compacted cocoa powder before mixing.</p>
 <div class="endpoint"><strong>Ready when:</strong> All non-fruit ingredients are accurately measured and ready for immediate assembly.</div>
-</article>
-    </div>
+</article></div>
 </details>
 
 
 <section class="section method-section">
     <h2>Method</h2>
-
-    <div id="methodSteps" class="card-stack">
-        <article class="method-step" data-step-index="0">
+    <div id="methodSteps" class="card-stack"><article class="method-step" data-step-index="0">
 <div class="step-heading">
 <div class="step-number">Step 1</div>
 <h3>Crush the raspberries</h3>
@@ -781,9 +538,7 @@
 
 <details class="corrective">
     <summary>Corrective actions</summary>
-    <ul>
-        <li><strong>If:</strong> The berries remain almost completely whole.<br><strong>Do:</strong> Continue pressing firmly against the side of the bowl in 15-second intervals until sufficient juice is released.</li><li><strong>If:</strong> The mixture becomes completely smooth.<br><strong>Do:</strong> Stop processing immediately; the flavour remains suitable but the intended fruit-piece texture will be reduced.</li>
-    </ul>
+    <ul><li><strong>If:</strong> The berries remain almost completely whole.<br><strong>Do:</strong> Continue pressing firmly against the side of the bowl in 15-second intervals until sufficient juice is released.</li><li><strong>If:</strong> The mixture becomes completely smooth.<br><strong>Do:</strong> Stop processing immediately; the flavour remains suitable but the intended fruit-piece texture will be reduced.</li></ul>
 </details>
 
 </article><article class="method-step" data-step-index="1">
@@ -798,9 +553,7 @@
 
 <details class="corrective">
     <summary>Corrective actions</summary>
-    <ul>
-        <li><strong>If:</strong> Dry cocoa remains around the sides or base of the bowl.<br><strong>Do:</strong> Scrape the bowl thoroughly and continue mixing until all cocoa is fully dispersed.</li><li><strong>If:</strong> The mixture appears unusually stiff.<br><strong>Do:</strong> Continue stirring for 20-30 seconds before making any adjustment; skyr normally loosens slightly with vigorous mixing.</li>
-    </ul>
+    <ul><li><strong>If:</strong> Dry cocoa remains around the sides or base of the bowl.<br><strong>Do:</strong> Scrape the bowl thoroughly and continue mixing until all cocoa is fully dispersed.</li><li><strong>If:</strong> The mixture appears unusually stiff.<br><strong>Do:</strong> Continue stirring for 20-30 seconds before making any adjustment; skyr normally loosens slightly with vigorous mixing.</li></ul>
 </details>
 
 </article><article class="method-step" data-step-index="2">
@@ -815,9 +568,7 @@
 
 <details class="corrective">
     <summary>Corrective actions</summary>
-    <ul>
-        <li><strong>If:</strong> Ground flaxseed forms dry clumps.<br><strong>Do:</strong> Press the clumps against the side of the bowl with the spoon and continue folding until fully dispersed.</li>
-    </ul>
+    <ul><li><strong>If:</strong> Ground flaxseed forms dry clumps.<br><strong>Do:</strong> Press the clumps against the side of the bowl with the spoon and continue folding until fully dispersed.</li></ul>
 </details>
 
 </article><article class="method-step" data-step-index="3">
@@ -832,9 +583,7 @@
 
 <details class="corrective">
     <summary>Corrective actions</summary>
-    <ul>
-        <li><strong>If:</strong> One pot is visibly heavier than the other.<br><strong>Do:</strong> Use the kitchen scales to transfer small amounts between pots until the filled weights are approximately equal.</li><li><strong>If:</strong> The raspberry layer becomes completely mixed into the cocoa skyr.<br><strong>Do:</strong> Stop stirring; flavour remains correct even though visual contrast will be reduced.</li>
-    </ul>
+    <ul><li><strong>If:</strong> One pot is visibly heavier than the other.<br><strong>Do:</strong> Use the kitchen scales to transfer small amounts between pots until the filled weights are approximately equal.</li><li><strong>If:</strong> The raspberry layer becomes completely mixed into the cocoa skyr.<br><strong>Do:</strong> Stop stirring; flavour remains correct even though visual contrast will be reduced.</li></ul>
 </details>
 
 </article><article class="method-step" data-step-index="4">
@@ -849,9 +598,7 @@
 
 <details class="corrective">
     <summary>Corrective actions</summary>
-    <ul>
-        <li><strong>If:</strong> A reserved raspberry collapses or releases excessive juice.<br><strong>Do:</strong> Place it into the raspberry-marbling layer rather than using it as a surface garnish.</li>
-    </ul>
+    <ul><li><strong>If:</strong> A reserved raspberry collapses or releases excessive juice.<br><strong>Do:</strong> Place it into the raspberry-marbling layer rather than using it as a surface garnish.</li></ul>
 </details>
 
 </article><article class="method-step" data-step-index="5">
@@ -866,227 +613,157 @@
 
 <details class="corrective">
     <summary>Corrective actions</summary>
-    <ul>
-        <li><strong>If:</strong> The mixture appears noticeably thicker than desired after chilling.<br><strong>Do:</strong> Stir each pot once or twice immediately before eating; the raspberry juices will loosen the texture naturally without requiring additional ingredients.</li>
-    </ul>
+    <ul><li><strong>If:</strong> The mixture appears noticeably thicker than desired after chilling.<br><strong>Do:</strong> Stir each pot once or twice immediately before eating; the raspberry juices will loosen the texture naturally without requiring additional ingredients.</li></ul>
 </details>
 
-</article>
-    </div>
+</article></div>
 
     <div id="cookControls" class="cook-controls">
-        <button
-            id="previousStep"
-            type="button"
-        >
-            Previous
-        </button>
-
+        <button id="previousStep" type="button">Previous</button>
         <div id="stepCounter"></div>
-
-        <button
-            id="nextStep"
-            type="button"
-        >
-            Next
-        </button>
+        <button id="nextStep" type="button">Next</button>
     </div>
 </section>
 
 
 <details class="section non-method">
     <summary>Serving</summary>
-    <div class="section-content">
-        <p>Serve one chilled pot per person. Eat through the layers rather than fully stirring before the first spoonful so each serving retains contrast between dark cocoa skyr, tart raspberry ripple, fresh whole berries and the subtle nutty texture of ground flaxseed.</p>
-    </div>
+    <div class="section-content"><p>Serve one chilled pot per person. Eat through the layers rather than fully stirring before the first spoonful so each serving retains contrast between dark cocoa skyr, tart raspberry ripple, fresh whole berries and the subtle nutty texture of ground flaxseed.</p></div>
 </details>
 
 
 <details class="section non-method">
     <summary>Storage & reheating</summary>
-    <div class="section-content">
-        <p><strong>Refrigerator:</strong> 2 days</p><p>Store the covered pots at 5°C or below and consume within 2 days. The raspberries will gradually soften and release additional juice during storage, so the best texture is obtained within 24 hours. Do not leave the skyr-based pots unrefrigerated for more than 2 hours.</p>
-    </div>
+    <div class="section-content"><p><strong>Refrigerator:</strong> 2 days</p><p>Store the covered pots at 5°C or below and consume within 2 days. The raspberries will gradually soften and release additional juice during storage, so the best texture is obtained within 24 hours. Do not leave the skyr-based pots unrefrigerated for more than 2 hours.</p></div>
 </details>
 
 
 <details class="section non-method">
     <summary>Shopping</summary>
-    <div class="section-content">
-        
-            <h3>Either retailer</h3>
-            <ul><li>Plain 0% skyr: buy 1 tub containing at least 300 g</li><li>Fresh raspberries: buy enough to provide at least 140 g</li><li>Ground or milled flaxseed: buy 1 standard packet</li><li>Unsweetened cocoa powder: buy 1 standard container</li><li>Runny honey: buy 1 jar or squeeze bottle</li><li>Vanilla extract: buy 1 small bottle</li><li>Fine salt: buy 1 standard container if not already stocked</li></ul>
-            
-    </div>
+    <div class="section-content"><h3>Either retailer</h3><ul><li>Plain 0% skyr: buy 1 tub containing at least 300 g</li><li>Fresh raspberries: buy enough to provide at least 140 g</li><li>Ground or milled flaxseed: buy 1 standard packet</li><li>Unsweetened cocoa powder: buy 1 standard container</li><li>Runny honey: buy 1 jar or squeeze bottle</li><li>Vanilla extract: buy 1 small bottle</li><li>Fine salt: buy 1 standard container if not already stocked</li></ul></div>
 </details>
 
 
 </main>
 
-
 <script>
-
 (function () {
-
-    const button =
-        document.getElementById(
-            "cookModeButton"
-        );
-
-    const steps =
-        Array.from(
-            document.querySelectorAll(
-                ".method-step"
-            )
-        );
-
-    const controls =
-        document.getElementById(
-            "cookControls"
-        );
-
-    const previous =
-        document.getElementById(
-            "previousStep"
-        );
-
-    const next =
-        document.getElementById(
-            "nextStep"
-        );
-
-    const counter =
-        document.getElementById(
-            "stepCounter"
-        );
-
+    const button = document.getElementById("cookModeButton");
+    const steps = Array.from(document.querySelectorAll(".method-step"));
+    const controls = document.getElementById("cookControls");
+    const previous = document.getElementById("previousStep");
+    const next = document.getElementById("nextStep");
+    const counter = document.getElementById("stepCounter");
     let currentStep = 0;
 
-
     function showStep(index) {
+        if (!steps.length) return;
 
-        if (!steps.length) {
-            return;
-        }
+        currentStep = Math.max(0, Math.min(index, steps.length - 1));
+        steps.forEach((step, stepIndex) => {
+            step.classList.toggle("active", stepIndex === currentStep);
+        });
 
-        currentStep =
-            Math.max(
-                0,
-                Math.min(
-                    index,
-                    steps.length - 1
-                )
-            );
+        if (counter) counter.textContent = "Step " + (currentStep + 1) + " of " + steps.length;
+        if (previous) previous.disabled = currentStep === 0;
+        if (next) next.disabled = currentStep === steps.length - 1;
 
-        steps.forEach(
-            (step, stepIndex) => {
-
-                step.classList.toggle(
-                    "active",
-                    stepIndex === currentStep
-                );
-
-            }
-        );
-
-        if (counter) {
-
-            counter.textContent =
-                (
-                    "Step "
-                    +
-                    (currentStep + 1)
-                    +
-                    " of "
-                    +
-                    steps.length
-                );
-        }
-
-        if (previous) {
-            previous.disabled =
-                currentStep === 0;
-        }
-
-        if (next) {
-            next.disabled =
-                currentStep ===
-                steps.length - 1;
-        }
-
-        const active =
-            steps[currentStep];
-
+        const active = steps[currentStep];
         if (active) {
-
-            active.scrollIntoView({
-                behavior: "smooth",
-                block: "start"
-            });
+            active.scrollIntoView({ behavior: "smooth", block: "start" });
         }
     }
-
 
     if (button) {
-
-        button.addEventListener(
-            "click",
-            () => {
-
-                const active =
-                    document.body.classList.toggle(
-                        "cook-mode"
-                    );
-
-                button.textContent =
-                    active
-                        ? "Exit cook mode"
-                        : "Cook mode";
-
-                if (active) {
-                    showStep(
-                        currentStep
-                    );
-                }
-            }
-        );
+        button.addEventListener("click", () => {
+            const active = document.body.classList.toggle("cook-mode");
+            button.textContent = active ? "Exit cook mode" : "Cook mode";
+            if (active) showStep(currentStep);
+        });
     }
 
+    if (previous) previous.addEventListener("click", () => showStep(currentStep - 1));
+    if (next) next.addEventListener("click", () => showStep(currentStep + 1));
+    if (!steps.length && controls) controls.style.display = "none";
 
-    if (previous) {
+    /* Serving scaler */
+    const servingsMinus = document.getElementById("servingsMinus");
+    const servingsPlus = document.getElementById("servingsPlus");
+    const servingsValue = document.getElementById("servingsValue");
+    const servesFactValue = document.getElementById("servesFactValue");
+    const recipeId = "cocoa_raspberry_skyr_pots_ground_flaxseed";
 
-        previous.addEventListener(
-            "click",
-            () => {
-                showStep(
-                    currentStep - 1
-                );
-            }
-        );
+    function formatFraction(value) {
+        const rounded = Math.round(value * 8) / 8;
+        const whole = Math.floor(rounded);
+        const remainder = Math.round((rounded - whole) * 8);
+        const fractions = { 0: "", 1: "⅛", 2: "¼", 3: "⅜", 4: "½", 5: "⅝", 6: "¾", 7: "⅞" };
+
+        if (whole > 0 && remainder > 0) return String(whole) + fractions[remainder];
+        if (whole > 0) return String(whole);
+        if (remainder > 0) return fractions[remainder];
+        return "0";
     }
 
+    function formatScaledQuantity(value, unit) {
+        if (unit === "tsp" || unit === "tbsp" || unit === "integer") {
+            const number = formatFraction(value);
+            return unit === "integer" ? number : number + " " + unit;
+        }
 
-    if (next) {
-
-        next.addEventListener(
-            "click",
-            () => {
-                showStep(
-                    currentStep + 1
-                );
-            }
-        );
+        const rounded = Math.round(value * 10) / 10;
+        return String(rounded) + (unit ? " " + unit : "");
     }
 
+    function setServings(newServings) {
+        const baseServings = Number(servingsValue.dataset.baseServings);
+        newServings = Math.max(1, Math.min(12, newServings));
+        servingsValue.textContent = String(newServings);
+        if (servesFactValue) servesFactValue.textContent = String(newServings);
 
-    if (!steps.length && controls) {
-        controls.style.display = "none";
+        const factor = newServings / baseServings;
+        document.querySelectorAll(".ingredient-quantity").forEach(element => {
+            const baseQuantity = Number(element.dataset.baseQuantity);
+            const unit = element.dataset.unit;
+            if (!Number.isFinite(baseQuantity)) return;
+            element.textContent = formatScaledQuantity(baseQuantity * factor, unit);
+        });
+
+        localStorage.setItem("recipe-servings:" + recipeId, String(newServings));
     }
 
+    if (servingsMinus && servingsPlus && servingsValue) {
+        servingsMinus.addEventListener("click", () => {
+            setServings(Number(servingsValue.textContent) - 1);
+        });
+        servingsPlus.addEventListener("click", () => {
+            setServings(Number(servingsValue.textContent) + 1);
+        });
+
+        const saved = Number(localStorage.getItem("recipe-servings:" + recipeId));
+        if (Number.isFinite(saved) && saved >= 1) setServings(saved);
+    }
+
+    /* Favourite / neutral / dislike */
+    const favouriteButton = document.getElementById("ratingFavourite");
+    const dislikeButton = document.getElementById("ratingDislike");
+    const ratingKey = "recipe-rating:" + recipeId;
+
+    function setRating(rating) {
+        localStorage.setItem(ratingKey, rating);
+        if (favouriteButton) favouriteButton.classList.toggle("active", rating === "favourite");
+        if (dislikeButton) dislikeButton.classList.toggle("active", rating === "dislike");
+    }
+
+    if (favouriteButton) favouriteButton.addEventListener("click", () => setRating("favourite"));
+    if (neutralButton) neutralButton.addEventListener("click", () => setRating("neutral"));
+    if (dislikeButton) dislikeButton.addEventListener("click", () => setRating("dislike"));
+
+    if (favouriteButton && neutralButton && dislikeButton) {
+        setRating(localStorage.getItem(ratingKey) || "neutral");
+    }
 })();
-
 </script>
 
 </body>
-
 </html>

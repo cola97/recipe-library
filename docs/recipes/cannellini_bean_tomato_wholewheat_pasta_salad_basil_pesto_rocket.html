@@ -1,685 +1,448 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="utf-8">
-
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1, viewport-fit=cover"
->
-
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Cannellini Bean, Tomato &amp; Wholewheat Pasta Salad with Basil Pesto and Rocket</title>
 
 <style>
+:root {
+    --background: #f4f2ec;
+    --panel: #ffffff;
+    --text: #000000;
+    --muted: #555555;
+    --border: #b9b5ad;
+    --accent: #e5f1dd;
+    --endpoint: #fff4c6;
+    --step: #f7f7f4;
+}
 
-    :root {
-        --background: #f4f2ec;
-        --panel: #ffffff;
-        --text: #000000;
-        --muted: #555555;
-        --border: #b9b5ad;
-        --accent: #e5f1dd;
-        --endpoint: #fff4c6;
-        --step: #f7f7f4;
-    }
+* {
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
 
-    * {
-        box-sizing: border-box;
+html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--background);
+    color: var(--text);
+}
 
-        font-family:
-            -apple-system,
-            BlinkMacSystemFont,
-            "Segoe UI",
-            Roboto,
-            Helvetica,
-            Arial,
-            sans-serif;
-    }
+body {
+    min-height: 100vh;
+    min-height: 100dvh;
+}
 
-    html,
-    body {
-        margin: 0;
-        padding: 0;
+button, input, select, summary { font: inherit; }
 
-        background: var(--background);
-        color: var(--text);
-    }
+.page {
+    width: min(calc(100% - 24px), 1050px);
+    margin: 0 auto;
+    padding: max(12px, env(safe-area-inset-top)) 0 max(40px, env(safe-area-inset-bottom)) 0;
+}
 
-    body {
-        min-height: 100vh;
-        min-height: 100dvh;
-    }
+.recipe-header {
+    position: static;
+    background: transparent;
+    padding: 12px 0 10px 0;
+    border-bottom: 1px solid var(--border);
+}
 
-    button,
-    input,
-    select,
-    summary {
-        font: inherit;
-    }
+.title-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+}
 
-    .page {
-        width: min(
-            calc(100% - 24px),
-            1050px
-        );
+h1 {
+    margin: 0;
+    font-size: clamp(1.65rem, 5vw, 2.8rem);
+    line-height: 1.12;
+}
 
-        margin: 0 auto;
+.scheduled-date { margin-top: 8px; font-weight: 700; }
+.description { margin: 12px 0 0 0; line-height: 1.5; }
 
-        padding:
-            max(12px, env(safe-area-inset-top))
-            0
-            max(40px, env(safe-area-inset-bottom))
-            0;
-    }
+.recipe-info {
+    margin-top: 10px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    background: #ffffff;
+    overflow: hidden;
+}
 
-    .recipe-header {
-        position: static;
+.recipe-info > summary {
+    cursor: pointer;
+    padding: 9px 11px;
+    font-weight: 750;
+}
 
-        background: transparent;
+.recipe-info-content { padding: 0 11px 11px 11px; }
 
-        padding:
-            12px
-            0
-            10px
-            0;
+.tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+}
 
-        border-bottom:
-            1px
-            solid
-            var(--border);
+.badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: #ffffff;
+    color: #000000;
+    font-size: 0.82rem;
+}
+
+.allergens {
+    margin-top: 10px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    background: #ffe4df;
+}
+
+.facts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+    gap: 8px;
+    margin: 14px 0;
+}
+
+.fact {
+    display: grid;
+    gap: 2px;
+    padding: 9px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    background: #ffffff;
+}
+
+.fact span { font-size: 0.78rem; color: var(--muted); }
+
+.recipe-tools {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.serving-tool, .rating-tool {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: #ffffff;
+}
+
+.serving-controls, .rating-buttons {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.serving-controls button, .rating-buttons button {
+    min-height: 36px;
+    padding: 5px 9px;
+    border: 1px solid #000000;
+    border-radius: 7px;
+    background: #ffffff;
+    color: #000000;
+    font-weight: 700;
+}
+
+#servingsValue {
+    min-width: 30px;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 800;
+}
+
+.rating-buttons button.active {
+    background: #000000;
+    color: #ffffff;
+}
+
+.section {
+    display: block;
+    margin-top: 14px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--panel);
+    overflow: hidden;
+}
+
+details.section > summary {
+    cursor: pointer;
+    padding: 15px 16px;
+    font-size: 1.12rem;
+    font-weight: 800;
+    background: var(--accent);
+}
+
+.section-content { padding: 14px; }
+.method-section { padding: 14px; }
+.method-section > h2 { margin: 0 0 12px 0; }
+.ingredient-grid, .card-stack { display: grid; gap: 10px; }
+
+.ingredient-card, .prep-card, .method-step {
+    padding: 14px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--step);
+}
+
+.ingredient-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 14px;
+}
+
+.ingredient-quantity {
+    flex: 0 0 auto;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.subline { margin-top: 7px; line-height: 1.4; }
+.compact-list { margin: 0; padding-left: 22px; }
+.prep-card h3, .method-step h3 { margin: 0; }
+.prep-card p, .method-step p { margin: 10px 0; }
+
+.step-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+}
+
+.step-number {
+    flex: 0 0 auto;
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.step-section {
+    margin-top: 6px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--muted);
+}
+
+.step-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+}
+
+.instruction { font-size: 1rem; line-height: 1.55; }
+
+.endpoint {
+    margin-top: 10px;
+    padding: 10px 12px;
+    border-left: 4px solid #000000;
+    background: var(--endpoint);
+    line-height: 1.45;
+}
+
+.corrective { margin-top: 10px; }
+.corrective summary { cursor: pointer; font-weight: 750; }
+.corrective ul { margin-bottom: 0; }
+
+.cook-button {
+    flex: 0 0 auto;
+    min-height: 42px;
+    padding: 8px 12px;
+    border: 1px solid #000000;
+    border-radius: 9px;
+    background: #000000;
+    color: #ffffff;
+    font-weight: 750;
+}
+
+.cook-controls {
+    display: none;
+    position: sticky;
+    bottom: max(8px, env(safe-area-inset-bottom));
+    z-index: 30;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 14px;
+    padding: 10px;
+    border: 1px solid #000000;
+    border-radius: 12px;
+    background: #ffffff;
+}
+
+.cook-controls button {
+    min-height: 44px;
+    padding: 8px 14px;
+    border: 1px solid #000000;
+    border-radius: 8px;
+    background: #000000;
+    color: #ffffff;
+    font-weight: 750;
+}
+
+.method-step { scroll-margin-top: 58px; }
+
+/* Compact cook-mode header */
+body.cook-mode .recipe-header {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    margin: 0;
+    padding: 6px 0;
+    background: rgba(244, 242, 236, 0.98);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(8px);
+}
+
+body.cook-mode .recipe-header .recipe-info,
+body.cook-mode .recipe-header .scheduled-date,
+body.cook-mode .facts,
+body.cook-mode .recipe-tools,
+body.cook-mode .non-method,
+body.cook-mode .method-section > h2 {
+    display: none;
+}
+
+body.cook-mode .title-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 8px;
+}
+
+body.cook-mode .recipe-header h1 {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+body.cook-mode .cook-button {
+    width: auto;
+    min-height: 36px;
+    padding: 6px 10px;
+    font-size: 0.85rem;
+    white-space: nowrap;
+}
+
+body.cook-mode .method-step { display: none; }
+body.cook-mode .method-step.active { display: block; }
+body.cook-mode .cook-controls { display: flex; }
+body.cook-mode .method-section {
+    min-height: calc(100dvh - 60px);
+    margin-top: 6px;
+}
+
+@media (max-width: 600px) {
+    .page { width: calc(100% - 12px); }
+    .recipe-header { padding-top: 8px; }
+
+    h1 {
+        font-size: 1.35rem;
+        line-height: 1.18;
     }
 
     .title-row {
-        display: flex;
-        align-items: flex-start;
-        justify-content: space-between;
-        gap: 12px;
-    }
-
-    h1 {
-        margin: 0;
-
-        font-size:
-            clamp(
-                1.65rem,
-                5vw,
-                2.8rem
-            );
-
-        line-height: 1.12;
-    }
-
-    .description {
-        margin:
-            12px
-            0
-            0
-            0;
-
-        line-height: 1.5;
-    }
-
-    .scheduled-date {
-        margin-top: 8px;
-        font-weight: 700;
-    }
-
-    .tag-row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 6px;
-
-        margin-top: 10px;
-    }
-
-    .badge {
-        display: inline-block;
-
-        padding:
-            4px
-            8px;
-
-        border:
-            1px
-            solid
-            var(--border);
-
-        border-radius: 999px;
-
-        background: #ffffff;
-
-        color: #000000;
-
-        font-size: 0.82rem;
-    }
-
-    .allergens {
-        margin-top: 10px;
-
-        padding:
-            8px
-            10px;
-
-        border-radius: 8px;
-
-        background: #ffe4df;
-    }
-
-    .facts {
         display: grid;
-
-        grid-template-columns:
-            repeat(
-                auto-fit,
-                minmax(90px, 1fr)
-            );
-
-        gap: 8px;
-
-        margin:
-            14px
-            0;
-    }
-
-    .fact {
-        display: grid;
-        gap: 2px;
-
-        padding: 9px;
-
-        border:
-            1px
-            solid
-            var(--border);
-
-        border-radius: 9px;
-
-        background: #ffffff;
-    }
-
-    .fact span {
-        font-size: 0.78rem;
-        color: var(--muted);
-    }
-
-    .section {
-        display: block;
-
-        margin-top: 14px;
-
-        border:
-            1px
-            solid
-            var(--border);
-
-        border-radius: 12px;
-
-        background: var(--panel);
-
-        overflow: hidden;
-    }
-
-    details.section > summary {
-        cursor: pointer;
-
-        padding:
-            15px
-            16px;
-
-        font-size: 1.12rem;
-
-        font-weight: 800;
-
-        background: var(--accent);
-    }
-
-    .section-content {
-        padding: 14px;
-    }
-
-    .method-section {
-        padding:
-            14px;
-    }
-
-    .method-section > h2 {
-        margin:
-            0
-            0
-            12px
-            0;
-    }
-
-    .ingredient-grid {
-        display: grid;
-        gap: 10px;
-    }
-
-    .ingredient-card,
-    .prep-card,
-    .method-step {
-        padding: 14px;
-
-        border:
-            1px
-            solid
-            var(--border);
-
-        border-radius: 10px;
-
-        background: var(--step);
-    }
-
-    .ingredient-heading {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        gap: 14px;
-    }
-
-    .ingredient-quantity {
-        flex: 0 0 auto;
-
-        font-weight: 800;
-
-        white-space: nowrap;
-    }
-
-    .subline {
-        margin-top: 7px;
-        line-height: 1.4;
-    }
-
-    .compact-list {
-        margin:
-            0;
-        padding-left:
-            22px;
-    }
-
-    .card-stack {
-        display: grid;
-        gap: 12px;
-    }
-
-    .prep-card h3,
-    .method-step h3 {
-        margin:
-            0;
-    }
-
-    .prep-card p,
-    .method-step p {
-        margin:
-            10px
-            0;
-    }
-
-    .step-heading {
-        display: flex;
-        align-items: baseline;
-        gap: 10px;
-    }
-
-    .step-number {
-        flex: 0 0 auto;
-
-        font-size: 0.8rem;
-        font-weight: 800;
-
-        text-transform: uppercase;
-    }
-
-    .step-section {
-        margin-top: 6px;
-
-        font-size: 0.85rem;
-        font-weight: 700;
-
-        color: var(--muted);
-    }
-
-    .step-meta {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 6px;
-
-        margin-top: 10px;
-    }
-
-    .instruction {
-        font-size: 1rem;
-        line-height: 1.55;
-    }
-
-    .endpoint {
-        margin-top: 10px;
-
-        padding:
-            10px
-            12px;
-
-        border-left:
-            4px
-            solid
-            #000000;
-
-        background: var(--endpoint);
-
-        line-height: 1.45;
-    }
-
-    .corrective {
-        margin-top: 10px;
-    }
-
-    .corrective summary {
-        cursor: pointer;
-        font-weight: 750;
-    }
-
-    .corrective ul {
-        margin-bottom: 0;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: start;
     }
 
     .cook-button {
-        flex: 0 0 auto;
-
-        min-height: 42px;
-
-        padding:
-            8px
-            12px;
-
-        border:
-            1px
-            solid
-            #000000;
-
-        border-radius: 9px;
-
-        background: #000000;
-        color: #ffffff;
-
-        font-weight: 750;
-    }
-
-    .cook-controls {
-        display: none;
-
-        position: sticky;
-
-        bottom:
-            max(
-                8px,
-                env(safe-area-inset-bottom)
-            );
-
-        z-index: 30;
-
-        align-items: center;
-
-        justify-content: space-between;
-
-        gap: 10px;
-
-        margin-top: 14px;
-
-        padding: 10px;
-
-        border:
-            1px
-            solid
-            #000000;
-
-        border-radius: 12px;
-
-        background: #ffffff;
-    }
-
-    .cook-controls button {
-        min-height: 44px;
-
-        padding:
-            8px
-            14px;
-
-        border:
-            1px
-            solid
-            #000000;
-
-        border-radius: 8px;
-
-        background: #000000;
-        color: #ffffff;
-
-        font-weight: 750;
-    }
-
-    /* ==========================================================
-       Compact cook-mode header
-       ========================================================== */
-
-    body.cook-mode .recipe-header {
-        position: sticky;
-        top: 0;
-        z-index: 30;
-
-        margin: 0;
-
-        padding:
-            6px
-            0;
-
-        background:
-            rgba(
-                244,
-                242,
-                236,
-                0.98
-            );
-
-        border-bottom:
-            1px
-            solid
-            var(--border);
-
-        backdrop-filter:
-            blur(8px);
-    }
-
-    body.cook-mode .recipe-header .description,
-    body.cook-mode .recipe-header .scheduled-date,
-    body.cook-mode .recipe-header .tag-row,
-    body.cook-mode .recipe-header .allergens,
-    body.cook-mode .facts {
-        display: none;
-    }
-
-    body.cook-mode .title-row {
-        display: grid;
-
-        grid-template-columns:
-            minmax(0, 1fr)
-            auto;
-
-        align-items: center;
-
-        gap: 8px;
-    }
-
-    body.cook-mode .recipe-header h1 {
-        margin: 0;
-
-        font-size: 1rem;
-
-        line-height: 1.2;
-
-        white-space: nowrap;
-
-        overflow: hidden;
-
-        text-overflow: ellipsis;
-    }
-
-    body.cook-mode .cook-button {
         width: auto;
-
         min-height: 36px;
-
-        padding:
-            6px
-            10px;
-
+        padding: 6px 10px;
         font-size: 0.85rem;
-
-        white-space: nowrap;
     }
 
-    body.cook-mode .method-section > h2 {
-        display: none;
+    .recipe-tools { grid-template-columns: 1fr; }
+
+    .serving-tool, .rating-tool {
+        display: grid;
+        grid-template-columns: 1fr;
     }
 
-    body.cook-mode .non-method {
-        display: none;
+    .rating-buttons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
     }
 
-    body.cook-mode .method-step {
-        display: none;
+    .ingredient-heading {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 3px;
     }
 
-    body.cook-mode .method-step.active {
-        display: block;
-    }
+    .ingredient-quantity { white-space: normal; }
+    .method-section, .section-content { padding: 10px; }
+    .ingredient-card, .prep-card, .method-step { padding: 12px; }
+}
 
-    body.cook-mode .cook-controls {
-        display: flex;
-    }
-
-    body.cook-mode .method-section {
-        min-height:
-            calc(100dvh - 60px);
-
-        margin-top: 6px;
-    }
-
-    @media (max-width: 600px) {
-
-        .page {
-            width:
-                calc(100% - 12px);
-        }
-
-        .recipe-header {
-            padding-top: 8px;
-        }
-
-        .title-row {
-            display: grid;
-            grid-template-columns: 1fr;
-        }
-
-        .cook-button {
-            width: 100%;
-        }
-
-        body.cook-mode .title-row {
-            grid-template-columns:
-                minmax(0, 1fr)
-                auto;
-        }
-
-        body.cook-mode .cook-button {
-            width: auto;
-        }
-
-        .ingredient-heading {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 3px;
-        }
-
-        .ingredient-quantity {
-            white-space: normal;
-        }
-
-        .method-section,
-        .section-content {
-            padding: 10px;
-        }
-
-        .ingredient-card,
-        .prep-card,
-        .method-step {
-            padding: 12px;
-        }
-    }
-
-    @media print {
-
-        .recipe-header {
-            position: static;
-        }
-
-        .cook-button,
-        .cook-controls {
-            display: none !important;
-        }
-
-        body.cook-mode .non-method,
-        body.cook-mode .method-step {
-            display: block;
-        }
-
-        .section {
-            break-inside: avoid;
-        }
-    }
-
+@media print {
+    .recipe-header { position: static; }
+    .cook-button, .cook-controls, .recipe-tools { display: none !important; }
+    body.cook-mode .non-method, body.cook-mode .method-step { display: block; }
+    .section { break-inside: avoid; }
+}
 </style>
-
 </head>
 
 <body>
-
 <main class="page">
 
 <header class="recipe-header">
-
     <div class="title-row">
-
         <h1>Cannellini Bean, Tomato &amp; Wholewheat Pasta Salad with Basil Pesto and Rocket</h1>
-
-        <button
-            id="cookModeButton"
-            class="cook-button"
-            type="button"
-        >
-            Cook mode
-        </button>
-
+        <button id="cookModeButton" class="cook-button" type="button">Cook mode</button>
     </div>
 
     
 
-    <p class="description">
-        A portable high-protein wholewheat pasta salad with creamy cannellini beans, ripe tomatoes and peppery rocket, bound with a bright basil-pesto dressing enriched with blended cottage cheese and lemon for additional protein and freshness without excessive oil.
-    </p>
-
-    <div class="tag-row">
-        <span class="badge">Lunch</span><span class="badge">Vegetarian</span><span class="badge">High protein</span><span class="badge">High fibre</span><span class="badge">Portable</span>
-    </div>
-
-    <div class="allergens"><strong>Allergens:</strong> Milk, Wheat, Gluten, Nuts</div>
-
+    <details class="recipe-info">
+        <summary>Recipe info</summary>
+        <div class="recipe-info-content">
+            <p class="description">A portable high-protein wholewheat pasta salad with creamy cannellini beans, ripe tomatoes and peppery rocket, bound with a bright basil-pesto dressing enriched with blended cottage cheese and lemon for additional protein and freshness without excessive oil.</p>
+            <div class="tag-row"><span class="badge">Lunch</span><span class="badge">Vegetarian</span><span class="badge">High protein</span><span class="badge">High fibre</span><span class="badge">Portable</span></div>
+            <div class="allergens"><strong>Allergens:</strong> Milk, Wheat, Gluten, Nuts</div>
+        </div>
+    </details>
 </header>
 
-<div class="facts">
-    <div class="fact"><span>Serves</span><strong>2</strong></div><div class="fact"><span>Difficulty</span><strong>Easy</strong></div><div class="fact"><span>Active</span><strong>25 min</strong></div><div class="fact"><span>Total</span><strong>35 min</strong></div><div class="fact"><span>Energy</span><strong>400 kcal</strong></div><div class="fact"><span>Protein</span><strong>31 g</strong></div>
-</div>
+<div class="facts"><div class="fact"><span>Serves</span><strong id="servesFactValue">2</strong></div><div class="fact"><span>Difficulty</span><strong>Easy</strong></div><div class="fact"><span>Active</span><strong>25 min</strong></div><div class="fact"><span>Total</span><strong>35 min</strong></div><div class="fact"><span>Energy</span><strong>400 kcal</strong></div><div class="fact"><span>Protein</span><strong>31 g</strong></div></div>
+
+<section class="recipe-tools">
+    <div class="serving-tool">
+        <strong>Servings</strong>
+        <div class="serving-controls">
+            <button id="servingsMinus" type="button">−</button>
+            <span id="servingsValue" data-base-servings="2">2</span>
+            <button id="servingsPlus" type="button">+</button>
+        </div>
+    </div>
+
+    <div class="rating-tool" data-recipe-id="cannellini_bean_tomato_wholewheat_pasta_salad_basil_pesto_rocket">
+        <strong>Your rating</strong>
+        <div class="rating-buttons">
+            <button id="ratingFavourite" type="button">♥ Favourite</button>
+            <button id="ratingDislike" type="button">👎 Dislike</button>
+        </div>
+    </div>
+</section>
 
 
 <details class="section non-method" open>
@@ -688,91 +451,91 @@
         <article class="ingredient-card">
 <div class="ingredient-heading">
 <strong>Wholewheat pasta</strong>
-<span class="ingredient-quantity">65 g</span>
+<span class="ingredient-quantity" data-base-quantity="65" data-unit="g">65 g</span>
 </div>
 <div class="subline"><strong>Buy:</strong> Buy: 1 standard packet</div>
 <div class="subline"><strong>Prep:</strong> Use dry weight. Cook until just tender with a slight bite, then drain thoroughly.</div>
 </article><article class="ingredient-card">
 <div class="ingredient-heading">
 <strong>Cannellini beans</strong>
-<span class="ingredient-quantity">240 g</span>
+<span class="ingredient-quantity" data-base-quantity="240" data-unit="g">240 g</span>
 </div>
 <div class="subline"><strong>Buy:</strong> Buy: 1 x 400 g tin</div>
 <div class="subline"><strong>Prep:</strong> Drain completely, rinse thoroughly under cold running water and allow excess water to drain away.</div>
 </article><article class="ingredient-card">
 <div class="ingredient-heading">
 <strong>Low-fat cottage cheese</strong>
-<span class="ingredient-quantity">220 g</span>
+<span class="ingredient-quantity" data-base-quantity="220" data-unit="g">220 g</span>
 </div>
 <div class="subline"><strong>Buy:</strong> Buy: 1 tub containing at least 220 g</div>
 <div class="subline"><strong>Prep:</strong> Drain off any visible loose whey before weighing, then blend into the pesto dressing.</div>
 </article><article class="ingredient-card">
 <div class="ingredient-heading">
 <strong>Basil pesto</strong>
-<span class="ingredient-quantity">12 g</span>
+<span class="ingredient-quantity" data-base-quantity="12" data-unit="g">12 g</span>
 </div>
 <div class="subline"><strong>Buy:</strong> Buy: 1 small jar</div>
 <div class="subline"><strong>Prep:</strong> Stir the jar thoroughly before measuring if oil has separated.</div>
 </article><article class="ingredient-card">
 <div class="ingredient-heading">
 <strong>Vegetarian Parmesan-style hard cheese</strong>
-<span class="ingredient-quantity">20 g</span>
+<span class="ingredient-quantity" data-base-quantity="20" data-unit="g">20 g</span>
 </div>
 <div class="subline"><strong>Buy:</strong> Buy: 1 small wedge or packet</div>
 <div class="subline"><strong>Prep:</strong> Finely grate immediately before making the dressing.</div>
 </article><article class="ingredient-card">
 <div class="ingredient-heading">
 <strong>Cherry tomatoes</strong>
-<span class="ingredient-quantity">180 g</span>
+<span class="ingredient-quantity" data-base-quantity="180" data-unit="g">180 g</span>
 </div>
 <div class="subline"><strong>Buy:</strong> Buy: 1 punnet containing at least 180 g</div>
 <div class="subline"><strong>Prep:</strong> Wash and dry thoroughly, remove any stems and halve through the stem axis.</div>
 </article><article class="ingredient-card">
 <div class="ingredient-heading">
 <strong>Rocket</strong>
-<span class="ingredient-quantity">50 g</span>
+<span class="ingredient-quantity" data-base-quantity="50" data-unit="g">50 g</span>
 </div>
 <div class="subline"><strong>Buy:</strong> Buy: 1 bag containing at least 50 g</div>
 <div class="subline"><strong>Prep:</strong> Wash only if required by pack instructions, then dry thoroughly.</div>
 </article><article class="ingredient-card">
 <div class="ingredient-heading">
 <strong>Unwaxed lemon</strong>
-<span class="ingredient-quantity">1</span>
+<span class="ingredient-quantity" data-base-quantity="1" data-unit="integer">1</span>
 </div>
 <div class="subline"><strong>Buy:</strong> Buy: 1 lemon</div>
 <div class="subline"><strong>Prep:</strong> Wash and dry. Finely grate approximately 2 g yellow zest and squeeze 20 ml juice, removing all seeds.</div>
 </article><article class="ingredient-card">
 <div class="ingredient-heading">
 <strong>Garlic</strong>
-<span class="ingredient-quantity">1</span>
+<span class="ingredient-quantity" data-base-quantity="1" data-unit="integer">1</span>
 </div>
 <div class="subline"><strong>Buy:</strong> Buy: 1 garlic bulb</div>
 <div class="subline"><strong>Prep:</strong> Separate 1 small clove, peel, trim the root end and finely grate.</div>
 </article><article class="ingredient-card">
 <div class="ingredient-heading">
 <strong>Extra-virgin olive oil</strong>
-<span class="ingredient-quantity">4 g</span>
+<span class="ingredient-quantity" data-base-quantity="4" data-unit="g">4 g</span>
 </div>
 <div class="subline"><strong>Buy:</strong> Buy: 1 bottle if not already stocked</div>
 <div class="subline"><strong>Prep:</strong> Measure accurately before preparing the dressing.</div>
 </article><article class="ingredient-card">
 <div class="ingredient-heading">
 <strong>Fine salt</strong>
-<span class="ingredient-quantity">⅜ tsp</span>
+<span class="ingredient-quantity" data-base-quantity="0.375" data-unit="tsp">⅜ tsp</span>
 </div>
 <div class="subline"><strong>Buy:</strong> Buy: 1 standard container if not already stocked</div>
 <div class="subline"><strong>Prep:</strong> Measure 0.25 tsp for pasta cooking and dressing, and reserve up to 0.125 tsp for final adjustment.</div>
 </article><article class="ingredient-card">
 <div class="ingredient-heading">
 <strong>Ground black pepper</strong>
-<span class="ingredient-quantity">¼ tsp</span>
+<span class="ingredient-quantity" data-base-quantity="0.25" data-unit="tsp">¼ tsp</span>
 </div>
 <div class="subline"><strong>Buy:</strong> Buy: 1 jar or pepper mill if not already stocked</div>
 <div class="subline"><strong>Prep:</strong> Measure before mixing.</div>
 </article><article class="ingredient-card">
 <div class="ingredient-heading">
 <strong>Water</strong>
-<span class="ingredient-quantity">20 ml</span>
+<span class="ingredient-quantity" data-base-quantity="20" data-unit="ml">20 ml</span>
 </div>
 <div class="subline"><strong>Buy:</strong> Use: up to 20 ml tap water plus sufficient water for boiling the pasta</div>
 <div class="subline"><strong>Prep:</strong> Reserve up to 20 ml cold water for loosening the dressing after blending.</div>
@@ -784,17 +547,14 @@
 <details class="section non-method">
     <summary>Equipment</summary>
     <div class="section-content">
-        <ul class="compact-list">
-            <li>Medium saucepan</li><li>Gas hob</li><li>Colander</li><li>Standard blender</li><li>Large mixing bowl</li><li>Chef&#x27;s knife</li><li>Chopping board</li><li>Fine grater or Microplane</li><li>Measuring jug</li><li>Measuring spoons</li><li>Kitchen scales</li><li>Flexible spatula or large spoon</li><li>2 portable lidded lunch containers</li>
-        </ul>
+        <ul class="compact-list"><li>Medium saucepan</li><li>Gas hob</li><li>Colander</li><li>Standard blender</li><li>Large mixing bowl</li><li>Chef&#x27;s knife</li><li>Chopping board</li><li>Fine grater or Microplane</li><li>Measuring jug</li><li>Measuring spoons</li><li>Kitchen scales</li><li>Flexible spatula or large spoon</li><li>2 portable lidded lunch containers</li></ul>
     </div>
 </details>
 
 
 <details class="section non-method" open>
     <summary>Mise en place</summary>
-    <div class="section-content card-stack">
-        <article class="prep-card">
+    <div class="section-content card-stack"><article class="prep-card">
 <h3>Prep 1</h3>
 <p>Open the cannellini bean tin. Pour the contents into a colander and discard the canning liquid. Rinse the beans thoroughly under cold running water while gently turning them with clean fingers. Shake the colander and leave the beans to drain for at least 2 minutes.</p>
 <div class="endpoint"><strong>Ready when:</strong> Approximately 240 g cannellini beans are clean, intact and free from visible canning liquid.</div>
@@ -810,16 +570,13 @@
 <h3>Prep 4</h3>
 <p>Weigh 65 g dry wholewheat pasta, 220 g low-fat cottage cheese, 12 g basil pesto and 4 g extra-virgin olive oil. Measure 0.25 tsp initial fine salt, 0.125 tsp reserved fine salt, 0.25 tsp black pepper and 20 ml cold water.</p>
 <div class="endpoint"><strong>Ready when:</strong> All remaining ingredients are accurately measured and immediately available.</div>
-</article>
-    </div>
+</article></div>
 </details>
 
 
 <section class="section method-section">
     <h2>Method</h2>
-
-    <div id="methodSteps" class="card-stack">
-        <article class="method-step" data-step-index="0">
+    <div id="methodSteps" class="card-stack"><article class="method-step" data-step-index="0">
 <div class="step-heading">
 <div class="step-number">Step 1</div>
 <h3>Cook the wholewheat pasta</h3>
@@ -831,9 +588,7 @@
 
 <details class="corrective">
     <summary>Corrective actions</summary>
-    <ul>
-        <li><strong>If:</strong> The water threatens to boil over.<br><strong>Do:</strong> Reduce the gas flame while maintaining an active boil.</li><li><strong>If:</strong> The pasta remains noticeably hard at the maximum stated time.<br><strong>Do:</strong> Continue cooking in 1-minute intervals and reassess after each interval.</li>
-    </ul>
+    <ul><li><strong>If:</strong> The water threatens to boil over.<br><strong>Do:</strong> Reduce the gas flame while maintaining an active boil.</li><li><strong>If:</strong> The pasta remains noticeably hard at the maximum stated time.<br><strong>Do:</strong> Continue cooking in 1-minute intervals and reassess after each interval.</li></ul>
 </details>
 
 </article><article class="method-step" data-step-index="1">
@@ -848,9 +603,7 @@
 
 <details class="corrective">
     <summary>Corrective actions</summary>
-    <ul>
-        <li><strong>If:</strong> The blender blades spin without circulating the mixture.<br><strong>Do:</strong> Stop the blender, scrape down the sides and add 5 ml water before restarting.</li><li><strong>If:</strong> The dressing becomes thinner than intended.<br><strong>Do:</strong> Stop adding water immediately and refrigerate the dressing while the pasta cools; do not add unlisted thickening ingredients.</li>
-    </ul>
+    <ul><li><strong>If:</strong> The blender blades spin without circulating the mixture.<br><strong>Do:</strong> Stop the blender, scrape down the sides and add 5 ml water before restarting.</li><li><strong>If:</strong> The dressing becomes thinner than intended.<br><strong>Do:</strong> Stop adding water immediately and refrigerate the dressing while the pasta cools; do not add unlisted thickening ingredients.</li></ul>
 </details>
 
 </article><article class="method-step" data-step-index="2">
@@ -865,9 +618,7 @@
 
 <details class="corrective">
     <summary>Corrective actions</summary>
-    <ul>
-        <li><strong>If:</strong> The pasta begins sticking into compact clumps while cooling.<br><strong>Do:</strong> Separate the pieces gently with the spatula; do not add additional oil because the dressing will provide lubrication.</li><li><strong>If:</strong> Water accumulates at the base of the bowl.<br><strong>Do:</strong> Return the pasta to the colander briefly, drain again and then resume cooling.</li>
-    </ul>
+    <ul><li><strong>If:</strong> The pasta begins sticking into compact clumps while cooling.<br><strong>Do:</strong> Separate the pieces gently with the spatula; do not add additional oil because the dressing will provide lubrication.</li><li><strong>If:</strong> Water accumulates at the base of the bowl.<br><strong>Do:</strong> Return the pasta to the colander briefly, drain again and then resume cooling.</li></ul>
 </details>
 
 </article><article class="method-step" data-step-index="3">
@@ -882,9 +633,7 @@
 
 <details class="corrective">
     <summary>Corrective actions</summary>
-    <ul>
-        <li><strong>If:</strong> The dressing remains concentrated in one area.<br><strong>Do:</strong> Continue folding from multiple directions until the coating is evenly distributed.</li><li><strong>If:</strong> The mixture appears excessively thick after coating.<br><strong>Do:</strong> Add any remaining measured water in 5 ml increments and fold gently until the dressing coats rather than clumps.</li>
-    </ul>
+    <ul><li><strong>If:</strong> The dressing remains concentrated in one area.<br><strong>Do:</strong> Continue folding from multiple directions until the coating is evenly distributed.</li><li><strong>If:</strong> The mixture appears excessively thick after coating.<br><strong>Do:</strong> Add any remaining measured water in 5 ml increments and fold gently until the dressing coats rather than clumps.</li></ul>
 </details>
 
 </article><article class="method-step" data-step-index="4">
@@ -899,9 +648,7 @@
 
 <details class="corrective">
     <summary>Corrective actions</summary>
-    <ul>
-        <li><strong>If:</strong> The rocket begins compressing or bruising during mixing.<br><strong>Do:</strong> Stop mixing immediately and complete distribution during portioning rather than continuing to fold.</li>
-    </ul>
+    <ul><li><strong>If:</strong> The rocket begins compressing or bruising during mixing.<br><strong>Do:</strong> Stop mixing immediately and complete distribution during portioning rather than continuing to fold.</li></ul>
 </details>
 
 </article><article class="method-step" data-step-index="5">
@@ -916,9 +663,7 @@
 
 <details class="corrective">
     <summary>Corrective actions</summary>
-    <ul>
-        <li><strong>If:</strong> The salad is adequately seasoned before the reserved salt is used.<br><strong>Do:</strong> Do not add the reserved salt.</li>
-    </ul>
+    <ul><li><strong>If:</strong> The salad is adequately seasoned before the reserved salt is used.<br><strong>Do:</strong> Do not add the reserved salt.</li></ul>
 </details>
 
 </article><article class="method-step" data-step-index="6">
@@ -933,227 +678,157 @@
 
 <details class="corrective">
     <summary>Corrective actions</summary>
-    <ul>
-        <li><strong>If:</strong> One portion contains visibly fewer beans or tomatoes than the other.<br><strong>Do:</strong> Redistribute individual components between containers before sealing.</li><li><strong>If:</strong> The salad is still noticeably warm when the containers are filled.<br><strong>Do:</strong> Leave the containers open in the refrigerator until the salad is chilled, then fit the lids securely.</li>
-    </ul>
+    <ul><li><strong>If:</strong> One portion contains visibly fewer beans or tomatoes than the other.<br><strong>Do:</strong> Redistribute individual components between containers before sealing.</li><li><strong>If:</strong> The salad is still noticeably warm when the containers are filled.<br><strong>Do:</strong> Leave the containers open in the refrigerator until the salad is chilled, then fit the lids securely.</li></ul>
 </details>
 
-</article>
-    </div>
+</article></div>
 
     <div id="cookControls" class="cook-controls">
-        <button
-            id="previousStep"
-            type="button"
-        >
-            Previous
-        </button>
-
+        <button id="previousStep" type="button">Previous</button>
         <div id="stepCounter"></div>
-
-        <button
-            id="nextStep"
-            type="button"
-        >
-            Next
-        </button>
+        <button id="nextStep" type="button">Next</button>
     </div>
 </section>
 
 
 <details class="section non-method">
     <summary>Serving</summary>
-    <div class="section-content">
-        <p>Serve one chilled or cool-room-temperature portion per person. Before eating, turn the salad gently once or twice with a fork to redistribute any dressing that has settled, taking care not to mash the cannellini beans.</p>
-    </div>
+    <div class="section-content"><p>Serve one chilled or cool-room-temperature portion per person. Before eating, turn the salad gently once or twice with a fork to redistribute any dressing that has settled, taking care not to mash the cannellini beans.</p></div>
 </details>
 
 
 <details class="section non-method">
     <summary>Storage & reheating</summary>
-    <div class="section-content">
-        <p><strong>Refrigerator:</strong> 2 days</p><p>Store at 5°C or below and consume within 2 days. For transport to work or on a car journey, keep the lunch chilled in an insulated bag with an ice pack when continuous refrigeration is unavailable. The salad is intended to be eaten chilled or cool rather than reheated. Rocket will soften gradually during storage, so texture is best within 24 hours.</p>
-    </div>
+    <div class="section-content"><p><strong>Refrigerator:</strong> 2 days</p><p>Store at 5°C or below and consume within 2 days. For transport to work or on a car journey, keep the lunch chilled in an insulated bag with an ice pack when continuous refrigeration is unavailable. The salad is intended to be eaten chilled or cool rather than reheated. Rocket will soften gradually during storage, so texture is best within 24 hours.</p></div>
 </details>
 
 
 <details class="section non-method">
     <summary>Shopping</summary>
-    <div class="section-content">
-        
-            <h3>Either retailer</h3>
-            <ul><li>Wholewheat short pasta: buy 1 standard packet</li><li>Cannellini beans: buy 1 x 400 g tin</li><li>Low-fat cottage cheese: buy 1 tub containing at least 220 g</li><li>Vegetarian basil pesto: buy 1 small jar</li><li>Vegetarian Parmesan-style hard cheese: buy 1 small wedge or packet</li><li>Cherry tomatoes: buy 1 punnet containing at least 180 g</li><li>Rocket: buy 1 bag containing at least 50 g</li><li>Unwaxed lemon: buy 1</li><li>Garlic: buy 1 bulb</li><li>Extra-virgin olive oil: buy 1 bottle if not already stocked</li><li>Fine salt: buy 1 container if not already stocked</li><li>Ground black pepper: buy 1 jar or pepper mill if not already stocked</li></ul>
-            
-    </div>
+    <div class="section-content"><h3>Either retailer</h3><ul><li>Wholewheat short pasta: buy 1 standard packet</li><li>Cannellini beans: buy 1 x 400 g tin</li><li>Low-fat cottage cheese: buy 1 tub containing at least 220 g</li><li>Vegetarian basil pesto: buy 1 small jar</li><li>Vegetarian Parmesan-style hard cheese: buy 1 small wedge or packet</li><li>Cherry tomatoes: buy 1 punnet containing at least 180 g</li><li>Rocket: buy 1 bag containing at least 50 g</li><li>Unwaxed lemon: buy 1</li><li>Garlic: buy 1 bulb</li><li>Extra-virgin olive oil: buy 1 bottle if not already stocked</li><li>Fine salt: buy 1 container if not already stocked</li><li>Ground black pepper: buy 1 jar or pepper mill if not already stocked</li></ul></div>
 </details>
 
 
 </main>
 
-
 <script>
-
 (function () {
-
-    const button =
-        document.getElementById(
-            "cookModeButton"
-        );
-
-    const steps =
-        Array.from(
-            document.querySelectorAll(
-                ".method-step"
-            )
-        );
-
-    const controls =
-        document.getElementById(
-            "cookControls"
-        );
-
-    const previous =
-        document.getElementById(
-            "previousStep"
-        );
-
-    const next =
-        document.getElementById(
-            "nextStep"
-        );
-
-    const counter =
-        document.getElementById(
-            "stepCounter"
-        );
-
+    const button = document.getElementById("cookModeButton");
+    const steps = Array.from(document.querySelectorAll(".method-step"));
+    const controls = document.getElementById("cookControls");
+    const previous = document.getElementById("previousStep");
+    const next = document.getElementById("nextStep");
+    const counter = document.getElementById("stepCounter");
     let currentStep = 0;
 
-
     function showStep(index) {
+        if (!steps.length) return;
 
-        if (!steps.length) {
-            return;
-        }
+        currentStep = Math.max(0, Math.min(index, steps.length - 1));
+        steps.forEach((step, stepIndex) => {
+            step.classList.toggle("active", stepIndex === currentStep);
+        });
 
-        currentStep =
-            Math.max(
-                0,
-                Math.min(
-                    index,
-                    steps.length - 1
-                )
-            );
+        if (counter) counter.textContent = "Step " + (currentStep + 1) + " of " + steps.length;
+        if (previous) previous.disabled = currentStep === 0;
+        if (next) next.disabled = currentStep === steps.length - 1;
 
-        steps.forEach(
-            (step, stepIndex) => {
-
-                step.classList.toggle(
-                    "active",
-                    stepIndex === currentStep
-                );
-
-            }
-        );
-
-        if (counter) {
-
-            counter.textContent =
-                (
-                    "Step "
-                    +
-                    (currentStep + 1)
-                    +
-                    " of "
-                    +
-                    steps.length
-                );
-        }
-
-        if (previous) {
-            previous.disabled =
-                currentStep === 0;
-        }
-
-        if (next) {
-            next.disabled =
-                currentStep ===
-                steps.length - 1;
-        }
-
-        const active =
-            steps[currentStep];
-
+        const active = steps[currentStep];
         if (active) {
-
-            active.scrollIntoView({
-                behavior: "smooth",
-                block: "start"
-            });
+            active.scrollIntoView({ behavior: "smooth", block: "start" });
         }
     }
-
 
     if (button) {
-
-        button.addEventListener(
-            "click",
-            () => {
-
-                const active =
-                    document.body.classList.toggle(
-                        "cook-mode"
-                    );
-
-                button.textContent =
-                    active
-                        ? "Exit cook mode"
-                        : "Cook mode";
-
-                if (active) {
-                    showStep(
-                        currentStep
-                    );
-                }
-            }
-        );
+        button.addEventListener("click", () => {
+            const active = document.body.classList.toggle("cook-mode");
+            button.textContent = active ? "Exit cook mode" : "Cook mode";
+            if (active) showStep(currentStep);
+        });
     }
 
+    if (previous) previous.addEventListener("click", () => showStep(currentStep - 1));
+    if (next) next.addEventListener("click", () => showStep(currentStep + 1));
+    if (!steps.length && controls) controls.style.display = "none";
 
-    if (previous) {
+    /* Serving scaler */
+    const servingsMinus = document.getElementById("servingsMinus");
+    const servingsPlus = document.getElementById("servingsPlus");
+    const servingsValue = document.getElementById("servingsValue");
+    const servesFactValue = document.getElementById("servesFactValue");
+    const recipeId = "cannellini_bean_tomato_wholewheat_pasta_salad_basil_pesto_rocket";
 
-        previous.addEventListener(
-            "click",
-            () => {
-                showStep(
-                    currentStep - 1
-                );
-            }
-        );
+    function formatFraction(value) {
+        const rounded = Math.round(value * 8) / 8;
+        const whole = Math.floor(rounded);
+        const remainder = Math.round((rounded - whole) * 8);
+        const fractions = { 0: "", 1: "⅛", 2: "¼", 3: "⅜", 4: "½", 5: "⅝", 6: "¾", 7: "⅞" };
+
+        if (whole > 0 && remainder > 0) return String(whole) + fractions[remainder];
+        if (whole > 0) return String(whole);
+        if (remainder > 0) return fractions[remainder];
+        return "0";
     }
 
+    function formatScaledQuantity(value, unit) {
+        if (unit === "tsp" || unit === "tbsp" || unit === "integer") {
+            const number = formatFraction(value);
+            return unit === "integer" ? number : number + " " + unit;
+        }
 
-    if (next) {
-
-        next.addEventListener(
-            "click",
-            () => {
-                showStep(
-                    currentStep + 1
-                );
-            }
-        );
+        const rounded = Math.round(value * 10) / 10;
+        return String(rounded) + (unit ? " " + unit : "");
     }
 
+    function setServings(newServings) {
+        const baseServings = Number(servingsValue.dataset.baseServings);
+        newServings = Math.max(1, Math.min(12, newServings));
+        servingsValue.textContent = String(newServings);
+        if (servesFactValue) servesFactValue.textContent = String(newServings);
 
-    if (!steps.length && controls) {
-        controls.style.display = "none";
+        const factor = newServings / baseServings;
+        document.querySelectorAll(".ingredient-quantity").forEach(element => {
+            const baseQuantity = Number(element.dataset.baseQuantity);
+            const unit = element.dataset.unit;
+            if (!Number.isFinite(baseQuantity)) return;
+            element.textContent = formatScaledQuantity(baseQuantity * factor, unit);
+        });
+
+        localStorage.setItem("recipe-servings:" + recipeId, String(newServings));
     }
 
+    if (servingsMinus && servingsPlus && servingsValue) {
+        servingsMinus.addEventListener("click", () => {
+            setServings(Number(servingsValue.textContent) - 1);
+        });
+        servingsPlus.addEventListener("click", () => {
+            setServings(Number(servingsValue.textContent) + 1);
+        });
+
+        const saved = Number(localStorage.getItem("recipe-servings:" + recipeId));
+        if (Number.isFinite(saved) && saved >= 1) setServings(saved);
+    }
+
+    /* Favourite / neutral / dislike */
+    const favouriteButton = document.getElementById("ratingFavourite");
+    const dislikeButton = document.getElementById("ratingDislike");
+    const ratingKey = "recipe-rating:" + recipeId;
+
+    function setRating(rating) {
+        localStorage.setItem(ratingKey, rating);
+        if (favouriteButton) favouriteButton.classList.toggle("active", rating === "favourite");
+        if (dislikeButton) dislikeButton.classList.toggle("active", rating === "dislike");
+    }
+
+    if (favouriteButton) favouriteButton.addEventListener("click", () => setRating("favourite"));
+    if (neutralButton) neutralButton.addEventListener("click", () => setRating("neutral"));
+    if (dislikeButton) dislikeButton.addEventListener("click", () => setRating("dislike"));
+
+    if (favouriteButton && neutralButton && dislikeButton) {
+        setRating(localStorage.getItem(ratingKey) || "neutral");
+    }
 })();
-
 </script>
 
 </body>
-
 </html>

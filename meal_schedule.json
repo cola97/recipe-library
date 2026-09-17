@@ -74,164 +74,164 @@
   {
     "date": "2026-09-18",
     "meal_type": "Breakfast",
-    "title": "Vanilla Protein Porridge with Raspberries, Chia and Pistachios",
-    "file": "vanilla_protein_porridge_raspberries_chia_pistachios.html"
+    "title": "Blackberry, Skyr & Jumbo Oat Overnight Pots with Chia and Toasted Walnuts",
+    "file": "blackberry_skyr_jumbo_oat_overnight_pots_chia_toasted_walnuts.html"
   },
   {
     "date": "2026-09-18",
     "meal_type": "Morning snack",
-    "title": "Satsuma, Walnut & Pumpkin Seed Snack Boxes",
-    "file": "satsuma_walnut_pumpkin_seed_snack_boxes.html"
+    "title": "Clementine, Pistachio & Pumpkin Seed Snack Boxes",
+    "file": "clementine_pistachio_pumpkin_seed_snack_boxes.html"
   },
   {
     "date": "2026-09-18",
     "meal_type": "Lunch",
-    "title": "Chimichurri Seitan, Roasted Courgette & Wholegrain Couscous Salad with Cherry Tomatoes",
-    "file": "chimichurri_seitan_roasted_courgette_wholegrain_couscous_salad_cherry_tomatoes.html"
+    "title": "Harissa Tempeh, Roasted Pepper & Bulgur Salad with Lemon Yoghurt and Parsley",
+    "file": "harissa_tempeh_roasted_pepper_bulgur_salad_lemon_yoghurt_parsley.html"
   },
   {
     "date": "2026-09-18",
     "meal_type": "Afternoon snack",
-    "title": "Rye Crispbreads with Whipped Cottage Cheese and Roasted Red Pepper",
-    "file": "rye_crispbreads_whipped_cottage_cheese_roasted_red_pepper.html"
+    "title": "Carrot & Cucumber Batons with Edamame Hummus",
+    "file": "carrot_cucumber_batons_edamame_hummus.html"
   },
   {
     "date": "2026-09-18",
     "meal_type": "Dinner",
-    "title": "Smoky Black Bean & Mycoprotein Tacos with Charred Sweetcorn, Tomato Salsa, Avocado and Lime Yoghurt",
-    "file": "smoky_black_bean_mycoprotein_tacos_charred_sweetcorn_tomato_salsa_avocado_lime_yoghurt.html"
+    "title": "Smoky Black Bean & Mycoprotein Fajitas with Charred Peppers, Sweetcorn, Tomato Salsa and Lime Yoghurt",
+    "file": "smoky_black_bean_mycoprotein_fajitas_charred_peppers_sweetcorn_tomato_salsa_lime_yoghurt.html"
   },
   {
     "date": "2026-09-18",
     "meal_type": "Evening snack",
-    "title": "Dark Cocoa Skyr Pots with Strawberries and Cacao Nibs",
-    "file": "dark_cocoa_skyr_pots_strawberries_cacao_nibs.html"
+    "title": "Cocoa, Raspberry & Skyr Pots with Ground Flaxseed",
+    "file": "cocoa_raspberry_skyr_pots_ground_flaxseed.html"
   },
   {
     "date": "2026-09-19",
     "meal_type": "Breakfast",
-    "title": "Savoury Harissa Tofu Scramble with Edamame, Roasted Tomatoes and Wholemeal Flatbread",
-    "file": "savoury_harissa_tofu_scramble_edamame_roasted_tomatoes_wholemeal_flatbread.html"
+    "title": "Raspberry-Lemon Protein Pancakes with Skyr and Pistachios",
+    "file": "raspberry_lemon_protein_pancakes_skyr_pistachios.html"
   },
   {
     "date": "2026-09-19",
     "meal_type": "Morning snack",
-    "title": "Blackberry, Almond & Cinnamon Yoghurt Pots",
-    "file": "blackberry_almond_cinnamon_yoghurt_pots.html"
+    "title": "Plum, Almond & Cinnamon Yoghurt Pots",
+    "file": "plum_almond_cinnamon_yoghurt_pots.html"
   },
   {
     "date": "2026-09-19",
-    "meal_type": "Lunch",
-    "title": "Thai Peanut Tempeh Noodle Salad with Cucumber, Carrot, Peppers and Fresh Herbs",
-    "file": "thai_peanut_tempeh_noodle_salad_cucumber_carrot_peppers_fresh_herbs.html"
-  },
-  {
-    "date": "2026-09-19",
-    "meal_type": "Afternoon snack",
-    "title": "Lime-Chilli Roasted Edamame with Satsuma Segments",
-    "file": "lime_chilli_roasted_edamame_satsuma_segments.html"
-  },
-  {
-    "date": "2026-09-19",
-    "meal_type": "Dinner",
-    "title": "Chermoula Seitan, Aubergine & Chickpea Couscous with Roasted Peppers, Lemon Yoghurt and Pistachios",
-    "file": "chermoula_seitan_aubergine_chickpea_couscous_roasted_peppers_lemon_yoghurt_pistachios.html"
-  },
-  {
-    "date": "2026-09-19",
-    "meal_type": "Evening snack",
-    "title": "Baked Plum, Quark & Walnut Pots with Cinnamon",
-    "file": "baked_plum_quark_walnut_pots_cinnamon.html"
-  },
-  {
-    "date": "2026-09-20",
-    "meal_type": "Breakfast",
-    "title": "Spinach, Tomato & Cottage Cheese Shakshuka with Wholegrain Toast",
-    "file": "spinach_tomato_cottage_cheese_shakshuka_wholegrain_toast.html"
-  },
-  {
-    "date": "2026-09-20",
-    "meal_type": "Morning snack",
-    "title": "Raspberry, Chia & Skyr Pots",
-    "file": "raspberry_chia_skyr_pots.html"
-  },
-  {
-    "date": "2026-09-20",
-    "meal_type": "Lunch",
-    "title": "Roasted Beetroot, Green Lentil & Goat’s Cheese Salad with Walnuts and Dijon Vinaigrette",
-    "file": "roasted_beetroot_green_lentil_goats_cheese_salad_walnuts_dijon_vinaigrette.html"
-  },
-  {
-    "date": "2026-09-20",
-    "meal_type": "Afternoon snack",
-    "title": "Oatcakes with Hummus, Cucumber and Pumpkin Seeds",
-    "file": "oatcakes_hummus_cucumber_pumpkin_seeds.html"
-  },
-  {
-    "date": "2026-09-20",
-    "meal_type": "Dinner",
-    "title": "Herb-Roasted Seitan with Crispy Potatoes, Roasted Carrots, Savoy Cabbage and Mushroom-Onion Gravy",
-    "file": "herb_roasted_seitan_crispy_potatoes_roasted_carrots_savoy_cabbage_mushroom_onion_gravy.html"
-  },
-  {
-    "date": "2026-09-20",
-    "meal_type": "Evening snack",
-    "title": "Blackberry & Greek Yoghurt Pots with Toasted Hazelnuts",
-    "file": "blackberry_greek_yoghurt_pots_toasted_hazelnuts.html"
-  },
-  {
-    "date": "2026-09-21",
-    "meal_type": "Breakfast",
-    "title": "Skyr, Blackberry & Oat Breakfast Bowls with Ground Flaxseed and Pumpkin Seeds",
-    "file": "skyr_blackberry_oat_breakfast_bowls_ground_flaxseed_pumpkin_seeds.html"
-  },
-  {
-    "date": "2026-09-21",
-    "meal_type": "Morning snack",
-    "title": "Plum & Pistachio Snack Pots",
-    "file": "plum_pistachio_snack_pots.html"
-  },
-  {
-    "date": "2026-09-21",
-    "meal_type": "Lunch",
-    "title": "Roast Seitan, Crispy Potato & Savoy Cabbage Salad with Mustard-Herb Dressing",
-    "file": "roast_seitan_crispy_potato_savoy_cabbage_salad_mustard_herb_dressing.html"
-  },
-  {
-    "date": "2026-09-21",
-    "meal_type": "Afternoon snack",
-    "title": "Red Pepper & Cucumber Batons with Lemon-Tahini Hummus",
-    "file": "red_pepper_cucumber_batons_lemon_tahini_hummus.html"
-  },
-  {
-    "date": "2026-09-21",
-    "meal_type": "Dinner",
-    "title": "Tomato, Mushroom & Mycoprotein Mince Wholewheat Bolognese with Spinach and Vegetarian Parmesan-Style Cheese",
-    "file": "tomato_mushroom_mycoprotein_mince_wholewheat_bolognese_spinach_vegetarian_parmesan_style_cheese.html"
-  },
-  {
-    "date": "2026-09-21",
-    "meal_type": "Evening snack",
-    "title": "Cinnamon Quark with Raspberries and Walnuts",
-    "file": "cinnamon_quark_raspberries_walnuts.html"
-  },
-  {
-    "date": "2026-09-22",
-    "meal_type": "Breakfast",
-    "title": "Mushroom, Spinach & Egg-White Cottage Cheese Scramble with Rye Toast and Tomatoes",
-    "file": "mushroom_spinach_egg_white_cottage_cheese_scramble_rye_toast_tomatoes.html"
-  },
-  {
-    "date": "2026-09-22",
-    "meal_type": "Morning snack",
-    "title": "Kiwi, Pumpkin Seed & Skyr Pot",
-    "file": "kiwi_pumpkin_seed_skyr_pot.html"
-  },
-  {
-    "date": "2026-09-22",
     "meal_type": "Lunch",
     "title": "Miso-Sesame Tofu & Edamame Soba Noodle Salad with Broccoli and Carrot",
     "file": "miso_sesame_tofu_edamame_soba_noodle_salad_broccoli_carrot.html"
+  },
+  {
+    "date": "2026-09-19",
+    "meal_type": "Afternoon snack",
+    "title": "Smoked Paprika Roasted Chickpeas with Satsuma Segments",
+    "file": "smoked_paprika_roasted_chickpeas_satsuma_segments.html"
+  },
+  {
+    "date": "2026-09-19",
+    "meal_type": "Dinner",
+    "title": "Gochujang Tempeh, Aubergine & Mushroom Rice Bowls with Sesame Cabbage and Cucumber",
+    "file": "gochujang_tempeh_aubergine_mushroom_rice_bowls_sesame_cabbage_cucumber.html"
+  },
+  {
+    "date": "2026-09-19",
+    "meal_type": "Evening snack",
+    "title": "Baked Plum & Quark Pots with Cinnamon and Walnuts",
+    "file": "baked_plum_quark_pots_cinnamon_walnuts.html"
+  },
+  {
+    "date": "2026-09-20",
+    "meal_type": "Breakfast",
+    "title": "Spinach, Mushroom & Cottage Cheese Shakshuka with Wholemeal Toast",
+    "file": "spinach_mushroom_cottage_cheese_shakshuka_wholemeal_toast.html"
+  },
+  {
+    "date": "2026-09-20",
+    "meal_type": "Morning snack",
+    "title": "Blackberry, Chia & Skyr Pots",
+    "file": "blackberry_chia_skyr_pots.html"
+  },
+  {
+    "date": "2026-09-20",
+    "meal_type": "Lunch",
+    "title": "Beetroot, Green Lentil & Feta Wholegrain Wraps with Rocket and Dijon-Herb Yoghurt",
+    "file": "beetroot_green_lentil_feta_wholegrain_wraps_rocket_dijon_herb_yoghurt.html"
+  },
+  {
+    "date": "2026-09-20",
+    "meal_type": "Afternoon snack",
+    "title": "Oatcakes with Hummus and Cucumber",
+    "file": "oatcakes_hummus_cucumber.html"
+  },
+  {
+    "date": "2026-09-20",
+    "meal_type": "Dinner",
+    "title": "Herb-Roasted Seitan with Crispy Potatoes, Carrots, Savoy Cabbage and Mushroom-Onion Gravy",
+    "file": "herb_roasted_seitan_crispy_potatoes_carrots_savoy_cabbage_mushroom_onion_gravy.html"
+  },
+  {
+    "date": "2026-09-20",
+    "meal_type": "Evening snack",
+    "title": "Orange & Cinnamon Skyr Pots with Toasted Walnuts",
+    "file": "orange_cinnamon_skyr_pots_toasted_walnuts.html"
+  },
+  {
+    "date": "2026-09-21",
+    "meal_type": "Breakfast",
+    "title": "Skyr, Blackberry & Oat Breakfast Pots with Ground Flaxseed and Pumpkin Seeds",
+    "file": "skyr_blackberry_oat_breakfast_pots_ground_flaxseed_pumpkin_seeds.html"
+  },
+  {
+    "date": "2026-09-21",
+    "meal_type": "Morning snack",
+    "title": "Kiwi & Unsalted Mixed Seed Snack Pots",
+    "file": "kiwi_unsalted_mixed_seed_snack_pots.html"
+  },
+  {
+    "date": "2026-09-21",
+    "meal_type": "Lunch",
+    "title": "Cannellini Bean, Cottage Cheese & Roasted Courgette Wholewheat Pasta Salad with Basil and Lemon",
+    "file": "cannellini_bean_cottage_cheese_roasted_courgette_wholewheat_pasta_salad_basil_lemon.html"
+  },
+  {
+    "date": "2026-09-21",
+    "meal_type": "Afternoon snack",
+    "title": "Red Pepper & Cucumber Batons with Lemon Hummus",
+    "file": "red_pepper_cucumber_batons_lemon_hummus.html"
+  },
+  {
+    "date": "2026-09-21",
+    "meal_type": "Dinner",
+    "title": "Tomato, Mushroom & Mycoprotein Wholewheat Bolognese with Spinach and Vegetarian Parmesan-Style Cheese",
+    "file": "tomato_mushroom_mycoprotein_wholewheat_bolognese_spinach_vegetarian_parmesan_style_cheese.html"
+  },
+  {
+    "date": "2026-09-21",
+    "meal_type": "Evening snack",
+    "title": "Cocoa Quark Pots with Raspberries",
+    "file": "cocoa_quark_pots_raspberries.html"
+  },
+  {
+    "date": "2026-09-22",
+    "meal_type": "Breakfast",
+    "title": "Spinach, Tomato & Cottage Cheese Egg Muffins with Seeded Wholemeal Toast",
+    "file": "spinach_tomato_cottage_cheese_egg_muffins_seeded_wholemeal_toast.html"
+  },
+  {
+    "date": "2026-09-22",
+    "meal_type": "Morning snack",
+    "title": "Plum & Pistachio Snack Boxes",
+    "file": "plum_pistachio_snack_boxes.html"
+  },
+  {
+    "date": "2026-09-22",
+    "meal_type": "Lunch",
+    "title": "Miso Tofu, Edamame & Brown Rice Salad with Broccoli and Sesame-Ginger Dressing",
+    "file": "miso_tofu_edamame_brown_rice_salad_broccoli_sesame_ginger_dressing.html"
   },
   {
     "date": "2026-09-22",
@@ -242,62 +242,62 @@
   {
     "date": "2026-09-22",
     "meal_type": "Dinner",
-    "title": "Harissa Chickpea, Red Lentil & Roasted Cauliflower Stew with Bulgur and Lemon Yoghurt",
-    "file": "harissa_chickpea_red_lentil_roasted_cauliflower_stew_bulgur_lemon_yoghurt.html"
+    "title": "Harissa Red Lentil, Chickpea & Cauliflower Stew with Bulgur and Lemon Yoghurt",
+    "file": "harissa_red_lentil_chickpea_cauliflower_stew_bulgur_lemon_yoghurt.html"
   },
   {
     "date": "2026-09-22",
     "meal_type": "Evening snack",
-    "title": "Cocoa Cottage Cheese Pot with Strawberries and Chia",
-    "file": "cocoa_cottage_cheese_pot_strawberries_chia.html"
+    "title": "Kiwi, Greek Yoghurt & Chia Pots",
+    "file": "kiwi_greek_yoghurt_chia_pots.html"
   },
   {
     "date": "2026-09-23",
     "meal_type": "Breakfast",
-    "title": "Raspberry, Cocoa & Skyr Overnight Oats with Hemp Seeds and Hazelnuts",
-    "file": "raspberry_cocoa_skyr_overnight_oats_hemp_seeds_hazelnuts.html"
+    "title": "Raspberry-Cocoa Overnight Oats with Skyr, Hemp Seeds and Hazelnuts",
+    "file": "raspberry_cocoa_overnight_oats_skyr_hemp_seeds_hazelnuts.html"
   },
   {
     "date": "2026-09-23",
     "meal_type": "Morning snack",
-    "title": "Satsuma & Unsalted Mixed Nut Snack Box",
-    "file": "satsuma_unsalted_mixed_nut_snack_box.html"
+    "title": "Clementine & Walnut Snack Boxes",
+    "file": "clementine_walnut_snack_boxes.html"
   },
   {
     "date": "2026-09-23",
     "meal_type": "Lunch",
-    "title": "Mediterranean Tempeh, Cannellini Bean & Roasted Courgette Wholegrain Wrap with Basil Yoghurt",
-    "file": "mediterranean_tempeh_cannellini_bean_roasted_courgette_wholegrain_wrap_basil_yoghurt.html"
+    "title": "Thai Peanut Tempeh Noodle Salad with Cucumber, Carrot and Peppers",
+    "file": "thai_peanut_tempeh_noodle_salad_cucumber_carrot_peppers.html"
   },
   {
     "date": "2026-09-23",
     "meal_type": "Afternoon snack",
-    "title": "Rye Crispbread with Peanut Butter and Plum Slices",
-    "file": "rye_crispbread_peanut_butter_plum_slices.html"
+    "title": "Carrot & Cucumber Batons with Edamame Hummus",
+    "file": "carrot_cucumber_batons_edamame_hummus.html"
   },
   {
     "date": "2026-09-23",
     "meal_type": "Dinner",
-    "title": "Thai Red Curry Tofu with Green Beans, Peppers, Edamame and Jasmine-Brown Rice Blend",
-    "file": "thai_red_curry_tofu_green_beans_peppers_edamame_jasmine_brown_rice_blend.html"
+    "title": "Lemon-Herb Mycoprotein, New Potato & Broccoli Traybake with Roasted Tomatoes",
+    "file": "lemon_herb_mycoprotein_new_potato_broccoli_traybake_roasted_tomatoes.html"
   },
   {
     "date": "2026-09-23",
     "meal_type": "Evening snack",
-    "title": "Vanilla Greek Yoghurt with Blackberries and Ground Flaxseed",
-    "file": "vanilla_greek_yoghurt_blackberries_ground_flaxseed.html"
+    "title": "Vanilla Skyr Pots with Blackberries and Ground Flaxseed",
+    "file": "vanilla_skyr_pots_blackberries_ground_flaxseed.html"
   },
   {
     "date": "2026-09-24",
     "meal_type": "Breakfast",
-    "title": "Herbed Cottage Cheese, Egg & Spinach Breakfast Wrap with Tomato and Rocket",
-    "file": "herbed_cottage_cheese_egg_spinach_breakfast_wrap_tomato_rocket.html"
+    "title": "Herbed Cottage Cheese & Egg Breakfast Wraps with Spinach and Tomato",
+    "file": "herbed_cottage_cheese_egg_breakfast_wraps_spinach_tomato.html"
   },
   {
     "date": "2026-09-24",
     "meal_type": "Morning snack",
-    "title": "Blackberry, Pistachio & Skyr Pot",
-    "file": "blackberry_pistachio_skyr_pot.html"
+    "title": "Blackberry, Pistachio & Skyr Pots",
+    "file": "blackberry_pistachio_skyr_pots.html"
   },
   {
     "date": "2026-09-24",
@@ -308,20 +308,20 @@
   {
     "date": "2026-09-24",
     "meal_type": "Afternoon snack",
-    "title": "Paprika Roasted Chickpeas with Cucumber and Red Pepper",
-    "file": "paprika_roasted_chickpeas_cucumber_red_pepper.html"
+    "title": "Paprika Roasted Chickpeas with Cucumber Sticks",
+    "file": "paprika_roasted_chickpeas_cucumber_sticks.html"
   },
   {
     "date": "2026-09-24",
     "meal_type": "Dinner",
-    "title": "Smoky Tempeh, Black Bean & Sweet Potato Chilli with Lime Yoghurt and Avocado",
-    "file": "smoky_tempeh_black_bean_sweet_potato_chilli_lime_yoghurt_avocado.html"
+    "title": "Gochujang Tofu & Edamame Stir-Fry with Mushrooms, Broccoli and Brown Rice",
+    "file": "gochujang_tofu_edamame_stir_fry_mushrooms_broccoli_brown_rice.html"
   },
   {
     "date": "2026-09-24",
     "meal_type": "Evening snack",
-    "title": "Kiwi, Quark & Chia Pot with Toasted Almonds",
-    "file": "kiwi_quark_chia_pot_toasted_almonds.html"
+    "title": "Plum, Quark & Chia Pots",
+    "file": "plum_quark_chia_pots.html"
   },
   {
     "date": "2026-09-25",
@@ -332,32 +332,32 @@
   {
     "date": "2026-09-25",
     "meal_type": "Morning snack",
-    "title": "Clementine, Almond & Pumpkin Seed Snack Box",
-    "file": "clementine_almond_pumpkin_seed_snack_box.html"
+    "title": "Satsuma, Almond & Pumpkin Seed Snack Boxes",
+    "file": "satsuma_almond_pumpkin_seed_snack_boxes.html"
   },
   {
     "date": "2026-09-25",
     "meal_type": "Lunch",
-    "title": "Pesto Tofu, Tomato & Wholewheat Pasta Salad with Rocket, Green Beans and Edamame",
-    "file": "pesto_tofu_tomato_wholewheat_pasta_salad_rocket_green_beans_edamame.html"
+    "title": "Basil-Pesto Mycoprotein, Tomato & Wholewheat Pasta Salad with Rocket and Green Beans",
+    "file": "basil_pesto_mycoprotein_tomato_wholewheat_pasta_salad_rocket_green_beans.html"
   },
   {
     "date": "2026-09-25",
     "meal_type": "Afternoon snack",
-    "title": "Carrot Batons with Harissa Hummus and Sesame",
-    "file": "carrot_batons_harissa_hummus_sesame.html"
+    "title": "Carrot Batons with Harissa Hummus",
+    "file": "carrot_batons_harissa_hummus.html"
   },
   {
     "date": "2026-09-25",
     "meal_type": "Dinner",
-    "title": "Gochujang Mycoprotein & Mushroom Rice Bowls with Sesame Broccoli, Cucumber and Vegetarian Kimchi",
-    "file": "gochujang_mycoprotein_mushroom_rice_bowls_sesame_broccoli_cucumber_vegetarian_kimchi.html"
+    "title": "Za’atar Tempeh & Roasted Aubergine Flatbreads with Tomato-Cucumber Salad and Tahini-Lemon Yoghurt",
+    "file": "zaatar_tempeh_roasted_aubergine_flatbreads_tomato_cucumber_salad_tahini_lemon_yoghurt.html"
   },
   {
     "date": "2026-09-25",
     "meal_type": "Evening snack",
-    "title": "Raspberry Cocoa Skyr Pot with Cacao Nibs",
-    "file": "raspberry_cocoa_skyr_pot_cacao_nibs.html"
+    "title": "Raspberry-Cocoa Skyr Pots with Cacao Nibs",
+    "file": "raspberry_cocoa_skyr_pots_cacao_nibs.html"
   },
   {
     "date": "2026-09-26",
@@ -374,8 +374,8 @@
   {
     "date": "2026-09-26",
     "meal_type": "Lunch",
-    "title": "Za’atar Tofu, Roasted Aubergine & Chickpea Pitta Pockets with Tomato, Cucumber and Tahini-Lemon Dressing",
-    "file": "zaatar_tofu_roasted_aubergine_chickpea_pitta_pockets_tomato_cucumber_tahini_lemon_dressing.html"
+    "title": "Chimichurri Tofu, Roasted Beetroot & Quinoa Salad with Spinach and Pumpkin Seeds",
+    "file": "chimichurri_tofu_roasted_beetroot_quinoa_salad_spinach_pumpkin_seeds.html"
   },
   {
     "date": "2026-09-26",
@@ -386,14 +386,14 @@
   {
     "date": "2026-09-26",
     "meal_type": "Dinner",
-    "title": "Mushroom, Spinach & Green Lentil Wellington-Style Filo Pie with Roasted Squash, Tenderstem Broccoli and Red-Wine Onion Gravy",
-    "file": "mushroom_spinach_green_lentil_wellington_style_filo_pie_roasted_squash_tenderstem_broccoli_red_wine_onion_gravy.html"
+    "title": "Jalfrezi Mycoprotein, Chickpea & Roasted Cauliflower Biryani with Cucumber-Mint Raita",
+    "file": "jalfrezi_mycoprotein_chickpea_roasted_cauliflower_biryani_cucumber_mint_raita.html"
   },
   {
     "date": "2026-09-26",
     "meal_type": "Evening snack",
-    "title": "Cinnamon Baked Plum Skyr Pots with Pistachios",
-    "file": "cinnamon_baked_plum_skyr_pots_pistachios.html"
+    "title": "Baked Plum Skyr Pots with Pistachios",
+    "file": "baked_plum_skyr_pots_pistachios.html"
   },
   {
     "date": "2026-09-27",
@@ -410,8 +410,8 @@
   {
     "date": "2026-09-27",
     "meal_type": "Lunch",
-    "title": "Harissa Butter Bean, Roasted Pepper & Quinoa Salad with Lemon Yoghurt and Parsley",
-    "file": "harissa_butter_bean_roasted_pepper_quinoa_salad_lemon_yoghurt_parsley.html"
+    "title": "Harissa Butter Bean, Roasted Pepper & Bulgur Salad with Lemon Skyr and Parsley",
+    "file": "harissa_butter_bean_roasted_pepper_bulgur_salad_lemon_skyr_parsley.html"
   },
   {
     "date": "2026-09-27",
@@ -428,26 +428,26 @@
   {
     "date": "2026-09-27",
     "meal_type": "Evening snack",
-    "title": "Blackberry Quark with Toasted Walnuts and Ground Flaxseed",
-    "file": "blackberry_quark_toasted_walnuts_ground_flaxseed.html"
+    "title": "Blackberry Quark Pots with Walnuts and Ground Flaxseed",
+    "file": "blackberry_quark_pots_walnuts_ground_flaxseed.html"
   },
   {
     "date": "2026-09-28",
     "meal_type": "Breakfast",
-    "title": "Blackberry, Skyr & Oat Bircher Pots with Chia, Hemp and Pistachios",
-    "file": "blackberry_skyr_oat_bircher_pots_chia_hemp_pistachios.html"
+    "title": "Blackberry Skyr Overnight Oats with Chia, Hemp Seeds and Pistachios",
+    "file": "blackberry_skyr_overnight_oats_chia_hemp_seeds_pistachios.html"
   },
   {
     "date": "2026-09-28",
     "meal_type": "Morning snack",
-    "title": "Kiwi & Unsalted Mixed Nut Snack Box",
-    "file": "kiwi_unsalted_mixed_nut_snack_box.html"
+    "title": "Kiwi & Unsalted Mixed Nut Snack Boxes",
+    "file": "kiwi_unsalted_mixed_nut_snack_boxes.html"
   },
   {
     "date": "2026-09-28",
     "meal_type": "Lunch",
-    "title": "Rosemary Seitan, Cannellini Bean & Roasted Squash Barley Salad with Dijon-Herb Dressing",
-    "file": "rosemary_seitan_cannellini_bean_roasted_squash_barley_salad_dijon_herb_dressing.html"
+    "title": "Cannellini Bean, Roasted Squash & Cottage Cheese Barley Salad with Dijon-Herb Dressing",
+    "file": "cannellini_bean_roasted_squash_cottage_cheese_barley_salad_dijon_herb_dressing.html"
   },
   {
     "date": "2026-09-28",
@@ -458,32 +458,32 @@
   {
     "date": "2026-09-28",
     "meal_type": "Dinner",
-    "title": "Miso-Glazed Tempeh, Mushroom & Tenderstem Broccoli Soba Stir-Fry with Edamame and Sesame",
-    "file": "miso_glazed_tempeh_mushroom_tenderstem_broccoli_soba_stir_fry_edamame_sesame.html"
+    "title": "Miso-Glazed Tempeh, Mushroom & Broccoli Soba Stir-Fry with Edamame",
+    "file": "miso_glazed_tempeh_mushroom_broccoli_soba_stir_fry_edamame.html"
   },
   {
     "date": "2026-09-28",
     "meal_type": "Evening snack",
-    "title": "Cocoa Greek Yoghurt with Raspberries and Pumpkin Seeds",
-    "file": "cocoa_greek_yoghurt_raspberries_pumpkin_seeds.html"
+    "title": "Cocoa Greek Yoghurt Pots with Raspberries and Pumpkin Seeds",
+    "file": "cocoa_greek_yoghurt_pots_raspberries_pumpkin_seeds.html"
   },
   {
     "date": "2026-09-29",
     "meal_type": "Breakfast",
-    "title": "Spinach, Tomato & Cottage Cheese Egg Muffins with Seeded Toast and Rocket",
-    "file": "spinach_tomato_cottage_cheese_egg_muffins_seeded_toast_rocket.html"
+    "title": "Spinach, Tomato & Cottage Cheese Egg Breakfast Wraps with Rocket",
+    "file": "spinach_tomato_cottage_cheese_egg_breakfast_wraps_rocket.html"
   },
   {
     "date": "2026-09-29",
     "meal_type": "Morning snack",
-    "title": "Plum, Walnut & Skyr Pot",
-    "file": "plum_walnut_skyr_pot.html"
+    "title": "Plum, Walnut & Skyr Pots",
+    "file": "plum_walnut_skyr_pots.html"
   },
   {
     "date": "2026-09-29",
     "meal_type": "Lunch",
-    "title": "Chipotle Black Bean & Mycoprotein Wholegrain Burrito Wrap with Sweetcorn, Cabbage Slaw and Lime Yoghurt",
-    "file": "chipotle_black_bean_mycoprotein_wholegrain_burrito_wrap_sweetcorn_cabbage_slaw_lime_yoghurt.html"
+    "title": "Chipotle Black Bean & Mycoprotein Wholegrain Burrito Wraps with Sweetcorn, Cabbage Slaw and Lime Yoghurt",
+    "file": "chipotle_black_bean_mycoprotein_wholegrain_burrito_wraps_sweetcorn_cabbage_slaw_lime_yoghurt.html"
   },
   {
     "date": "2026-09-29",
@@ -494,14 +494,14 @@
   {
     "date": "2026-09-29",
     "meal_type": "Dinner",
-    "title": "Tomato-Braised Butter Beans, Tofu & Cavolo Nero with Wholegrain Couscous and Basil Gremolata",
-    "file": "tomato_braised_butter_beans_tofu_cavolo_nero_wholegrain_couscous_basil_gremolata.html"
+    "title": "Tomato-Braised Tofu, Butter Beans & Cavolo Nero with Wholegrain Couscous and Basil Gremolata",
+    "file": "tomato_braised_tofu_butter_beans_cavolo_nero_wholegrain_couscous_basil_gremolata.html"
   },
   {
     "date": "2026-09-29",
     "meal_type": "Evening snack",
-    "title": "Kiwi Quark Pot with Chia and Toasted Hazelnuts",
-    "file": "kiwi_quark_pot_chia_toasted_hazelnuts.html"
+    "title": "Kiwi Quark Pots with Chia and Toasted Hazelnuts",
+    "file": "kiwi_quark_pots_chia_toasted_hazelnuts.html"
   },
   {
     "date": "2026-09-30",
@@ -512,8 +512,8 @@
   {
     "date": "2026-09-30",
     "meal_type": "Morning snack",
-    "title": "Satsuma, Pistachio & Roasted Edamame Snack Box",
-    "file": "satsuma_pistachio_roasted_edamame_snack_box.html"
+    "title": "Satsuma, Pistachio & Roasted Edamame Snack Boxes",
+    "file": "satsuma_pistachio_roasted_edamame_snack_boxes.html"
   },
   {
     "date": "2026-09-30",
@@ -530,8 +530,8 @@
   {
     "date": "2026-09-30",
     "meal_type": "Dinner",
-    "title": "Jalfrezi Tofu, Chickpea & Roasted Cauliflower Curry with Brown Basmati Rice and Cucumber-Mint Raita",
-    "file": "jalfrezi_tofu_chickpea_roasted_cauliflower_curry_brown_basmati_rice_cucumber_mint_raita.html"
+    "title": "Mushroom, Spinach & Mycoprotein Wholewheat Pasta with Rosemary Tomato Sauce and Vegetarian Parmesan-Style Cheese",
+    "file": "mushroom_spinach_mycoprotein_wholewheat_pasta_rosemary_tomato_sauce_vegetarian_parmesan_style_cheese.html"
   },
   {
     "date": "2026-09-30",

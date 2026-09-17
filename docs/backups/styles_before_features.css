@@ -1,0 +1,713 @@
+:root {
+    --background: #f5f3ec;
+    --panel: #ffffff;
+    --text: #000000;
+    --border: #b7b2a8;
+    --button: #232323;
+    --button-text: #ffffff;
+}
+
+/* ==========================================================
+   Global reset
+   ========================================================== */
+
+* {
+    box-sizing: border-box;
+
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+
+    width: 100%;
+    min-height: 100%;
+
+    background: var(--background);
+    color: var(--text);
+
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+}
+
+body {
+    min-height: 100dvh;
+}
+
+/*
+   Explicitly prevent browser-default serif fonts on
+   headings and controls.
+*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+div,
+span,
+label,
+summary,
+button,
+input,
+select,
+option {
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+/* ==========================================================
+   Main application container
+   ========================================================== */
+
+.app {
+    width: min(
+        calc(100% - 24px),
+        1500px
+    );
+
+    margin: 0 auto;
+
+    padding:
+        max(14px, env(safe-area-inset-top))
+        max(12px, env(safe-area-inset-right))
+        max(24px, env(safe-area-inset-bottom))
+        max(12px, env(safe-area-inset-left));
+}
+
+/* ==========================================================
+   Header
+   ========================================================== */
+
+.app-header {
+    background: var(--panel);
+
+    border:
+        1px
+        solid
+        var(--border);
+
+    border-radius: 16px;
+
+    padding: 20px;
+
+    margin-bottom: 14px;
+}
+
+.app-header h1 {
+    margin: 0;
+
+    font-size:
+        clamp(
+            1.8rem,
+            5vw,
+            2.8rem
+        );
+
+    line-height: 1.1;
+
+    font-weight: 750;
+}
+
+.context {
+    margin-top: 10px;
+
+    font-size: 1rem;
+
+    font-weight: 650;
+}
+
+/* ==========================================================
+   Date and meal controls
+   ========================================================== */
+
+.controls {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(0, 1fr);
+
+    gap: 12px;
+
+    margin-bottom: 14px;
+}
+
+.control-group {
+    display: grid;
+
+    gap: 6px;
+}
+
+label {
+    font-weight: 700;
+}
+
+input,
+select,
+button {
+    width: 100%;
+
+    min-height: 48px;
+
+    border-radius: 10px;
+
+    border:
+        1px
+        solid
+        var(--border);
+}
+
+input,
+select {
+    padding:
+        10px
+        12px;
+
+    color: #000000;
+
+    background: #ffffff;
+}
+
+button {
+    padding:
+        10px
+        14px;
+
+    border:
+        1px
+        solid
+        #000000;
+
+    background: var(--button);
+
+    color: var(--button-text);
+
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+button:hover {
+    filter: brightness(1.08);
+}
+
+/* ==========================================================
+   Scheduled recipe section
+   ========================================================== */
+
+.scheduled-panel {
+    background: var(--panel);
+
+    border:
+        1px
+        solid
+        var(--border);
+
+    border-radius: 14px;
+
+    margin-bottom: 14px;
+
+    padding: 16px;
+}
+
+.scheduled-panel h2 {
+    margin:
+        0
+        0
+        12px
+        0;
+
+    font-size: 1.2rem;
+
+    font-weight: 750;
+}
+
+#scheduledRecipes {
+    display: grid;
+
+    gap: 12px;
+}
+
+.scheduled-card {
+    padding: 16px;
+
+    border:
+        2px
+        solid
+        #000000;
+
+    border-radius: 12px;
+
+    color: #000000;
+}
+
+.scheduled-available {
+    background: #dff3df;
+}
+
+.scheduled-missing {
+    background: #fff1c7;
+}
+
+.scheduled-card-header {
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    gap: 12px;
+}
+
+.scheduled-title {
+    flex: 1;
+
+    font-size: 1.05rem;
+
+    line-height: 1.35;
+
+    font-weight: 750;
+
+    color: #000000;
+}
+
+.status-badge {
+    flex: 0 0 auto;
+
+    display: inline-block;
+
+    padding:
+        5px
+        9px;
+
+    border:
+        1px
+        solid
+        #000000;
+
+    border-radius: 999px;
+
+    font-size: 0.78rem;
+
+    line-height: 1.1;
+
+    font-weight: 800;
+
+    color: #000000;
+
+    white-space: nowrap;
+}
+
+.status-available {
+    background: #b9e5ba;
+}
+
+.status-missing {
+    background: #ffd978;
+}
+
+.scheduled-filename {
+    margin-top: 10px;
+
+    font-family:
+        "Cascadia Mono",
+        Consolas,
+        monospace;
+
+    font-size: 0.78rem;
+
+    color: #000000;
+
+    overflow-wrap: anywhere;
+}
+
+.scheduled-open-button {
+    margin-top: 14px;
+
+    width: auto;
+
+    min-width: 140px;
+}
+
+.not-generated-message {
+    margin-top: 14px;
+
+    padding:
+        10px
+        12px;
+
+    border-left:
+        4px
+        solid
+        #000000;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.45
+        );
+
+    color: #000000;
+}
+
+.empty-schedule-message {
+    padding: 12px;
+
+    color: #000000;
+}
+
+/* ==========================================================
+   All recipes library
+   ========================================================== */
+
+.library-panel {
+    background: var(--panel);
+
+    border:
+        1px
+        solid
+        var(--border);
+
+    border-radius: 14px;
+
+    margin-bottom: 14px;
+
+    padding:
+        4px
+        16px
+        16px
+        16px;
+}
+
+.library-panel summary {
+    padding:
+        14px
+        0;
+
+    cursor: pointer;
+
+    font-weight: 750;
+
+    font-size: 1.1rem;
+}
+
+.library-content {
+    display: grid;
+
+    gap: 10px;
+}
+
+#allRecipes {
+    width: 100%;
+
+    min-height: 180px;
+
+    padding: 6px;
+
+    background: #ffffff;
+
+    color: #000000;
+}
+
+#openLibraryRecipe {
+    max-width: 260px;
+}
+
+/* ==========================================================
+   Recipe viewer
+   ========================================================== */
+
+.viewer-panel {
+    width: 100%;
+
+    min-width: 0;
+
+    background: #ffffff;
+
+    border:
+        1px
+        solid
+        var(--border);
+
+    border-radius: 14px;
+
+    overflow: hidden;
+
+    margin-top: 14px;
+}
+
+.viewer-placeholder {
+    width: 100%;
+
+    min-height: 240px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 40px 20px;
+
+    text-align: center;
+
+    font-size: 1.05rem;
+}
+
+/*
+   The critical part:
+
+   The recipe iframe always occupies the full available width
+   and most of the screen height.
+*/
+
+#recipeFrame {
+    display: block;
+
+    width: 100%;
+
+    max-width: none;
+
+    height: 80vh;
+
+    height: 80dvh;
+
+    min-height: 700px;
+
+    border: 0;
+
+    margin: 0;
+
+    padding: 0;
+
+    background: #ffffff;
+}
+
+/* ==========================================================
+   Tablet and phone
+   ========================================================== */
+
+@media (max-width: 700px) {
+
+    .app {
+        width: 100%;
+
+        padding:
+            max(8px, env(safe-area-inset-top))
+            max(8px, env(safe-area-inset-right))
+            max(16px, env(safe-area-inset-bottom))
+            max(8px, env(safe-area-inset-left));
+    }
+
+    .app-header {
+        padding: 15px;
+    }
+
+    .controls {
+        grid-template-columns: 1fr;
+    }
+
+    .scheduled-panel,
+    .library-panel {
+        border-radius: 10px;
+    }
+
+    .scheduled-card-header {
+        display: grid;
+
+        grid-template-columns: 1fr;
+    }
+
+    .status-badge {
+        width: fit-content;
+    }
+
+    .scheduled-open-button {
+        width: 100%;
+    }
+
+    /*
+       On a phone the recipe itself becomes almost
+       a full-screen reading pane.
+    */
+
+    #recipeFrame {
+        width: 100%;
+
+        height: 85vh;
+
+        height: 85dvh;
+
+        min-height: 650px;
+    }
+}
+
+/* ==========================================================
+   Very small phones
+   ========================================================== */
+
+@media (max-width: 420px) {
+
+    .app-header h1 {
+        font-size: 1.65rem;
+    }
+
+    .scheduled-panel,
+    .library-panel {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    #recipeFrame {
+        height: 88vh;
+
+        height: 88dvh;
+
+        min-height: 600px;
+    }
+}
+
+/* ==========================================================
+   Correct hidden viewer elements
+   ========================================================== */
+
+.viewer-placeholder[hidden],
+#recipeFrame[hidden] {
+    display: none !important;
+}
+
+.viewer-placeholder {
+    min-height: 0;
+    padding: 18px 12px;
+}
+
+/* ==========================================================
+   Dedicated recipe-reading view
+   ========================================================== */
+
+.back-to-planner {
+    display: none;
+
+    width: 100%;
+
+    min-height: 44px;
+
+    padding:
+        8px
+        12px;
+
+    border: 0;
+
+    border-bottom:
+        1px
+        solid
+        #b7b2a8;
+
+    border-radius: 0;
+
+    background: #ffffff;
+
+    color: #000000;
+
+    font-weight: 750;
+
+    text-align: left;
+}
+
+
+body.recipe-open .app-header,
+body.recipe-open .controls,
+body.recipe-open .scheduled-panel,
+body.recipe-open .library-panel {
+    display: none;
+}
+
+
+body.recipe-open .back-to-planner {
+    display: block;
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 50;
+}
+
+
+body.recipe-open .app {
+    width: 100%;
+    max-width: none;
+
+    margin: 0;
+
+    padding: 0;
+}
+
+
+body.recipe-open .viewer-panel {
+    width: 100%;
+
+    margin: 0;
+
+    border: 0;
+
+    border-radius: 0;
+}
+
+
+body.recipe-open .viewer-placeholder {
+    display: none !important;
+}
+
+
+body.recipe-open #recipeFrame {
+    width: 100%;
+
+    height:
+        calc(
+            100dvh
+            -
+            44px
+        );
+
+    min-height:
+        calc(
+            100dvh
+            -
+            44px
+        );
+
+    border: 0;
+}

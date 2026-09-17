@@ -1,9 +1,7 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
 
     <meta
@@ -16,7 +14,7 @@
         content="#f6f3ea"
     >
 
-    <title>Recipe Library</title>
+    <title>Recipe App</title>
 
     <link
         rel="manifest"
@@ -27,130 +25,467 @@
         rel="stylesheet"
         href="./styles.css"
     >
-
 </head>
 
 <body>
 
 <div class="app">
 
-    <header class="app-header">
+    <div id="appShell" class="app-shell">
 
-        <div>
-            <h1>Recipe Library</h1>
-            <div id="currentContext" class="context">
-                Select a date and meal.
-            </div>
-        </div>
-
-    </header>
-
-
-    <section class="controls">
-
-        <div class="control-group">
-
-            <label for="dateSelect">
-                Date
-            </label>
-
-            <input
-                id="dateSelect"
-                type="date"
-            >
-
-        </div>
-
-
-        <div class="control-group">
-
-            <label for="mealSelect">
-                Meal
-            </label>
-
-            <select id="mealSelect">
-            </select>
-
-        </div>
-
-    </section>
-
-
-    <section
-        id="scheduledPanel"
-        class="scheduled-panel"
-    >
-
-        <h2>Scheduled recipe</h2>
-
-        <div id="scheduledRecipes">
-        </div>
-
-    </section>
-
-
-    <details class="library-panel">
-
-        <summary>
-            All recipes
-        </summary>
-
-        <div class="library-content">
-
-            <label for="recipeSearch">
-                Search
-            </label>
-
-            <input
-                id="recipeSearch"
-                type="search"
-                placeholder="Search title, meal type or filename"
-            >
-
-            <label for="allRecipes">
-                Recipe
-            </label>
-
-            <select
-                id="allRecipes"
-                size="8"
-            >
-            </select>
+        <nav class="top-nav" aria-label="Main navigation">
 
             <button
-                id="openLibraryRecipe"
+                class="nav-button active"
                 type="button"
+                data-screen="meals"
             >
-                Open selected recipe
+                Meals
             </button>
 
-        </div>
+            <button
+                class="nav-button"
+                type="button"
+                data-screen="recipes"
+            >
+                Recipes
+            </button>
 
-    </details>
+            <button
+                class="nav-button"
+                type="button"
+                data-screen="shopping"
+            >
+                Shopping
+            </button>
+
+        </nav>
 
 
-    <main class="viewer-panel">
+        <section
+            id="screenMeals"
+            class="app-screen active"
+            data-screen-panel="meals"
+        >
+
+            <div class="screen-heading">
+                <h1>Meals</h1>
+                <p>Choose a scheduled meal and open its recipe.</p>
+            </div>
+
+
+            <section class="controls">
+
+                <div class="control-group">
+
+                    <label for="dateSelect">
+                        Date
+                    </label>
+
+                    <input
+                        id="dateSelect"
+                        type="date"
+                    >
+
+                </div>
+
+
+                <div class="control-group">
+
+                    <label for="mealSelect">
+                        Meal
+                    </label>
+
+                    <select id="mealSelect">
+                    </select>
+
+                </div>
+
+            </section>
+
+
+            <section
+                id="scheduledPanel"
+                class="scheduled-panel"
+            >
+
+                <h2>Scheduled recipe</h2>
+
+                <div id="scheduledRecipes">
+                </div>
+
+            </section>
+
+
+            <div class="compact-hint">
+                Choose a scheduled meal above, or use the Recipes tab to browse.
+            </div>
+
+        </section>
+
+
+        <section
+            id="screenRecipes"
+            class="app-screen"
+            data-screen-panel="recipes"
+            hidden
+        >
+
+            <div class="screen-heading">
+                <h1>Recipes</h1>
+                <p>Search, filter and sort your generated recipes.</p>
+            </div>
+
+
+            <section class="filter-panel">
+
+                <div class="control-group filter-search">
+
+                    <label for="recipeSearch">
+                        Search
+                    </label>
+
+                    <input
+                        id="recipeSearch"
+                        type="search"
+                        placeholder="Search title, ingredient style, cuisine or meal type"
+                    >
+
+                </div>
+
+
+                <div class="filter-grid">
+
+                    <div class="control-group">
+
+                        <label for="ratingFilter">
+                            Rating
+                        </label>
+
+                        <select id="ratingFilter">
+                            <option value="">Any rating</option>
+                            <option value="favourite">Favourite</option>
+                            <option value="neutral">Neutral / unrated</option>
+                            <option value="dislike">Disliked</option>
+                        </select>
+
+                    </div>
+
+
+                    <div class="control-group">
+
+                        <label for="mealTypeFilter">
+                            Meal type
+                        </label>
+
+                        <select id="mealTypeFilter">
+                            <option value="">Any meal</option>
+                        </select>
+
+                    </div>
+
+
+                    <div class="control-group">
+
+                        <label for="proteinSourceFilter">
+                            Contains protein source
+                        </label>
+
+                        <select id="proteinSourceFilter">
+                            <option value="">Any protein source</option>
+                        </select>
+
+                    </div>
+
+
+                    <div class="control-group">
+
+                        <label for="activeTimeFilter">
+                            Active time
+                        </label>
+
+                        <select id="activeTimeFilter">
+                            <option value="">Any active time</option>
+                            <option value="10">10 min or less</option>
+                            <option value="15">15 min or less</option>
+                            <option value="20">20 min or less</option>
+                            <option value="30">30 min or less</option>
+                            <option value="45">45 min or less</option>
+                        </select>
+
+                    </div>
+
+
+                    <div class="control-group">
+
+                        <label for="recipeSort">
+                            Sort
+                        </label>
+
+                        <select id="recipeSort">
+                            <option value="title">A–Z</option>
+                            <option value="active_asc">Active time: shortest first</option>
+                            <option value="total_asc">Total time: shortest first</option>
+                            <option value="protein_desc">Protein: highest first</option>
+                            <option value="energy_asc">Calories: lowest first</option>
+                            <option value="energy_desc">Calories: highest first</option>
+                            <option value="favourite_first">Favourites first</option>
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <details class="advanced-filters">
+
+                    <summary>
+                        More filters
+                    </summary>
+
+                    <div class="filter-grid advanced-filter-grid">
+
+                        <div class="control-group">
+
+                            <label for="totalTimeFilter">
+                                Total time
+                            </label>
+
+                            <select id="totalTimeFilter">
+                                <option value="">Any total time</option>
+                                <option value="15">15 min or less</option>
+                                <option value="30">30 min or less</option>
+                                <option value="45">45 min or less</option>
+                                <option value="60">60 min or less</option>
+                                <option value="90">90 min or less</option>
+                            </select>
+
+                        </div>
+
+
+                        <div class="control-group">
+
+                            <label for="minimumProteinFilter">
+                                Minimum protein
+                            </label>
+
+                            <select id="minimumProteinFilter">
+                                <option value="">Any protein</option>
+                                <option value="20">20 g or more</option>
+                                <option value="30">30 g or more</option>
+                                <option value="40">40 g or more</option>
+                            </select>
+
+                        </div>
+
+
+                        <div class="control-group">
+
+                            <label for="cuisineFilter">
+                                Cuisine
+                            </label>
+
+                            <select id="cuisineFilter">
+                                <option value="">Any cuisine</option>
+                            </select>
+
+                        </div>
+
+
+                        <div class="control-group">
+
+                            <label for="difficultyFilter">
+                                Difficulty
+                            </label>
+
+                            <select id="difficultyFilter">
+                                <option value="">Any difficulty</option>
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                </details>
+
+
+                <div class="filter-footer">
+
+                    <div id="recipeResultCount" class="result-count">
+                    </div>
+
+                    <button
+                        id="clearRecipeFilters"
+                        class="secondary-button"
+                        type="button"
+                    >
+                        Clear filters
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <div
+                id="recipeCards"
+                class="recipe-card-grid"
+            >
+            </div>
+
+        </section>
+
+
+        <section
+            id="screenShopping"
+            class="app-screen"
+            data-screen-panel="shopping"
+            hidden
+        >
+
+            <div class="screen-heading">
+                <h1>Shopping list</h1>
+                <p>Choose a date range, remove meals you do not need, then generate one consolidated list.</p>
+            </div>
+
+
+            <section class="shopping-range-card">
+
+                <div class="shopping-date-grid">
+
+                    <div class="control-group">
+
+                        <label for="shoppingFrom">
+                            From
+                        </label>
+
+                        <div
+                            class="date-input-shell"
+                            data-date-target="shoppingFrom"
+                        >
+                            <input
+                                id="shoppingFrom"
+                                type="date"
+                            >
+                        </div>
+
+                    </div>
+
+
+                    <div class="control-group">
+
+                        <label for="shoppingTo">
+                            To
+                        </label>
+
+                        <div
+                            class="date-input-shell"
+                            data-date-target="shoppingTo"
+                        >
+                            <input
+                                id="shoppingTo"
+                                type="date"
+                            >
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    id="loadShoppingMeals"
+                    type="button"
+                >
+                    Choose meals
+                </button>
+
+            </section>
+
+
+            <div id="shoppingMealSelection">
+            </div>
+
+
+            <div
+                id="shoppingGenerateBar"
+                class="shopping-generate-bar"
+                hidden
+            >
+
+                <div
+                    id="shoppingSelectedCount"
+                    class="shopping-selected-count"
+                >
+                </div>
+
+                <button
+                    id="generateShoppingList"
+                    type="button"
+                >
+                    Generate shopping list
+                </button>
+
+            </div>
+
+
+            <section
+                id="shoppingResultSection"
+                class="shopping-result-section"
+                hidden
+            >
+
+                <div class="shopping-result-toolbar">
+
+                    <h2>Shopping list</h2>
+
+                    <button
+                        id="copyShoppingListTop"
+                        class="secondary-button"
+                        type="button"
+                    >
+                        Copy list
+                    </button>
+
+                </div>
+
+
+                <div id="shoppingResults">
+                </div>
+
+
+                <button
+                    id="copyShoppingListBottom"
+                    class="secondary-button copy-bottom"
+                    type="button"
+                >
+                    Copy list
+                </button>
+
+            </section>
+
+        </section>
+
+    </div>
+
+
+    <main
+        id="viewerPanel"
+        class="viewer-panel"
+        hidden
+    >
 
         <button
             id="backToPlanner"
             class="back-to-planner"
             type="button"
-            hidden
         >
-            ← Back to meal selection
+            ← Back
         </button>
-
-        <div
-            id="viewerPlaceholder"
-            class="viewer-placeholder"
-        >
-            Choose a scheduled meal or select a recipe from the library.
-        </div>
 
         <iframe
             id="recipeFrame"
             title="Recipe"
-            hidden
         >
         </iframe>
 
@@ -160,24 +495,19 @@
 
 
 <script src="./app.js"></script>
+<script src="./shopping.js"></script>
 
 <script>
-
     if ("serviceWorker" in navigator) {
-
         window.addEventListener(
             "load",
             () => {
-
                 navigator.serviceWorker.register(
                     "./sw.js"
                 );
-
             }
         );
-
     }
-
 </script>
 
 </body>
