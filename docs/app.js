@@ -48,6 +48,11 @@ const currentContext =
         "currentContext"
     );
 
+const backToPlanner =
+    document.getElementById(
+        "backToPlanner"
+    );
+
 
 function localTodayISO() {
 
@@ -126,6 +131,14 @@ function clearViewer(
 
     viewerPlaceholder.textContent =
         message;
+
+     document.body.classList.remove(
+            "recipe-open"
+        );
+
+        backToPlanner.hidden =
+            true;
+
 }
 
 
@@ -161,6 +174,13 @@ function openRecipe(
 
     viewerPlaceholder.hidden =
         true;
+
+    document.body.classList.add(
+        "recipe-open"
+        );
+
+    backToPlanner.hidden =
+        false;
 
     if (contextText) {
 
@@ -847,5 +867,41 @@ allRecipes.addEventListener(
     }
 );
 
+backToPlanner.addEventListener(
+    "click",
+    () => {
+
+        document.body.classList.remove(
+            "recipe-open"
+        );
+
+        backToPlanner.hidden =
+            true;
+
+        recipeFrame.hidden =
+            true;
+
+        recipeFrame.removeAttribute(
+            "src"
+        );
+
+        viewerPlaceholder.hidden =
+            false;
+
+        viewerPlaceholder.textContent =
+            (
+                "Choose a scheduled meal "
+                +
+                "or select a recipe "
+                +
+                "from the library."
+            );
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }
+);
 
 loadData();

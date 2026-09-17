@@ -1674,6 +1674,22 @@ def build_html(
         .method-step {{
             padding: 12px;
         }}
+
+h1 {
+    font-size: 1.35rem;
+
+    line-height: 1.18;
+}
+
+.cook-button {
+    width: auto;
+
+    min-height: 36px;
+
+    padding:
+        6px
+        12px;
+}
     }}
 
     @media print {{
@@ -1696,6 +1712,38 @@ def build_html(
             break-inside: avoid;
         }}
     }}
+.recipe-info {
+    margin-top: 10px;
+
+    border:
+        1px
+        solid
+        var(--border);
+
+    border-radius: 9px;
+
+    background: #ffffff;
+
+    overflow: hidden;
+}
+
+.recipe-info > summary {
+    cursor: pointer;
+
+    padding:
+        9px
+        11px;
+
+    font-weight: 750;
+}
+
+.recipe-info-content {
+    padding:
+        0
+        11px
+        11px
+        11px;
+}
 
 </style>
 
@@ -1723,15 +1771,27 @@ def build_html(
 
     {date_html}
 
-    <p class="description">
-        {esc(description)}
-    </p>
+    <details class="recipe-info">
 
-    <div class="tag-row">
-        {''.join(tags)}
-    </div>
+        <summary>
+            Recipe info
+        </summary>
 
-    {allergen_html}
+        <div class="recipe-info-content">
+
+            <p class="description">
+                {esc(description)}
+            </p>
+
+            <div class="tag-row">
+                {''.join(tags)}
+            </div>
+
+            {allergen_html}
+
+        </div>
+
+    </details>
 
 </header>
 

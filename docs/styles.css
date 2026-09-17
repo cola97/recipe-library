@@ -598,3 +598,116 @@ button:hover {
         min-height: 600px;
     }
 }
+
+/* ==========================================================
+   Correct hidden viewer elements
+   ========================================================== */
+
+.viewer-placeholder[hidden],
+#recipeFrame[hidden] {
+    display: none !important;
+}
+
+.viewer-placeholder {
+    min-height: 0;
+    padding: 18px 12px;
+}
+
+/* ==========================================================
+   Dedicated recipe-reading view
+   ========================================================== */
+
+.back-to-planner {
+    display: none;
+
+    width: 100%;
+
+    min-height: 44px;
+
+    padding:
+        8px
+        12px;
+
+    border: 0;
+
+    border-bottom:
+        1px
+        solid
+        #b7b2a8;
+
+    border-radius: 0;
+
+    background: #ffffff;
+
+    color: #000000;
+
+    font-weight: 750;
+
+    text-align: left;
+}
+
+
+body.recipe-open .app-header,
+body.recipe-open .controls,
+body.recipe-open .scheduled-panel,
+body.recipe-open .library-panel {
+    display: none;
+}
+
+
+body.recipe-open .back-to-planner {
+    display: block;
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 50;
+}
+
+
+body.recipe-open .app {
+    width: 100%;
+    max-width: none;
+
+    margin: 0;
+
+    padding: 0;
+}
+
+
+body.recipe-open .viewer-panel {
+    width: 100%;
+
+    margin: 0;
+
+    border: 0;
+
+    border-radius: 0;
+}
+
+
+body.recipe-open .viewer-placeholder {
+    display: none !important;
+}
+
+
+body.recipe-open #recipeFrame {
+    width: 100%;
+
+    height:
+        calc(
+            100dvh
+            -
+            44px
+        );
+
+    min-height:
+        calc(
+            100dvh
+            -
+            44px
+        );
+
+    border: 0;
+}
