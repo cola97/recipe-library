@@ -7,7 +7,7 @@
 
 <meta
     name="viewport"
-    content="width=device-width, initial-scale=1"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
 >
 
 <title>Smoked Paprika Roasted Chickpeas with Cucumber Sticks</title>
@@ -15,21 +15,18 @@
 <style>
 
     :root {
-        --page-width: 1100px;
-        --border: #8f8f8f;
-        --page-background: #f2f2f2;
+        --background: #f4f2ec;
+        --panel: #ffffff;
+        --text: #000000;
+        --muted: #555555;
+        --border: #b9b5ad;
+        --accent: #e5f1dd;
+        --endpoint: #fff4c6;
+        --step: #f7f7f4;
     }
 
     * {
         box-sizing: border-box;
-    }
-
-    html {
-        background: var(--page-background);
-    }
-
-    body {
-        margin: 0;
 
         font-family:
             -apple-system,
@@ -39,512 +36,521 @@
             Helvetica,
             Arial,
             sans-serif;
-
-        color: #000000;
-
-        line-height: 1.55;
     }
 
-    h1,
-    h2,
-    h3,
-    h4,
-    p,
-    div,
-    span,
-    code,
-    pre,
-    summary,
-    strong {
-        color: #000000;
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+
+        background: var(--background);
+        color: var(--text);
+    }
+
+    body {
+        min-height: 100vh;
+        min-height: 100dvh;
+    }
+
+    button,
+    input,
+    select,
+    summary {
+        font: inherit;
     }
 
     .page {
         width: min(
-            calc(100% - 32px),
-            var(--page-width)
+            calc(100% - 24px),
+            1050px
         );
 
-        margin:
-            32px
-            auto
-            64px
-            auto;
+        margin: 0 auto;
+
+        padding:
+            max(12px, env(safe-area-inset-top))
+            0
+            max(40px, env(safe-area-inset-bottom))
+            0;
     }
 
-    /* ======================================================
-       Header
-       ====================================================== */
+    .recipe-header {
+        position: sticky;
+        top: 0;
+        z-index: 20;
 
-    .document-header {
-        background: #ffffff;
+        background:
+            rgba(
+                244,
+                242,
+                236,
+                0.96
+            );
 
-        border:
+        backdrop-filter:
+            blur(10px);
+
+        padding:
+            12px
+            0
+            10px
+            0;
+
+        border-bottom:
             1px
             solid
             var(--border);
-
-        border-radius: 14px;
-
-        padding: 32px;
-
-        margin-bottom: 24px;
     }
 
-    .document-header h1 {
+    .title-row {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 12px;
+    }
+
+    h1 {
         margin: 0;
 
         font-size:
             clamp(
-                2rem,
-                4vw,
-                3rem
+                1.65rem,
+                5vw,
+                2.8rem
             );
 
-        line-height: 1.1;
+        line-height: 1.12;
     }
 
-    .schedule-date {
-        margin-top: 18px;
+    .description {
+        margin:
+            12px
+            0
+            0
+            0;
+
+        line-height: 1.5;
+    }
+
+    .scheduled-date {
+        margin-top: 8px;
+        font-weight: 700;
+    }
+
+    .tag-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+
+        margin-top: 10px;
+    }
+
+    .badge {
+        display: inline-block;
 
         padding:
-            12px
-            16px;
+            4px
+            8px;
 
-        border:
-            1px
-            solid
-            #000000;
-
-        border-radius: 8px;
-
-        background: #fff7c7;
-
-        font-size: 1.1rem;
-    }
-
-    /* ======================================================
-       All major JSON sections
-       ====================================================== */
-
-    .top-section {
         border:
             1px
             solid
             var(--border);
 
-        border-radius: 14px;
+        border-radius: 999px;
 
-        padding: 24px;
+        background: #ffffff;
 
-        margin:
-            0
-            0
-            24px
-            0;
+        color: #000000;
+
+        font-size: 0.82rem;
     }
 
-    .top-section > h2 {
-        margin:
-            0
-            0
-            20px
-            0;
+    .allergens {
+        margin-top: 10px;
 
-        padding-bottom: 10px;
+        padding:
+            8px
+            10px;
 
-        border-bottom:
-            2px
-            solid
-            #000000;
+        border-radius: 8px;
 
-        font-size: 1.6rem;
+        background: #ffe4df;
     }
 
-    /*
-       Every major section receives its own background colour.
+    .facts {
+        display: grid;
 
-       Text remains black throughout.
-    */
-
-    .top-section[data-json-path="$.schema_version"] {
-        background: #eeeeee;
-    }
-
-    .top-section[data-json-path="$.recipe"] {
-        background: #ffe8dc;
-    }
-
-    .top-section[data-json-path="$.nutrition_per_serving"] {
-        background: #ddf3e4;
-    }
-
-    .top-section[data-json-path="$.ingredients"] {
-        background: #fff4c9;
-    }
-
-    .top-section[data-json-path="$.equipment"] {
-        background: #dfeeff;
-    }
-
-    .top-section[data-json-path="$.mise_en_place"] {
-        background: #eee2fa;
-    }
-
-    .top-section[data-json-path="$.procedure"] {
-        background: #ffe1e8;
-    }
-
-    .top-section[data-json-path="$.plating"] {
-        background: #daf5f2;
-    }
-
-    .top-section[data-json-path="$.storage"] {
-        background: #ffe9c9;
-    }
-
-    .top-section[data-json-path="$.shopping"] {
-        background: #e4f3d7;
-    }
-
-    .top-section[data-json-path="$.quality_checks"] {
-        background: #eadff5;
-    }
-
-    /* ======================================================
-       Nested objects
-       ====================================================== */
-
-    .object-content {
-        margin: 0;
-    }
-
-    .nested-object {
-        margin:
-            18px
-            0;
-
-        padding: 18px;
-
-        border:
-            1px
-            solid
-            #777777;
-
-        border-radius: 10px;
-
-        background:
-            rgba(
-                255,
-                255,
-                255,
-                0.55
+        grid-template-columns:
+            repeat(
+                auto-fit,
+                minmax(90px, 1fr)
             );
-    }
 
-    .nested-object > h3 {
+        gap: 8px;
+
         margin:
-            0
-            0
             14px
             0;
     }
 
-    /* ======================================================
-       Individual fields
-       ====================================================== */
-
-    .field-row {
+    .fact {
         display: grid;
+        gap: 2px;
 
-        grid-template-columns:
-            minmax(
-                180px,
-                28%
-            )
-            1fr;
-
-        gap: 20px;
-
-        padding:
-            10px
-            0;
-
-        border-bottom:
-            1px
-            solid
-            rgba(
-                0,
-                0,
-                0,
-                0.18
-            );
-    }
-
-    .field-row:last-child {
-        border-bottom: 0;
-    }
-
-    .field-name {
-        font-weight: 700;
-    }
-
-    .field-value {
-        white-space: pre-wrap;
-
-        overflow-wrap: anywhere;
-    }
-
-    .top-scalar-value {
-        font-size: 1.05rem;
-
-        overflow-wrap: anywhere;
-    }
-
-    /* ======================================================
-       Arrays
-       ====================================================== */
-
-    .array-block {
-        margin:
-            10px
-            0
-            20px
-            0;
-    }
-
-    .array-block > h3 {
-        margin-bottom: 12px;
-    }
-
-    .array-items {
-        display: grid;
-
-        gap: 14px;
-    }
-
-    .array-item {
-        padding: 18px;
+        padding: 9px;
 
         border:
             1px
             solid
-            #777777;
+            var(--border);
+
+        border-radius: 9px;
+
+        background: #ffffff;
+    }
+
+    .fact span {
+        font-size: 0.78rem;
+        color: var(--muted);
+    }
+
+    .section {
+        display: block;
+
+        margin-top: 14px;
+
+        border:
+            1px
+            solid
+            var(--border);
+
+        border-radius: 12px;
+
+        background: var(--panel);
+
+        overflow: hidden;
+    }
+
+    details.section > summary {
+        cursor: pointer;
+
+        padding:
+            15px
+            16px;
+
+        font-size: 1.12rem;
+
+        font-weight: 800;
+
+        background: var(--accent);
+    }
+
+    .section-content {
+        padding: 14px;
+    }
+
+    .method-section {
+        padding:
+            14px;
+    }
+
+    .method-section > h2 {
+        margin:
+            0
+            0
+            12px
+            0;
+    }
+
+    .ingredient-grid {
+        display: grid;
+        gap: 10px;
+    }
+
+    .ingredient-card,
+    .prep-card,
+    .method-step {
+        padding: 14px;
+
+        border:
+            1px
+            solid
+            var(--border);
 
         border-radius: 10px;
 
-        background:
-            rgba(
-                255,
-                255,
-                255,
-                0.60
-            );
+        background: var(--step);
     }
 
-    .item-number {
-        font-size: 0.82rem;
+    .ingredient-heading {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 14px;
+    }
 
-        font-weight: 700;
+    .ingredient-quantity {
+        flex: 0 0 auto;
+
+        font-weight: 800;
+
+        white-space: nowrap;
+    }
+
+    .subline {
+        margin-top: 7px;
+        line-height: 1.4;
+    }
+
+    .compact-list {
+        margin:
+            0;
+        padding-left:
+            22px;
+    }
+
+    .card-stack {
+        display: grid;
+        gap: 12px;
+    }
+
+    .prep-card h3,
+    .method-step h3 {
+        margin:
+            0;
+    }
+
+    .prep-card p,
+    .method-step p {
+        margin:
+            10px
+            0;
+    }
+
+    .step-heading {
+        display: flex;
+        align-items: baseline;
+        gap: 10px;
+    }
+
+    .step-number {
+        flex: 0 0 auto;
+
+        font-size: 0.8rem;
+        font-weight: 800;
 
         text-transform: uppercase;
-
-        letter-spacing: 0.06em;
-
-        margin-bottom: 8px;
     }
 
-    .scalar-array-item {
+    .step-section {
+        margin-top: 6px;
+
+        font-size: 0.85rem;
+        font-weight: 700;
+
+        color: var(--muted);
+    }
+
+    .step-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+
+        margin-top: 10px;
+    }
+
+    .instruction {
+        font-size: 1rem;
+        line-height: 1.55;
+    }
+
+    .endpoint {
+        margin-top: 10px;
+
+        padding:
+            10px
+            12px;
+
+        border-left:
+            4px
+            solid
+            #000000;
+
+        background: var(--endpoint);
+
+        line-height: 1.45;
+    }
+
+    .corrective {
+        margin-top: 10px;
+    }
+
+    .corrective summary {
+        cursor: pointer;
+        font-weight: 750;
+    }
+
+    .corrective ul {
+        margin-bottom: 0;
+    }
+
+    .cook-button {
+        flex: 0 0 auto;
+
+        min-height: 42px;
+
         padding:
             8px
             12px;
 
-        border-left:
-            3px
+        border:
+            1px
             solid
             #000000;
 
-        background:
-            rgba(
-                255,
-                255,
-                255,
-                0.55
+        border-radius: 9px;
+
+        background: #000000;
+        color: #ffffff;
+
+        font-weight: 750;
+    }
+
+    .cook-controls {
+        display: none;
+
+        position: sticky;
+
+        bottom:
+            max(
+                8px,
+                env(safe-area-inset-bottom)
             );
 
-        white-space: pre-wrap;
+        z-index: 30;
 
-        overflow-wrap: anywhere;
+        align-items: center;
+
+        justify-content: space-between;
+
+        gap: 10px;
+
+        margin-top: 14px;
+
+        padding: 10px;
+
+        border:
+            1px
+            solid
+            #000000;
+
+        border-radius: 12px;
+
+        background: #ffffff;
     }
 
-    /* ======================================================
-       Special JSON values
-       ====================================================== */
-
-    .null-value {
-        font-style: italic;
-
-        color: #000000;
-    }
-
-    .boolean-value {
-        font-family:
-            ui-monospace,
-            "Cascadia Mono",
-            Consolas,
-            monospace;
-
-        color: #000000;
-    }
-
-    .empty-value {
-        font-family:
-            ui-monospace,
-            "Cascadia Mono",
-            Consolas,
-            monospace;
-
-        color: #000000;
+    .cook-controls button {
+        min-height: 44px;
 
         padding:
             8px
-            0;
-    }
-
-    /* ======================================================
-       Integrity information
-       ====================================================== */
-
-    .integrity {
-        margin-top: 32px;
-
-        background: #eeeeee;
+            14px;
 
         border:
             1px
             solid
-            var(--border);
-
-        border-radius: 10px;
-
-        padding: 18px;
-
-        font-size: 0.9rem;
-    }
-
-    .integrity code {
-        color: #000000;
-
-        overflow-wrap: anywhere;
-    }
-
-    /* ======================================================
-       Original source JSON
-       ====================================================== */
-
-    details {
-        margin-top: 20px;
-
-        background: #ffffff;
-
-        border:
-            1px
-            solid
-            var(--border);
-
-        border-radius: 10px;
-
-        padding: 16px;
-    }
-
-    summary {
-        cursor: pointer;
-
-        font-weight: 700;
-
-        color: #000000;
-    }
-
-    pre {
-        margin-top: 18px;
-
-        overflow-x: auto;
-
-        padding: 18px;
-
-        background: #eeeeee;
-
-        color: #000000;
-
-        border:
-            1px
-            solid
-            #777777;
+            #000000;
 
         border-radius: 8px;
 
-        white-space: pre-wrap;
+        background: #000000;
+        color: #ffffff;
 
-        overflow-wrap: anywhere;
+        font-weight: 750;
     }
 
-    /* ======================================================
-       Mobile layout
-       ====================================================== */
+    body.cook-mode .non-method {
+        display: none;
+    }
 
-    @media (max-width: 700px) {
+    body.cook-mode .method-step {
+        display: none;
+    }
+
+    body.cook-mode .method-step.active {
+        display: block;
+    }
+
+    body.cook-mode .cook-controls {
+        display: flex;
+    }
+
+    body.cook-mode .method-section {
+        min-height:
+            70vh;
+    }
+
+    @media (max-width: 600px) {
 
         .page {
             width:
-                min(
-                    calc(100% - 20px),
-                    var(--page-width)
-                );
-
-            margin-top: 10px;
+                calc(100% - 12px);
         }
 
-        .document-header,
-        .top-section {
-            padding: 18px;
+        .recipe-header {
+            padding-top: 8px;
         }
 
-        .field-row {
+        .title-row {
+            display: grid;
             grid-template-columns: 1fr;
+        }
 
+        .cook-button {
+            width: 100%;
+        }
+
+        .ingredient-heading {
+            display: grid;
+            grid-template-columns: 1fr;
             gap: 3px;
+        }
+
+        .ingredient-quantity {
+            white-space: normal;
+        }
+
+        .method-section,
+        .section-content {
+            padding: 10px;
+        }
+
+        .ingredient-card,
+        .prep-card,
+        .method-step {
+            padding: 12px;
         }
     }
 
-    /* ======================================================
-       Print layout
-       ====================================================== */
-
     @media print {
 
-        html,
-        body {
-            background: #ffffff;
+        .recipe-header {
+            position: static;
         }
 
-        .page {
-            width: 100%;
-
-            margin: 0;
+        .cook-button,
+        .cook-controls {
+            display: none !important;
         }
 
-        .top-section,
-        .array-item {
+        body.cook-mode .non-method,
+        body.cook-mode .method-step {
+            display: block;
+        }
+
+        .section {
             break-inside: avoid;
-        }
-
-        /*
-           Hide the full raw JSON when printing.
-           It remains present in the HTML source.
-        */
-
-        details {
-            display: none;
         }
     }
 
@@ -556,1443 +562,501 @@
 
 <main class="page">
 
-<header class="document-header">
+<header class="recipe-header">
 
-    <h1>Smoked Paprika Roasted Chickpeas with Cucumber Sticks</h1>
+    <div class="title-row">
+
+        <h1>Smoked Paprika Roasted Chickpeas with Cucumber Sticks</h1>
+
+        <button
+            id="cookModeButton"
+            class="cook-button"
+            type="button"
+        >
+            Cook mode
+        </button>
+
+    </div>
+
+    
+
+    <p class="description">
+        A portable afternoon snack of crisp roasted chickpeas coated with smoked paprika, cumin and lemon zest, served with cool cucumber sticks for fresh contrast. The chickpeas are dried thoroughly before roasting and packed separately from the cucumber to preserve crunch.
+    </p>
+
+    <div class="tag-row">
+        <span class="badge">Afternoon snack</span><span class="badge">Vegetarian</span><span class="badge">Vegan</span><span class="badge">Portable</span><span class="badge">High fibre</span>
+    </div>
 
     
 
 </header>
 
-<section class="top-section" data-json-path="$.schema_version"><h2>Schema Version</h2><div class="top-scalar-value" data-json-path="$.schema_version">1.0</div></section>
-<section class="top-section" data-json-path="$.recipe"><h2>Recipe</h2><div class="object-content" data-json-path="$.recipe">
-<div class="field-row" data-json-path="$.recipe.id"><div class="field-name">Id</div><div class="field-value">smoked_paprika_roasted_chickpeas_cucumber_sticks</div></div>
-<div class="field-row" data-json-path="$.recipe.title"><div class="field-name">Title</div><div class="field-value">Smoked Paprika Roasted Chickpeas with Cucumber Sticks</div></div>
-<div class="field-row" data-json-path="$.recipe.description"><div class="field-name">Description</div><div class="field-value">A portable afternoon snack of crisp roasted chickpeas coated with smoked paprika, cumin and lemon zest, served with cool cucumber sticks for fresh contrast. The chickpeas are dried thoroughly before roasting and packed separately from the cucumber to preserve crunch.</div></div>
-<div class="field-row" data-json-path="$.recipe.servings"><div class="field-name">Servings</div><div class="field-value">2</div></div>
-<div class="field-row" data-json-path="$.recipe.difficulty"><div class="field-name">Difficulty</div><div class="field-value">Easy</div></div>
-<div class="field-row" data-json-path="$.recipe.total_time_minutes"><div class="field-name">Total Time Minutes</div><div class="field-value">35</div></div>
-<div class="field-row" data-json-path="$.recipe.active_time_minutes"><div class="field-name">Active Time Minutes</div><div class="field-value">15</div></div>
-<div class="field-row" data-json-path="$.recipe.passive_time_minutes"><div class="field-name">Passive Time Minutes</div><div class="field-value">20</div></div>
-<div class="array-block" data-json-path="$.recipe.cuisine">
-<h3>Cuisine</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.recipe.cuisine[0]">Mediterranean-inspired</div>
-<div class="scalar-array-item" data-json-path="$.recipe.cuisine[1]">Contemporary</div>
+<div class="facts">
+    <div class="fact"><span>Serves</span><strong>2</strong></div><div class="fact"><span>Difficulty</span><strong>Easy</strong></div><div class="fact"><span>Active</span><strong>15 min</strong></div><div class="fact"><span>Total</span><strong>35 min</strong></div><div class="fact"><span>Energy</span><strong>196 kcal</strong></div><div class="fact"><span>Protein</span><strong>8 g</strong></div>
 </div>
-</div>
-<div class="array-block" data-json-path="$.recipe.meal_types">
-<h3>Meal Types</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.recipe.meal_types[0]">Afternoon snack</div>
-</div>
-</div>
-<div class="array-block" data-json-path="$.recipe.dietary_tags">
-<h3>Dietary Tags</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.recipe.dietary_tags[0]">Vegetarian</div>
-<div class="scalar-array-item" data-json-path="$.recipe.dietary_tags[1]">Vegan</div>
-<div class="scalar-array-item" data-json-path="$.recipe.dietary_tags[2]">Portable</div>
-<div class="scalar-array-item" data-json-path="$.recipe.dietary_tags[3]">High fibre</div>
-</div>
-</div>
-<div class="array-block" data-json-path="$.recipe.allergens">
-<h3>Allergens</h3>
-<div class="empty-value">[ ]</div>
-</div>
-</div></section>
-<section class="top-section" data-json-path="$.nutrition_per_serving"><h2>Nutrition Per Serving</h2><div class="object-content" data-json-path="$.nutrition_per_serving">
-<div class="field-row" data-json-path="$.nutrition_per_serving.energy_kcal"><div class="field-name">Energy Kcal</div><div class="field-value">196</div></div>
-<div class="field-row" data-json-path="$.nutrition_per_serving.protein_g"><div class="field-name">Protein G</div><div class="field-value">8</div></div>
-<div class="field-row" data-json-path="$.nutrition_per_serving.carbohydrate_g"><div class="field-name">Carbohydrate G</div><div class="field-value">25</div></div>
-<div class="field-row" data-json-path="$.nutrition_per_serving.fat_g"><div class="field-name">Fat G</div><div class="field-value">8</div></div>
-<div class="field-row" data-json-path="$.nutrition_per_serving.saturated_fat_g"><div class="field-name">Saturated Fat G</div><div class="field-value">1</div></div>
-<div class="field-row" data-json-path="$.nutrition_per_serving.fibre_g"><div class="field-name">Fibre G</div><div class="field-value">7</div></div>
-<div class="field-row" data-json-path="$.nutrition_per_serving.salt_g"><div class="field-name">Salt G</div><div class="field-value">0.5</div></div>
-</div></section>
-<section class="top-section" data-json-path="$.ingredients"><h2>Ingredients</h2><div class="array-block" data-json-path="$.ingredients">
-<div class="array-items">
-<article class="array-item" data-json-path="$.ingredients[0]">
-<div class="item-number">Item 1</div>
-<div class="field-row" data-json-path="$.ingredients[0].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">chickpeas_canned</div></div>
-<div class="field-row" data-json-path="$.ingredients[0].display_name"><div class="field-name">Display Name</div><div class="field-value">Canned chickpeas</div></div>
-<div class="field-row" data-json-path="$.ingredients[0].category"><div class="field-name">Category</div><div class="field-value">Legumes</div></div>
-<div class="field-row" data-json-path="$.ingredients[0].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.ingredients[0].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">220</div></div>
-<div class="field-row" data-json-path="$.ingredients[0].unit_used"><div class="field-name">Unit Used</div><div class="field-value">g</div></div>
-<div class="field-row" data-json-path="$.ingredients[0].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 x 400 g tin</div></div>
-<div class="field-row" data-json-path="$.ingredients[0].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">A standard 400 g tin usually provides approximately 230-250 g drained chickpeas; exact drained weight varies by product.</div></div>
-<div class="array-block" data-json-path="$.ingredients[0].retailers">
-<h3>Retailers</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.ingredients[0].retailers[0]">Sainsbury&#x27;s</div>
-<div class="scalar-array-item" data-json-path="$.ingredients[0].retailers[1]">Marks &amp; Spencer</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.ingredients[0].preparation"><div class="field-name">Preparation</div><div class="field-value">Drain completely, rinse thoroughly under cold running water, then dry very thoroughly before roasting.</div></div>
-<div class="field-row" data-json-path="$.ingredients[0].notes"><div class="field-name">Notes</div><div class="field-value">Use: 220 g drained chickpeas total, 110 g per serving.</div></div>
-</article>
-<article class="array-item" data-json-path="$.ingredients[1]">
-<div class="item-number">Item 2</div>
-<div class="field-row" data-json-path="$.ingredients[1].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">cucumber</div></div>
-<div class="field-row" data-json-path="$.ingredients[1].display_name"><div class="field-name">Display Name</div><div class="field-value">Cucumber</div></div>
-<div class="field-row" data-json-path="$.ingredients[1].category"><div class="field-name">Category</div><div class="field-value">Vegetables</div></div>
-<div class="field-row" data-json-path="$.ingredients[1].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.ingredients[1].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">0.5</div></div>
-<div class="field-row" data-json-path="$.ingredients[1].unit_used"><div class="field-name">Unit Used</div><div class="field-value">integer</div></div>
-<div class="field-row" data-json-path="$.ingredients[1].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 whole cucumber</div></div>
-<div class="field-row" data-json-path="$.ingredients[1].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Use approximately half and refrigerate the remainder for another use.</div></div>
-<div class="array-block" data-json-path="$.ingredients[1].retailers">
-<h3>Retailers</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.ingredients[1].retailers[0]">Sainsbury&#x27;s</div>
-<div class="scalar-array-item" data-json-path="$.ingredients[1].retailers[1]">Marks &amp; Spencer</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.ingredients[1].preparation"><div class="field-name">Preparation</div><div class="field-value">Wash and dry. Cut approximately 220 g into sticks approximately 10 mm x 10 mm x 70 mm. Remove only excessively watery seed core if required.</div></div>
-<div class="field-row" data-json-path="$.ingredients[1].notes"><div class="field-name">Notes</div><div class="field-value">Use: approximately 220 g prepared cucumber total.</div></div>
-</article>
-<article class="array-item" data-json-path="$.ingredients[2]">
-<div class="item-number">Item 3</div>
-<div class="field-row" data-json-path="$.ingredients[2].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">olive_oil</div></div>
-<div class="field-row" data-json-path="$.ingredients[2].display_name"><div class="field-name">Display Name</div><div class="field-value">Olive oil</div></div>
-<div class="field-row" data-json-path="$.ingredients[2].category"><div class="field-name">Category</div><div class="field-value">Oils</div></div>
-<div class="field-row" data-json-path="$.ingredients[2].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.ingredients[2].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">8</div></div>
-<div class="field-row" data-json-path="$.ingredients[2].unit_used"><div class="field-name">Unit Used</div><div class="field-value">g</div></div>
-<div class="field-row" data-json-path="$.ingredients[2].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 bottle if not already stocked</div></div>
-<div class="field-row" data-json-path="$.ingredients[2].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Standard olive oil is suitable for roasting.</div></div>
-<div class="array-block" data-json-path="$.ingredients[2].retailers">
-<h3>Retailers</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.ingredients[2].retailers[0]">Sainsbury&#x27;s</div>
-<div class="scalar-array-item" data-json-path="$.ingredients[2].retailers[1]">Marks &amp; Spencer</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.ingredients[2].preparation"><div class="field-name">Preparation</div><div class="field-value">Measure accurately before coating the chickpeas.</div></div>
-<div class="field-row" data-json-path="$.ingredients[2].notes"><div class="field-name">Notes</div><div class="field-value">Use: 8 g total.</div></div>
-</article>
-<article class="array-item" data-json-path="$.ingredients[3]">
-<div class="item-number">Item 4</div>
-<div class="field-row" data-json-path="$.ingredients[3].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">smoked_paprika</div></div>
-<div class="field-row" data-json-path="$.ingredients[3].display_name"><div class="field-name">Display Name</div><div class="field-value">Smoked paprika</div></div>
-<div class="field-row" data-json-path="$.ingredients[3].category"><div class="field-name">Category</div><div class="field-value">Spices</div></div>
-<div class="field-row" data-json-path="$.ingredients[3].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.ingredients[3].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">1</div></div>
-<div class="field-row" data-json-path="$.ingredients[3].unit_used"><div class="field-name">Unit Used</div><div class="field-value">tsp</div></div>
-<div class="field-row" data-json-path="$.ingredients[3].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 jar</div></div>
-<div class="field-row" data-json-path="$.ingredients[3].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Use sweet smoked paprika unless a hotter version is specifically preferred.</div></div>
-<div class="array-block" data-json-path="$.ingredients[3].retailers">
-<h3>Retailers</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.ingredients[3].retailers[0]">Sainsbury&#x27;s</div>
-<div class="scalar-array-item" data-json-path="$.ingredients[3].retailers[1]">Marks &amp; Spencer</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.ingredients[3].preparation"><div class="field-name">Preparation</div><div class="field-value">Measure before seasoning.</div></div>
-<div class="field-row" data-json-path="$.ingredients[3].notes"><div class="field-name">Notes</div><div class="field-value">Use: 1 tsp total.</div></div>
-</article>
-<article class="array-item" data-json-path="$.ingredients[4]">
-<div class="item-number">Item 5</div>
-<div class="field-row" data-json-path="$.ingredients[4].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">ground_cumin</div></div>
-<div class="field-row" data-json-path="$.ingredients[4].display_name"><div class="field-name">Display Name</div><div class="field-value">Ground cumin</div></div>
-<div class="field-row" data-json-path="$.ingredients[4].category"><div class="field-name">Category</div><div class="field-value">Spices</div></div>
-<div class="field-row" data-json-path="$.ingredients[4].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.ingredients[4].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">0.5</div></div>
-<div class="field-row" data-json-path="$.ingredients[4].unit_used"><div class="field-name">Unit Used</div><div class="field-value">tsp</div></div>
-<div class="field-row" data-json-path="$.ingredients[4].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 jar if not already stocked</div></div>
-<div class="field-row" data-json-path="$.ingredients[4].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Standard ground cumin is suitable.</div></div>
-<div class="array-block" data-json-path="$.ingredients[4].retailers">
-<h3>Retailers</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.ingredients[4].retailers[0]">Sainsbury&#x27;s</div>
-<div class="scalar-array-item" data-json-path="$.ingredients[4].retailers[1]">Marks &amp; Spencer</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.ingredients[4].preparation"><div class="field-name">Preparation</div><div class="field-value">Measure before seasoning.</div></div>
-<div class="field-row" data-json-path="$.ingredients[4].notes"><div class="field-name">Notes</div><div class="field-value">Use: 0.5 tsp total.</div></div>
-</article>
-<article class="array-item" data-json-path="$.ingredients[5]">
-<div class="item-number">Item 6</div>
-<div class="field-row" data-json-path="$.ingredients[5].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">garlic_granules</div></div>
-<div class="field-row" data-json-path="$.ingredients[5].display_name"><div class="field-name">Display Name</div><div class="field-value">Garlic granules</div></div>
-<div class="field-row" data-json-path="$.ingredients[5].category"><div class="field-name">Category</div><div class="field-value">Seasoning</div></div>
-<div class="field-row" data-json-path="$.ingredients[5].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.ingredients[5].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">0.5</div></div>
-<div class="field-row" data-json-path="$.ingredients[5].unit_used"><div class="field-name">Unit Used</div><div class="field-value">tsp</div></div>
-<div class="field-row" data-json-path="$.ingredients[5].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 jar if not already stocked</div></div>
-<div class="field-row" data-json-path="$.ingredients[5].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Use garlic granules rather than fresh garlic for a dry roasting coating.</div></div>
-<div class="array-block" data-json-path="$.ingredients[5].retailers">
-<h3>Retailers</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.ingredients[5].retailers[0]">Sainsbury&#x27;s</div>
-<div class="scalar-array-item" data-json-path="$.ingredients[5].retailers[1]">Marks &amp; Spencer</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.ingredients[5].preparation"><div class="field-name">Preparation</div><div class="field-value">Measure before seasoning.</div></div>
-<div class="field-row" data-json-path="$.ingredients[5].notes"><div class="field-name">Notes</div><div class="field-value">Use: 0.5 tsp total.</div></div>
-</article>
-<article class="array-item" data-json-path="$.ingredients[6]">
-<div class="item-number">Item 7</div>
-<div class="field-row" data-json-path="$.ingredients[6].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">lemon</div></div>
-<div class="field-row" data-json-path="$.ingredients[6].display_name"><div class="field-name">Display Name</div><div class="field-value">Unwaxed lemon</div></div>
-<div class="field-row" data-json-path="$.ingredients[6].category"><div class="field-name">Category</div><div class="field-value">Fruit</div></div>
-<div class="field-row" data-json-path="$.ingredients[6].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.ingredients[6].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">1</div></div>
-<div class="field-row" data-json-path="$.ingredients[6].unit_used"><div class="field-name">Unit Used</div><div class="field-value">integer</div></div>
-<div class="field-row" data-json-path="$.ingredients[6].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 lemon</div></div>
-<div class="field-row" data-json-path="$.ingredients[6].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">An unwaxed lemon is preferred because only the zest is used in this recipe.</div></div>
-<div class="array-block" data-json-path="$.ingredients[6].retailers">
-<h3>Retailers</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.ingredients[6].retailers[0]">Sainsbury&#x27;s</div>
-<div class="scalar-array-item" data-json-path="$.ingredients[6].retailers[1]">Marks &amp; Spencer</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.ingredients[6].preparation"><div class="field-name">Preparation</div><div class="field-value">Wash and dry. Finely grate approximately 1 g yellow zest without removing significant white pith.</div></div>
-<div class="field-row" data-json-path="$.ingredients[6].notes"><div class="field-name">Notes</div><div class="field-value">Use approximately 1 g zest; reserve the remaining lemon for another use.</div></div>
-</article>
-<article class="array-item" data-json-path="$.ingredients[7]">
-<div class="item-number">Item 8</div>
-<div class="field-row" data-json-path="$.ingredients[7].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">fine_salt</div></div>
-<div class="field-row" data-json-path="$.ingredients[7].display_name"><div class="field-name">Display Name</div><div class="field-value">Fine salt</div></div>
-<div class="field-row" data-json-path="$.ingredients[7].category"><div class="field-name">Category</div><div class="field-value">Seasoning</div></div>
-<div class="field-row" data-json-path="$.ingredients[7].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.ingredients[7].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">0.25</div></div>
-<div class="field-row" data-json-path="$.ingredients[7].unit_used"><div class="field-name">Unit Used</div><div class="field-value">tsp</div></div>
-<div class="field-row" data-json-path="$.ingredients[7].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 standard container if not already stocked</div></div>
-<div class="field-row" data-json-path="$.ingredients[7].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Fine table salt or fine sea salt is suitable.</div></div>
-<div class="array-block" data-json-path="$.ingredients[7].retailers">
-<h3>Retailers</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.ingredients[7].retailers[0]">Sainsbury&#x27;s</div>
-<div class="scalar-array-item" data-json-path="$.ingredients[7].retailers[1]">Marks &amp; Spencer</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.ingredients[7].preparation"><div class="field-name">Preparation</div><div class="field-value">Measure 0.1875 tsp for initial seasoning and reserve up to 0.0625 tsp for final adjustment.</div></div>
-<div class="field-row" data-json-path="$.ingredients[7].notes"><div class="field-name">Notes</div><div class="field-value">Use no more than 0.25 tsp total.</div></div>
-</article>
-<article class="array-item" data-json-path="$.ingredients[8]">
-<div class="item-number">Item 9</div>
-<div class="field-row" data-json-path="$.ingredients[8].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">black_pepper_ground</div></div>
-<div class="field-row" data-json-path="$.ingredients[8].display_name"><div class="field-name">Display Name</div><div class="field-value">Ground black pepper</div></div>
-<div class="field-row" data-json-path="$.ingredients[8].category"><div class="field-name">Category</div><div class="field-value">Seasoning</div></div>
-<div class="field-row" data-json-path="$.ingredients[8].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.ingredients[8].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">0.125</div></div>
-<div class="field-row" data-json-path="$.ingredients[8].unit_used"><div class="field-name">Unit Used</div><div class="field-value">tsp</div></div>
-<div class="field-row" data-json-path="$.ingredients[8].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 jar or pepper mill if not already stocked</div></div>
-<div class="field-row" data-json-path="$.ingredients[8].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Freshly ground black pepper is preferred where available.</div></div>
-<div class="array-block" data-json-path="$.ingredients[8].retailers">
-<h3>Retailers</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.ingredients[8].retailers[0]">Sainsbury&#x27;s</div>
-<div class="scalar-array-item" data-json-path="$.ingredients[8].retailers[1]">Marks &amp; Spencer</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.ingredients[8].preparation"><div class="field-name">Preparation</div><div class="field-value">Measure before seasoning.</div></div>
-<div class="field-row" data-json-path="$.ingredients[8].notes"><div class="field-name">Notes</div><div class="field-value">Use: 0.125 tsp total.</div></div>
-</article>
-</div>
-</div></section>
-<section class="top-section" data-json-path="$.equipment"><h2>Equipment</h2><div class="array-block" data-json-path="$.equipment">
-<div class="array-items">
-<article class="array-item" data-json-path="$.equipment[0]">
-<div class="item-number">Item 1</div>
-<div class="field-row" data-json-path="$.equipment[0].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">air_fryer</div></div>
-<div class="field-row" data-json-path="$.equipment[0].display_name"><div class="field-name">Display Name</div><div class="field-value">Duo Stack air fryer</div></div>
-<div class="field-row" data-json-path="$.equipment[0].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.equipment[0].notes"><div class="field-name">Notes</div><div class="field-value">Used to roast the chickpeas efficiently to a crisp exterior.</div></div>
-</article>
-<article class="array-item" data-json-path="$.equipment[1]">
-<div class="item-number">Item 2</div>
-<div class="field-row" data-json-path="$.equipment[1].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">colander</div></div>
-<div class="field-row" data-json-path="$.equipment[1].display_name"><div class="field-name">Display Name</div><div class="field-value">Colander</div></div>
-<div class="field-row" data-json-path="$.equipment[1].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.equipment[1].notes"><div class="field-name">Notes</div><div class="field-value">Used to drain and rinse the chickpeas.</div></div>
-</article>
-<article class="array-item" data-json-path="$.equipment[2]">
-<div class="item-number">Item 3</div>
-<div class="field-row" data-json-path="$.equipment[2].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">mixing_bowl</div></div>
-<div class="field-row" data-json-path="$.equipment[2].display_name"><div class="field-name">Display Name</div><div class="field-value">Medium mixing bowl</div></div>
-<div class="field-row" data-json-path="$.equipment[2].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.equipment[2].notes"><div class="field-name">Notes</div><div class="field-value">Used to coat and season the chickpeas.</div></div>
-</article>
-<article class="array-item" data-json-path="$.equipment[3]">
-<div class="item-number">Item 4</div>
-<div class="field-row" data-json-path="$.equipment[3].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">chef_knife</div></div>
-<div class="field-row" data-json-path="$.equipment[3].display_name"><div class="field-name">Display Name</div><div class="field-value">Chef&#x27;s knife</div></div>
-<div class="field-row" data-json-path="$.equipment[3].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.equipment[3].notes"><div class="field-name">Notes</div><div class="field-value">Used to prepare the cucumber.</div></div>
-</article>
-<article class="array-item" data-json-path="$.equipment[4]">
-<div class="item-number">Item 5</div>
-<div class="field-row" data-json-path="$.equipment[4].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">chopping_board</div></div>
-<div class="field-row" data-json-path="$.equipment[4].display_name"><div class="field-name">Display Name</div><div class="field-value">Chopping board</div></div>
-<div class="field-row" data-json-path="$.equipment[4].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.equipment[4].notes"><div class="field-name">Notes</div><div class="field-value">Used for cucumber preparation.</div></div>
-</article>
-<article class="array-item" data-json-path="$.equipment[5]">
-<div class="item-number">Item 6</div>
-<div class="field-row" data-json-path="$.equipment[5].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">fine_grater</div></div>
-<div class="field-row" data-json-path="$.equipment[5].display_name"><div class="field-name">Display Name</div><div class="field-value">Fine grater or Microplane</div></div>
-<div class="field-row" data-json-path="$.equipment[5].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.equipment[5].notes"><div class="field-name">Notes</div><div class="field-value">Used for lemon zest.</div></div>
-</article>
-<article class="array-item" data-json-path="$.equipment[6]">
-<div class="item-number">Item 7</div>
-<div class="field-row" data-json-path="$.equipment[6].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">kitchen_scales</div></div>
-<div class="field-row" data-json-path="$.equipment[6].display_name"><div class="field-name">Display Name</div><div class="field-value">Kitchen scales</div></div>
-<div class="field-row" data-json-path="$.equipment[6].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.equipment[6].notes"><div class="field-name">Notes</div><div class="field-value">Used for accurate chickpea, cucumber and oil quantities and for equal portioning.</div></div>
-</article>
-<article class="array-item" data-json-path="$.equipment[7]">
-<div class="item-number">Item 8</div>
-<div class="field-row" data-json-path="$.equipment[7].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">measuring_spoons</div></div>
-<div class="field-row" data-json-path="$.equipment[7].display_name"><div class="field-name">Display Name</div><div class="field-value">Measuring spoons</div></div>
-<div class="field-row" data-json-path="$.equipment[7].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.equipment[7].notes"><div class="field-name">Notes</div><div class="field-value">Used for paprika, cumin, garlic, salt and black pepper.</div></div>
-</article>
-<article class="array-item" data-json-path="$.equipment[8]">
-<div class="item-number">Item 9</div>
-<div class="field-row" data-json-path="$.equipment[8].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">lidded_containers</div></div>
-<div class="field-row" data-json-path="$.equipment[8].display_name"><div class="field-name">Display Name</div><div class="field-value">2 portable lidded snack containers with separate compartments or small inner pots</div></div>
-<div class="field-row" data-json-path="$.equipment[8].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.equipment[8].notes"><div class="field-name">Notes</div><div class="field-value">Keeping the roasted chickpeas physically separate from cucumber is important for maintaining crispness.</div></div>
-</article>
-</div>
-</div></section>
-<section class="top-section" data-json-path="$.mise_en_place"><h2>Mise En Place</h2><div class="array-block" data-json-path="$.mise_en_place">
-<div class="array-items">
-<article class="array-item" data-json-path="$.mise_en_place[0]">
-<div class="item-number">Item 1</div>
-<div class="field-row" data-json-path="$.mise_en_place[0].prep_id"><div class="field-name">Prep Id</div><div class="field-value">PREP_01</div></div>
-<div class="array-block" data-json-path="$.mise_en_place[0].ingredient_ids">
-<h3>Ingredient Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.mise_en_place[0].ingredient_ids[0]">chickpeas_canned</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.mise_en_place[0].instruction"><div class="field-name">Instruction</div><div class="field-value">Open the chickpea tin and pour the contents into the colander, discarding all canning liquid. Rinse thoroughly under cold running water while gently agitating the chickpeas. Drain for approximately 2 minutes, then spread on clean kitchen paper and roll or blot gently until the surfaces are as dry as practical. Remove any loose chickpea skins that detach during drying.</div></div>
-<div class="field-row" data-json-path="$.mise_en_place[0].endpoint"><div class="field-name">Endpoint</div><div class="field-value">Approximately 220 g drained chickpeas are clean, externally dry and free from visible surface water.</div></div>
-</article>
-<article class="array-item" data-json-path="$.mise_en_place[1]">
-<div class="item-number">Item 2</div>
-<div class="field-row" data-json-path="$.mise_en_place[1].prep_id"><div class="field-name">Prep Id</div><div class="field-value">PREP_02</div></div>
-<div class="array-block" data-json-path="$.mise_en_place[1].ingredient_ids">
-<h3>Ingredient Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.mise_en_place[1].ingredient_ids[0]">cucumber</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.mise_en_place[1].instruction"><div class="field-name">Instruction</div><div class="field-value">Wash and dry the whole cucumber. Cut approximately half to provide about 220 g. Cut into sticks approximately 10 mm x 10 mm x 70 mm. If the centre is unusually soft and watery, trim away only the softest seed core. Pat the cut surfaces dry with clean kitchen paper.</div></div>
-<div class="field-row" data-json-path="$.mise_en_place[1].endpoint"><div class="field-name">Endpoint</div><div class="field-value">Approximately 220 g cucumber is cut into crisp, dry sticks suitable for transport.</div></div>
-</article>
-<article class="array-item" data-json-path="$.mise_en_place[2]">
-<div class="item-number">Item 3</div>
-<div class="field-row" data-json-path="$.mise_en_place[2].prep_id"><div class="field-name">Prep Id</div><div class="field-value">PREP_03</div></div>
-<div class="array-block" data-json-path="$.mise_en_place[2].ingredient_ids">
-<h3>Ingredient Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.mise_en_place[2].ingredient_ids[0]">lemon</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.mise_en_place[2].instruction"><div class="field-name">Instruction</div><div class="field-value">Wash and dry the lemon. Finely grate approximately 1 g of the yellow outer zest, stopping before significant white pith is removed.</div></div>
-<div class="field-row" data-json-path="$.mise_en_place[2].endpoint"><div class="field-name">Endpoint</div><div class="field-value">Approximately 1 g fine lemon zest is prepared.</div></div>
-</article>
-<article class="array-item" data-json-path="$.mise_en_place[3]">
-<div class="item-number">Item 4</div>
-<div class="field-row" data-json-path="$.mise_en_place[3].prep_id"><div class="field-name">Prep Id</div><div class="field-value">PREP_04</div></div>
-<div class="array-block" data-json-path="$.mise_en_place[3].ingredient_ids">
-<h3>Ingredient Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.mise_en_place[3].ingredient_ids[0]">olive_oil</div>
-<div class="scalar-array-item" data-json-path="$.mise_en_place[3].ingredient_ids[1]">smoked_paprika</div>
-<div class="scalar-array-item" data-json-path="$.mise_en_place[3].ingredient_ids[2]">ground_cumin</div>
-<div class="scalar-array-item" data-json-path="$.mise_en_place[3].ingredient_ids[3]">garlic_granules</div>
-<div class="scalar-array-item" data-json-path="$.mise_en_place[3].ingredient_ids[4]">fine_salt</div>
-<div class="scalar-array-item" data-json-path="$.mise_en_place[3].ingredient_ids[5]">black_pepper_ground</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.mise_en_place[3].instruction"><div class="field-name">Instruction</div><div class="field-value">Measure 8 g olive oil, 1 tsp smoked paprika, 0.5 tsp ground cumin, 0.5 tsp garlic granules, 0.1875 tsp initial fine salt, 0.0625 tsp reserved fine salt and 0.125 tsp black pepper.</div></div>
-<div class="field-row" data-json-path="$.mise_en_place[3].endpoint"><div class="field-name">Endpoint</div><div class="field-value">All roasting and seasoning ingredients are accurately measured and ready for immediate use.</div></div>
-</article>
-</div>
-</div></section>
-<section class="top-section" data-json-path="$.procedure"><h2>Procedure</h2><div class="array-block" data-json-path="$.procedure">
-<div class="array-items">
-<article class="array-item" data-json-path="$.procedure[0]">
-<div class="item-number">Item 1</div>
-<div class="field-row" data-json-path="$.procedure[0].step_id"><div class="field-name">Step Id</div><div class="field-value">STEP_01</div></div>
-<div class="field-row" data-json-path="$.procedure[0].section"><div class="field-name">Section</div><div class="field-value">Air fryer preparation</div></div>
-<div class="field-row" data-json-path="$.procedure[0].title"><div class="field-name">Title</div><div class="field-value">Preheat the air fryer</div></div>
-<div class="array-block" data-json-path="$.procedure[0].depends_on">
-<h3>Depends On</h3>
-<div class="empty-value">[ ]</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[0].parallel_group"><div class="field-name">Parallel Group</div><div class="field-value">P01</div></div>
-<div class="array-block" data-json-path="$.procedure[0].ingredient_ids">
-<h3>Ingredient Ids</h3>
-<div class="empty-value">[ ]</div>
-</div>
-<div class="array-block" data-json-path="$.procedure[0].equipment_ids">
-<h3>Equipment Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[0].equipment_ids[0]">air_fryer</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[0].instruction"><div class="field-name">Instruction</div><div class="field-value">Preheat the air fryer to 190°C. Allow the appliance to complete its preheat cycle or operate empty at the set temperature for approximately 3 minutes before loading the chickpeas.</div></div>
-<div class="field-row" data-json-path="$.procedure[0].heat_source"><div class="field-name">Heat Source</div><div class="field-value">Air fryer</div></div>
-<div class="field-row" data-json-path="$.procedure[0].heat_level"><div class="field-name">Heat Level</div><div class="field-value">190°C</div></div>
-<div class="field-row" data-json-path="$.procedure[0].temperature_c"><div class="field-name">Temperature C</div><div class="field-value">190</div></div>
-<div class="field-row" data-json-path="$.procedure[0].duration_min_minutes"><div class="field-name">Duration Min Minutes</div><div class="field-value">3</div></div>
-<div class="field-row" data-json-path="$.procedure[0].duration_max_minutes"><div class="field-name">Duration Max Minutes</div><div class="field-value">5</div></div>
-<div class="field-row" data-json-path="$.procedure[0].endpoint"><div class="field-name">Endpoint</div><div class="field-value">The air fryer has reached 190°C and is ready to receive the chickpeas.</div></div>
-<div class="array-block" data-json-path="$.procedure[0].corrective_actions">
-<h3>Corrective Actions</h3>
-<div class="array-items">
-<article class="array-item" data-json-path="$.procedure[0].corrective_actions[0]">
-<div class="item-number">Item 1</div>
-<div class="field-row" data-json-path="$.procedure[0].corrective_actions[0].condition"><div class="field-name">Condition</div><div class="field-value">The air fryer has not reached operating temperature after 5 minutes.</div></div>
-<div class="field-row" data-json-path="$.procedure[0].corrective_actions[0].action"><div class="field-name">Action</div><div class="field-value">Confirm the temperature setting and allow an additional 2 minutes before proceeding.</div></div>
-</article>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[0].critical"><div class="field-name">Critical</div><div class="field-value"><span class="boolean-value">false</span></div></div>
-</article>
-<article class="array-item" data-json-path="$.procedure[1]">
-<div class="item-number">Item 2</div>
-<div class="field-row" data-json-path="$.procedure[1].step_id"><div class="field-name">Step Id</div><div class="field-value">STEP_02</div></div>
-<div class="field-row" data-json-path="$.procedure[1].section"><div class="field-name">Section</div><div class="field-value">Chickpea preparation</div></div>
-<div class="field-row" data-json-path="$.procedure[1].title"><div class="field-name">Title</div><div class="field-value">Coat the dried chickpeas</div></div>
-<div class="array-block" data-json-path="$.procedure[1].depends_on">
-<h3>Depends On</h3>
-<div class="empty-value">[ ]</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[1].parallel_group"><div class="field-name">Parallel Group</div><div class="field-value">P01</div></div>
-<div class="array-block" data-json-path="$.procedure[1].ingredient_ids">
-<h3>Ingredient Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[1].ingredient_ids[0]">chickpeas_canned</div>
-<div class="scalar-array-item" data-json-path="$.procedure[1].ingredient_ids[1]">olive_oil</div>
-</div>
-</div>
-<div class="array-block" data-json-path="$.procedure[1].equipment_ids">
-<h3>Equipment Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[1].equipment_ids[0]">mixing_bowl</div>
-<div class="scalar-array-item" data-json-path="$.procedure[1].equipment_ids[1]">kitchen_scales</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[1].instruction"><div class="field-name">Instruction</div><div class="field-value">Place the thoroughly dried 220 g chickpeas in the mixing bowl. Add 8 g olive oil and toss until every chickpea has a thin visible sheen and no oil remains pooled in the base of the bowl.</div></div>
-<div class="field-row" data-json-path="$.procedure[1].heat_source"><div class="field-name">Heat Source</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[1].heat_level"><div class="field-name">Heat Level</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[1].temperature_c"><div class="field-name">Temperature C</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[1].duration_min_minutes"><div class="field-name">Duration Min Minutes</div><div class="field-value">1</div></div>
-<div class="field-row" data-json-path="$.procedure[1].duration_max_minutes"><div class="field-name">Duration Max Minutes</div><div class="field-value">2</div></div>
-<div class="field-row" data-json-path="$.procedure[1].endpoint"><div class="field-name">Endpoint</div><div class="field-value">The chickpeas are evenly and lightly coated with oil without visible pooling.</div></div>
-<div class="array-block" data-json-path="$.procedure[1].corrective_actions">
-<h3>Corrective Actions</h3>
-<div class="array-items">
-<article class="array-item" data-json-path="$.procedure[1].corrective_actions[0]">
-<div class="item-number">Item 1</div>
-<div class="field-row" data-json-path="$.procedure[1].corrective_actions[0].condition"><div class="field-name">Condition</div><div class="field-value">Water becomes visible in the base of the bowl during tossing.</div></div>
-<div class="field-row" data-json-path="$.procedure[1].corrective_actions[0].action"><div class="field-name">Action</div><div class="field-value">Transfer the chickpeas back to clean kitchen paper, dry thoroughly again, clean and dry the bowl, then resume coating.</div></div>
-</article>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[1].critical"><div class="field-name">Critical</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-</article>
-<article class="array-item" data-json-path="$.procedure[2]">
-<div class="item-number">Item 3</div>
-<div class="field-row" data-json-path="$.procedure[2].step_id"><div class="field-name">Step Id</div><div class="field-value">STEP_03</div></div>
-<div class="field-row" data-json-path="$.procedure[2].section"><div class="field-name">Section</div><div class="field-value">Roasting</div></div>
-<div class="field-row" data-json-path="$.procedure[2].title"><div class="field-name">Title</div><div class="field-value">Roast the chickpeas until dry and crisp</div></div>
-<div class="array-block" data-json-path="$.procedure[2].depends_on">
-<h3>Depends On</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[2].depends_on[0]">STEP_01</div>
-<div class="scalar-array-item" data-json-path="$.procedure[2].depends_on[1]">STEP_02</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[2].parallel_group"><div class="field-name">Parallel Group</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="array-block" data-json-path="$.procedure[2].ingredient_ids">
-<h3>Ingredient Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[2].ingredient_ids[0]">chickpeas_canned</div>
-<div class="scalar-array-item" data-json-path="$.procedure[2].ingredient_ids[1]">olive_oil</div>
-</div>
-</div>
-<div class="array-block" data-json-path="$.procedure[2].equipment_ids">
-<h3>Equipment Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[2].equipment_ids[0]">air_fryer</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[2].instruction"><div class="field-name">Instruction</div><div class="field-value">Transfer the oiled chickpeas to the preheated air-fryer basket and spread them into the most even layer practical. Roast at 190°C. Shake the basket thoroughly after approximately 6 minutes and again every 4-5 minutes thereafter so multiple surfaces are exposed to hot circulating air.</div></div>
-<div class="field-row" data-json-path="$.procedure[2].heat_source"><div class="field-name">Heat Source</div><div class="field-value">Air fryer</div></div>
-<div class="field-row" data-json-path="$.procedure[2].heat_level"><div class="field-name">Heat Level</div><div class="field-value">190°C</div></div>
-<div class="field-row" data-json-path="$.procedure[2].temperature_c"><div class="field-name">Temperature C</div><div class="field-value">190</div></div>
-<div class="field-row" data-json-path="$.procedure[2].duration_min_minutes"><div class="field-name">Duration Min Minutes</div><div class="field-value">14</div></div>
-<div class="field-row" data-json-path="$.procedure[2].duration_max_minutes"><div class="field-name">Duration Max Minutes</div><div class="field-value">20</div></div>
-<div class="field-row" data-json-path="$.procedure[2].endpoint"><div class="field-name">Endpoint</div><div class="field-value">The chickpeas are dry on the exterior, lightly golden, audibly firm when shaken against the basket and crisp when one is cooled briefly and bitten, without burnt or bitter surfaces.</div></div>
-<div class="array-block" data-json-path="$.procedure[2].corrective_actions">
-<h3>Corrective Actions</h3>
-<div class="array-items">
-<article class="array-item" data-json-path="$.procedure[2].corrective_actions[0]">
-<div class="item-number">Item 1</div>
-<div class="field-row" data-json-path="$.procedure[2].corrective_actions[0].condition"><div class="field-name">Condition</div><div class="field-value">The chickpeas brown rapidly while their centres remain soft.</div></div>
-<div class="field-row" data-json-path="$.procedure[2].corrective_actions[0].action"><div class="field-name">Action</div><div class="field-value">Reduce the air-fryer temperature to 175°C and continue in 3-minute intervals, shaking between intervals.</div></div>
-</article>
-<article class="array-item" data-json-path="$.procedure[2].corrective_actions[1]">
-<div class="item-number">Item 2</div>
-<div class="field-row" data-json-path="$.procedure[2].corrective_actions[1].condition"><div class="field-name">Condition</div><div class="field-value">The chickpeas remain soft after 20 minutes without excessive browning.</div></div>
-<div class="field-row" data-json-path="$.procedure[2].corrective_actions[1].action"><div class="field-name">Action</div><div class="field-value">Continue roasting at 180°C in 3-minute intervals, checking one cooled chickpea after each interval.</div></div>
-</article>
-<article class="array-item" data-json-path="$.procedure[2].corrective_actions[2]">
-<div class="item-number">Item 3</div>
-<div class="field-row" data-json-path="$.procedure[2].corrective_actions[2].condition"><div class="field-name">Condition</div><div class="field-value">Individual chickpeas become dark brown or black.</div></div>
-<div class="field-row" data-json-path="$.procedure[2].corrective_actions[2].action"><div class="field-name">Action</div><div class="field-value">Remove the darkest chickpeas immediately and reduce the temperature before continuing.</div></div>
-</article>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[2].critical"><div class="field-name">Critical</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-</article>
-<article class="array-item" data-json-path="$.procedure[3]">
-<div class="item-number">Item 4</div>
-<div class="field-row" data-json-path="$.procedure[3].step_id"><div class="field-name">Step Id</div><div class="field-value">STEP_04</div></div>
-<div class="field-row" data-json-path="$.procedure[3].section"><div class="field-name">Section</div><div class="field-value">Seasoning</div></div>
-<div class="field-row" data-json-path="$.procedure[3].title"><div class="field-name">Title</div><div class="field-value">Apply the smoked paprika seasoning</div></div>
-<div class="array-block" data-json-path="$.procedure[3].depends_on">
-<h3>Depends On</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[3].depends_on[0]">STEP_03</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[3].parallel_group"><div class="field-name">Parallel Group</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="array-block" data-json-path="$.procedure[3].ingredient_ids">
-<h3>Ingredient Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[3].ingredient_ids[0]">smoked_paprika</div>
-<div class="scalar-array-item" data-json-path="$.procedure[3].ingredient_ids[1]">ground_cumin</div>
-<div class="scalar-array-item" data-json-path="$.procedure[3].ingredient_ids[2]">garlic_granules</div>
-<div class="scalar-array-item" data-json-path="$.procedure[3].ingredient_ids[3]">lemon</div>
-<div class="scalar-array-item" data-json-path="$.procedure[3].ingredient_ids[4]">fine_salt</div>
-<div class="scalar-array-item" data-json-path="$.procedure[3].ingredient_ids[5]">black_pepper_ground</div>
-</div>
-</div>
-<div class="array-block" data-json-path="$.procedure[3].equipment_ids">
-<h3>Equipment Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[3].equipment_ids[0]">mixing_bowl</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[3].instruction"><div class="field-name">Instruction</div><div class="field-value">Immediately transfer the hot roasted chickpeas to the clean mixing bowl. Add 1 tsp smoked paprika, 0.5 tsp ground cumin, 0.5 tsp garlic granules, approximately 1 g lemon zest, 0.1875 tsp fine salt and 0.125 tsp black pepper. Toss continuously for approximately 30-45 seconds so the residual oil and heat distribute the dry seasoning evenly.</div></div>
-<div class="field-row" data-json-path="$.procedure[3].heat_source"><div class="field-name">Heat Source</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[3].heat_level"><div class="field-name">Heat Level</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[3].temperature_c"><div class="field-name">Temperature C</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[3].duration_min_minutes"><div class="field-name">Duration Min Minutes</div><div class="field-value">0.5</div></div>
-<div class="field-row" data-json-path="$.procedure[3].duration_max_minutes"><div class="field-name">Duration Max Minutes</div><div class="field-value">1</div></div>
-<div class="field-row" data-json-path="$.procedure[3].endpoint"><div class="field-name">Endpoint</div><div class="field-value">The chickpeas have an even red-orange seasoning coat with no concentrated spice patches or visible loose seasoning collected in one area.</div></div>
-<div class="array-block" data-json-path="$.procedure[3].corrective_actions">
-<h3>Corrective Actions</h3>
-<div class="array-items">
-<article class="array-item" data-json-path="$.procedure[3].corrective_actions[0]">
-<div class="item-number">Item 1</div>
-<div class="field-row" data-json-path="$.procedure[3].corrective_actions[0].condition"><div class="field-name">Condition</div><div class="field-value">Seasoning accumulates in dry patches.</div></div>
-<div class="field-row" data-json-path="$.procedure[3].corrective_actions[0].action"><div class="field-name">Action</div><div class="field-value">Continue tossing vigorously while the chickpeas are still hot until the coating becomes more uniform.</div></div>
-</article>
-<article class="array-item" data-json-path="$.procedure[3].corrective_actions[1]">
-<div class="item-number">Item 2</div>
-<div class="field-row" data-json-path="$.procedure[3].corrective_actions[1].condition"><div class="field-name">Condition</div><div class="field-value">The paprika smells scorched or acrid.</div></div>
-<div class="field-row" data-json-path="$.procedure[3].corrective_actions[1].action"><div class="field-name">Action</div><div class="field-value">Transfer the chickpeas immediately to a cool plate and stop further heating.</div></div>
-</article>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[3].critical"><div class="field-name">Critical</div><div class="field-value"><span class="boolean-value">false</span></div></div>
-</article>
-<article class="array-item" data-json-path="$.procedure[4]">
-<div class="item-number">Item 5</div>
-<div class="field-row" data-json-path="$.procedure[4].step_id"><div class="field-name">Step Id</div><div class="field-value">STEP_05</div></div>
-<div class="field-row" data-json-path="$.procedure[4].section"><div class="field-name">Section</div><div class="field-value">Cooling</div></div>
-<div class="field-row" data-json-path="$.procedure[4].title"><div class="field-name">Title</div><div class="field-value">Cool the roasted chickpeas completely</div></div>
-<div class="array-block" data-json-path="$.procedure[4].depends_on">
-<h3>Depends On</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[4].depends_on[0]">STEP_04</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[4].parallel_group"><div class="field-name">Parallel Group</div><div class="field-value">P02</div></div>
-<div class="array-block" data-json-path="$.procedure[4].ingredient_ids">
-<h3>Ingredient Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[4].ingredient_ids[0]">chickpeas_canned</div>
-</div>
-</div>
-<div class="array-block" data-json-path="$.procedure[4].equipment_ids">
-<h3>Equipment Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[4].equipment_ids[0]">mixing_bowl</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[4].instruction"><div class="field-name">Instruction</div><div class="field-value">Spread the seasoned chickpeas into a single layer across the bowl or a clean plate and leave uncovered at room temperature. Stir or shake once halfway through cooling so trapped steam can escape.</div></div>
-<div class="field-row" data-json-path="$.procedure[4].heat_source"><div class="field-name">Heat Source</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[4].heat_level"><div class="field-name">Heat Level</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[4].temperature_c"><div class="field-name">Temperature C</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[4].duration_min_minutes"><div class="field-name">Duration Min Minutes</div><div class="field-value">8</div></div>
-<div class="field-row" data-json-path="$.procedure[4].duration_max_minutes"><div class="field-name">Duration Max Minutes</div><div class="field-value">12</div></div>
-<div class="field-row" data-json-path="$.procedure[4].endpoint"><div class="field-name">Endpoint</div><div class="field-value">The chickpeas are at room temperature, externally dry and remain crisp rather than steaming or tacky.</div></div>
-<div class="array-block" data-json-path="$.procedure[4].corrective_actions">
-<h3>Corrective Actions</h3>
-<div class="array-items">
-<article class="array-item" data-json-path="$.procedure[4].corrective_actions[0]">
-<div class="item-number">Item 1</div>
-<div class="field-row" data-json-path="$.procedure[4].corrective_actions[0].condition"><div class="field-name">Condition</div><div class="field-value">The chickpeas remain warm or soften from retained steam.</div></div>
-<div class="field-row" data-json-path="$.procedure[4].corrective_actions[0].action"><div class="field-name">Action</div><div class="field-value">Spread them into a thinner layer and continue cooling uncovered for an additional 5 minutes.</div></div>
-</article>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[4].critical"><div class="field-name">Critical</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-</article>
-<article class="array-item" data-json-path="$.procedure[5]">
-<div class="item-number">Item 6</div>
-<div class="field-row" data-json-path="$.procedure[5].step_id"><div class="field-name">Step Id</div><div class="field-value">STEP_06</div></div>
-<div class="field-row" data-json-path="$.procedure[5].section"><div class="field-name">Section</div><div class="field-value">Vegetable preparation</div></div>
-<div class="field-row" data-json-path="$.procedure[5].title"><div class="field-name">Title</div><div class="field-value">Prepare and dry the cucumber sticks</div></div>
-<div class="array-block" data-json-path="$.procedure[5].depends_on">
-<h3>Depends On</h3>
-<div class="empty-value">[ ]</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[5].parallel_group"><div class="field-name">Parallel Group</div><div class="field-value">P02</div></div>
-<div class="array-block" data-json-path="$.procedure[5].ingredient_ids">
-<h3>Ingredient Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[5].ingredient_ids[0]">cucumber</div>
-</div>
-</div>
-<div class="array-block" data-json-path="$.procedure[5].equipment_ids">
-<h3>Equipment Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[5].equipment_ids[0]">chef_knife</div>
-<div class="scalar-array-item" data-json-path="$.procedure[5].equipment_ids[1]">chopping_board</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[5].instruction"><div class="field-name">Instruction</div><div class="field-value">Complete the cucumber preparation specified in mise en place. Inspect the cut sticks for excessive surface moisture and blot thoroughly with clean kitchen paper before packing.</div></div>
-<div class="field-row" data-json-path="$.procedure[5].heat_source"><div class="field-name">Heat Source</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[5].heat_level"><div class="field-name">Heat Level</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[5].temperature_c"><div class="field-name">Temperature C</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[5].duration_min_minutes"><div class="field-name">Duration Min Minutes</div><div class="field-value">4</div></div>
-<div class="field-row" data-json-path="$.procedure[5].duration_max_minutes"><div class="field-name">Duration Max Minutes</div><div class="field-value">6</div></div>
-<div class="field-row" data-json-path="$.procedure[5].endpoint"><div class="field-name">Endpoint</div><div class="field-value">The cucumber sticks are evenly sized, cold or room temperature, crisp and externally dry.</div></div>
-<div class="array-block" data-json-path="$.procedure[5].corrective_actions">
-<h3>Corrective Actions</h3>
-<div class="array-items">
-<article class="array-item" data-json-path="$.procedure[5].corrective_actions[0]">
-<div class="item-number">Item 1</div>
-<div class="field-row" data-json-path="$.procedure[5].corrective_actions[0].condition"><div class="field-name">Condition</div><div class="field-value">Visible cucumber liquid collects after cutting.</div></div>
-<div class="field-row" data-json-path="$.procedure[5].corrective_actions[0].action"><div class="field-name">Action</div><div class="field-value">Spread the sticks on clean kitchen paper for 2 minutes, then blot again before packing.</div></div>
-</article>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[5].critical"><div class="field-name">Critical</div><div class="field-value"><span class="boolean-value">false</span></div></div>
-</article>
-<article class="array-item" data-json-path="$.procedure[6]">
-<div class="item-number">Item 7</div>
-<div class="field-row" data-json-path="$.procedure[6].step_id"><div class="field-name">Step Id</div><div class="field-value">STEP_07</div></div>
-<div class="field-row" data-json-path="$.procedure[6].section"><div class="field-name">Section</div><div class="field-value">Final seasoning</div></div>
-<div class="field-row" data-json-path="$.procedure[6].title"><div class="field-name">Title</div><div class="field-value">Check the chickpea seasoning</div></div>
-<div class="array-block" data-json-path="$.procedure[6].depends_on">
-<h3>Depends On</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[6].depends_on[0]">STEP_05</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[6].parallel_group"><div class="field-name">Parallel Group</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="array-block" data-json-path="$.procedure[6].ingredient_ids">
-<h3>Ingredient Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[6].ingredient_ids[0]">fine_salt</div>
-</div>
-</div>
-<div class="array-block" data-json-path="$.procedure[6].equipment_ids">
-<h3>Equipment Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[6].equipment_ids[0]">mixing_bowl</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[6].instruction"><div class="field-name">Instruction</div><div class="field-value">Taste one cooled chickpea. If the smoked paprika, cumin and salt are clearly defined, do not add the reserved salt. If noticeably under-seasoned, add up to the reserved 0.0625 tsp fine salt and toss thoroughly.</div></div>
-<div class="field-row" data-json-path="$.procedure[6].heat_source"><div class="field-name">Heat Source</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[6].heat_level"><div class="field-name">Heat Level</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[6].temperature_c"><div class="field-name">Temperature C</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[6].duration_min_minutes"><div class="field-name">Duration Min Minutes</div><div class="field-value">1</div></div>
-<div class="field-row" data-json-path="$.procedure[6].duration_max_minutes"><div class="field-name">Duration Max Minutes</div><div class="field-value">2</div></div>
-<div class="field-row" data-json-path="$.procedure[6].endpoint"><div class="field-name">Endpoint</div><div class="field-value">The chickpeas taste smoky, savoury and well seasoned without excessive saltiness.</div></div>
-<div class="array-block" data-json-path="$.procedure[6].corrective_actions">
-<h3>Corrective Actions</h3>
-<div class="array-items">
-<article class="array-item" data-json-path="$.procedure[6].corrective_actions[0]">
-<div class="item-number">Item 1</div>
-<div class="field-row" data-json-path="$.procedure[6].corrective_actions[0].condition"><div class="field-name">Condition</div><div class="field-value">The chickpeas are adequately seasoned before the reserved salt is used.</div></div>
-<div class="field-row" data-json-path="$.procedure[6].corrective_actions[0].action"><div class="field-name">Action</div><div class="field-value">Do not add the reserved salt.</div></div>
-</article>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[6].critical"><div class="field-name">Critical</div><div class="field-value"><span class="boolean-value">false</span></div></div>
-</article>
-<article class="array-item" data-json-path="$.procedure[7]">
-<div class="item-number">Item 8</div>
-<div class="field-row" data-json-path="$.procedure[7].step_id"><div class="field-name">Step Id</div><div class="field-value">STEP_08</div></div>
-<div class="field-row" data-json-path="$.procedure[7].section"><div class="field-name">Section</div><div class="field-value">Packing</div></div>
-<div class="field-row" data-json-path="$.procedure[7].title"><div class="field-name">Title</div><div class="field-value">Portion the portable snack</div></div>
-<div class="array-block" data-json-path="$.procedure[7].depends_on">
-<h3>Depends On</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[7].depends_on[0]">STEP_06</div>
-<div class="scalar-array-item" data-json-path="$.procedure[7].depends_on[1]">STEP_07</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[7].parallel_group"><div class="field-name">Parallel Group</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="array-block" data-json-path="$.procedure[7].ingredient_ids">
-<h3>Ingredient Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[7].ingredient_ids[0]">chickpeas_canned</div>
-<div class="scalar-array-item" data-json-path="$.procedure[7].ingredient_ids[1]">cucumber</div>
-</div>
-</div>
-<div class="array-block" data-json-path="$.procedure[7].equipment_ids">
-<h3>Equipment Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[7].equipment_ids[0]">lidded_containers</div>
-<div class="scalar-array-item" data-json-path="$.procedure[7].equipment_ids[1]">kitchen_scales</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[7].instruction"><div class="field-name">Instruction</div><div class="field-value">Divide the completely cooled roasted chickpeas equally between 2 dry snack compartments or small inner containers. Divide the cucumber sticks equally between separate compartments. Do not allow cucumber to contact the chickpeas during storage. Seal all containers securely.</div></div>
-<div class="field-row" data-json-path="$.procedure[7].heat_source"><div class="field-name">Heat Source</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[7].heat_level"><div class="field-name">Heat Level</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[7].temperature_c"><div class="field-name">Temperature C</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[7].duration_min_minutes"><div class="field-name">Duration Min Minutes</div><div class="field-value">2</div></div>
-<div class="field-row" data-json-path="$.procedure[7].duration_max_minutes"><div class="field-name">Duration Max Minutes</div><div class="field-value">4</div></div>
-<div class="field-row" data-json-path="$.procedure[7].endpoint"><div class="field-name">Endpoint</div><div class="field-value">Each serving contains approximately half of the chickpeas and half of the cucumber, with the dry roasted chickpeas physically separated from the moist vegetables.</div></div>
-<div class="array-block" data-json-path="$.procedure[7].corrective_actions">
-<h3>Corrective Actions</h3>
-<div class="array-items">
-<article class="array-item" data-json-path="$.procedure[7].corrective_actions[0]">
-<div class="item-number">Item 1</div>
-<div class="field-row" data-json-path="$.procedure[7].corrective_actions[0].condition"><div class="field-name">Condition</div><div class="field-value">One serving contains visibly more chickpeas than the other.</div></div>
-<div class="field-row" data-json-path="$.procedure[7].corrective_actions[0].action"><div class="field-name">Action</div><div class="field-value">Use the kitchen scales to transfer small amounts until both chickpea portions are approximately equal.</div></div>
-</article>
-<article class="array-item" data-json-path="$.procedure[7].corrective_actions[1]">
-<div class="item-number">Item 2</div>
-<div class="field-row" data-json-path="$.procedure[7].corrective_actions[1].condition"><div class="field-name">Condition</div><div class="field-value">Moisture is visible in the chickpea compartment before sealing.</div></div>
-<div class="field-row" data-json-path="$.procedure[7].corrective_actions[1].action"><div class="field-name">Action</div><div class="field-value">Dry the compartment completely and confirm the chickpeas are fully cool before repacking.</div></div>
-</article>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[7].critical"><div class="field-name">Critical</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-</article>
-</div>
-</div></section>
-<section class="top-section" data-json-path="$.plating"><h2>Plating</h2><div class="array-block" data-json-path="$.plating">
-<div class="array-items">
-<article class="array-item" data-json-path="$.plating[0]">
-<div class="item-number">Item 1</div>
-<div class="field-row" data-json-path="$.plating[0].step_id"><div class="field-name">Step Id</div><div class="field-value">PLATE_01</div></div>
-<div class="field-row" data-json-path="$.plating[0].instruction"><div class="field-name">Instruction</div><div class="field-value">Serve one complete snack portion per person. Eat the crisp smoked-paprika chickpeas alternately with the cold cucumber sticks rather than mixing them together, preserving the contrast between dry crunch and fresh juiciness.</div></div>
-</article>
-</div>
-</div></section>
-<section class="top-section" data-json-path="$.storage"><h2>Storage</h2><div class="object-content" data-json-path="$.storage">
-<div class="field-row" data-json-path="$.storage.refrigerator_days"><div class="field-name">Refrigerator Days</div><div class="field-value">2</div></div>
-<div class="field-row" data-json-path="$.storage.freezer_months"><div class="field-name">Freezer Months</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.storage.storage_instructions"><div class="field-name">Storage Instructions</div><div class="field-value">For best texture, refrigerate the cucumber at 5°C or below and store the fully cooled roasted chickpeas in a separate sealed dry compartment. The complete snack is suitable for work or car transport; use an insulated lunch bag with an ice pack if the cucumber will be outside refrigeration for an extended period. Roasted chickpeas may soften slightly under refrigeration, so the crispest texture is obtained within 24 hours.</div></div>
-<div class="array-block" data-json-path="$.storage.reheating_methods">
-<h3>Reheating Methods</h3>
-<div class="empty-value">[ ]</div>
-</div>
-</div></section>
-<section class="top-section" data-json-path="$.shopping"><h2>Shopping</h2><div class="object-content" data-json-path="$.shopping">
-<div class="array-block" data-json-path="$.shopping.sainsburys">
-<h3>Sainsburys</h3>
-<div class="empty-value">[ ]</div>
-</div>
-<div class="array-block" data-json-path="$.shopping.marks_and_spencer">
-<h3>Marks And Spencer</h3>
-<div class="empty-value">[ ]</div>
-</div>
-<div class="array-block" data-json-path="$.shopping.either_retailer">
-<h3>Either Retailer</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[0]">Chickpeas: buy 1 x 400 g tin</div>
-<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[1]">Cucumber: buy 1 whole cucumber</div>
-<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[2]">Olive oil: buy 1 bottle if not already stocked</div>
-<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[3]">Smoked paprika: buy 1 jar</div>
-<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[4]">Ground cumin: buy 1 jar if not already stocked</div>
-<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[5]">Garlic granules: buy 1 jar if not already stocked</div>
-<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[6]">Unwaxed lemon: buy 1</div>
-<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[7]">Fine salt: buy 1 container if not already stocked</div>
-<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[8]">Ground black pepper: buy 1 jar or pepper mill if not already stocked</div>
-</div>
-</div>
-</div></section>
-<section class="top-section" data-json-path="$.quality_checks"><h2>Quality Checks</h2><div class="object-content" data-json-path="$.quality_checks">
-<div class="field-row" data-json-path="$.quality_checks.protein_requirement_met"><div class="field-name">Protein Requirement Met</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.quality_checks.protein_g_per_serving"><div class="field-name">Protein G Per Serving</div><div class="field-value">8</div></div>
-<div class="array-block" data-json-path="$.quality_checks.restaurant_quality_features">
-<h3>Restaurant Quality Features</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.quality_checks.restaurant_quality_features[0]">Chickpeas are rinsed and dried thoroughly before roasting, allowing the surfaces to crisp rather than steam.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.restaurant_quality_features[1]">A measured amount of olive oil provides sufficient surface coating for browning and spice adhesion without unnecessarily increasing calories.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.restaurant_quality_features[2]">Smoked paprika and cumin provide layered warm spice character, while garlic granules contribute savoury depth without introducing moisture.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.restaurant_quality_features[3]">Lemon zest adds aromatic acidity without wetting the roasted chickpeas and compromising crispness.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.restaurant_quality_features[4]">Seasoning is applied while the chickpeas are hot so the spices adhere evenly to the residual oil.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.restaurant_quality_features[5]">The chickpeas are cooled uncovered before packing, preventing trapped steam from immediately softening the roasted exterior.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.restaurant_quality_features[6]">Cucumber is packed separately so its moisture does not compromise the chickpea texture.</div>
-</div>
-</div>
-<div class="array-block" data-json-path="$.quality_checks.nutrition_notes">
-<h3>Nutrition Notes</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.quality_checks.nutrition_notes[0]">Estimated nutrition represents one complete afternoon snack serving including roasted chickpeas, cucumber, olive oil and all seasonings.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.nutrition_notes[1]">The recipe is designed around the approximately 200 kcal afternoon-snack target.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.nutrition_notes[2]">The general 30 g protein requirement does not apply to afternoon snacks under the specified meal-plan rules; approximately 8 g protein per serving is therefore compliant.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.nutrition_notes[3]">Chickpeas provide plant protein, carbohydrate and substantial dietary fibre, while cucumber adds volume and hydration with minimal additional energy.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.nutrition_notes[4]">Added oil is deliberately limited while remaining sufficient to support roasting and spice adhesion.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.nutrition_notes[5]">Nutrition values are estimates and will vary with the exact drained weight and nutritional composition of the chickpeas used.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.nutrition_notes[6]">The recipe follows the supplied structured-recipe and afternoon-snack requirements. </div>
-</div>
-</div>
-<div class="array-block" data-json-path="$.quality_checks.critical_success_factors">
-<h3>Critical Success Factors</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.quality_checks.critical_success_factors[0]">Dry the rinsed chickpeas extremely thoroughly before adding oil; residual water is the main cause of soft roasted chickpeas.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.critical_success_factors[1]">Do not add wet acidic ingredients such as lemon juice to the roasted chickpeas before storage; use zest for brightness without sacrificing crispness.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.critical_success_factors[2]">Judge completion by actual crispness of a briefly cooled chickpea rather than roasting time alone.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.critical_success_factors[3]">Apply dry spices immediately after roasting while the chickpeas remain hot and lightly oil-coated.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.critical_success_factors[4]">Cool chickpeas completely before sealing them in any container.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.critical_success_factors[5]">Keep cucumber physically separate from the chickpeas throughout storage and transport.</div>
-</div>
-</div>
-</div></section>
 
-<section class="integrity">
 
-    <strong>Source integrity</strong>
-
-    <div>
-        Source JSON SHA-256:
-        <code>e20f8c87cfaf5ce2880fc0d752b7b8aa817c8230af85533cf28641b744df1183</code>
+<details class="section non-method" open>
+    <summary>Ingredients</summary>
+    <div class="section-content ingredient-grid">
+        <article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Canned chickpeas</strong>
+<span class="ingredient-quantity">220 g</span>
+</div>
+<div class="subline"><strong>Buy:</strong> Buy: 1 x 400 g tin</div>
+<div class="subline"><strong>Prep:</strong> Drain completely, rinse thoroughly under cold running water, then dry very thoroughly before roasting.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Cucumber</strong>
+<span class="ingredient-quantity">0.5</span>
+</div>
+<div class="subline"><strong>Buy:</strong> Buy: 1 whole cucumber</div>
+<div class="subline"><strong>Prep:</strong> Wash and dry. Cut approximately 220 g into sticks approximately 10 mm x 10 mm x 70 mm. Remove only excessively watery seed core if required.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Olive oil</strong>
+<span class="ingredient-quantity">8 g</span>
+</div>
+<div class="subline"><strong>Buy:</strong> Buy: 1 bottle if not already stocked</div>
+<div class="subline"><strong>Prep:</strong> Measure accurately before coating the chickpeas.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Smoked paprika</strong>
+<span class="ingredient-quantity">1 tsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> Buy: 1 jar</div>
+<div class="subline"><strong>Prep:</strong> Measure before seasoning.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Ground cumin</strong>
+<span class="ingredient-quantity">½ tsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> Buy: 1 jar if not already stocked</div>
+<div class="subline"><strong>Prep:</strong> Measure before seasoning.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Garlic granules</strong>
+<span class="ingredient-quantity">½ tsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> Buy: 1 jar if not already stocked</div>
+<div class="subline"><strong>Prep:</strong> Measure before seasoning.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Unwaxed lemon</strong>
+<span class="ingredient-quantity">1</span>
+</div>
+<div class="subline"><strong>Buy:</strong> Buy: 1 lemon</div>
+<div class="subline"><strong>Prep:</strong> Wash and dry. Finely grate approximately 1 g yellow zest without removing significant white pith.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Fine salt</strong>
+<span class="ingredient-quantity">¼ tsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> Buy: 1 standard container if not already stocked</div>
+<div class="subline"><strong>Prep:</strong> Measure 0.1875 tsp for initial seasoning and reserve up to 0.0625 tsp for final adjustment.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Ground black pepper</strong>
+<span class="ingredient-quantity">⅛ tsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> Buy: 1 jar or pepper mill if not already stocked</div>
+<div class="subline"><strong>Prep:</strong> Measure before seasoning.</div>
+</article>
     </div>
-
-    <div>
-        JSON paths checked:
-        <code>487</code>
-    </div>
-
-    <div>
-        Missing JSON paths:
-        <code>0</code>
-    </div>
-
-</section>
-
-<details>
-
-<summary>
-Original source JSON
-</summary>
-
-<pre>{
-  &quot;schema_version&quot;: &quot;1.0&quot;,
-  &quot;recipe&quot;: {
-    &quot;id&quot;: &quot;smoked_paprika_roasted_chickpeas_cucumber_sticks&quot;,
-    &quot;title&quot;: &quot;Smoked Paprika Roasted Chickpeas with Cucumber Sticks&quot;,
-    &quot;description&quot;: &quot;A portable afternoon snack of crisp roasted chickpeas coated with smoked paprika, cumin and lemon zest, served with cool cucumber sticks for fresh contrast. The chickpeas are dried thoroughly before roasting and packed separately from the cucumber to preserve crunch.&quot;,
-    &quot;servings&quot;: 2,
-    &quot;difficulty&quot;: &quot;Easy&quot;,
-    &quot;total_time_minutes&quot;: 35,
-    &quot;active_time_minutes&quot;: 15,
-    &quot;passive_time_minutes&quot;: 20,
-    &quot;cuisine&quot;: [
-      &quot;Mediterranean-inspired&quot;,
-      &quot;Contemporary&quot;
-    ],
-    &quot;meal_types&quot;: [
-      &quot;Afternoon snack&quot;
-    ],
-    &quot;dietary_tags&quot;: [
-      &quot;Vegetarian&quot;,
-      &quot;Vegan&quot;,
-      &quot;Portable&quot;,
-      &quot;High fibre&quot;
-    ],
-    &quot;allergens&quot;: []
-  },
-  &quot;nutrition_per_serving&quot;: {
-    &quot;energy_kcal&quot;: 196,
-    &quot;protein_g&quot;: 8,
-    &quot;carbohydrate_g&quot;: 25,
-    &quot;fat_g&quot;: 8,
-    &quot;saturated_fat_g&quot;: 1,
-    &quot;fibre_g&quot;: 7,
-    &quot;salt_g&quot;: 0.5
-  },
-  &quot;ingredients&quot;: [
-    {
-      &quot;ingredient_id&quot;: &quot;chickpeas_canned&quot;,
-      &quot;display_name&quot;: &quot;Canned chickpeas&quot;,
-      &quot;category&quot;: &quot;Legumes&quot;,
-      &quot;required&quot;: true,
-      &quot;quantity_used&quot;: 220,
-      &quot;unit_used&quot;: &quot;g&quot;,
-      &quot;purchase_quantity&quot;: &quot;Buy: 1 x 400 g tin&quot;,
-      &quot;purchase_notes&quot;: &quot;A standard 400 g tin usually provides approximately 230-250 g drained chickpeas; exact drained weight varies by product.&quot;,
-      &quot;retailers&quot;: [
-        &quot;Sainsbury&#x27;s&quot;,
-        &quot;Marks &amp; Spencer&quot;
-      ],
-      &quot;preparation&quot;: &quot;Drain completely, rinse thoroughly under cold running water, then dry very thoroughly before roasting.&quot;,
-      &quot;notes&quot;: &quot;Use: 220 g drained chickpeas total, 110 g per serving.&quot;
-    },
-    {
-      &quot;ingredient_id&quot;: &quot;cucumber&quot;,
-      &quot;display_name&quot;: &quot;Cucumber&quot;,
-      &quot;category&quot;: &quot;Vegetables&quot;,
-      &quot;required&quot;: true,
-      &quot;quantity_used&quot;: 0.5,
-      &quot;unit_used&quot;: &quot;integer&quot;,
-      &quot;purchase_quantity&quot;: &quot;Buy: 1 whole cucumber&quot;,
-      &quot;purchase_notes&quot;: &quot;Use approximately half and refrigerate the remainder for another use.&quot;,
-      &quot;retailers&quot;: [
-        &quot;Sainsbury&#x27;s&quot;,
-        &quot;Marks &amp; Spencer&quot;
-      ],
-      &quot;preparation&quot;: &quot;Wash and dry. Cut approximately 220 g into sticks approximately 10 mm x 10 mm x 70 mm. Remove only excessively watery seed core if required.&quot;,
-      &quot;notes&quot;: &quot;Use: approximately 220 g prepared cucumber total.&quot;
-    },
-    {
-      &quot;ingredient_id&quot;: &quot;olive_oil&quot;,
-      &quot;display_name&quot;: &quot;Olive oil&quot;,
-      &quot;category&quot;: &quot;Oils&quot;,
-      &quot;required&quot;: true,
-      &quot;quantity_used&quot;: 8,
-      &quot;unit_used&quot;: &quot;g&quot;,
-      &quot;purchase_quantity&quot;: &quot;Buy: 1 bottle if not already stocked&quot;,
-      &quot;purchase_notes&quot;: &quot;Standard olive oil is suitable for roasting.&quot;,
-      &quot;retailers&quot;: [
-        &quot;Sainsbury&#x27;s&quot;,
-        &quot;Marks &amp; Spencer&quot;
-      ],
-      &quot;preparation&quot;: &quot;Measure accurately before coating the chickpeas.&quot;,
-      &quot;notes&quot;: &quot;Use: 8 g total.&quot;
-    },
-    {
-      &quot;ingredient_id&quot;: &quot;smoked_paprika&quot;,
-      &quot;display_name&quot;: &quot;Smoked paprika&quot;,
-      &quot;category&quot;: &quot;Spices&quot;,
-      &quot;required&quot;: true,
-      &quot;quantity_used&quot;: 1,
-      &quot;unit_used&quot;: &quot;tsp&quot;,
-      &quot;purchase_quantity&quot;: &quot;Buy: 1 jar&quot;,
-      &quot;purchase_notes&quot;: &quot;Use sweet smoked paprika unless a hotter version is specifically preferred.&quot;,
-      &quot;retailers&quot;: [
-        &quot;Sainsbury&#x27;s&quot;,
-        &quot;Marks &amp; Spencer&quot;
-      ],
-      &quot;preparation&quot;: &quot;Measure before seasoning.&quot;,
-      &quot;notes&quot;: &quot;Use: 1 tsp total.&quot;
-    },
-    {
-      &quot;ingredient_id&quot;: &quot;ground_cumin&quot;,
-      &quot;display_name&quot;: &quot;Ground cumin&quot;,
-      &quot;category&quot;: &quot;Spices&quot;,
-      &quot;required&quot;: true,
-      &quot;quantity_used&quot;: 0.5,
-      &quot;unit_used&quot;: &quot;tsp&quot;,
-      &quot;purchase_quantity&quot;: &quot;Buy: 1 jar if not already stocked&quot;,
-      &quot;purchase_notes&quot;: &quot;Standard ground cumin is suitable.&quot;,
-      &quot;retailers&quot;: [
-        &quot;Sainsbury&#x27;s&quot;,
-        &quot;Marks &amp; Spencer&quot;
-      ],
-      &quot;preparation&quot;: &quot;Measure before seasoning.&quot;,
-      &quot;notes&quot;: &quot;Use: 0.5 tsp total.&quot;
-    },
-    {
-      &quot;ingredient_id&quot;: &quot;garlic_granules&quot;,
-      &quot;display_name&quot;: &quot;Garlic granules&quot;,
-      &quot;category&quot;: &quot;Seasoning&quot;,
-      &quot;required&quot;: true,
-      &quot;quantity_used&quot;: 0.5,
-      &quot;unit_used&quot;: &quot;tsp&quot;,
-      &quot;purchase_quantity&quot;: &quot;Buy: 1 jar if not already stocked&quot;,
-      &quot;purchase_notes&quot;: &quot;Use garlic granules rather than fresh garlic for a dry roasting coating.&quot;,
-      &quot;retailers&quot;: [
-        &quot;Sainsbury&#x27;s&quot;,
-        &quot;Marks &amp; Spencer&quot;
-      ],
-      &quot;preparation&quot;: &quot;Measure before seasoning.&quot;,
-      &quot;notes&quot;: &quot;Use: 0.5 tsp total.&quot;
-    },
-    {
-      &quot;ingredient_id&quot;: &quot;lemon&quot;,
-      &quot;display_name&quot;: &quot;Unwaxed lemon&quot;,
-      &quot;category&quot;: &quot;Fruit&quot;,
-      &quot;required&quot;: true,
-      &quot;quantity_used&quot;: 1,
-      &quot;unit_used&quot;: &quot;integer&quot;,
-      &quot;purchase_quantity&quot;: &quot;Buy: 1 lemon&quot;,
-      &quot;purchase_notes&quot;: &quot;An unwaxed lemon is preferred because only the zest is used in this recipe.&quot;,
-      &quot;retailers&quot;: [
-        &quot;Sainsbury&#x27;s&quot;,
-        &quot;Marks &amp; Spencer&quot;
-      ],
-      &quot;preparation&quot;: &quot;Wash and dry. Finely grate approximately 1 g yellow zest without removing significant white pith.&quot;,
-      &quot;notes&quot;: &quot;Use approximately 1 g zest; reserve the remaining lemon for another use.&quot;
-    },
-    {
-      &quot;ingredient_id&quot;: &quot;fine_salt&quot;,
-      &quot;display_name&quot;: &quot;Fine salt&quot;,
-      &quot;category&quot;: &quot;Seasoning&quot;,
-      &quot;required&quot;: true,
-      &quot;quantity_used&quot;: 0.25,
-      &quot;unit_used&quot;: &quot;tsp&quot;,
-      &quot;purchase_quantity&quot;: &quot;Buy: 1 standard container if not already stocked&quot;,
-      &quot;purchase_notes&quot;: &quot;Fine table salt or fine sea salt is suitable.&quot;,
-      &quot;retailers&quot;: [
-        &quot;Sainsbury&#x27;s&quot;,
-        &quot;Marks &amp; Spencer&quot;
-      ],
-      &quot;preparation&quot;: &quot;Measure 0.1875 tsp for initial seasoning and reserve up to 0.0625 tsp for final adjustment.&quot;,
-      &quot;notes&quot;: &quot;Use no more than 0.25 tsp total.&quot;
-    },
-    {
-      &quot;ingredient_id&quot;: &quot;black_pepper_ground&quot;,
-      &quot;display_name&quot;: &quot;Ground black pepper&quot;,
-      &quot;category&quot;: &quot;Seasoning&quot;,
-      &quot;required&quot;: true,
-      &quot;quantity_used&quot;: 0.125,
-      &quot;unit_used&quot;: &quot;tsp&quot;,
-      &quot;purchase_quantity&quot;: &quot;Buy: 1 jar or pepper mill if not already stocked&quot;,
-      &quot;purchase_notes&quot;: &quot;Freshly ground black pepper is preferred where available.&quot;,
-      &quot;retailers&quot;: [
-        &quot;Sainsbury&#x27;s&quot;,
-        &quot;Marks &amp; Spencer&quot;
-      ],
-      &quot;preparation&quot;: &quot;Measure before seasoning.&quot;,
-      &quot;notes&quot;: &quot;Use: 0.125 tsp total.&quot;
-    }
-  ],
-  &quot;equipment&quot;: [
-    {
-      &quot;equipment_id&quot;: &quot;air_fryer&quot;,
-      &quot;display_name&quot;: &quot;Duo Stack air fryer&quot;,
-      &quot;required&quot;: true,
-      &quot;notes&quot;: &quot;Used to roast the chickpeas efficiently to a crisp exterior.&quot;
-    },
-    {
-      &quot;equipment_id&quot;: &quot;colander&quot;,
-      &quot;display_name&quot;: &quot;Colander&quot;,
-      &quot;required&quot;: true,
-      &quot;notes&quot;: &quot;Used to drain and rinse the chickpeas.&quot;
-    },
-    {
-      &quot;equipment_id&quot;: &quot;mixing_bowl&quot;,
-      &quot;display_name&quot;: &quot;Medium mixing bowl&quot;,
-      &quot;required&quot;: true,
-      &quot;notes&quot;: &quot;Used to coat and season the chickpeas.&quot;
-    },
-    {
-      &quot;equipment_id&quot;: &quot;chef_knife&quot;,
-      &quot;display_name&quot;: &quot;Chef&#x27;s knife&quot;,
-      &quot;required&quot;: true,
-      &quot;notes&quot;: &quot;Used to prepare the cucumber.&quot;
-    },
-    {
-      &quot;equipment_id&quot;: &quot;chopping_board&quot;,
-      &quot;display_name&quot;: &quot;Chopping board&quot;,
-      &quot;required&quot;: true,
-      &quot;notes&quot;: &quot;Used for cucumber preparation.&quot;
-    },
-    {
-      &quot;equipment_id&quot;: &quot;fine_grater&quot;,
-      &quot;display_name&quot;: &quot;Fine grater or Microplane&quot;,
-      &quot;required&quot;: true,
-      &quot;notes&quot;: &quot;Used for lemon zest.&quot;
-    },
-    {
-      &quot;equipment_id&quot;: &quot;kitchen_scales&quot;,
-      &quot;display_name&quot;: &quot;Kitchen scales&quot;,
-      &quot;required&quot;: true,
-      &quot;notes&quot;: &quot;Used for accurate chickpea, cucumber and oil quantities and for equal portioning.&quot;
-    },
-    {
-      &quot;equipment_id&quot;: &quot;measuring_spoons&quot;,
-      &quot;display_name&quot;: &quot;Measuring spoons&quot;,
-      &quot;required&quot;: true,
-      &quot;notes&quot;: &quot;Used for paprika, cumin, garlic, salt and black pepper.&quot;
-    },
-    {
-      &quot;equipment_id&quot;: &quot;lidded_containers&quot;,
-      &quot;display_name&quot;: &quot;2 portable lidded snack containers with separate compartments or small inner pots&quot;,
-      &quot;required&quot;: true,
-      &quot;notes&quot;: &quot;Keeping the roasted chickpeas physically separate from cucumber is important for maintaining crispness.&quot;
-    }
-  ],
-  &quot;mise_en_place&quot;: [
-    {
-      &quot;prep_id&quot;: &quot;PREP_01&quot;,
-      &quot;ingredient_ids&quot;: [
-        &quot;chickpeas_canned&quot;
-      ],
-      &quot;instruction&quot;: &quot;Open the chickpea tin and pour the contents into the colander, discarding all canning liquid. Rinse thoroughly under cold running water while gently agitating the chickpeas. Drain for approximately 2 minutes, then spread on clean kitchen paper and roll or blot gently until the surfaces are as dry as practical. Remove any loose chickpea skins that detach during drying.&quot;,
-      &quot;endpoint&quot;: &quot;Approximately 220 g drained chickpeas are clean, externally dry and free from visible surface water.&quot;
-    },
-    {
-      &quot;prep_id&quot;: &quot;PREP_02&quot;,
-      &quot;ingredient_ids&quot;: [
-        &quot;cucumber&quot;
-      ],
-      &quot;instruction&quot;: &quot;Wash and dry the whole cucumber. Cut approximately half to provide about 220 g. Cut into sticks approximately 10 mm x 10 mm x 70 mm. If the centre is unusually soft and watery, trim away only the softest seed core. Pat the cut surfaces dry with clean kitchen paper.&quot;,
-      &quot;endpoint&quot;: &quot;Approximately 220 g cucumber is cut into crisp, dry sticks suitable for transport.&quot;
-    },
-    {
-      &quot;prep_id&quot;: &quot;PREP_03&quot;,
-      &quot;ingredient_ids&quot;: [
-        &quot;lemon&quot;
-      ],
-      &quot;instruction&quot;: &quot;Wash and dry the lemon. Finely grate approximately 1 g of the yellow outer zest, stopping before significant white pith is removed.&quot;,
-      &quot;endpoint&quot;: &quot;Approximately 1 g fine lemon zest is prepared.&quot;
-    },
-    {
-      &quot;prep_id&quot;: &quot;PREP_04&quot;,
-      &quot;ingredient_ids&quot;: [
-        &quot;olive_oil&quot;,
-        &quot;smoked_paprika&quot;,
-        &quot;ground_cumin&quot;,
-        &quot;garlic_granules&quot;,
-        &quot;fine_salt&quot;,
-        &quot;black_pepper_ground&quot;
-      ],
-      &quot;instruction&quot;: &quot;Measure 8 g olive oil, 1 tsp smoked paprika, 0.5 tsp ground cumin, 0.5 tsp garlic granules, 0.1875 tsp initial fine salt, 0.0625 tsp reserved fine salt and 0.125 tsp black pepper.&quot;,
-      &quot;endpoint&quot;: &quot;All roasting and seasoning ingredients are accurately measured and ready for immediate use.&quot;
-    }
-  ],
-  &quot;procedure&quot;: [
-    {
-      &quot;step_id&quot;: &quot;STEP_01&quot;,
-      &quot;section&quot;: &quot;Air fryer preparation&quot;,
-      &quot;title&quot;: &quot;Preheat the air fryer&quot;,
-      &quot;depends_on&quot;: [],
-      &quot;parallel_group&quot;: &quot;P01&quot;,
-      &quot;ingredient_ids&quot;: [],
-      &quot;equipment_ids&quot;: [
-        &quot;air_fryer&quot;
-      ],
-      &quot;instruction&quot;: &quot;Preheat the air fryer to 190°C. Allow the appliance to complete its preheat cycle or operate empty at the set temperature for approximately 3 minutes before loading the chickpeas.&quot;,
-      &quot;heat_source&quot;: &quot;Air fryer&quot;,
-      &quot;heat_level&quot;: &quot;190°C&quot;,
-      &quot;temperature_c&quot;: 190,
-      &quot;duration_min_minutes&quot;: 3,
-      &quot;duration_max_minutes&quot;: 5,
-      &quot;endpoint&quot;: &quot;The air fryer has reached 190°C and is ready to receive the chickpeas.&quot;,
-      &quot;corrective_actions&quot;: [
-        {
-          &quot;condition&quot;: &quot;The air fryer has not reached operating temperature after 5 minutes.&quot;,
-          &quot;action&quot;: &quot;Confirm the temperature setting and allow an additional 2 minutes before proceeding.&quot;
-        }
-      ],
-      &quot;critical&quot;: false
-    },
-    {
-      &quot;step_id&quot;: &quot;STEP_02&quot;,
-      &quot;section&quot;: &quot;Chickpea preparation&quot;,
-      &quot;title&quot;: &quot;Coat the dried chickpeas&quot;,
-      &quot;depends_on&quot;: [],
-      &quot;parallel_group&quot;: &quot;P01&quot;,
-      &quot;ingredient_ids&quot;: [
-        &quot;chickpeas_canned&quot;,
-        &quot;olive_oil&quot;
-      ],
-      &quot;equipment_ids&quot;: [
-        &quot;mixing_bowl&quot;,
-        &quot;kitchen_scales&quot;
-      ],
-      &quot;instruction&quot;: &quot;Place the thoroughly dried 220 g chickpeas in the mixing bowl. Add 8 g olive oil and toss until every chickpea has a thin visible sheen and no oil remains pooled in the base of the bowl.&quot;,
-      &quot;heat_source&quot;: null,
-      &quot;heat_level&quot;: null,
-      &quot;temperature_c&quot;: null,
-      &quot;duration_min_minutes&quot;: 1,
-      &quot;duration_max_minutes&quot;: 2,
-      &quot;endpoint&quot;: &quot;The chickpeas are evenly and lightly coated with oil without visible pooling.&quot;,
-      &quot;corrective_actions&quot;: [
-        {
-          &quot;condition&quot;: &quot;Water becomes visible in the base of the bowl during tossing.&quot;,
-          &quot;action&quot;: &quot;Transfer the chickpeas back to clean kitchen paper, dry thoroughly again, clean and dry the bowl, then resume coating.&quot;
-        }
-      ],
-      &quot;critical&quot;: true
-    },
-    {
-      &quot;step_id&quot;: &quot;STEP_03&quot;,
-      &quot;section&quot;: &quot;Roasting&quot;,
-      &quot;title&quot;: &quot;Roast the chickpeas until dry and crisp&quot;,
-      &quot;depends_on&quot;: [
-        &quot;STEP_01&quot;,
-        &quot;STEP_02&quot;
-      ],
-      &quot;parallel_group&quot;: null,
-      &quot;ingredient_ids&quot;: [
-        &quot;chickpeas_canned&quot;,
-        &quot;olive_oil&quot;
-      ],
-      &quot;equipment_ids&quot;: [
-        &quot;air_fryer&quot;
-      ],
-      &quot;instruction&quot;: &quot;Transfer the oiled chickpeas to the preheated air-fryer basket and spread them into the most even layer practical. Roast at 190°C. Shake the basket thoroughly after approximately 6 minutes and again every 4-5 minutes thereafter so multiple surfaces are exposed to hot circulating air.&quot;,
-      &quot;heat_source&quot;: &quot;Air fryer&quot;,
-      &quot;heat_level&quot;: &quot;190°C&quot;,
-      &quot;temperature_c&quot;: 190,
-      &quot;duration_min_minutes&quot;: 14,
-      &quot;duration_max_minutes&quot;: 20,
-      &quot;endpoint&quot;: &quot;The chickpeas are dry on the exterior, lightly golden, audibly firm when shaken against the basket and crisp when one is cooled briefly and bitten, without burnt or bitter surfaces.&quot;,
-      &quot;corrective_actions&quot;: [
-        {
-          &quot;condition&quot;: &quot;The chickpeas brown rapidly while their centres remain soft.&quot;,
-          &quot;action&quot;: &quot;Reduce the air-fryer temperature to 175°C and continue in 3-minute intervals, shaking between intervals.&quot;
-        },
-        {
-          &quot;condition&quot;: &quot;The chickpeas remain soft after 20 minutes without excessive browning.&quot;,
-          &quot;action&quot;: &quot;Continue roasting at 180°C in 3-minute intervals, checking one cooled chickpea after each interval.&quot;
-        },
-        {
-          &quot;condition&quot;: &quot;Individual chickpeas become dark brown or black.&quot;,
-          &quot;action&quot;: &quot;Remove the darkest chickpeas immediately and reduce the temperature before continuing.&quot;
-        }
-      ],
-      &quot;critical&quot;: true
-    },
-    {
-      &quot;step_id&quot;: &quot;STEP_04&quot;,
-      &quot;section&quot;: &quot;Seasoning&quot;,
-      &quot;title&quot;: &quot;Apply the smoked paprika seasoning&quot;,
-      &quot;depends_on&quot;: [
-        &quot;STEP_03&quot;
-      ],
-      &quot;parallel_group&quot;: null,
-      &quot;ingredient_ids&quot;: [
-        &quot;smoked_paprika&quot;,
-        &quot;ground_cumin&quot;,
-        &quot;garlic_granules&quot;,
-        &quot;lemon&quot;,
-        &quot;fine_salt&quot;,
-        &quot;black_pepper_ground&quot;
-      ],
-      &quot;equipment_ids&quot;: [
-        &quot;mixing_bowl&quot;
-      ],
-      &quot;instruction&quot;: &quot;Immediately transfer the hot roasted chickpeas to the clean mixing bowl. Add 1 tsp smoked paprika, 0.5 tsp ground cumin, 0.5 tsp garlic granules, approximately 1 g lemon zest, 0.1875 tsp fine salt and 0.125 tsp black pepper. Toss continuously for approximately 30-45 seconds so the residual oil and heat distribute the dry seasoning evenly.&quot;,
-      &quot;heat_source&quot;: null,
-      &quot;heat_level&quot;: null,
-      &quot;temperature_c&quot;: null,
-      &quot;duration_min_minutes&quot;: 0.5,
-      &quot;duration_max_minutes&quot;: 1,
-      &quot;endpoint&quot;: &quot;The chickpeas have an even red-orange seasoning coat with no concentrated spice patches or visible loose seasoning collected in one area.&quot;,
-      &quot;corrective_actions&quot;: [
-        {
-          &quot;condition&quot;: &quot;Seasoning accumulates in dry patches.&quot;,
-          &quot;action&quot;: &quot;Continue tossing vigorously while the chickpeas are still hot until the coating becomes more uniform.&quot;
-        },
-        {
-          &quot;condition&quot;: &quot;The paprika smells scorched or acrid.&quot;,
-          &quot;action&quot;: &quot;Transfer the chickpeas immediately to a cool plate and stop further heating.&quot;
-        }
-      ],
-      &quot;critical&quot;: false
-    },
-    {
-      &quot;step_id&quot;: &quot;STEP_05&quot;,
-      &quot;section&quot;: &quot;Cooling&quot;,
-      &quot;title&quot;: &quot;Cool the roasted chickpeas completely&quot;,
-      &quot;depends_on&quot;: [
-        &quot;STEP_04&quot;
-      ],
-      &quot;parallel_group&quot;: &quot;P02&quot;,
-      &quot;ingredient_ids&quot;: [
-        &quot;chickpeas_canned&quot;
-      ],
-      &quot;equipment_ids&quot;: [
-        &quot;mixing_bowl&quot;
-      ],
-      &quot;instruction&quot;: &quot;Spread the seasoned chickpeas into a single layer across the bowl or a clean plate and leave uncovered at room temperature. Stir or shake once halfway through cooling so trapped steam can escape.&quot;,
-      &quot;heat_source&quot;: null,
-      &quot;heat_level&quot;: null,
-      &quot;temperature_c&quot;: null,
-      &quot;duration_min_minutes&quot;: 8,
-      &quot;duration_max_minutes&quot;: 12,
-      &quot;endpoint&quot;: &quot;The chickpeas are at room temperature, externally dry and remain crisp rather than steaming or tacky.&quot;,
-      &quot;corrective_actions&quot;: [
-        {
-          &quot;condition&quot;: &quot;The chickpeas remain warm or soften from retained steam.&quot;,
-          &quot;action&quot;: &quot;Spread them into a thinner layer and continue cooling uncovered for an additional 5 minutes.&quot;
-        }
-      ],
-      &quot;critical&quot;: true
-    },
-    {
-      &quot;step_id&quot;: &quot;STEP_06&quot;,
-      &quot;section&quot;: &quot;Vegetable preparation&quot;,
-      &quot;title&quot;: &quot;Prepare and dry the cucumber sticks&quot;,
-      &quot;depends_on&quot;: [],
-      &quot;parallel_group&quot;: &quot;P02&quot;,
-      &quot;ingredient_ids&quot;: [
-        &quot;cucumber&quot;
-      ],
-      &quot;equipment_ids&quot;: [
-        &quot;chef_knife&quot;,
-        &quot;chopping_board&quot;
-      ],
-      &quot;instruction&quot;: &quot;Complete the cucumber preparation specified in mise en place. Inspect the cut sticks for excessive surface moisture and blot thoroughly with clean kitchen paper before packing.&quot;,
-      &quot;heat_source&quot;: null,
-      &quot;heat_level&quot;: null,
-      &quot;temperature_c&quot;: null,
-      &quot;duration_min_minutes&quot;: 4,
-      &quot;duration_max_minutes&quot;: 6,
-      &quot;endpoint&quot;: &quot;The cucumber sticks are evenly sized, cold or room temperature, crisp and externally dry.&quot;,
-      &quot;corrective_actions&quot;: [
-        {
-          &quot;condition&quot;: &quot;Visible cucumber liquid collects after cutting.&quot;,
-          &quot;action&quot;: &quot;Spread the sticks on clean kitchen paper for 2 minutes, then blot again before packing.&quot;
-        }
-      ],
-      &quot;critical&quot;: false
-    },
-    {
-      &quot;step_id&quot;: &quot;STEP_07&quot;,
-      &quot;section&quot;: &quot;Final seasoning&quot;,
-      &quot;title&quot;: &quot;Check the chickpea seasoning&quot;,
-      &quot;depends_on&quot;: [
-        &quot;STEP_05&quot;
-      ],
-      &quot;parallel_group&quot;: null,
-      &quot;ingredient_ids&quot;: [
-        &quot;fine_salt&quot;
-      ],
-      &quot;equipment_ids&quot;: [
-        &quot;mixing_bowl&quot;
-      ],
-      &quot;instruction&quot;: &quot;Taste one cooled chickpea. If the smoked paprika, cumin and salt are clearly defined, do not add the reserved salt. If noticeably under-seasoned, add up to the reserved 0.0625 tsp fine salt and toss thoroughly.&quot;,
-      &quot;heat_source&quot;: null,
-      &quot;heat_level&quot;: null,
-      &quot;temperature_c&quot;: null,
-      &quot;duration_min_minutes&quot;: 1,
-      &quot;duration_max_minutes&quot;: 2,
-      &quot;endpoint&quot;: &quot;The chickpeas taste smoky, savoury and well seasoned without excessive saltiness.&quot;,
-      &quot;corrective_actions&quot;: [
-        {
-          &quot;condition&quot;: &quot;The chickpeas are adequately seasoned before the reserved salt is used.&quot;,
-          &quot;action&quot;: &quot;Do not add the reserved salt.&quot;
-        }
-      ],
-      &quot;critical&quot;: false
-    },
-    {
-      &quot;step_id&quot;: &quot;STEP_08&quot;,
-      &quot;section&quot;: &quot;Packing&quot;,
-      &quot;title&quot;: &quot;Portion the portable snack&quot;,
-      &quot;depends_on&quot;: [
-        &quot;STEP_06&quot;,
-        &quot;STEP_07&quot;
-      ],
-      &quot;parallel_group&quot;: null,
-      &quot;ingredient_ids&quot;: [
-        &quot;chickpeas_canned&quot;,
-        &quot;cucumber&quot;
-      ],
-      &quot;equipment_ids&quot;: [
-        &quot;lidded_containers&quot;,
-        &quot;kitchen_scales&quot;
-      ],
-      &quot;instruction&quot;: &quot;Divide the completely cooled roasted chickpeas equally between 2 dry snack compartments or small inner containers. Divide the cucumber sticks equally between separate compartments. Do not allow cucumber to contact the chickpeas during storage. Seal all containers securely.&quot;,
-      &quot;heat_source&quot;: null,
-      &quot;heat_level&quot;: null,
-      &quot;temperature_c&quot;: null,
-      &quot;duration_min_minutes&quot;: 2,
-      &quot;duration_max_minutes&quot;: 4,
-      &quot;endpoint&quot;: &quot;Each serving contains approximately half of the chickpeas and half of the cucumber, with the dry roasted chickpeas physically separated from the moist vegetables.&quot;,
-      &quot;corrective_actions&quot;: [
-        {
-          &quot;condition&quot;: &quot;One serving contains visibly more chickpeas than the other.&quot;,
-          &quot;action&quot;: &quot;Use the kitchen scales to transfer small amounts until both chickpea portions are approximately equal.&quot;
-        },
-        {
-          &quot;condition&quot;: &quot;Moisture is visible in the chickpea compartment before sealing.&quot;,
-          &quot;action&quot;: &quot;Dry the compartment completely and confirm the chickpeas are fully cool before repacking.&quot;
-        }
-      ],
-      &quot;critical&quot;: true
-    }
-  ],
-  &quot;plating&quot;: [
-    {
-      &quot;step_id&quot;: &quot;PLATE_01&quot;,
-      &quot;instruction&quot;: &quot;Serve one complete snack portion per person. Eat the crisp smoked-paprika chickpeas alternately with the cold cucumber sticks rather than mixing them together, preserving the contrast between dry crunch and fresh juiciness.&quot;
-    }
-  ],
-  &quot;storage&quot;: {
-    &quot;refrigerator_days&quot;: 2,
-    &quot;freezer_months&quot;: null,
-    &quot;storage_instructions&quot;: &quot;For best texture, refrigerate the cucumber at 5°C or below and store the fully cooled roasted chickpeas in a separate sealed dry compartment. The complete snack is suitable for work or car transport; use an insulated lunch bag with an ice pack if the cucumber will be outside refrigeration for an extended period. Roasted chickpeas may soften slightly under refrigeration, so the crispest texture is obtained within 24 hours.&quot;,
-    &quot;reheating_methods&quot;: []
-  },
-  &quot;shopping&quot;: {
-    &quot;sainsburys&quot;: [],
-    &quot;marks_and_spencer&quot;: [],
-    &quot;either_retailer&quot;: [
-      &quot;Chickpeas: buy 1 x 400 g tin&quot;,
-      &quot;Cucumber: buy 1 whole cucumber&quot;,
-      &quot;Olive oil: buy 1 bottle if not already stocked&quot;,
-      &quot;Smoked paprika: buy 1 jar&quot;,
-      &quot;Ground cumin: buy 1 jar if not already stocked&quot;,
-      &quot;Garlic granules: buy 1 jar if not already stocked&quot;,
-      &quot;Unwaxed lemon: buy 1&quot;,
-      &quot;Fine salt: buy 1 container if not already stocked&quot;,
-      &quot;Ground black pepper: buy 1 jar or pepper mill if not already stocked&quot;
-    ]
-  },
-  &quot;quality_checks&quot;: {
-    &quot;protein_requirement_met&quot;: true,
-    &quot;protein_g_per_serving&quot;: 8,
-    &quot;restaurant_quality_features&quot;: [
-      &quot;Chickpeas are rinsed and dried thoroughly before roasting, allowing the surfaces to crisp rather than steam.&quot;,
-      &quot;A measured amount of olive oil provides sufficient surface coating for browning and spice adhesion without unnecessarily increasing calories.&quot;,
-      &quot;Smoked paprika and cumin provide layered warm spice character, while garlic granules contribute savoury depth without introducing moisture.&quot;,
-      &quot;Lemon zest adds aromatic acidity without wetting the roasted chickpeas and compromising crispness.&quot;,
-      &quot;Seasoning is applied while the chickpeas are hot so the spices adhere evenly to the residual oil.&quot;,
-      &quot;The chickpeas are cooled uncovered before packing, preventing trapped steam from immediately softening the roasted exterior.&quot;,
-      &quot;Cucumber is packed separately so its moisture does not compromise the chickpea texture.&quot;
-    ],
-    &quot;nutrition_notes&quot;: [
-      &quot;Estimated nutrition represents one complete afternoon snack serving including roasted chickpeas, cucumber, olive oil and all seasonings.&quot;,
-      &quot;The recipe is designed around the approximately 200 kcal afternoon-snack target.&quot;,
-      &quot;The general 30 g protein requirement does not apply to afternoon snacks under the specified meal-plan rules; approximately 8 g protein per serving is therefore compliant.&quot;,
-      &quot;Chickpeas provide plant protein, carbohydrate and substantial dietary fibre, while cucumber adds volume and hydration with minimal additional energy.&quot;,
-      &quot;Added oil is deliberately limited while remaining sufficient to support roasting and spice adhesion.&quot;,
-      &quot;Nutrition values are estimates and will vary with the exact drained weight and nutritional composition of the chickpeas used.&quot;,
-      &quot;The recipe follows the supplied structured-recipe and afternoon-snack requirements. &quot;
-    ],
-    &quot;critical_success_factors&quot;: [
-      &quot;Dry the rinsed chickpeas extremely thoroughly before adding oil; residual water is the main cause of soft roasted chickpeas.&quot;,
-      &quot;Do not add wet acidic ingredients such as lemon juice to the roasted chickpeas before storage; use zest for brightness without sacrificing crispness.&quot;,
-      &quot;Judge completion by actual crispness of a briefly cooled chickpea rather than roasting time alone.&quot;,
-      &quot;Apply dry spices immediately after roasting while the chickpeas remain hot and lightly oil-coated.&quot;,
-      &quot;Cool chickpeas completely before sealing them in any container.&quot;,
-      &quot;Keep cucumber physically separate from the chickpeas throughout storage and transport.&quot;
-    ]
-  }
-}</pre>
-
 </details>
 
+
+<details class="section non-method">
+    <summary>Equipment</summary>
+    <div class="section-content">
+        <ul class="compact-list">
+            <li>Duo Stack air fryer</li><li>Colander</li><li>Medium mixing bowl</li><li>Chef&#x27;s knife</li><li>Chopping board</li><li>Fine grater or Microplane</li><li>Kitchen scales</li><li>Measuring spoons</li><li>2 portable lidded snack containers with separate compartments or small inner pots</li>
+        </ul>
+    </div>
+</details>
+
+
+<details class="section non-method" open>
+    <summary>Mise en place</summary>
+    <div class="section-content card-stack">
+        <article class="prep-card">
+<h3>Prep 1</h3>
+<p>Open the chickpea tin and pour the contents into the colander, discarding all canning liquid. Rinse thoroughly under cold running water while gently agitating the chickpeas. Drain for approximately 2 minutes, then spread on clean kitchen paper and roll or blot gently until the surfaces are as dry as practical. Remove any loose chickpea skins that detach during drying.</p>
+<div class="endpoint"><strong>Ready when:</strong> Approximately 220 g drained chickpeas are clean, externally dry and free from visible surface water.</div>
+</article><article class="prep-card">
+<h3>Prep 2</h3>
+<p>Wash and dry the whole cucumber. Cut approximately half to provide about 220 g. Cut into sticks approximately 10 mm x 10 mm x 70 mm. If the centre is unusually soft and watery, trim away only the softest seed core. Pat the cut surfaces dry with clean kitchen paper.</p>
+<div class="endpoint"><strong>Ready when:</strong> Approximately 220 g cucumber is cut into crisp, dry sticks suitable for transport.</div>
+</article><article class="prep-card">
+<h3>Prep 3</h3>
+<p>Wash and dry the lemon. Finely grate approximately 1 g of the yellow outer zest, stopping before significant white pith is removed.</p>
+<div class="endpoint"><strong>Ready when:</strong> Approximately 1 g fine lemon zest is prepared.</div>
+</article><article class="prep-card">
+<h3>Prep 4</h3>
+<p>Measure 8 g olive oil, 1 tsp smoked paprika, 0.5 tsp ground cumin, 0.5 tsp garlic granules, 0.1875 tsp initial fine salt, 0.0625 tsp reserved fine salt and 0.125 tsp black pepper.</p>
+<div class="endpoint"><strong>Ready when:</strong> All roasting and seasoning ingredients are accurately measured and ready for immediate use.</div>
+</article>
+    </div>
+</details>
+
+
+<section class="section method-section">
+    <h2>Method</h2>
+
+    <div id="methodSteps" class="card-stack">
+        <article class="method-step" data-step-index="0">
+<div class="step-heading">
+<div class="step-number">Step 1</div>
+<h3>Preheat the air fryer</h3>
+</div>
+<div class="step-section">Air fryer preparation</div>
+<div class="step-meta"><span class="badge">Heat source: Air fryer</span><span class="badge">Setting: 190°C</span><span class="badge">Temperature: 190°C</span><span class="badge">Time: 3–5 min</span></div>
+<p class="instruction">Preheat the air fryer to 190°C. Allow the appliance to complete its preheat cycle or operate empty at the set temperature for approximately 3 minutes before loading the chickpeas.</p>
+<div class="endpoint"><strong>Ready when:</strong> The air fryer has reached 190°C and is ready to receive the chickpeas.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul>
+        <li><strong>If:</strong> The air fryer has not reached operating temperature after 5 minutes.<br><strong>Do:</strong> Confirm the temperature setting and allow an additional 2 minutes before proceeding.</li>
+    </ul>
+</details>
+
+</article><article class="method-step" data-step-index="1">
+<div class="step-heading">
+<div class="step-number">Step 2</div>
+<h3>Coat the dried chickpeas</h3>
+</div>
+<div class="step-section">Chickpea preparation</div>
+<div class="step-meta"><span class="badge">Time: 1–2 min</span></div>
+<p class="instruction">Place the thoroughly dried 220 g chickpeas in the mixing bowl. Add 8 g olive oil and toss until every chickpea has a thin visible sheen and no oil remains pooled in the base of the bowl.</p>
+<div class="endpoint"><strong>Ready when:</strong> The chickpeas are evenly and lightly coated with oil without visible pooling.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul>
+        <li><strong>If:</strong> Water becomes visible in the base of the bowl during tossing.<br><strong>Do:</strong> Transfer the chickpeas back to clean kitchen paper, dry thoroughly again, clean and dry the bowl, then resume coating.</li>
+    </ul>
+</details>
+
+</article><article class="method-step" data-step-index="2">
+<div class="step-heading">
+<div class="step-number">Step 3</div>
+<h3>Roast the chickpeas until dry and crisp</h3>
+</div>
+<div class="step-section">Roasting</div>
+<div class="step-meta"><span class="badge">Heat source: Air fryer</span><span class="badge">Setting: 190°C</span><span class="badge">Temperature: 190°C</span><span class="badge">Time: 14–20 min</span></div>
+<p class="instruction">Transfer the oiled chickpeas to the preheated air-fryer basket and spread them into the most even layer practical. Roast at 190°C. Shake the basket thoroughly after approximately 6 minutes and again every 4-5 minutes thereafter so multiple surfaces are exposed to hot circulating air.</p>
+<div class="endpoint"><strong>Ready when:</strong> The chickpeas are dry on the exterior, lightly golden, audibly firm when shaken against the basket and crisp when one is cooled briefly and bitten, without burnt or bitter surfaces.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul>
+        <li><strong>If:</strong> The chickpeas brown rapidly while their centres remain soft.<br><strong>Do:</strong> Reduce the air-fryer temperature to 175°C and continue in 3-minute intervals, shaking between intervals.</li><li><strong>If:</strong> The chickpeas remain soft after 20 minutes without excessive browning.<br><strong>Do:</strong> Continue roasting at 180°C in 3-minute intervals, checking one cooled chickpea after each interval.</li><li><strong>If:</strong> Individual chickpeas become dark brown or black.<br><strong>Do:</strong> Remove the darkest chickpeas immediately and reduce the temperature before continuing.</li>
+    </ul>
+</details>
+
+</article><article class="method-step" data-step-index="3">
+<div class="step-heading">
+<div class="step-number">Step 4</div>
+<h3>Apply the smoked paprika seasoning</h3>
+</div>
+<div class="step-section">Seasoning</div>
+<div class="step-meta"><span class="badge">Time: 0.5–1 min</span></div>
+<p class="instruction">Immediately transfer the hot roasted chickpeas to the clean mixing bowl. Add 1 tsp smoked paprika, 0.5 tsp ground cumin, 0.5 tsp garlic granules, approximately 1 g lemon zest, 0.1875 tsp fine salt and 0.125 tsp black pepper. Toss continuously for approximately 30-45 seconds so the residual oil and heat distribute the dry seasoning evenly.</p>
+<div class="endpoint"><strong>Ready when:</strong> The chickpeas have an even red-orange seasoning coat with no concentrated spice patches or visible loose seasoning collected in one area.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul>
+        <li><strong>If:</strong> Seasoning accumulates in dry patches.<br><strong>Do:</strong> Continue tossing vigorously while the chickpeas are still hot until the coating becomes more uniform.</li><li><strong>If:</strong> The paprika smells scorched or acrid.<br><strong>Do:</strong> Transfer the chickpeas immediately to a cool plate and stop further heating.</li>
+    </ul>
+</details>
+
+</article><article class="method-step" data-step-index="4">
+<div class="step-heading">
+<div class="step-number">Step 5</div>
+<h3>Cool the roasted chickpeas completely</h3>
+</div>
+<div class="step-section">Cooling</div>
+<div class="step-meta"><span class="badge">Time: 8–12 min</span></div>
+<p class="instruction">Spread the seasoned chickpeas into a single layer across the bowl or a clean plate and leave uncovered at room temperature. Stir or shake once halfway through cooling so trapped steam can escape.</p>
+<div class="endpoint"><strong>Ready when:</strong> The chickpeas are at room temperature, externally dry and remain crisp rather than steaming or tacky.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul>
+        <li><strong>If:</strong> The chickpeas remain warm or soften from retained steam.<br><strong>Do:</strong> Spread them into a thinner layer and continue cooling uncovered for an additional 5 minutes.</li>
+    </ul>
+</details>
+
+</article><article class="method-step" data-step-index="5">
+<div class="step-heading">
+<div class="step-number">Step 6</div>
+<h3>Prepare and dry the cucumber sticks</h3>
+</div>
+<div class="step-section">Vegetable preparation</div>
+<div class="step-meta"><span class="badge">Time: 4–6 min</span></div>
+<p class="instruction">Complete the cucumber preparation specified in mise en place. Inspect the cut sticks for excessive surface moisture and blot thoroughly with clean kitchen paper before packing.</p>
+<div class="endpoint"><strong>Ready when:</strong> The cucumber sticks are evenly sized, cold or room temperature, crisp and externally dry.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul>
+        <li><strong>If:</strong> Visible cucumber liquid collects after cutting.<br><strong>Do:</strong> Spread the sticks on clean kitchen paper for 2 minutes, then blot again before packing.</li>
+    </ul>
+</details>
+
+</article><article class="method-step" data-step-index="6">
+<div class="step-heading">
+<div class="step-number">Step 7</div>
+<h3>Check the chickpea seasoning</h3>
+</div>
+<div class="step-section">Final seasoning</div>
+<div class="step-meta"><span class="badge">Time: 1–2 min</span></div>
+<p class="instruction">Taste one cooled chickpea. If the smoked paprika, cumin and salt are clearly defined, do not add the reserved salt. If noticeably under-seasoned, add up to the reserved 0.0625 tsp fine salt and toss thoroughly.</p>
+<div class="endpoint"><strong>Ready when:</strong> The chickpeas taste smoky, savoury and well seasoned without excessive saltiness.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul>
+        <li><strong>If:</strong> The chickpeas are adequately seasoned before the reserved salt is used.<br><strong>Do:</strong> Do not add the reserved salt.</li>
+    </ul>
+</details>
+
+</article><article class="method-step" data-step-index="7">
+<div class="step-heading">
+<div class="step-number">Step 8</div>
+<h3>Portion the portable snack</h3>
+</div>
+<div class="step-section">Packing</div>
+<div class="step-meta"><span class="badge">Time: 2–4 min</span></div>
+<p class="instruction">Divide the completely cooled roasted chickpeas equally between 2 dry snack compartments or small inner containers. Divide the cucumber sticks equally between separate compartments. Do not allow cucumber to contact the chickpeas during storage. Seal all containers securely.</p>
+<div class="endpoint"><strong>Ready when:</strong> Each serving contains approximately half of the chickpeas and half of the cucumber, with the dry roasted chickpeas physically separated from the moist vegetables.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul>
+        <li><strong>If:</strong> One serving contains visibly more chickpeas than the other.<br><strong>Do:</strong> Use the kitchen scales to transfer small amounts until both chickpea portions are approximately equal.</li><li><strong>If:</strong> Moisture is visible in the chickpea compartment before sealing.<br><strong>Do:</strong> Dry the compartment completely and confirm the chickpeas are fully cool before repacking.</li>
+    </ul>
+</details>
+
+</article>
+    </div>
+
+    <div id="cookControls" class="cook-controls">
+        <button
+            id="previousStep"
+            type="button"
+        >
+            Previous
+        </button>
+
+        <div id="stepCounter"></div>
+
+        <button
+            id="nextStep"
+            type="button"
+        >
+            Next
+        </button>
+    </div>
+</section>
+
+
+<details class="section non-method">
+    <summary>Serving</summary>
+    <div class="section-content">
+        <p>Serve one complete snack portion per person. Eat the crisp smoked-paprika chickpeas alternately with the cold cucumber sticks rather than mixing them together, preserving the contrast between dry crunch and fresh juiciness.</p>
+    </div>
+</details>
+
+
+<details class="section non-method">
+    <summary>Storage & reheating</summary>
+    <div class="section-content">
+        <p><strong>Refrigerator:</strong> 2 days</p><p>For best texture, refrigerate the cucumber at 5°C or below and store the fully cooled roasted chickpeas in a separate sealed dry compartment. The complete snack is suitable for work or car transport; use an insulated lunch bag with an ice pack if the cucumber will be outside refrigeration for an extended period. Roasted chickpeas may soften slightly under refrigeration, so the crispest texture is obtained within 24 hours.</p>
+    </div>
+</details>
+
+
+<details class="section non-method">
+    <summary>Shopping</summary>
+    <div class="section-content">
+        
+            <h3>Either retailer</h3>
+            <ul><li>Chickpeas: buy 1 x 400 g tin</li><li>Cucumber: buy 1 whole cucumber</li><li>Olive oil: buy 1 bottle if not already stocked</li><li>Smoked paprika: buy 1 jar</li><li>Ground cumin: buy 1 jar if not already stocked</li><li>Garlic granules: buy 1 jar if not already stocked</li><li>Unwaxed lemon: buy 1</li><li>Fine salt: buy 1 container if not already stocked</li><li>Ground black pepper: buy 1 jar or pepper mill if not already stocked</li></ul>
+            
+    </div>
+</details>
+
+
 </main>
+
+
+<script>
+
+(function () {
+
+    const button =
+        document.getElementById(
+            "cookModeButton"
+        );
+
+    const steps =
+        Array.from(
+            document.querySelectorAll(
+                ".method-step"
+            )
+        );
+
+    const controls =
+        document.getElementById(
+            "cookControls"
+        );
+
+    const previous =
+        document.getElementById(
+            "previousStep"
+        );
+
+    const next =
+        document.getElementById(
+            "nextStep"
+        );
+
+    const counter =
+        document.getElementById(
+            "stepCounter"
+        );
+
+    let currentStep = 0;
+
+
+    function showStep(index) {
+
+        if (!steps.length) {
+            return;
+        }
+
+        currentStep =
+            Math.max(
+                0,
+                Math.min(
+                    index,
+                    steps.length - 1
+                )
+            );
+
+        steps.forEach(
+            (step, stepIndex) => {
+
+                step.classList.toggle(
+                    "active",
+                    stepIndex === currentStep
+                );
+
+            }
+        );
+
+        if (counter) {
+
+            counter.textContent =
+                (
+                    "Step "
+                    +
+                    (currentStep + 1)
+                    +
+                    " of "
+                    +
+                    steps.length
+                );
+        }
+
+        if (previous) {
+            previous.disabled =
+                currentStep === 0;
+        }
+
+        if (next) {
+            next.disabled =
+                currentStep ===
+                steps.length - 1;
+        }
+
+        const active =
+            steps[currentStep];
+
+        if (active) {
+
+            active.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+        }
+    }
+
+
+    if (button) {
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                const active =
+                    document.body.classList.toggle(
+                        "cook-mode"
+                    );
+
+                button.textContent =
+                    active
+                        ? "Exit cook mode"
+                        : "Cook mode";
+
+                if (active) {
+                    showStep(
+                        currentStep
+                    );
+                }
+            }
+        );
+    }
+
+
+    if (previous) {
+
+        previous.addEventListener(
+            "click",
+            () => {
+                showStep(
+                    currentStep - 1
+                );
+            }
+        );
+    }
+
+
+    if (next) {
+
+        next.addEventListener(
+            "click",
+            () => {
+                showStep(
+                    currentStep + 1
+                );
+            }
+        );
+    }
+
+
+    if (!steps.length && controls) {
+        controls.style.display = "none";
+    }
+
+})();
+
+</script>
 
 </body>
 

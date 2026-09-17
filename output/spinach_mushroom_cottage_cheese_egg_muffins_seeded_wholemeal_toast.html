@@ -7,7 +7,7 @@
 
 <meta
     name="viewport"
-    content="width=device-width, initial-scale=1"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
 >
 
 <title>Spinach, Mushroom &amp; Cottage Cheese Egg Muffins with Seeded Wholemeal Toast</title>
@@ -15,21 +15,18 @@
 <style>
 
     :root {
-        --page-width: 1100px;
-        --border: #8f8f8f;
-        --page-background: #f2f2f2;
+        --background: #f4f2ec;
+        --panel: #ffffff;
+        --text: #000000;
+        --muted: #555555;
+        --border: #b9b5ad;
+        --accent: #e5f1dd;
+        --endpoint: #fff4c6;
+        --step: #f7f7f4;
     }
 
     * {
         box-sizing: border-box;
-    }
-
-    html {
-        background: var(--page-background);
-    }
-
-    body {
-        margin: 0;
 
         font-family:
             -apple-system,
@@ -39,512 +36,521 @@
             Helvetica,
             Arial,
             sans-serif;
-
-        color: #000000;
-
-        line-height: 1.55;
     }
 
-    h1,
-    h2,
-    h3,
-    h4,
-    p,
-    div,
-    span,
-    code,
-    pre,
-    summary,
-    strong {
-        color: #000000;
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+
+        background: var(--background);
+        color: var(--text);
+    }
+
+    body {
+        min-height: 100vh;
+        min-height: 100dvh;
+    }
+
+    button,
+    input,
+    select,
+    summary {
+        font: inherit;
     }
 
     .page {
         width: min(
-            calc(100% - 32px),
-            var(--page-width)
+            calc(100% - 24px),
+            1050px
         );
 
-        margin:
-            32px
-            auto
-            64px
-            auto;
+        margin: 0 auto;
+
+        padding:
+            max(12px, env(safe-area-inset-top))
+            0
+            max(40px, env(safe-area-inset-bottom))
+            0;
     }
 
-    /* ======================================================
-       Header
-       ====================================================== */
+    .recipe-header {
+        position: sticky;
+        top: 0;
+        z-index: 20;
 
-    .document-header {
-        background: #ffffff;
+        background:
+            rgba(
+                244,
+                242,
+                236,
+                0.96
+            );
 
-        border:
+        backdrop-filter:
+            blur(10px);
+
+        padding:
+            12px
+            0
+            10px
+            0;
+
+        border-bottom:
             1px
             solid
             var(--border);
-
-        border-radius: 14px;
-
-        padding: 32px;
-
-        margin-bottom: 24px;
     }
 
-    .document-header h1 {
+    .title-row {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 12px;
+    }
+
+    h1 {
         margin: 0;
 
         font-size:
             clamp(
-                2rem,
-                4vw,
-                3rem
+                1.65rem,
+                5vw,
+                2.8rem
             );
 
-        line-height: 1.1;
+        line-height: 1.12;
     }
 
-    .schedule-date {
-        margin-top: 18px;
+    .description {
+        margin:
+            12px
+            0
+            0
+            0;
+
+        line-height: 1.5;
+    }
+
+    .scheduled-date {
+        margin-top: 8px;
+        font-weight: 700;
+    }
+
+    .tag-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+
+        margin-top: 10px;
+    }
+
+    .badge {
+        display: inline-block;
 
         padding:
-            12px
-            16px;
+            4px
+            8px;
 
-        border:
-            1px
-            solid
-            #000000;
-
-        border-radius: 8px;
-
-        background: #fff7c7;
-
-        font-size: 1.1rem;
-    }
-
-    /* ======================================================
-       All major JSON sections
-       ====================================================== */
-
-    .top-section {
         border:
             1px
             solid
             var(--border);
 
-        border-radius: 14px;
+        border-radius: 999px;
 
-        padding: 24px;
+        background: #ffffff;
 
-        margin:
-            0
-            0
-            24px
-            0;
+        color: #000000;
+
+        font-size: 0.82rem;
     }
 
-    .top-section > h2 {
-        margin:
-            0
-            0
-            20px
-            0;
+    .allergens {
+        margin-top: 10px;
 
-        padding-bottom: 10px;
+        padding:
+            8px
+            10px;
 
-        border-bottom:
-            2px
-            solid
-            #000000;
+        border-radius: 8px;
 
-        font-size: 1.6rem;
+        background: #ffe4df;
     }
 
-    /*
-       Every major section receives its own background colour.
+    .facts {
+        display: grid;
 
-       Text remains black throughout.
-    */
-
-    .top-section[data-json-path="$.schema_version"] {
-        background: #eeeeee;
-    }
-
-    .top-section[data-json-path="$.recipe"] {
-        background: #ffe8dc;
-    }
-
-    .top-section[data-json-path="$.nutrition_per_serving"] {
-        background: #ddf3e4;
-    }
-
-    .top-section[data-json-path="$.ingredients"] {
-        background: #fff4c9;
-    }
-
-    .top-section[data-json-path="$.equipment"] {
-        background: #dfeeff;
-    }
-
-    .top-section[data-json-path="$.mise_en_place"] {
-        background: #eee2fa;
-    }
-
-    .top-section[data-json-path="$.procedure"] {
-        background: #ffe1e8;
-    }
-
-    .top-section[data-json-path="$.plating"] {
-        background: #daf5f2;
-    }
-
-    .top-section[data-json-path="$.storage"] {
-        background: #ffe9c9;
-    }
-
-    .top-section[data-json-path="$.shopping"] {
-        background: #e4f3d7;
-    }
-
-    .top-section[data-json-path="$.quality_checks"] {
-        background: #eadff5;
-    }
-
-    /* ======================================================
-       Nested objects
-       ====================================================== */
-
-    .object-content {
-        margin: 0;
-    }
-
-    .nested-object {
-        margin:
-            18px
-            0;
-
-        padding: 18px;
-
-        border:
-            1px
-            solid
-            #777777;
-
-        border-radius: 10px;
-
-        background:
-            rgba(
-                255,
-                255,
-                255,
-                0.55
+        grid-template-columns:
+            repeat(
+                auto-fit,
+                minmax(90px, 1fr)
             );
-    }
 
-    .nested-object > h3 {
+        gap: 8px;
+
         margin:
-            0
-            0
             14px
             0;
     }
 
-    /* ======================================================
-       Individual fields
-       ====================================================== */
-
-    .field-row {
+    .fact {
         display: grid;
+        gap: 2px;
 
-        grid-template-columns:
-            minmax(
-                180px,
-                28%
-            )
-            1fr;
-
-        gap: 20px;
-
-        padding:
-            10px
-            0;
-
-        border-bottom:
-            1px
-            solid
-            rgba(
-                0,
-                0,
-                0,
-                0.18
-            );
-    }
-
-    .field-row:last-child {
-        border-bottom: 0;
-    }
-
-    .field-name {
-        font-weight: 700;
-    }
-
-    .field-value {
-        white-space: pre-wrap;
-
-        overflow-wrap: anywhere;
-    }
-
-    .top-scalar-value {
-        font-size: 1.05rem;
-
-        overflow-wrap: anywhere;
-    }
-
-    /* ======================================================
-       Arrays
-       ====================================================== */
-
-    .array-block {
-        margin:
-            10px
-            0
-            20px
-            0;
-    }
-
-    .array-block > h3 {
-        margin-bottom: 12px;
-    }
-
-    .array-items {
-        display: grid;
-
-        gap: 14px;
-    }
-
-    .array-item {
-        padding: 18px;
+        padding: 9px;
 
         border:
             1px
             solid
-            #777777;
+            var(--border);
+
+        border-radius: 9px;
+
+        background: #ffffff;
+    }
+
+    .fact span {
+        font-size: 0.78rem;
+        color: var(--muted);
+    }
+
+    .section {
+        display: block;
+
+        margin-top: 14px;
+
+        border:
+            1px
+            solid
+            var(--border);
+
+        border-radius: 12px;
+
+        background: var(--panel);
+
+        overflow: hidden;
+    }
+
+    details.section > summary {
+        cursor: pointer;
+
+        padding:
+            15px
+            16px;
+
+        font-size: 1.12rem;
+
+        font-weight: 800;
+
+        background: var(--accent);
+    }
+
+    .section-content {
+        padding: 14px;
+    }
+
+    .method-section {
+        padding:
+            14px;
+    }
+
+    .method-section > h2 {
+        margin:
+            0
+            0
+            12px
+            0;
+    }
+
+    .ingredient-grid {
+        display: grid;
+        gap: 10px;
+    }
+
+    .ingredient-card,
+    .prep-card,
+    .method-step {
+        padding: 14px;
+
+        border:
+            1px
+            solid
+            var(--border);
 
         border-radius: 10px;
 
-        background:
-            rgba(
-                255,
-                255,
-                255,
-                0.60
-            );
+        background: var(--step);
     }
 
-    .item-number {
-        font-size: 0.82rem;
+    .ingredient-heading {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 14px;
+    }
 
-        font-weight: 700;
+    .ingredient-quantity {
+        flex: 0 0 auto;
+
+        font-weight: 800;
+
+        white-space: nowrap;
+    }
+
+    .subline {
+        margin-top: 7px;
+        line-height: 1.4;
+    }
+
+    .compact-list {
+        margin:
+            0;
+        padding-left:
+            22px;
+    }
+
+    .card-stack {
+        display: grid;
+        gap: 12px;
+    }
+
+    .prep-card h3,
+    .method-step h3 {
+        margin:
+            0;
+    }
+
+    .prep-card p,
+    .method-step p {
+        margin:
+            10px
+            0;
+    }
+
+    .step-heading {
+        display: flex;
+        align-items: baseline;
+        gap: 10px;
+    }
+
+    .step-number {
+        flex: 0 0 auto;
+
+        font-size: 0.8rem;
+        font-weight: 800;
 
         text-transform: uppercase;
-
-        letter-spacing: 0.06em;
-
-        margin-bottom: 8px;
     }
 
-    .scalar-array-item {
+    .step-section {
+        margin-top: 6px;
+
+        font-size: 0.85rem;
+        font-weight: 700;
+
+        color: var(--muted);
+    }
+
+    .step-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+
+        margin-top: 10px;
+    }
+
+    .instruction {
+        font-size: 1rem;
+        line-height: 1.55;
+    }
+
+    .endpoint {
+        margin-top: 10px;
+
+        padding:
+            10px
+            12px;
+
+        border-left:
+            4px
+            solid
+            #000000;
+
+        background: var(--endpoint);
+
+        line-height: 1.45;
+    }
+
+    .corrective {
+        margin-top: 10px;
+    }
+
+    .corrective summary {
+        cursor: pointer;
+        font-weight: 750;
+    }
+
+    .corrective ul {
+        margin-bottom: 0;
+    }
+
+    .cook-button {
+        flex: 0 0 auto;
+
+        min-height: 42px;
+
         padding:
             8px
             12px;
 
-        border-left:
-            3px
+        border:
+            1px
             solid
             #000000;
 
-        background:
-            rgba(
-                255,
-                255,
-                255,
-                0.55
+        border-radius: 9px;
+
+        background: #000000;
+        color: #ffffff;
+
+        font-weight: 750;
+    }
+
+    .cook-controls {
+        display: none;
+
+        position: sticky;
+
+        bottom:
+            max(
+                8px,
+                env(safe-area-inset-bottom)
             );
 
-        white-space: pre-wrap;
+        z-index: 30;
 
-        overflow-wrap: anywhere;
+        align-items: center;
+
+        justify-content: space-between;
+
+        gap: 10px;
+
+        margin-top: 14px;
+
+        padding: 10px;
+
+        border:
+            1px
+            solid
+            #000000;
+
+        border-radius: 12px;
+
+        background: #ffffff;
     }
 
-    /* ======================================================
-       Special JSON values
-       ====================================================== */
-
-    .null-value {
-        font-style: italic;
-
-        color: #000000;
-    }
-
-    .boolean-value {
-        font-family:
-            ui-monospace,
-            "Cascadia Mono",
-            Consolas,
-            monospace;
-
-        color: #000000;
-    }
-
-    .empty-value {
-        font-family:
-            ui-monospace,
-            "Cascadia Mono",
-            Consolas,
-            monospace;
-
-        color: #000000;
+    .cook-controls button {
+        min-height: 44px;
 
         padding:
             8px
-            0;
-    }
-
-    /* ======================================================
-       Integrity information
-       ====================================================== */
-
-    .integrity {
-        margin-top: 32px;
-
-        background: #eeeeee;
+            14px;
 
         border:
             1px
             solid
-            var(--border);
-
-        border-radius: 10px;
-
-        padding: 18px;
-
-        font-size: 0.9rem;
-    }
-
-    .integrity code {
-        color: #000000;
-
-        overflow-wrap: anywhere;
-    }
-
-    /* ======================================================
-       Original source JSON
-       ====================================================== */
-
-    details {
-        margin-top: 20px;
-
-        background: #ffffff;
-
-        border:
-            1px
-            solid
-            var(--border);
-
-        border-radius: 10px;
-
-        padding: 16px;
-    }
-
-    summary {
-        cursor: pointer;
-
-        font-weight: 700;
-
-        color: #000000;
-    }
-
-    pre {
-        margin-top: 18px;
-
-        overflow-x: auto;
-
-        padding: 18px;
-
-        background: #eeeeee;
-
-        color: #000000;
-
-        border:
-            1px
-            solid
-            #777777;
+            #000000;
 
         border-radius: 8px;
 
-        white-space: pre-wrap;
+        background: #000000;
+        color: #ffffff;
 
-        overflow-wrap: anywhere;
+        font-weight: 750;
     }
 
-    /* ======================================================
-       Mobile layout
-       ====================================================== */
+    body.cook-mode .non-method {
+        display: none;
+    }
 
-    @media (max-width: 700px) {
+    body.cook-mode .method-step {
+        display: none;
+    }
+
+    body.cook-mode .method-step.active {
+        display: block;
+    }
+
+    body.cook-mode .cook-controls {
+        display: flex;
+    }
+
+    body.cook-mode .method-section {
+        min-height:
+            70vh;
+    }
+
+    @media (max-width: 600px) {
 
         .page {
             width:
-                min(
-                    calc(100% - 20px),
-                    var(--page-width)
-                );
-
-            margin-top: 10px;
+                calc(100% - 12px);
         }
 
-        .document-header,
-        .top-section {
-            padding: 18px;
+        .recipe-header {
+            padding-top: 8px;
         }
 
-        .field-row {
+        .title-row {
+            display: grid;
             grid-template-columns: 1fr;
+        }
 
+        .cook-button {
+            width: 100%;
+        }
+
+        .ingredient-heading {
+            display: grid;
+            grid-template-columns: 1fr;
             gap: 3px;
+        }
+
+        .ingredient-quantity {
+            white-space: normal;
+        }
+
+        .method-section,
+        .section-content {
+            padding: 10px;
+        }
+
+        .ingredient-card,
+        .prep-card,
+        .method-step {
+            padding: 12px;
         }
     }
 
-    /* ======================================================
-       Print layout
-       ====================================================== */
-
     @media print {
 
-        html,
-        body {
-            background: #ffffff;
+        .recipe-header {
+            position: static;
         }
 
-        .page {
-            width: 100%;
-
-            margin: 0;
+        .cook-button,
+        .cook-controls {
+            display: none !important;
         }
 
-        .top-section,
-        .array-item {
+        body.cook-mode .non-method,
+        body.cook-mode .method-step {
+            display: block;
+        }
+
+        .section {
             break-inside: avoid;
-        }
-
-        /*
-           Hide the full raw JSON when printing.
-           It remains present in the HTML source.
-        */
-
-        details {
-            display: none;
         }
     }
 
@@ -556,1861 +562,567 @@
 
 <main class="page">
 
-<header class="document-header">
+<header class="recipe-header">
 
-    <h1>Spinach, Mushroom &amp; Cottage Cheese Egg Muffins with Seeded Wholemeal Toast</h1>
+    <div class="title-row">
+
+        <h1>Spinach, Mushroom &amp; Cottage Cheese Egg Muffins with Seeded Wholemeal Toast</h1>
+
+        <button
+            id="cookModeButton"
+            class="cook-button"
+            type="button"
+        >
+            Cook mode
+        </button>
+
+    </div>
 
     
 
+    <p class="description">
+        Savoury high-protein breakfast muffins with deeply browned mushrooms, wilted spinach, cottage cheese and seasoned egg, served with crisp seeded wholemeal toast. The vegetables are cooked dry before assembly so the muffins remain tender and structured rather than watery.
+    </p>
+
+    <div class="tag-row">
+        <span class="badge">Breakfast</span><span class="badge">Vegetarian</span><span class="badge">High protein</span><span class="badge">High fibre</span>
+    </div>
+
+    <div class="allergens"><strong>Allergens:</strong> Egg, Milk, Wheat, Gluten</div>
+
 </header>
 
-<section class="top-section" data-json-path="$.schema_version"><h2>Schema Version</h2><div class="top-scalar-value" data-json-path="$.schema_version">1.0</div></section>
-<section class="top-section" data-json-path="$.recipe"><h2>Recipe</h2><div class="object-content" data-json-path="$.recipe">
-<div class="field-row" data-json-path="$.recipe.id"><div class="field-name">Id</div><div class="field-value">spinach_mushroom_cottage_cheese_egg_muffins_seeded_wholemeal_toast</div></div>
-<div class="field-row" data-json-path="$.recipe.title"><div class="field-name">Title</div><div class="field-value">Spinach, Mushroom &amp; Cottage Cheese Egg Muffins with Seeded Wholemeal Toast</div></div>
-<div class="field-row" data-json-path="$.recipe.description"><div class="field-name">Description</div><div class="field-value">Savoury high-protein breakfast muffins with deeply browned mushrooms, wilted spinach, cottage cheese and seasoned egg, served with crisp seeded wholemeal toast. The vegetables are cooked dry before assembly so the muffins remain tender and structured rather than watery.</div></div>
-<div class="field-row" data-json-path="$.recipe.servings"><div class="field-name">Servings</div><div class="field-value">2</div></div>
-<div class="field-row" data-json-path="$.recipe.difficulty"><div class="field-name">Difficulty</div><div class="field-value">Easy</div></div>
-<div class="field-row" data-json-path="$.recipe.total_time_minutes"><div class="field-name">Total Time Minutes</div><div class="field-value">45</div></div>
-<div class="field-row" data-json-path="$.recipe.active_time_minutes"><div class="field-name">Active Time Minutes</div><div class="field-value">25</div></div>
-<div class="field-row" data-json-path="$.recipe.passive_time_minutes"><div class="field-name">Passive Time Minutes</div><div class="field-value">20</div></div>
-<div class="array-block" data-json-path="$.recipe.cuisine">
-<h3>Cuisine</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.recipe.cuisine[0]">Contemporary</div>
-<div class="scalar-array-item" data-json-path="$.recipe.cuisine[1]">British</div>
+<div class="facts">
+    <div class="fact"><span>Serves</span><strong>2</strong></div><div class="fact"><span>Difficulty</span><strong>Easy</strong></div><div class="fact"><span>Active</span><strong>25 min</strong></div><div class="fact"><span>Total</span><strong>45 min</strong></div><div class="fact"><span>Energy</span><strong>400 kcal</strong></div><div class="fact"><span>Protein</span><strong>38 g</strong></div>
 </div>
-</div>
-<div class="array-block" data-json-path="$.recipe.meal_types">
-<h3>Meal Types</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.recipe.meal_types[0]">Breakfast</div>
-</div>
-</div>
-<div class="array-block" data-json-path="$.recipe.dietary_tags">
-<h3>Dietary Tags</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.recipe.dietary_tags[0]">Vegetarian</div>
-<div class="scalar-array-item" data-json-path="$.recipe.dietary_tags[1]">High protein</div>
-<div class="scalar-array-item" data-json-path="$.recipe.dietary_tags[2]">High fibre</div>
-</div>
-</div>
-<div class="array-block" data-json-path="$.recipe.allergens">
-<h3>Allergens</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.recipe.allergens[0]">Egg</div>
-<div class="scalar-array-item" data-json-path="$.recipe.allergens[1]">Milk</div>
-<div class="scalar-array-item" data-json-path="$.recipe.allergens[2]">Wheat</div>
-<div class="scalar-array-item" data-json-path="$.recipe.allergens[3]">Gluten</div>
-</div>
-</div>
-</div></section>
-<section class="top-section" data-json-path="$.nutrition_per_serving"><h2>Nutrition Per Serving</h2><div class="object-content" data-json-path="$.nutrition_per_serving">
-<div class="field-row" data-json-path="$.nutrition_per_serving.energy_kcal"><div class="field-name">Energy Kcal</div><div class="field-value">400</div></div>
-<div class="field-row" data-json-path="$.nutrition_per_serving.protein_g"><div class="field-name">Protein G</div><div class="field-value">38</div></div>
-<div class="field-row" data-json-path="$.nutrition_per_serving.carbohydrate_g"><div class="field-name">Carbohydrate G</div><div class="field-value">28</div></div>
-<div class="field-row" data-json-path="$.nutrition_per_serving.fat_g"><div class="field-name">Fat G</div><div class="field-value">16</div></div>
-<div class="field-row" data-json-path="$.nutrition_per_serving.saturated_fat_g"><div class="field-name">Saturated Fat G</div><div class="field-value">5</div></div>
-<div class="field-row" data-json-path="$.nutrition_per_serving.fibre_g"><div class="field-name">Fibre G</div><div class="field-value">6</div></div>
-<div class="field-row" data-json-path="$.nutrition_per_serving.salt_g"><div class="field-name">Salt G</div><div class="field-value">1.3</div></div>
-</div></section>
-<section class="top-section" data-json-path="$.ingredients"><h2>Ingredients</h2><div class="array-block" data-json-path="$.ingredients">
-<div class="array-items">
-<article class="array-item" data-json-path="$.ingredients[0]">
-<div class="item-number">Item 1</div>
-<div class="field-row" data-json-path="$.ingredients[0].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">eggs</div></div>
-<div class="field-row" data-json-path="$.ingredients[0].display_name"><div class="field-name">Display Name</div><div class="field-value">Medium eggs</div></div>
-<div class="field-row" data-json-path="$.ingredients[0].category"><div class="field-name">Category</div><div class="field-value">Eggs</div></div>
-<div class="field-row" data-json-path="$.ingredients[0].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.ingredients[0].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">3</div></div>
-<div class="field-row" data-json-path="$.ingredients[0].unit_used"><div class="field-name">Unit Used</div><div class="field-value">integer</div></div>
-<div class="field-row" data-json-path="$.ingredients[0].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: at least 3 medium eggs</div></div>
-<div class="field-row" data-json-path="$.ingredients[0].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Standard UK medium hen eggs are suitable.</div></div>
-<div class="array-block" data-json-path="$.ingredients[0].retailers">
-<h3>Retailers</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.ingredients[0].retailers[0]">Sainsbury&#x27;s</div>
-<div class="scalar-array-item" data-json-path="$.ingredients[0].retailers[1]">Marks &amp; Spencer</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.ingredients[0].preparation"><div class="field-name">Preparation</div><div class="field-value">Keep refrigerated until required, then crack individually before combining.</div></div>
-<div class="field-row" data-json-path="$.ingredients[0].notes"><div class="field-name">Notes</div><div class="field-value">Use: 3 medium eggs total.</div></div>
-</article>
-<article class="array-item" data-json-path="$.ingredients[1]">
-<div class="item-number">Item 2</div>
-<div class="field-row" data-json-path="$.ingredients[1].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">egg_whites_liquid</div></div>
-<div class="field-row" data-json-path="$.ingredients[1].display_name"><div class="field-name">Display Name</div><div class="field-value">Liquid egg whites</div></div>
-<div class="field-row" data-json-path="$.ingredients[1].category"><div class="field-name">Category</div><div class="field-value">Eggs</div></div>
-<div class="field-row" data-json-path="$.ingredients[1].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.ingredients[1].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">180</div></div>
-<div class="field-row" data-json-path="$.ingredients[1].unit_used"><div class="field-name">Unit Used</div><div class="field-value">g</div></div>
-<div class="field-row" data-json-path="$.ingredients[1].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: enough pasteurised liquid egg white to provide at least 180 g</div></div>
-<div class="field-row" data-json-path="$.ingredients[1].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Use plain pasteurised liquid egg whites. Exact carton or bottle size varies by retailer.</div></div>
-<div class="array-block" data-json-path="$.ingredients[1].retailers">
-<h3>Retailers</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.ingredients[1].retailers[0]">Sainsbury&#x27;s</div>
-<div class="scalar-array-item" data-json-path="$.ingredients[1].retailers[1]">Marks &amp; Spencer</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.ingredients[1].preparation"><div class="field-name">Preparation</div><div class="field-value">Keep refrigerated and weigh immediately before mixing.</div></div>
-<div class="field-row" data-json-path="$.ingredients[1].notes"><div class="field-name">Notes</div><div class="field-value">Use: 180 g total. Egg whites increase protein while keeping the breakfast close to the 400 kcal target.</div></div>
-</article>
-<article class="array-item" data-json-path="$.ingredients[2]">
-<div class="item-number">Item 3</div>
-<div class="field-row" data-json-path="$.ingredients[2].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">cottage_cheese_low_fat</div></div>
-<div class="field-row" data-json-path="$.ingredients[2].display_name"><div class="field-name">Display Name</div><div class="field-value">Low-fat cottage cheese</div></div>
-<div class="field-row" data-json-path="$.ingredients[2].category"><div class="field-name">Category</div><div class="field-value">Dairy</div></div>
-<div class="field-row" data-json-path="$.ingredients[2].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.ingredients[2].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">180</div></div>
-<div class="field-row" data-json-path="$.ingredients[2].unit_used"><div class="field-name">Unit Used</div><div class="field-value">g</div></div>
-<div class="field-row" data-json-path="$.ingredients[2].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 tub containing at least 180 g</div></div>
-<div class="field-row" data-json-path="$.ingredients[2].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Use plain low-fat cottage cheese. Exact supermarket tub size varies.</div></div>
-<div class="array-block" data-json-path="$.ingredients[2].retailers">
-<h3>Retailers</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.ingredients[2].retailers[0]">Sainsbury&#x27;s</div>
-<div class="scalar-array-item" data-json-path="$.ingredients[2].retailers[1]">Marks &amp; Spencer</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.ingredients[2].preparation"><div class="field-name">Preparation</div><div class="field-value">Stir before weighing. If visible free whey has collected in the tub, drain off the loose liquid before measuring.</div></div>
-<div class="field-row" data-json-path="$.ingredients[2].notes"><div class="field-name">Notes</div><div class="field-value">Use: 180 g total, 90 g per serving.</div></div>
-</article>
-<article class="array-item" data-json-path="$.ingredients[3]">
-<div class="item-number">Item 4</div>
-<div class="field-row" data-json-path="$.ingredients[3].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">chestnut_mushrooms</div></div>
-<div class="field-row" data-json-path="$.ingredients[3].display_name"><div class="field-name">Display Name</div><div class="field-value">Chestnut mushrooms</div></div>
-<div class="field-row" data-json-path="$.ingredients[3].category"><div class="field-name">Category</div><div class="field-value">Vegetables</div></div>
-<div class="field-row" data-json-path="$.ingredients[3].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.ingredients[3].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">180</div></div>
-<div class="field-row" data-json-path="$.ingredients[3].unit_used"><div class="field-name">Unit Used</div><div class="field-value">g</div></div>
-<div class="field-row" data-json-path="$.ingredients[3].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: enough chestnut mushrooms to provide at least 180 g</div></div>
-<div class="field-row" data-json-path="$.ingredients[3].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Choose firm mushrooms without slimy surfaces or substantial bruising.</div></div>
-<div class="array-block" data-json-path="$.ingredients[3].retailers">
-<h3>Retailers</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.ingredients[3].retailers[0]">Sainsbury&#x27;s</div>
-<div class="scalar-array-item" data-json-path="$.ingredients[3].retailers[1]">Marks &amp; Spencer</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.ingredients[3].preparation"><div class="field-name">Preparation</div><div class="field-value">Brush or wipe clean, trim dry stem ends if required and dice into approximately 8 mm pieces.</div></div>
-<div class="field-row" data-json-path="$.ingredients[3].notes"><div class="field-name">Notes</div><div class="field-value">Use: 180 g prepared mushrooms.</div></div>
-</article>
-<article class="array-item" data-json-path="$.ingredients[4]">
-<div class="item-number">Item 5</div>
-<div class="field-row" data-json-path="$.ingredients[4].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">baby_spinach</div></div>
-<div class="field-row" data-json-path="$.ingredients[4].display_name"><div class="field-name">Display Name</div><div class="field-value">Baby spinach</div></div>
-<div class="field-row" data-json-path="$.ingredients[4].category"><div class="field-name">Category</div><div class="field-value">Vegetables</div></div>
-<div class="field-row" data-json-path="$.ingredients[4].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.ingredients[4].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">120</div></div>
-<div class="field-row" data-json-path="$.ingredients[4].unit_used"><div class="field-name">Unit Used</div><div class="field-value">g</div></div>
-<div class="field-row" data-json-path="$.ingredients[4].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 bag containing at least 120 g</div></div>
-<div class="field-row" data-json-path="$.ingredients[4].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Choose fresh leaves without excessive moisture or sliminess.</div></div>
-<div class="array-block" data-json-path="$.ingredients[4].retailers">
-<h3>Retailers</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.ingredients[4].retailers[0]">Sainsbury&#x27;s</div>
-<div class="scalar-array-item" data-json-path="$.ingredients[4].retailers[1]">Marks &amp; Spencer</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.ingredients[4].preparation"><div class="field-name">Preparation</div><div class="field-value">Wash if required by the pack instructions, then dry thoroughly before cooking.</div></div>
-<div class="field-row" data-json-path="$.ingredients[4].notes"><div class="field-name">Notes</div><div class="field-value">Use: 120 g total.</div></div>
-</article>
-<article class="array-item" data-json-path="$.ingredients[5]">
-<div class="item-number">Item 6</div>
-<div class="field-row" data-json-path="$.ingredients[5].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">spring_onions</div></div>
-<div class="field-row" data-json-path="$.ingredients[5].display_name"><div class="field-name">Display Name</div><div class="field-value">Spring onions</div></div>
-<div class="field-row" data-json-path="$.ingredients[5].category"><div class="field-name">Category</div><div class="field-value">Vegetables</div></div>
-<div class="field-row" data-json-path="$.ingredients[5].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.ingredients[5].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">2</div></div>
-<div class="field-row" data-json-path="$.ingredients[5].unit_used"><div class="field-name">Unit Used</div><div class="field-value">integer</div></div>
-<div class="field-row" data-json-path="$.ingredients[5].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 bunch</div></div>
-<div class="field-row" data-json-path="$.ingredients[5].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Use 2 medium spring onions from the bunch.</div></div>
-<div class="array-block" data-json-path="$.ingredients[5].retailers">
-<h3>Retailers</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.ingredients[5].retailers[0]">Sainsbury&#x27;s</div>
-<div class="scalar-array-item" data-json-path="$.ingredients[5].retailers[1]">Marks &amp; Spencer</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.ingredients[5].preparation"><div class="field-name">Preparation</div><div class="field-value">Wash, trim the root ends and any damaged green tips, then slice crosswise into approximately 3 mm pieces.</div></div>
-<div class="field-row" data-json-path="$.ingredients[5].notes"><div class="field-name">Notes</div><div class="field-value">Use: 2 spring onions.</div></div>
-</article>
-<article class="array-item" data-json-path="$.ingredients[6]">
-<div class="item-number">Item 7</div>
-<div class="field-row" data-json-path="$.ingredients[6].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">seeded_wholemeal_bread</div></div>
-<div class="field-row" data-json-path="$.ingredients[6].display_name"><div class="field-name">Display Name</div><div class="field-value">Seeded wholemeal bread</div></div>
-<div class="field-row" data-json-path="$.ingredients[6].category"><div class="field-name">Category</div><div class="field-value">Bread</div></div>
-<div class="field-row" data-json-path="$.ingredients[6].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.ingredients[6].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">90</div></div>
-<div class="field-row" data-json-path="$.ingredients[6].unit_used"><div class="field-name">Unit Used</div><div class="field-value">g</div></div>
-<div class="field-row" data-json-path="$.ingredients[6].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 loaf of seeded wholemeal bread</div></div>
-<div class="field-row" data-json-path="$.ingredients[6].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Use approximately 90 g total, normally 2 substantial slices depending on loaf format.</div></div>
-<div class="array-block" data-json-path="$.ingredients[6].retailers">
-<h3>Retailers</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.ingredients[6].retailers[0]">Sainsbury&#x27;s</div>
-<div class="scalar-array-item" data-json-path="$.ingredients[6].retailers[1]">Marks &amp; Spencer</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.ingredients[6].preparation"><div class="field-name">Preparation</div><div class="field-value">Keep slices intact until immediately before toasting.</div></div>
-<div class="field-row" data-json-path="$.ingredients[6].notes"><div class="field-name">Notes</div><div class="field-value">Use: 90 g total, approximately 45 g per serving.</div></div>
-</article>
-<article class="array-item" data-json-path="$.ingredients[7]">
-<div class="item-number">Item 8</div>
-<div class="field-row" data-json-path="$.ingredients[7].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">olive_oil</div></div>
-<div class="field-row" data-json-path="$.ingredients[7].display_name"><div class="field-name">Display Name</div><div class="field-value">Olive oil</div></div>
-<div class="field-row" data-json-path="$.ingredients[7].category"><div class="field-name">Category</div><div class="field-value">Oils</div></div>
-<div class="field-row" data-json-path="$.ingredients[7].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.ingredients[7].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">6</div></div>
-<div class="field-row" data-json-path="$.ingredients[7].unit_used"><div class="field-name">Unit Used</div><div class="field-value">g</div></div>
-<div class="field-row" data-json-path="$.ingredients[7].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 bottle if not already stocked</div></div>
-<div class="field-row" data-json-path="$.ingredients[7].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Standard olive oil is suitable.</div></div>
-<div class="array-block" data-json-path="$.ingredients[7].retailers">
-<h3>Retailers</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.ingredients[7].retailers[0]">Sainsbury&#x27;s</div>
-<div class="scalar-array-item" data-json-path="$.ingredients[7].retailers[1]">Marks &amp; Spencer</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.ingredients[7].preparation"><div class="field-name">Preparation</div><div class="field-value">Measure accurately before cooking.</div></div>
-<div class="field-row" data-json-path="$.ingredients[7].notes"><div class="field-name">Notes</div><div class="field-value">Use: 6 g total for mushroom browning and greasing the muffin tin.</div></div>
-</article>
-<article class="array-item" data-json-path="$.ingredients[8]">
-<div class="item-number">Item 9</div>
-<div class="field-row" data-json-path="$.ingredients[8].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">dijon_mustard</div></div>
-<div class="field-row" data-json-path="$.ingredients[8].display_name"><div class="field-name">Display Name</div><div class="field-value">Dijon mustard</div></div>
-<div class="field-row" data-json-path="$.ingredients[8].category"><div class="field-name">Category</div><div class="field-value">Condiments</div></div>
-<div class="field-row" data-json-path="$.ingredients[8].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.ingredients[8].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">1</div></div>
-<div class="field-row" data-json-path="$.ingredients[8].unit_used"><div class="field-name">Unit Used</div><div class="field-value">tsp</div></div>
-<div class="field-row" data-json-path="$.ingredients[8].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 jar</div></div>
-<div class="field-row" data-json-path="$.ingredients[8].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Standard Dijon mustard is suitable.</div></div>
-<div class="array-block" data-json-path="$.ingredients[8].retailers">
-<h3>Retailers</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.ingredients[8].retailers[0]">Sainsbury&#x27;s</div>
-<div class="scalar-array-item" data-json-path="$.ingredients[8].retailers[1]">Marks &amp; Spencer</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.ingredients[8].preparation"><div class="field-name">Preparation</div><div class="field-value">Measure before mixing.</div></div>
-<div class="field-row" data-json-path="$.ingredients[8].notes"><div class="field-name">Notes</div><div class="field-value">Use: 1 tsp total to provide acidity and savoury depth.</div></div>
-</article>
-<article class="array-item" data-json-path="$.ingredients[9]">
-<div class="item-number">Item 10</div>
-<div class="field-row" data-json-path="$.ingredients[9].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">fresh_chives</div></div>
-<div class="field-row" data-json-path="$.ingredients[9].display_name"><div class="field-name">Display Name</div><div class="field-value">Fresh chives</div></div>
-<div class="field-row" data-json-path="$.ingredients[9].category"><div class="field-name">Category</div><div class="field-value">Fresh herbs</div></div>
-<div class="field-row" data-json-path="$.ingredients[9].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.ingredients[9].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">10</div></div>
-<div class="field-row" data-json-path="$.ingredients[9].unit_used"><div class="field-name">Unit Used</div><div class="field-value">g</div></div>
-<div class="field-row" data-json-path="$.ingredients[9].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 packet or pot containing at least 10 g usable chives</div></div>
-<div class="field-row" data-json-path="$.ingredients[9].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Choose fresh green chives without yellowed or slimy sections.</div></div>
-<div class="array-block" data-json-path="$.ingredients[9].retailers">
-<h3>Retailers</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.ingredients[9].retailers[0]">Sainsbury&#x27;s</div>
-<div class="scalar-array-item" data-json-path="$.ingredients[9].retailers[1]">Marks &amp; Spencer</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.ingredients[9].preparation"><div class="field-name">Preparation</div><div class="field-value">Wash if required, dry thoroughly and slice crosswise into approximately 2 mm pieces.</div></div>
-<div class="field-row" data-json-path="$.ingredients[9].notes"><div class="field-name">Notes</div><div class="field-value">Use: 10 g total.</div></div>
-</article>
-<article class="array-item" data-json-path="$.ingredients[10]">
-<div class="item-number">Item 11</div>
-<div class="field-row" data-json-path="$.ingredients[10].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">nutmeg_ground</div></div>
-<div class="field-row" data-json-path="$.ingredients[10].display_name"><div class="field-name">Display Name</div><div class="field-value">Ground nutmeg</div></div>
-<div class="field-row" data-json-path="$.ingredients[10].category"><div class="field-name">Category</div><div class="field-value">Spices</div></div>
-<div class="field-row" data-json-path="$.ingredients[10].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.ingredients[10].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">0.125</div></div>
-<div class="field-row" data-json-path="$.ingredients[10].unit_used"><div class="field-name">Unit Used</div><div class="field-value">tsp</div></div>
-<div class="field-row" data-json-path="$.ingredients[10].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 jar if not already stocked</div></div>
-<div class="field-row" data-json-path="$.ingredients[10].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Standard ground nutmeg is suitable.</div></div>
-<div class="array-block" data-json-path="$.ingredients[10].retailers">
-<h3>Retailers</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.ingredients[10].retailers[0]">Sainsbury&#x27;s</div>
-<div class="scalar-array-item" data-json-path="$.ingredients[10].retailers[1]">Marks &amp; Spencer</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.ingredients[10].preparation"><div class="field-name">Preparation</div><div class="field-value">Measure before mixing.</div></div>
-<div class="field-row" data-json-path="$.ingredients[10].notes"><div class="field-name">Notes</div><div class="field-value">Use: 0.125 tsp. The small quantity complements spinach and dairy without becoming dominant.</div></div>
-</article>
-<article class="array-item" data-json-path="$.ingredients[11]">
-<div class="item-number">Item 12</div>
-<div class="field-row" data-json-path="$.ingredients[11].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">fine_salt</div></div>
-<div class="field-row" data-json-path="$.ingredients[11].display_name"><div class="field-name">Display Name</div><div class="field-value">Fine salt</div></div>
-<div class="field-row" data-json-path="$.ingredients[11].category"><div class="field-name">Category</div><div class="field-value">Seasoning</div></div>
-<div class="field-row" data-json-path="$.ingredients[11].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.ingredients[11].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">0.375</div></div>
-<div class="field-row" data-json-path="$.ingredients[11].unit_used"><div class="field-name">Unit Used</div><div class="field-value">tsp</div></div>
-<div class="field-row" data-json-path="$.ingredients[11].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 standard container if not already stocked</div></div>
-<div class="field-row" data-json-path="$.ingredients[11].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Fine table salt or fine sea salt is suitable.</div></div>
-<div class="array-block" data-json-path="$.ingredients[11].retailers">
-<h3>Retailers</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.ingredients[11].retailers[0]">Sainsbury&#x27;s</div>
-<div class="scalar-array-item" data-json-path="$.ingredients[11].retailers[1]">Marks &amp; Spencer</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.ingredients[11].preparation"><div class="field-name">Preparation</div><div class="field-value">Measure 0.25 tsp for initial seasoning and reserve up to 0.125 tsp for final adjustment.</div></div>
-<div class="field-row" data-json-path="$.ingredients[11].notes"><div class="field-name">Notes</div><div class="field-value">Use no more than 0.375 tsp total.</div></div>
-</article>
-<article class="array-item" data-json-path="$.ingredients[12]">
-<div class="item-number">Item 13</div>
-<div class="field-row" data-json-path="$.ingredients[12].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">black_pepper_ground</div></div>
-<div class="field-row" data-json-path="$.ingredients[12].display_name"><div class="field-name">Display Name</div><div class="field-value">Ground black pepper</div></div>
-<div class="field-row" data-json-path="$.ingredients[12].category"><div class="field-name">Category</div><div class="field-value">Seasoning</div></div>
-<div class="field-row" data-json-path="$.ingredients[12].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.ingredients[12].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">0.25</div></div>
-<div class="field-row" data-json-path="$.ingredients[12].unit_used"><div class="field-name">Unit Used</div><div class="field-value">tsp</div></div>
-<div class="field-row" data-json-path="$.ingredients[12].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 jar or pepper mill if not already stocked</div></div>
-<div class="field-row" data-json-path="$.ingredients[12].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Freshly ground black pepper is preferred where available.</div></div>
-<div class="array-block" data-json-path="$.ingredients[12].retailers">
-<h3>Retailers</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.ingredients[12].retailers[0]">Sainsbury&#x27;s</div>
-<div class="scalar-array-item" data-json-path="$.ingredients[12].retailers[1]">Marks &amp; Spencer</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.ingredients[12].preparation"><div class="field-name">Preparation</div><div class="field-value">Measure before use.</div></div>
-<div class="field-row" data-json-path="$.ingredients[12].notes"><div class="field-name">Notes</div><div class="field-value">Use: 0.25 tsp total.</div></div>
-</article>
-</div>
-</div></section>
-<section class="top-section" data-json-path="$.equipment"><h2>Equipment</h2><div class="array-block" data-json-path="$.equipment">
-<div class="array-items">
-<article class="array-item" data-json-path="$.equipment[0]">
-<div class="item-number">Item 1</div>
-<div class="field-row" data-json-path="$.equipment[0].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">oven</div></div>
-<div class="field-row" data-json-path="$.equipment[0].display_name"><div class="field-name">Display Name</div><div class="field-value">Oven</div></div>
-<div class="field-row" data-json-path="$.equipment[0].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.equipment[0].notes"><div class="field-name">Notes</div><div class="field-value">Used to bake the egg muffins evenly.</div></div>
-</article>
-<article class="array-item" data-json-path="$.equipment[1]">
-<div class="item-number">Item 2</div>
-<div class="field-row" data-json-path="$.equipment[1].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">gas_hob</div></div>
-<div class="field-row" data-json-path="$.equipment[1].display_name"><div class="field-name">Display Name</div><div class="field-value">Gas hob</div></div>
-<div class="field-row" data-json-path="$.equipment[1].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.equipment[1].notes"><div class="field-name">Notes</div><div class="field-value">Used for browning mushrooms and wilting spinach.</div></div>
-</article>
-<article class="array-item" data-json-path="$.equipment[2]">
-<div class="item-number">Item 3</div>
-<div class="field-row" data-json-path="$.equipment[2].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">frying_pan</div></div>
-<div class="field-row" data-json-path="$.equipment[2].display_name"><div class="field-name">Display Name</div><div class="field-value">Large frying pan</div></div>
-<div class="field-row" data-json-path="$.equipment[2].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.equipment[2].notes"><div class="field-name">Notes</div><div class="field-value">Used to remove moisture and develop flavour in the vegetables.</div></div>
-</article>
-<article class="array-item" data-json-path="$.equipment[3]">
-<div class="item-number">Item 4</div>
-<div class="field-row" data-json-path="$.equipment[3].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">muffin_tin</div></div>
-<div class="field-row" data-json-path="$.equipment[3].display_name"><div class="field-name">Display Name</div><div class="field-value">6-hole standard muffin tin</div></div>
-<div class="field-row" data-json-path="$.equipment[3].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.equipment[3].notes"><div class="field-name">Notes</div><div class="field-value">Used to bake 6 individual egg muffins.</div></div>
-</article>
-<article class="array-item" data-json-path="$.equipment[4]">
-<div class="item-number">Item 5</div>
-<div class="field-row" data-json-path="$.equipment[4].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">mixing_bowl</div></div>
-<div class="field-row" data-json-path="$.equipment[4].display_name"><div class="field-name">Display Name</div><div class="field-value">Large mixing bowl</div></div>
-<div class="field-row" data-json-path="$.equipment[4].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.equipment[4].notes"><div class="field-name">Notes</div><div class="field-value">Used to combine the egg and cottage-cheese mixture.</div></div>
-</article>
-<article class="array-item" data-json-path="$.equipment[5]">
-<div class="item-number">Item 6</div>
-<div class="field-row" data-json-path="$.equipment[5].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">small_bowl</div></div>
-<div class="field-row" data-json-path="$.equipment[5].display_name"><div class="field-name">Display Name</div><div class="field-value">Small bowl</div></div>
-<div class="field-row" data-json-path="$.equipment[5].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.equipment[5].notes"><div class="field-name">Notes</div><div class="field-value">Used to crack eggs individually before adding them to the main mixture.</div></div>
-</article>
-<article class="array-item" data-json-path="$.equipment[6]">
-<div class="item-number">Item 7</div>
-<div class="field-row" data-json-path="$.equipment[6].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">chef_knife</div></div>
-<div class="field-row" data-json-path="$.equipment[6].display_name"><div class="field-name">Display Name</div><div class="field-value">Chef&#x27;s knife</div></div>
-<div class="field-row" data-json-path="$.equipment[6].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.equipment[6].notes"><div class="field-name">Notes</div><div class="field-value">Used to prepare mushrooms, spring onions and herbs.</div></div>
-</article>
-<article class="array-item" data-json-path="$.equipment[7]">
-<div class="item-number">Item 8</div>
-<div class="field-row" data-json-path="$.equipment[7].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">chopping_board</div></div>
-<div class="field-row" data-json-path="$.equipment[7].display_name"><div class="field-name">Display Name</div><div class="field-value">Chopping board</div></div>
-<div class="field-row" data-json-path="$.equipment[7].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.equipment[7].notes"><div class="field-name">Notes</div><div class="field-value">Used for vegetable and herb preparation.</div></div>
-</article>
-<article class="array-item" data-json-path="$.equipment[8]">
-<div class="item-number">Item 9</div>
-<div class="field-row" data-json-path="$.equipment[8].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">kitchen_scales</div></div>
-<div class="field-row" data-json-path="$.equipment[8].display_name"><div class="field-name">Display Name</div><div class="field-value">Kitchen scales</div></div>
-<div class="field-row" data-json-path="$.equipment[8].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.equipment[8].notes"><div class="field-name">Notes</div><div class="field-value">Used for accurate ingredient quantities and final portioning.</div></div>
-</article>
-<article class="array-item" data-json-path="$.equipment[9]">
-<div class="item-number">Item 10</div>
-<div class="field-row" data-json-path="$.equipment[9].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">measuring_spoons</div></div>
-<div class="field-row" data-json-path="$.equipment[9].display_name"><div class="field-name">Display Name</div><div class="field-value">Measuring spoons</div></div>
-<div class="field-row" data-json-path="$.equipment[9].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.equipment[9].notes"><div class="field-name">Notes</div><div class="field-value">Used for mustard, nutmeg, salt and pepper.</div></div>
-</article>
-<article class="array-item" data-json-path="$.equipment[10]">
-<div class="item-number">Item 11</div>
-<div class="field-row" data-json-path="$.equipment[10].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">spatula</div></div>
-<div class="field-row" data-json-path="$.equipment[10].display_name"><div class="field-name">Display Name</div><div class="field-value">Heatproof spatula</div></div>
-<div class="field-row" data-json-path="$.equipment[10].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.equipment[10].notes"><div class="field-name">Notes</div><div class="field-value">Used to stir vegetables and combine the muffin mixture.</div></div>
-</article>
-<article class="array-item" data-json-path="$.equipment[11]">
-<div class="item-number">Item 12</div>
-<div class="field-row" data-json-path="$.equipment[11].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">toaster</div></div>
-<div class="field-row" data-json-path="$.equipment[11].display_name"><div class="field-name">Display Name</div><div class="field-value">Toaster</div></div>
-<div class="field-row" data-json-path="$.equipment[11].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.equipment[11].notes"><div class="field-name">Notes</div><div class="field-value">Used to toast the seeded wholemeal bread immediately before serving.</div></div>
-</article>
-</div>
-</div></section>
-<section class="top-section" data-json-path="$.mise_en_place"><h2>Mise En Place</h2><div class="array-block" data-json-path="$.mise_en_place">
-<div class="array-items">
-<article class="array-item" data-json-path="$.mise_en_place[0]">
-<div class="item-number">Item 1</div>
-<div class="field-row" data-json-path="$.mise_en_place[0].prep_id"><div class="field-name">Prep Id</div><div class="field-value">PREP_01</div></div>
-<div class="array-block" data-json-path="$.mise_en_place[0].ingredient_ids">
-<h3>Ingredient Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.mise_en_place[0].ingredient_ids[0]">chestnut_mushrooms</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.mise_en_place[0].instruction"><div class="field-name">Instruction</div><div class="field-value">Inspect 180 g chestnut mushrooms. Wipe or brush away visible soil; avoid soaking them in water. Trim only dry or damaged stem ends, then dice the mushrooms into pieces approximately 8 mm across.</div></div>
-<div class="field-row" data-json-path="$.mise_en_place[0].endpoint"><div class="field-name">Endpoint</div><div class="field-value">The mushrooms are clean, externally dry and evenly diced into approximately 8 mm pieces.</div></div>
-</article>
-<article class="array-item" data-json-path="$.mise_en_place[1]">
-<div class="item-number">Item 2</div>
-<div class="field-row" data-json-path="$.mise_en_place[1].prep_id"><div class="field-name">Prep Id</div><div class="field-value">PREP_02</div></div>
-<div class="array-block" data-json-path="$.mise_en_place[1].ingredient_ids">
-<h3>Ingredient Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.mise_en_place[1].ingredient_ids[0]">baby_spinach</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.mise_en_place[1].instruction"><div class="field-name">Instruction</div><div class="field-value">Inspect 120 g baby spinach. Wash only if required by the packaging instructions, then dry thoroughly in a salad spinner or using clean kitchen paper. Remove any visibly damaged leaves or coarse stems.</div></div>
-<div class="field-row" data-json-path="$.mise_en_place[1].endpoint"><div class="field-name">Endpoint</div><div class="field-value">The spinach is clean and as dry as practical before cooking.</div></div>
-</article>
-<article class="array-item" data-json-path="$.mise_en_place[2]">
-<div class="item-number">Item 3</div>
-<div class="field-row" data-json-path="$.mise_en_place[2].prep_id"><div class="field-name">Prep Id</div><div class="field-value">PREP_03</div></div>
-<div class="array-block" data-json-path="$.mise_en_place[2].ingredient_ids">
-<h3>Ingredient Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.mise_en_place[2].ingredient_ids[0]">spring_onions</div>
-<div class="scalar-array-item" data-json-path="$.mise_en_place[2].ingredient_ids[1]">fresh_chives</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.mise_en_place[2].instruction"><div class="field-name">Instruction</div><div class="field-value">Wash the 2 spring onions and the chives if required. Dry thoroughly. Trim the spring-onion roots and damaged green ends, then slice crosswise into approximately 3 mm pieces. Slice the chives crosswise into approximately 2 mm pieces.</div></div>
-<div class="field-row" data-json-path="$.mise_en_place[2].endpoint"><div class="field-name">Endpoint</div><div class="field-value">Spring onions and chives are clean, dry and uniformly sliced.</div></div>
-</article>
-<article class="array-item" data-json-path="$.mise_en_place[3]">
-<div class="item-number">Item 4</div>
-<div class="field-row" data-json-path="$.mise_en_place[3].prep_id"><div class="field-name">Prep Id</div><div class="field-value">PREP_04</div></div>
-<div class="array-block" data-json-path="$.mise_en_place[3].ingredient_ids">
-<h3>Ingredient Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.mise_en_place[3].ingredient_ids[0]">eggs</div>
-<div class="scalar-array-item" data-json-path="$.mise_en_place[3].ingredient_ids[1]">egg_whites_liquid</div>
-<div class="scalar-array-item" data-json-path="$.mise_en_place[3].ingredient_ids[2]">cottage_cheese_low_fat</div>
-<div class="scalar-array-item" data-json-path="$.mise_en_place[3].ingredient_ids[3]">dijon_mustard</div>
-<div class="scalar-array-item" data-json-path="$.mise_en_place[3].ingredient_ids[4]">nutmeg_ground</div>
-<div class="scalar-array-item" data-json-path="$.mise_en_place[3].ingredient_ids[5]">fine_salt</div>
-<div class="scalar-array-item" data-json-path="$.mise_en_place[3].ingredient_ids[6]">black_pepper_ground</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.mise_en_place[3].instruction"><div class="field-name">Instruction</div><div class="field-value">Crack each of the 3 eggs individually into the small bowl, inspect for shell fragments, then transfer to the large mixing bowl. Weigh 180 g liquid egg whites and 180 g low-fat cottage cheese. Measure 1 tsp Dijon mustard, 0.125 tsp ground nutmeg, 0.25 tsp initial fine salt, 0.125 tsp reserved fine salt and 0.25 tsp black pepper.</div></div>
-<div class="field-row" data-json-path="$.mise_en_place[3].endpoint"><div class="field-name">Endpoint</div><div class="field-value">All egg-mixture ingredients are accurately measured and ready for assembly.</div></div>
-</article>
-<article class="array-item" data-json-path="$.mise_en_place[4]">
-<div class="item-number">Item 5</div>
-<div class="field-row" data-json-path="$.mise_en_place[4].prep_id"><div class="field-name">Prep Id</div><div class="field-value">PREP_05</div></div>
-<div class="array-block" data-json-path="$.mise_en_place[4].ingredient_ids">
-<h3>Ingredient Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.mise_en_place[4].ingredient_ids[0]">olive_oil</div>
-<div class="scalar-array-item" data-json-path="$.mise_en_place[4].ingredient_ids[1]">seeded_wholemeal_bread</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.mise_en_place[4].instruction"><div class="field-name">Instruction</div><div class="field-value">Measure 6 g olive oil. Allocate approximately 4 g for cooking the vegetables and approximately 2 g for greasing the muffin tin. Weigh 90 g seeded wholemeal bread and keep it covered until the toasting stage.</div></div>
-<div class="field-row" data-json-path="$.mise_en_place[4].endpoint"><div class="field-name">Endpoint</div><div class="field-value">Cooking oil is divided by function and the bread is ready for later toasting.</div></div>
-</article>
-</div>
-</div></section>
-<section class="top-section" data-json-path="$.procedure"><h2>Procedure</h2><div class="array-block" data-json-path="$.procedure">
-<div class="array-items">
-<article class="array-item" data-json-path="$.procedure[0]">
-<div class="item-number">Item 1</div>
-<div class="field-row" data-json-path="$.procedure[0].step_id"><div class="field-name">Step Id</div><div class="field-value">STEP_01</div></div>
-<div class="field-row" data-json-path="$.procedure[0].section"><div class="field-name">Section</div><div class="field-value">Oven preparation</div></div>
-<div class="field-row" data-json-path="$.procedure[0].title"><div class="field-name">Title</div><div class="field-value">Preheat the oven and grease the muffin tin</div></div>
-<div class="array-block" data-json-path="$.procedure[0].depends_on">
-<h3>Depends On</h3>
-<div class="empty-value">[ ]</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[0].parallel_group"><div class="field-name">Parallel Group</div><div class="field-value">P01</div></div>
-<div class="array-block" data-json-path="$.procedure[0].ingredient_ids">
-<h3>Ingredient Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[0].ingredient_ids[0]">olive_oil</div>
-</div>
-</div>
-<div class="array-block" data-json-path="$.procedure[0].equipment_ids">
-<h3>Equipment Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[0].equipment_ids[0]">oven</div>
-<div class="scalar-array-item" data-json-path="$.procedure[0].equipment_ids[1]">muffin_tin</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[0].instruction"><div class="field-name">Instruction</div><div class="field-value">Preheat a fan oven to 180°C. Apply approximately 2 g of the measured olive oil as a very thin film across the base and lower sides of all 6 muffin-tin wells.</div></div>
-<div class="field-row" data-json-path="$.procedure[0].heat_source"><div class="field-name">Heat Source</div><div class="field-value">Oven</div></div>
-<div class="field-row" data-json-path="$.procedure[0].heat_level"><div class="field-name">Heat Level</div><div class="field-value">180°C fan</div></div>
-<div class="field-row" data-json-path="$.procedure[0].temperature_c"><div class="field-name">Temperature C</div><div class="field-value">180</div></div>
-<div class="field-row" data-json-path="$.procedure[0].duration_min_minutes"><div class="field-name">Duration Min Minutes</div><div class="field-value">5</div></div>
-<div class="field-row" data-json-path="$.procedure[0].duration_max_minutes"><div class="field-name">Duration Max Minutes</div><div class="field-value">10</div></div>
-<div class="field-row" data-json-path="$.procedure[0].endpoint"><div class="field-name">Endpoint</div><div class="field-value">The oven has reached 180°C and all 6 muffin wells have a continuous but minimal oil coating without visible pools.</div></div>
-<div class="array-block" data-json-path="$.procedure[0].corrective_actions">
-<h3>Corrective Actions</h3>
-<div class="array-items">
-<article class="array-item" data-json-path="$.procedure[0].corrective_actions[0]">
-<div class="item-number">Item 1</div>
-<div class="field-row" data-json-path="$.procedure[0].corrective_actions[0].condition"><div class="field-name">Condition</div><div class="field-value">Oil pools visibly at the bottom of a muffin well.</div></div>
-<div class="field-row" data-json-path="$.procedure[0].corrective_actions[0].action"><div class="field-name">Action</div><div class="field-value">Redistribute the excess oil across the remaining wells using clean kitchen paper or a pastry brush.</div></div>
-</article>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[0].critical"><div class="field-name">Critical</div><div class="field-value"><span class="boolean-value">false</span></div></div>
-</article>
-<article class="array-item" data-json-path="$.procedure[1]">
-<div class="item-number">Item 2</div>
-<div class="field-row" data-json-path="$.procedure[1].step_id"><div class="field-name">Step Id</div><div class="field-value">STEP_02</div></div>
-<div class="field-row" data-json-path="$.procedure[1].section"><div class="field-name">Section</div><div class="field-value">Vegetable filling</div></div>
-<div class="field-row" data-json-path="$.procedure[1].title"><div class="field-name">Title</div><div class="field-value">Brown the mushrooms</div></div>
-<div class="array-block" data-json-path="$.procedure[1].depends_on">
-<h3>Depends On</h3>
-<div class="empty-value">[ ]</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[1].parallel_group"><div class="field-name">Parallel Group</div><div class="field-value">P01</div></div>
-<div class="array-block" data-json-path="$.procedure[1].ingredient_ids">
-<h3>Ingredient Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[1].ingredient_ids[0]">chestnut_mushrooms</div>
-<div class="scalar-array-item" data-json-path="$.procedure[1].ingredient_ids[1]">olive_oil</div>
-<div class="scalar-array-item" data-json-path="$.procedure[1].ingredient_ids[2]">fine_salt</div>
-</div>
-</div>
-<div class="array-block" data-json-path="$.procedure[1].equipment_ids">
-<h3>Equipment Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[1].equipment_ids[0]">frying_pan</div>
-<div class="scalar-array-item" data-json-path="$.procedure[1].equipment_ids[1]">gas_hob</div>
-<div class="scalar-array-item" data-json-path="$.procedure[1].equipment_ids[2]">spatula</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[1].instruction"><div class="field-name">Instruction</div><div class="field-value">Place the large frying pan over medium-high gas heat for approximately 1 minute. Add the remaining approximately 4 g olive oil, followed immediately by the 180 g diced mushrooms. Spread into a single layer where practical. Cook while stirring or tossing approximately every 45-60 seconds. After the mushrooms begin releasing moisture, add approximately 0.0625 tsp of the measured initial salt.</div></div>
-<div class="field-row" data-json-path="$.procedure[1].heat_source"><div class="field-name">Heat Source</div><div class="field-value">Gas hob</div></div>
-<div class="field-row" data-json-path="$.procedure[1].heat_level"><div class="field-name">Heat Level</div><div class="field-value">Medium-high</div></div>
-<div class="field-row" data-json-path="$.procedure[1].temperature_c"><div class="field-name">Temperature C</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[1].duration_min_minutes"><div class="field-name">Duration Min Minutes</div><div class="field-value">6</div></div>
-<div class="field-row" data-json-path="$.procedure[1].duration_max_minutes"><div class="field-name">Duration Max Minutes</div><div class="field-value">9</div></div>
-<div class="field-row" data-json-path="$.procedure[1].endpoint"><div class="field-name">Endpoint</div><div class="field-value">The mushrooms have released and evaporated their visible moisture, are reduced in volume and show distinct golden-brown surfaces rather than appearing grey and wet.</div></div>
-<div class="array-block" data-json-path="$.procedure[1].corrective_actions">
-<h3>Corrective Actions</h3>
-<div class="array-items">
-<article class="array-item" data-json-path="$.procedure[1].corrective_actions[0]">
-<div class="item-number">Item 1</div>
-<div class="field-row" data-json-path="$.procedure[1].corrective_actions[0].condition"><div class="field-name">Condition</div><div class="field-value">Liquid accumulates heavily in the pan and the mushrooms steam without colouring.</div></div>
-<div class="field-row" data-json-path="$.procedure[1].corrective_actions[0].action"><div class="field-name">Action</div><div class="field-value">Increase the heat and spread the mushrooms into a thinner layer; continue until all free liquid evaporates before proceeding.</div></div>
-</article>
-<article class="array-item" data-json-path="$.procedure[1].corrective_actions[1]">
-<div class="item-number">Item 2</div>
-<div class="field-row" data-json-path="$.procedure[1].corrective_actions[1].condition"><div class="field-name">Condition</div><div class="field-value">The mushrooms blacken before releasing their moisture.</div></div>
-<div class="field-row" data-json-path="$.procedure[1].corrective_actions[1].action"><div class="field-name">Action</div><div class="field-value">Reduce the heat to medium and stir immediately.</div></div>
-</article>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[1].critical"><div class="field-name">Critical</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-</article>
-<article class="array-item" data-json-path="$.procedure[2]">
-<div class="item-number">Item 3</div>
-<div class="field-row" data-json-path="$.procedure[2].step_id"><div class="field-name">Step Id</div><div class="field-value">STEP_03</div></div>
-<div class="field-row" data-json-path="$.procedure[2].section"><div class="field-name">Section</div><div class="field-value">Vegetable filling</div></div>
-<div class="field-row" data-json-path="$.procedure[2].title"><div class="field-name">Title</div><div class="field-value">Wilt and dry the spinach</div></div>
-<div class="array-block" data-json-path="$.procedure[2].depends_on">
-<h3>Depends On</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[2].depends_on[0]">STEP_02</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[2].parallel_group"><div class="field-name">Parallel Group</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="array-block" data-json-path="$.procedure[2].ingredient_ids">
-<h3>Ingredient Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[2].ingredient_ids[0]">baby_spinach</div>
-<div class="scalar-array-item" data-json-path="$.procedure[2].ingredient_ids[1]">spring_onions</div>
-</div>
-</div>
-<div class="array-block" data-json-path="$.procedure[2].equipment_ids">
-<h3>Equipment Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[2].equipment_ids[0]">frying_pan</div>
-<div class="scalar-array-item" data-json-path="$.procedure[2].equipment_ids[1]">gas_hob</div>
-<div class="scalar-array-item" data-json-path="$.procedure[2].equipment_ids[2]">spatula</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[2].instruction"><div class="field-name">Instruction</div><div class="field-value">Reduce the heat to medium. Add the prepared 120 g spinach and sliced spring onions to the browned mushrooms. Turn continuously until the spinach collapses. Continue cooking uncovered while stirring until liquid released by the spinach has completely evaporated.</div></div>
-<div class="field-row" data-json-path="$.procedure[2].heat_source"><div class="field-name">Heat Source</div><div class="field-value">Gas hob</div></div>
-<div class="field-row" data-json-path="$.procedure[2].heat_level"><div class="field-name">Heat Level</div><div class="field-value">Medium</div></div>
-<div class="field-row" data-json-path="$.procedure[2].temperature_c"><div class="field-name">Temperature C</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[2].duration_min_minutes"><div class="field-name">Duration Min Minutes</div><div class="field-value">2</div></div>
-<div class="field-row" data-json-path="$.procedure[2].duration_max_minutes"><div class="field-name">Duration Max Minutes</div><div class="field-value">4</div></div>
-<div class="field-row" data-json-path="$.procedure[2].endpoint"><div class="field-name">Endpoint</div><div class="field-value">The spinach is fully wilted, the spring onions are softened but still green and no visible liquid remains in the pan when the vegetables are moved aside.</div></div>
-<div class="array-block" data-json-path="$.procedure[2].corrective_actions">
-<h3>Corrective Actions</h3>
-<div class="array-items">
-<article class="array-item" data-json-path="$.procedure[2].corrective_actions[0]">
-<div class="item-number">Item 1</div>
-<div class="field-row" data-json-path="$.procedure[2].corrective_actions[0].condition"><div class="field-name">Condition</div><div class="field-value">Visible green liquid remains in the pan after the spinach has wilted.</div></div>
-<div class="field-row" data-json-path="$.procedure[2].corrective_actions[0].action"><div class="field-name">Action</div><div class="field-value">Increase the heat slightly and continue cooking uncovered while stirring until the pan surface is dry.</div></div>
-</article>
-<article class="array-item" data-json-path="$.procedure[2].corrective_actions[1]">
-<div class="item-number">Item 2</div>
-<div class="field-row" data-json-path="$.procedure[2].corrective_actions[1].condition"><div class="field-name">Condition</div><div class="field-value">The vegetables begin catching before moisture has evaporated.</div></div>
-<div class="field-row" data-json-path="$.procedure[2].corrective_actions[1].action"><div class="field-name">Action</div><div class="field-value">Reduce the heat slightly and keep the mixture moving continuously.</div></div>
-</article>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[2].critical"><div class="field-name">Critical</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-</article>
-<article class="array-item" data-json-path="$.procedure[3]">
-<div class="item-number">Item 4</div>
-<div class="field-row" data-json-path="$.procedure[3].step_id"><div class="field-name">Step Id</div><div class="field-value">STEP_04</div></div>
-<div class="field-row" data-json-path="$.procedure[3].section"><div class="field-name">Section</div><div class="field-value">Vegetable filling</div></div>
-<div class="field-row" data-json-path="$.procedure[3].title"><div class="field-name">Title</div><div class="field-value">Cool the vegetable mixture</div></div>
-<div class="array-block" data-json-path="$.procedure[3].depends_on">
-<h3>Depends On</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[3].depends_on[0]">STEP_03</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[3].parallel_group"><div class="field-name">Parallel Group</div><div class="field-value">P02</div></div>
-<div class="array-block" data-json-path="$.procedure[3].ingredient_ids">
-<h3>Ingredient Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[3].ingredient_ids[0]">chestnut_mushrooms</div>
-<div class="scalar-array-item" data-json-path="$.procedure[3].ingredient_ids[1]">baby_spinach</div>
-<div class="scalar-array-item" data-json-path="$.procedure[3].ingredient_ids[2]">spring_onions</div>
-</div>
-</div>
-<div class="array-block" data-json-path="$.procedure[3].equipment_ids">
-<h3>Equipment Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[3].equipment_ids[0]">frying_pan</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[3].instruction"><div class="field-name">Instruction</div><div class="field-value">Remove the frying pan from the heat and spread the cooked vegetables into a thin layer across the pan surface. Leave uncovered until strong visible steam has stopped and the mixture is warm rather than piping hot.</div></div>
-<div class="field-row" data-json-path="$.procedure[3].heat_source"><div class="field-name">Heat Source</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[3].heat_level"><div class="field-name">Heat Level</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[3].temperature_c"><div class="field-name">Temperature C</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[3].duration_min_minutes"><div class="field-name">Duration Min Minutes</div><div class="field-value">4</div></div>
-<div class="field-row" data-json-path="$.procedure[3].duration_max_minutes"><div class="field-name">Duration Max Minutes</div><div class="field-value">6</div></div>
-<div class="field-row" data-json-path="$.procedure[3].endpoint"><div class="field-name">Endpoint</div><div class="field-value">The vegetable mixture is warm but no longer releasing substantial steam and remains free from pooled liquid.</div></div>
-<div class="array-block" data-json-path="$.procedure[3].corrective_actions">
-<h3>Corrective Actions</h3>
-<div class="array-items">
-<article class="array-item" data-json-path="$.procedure[3].corrective_actions[0]">
-<div class="item-number">Item 1</div>
-<div class="field-row" data-json-path="$.procedure[3].corrective_actions[0].condition"><div class="field-name">Condition</div><div class="field-value">The vegetables remain very hot after 6 minutes.</div></div>
-<div class="field-row" data-json-path="$.procedure[3].corrective_actions[0].action"><div class="field-name">Action</div><div class="field-value">Transfer them to a cool plate and spread into a thinner layer for an additional 2-3 minutes.</div></div>
-</article>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[3].critical"><div class="field-name">Critical</div><div class="field-value"><span class="boolean-value">false</span></div></div>
-</article>
-<article class="array-item" data-json-path="$.procedure[4]">
-<div class="item-number">Item 5</div>
-<div class="field-row" data-json-path="$.procedure[4].step_id"><div class="field-name">Step Id</div><div class="field-value">STEP_05</div></div>
-<div class="field-row" data-json-path="$.procedure[4].section"><div class="field-name">Section</div><div class="field-value">Egg mixture</div></div>
-<div class="field-row" data-json-path="$.procedure[4].title"><div class="field-name">Title</div><div class="field-value">Combine the egg and cottage-cheese base</div></div>
-<div class="array-block" data-json-path="$.procedure[4].depends_on">
-<h3>Depends On</h3>
-<div class="empty-value">[ ]</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[4].parallel_group"><div class="field-name">Parallel Group</div><div class="field-value">P02</div></div>
-<div class="array-block" data-json-path="$.procedure[4].ingredient_ids">
-<h3>Ingredient Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[4].ingredient_ids[0]">eggs</div>
-<div class="scalar-array-item" data-json-path="$.procedure[4].ingredient_ids[1]">egg_whites_liquid</div>
-<div class="scalar-array-item" data-json-path="$.procedure[4].ingredient_ids[2]">cottage_cheese_low_fat</div>
-<div class="scalar-array-item" data-json-path="$.procedure[4].ingredient_ids[3]">dijon_mustard</div>
-<div class="scalar-array-item" data-json-path="$.procedure[4].ingredient_ids[4]">fresh_chives</div>
-<div class="scalar-array-item" data-json-path="$.procedure[4].ingredient_ids[5]">nutmeg_ground</div>
-<div class="scalar-array-item" data-json-path="$.procedure[4].ingredient_ids[6]">fine_salt</div>
-<div class="scalar-array-item" data-json-path="$.procedure[4].ingredient_ids[7]">black_pepper_ground</div>
-</div>
-</div>
-<div class="array-block" data-json-path="$.procedure[4].equipment_ids">
-<h3>Equipment Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[4].equipment_ids[0]">mixing_bowl</div>
-<div class="scalar-array-item" data-json-path="$.procedure[4].equipment_ids[1]">measuring_spoons</div>
-<div class="scalar-array-item" data-json-path="$.procedure[4].equipment_ids[2]">kitchen_scales</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[4].instruction"><div class="field-name">Instruction</div><div class="field-value">To the 3 cracked eggs in the large mixing bowl add 180 g liquid egg whites, 180 g cottage cheese, 1 tsp Dijon mustard, the prepared 10 g chives, 0.125 tsp nutmeg, the remaining approximately 0.1875 tsp of the initial salt and 0.25 tsp black pepper. Whisk or stir vigorously until the eggs and whites are homogeneous while small cottage-cheese curds remain visible.</div></div>
-<div class="field-row" data-json-path="$.procedure[4].heat_source"><div class="field-name">Heat Source</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[4].heat_level"><div class="field-name">Heat Level</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[4].temperature_c"><div class="field-name">Temperature C</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[4].duration_min_minutes"><div class="field-name">Duration Min Minutes</div><div class="field-value">1</div></div>
-<div class="field-row" data-json-path="$.procedure[4].duration_max_minutes"><div class="field-name">Duration Max Minutes</div><div class="field-value">2</div></div>
-<div class="field-row" data-json-path="$.procedure[4].endpoint"><div class="field-name">Endpoint</div><div class="field-value">The mixture is uniformly seasoned and fluid, with cottage-cheese curds evenly suspended rather than collected in one area.</div></div>
-<div class="array-block" data-json-path="$.procedure[4].corrective_actions">
-<h3>Corrective Actions</h3>
-<div class="array-items">
-<article class="array-item" data-json-path="$.procedure[4].corrective_actions[0]">
-<div class="item-number">Item 1</div>
-<div class="field-row" data-json-path="$.procedure[4].corrective_actions[0].condition"><div class="field-name">Condition</div><div class="field-value">Large cottage-cheese clumps remain concentrated in one area.</div></div>
-<div class="field-row" data-json-path="$.procedure[4].corrective_actions[0].action"><div class="field-name">Action</div><div class="field-value">Break them apart gently with the spatula and continue mixing until evenly distributed.</div></div>
-</article>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[4].critical"><div class="field-name">Critical</div><div class="field-value"><span class="boolean-value">false</span></div></div>
-</article>
-<article class="array-item" data-json-path="$.procedure[5]">
-<div class="item-number">Item 6</div>
-<div class="field-row" data-json-path="$.procedure[5].step_id"><div class="field-name">Step Id</div><div class="field-value">STEP_06</div></div>
-<div class="field-row" data-json-path="$.procedure[5].section"><div class="field-name">Section</div><div class="field-value">Assembly</div></div>
-<div class="field-row" data-json-path="$.procedure[5].title"><div class="field-name">Title</div><div class="field-value">Combine filling and portion the muffin mixture</div></div>
-<div class="array-block" data-json-path="$.procedure[5].depends_on">
-<h3>Depends On</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[5].depends_on[0]">STEP_01</div>
-<div class="scalar-array-item" data-json-path="$.procedure[5].depends_on[1]">STEP_04</div>
-<div class="scalar-array-item" data-json-path="$.procedure[5].depends_on[2]">STEP_05</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[5].parallel_group"><div class="field-name">Parallel Group</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="array-block" data-json-path="$.procedure[5].ingredient_ids">
-<h3>Ingredient Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[5].ingredient_ids[0]">chestnut_mushrooms</div>
-<div class="scalar-array-item" data-json-path="$.procedure[5].ingredient_ids[1]">baby_spinach</div>
-<div class="scalar-array-item" data-json-path="$.procedure[5].ingredient_ids[2]">spring_onions</div>
-<div class="scalar-array-item" data-json-path="$.procedure[5].ingredient_ids[3]">eggs</div>
-<div class="scalar-array-item" data-json-path="$.procedure[5].ingredient_ids[4]">egg_whites_liquid</div>
-<div class="scalar-array-item" data-json-path="$.procedure[5].ingredient_ids[5]">cottage_cheese_low_fat</div>
-</div>
-</div>
-<div class="array-block" data-json-path="$.procedure[5].equipment_ids">
-<h3>Equipment Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[5].equipment_ids[0]">mixing_bowl</div>
-<div class="scalar-array-item" data-json-path="$.procedure[5].equipment_ids[1]">muffin_tin</div>
-<div class="scalar-array-item" data-json-path="$.procedure[5].equipment_ids[2]">kitchen_scales</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[5].instruction"><div class="field-name">Instruction</div><div class="field-value">Add the cooled mushroom-spinach mixture to the egg mixture and fold until evenly distributed. Divide the complete mixture equally among all 6 greased muffin wells. Each well should contain a similar proportion of vegetables, cottage-cheese curds and liquid egg mixture and should remain below the top edge.</div></div>
-<div class="field-row" data-json-path="$.procedure[5].heat_source"><div class="field-name">Heat Source</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[5].heat_level"><div class="field-name">Heat Level</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[5].temperature_c"><div class="field-name">Temperature C</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[5].duration_min_minutes"><div class="field-name">Duration Min Minutes</div><div class="field-value">3</div></div>
-<div class="field-row" data-json-path="$.procedure[5].duration_max_minutes"><div class="field-name">Duration Max Minutes</div><div class="field-value">5</div></div>
-<div class="field-row" data-json-path="$.procedure[5].endpoint"><div class="field-name">Endpoint</div><div class="field-value">All 6 wells contain approximately equal quantities and no well is filled sufficiently high to overflow during baking.</div></div>
-<div class="array-block" data-json-path="$.procedure[5].corrective_actions">
-<h3>Corrective Actions</h3>
-<div class="array-items">
-<article class="array-item" data-json-path="$.procedure[5].corrective_actions[0]">
-<div class="item-number">Item 1</div>
-<div class="field-row" data-json-path="$.procedure[5].corrective_actions[0].condition"><div class="field-name">Condition</div><div class="field-value">Vegetables settle at the bottom of the mixing bowl during portioning.</div></div>
-<div class="field-row" data-json-path="$.procedure[5].corrective_actions[0].action"><div class="field-name">Action</div><div class="field-value">Stir the bowl gently between every 1-2 filled wells to redistribute the solids.</div></div>
-</article>
-<article class="array-item" data-json-path="$.procedure[5].corrective_actions[1]">
-<div class="item-number">Item 2</div>
-<div class="field-row" data-json-path="$.procedure[5].corrective_actions[1].condition"><div class="field-name">Condition</div><div class="field-value">One well is visibly more full than another.</div></div>
-<div class="field-row" data-json-path="$.procedure[5].corrective_actions[1].action"><div class="field-name">Action</div><div class="field-value">Transfer small spoonfuls between wells until the levels are approximately equal.</div></div>
-</article>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[5].critical"><div class="field-name">Critical</div><div class="field-value"><span class="boolean-value">false</span></div></div>
-</article>
-<article class="array-item" data-json-path="$.procedure[6]">
-<div class="item-number">Item 7</div>
-<div class="field-row" data-json-path="$.procedure[6].step_id"><div class="field-name">Step Id</div><div class="field-value">STEP_07</div></div>
-<div class="field-row" data-json-path="$.procedure[6].section"><div class="field-name">Section</div><div class="field-value">Baking</div></div>
-<div class="field-row" data-json-path="$.procedure[6].title"><div class="field-name">Title</div><div class="field-value">Bake the egg muffins</div></div>
-<div class="array-block" data-json-path="$.procedure[6].depends_on">
-<h3>Depends On</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[6].depends_on[0]">STEP_06</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[6].parallel_group"><div class="field-name">Parallel Group</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="array-block" data-json-path="$.procedure[6].ingredient_ids">
-<h3>Ingredient Ids</h3>
-<div class="empty-value">[ ]</div>
-</div>
-<div class="array-block" data-json-path="$.procedure[6].equipment_ids">
-<h3>Equipment Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[6].equipment_ids[0]">oven</div>
-<div class="scalar-array-item" data-json-path="$.procedure[6].equipment_ids[1]">muffin_tin</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[6].instruction"><div class="field-name">Instruction</div><div class="field-value">Place the muffin tin on the centre rack of the preheated 180°C fan oven. Bake without opening the door during the first 14 minutes. Thereafter assess visually through the oven door where possible.</div></div>
-<div class="field-row" data-json-path="$.procedure[6].heat_source"><div class="field-name">Heat Source</div><div class="field-value">Oven</div></div>
-<div class="field-row" data-json-path="$.procedure[6].heat_level"><div class="field-name">Heat Level</div><div class="field-value">180°C fan</div></div>
-<div class="field-row" data-json-path="$.procedure[6].temperature_c"><div class="field-name">Temperature C</div><div class="field-value">180</div></div>
-<div class="field-row" data-json-path="$.procedure[6].duration_min_minutes"><div class="field-name">Duration Min Minutes</div><div class="field-value">16</div></div>
-<div class="field-row" data-json-path="$.procedure[6].duration_max_minutes"><div class="field-name">Duration Max Minutes</div><div class="field-value">21</div></div>
-<div class="field-row" data-json-path="$.procedure[6].endpoint"><div class="field-name">Endpoint</div><div class="field-value">The muffins are risen, lightly golden at the exposed edges and centres appear set rather than liquid. A clean knife inserted into the centre of the largest muffin emerges without raw liquid egg; moist cottage-cheese residue is acceptable.</div></div>
-<div class="array-block" data-json-path="$.procedure[6].corrective_actions">
-<h3>Corrective Actions</h3>
-<div class="array-items">
-<article class="array-item" data-json-path="$.procedure[6].corrective_actions[0]">
-<div class="item-number">Item 1</div>
-<div class="field-row" data-json-path="$.procedure[6].corrective_actions[0].condition"><div class="field-name">Condition</div><div class="field-value">The muffin tops brown strongly while the centres remain visibly wet.</div></div>
-<div class="field-row" data-json-path="$.procedure[6].corrective_actions[0].action"><div class="field-name">Action</div><div class="field-value">Reduce the oven to 170°C and continue baking in 2-minute intervals until the centre passes the stated endpoint.</div></div>
-</article>
-<article class="array-item" data-json-path="$.procedure[6].corrective_actions[1]">
-<div class="item-number">Item 2</div>
-<div class="field-row" data-json-path="$.procedure[6].corrective_actions[1].condition"><div class="field-name">Condition</div><div class="field-value">The centres remain visibly liquid after 21 minutes.</div></div>
-<div class="field-row" data-json-path="$.procedure[6].corrective_actions[1].action"><div class="field-name">Action</div><div class="field-value">Continue baking in 2-minute intervals and reassess after each interval.</div></div>
-</article>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[6].critical"><div class="field-name">Critical</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-</article>
-<article class="array-item" data-json-path="$.procedure[7]">
-<div class="item-number">Item 8</div>
-<div class="field-row" data-json-path="$.procedure[7].step_id"><div class="field-name">Step Id</div><div class="field-value">STEP_08</div></div>
-<div class="field-row" data-json-path="$.procedure[7].section"><div class="field-name">Section</div><div class="field-value">Resting</div></div>
-<div class="field-row" data-json-path="$.procedure[7].title"><div class="field-name">Title</div><div class="field-value">Rest and release the muffins</div></div>
-<div class="array-block" data-json-path="$.procedure[7].depends_on">
-<h3>Depends On</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[7].depends_on[0]">STEP_07</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[7].parallel_group"><div class="field-name">Parallel Group</div><div class="field-value">P03</div></div>
-<div class="array-block" data-json-path="$.procedure[7].ingredient_ids">
-<h3>Ingredient Ids</h3>
-<div class="empty-value">[ ]</div>
-</div>
-<div class="array-block" data-json-path="$.procedure[7].equipment_ids">
-<h3>Equipment Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[7].equipment_ids[0]">muffin_tin</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[7].instruction"><div class="field-name">Instruction</div><div class="field-value">Remove the muffin tin from the oven and place it on a heat-resistant surface. Leave the muffins undisturbed for approximately 4 minutes so the egg structure firms slightly. Run a thin spatula or table knife around the perimeter of each muffin if required, then lift them from the tin.</div></div>
-<div class="field-row" data-json-path="$.procedure[7].heat_source"><div class="field-name">Heat Source</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[7].heat_level"><div class="field-name">Heat Level</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[7].temperature_c"><div class="field-name">Temperature C</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[7].duration_min_minutes"><div class="field-name">Duration Min Minutes</div><div class="field-value">4</div></div>
-<div class="field-row" data-json-path="$.procedure[7].duration_max_minutes"><div class="field-name">Duration Max Minutes</div><div class="field-value">6</div></div>
-<div class="field-row" data-json-path="$.procedure[7].endpoint"><div class="field-name">Endpoint</div><div class="field-value">Each muffin releases intact, remains upright and has a tender but fully set centre.</div></div>
-<div class="array-block" data-json-path="$.procedure[7].corrective_actions">
-<h3>Corrective Actions</h3>
-<div class="array-items">
-<article class="array-item" data-json-path="$.procedure[7].corrective_actions[0]">
-<div class="item-number">Item 1</div>
-<div class="field-row" data-json-path="$.procedure[7].corrective_actions[0].condition"><div class="field-name">Condition</div><div class="field-value">A muffin adheres strongly to the tin.</div></div>
-<div class="field-row" data-json-path="$.procedure[7].corrective_actions[0].action"><div class="field-name">Action</div><div class="field-value">Loosen the full perimeter before lifting; do not pull forcefully from one side because the muffin may tear.</div></div>
-</article>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[7].critical"><div class="field-name">Critical</div><div class="field-value"><span class="boolean-value">false</span></div></div>
-</article>
-<article class="array-item" data-json-path="$.procedure[8]">
-<div class="item-number">Item 9</div>
-<div class="field-row" data-json-path="$.procedure[8].step_id"><div class="field-name">Step Id</div><div class="field-value">STEP_09</div></div>
-<div class="field-row" data-json-path="$.procedure[8].section"><div class="field-name">Section</div><div class="field-value">Toast</div></div>
-<div class="field-row" data-json-path="$.procedure[8].title"><div class="field-name">Title</div><div class="field-value">Toast the seeded wholemeal bread</div></div>
-<div class="array-block" data-json-path="$.procedure[8].depends_on">
-<h3>Depends On</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[8].depends_on[0]">STEP_07</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[8].parallel_group"><div class="field-name">Parallel Group</div><div class="field-value">P03</div></div>
-<div class="array-block" data-json-path="$.procedure[8].ingredient_ids">
-<h3>Ingredient Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[8].ingredient_ids[0]">seeded_wholemeal_bread</div>
-</div>
-</div>
-<div class="array-block" data-json-path="$.procedure[8].equipment_ids">
-<h3>Equipment Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[8].equipment_ids[0]">toaster</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[8].instruction"><div class="field-name">Instruction</div><div class="field-value">Place the approximately 90 g seeded wholemeal bread in the toaster. Select a medium browning setting and toast until the surfaces are crisp and golden-brown while the centres retain slight tenderness.</div></div>
-<div class="field-row" data-json-path="$.procedure[8].heat_source"><div class="field-name">Heat Source</div><div class="field-value">Toaster</div></div>
-<div class="field-row" data-json-path="$.procedure[8].heat_level"><div class="field-name">Heat Level</div><div class="field-value">Medium browning setting</div></div>
-<div class="field-row" data-json-path="$.procedure[8].temperature_c"><div class="field-name">Temperature C</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[8].duration_min_minutes"><div class="field-name">Duration Min Minutes</div><div class="field-value">2</div></div>
-<div class="field-row" data-json-path="$.procedure[8].duration_max_minutes"><div class="field-name">Duration Max Minutes</div><div class="field-value">4</div></div>
-<div class="field-row" data-json-path="$.procedure[8].endpoint"><div class="field-name">Endpoint</div><div class="field-value">The toast is evenly browned, crisp at the surface and shows no blackened or burnt areas.</div></div>
-<div class="array-block" data-json-path="$.procedure[8].corrective_actions">
-<h3>Corrective Actions</h3>
-<div class="array-items">
-<article class="array-item" data-json-path="$.procedure[8].corrective_actions[0]">
-<div class="item-number">Item 1</div>
-<div class="field-row" data-json-path="$.procedure[8].corrective_actions[0].condition"><div class="field-name">Condition</div><div class="field-value">The toast darkens faster than expected.</div></div>
-<div class="field-row" data-json-path="$.procedure[8].corrective_actions[0].action"><div class="field-name">Action</div><div class="field-value">Cancel the toaster cycle immediately and reduce the browning setting for any remaining slices.</div></div>
-</article>
-<article class="array-item" data-json-path="$.procedure[8].corrective_actions[1]">
-<div class="item-number">Item 2</div>
-<div class="field-row" data-json-path="$.procedure[8].corrective_actions[1].condition"><div class="field-name">Condition</div><div class="field-value">The toast remains pale and soft after one cycle.</div></div>
-<div class="field-row" data-json-path="$.procedure[8].corrective_actions[1].action"><div class="field-name">Action</div><div class="field-value">Return it to the toaster for a short additional cycle while monitoring closely.</div></div>
-</article>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[8].critical"><div class="field-name">Critical</div><div class="field-value"><span class="boolean-value">false</span></div></div>
-</article>
-<article class="array-item" data-json-path="$.procedure[9]">
-<div class="item-number">Item 10</div>
-<div class="field-row" data-json-path="$.procedure[9].step_id"><div class="field-name">Step Id</div><div class="field-value">STEP_10</div></div>
-<div class="field-row" data-json-path="$.procedure[9].section"><div class="field-name">Section</div><div class="field-value">Final seasoning and portioning</div></div>
-<div class="field-row" data-json-path="$.procedure[9].title"><div class="field-name">Title</div><div class="field-value">Check seasoning and divide into servings</div></div>
-<div class="array-block" data-json-path="$.procedure[9].depends_on">
-<h3>Depends On</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[9].depends_on[0]">STEP_08</div>
-<div class="scalar-array-item" data-json-path="$.procedure[9].depends_on[1]">STEP_09</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[9].parallel_group"><div class="field-name">Parallel Group</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="array-block" data-json-path="$.procedure[9].ingredient_ids">
-<h3>Ingredient Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[9].ingredient_ids[0]">fine_salt</div>
-</div>
-</div>
-<div class="array-block" data-json-path="$.procedure[9].equipment_ids">
-<h3>Equipment Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[9].equipment_ids[0]">kitchen_scales</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[9].instruction"><div class="field-name">Instruction</div><div class="field-value">Taste a small piece from one representative muffin. If the seasoning is already defined and savoury, do not add the reserved salt. If noticeably under-seasoned, distribute up to the reserved 0.125 tsp fine salt very lightly across all 6 muffins. Divide the muffins into 2 portions of 3 muffins each and divide the toasted bread equally between the 2 servings.</div></div>
-<div class="field-row" data-json-path="$.procedure[9].heat_source"><div class="field-name">Heat Source</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[9].heat_level"><div class="field-name">Heat Level</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[9].temperature_c"><div class="field-name">Temperature C</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[9].duration_min_minutes"><div class="field-name">Duration Min Minutes</div><div class="field-value">1</div></div>
-<div class="field-row" data-json-path="$.procedure[9].duration_max_minutes"><div class="field-name">Duration Max Minutes</div><div class="field-value">2</div></div>
-<div class="field-row" data-json-path="$.procedure[9].endpoint"><div class="field-name">Endpoint</div><div class="field-value">Each serving contains 3 egg muffins and approximately 45 g seeded wholemeal toast, with balanced seasoning and approximately equal total portion size.</div></div>
-<div class="array-block" data-json-path="$.procedure[9].corrective_actions">
-<h3>Corrective Actions</h3>
-<div class="array-items">
-<article class="array-item" data-json-path="$.procedure[9].corrective_actions[0]">
-<div class="item-number">Item 1</div>
-<div class="field-row" data-json-path="$.procedure[9].corrective_actions[0].condition"><div class="field-name">Condition</div><div class="field-value">The muffins are adequately seasoned before the reserved salt is used.</div></div>
-<div class="field-row" data-json-path="$.procedure[9].corrective_actions[0].action"><div class="field-name">Action</div><div class="field-value">Do not add any reserved salt.</div></div>
-</article>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[9].critical"><div class="field-name">Critical</div><div class="field-value"><span class="boolean-value">false</span></div></div>
-</article>
-</div>
-</div></section>
-<section class="top-section" data-json-path="$.plating"><h2>Plating</h2><div class="array-block" data-json-path="$.plating">
-<div class="array-items">
-<article class="array-item" data-json-path="$.plating[0]">
-<div class="item-number">Item 1</div>
-<div class="field-row" data-json-path="$.plating[0].step_id"><div class="field-name">Step Id</div><div class="field-value">PLATE_01</div></div>
-<div class="field-row" data-json-path="$.plating[0].instruction"><div class="field-name">Instruction</div><div class="field-value">Serve 3 warm egg muffins and approximately 45 g crisp seeded wholemeal toast per person. Keep the toast alongside rather than underneath the muffins so steam from the eggs does not soften it.</div></div>
-</article>
-</div>
-</div></section>
-<section class="top-section" data-json-path="$.storage"><h2>Storage</h2><div class="object-content" data-json-path="$.storage">
-<div class="field-row" data-json-path="$.storage.refrigerator_days"><div class="field-name">Refrigerator Days</div><div class="field-value">3</div></div>
-<div class="field-row" data-json-path="$.storage.freezer_months"><div class="field-name">Freezer Months</div><div class="field-value">1</div></div>
-<div class="field-row" data-json-path="$.storage.storage_instructions"><div class="field-name">Storage Instructions</div><div class="field-value">Cool leftover egg muffins promptly, transfer to a sealed container and refrigerate at 5°C or below for up to 3 days. Freeze fully cooled muffins in a sealed freezer-safe container for up to 1 month. Store bread separately and toast fresh whenever practical. Reheat egg muffins only once and ensure they are steaming hot through the centre before eating.</div></div>
-<div class="array-block" data-json-path="$.storage.reheating_methods">
-<h3>Reheating Methods</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.storage.reheating_methods[0]">Air fryer: reheat refrigerated egg muffins at 160°C for approximately 5-7 minutes, until steaming hot through the centre without excessive surface browning.</div>
-<div class="scalar-array-item" data-json-path="$.storage.reheating_methods[1]">Oven: reheat refrigerated egg muffins at 170°C for approximately 8-12 minutes, until steaming hot throughout.</div>
-<div class="scalar-array-item" data-json-path="$.storage.reheating_methods[2]">From frozen: thaw overnight in the refrigerator before reheating using the air fryer or oven method.</div>
-<div class="scalar-array-item" data-json-path="$.storage.reheating_methods[3]">Toast bread separately in the toaster immediately before serving.</div>
-</div>
-</div>
-</div></section>
-<section class="top-section" data-json-path="$.shopping"><h2>Shopping</h2><div class="object-content" data-json-path="$.shopping">
-<div class="array-block" data-json-path="$.shopping.sainsburys">
-<h3>Sainsburys</h3>
-<div class="empty-value">[ ]</div>
-</div>
-<div class="array-block" data-json-path="$.shopping.marks_and_spencer">
-<h3>Marks And Spencer</h3>
-<div class="empty-value">[ ]</div>
-</div>
-<div class="array-block" data-json-path="$.shopping.either_retailer">
-<h3>Either Retailer</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[0]">Medium eggs: buy at least 3</div>
-<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[1]">Pasteurised liquid egg whites: buy enough to provide at least 180 g</div>
-<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[2]">Low-fat cottage cheese: buy 1 tub containing at least 180 g</div>
-<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[3]">Chestnut mushrooms: buy at least 180 g</div>
-<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[4]">Baby spinach: buy 1 bag containing at least 120 g</div>
-<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[5]">Spring onions: buy 1 bunch</div>
-<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[6]">Seeded wholemeal bread: buy 1 loaf</div>
-<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[7]">Olive oil: buy 1 bottle if not already stocked</div>
-<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[8]">Dijon mustard: buy 1 jar</div>
-<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[9]">Fresh chives: buy 1 packet or pot containing at least 10 g</div>
-<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[10]">Ground nutmeg: buy 1 jar if not already stocked</div>
-<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[11]">Fine salt: buy 1 container if not already stocked</div>
-<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[12]">Ground black pepper: buy 1 jar or pepper mill if not already stocked</div>
-</div>
-</div>
-</div></section>
-<section class="top-section" data-json-path="$.quality_checks"><h2>Quality Checks</h2><div class="object-content" data-json-path="$.quality_checks">
-<div class="field-row" data-json-path="$.quality_checks.protein_requirement_met"><div class="field-name">Protein Requirement Met</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.quality_checks.protein_g_per_serving"><div class="field-name">Protein G Per Serving</div><div class="field-value">38</div></div>
-<div class="array-block" data-json-path="$.quality_checks.restaurant_quality_features">
-<h3>Restaurant Quality Features</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.quality_checks.restaurant_quality_features[0]">Mushrooms are browned until their released moisture has evaporated, concentrating savoury flavour instead of introducing water into the egg muffins.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.restaurant_quality_features[1]">Spinach is wilted separately within the mushroom mixture and cooked until the pan is dry, protecting the finished muffins from a wet or rubbery interior.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.restaurant_quality_features[2]">Whole eggs are combined with additional egg whites and cottage cheese to provide a tender, protein-rich structure without excessive calories.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.restaurant_quality_features[3]">Dijon mustard supplies restrained acidity and savoury depth, while nutmeg reinforces the spinach and dairy flavours.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.restaurant_quality_features[4]">Fresh chives and spring onions provide two layers of mild allium character without overwhelming the breakfast.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.restaurant_quality_features[5]">The muffins are rested briefly after baking so they release cleanly and retain moisture.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.restaurant_quality_features[6]">Seeded wholemeal toast is prepared immediately before serving to provide crisp contrast against the soft egg muffins.</div>
-</div>
-</div>
-<div class="array-block" data-json-path="$.quality_checks.nutrition_notes">
-<h3>Nutrition Notes</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.quality_checks.nutrition_notes[0]">Estimated nutrition represents one complete breakfast serving of 3 egg muffins plus approximately 45 g seeded wholemeal toast.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.nutrition_notes[1]">The recipe is designed around the approximately 400 kcal breakfast target.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.nutrition_notes[2]">Approximately 38 g protein per serving comes from eggs, egg whites, cottage cheese and seeded wholemeal bread.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.nutrition_notes[3]">Spinach, mushrooms, spring onions and wholemeal bread provide fibre and micronutrient variety without requiring substantial additional fat.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.nutrition_notes[4]">Nutrition values are estimates and will vary with the exact cottage cheese, liquid egg white and seeded bread products selected.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.nutrition_notes[5]">The recipe follows the supplied structured recipe and breakfast requirements. </div>
-</div>
-</div>
-<div class="array-block" data-json-path="$.quality_checks.critical_success_factors">
-<h3>Critical Success Factors</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.quality_checks.critical_success_factors[0]">Cook the mushrooms until genuinely browned and free from visible moisture before adding spinach.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.critical_success_factors[1]">Do not add hot, steaming vegetables directly to the egg mixture; cool them sufficiently to avoid prematurely coagulating the eggs.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.critical_success_factors[2]">Ensure the spinach mixture is dry before muffin assembly because retained vegetable water will compromise texture.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.critical_success_factors[3]">Distribute vegetable solids evenly among all 6 muffin wells rather than allowing them to settle in the mixing bowl.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.critical_success_factors[4]">Bake until the centre is fully set but avoid prolonged baking after that point, which will make the eggs rubbery.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.critical_success_factors[5]">Rest the baked muffins before removal so the protein structure can firm and release cleanly.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.critical_success_factors[6]">Toast the bread as the muffins finish resting so both components reach the table at their intended textures.</div>
-</div>
-</div>
-</div></section>
 
-<section class="integrity">
 
-    <strong>Source integrity</strong>
-
-    <div>
-        Source JSON SHA-256:
-        <code>a7fd05c75ddc017c73de60fbd4fb7ab46fab452fb3dce351b3d8a81f496b9c35</code>
+<details class="section non-method" open>
+    <summary>Ingredients</summary>
+    <div class="section-content ingredient-grid">
+        <article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Medium eggs</strong>
+<span class="ingredient-quantity">3</span>
+</div>
+<div class="subline"><strong>Buy:</strong> Buy: at least 3 medium eggs</div>
+<div class="subline"><strong>Prep:</strong> Keep refrigerated until required, then crack individually before combining.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Liquid egg whites</strong>
+<span class="ingredient-quantity">180 g</span>
+</div>
+<div class="subline"><strong>Buy:</strong> Buy: enough pasteurised liquid egg white to provide at least 180 g</div>
+<div class="subline"><strong>Prep:</strong> Keep refrigerated and weigh immediately before mixing.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Low-fat cottage cheese</strong>
+<span class="ingredient-quantity">180 g</span>
+</div>
+<div class="subline"><strong>Buy:</strong> Buy: 1 tub containing at least 180 g</div>
+<div class="subline"><strong>Prep:</strong> Stir before weighing. If visible free whey has collected in the tub, drain off the loose liquid before measuring.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Chestnut mushrooms</strong>
+<span class="ingredient-quantity">180 g</span>
+</div>
+<div class="subline"><strong>Buy:</strong> Buy: enough chestnut mushrooms to provide at least 180 g</div>
+<div class="subline"><strong>Prep:</strong> Brush or wipe clean, trim dry stem ends if required and dice into approximately 8 mm pieces.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Baby spinach</strong>
+<span class="ingredient-quantity">120 g</span>
+</div>
+<div class="subline"><strong>Buy:</strong> Buy: 1 bag containing at least 120 g</div>
+<div class="subline"><strong>Prep:</strong> Wash if required by the pack instructions, then dry thoroughly before cooking.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Spring onions</strong>
+<span class="ingredient-quantity">2</span>
+</div>
+<div class="subline"><strong>Buy:</strong> Buy: 1 bunch</div>
+<div class="subline"><strong>Prep:</strong> Wash, trim the root ends and any damaged green tips, then slice crosswise into approximately 3 mm pieces.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Seeded wholemeal bread</strong>
+<span class="ingredient-quantity">90 g</span>
+</div>
+<div class="subline"><strong>Buy:</strong> Buy: 1 loaf of seeded wholemeal bread</div>
+<div class="subline"><strong>Prep:</strong> Keep slices intact until immediately before toasting.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Olive oil</strong>
+<span class="ingredient-quantity">6 g</span>
+</div>
+<div class="subline"><strong>Buy:</strong> Buy: 1 bottle if not already stocked</div>
+<div class="subline"><strong>Prep:</strong> Measure accurately before cooking.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Dijon mustard</strong>
+<span class="ingredient-quantity">1 tsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> Buy: 1 jar</div>
+<div class="subline"><strong>Prep:</strong> Measure before mixing.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Fresh chives</strong>
+<span class="ingredient-quantity">10 g</span>
+</div>
+<div class="subline"><strong>Buy:</strong> Buy: 1 packet or pot containing at least 10 g usable chives</div>
+<div class="subline"><strong>Prep:</strong> Wash if required, dry thoroughly and slice crosswise into approximately 2 mm pieces.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Ground nutmeg</strong>
+<span class="ingredient-quantity">⅛ tsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> Buy: 1 jar if not already stocked</div>
+<div class="subline"><strong>Prep:</strong> Measure before mixing.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Fine salt</strong>
+<span class="ingredient-quantity">⅜ tsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> Buy: 1 standard container if not already stocked</div>
+<div class="subline"><strong>Prep:</strong> Measure 0.25 tsp for initial seasoning and reserve up to 0.125 tsp for final adjustment.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Ground black pepper</strong>
+<span class="ingredient-quantity">¼ tsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> Buy: 1 jar or pepper mill if not already stocked</div>
+<div class="subline"><strong>Prep:</strong> Measure before use.</div>
+</article>
     </div>
-
-    <div>
-        JSON paths checked:
-        <code>643</code>
-    </div>
-
-    <div>
-        Missing JSON paths:
-        <code>0</code>
-    </div>
-
-</section>
-
-<details>
-
-<summary>
-Original source JSON
-</summary>
-
-<pre>{
-  &quot;schema_version&quot;: &quot;1.0&quot;,
-  &quot;recipe&quot;: {
-    &quot;id&quot;: &quot;spinach_mushroom_cottage_cheese_egg_muffins_seeded_wholemeal_toast&quot;,
-    &quot;title&quot;: &quot;Spinach, Mushroom &amp; Cottage Cheese Egg Muffins with Seeded Wholemeal Toast&quot;,
-    &quot;description&quot;: &quot;Savoury high-protein breakfast muffins with deeply browned mushrooms, wilted spinach, cottage cheese and seasoned egg, served with crisp seeded wholemeal toast. The vegetables are cooked dry before assembly so the muffins remain tender and structured rather than watery.&quot;,
-    &quot;servings&quot;: 2,
-    &quot;difficulty&quot;: &quot;Easy&quot;,
-    &quot;total_time_minutes&quot;: 45,
-    &quot;active_time_minutes&quot;: 25,
-    &quot;passive_time_minutes&quot;: 20,
-    &quot;cuisine&quot;: [
-      &quot;Contemporary&quot;,
-      &quot;British&quot;
-    ],
-    &quot;meal_types&quot;: [
-      &quot;Breakfast&quot;
-    ],
-    &quot;dietary_tags&quot;: [
-      &quot;Vegetarian&quot;,
-      &quot;High protein&quot;,
-      &quot;High fibre&quot;
-    ],
-    &quot;allergens&quot;: [
-      &quot;Egg&quot;,
-      &quot;Milk&quot;,
-      &quot;Wheat&quot;,
-      &quot;Gluten&quot;
-    ]
-  },
-  &quot;nutrition_per_serving&quot;: {
-    &quot;energy_kcal&quot;: 400,
-    &quot;protein_g&quot;: 38,
-    &quot;carbohydrate_g&quot;: 28,
-    &quot;fat_g&quot;: 16,
-    &quot;saturated_fat_g&quot;: 5,
-    &quot;fibre_g&quot;: 6,
-    &quot;salt_g&quot;: 1.3
-  },
-  &quot;ingredients&quot;: [
-    {
-      &quot;ingredient_id&quot;: &quot;eggs&quot;,
-      &quot;display_name&quot;: &quot;Medium eggs&quot;,
-      &quot;category&quot;: &quot;Eggs&quot;,
-      &quot;required&quot;: true,
-      &quot;quantity_used&quot;: 3,
-      &quot;unit_used&quot;: &quot;integer&quot;,
-      &quot;purchase_quantity&quot;: &quot;Buy: at least 3 medium eggs&quot;,
-      &quot;purchase_notes&quot;: &quot;Standard UK medium hen eggs are suitable.&quot;,
-      &quot;retailers&quot;: [
-        &quot;Sainsbury&#x27;s&quot;,
-        &quot;Marks &amp; Spencer&quot;
-      ],
-      &quot;preparation&quot;: &quot;Keep refrigerated until required, then crack individually before combining.&quot;,
-      &quot;notes&quot;: &quot;Use: 3 medium eggs total.&quot;
-    },
-    {
-      &quot;ingredient_id&quot;: &quot;egg_whites_liquid&quot;,
-      &quot;display_name&quot;: &quot;Liquid egg whites&quot;,
-      &quot;category&quot;: &quot;Eggs&quot;,
-      &quot;required&quot;: true,
-      &quot;quantity_used&quot;: 180,
-      &quot;unit_used&quot;: &quot;g&quot;,
-      &quot;purchase_quantity&quot;: &quot;Buy: enough pasteurised liquid egg white to provide at least 180 g&quot;,
-      &quot;purchase_notes&quot;: &quot;Use plain pasteurised liquid egg whites. Exact carton or bottle size varies by retailer.&quot;,
-      &quot;retailers&quot;: [
-        &quot;Sainsbury&#x27;s&quot;,
-        &quot;Marks &amp; Spencer&quot;
-      ],
-      &quot;preparation&quot;: &quot;Keep refrigerated and weigh immediately before mixing.&quot;,
-      &quot;notes&quot;: &quot;Use: 180 g total. Egg whites increase protein while keeping the breakfast close to the 400 kcal target.&quot;
-    },
-    {
-      &quot;ingredient_id&quot;: &quot;cottage_cheese_low_fat&quot;,
-      &quot;display_name&quot;: &quot;Low-fat cottage cheese&quot;,
-      &quot;category&quot;: &quot;Dairy&quot;,
-      &quot;required&quot;: true,
-      &quot;quantity_used&quot;: 180,
-      &quot;unit_used&quot;: &quot;g&quot;,
-      &quot;purchase_quantity&quot;: &quot;Buy: 1 tub containing at least 180 g&quot;,
-      &quot;purchase_notes&quot;: &quot;Use plain low-fat cottage cheese. Exact supermarket tub size varies.&quot;,
-      &quot;retailers&quot;: [
-        &quot;Sainsbury&#x27;s&quot;,
-        &quot;Marks &amp; Spencer&quot;
-      ],
-      &quot;preparation&quot;: &quot;Stir before weighing. If visible free whey has collected in the tub, drain off the loose liquid before measuring.&quot;,
-      &quot;notes&quot;: &quot;Use: 180 g total, 90 g per serving.&quot;
-    },
-    {
-      &quot;ingredient_id&quot;: &quot;chestnut_mushrooms&quot;,
-      &quot;display_name&quot;: &quot;Chestnut mushrooms&quot;,
-      &quot;category&quot;: &quot;Vegetables&quot;,
-      &quot;required&quot;: true,
-      &quot;quantity_used&quot;: 180,
-      &quot;unit_used&quot;: &quot;g&quot;,
-      &quot;purchase_quantity&quot;: &quot;Buy: enough chestnut mushrooms to provide at least 180 g&quot;,
-      &quot;purchase_notes&quot;: &quot;Choose firm mushrooms without slimy surfaces or substantial bruising.&quot;,
-      &quot;retailers&quot;: [
-        &quot;Sainsbury&#x27;s&quot;,
-        &quot;Marks &amp; Spencer&quot;
-      ],
-      &quot;preparation&quot;: &quot;Brush or wipe clean, trim dry stem ends if required and dice into approximately 8 mm pieces.&quot;,
-      &quot;notes&quot;: &quot;Use: 180 g prepared mushrooms.&quot;
-    },
-    {
-      &quot;ingredient_id&quot;: &quot;baby_spinach&quot;,
-      &quot;display_name&quot;: &quot;Baby spinach&quot;,
-      &quot;category&quot;: &quot;Vegetables&quot;,
-      &quot;required&quot;: true,
-      &quot;quantity_used&quot;: 120,
-      &quot;unit_used&quot;: &quot;g&quot;,
-      &quot;purchase_quantity&quot;: &quot;Buy: 1 bag containing at least 120 g&quot;,
-      &quot;purchase_notes&quot;: &quot;Choose fresh leaves without excessive moisture or sliminess.&quot;,
-      &quot;retailers&quot;: [
-        &quot;Sainsbury&#x27;s&quot;,
-        &quot;Marks &amp; Spencer&quot;
-      ],
-      &quot;preparation&quot;: &quot;Wash if required by the pack instructions, then dry thoroughly before cooking.&quot;,
-      &quot;notes&quot;: &quot;Use: 120 g total.&quot;
-    },
-    {
-      &quot;ingredient_id&quot;: &quot;spring_onions&quot;,
-      &quot;display_name&quot;: &quot;Spring onions&quot;,
-      &quot;category&quot;: &quot;Vegetables&quot;,
-      &quot;required&quot;: true,
-      &quot;quantity_used&quot;: 2,
-      &quot;unit_used&quot;: &quot;integer&quot;,
-      &quot;purchase_quantity&quot;: &quot;Buy: 1 bunch&quot;,
-      &quot;purchase_notes&quot;: &quot;Use 2 medium spring onions from the bunch.&quot;,
-      &quot;retailers&quot;: [
-        &quot;Sainsbury&#x27;s&quot;,
-        &quot;Marks &amp; Spencer&quot;
-      ],
-      &quot;preparation&quot;: &quot;Wash, trim the root ends and any damaged green tips, then slice crosswise into approximately 3 mm pieces.&quot;,
-      &quot;notes&quot;: &quot;Use: 2 spring onions.&quot;
-    },
-    {
-      &quot;ingredient_id&quot;: &quot;seeded_wholemeal_bread&quot;,
-      &quot;display_name&quot;: &quot;Seeded wholemeal bread&quot;,
-      &quot;category&quot;: &quot;Bread&quot;,
-      &quot;required&quot;: true,
-      &quot;quantity_used&quot;: 90,
-      &quot;unit_used&quot;: &quot;g&quot;,
-      &quot;purchase_quantity&quot;: &quot;Buy: 1 loaf of seeded wholemeal bread&quot;,
-      &quot;purchase_notes&quot;: &quot;Use approximately 90 g total, normally 2 substantial slices depending on loaf format.&quot;,
-      &quot;retailers&quot;: [
-        &quot;Sainsbury&#x27;s&quot;,
-        &quot;Marks &amp; Spencer&quot;
-      ],
-      &quot;preparation&quot;: &quot;Keep slices intact until immediately before toasting.&quot;,
-      &quot;notes&quot;: &quot;Use: 90 g total, approximately 45 g per serving.&quot;
-    },
-    {
-      &quot;ingredient_id&quot;: &quot;olive_oil&quot;,
-      &quot;display_name&quot;: &quot;Olive oil&quot;,
-      &quot;category&quot;: &quot;Oils&quot;,
-      &quot;required&quot;: true,
-      &quot;quantity_used&quot;: 6,
-      &quot;unit_used&quot;: &quot;g&quot;,
-      &quot;purchase_quantity&quot;: &quot;Buy: 1 bottle if not already stocked&quot;,
-      &quot;purchase_notes&quot;: &quot;Standard olive oil is suitable.&quot;,
-      &quot;retailers&quot;: [
-        &quot;Sainsbury&#x27;s&quot;,
-        &quot;Marks &amp; Spencer&quot;
-      ],
-      &quot;preparation&quot;: &quot;Measure accurately before cooking.&quot;,
-      &quot;notes&quot;: &quot;Use: 6 g total for mushroom browning and greasing the muffin tin.&quot;
-    },
-    {
-      &quot;ingredient_id&quot;: &quot;dijon_mustard&quot;,
-      &quot;display_name&quot;: &quot;Dijon mustard&quot;,
-      &quot;category&quot;: &quot;Condiments&quot;,
-      &quot;required&quot;: true,
-      &quot;quantity_used&quot;: 1,
-      &quot;unit_used&quot;: &quot;tsp&quot;,
-      &quot;purchase_quantity&quot;: &quot;Buy: 1 jar&quot;,
-      &quot;purchase_notes&quot;: &quot;Standard Dijon mustard is suitable.&quot;,
-      &quot;retailers&quot;: [
-        &quot;Sainsbury&#x27;s&quot;,
-        &quot;Marks &amp; Spencer&quot;
-      ],
-      &quot;preparation&quot;: &quot;Measure before mixing.&quot;,
-      &quot;notes&quot;: &quot;Use: 1 tsp total to provide acidity and savoury depth.&quot;
-    },
-    {
-      &quot;ingredient_id&quot;: &quot;fresh_chives&quot;,
-      &quot;display_name&quot;: &quot;Fresh chives&quot;,
-      &quot;category&quot;: &quot;Fresh herbs&quot;,
-      &quot;required&quot;: true,
-      &quot;quantity_used&quot;: 10,
-      &quot;unit_used&quot;: &quot;g&quot;,
-      &quot;purchase_quantity&quot;: &quot;Buy: 1 packet or pot containing at least 10 g usable chives&quot;,
-      &quot;purchase_notes&quot;: &quot;Choose fresh green chives without yellowed or slimy sections.&quot;,
-      &quot;retailers&quot;: [
-        &quot;Sainsbury&#x27;s&quot;,
-        &quot;Marks &amp; Spencer&quot;
-      ],
-      &quot;preparation&quot;: &quot;Wash if required, dry thoroughly and slice crosswise into approximately 2 mm pieces.&quot;,
-      &quot;notes&quot;: &quot;Use: 10 g total.&quot;
-    },
-    {
-      &quot;ingredient_id&quot;: &quot;nutmeg_ground&quot;,
-      &quot;display_name&quot;: &quot;Ground nutmeg&quot;,
-      &quot;category&quot;: &quot;Spices&quot;,
-      &quot;required&quot;: true,
-      &quot;quantity_used&quot;: 0.125,
-      &quot;unit_used&quot;: &quot;tsp&quot;,
-      &quot;purchase_quantity&quot;: &quot;Buy: 1 jar if not already stocked&quot;,
-      &quot;purchase_notes&quot;: &quot;Standard ground nutmeg is suitable.&quot;,
-      &quot;retailers&quot;: [
-        &quot;Sainsbury&#x27;s&quot;,
-        &quot;Marks &amp; Spencer&quot;
-      ],
-      &quot;preparation&quot;: &quot;Measure before mixing.&quot;,
-      &quot;notes&quot;: &quot;Use: 0.125 tsp. The small quantity complements spinach and dairy without becoming dominant.&quot;
-    },
-    {
-      &quot;ingredient_id&quot;: &quot;fine_salt&quot;,
-      &quot;display_name&quot;: &quot;Fine salt&quot;,
-      &quot;category&quot;: &quot;Seasoning&quot;,
-      &quot;required&quot;: true,
-      &quot;quantity_used&quot;: 0.375,
-      &quot;unit_used&quot;: &quot;tsp&quot;,
-      &quot;purchase_quantity&quot;: &quot;Buy: 1 standard container if not already stocked&quot;,
-      &quot;purchase_notes&quot;: &quot;Fine table salt or fine sea salt is suitable.&quot;,
-      &quot;retailers&quot;: [
-        &quot;Sainsbury&#x27;s&quot;,
-        &quot;Marks &amp; Spencer&quot;
-      ],
-      &quot;preparation&quot;: &quot;Measure 0.25 tsp for initial seasoning and reserve up to 0.125 tsp for final adjustment.&quot;,
-      &quot;notes&quot;: &quot;Use no more than 0.375 tsp total.&quot;
-    },
-    {
-      &quot;ingredient_id&quot;: &quot;black_pepper_ground&quot;,
-      &quot;display_name&quot;: &quot;Ground black pepper&quot;,
-      &quot;category&quot;: &quot;Seasoning&quot;,
-      &quot;required&quot;: true,
-      &quot;quantity_used&quot;: 0.25,
-      &quot;unit_used&quot;: &quot;tsp&quot;,
-      &quot;purchase_quantity&quot;: &quot;Buy: 1 jar or pepper mill if not already stocked&quot;,
-      &quot;purchase_notes&quot;: &quot;Freshly ground black pepper is preferred where available.&quot;,
-      &quot;retailers&quot;: [
-        &quot;Sainsbury&#x27;s&quot;,
-        &quot;Marks &amp; Spencer&quot;
-      ],
-      &quot;preparation&quot;: &quot;Measure before use.&quot;,
-      &quot;notes&quot;: &quot;Use: 0.25 tsp total.&quot;
-    }
-  ],
-  &quot;equipment&quot;: [
-    {
-      &quot;equipment_id&quot;: &quot;oven&quot;,
-      &quot;display_name&quot;: &quot;Oven&quot;,
-      &quot;required&quot;: true,
-      &quot;notes&quot;: &quot;Used to bake the egg muffins evenly.&quot;
-    },
-    {
-      &quot;equipment_id&quot;: &quot;gas_hob&quot;,
-      &quot;display_name&quot;: &quot;Gas hob&quot;,
-      &quot;required&quot;: true,
-      &quot;notes&quot;: &quot;Used for browning mushrooms and wilting spinach.&quot;
-    },
-    {
-      &quot;equipment_id&quot;: &quot;frying_pan&quot;,
-      &quot;display_name&quot;: &quot;Large frying pan&quot;,
-      &quot;required&quot;: true,
-      &quot;notes&quot;: &quot;Used to remove moisture and develop flavour in the vegetables.&quot;
-    },
-    {
-      &quot;equipment_id&quot;: &quot;muffin_tin&quot;,
-      &quot;display_name&quot;: &quot;6-hole standard muffin tin&quot;,
-      &quot;required&quot;: true,
-      &quot;notes&quot;: &quot;Used to bake 6 individual egg muffins.&quot;
-    },
-    {
-      &quot;equipment_id&quot;: &quot;mixing_bowl&quot;,
-      &quot;display_name&quot;: &quot;Large mixing bowl&quot;,
-      &quot;required&quot;: true,
-      &quot;notes&quot;: &quot;Used to combine the egg and cottage-cheese mixture.&quot;
-    },
-    {
-      &quot;equipment_id&quot;: &quot;small_bowl&quot;,
-      &quot;display_name&quot;: &quot;Small bowl&quot;,
-      &quot;required&quot;: true,
-      &quot;notes&quot;: &quot;Used to crack eggs individually before adding them to the main mixture.&quot;
-    },
-    {
-      &quot;equipment_id&quot;: &quot;chef_knife&quot;,
-      &quot;display_name&quot;: &quot;Chef&#x27;s knife&quot;,
-      &quot;required&quot;: true,
-      &quot;notes&quot;: &quot;Used to prepare mushrooms, spring onions and herbs.&quot;
-    },
-    {
-      &quot;equipment_id&quot;: &quot;chopping_board&quot;,
-      &quot;display_name&quot;: &quot;Chopping board&quot;,
-      &quot;required&quot;: true,
-      &quot;notes&quot;: &quot;Used for vegetable and herb preparation.&quot;
-    },
-    {
-      &quot;equipment_id&quot;: &quot;kitchen_scales&quot;,
-      &quot;display_name&quot;: &quot;Kitchen scales&quot;,
-      &quot;required&quot;: true,
-      &quot;notes&quot;: &quot;Used for accurate ingredient quantities and final portioning.&quot;
-    },
-    {
-      &quot;equipment_id&quot;: &quot;measuring_spoons&quot;,
-      &quot;display_name&quot;: &quot;Measuring spoons&quot;,
-      &quot;required&quot;: true,
-      &quot;notes&quot;: &quot;Used for mustard, nutmeg, salt and pepper.&quot;
-    },
-    {
-      &quot;equipment_id&quot;: &quot;spatula&quot;,
-      &quot;display_name&quot;: &quot;Heatproof spatula&quot;,
-      &quot;required&quot;: true,
-      &quot;notes&quot;: &quot;Used to stir vegetables and combine the muffin mixture.&quot;
-    },
-    {
-      &quot;equipment_id&quot;: &quot;toaster&quot;,
-      &quot;display_name&quot;: &quot;Toaster&quot;,
-      &quot;required&quot;: true,
-      &quot;notes&quot;: &quot;Used to toast the seeded wholemeal bread immediately before serving.&quot;
-    }
-  ],
-  &quot;mise_en_place&quot;: [
-    {
-      &quot;prep_id&quot;: &quot;PREP_01&quot;,
-      &quot;ingredient_ids&quot;: [
-        &quot;chestnut_mushrooms&quot;
-      ],
-      &quot;instruction&quot;: &quot;Inspect 180 g chestnut mushrooms. Wipe or brush away visible soil; avoid soaking them in water. Trim only dry or damaged stem ends, then dice the mushrooms into pieces approximately 8 mm across.&quot;,
-      &quot;endpoint&quot;: &quot;The mushrooms are clean, externally dry and evenly diced into approximately 8 mm pieces.&quot;
-    },
-    {
-      &quot;prep_id&quot;: &quot;PREP_02&quot;,
-      &quot;ingredient_ids&quot;: [
-        &quot;baby_spinach&quot;
-      ],
-      &quot;instruction&quot;: &quot;Inspect 120 g baby spinach. Wash only if required by the packaging instructions, then dry thoroughly in a salad spinner or using clean kitchen paper. Remove any visibly damaged leaves or coarse stems.&quot;,
-      &quot;endpoint&quot;: &quot;The spinach is clean and as dry as practical before cooking.&quot;
-    },
-    {
-      &quot;prep_id&quot;: &quot;PREP_03&quot;,
-      &quot;ingredient_ids&quot;: [
-        &quot;spring_onions&quot;,
-        &quot;fresh_chives&quot;
-      ],
-      &quot;instruction&quot;: &quot;Wash the 2 spring onions and the chives if required. Dry thoroughly. Trim the spring-onion roots and damaged green ends, then slice crosswise into approximately 3 mm pieces. Slice the chives crosswise into approximately 2 mm pieces.&quot;,
-      &quot;endpoint&quot;: &quot;Spring onions and chives are clean, dry and uniformly sliced.&quot;
-    },
-    {
-      &quot;prep_id&quot;: &quot;PREP_04&quot;,
-      &quot;ingredient_ids&quot;: [
-        &quot;eggs&quot;,
-        &quot;egg_whites_liquid&quot;,
-        &quot;cottage_cheese_low_fat&quot;,
-        &quot;dijon_mustard&quot;,
-        &quot;nutmeg_ground&quot;,
-        &quot;fine_salt&quot;,
-        &quot;black_pepper_ground&quot;
-      ],
-      &quot;instruction&quot;: &quot;Crack each of the 3 eggs individually into the small bowl, inspect for shell fragments, then transfer to the large mixing bowl. Weigh 180 g liquid egg whites and 180 g low-fat cottage cheese. Measure 1 tsp Dijon mustard, 0.125 tsp ground nutmeg, 0.25 tsp initial fine salt, 0.125 tsp reserved fine salt and 0.25 tsp black pepper.&quot;,
-      &quot;endpoint&quot;: &quot;All egg-mixture ingredients are accurately measured and ready for assembly.&quot;
-    },
-    {
-      &quot;prep_id&quot;: &quot;PREP_05&quot;,
-      &quot;ingredient_ids&quot;: [
-        &quot;olive_oil&quot;,
-        &quot;seeded_wholemeal_bread&quot;
-      ],
-      &quot;instruction&quot;: &quot;Measure 6 g olive oil. Allocate approximately 4 g for cooking the vegetables and approximately 2 g for greasing the muffin tin. Weigh 90 g seeded wholemeal bread and keep it covered until the toasting stage.&quot;,
-      &quot;endpoint&quot;: &quot;Cooking oil is divided by function and the bread is ready for later toasting.&quot;
-    }
-  ],
-  &quot;procedure&quot;: [
-    {
-      &quot;step_id&quot;: &quot;STEP_01&quot;,
-      &quot;section&quot;: &quot;Oven preparation&quot;,
-      &quot;title&quot;: &quot;Preheat the oven and grease the muffin tin&quot;,
-      &quot;depends_on&quot;: [],
-      &quot;parallel_group&quot;: &quot;P01&quot;,
-      &quot;ingredient_ids&quot;: [
-        &quot;olive_oil&quot;
-      ],
-      &quot;equipment_ids&quot;: [
-        &quot;oven&quot;,
-        &quot;muffin_tin&quot;
-      ],
-      &quot;instruction&quot;: &quot;Preheat a fan oven to 180°C. Apply approximately 2 g of the measured olive oil as a very thin film across the base and lower sides of all 6 muffin-tin wells.&quot;,
-      &quot;heat_source&quot;: &quot;Oven&quot;,
-      &quot;heat_level&quot;: &quot;180°C fan&quot;,
-      &quot;temperature_c&quot;: 180,
-      &quot;duration_min_minutes&quot;: 5,
-      &quot;duration_max_minutes&quot;: 10,
-      &quot;endpoint&quot;: &quot;The oven has reached 180°C and all 6 muffin wells have a continuous but minimal oil coating without visible pools.&quot;,
-      &quot;corrective_actions&quot;: [
-        {
-          &quot;condition&quot;: &quot;Oil pools visibly at the bottom of a muffin well.&quot;,
-          &quot;action&quot;: &quot;Redistribute the excess oil across the remaining wells using clean kitchen paper or a pastry brush.&quot;
-        }
-      ],
-      &quot;critical&quot;: false
-    },
-    {
-      &quot;step_id&quot;: &quot;STEP_02&quot;,
-      &quot;section&quot;: &quot;Vegetable filling&quot;,
-      &quot;title&quot;: &quot;Brown the mushrooms&quot;,
-      &quot;depends_on&quot;: [],
-      &quot;parallel_group&quot;: &quot;P01&quot;,
-      &quot;ingredient_ids&quot;: [
-        &quot;chestnut_mushrooms&quot;,
-        &quot;olive_oil&quot;,
-        &quot;fine_salt&quot;
-      ],
-      &quot;equipment_ids&quot;: [
-        &quot;frying_pan&quot;,
-        &quot;gas_hob&quot;,
-        &quot;spatula&quot;
-      ],
-      &quot;instruction&quot;: &quot;Place the large frying pan over medium-high gas heat for approximately 1 minute. Add the remaining approximately 4 g olive oil, followed immediately by the 180 g diced mushrooms. Spread into a single layer where practical. Cook while stirring or tossing approximately every 45-60 seconds. After the mushrooms begin releasing moisture, add approximately 0.0625 tsp of the measured initial salt.&quot;,
-      &quot;heat_source&quot;: &quot;Gas hob&quot;,
-      &quot;heat_level&quot;: &quot;Medium-high&quot;,
-      &quot;temperature_c&quot;: null,
-      &quot;duration_min_minutes&quot;: 6,
-      &quot;duration_max_minutes&quot;: 9,
-      &quot;endpoint&quot;: &quot;The mushrooms have released and evaporated their visible moisture, are reduced in volume and show distinct golden-brown surfaces rather than appearing grey and wet.&quot;,
-      &quot;corrective_actions&quot;: [
-        {
-          &quot;condition&quot;: &quot;Liquid accumulates heavily in the pan and the mushrooms steam without colouring.&quot;,
-          &quot;action&quot;: &quot;Increase the heat and spread the mushrooms into a thinner layer; continue until all free liquid evaporates before proceeding.&quot;
-        },
-        {
-          &quot;condition&quot;: &quot;The mushrooms blacken before releasing their moisture.&quot;,
-          &quot;action&quot;: &quot;Reduce the heat to medium and stir immediately.&quot;
-        }
-      ],
-      &quot;critical&quot;: true
-    },
-    {
-      &quot;step_id&quot;: &quot;STEP_03&quot;,
-      &quot;section&quot;: &quot;Vegetable filling&quot;,
-      &quot;title&quot;: &quot;Wilt and dry the spinach&quot;,
-      &quot;depends_on&quot;: [
-        &quot;STEP_02&quot;
-      ],
-      &quot;parallel_group&quot;: null,
-      &quot;ingredient_ids&quot;: [
-        &quot;baby_spinach&quot;,
-        &quot;spring_onions&quot;
-      ],
-      &quot;equipment_ids&quot;: [
-        &quot;frying_pan&quot;,
-        &quot;gas_hob&quot;,
-        &quot;spatula&quot;
-      ],
-      &quot;instruction&quot;: &quot;Reduce the heat to medium. Add the prepared 120 g spinach and sliced spring onions to the browned mushrooms. Turn continuously until the spinach collapses. Continue cooking uncovered while stirring until liquid released by the spinach has completely evaporated.&quot;,
-      &quot;heat_source&quot;: &quot;Gas hob&quot;,
-      &quot;heat_level&quot;: &quot;Medium&quot;,
-      &quot;temperature_c&quot;: null,
-      &quot;duration_min_minutes&quot;: 2,
-      &quot;duration_max_minutes&quot;: 4,
-      &quot;endpoint&quot;: &quot;The spinach is fully wilted, the spring onions are softened but still green and no visible liquid remains in the pan when the vegetables are moved aside.&quot;,
-      &quot;corrective_actions&quot;: [
-        {
-          &quot;condition&quot;: &quot;Visible green liquid remains in the pan after the spinach has wilted.&quot;,
-          &quot;action&quot;: &quot;Increase the heat slightly and continue cooking uncovered while stirring until the pan surface is dry.&quot;
-        },
-        {
-          &quot;condition&quot;: &quot;The vegetables begin catching before moisture has evaporated.&quot;,
-          &quot;action&quot;: &quot;Reduce the heat slightly and keep the mixture moving continuously.&quot;
-        }
-      ],
-      &quot;critical&quot;: true
-    },
-    {
-      &quot;step_id&quot;: &quot;STEP_04&quot;,
-      &quot;section&quot;: &quot;Vegetable filling&quot;,
-      &quot;title&quot;: &quot;Cool the vegetable mixture&quot;,
-      &quot;depends_on&quot;: [
-        &quot;STEP_03&quot;
-      ],
-      &quot;parallel_group&quot;: &quot;P02&quot;,
-      &quot;ingredient_ids&quot;: [
-        &quot;chestnut_mushrooms&quot;,
-        &quot;baby_spinach&quot;,
-        &quot;spring_onions&quot;
-      ],
-      &quot;equipment_ids&quot;: [
-        &quot;frying_pan&quot;
-      ],
-      &quot;instruction&quot;: &quot;Remove the frying pan from the heat and spread the cooked vegetables into a thin layer across the pan surface. Leave uncovered until strong visible steam has stopped and the mixture is warm rather than piping hot.&quot;,
-      &quot;heat_source&quot;: null,
-      &quot;heat_level&quot;: null,
-      &quot;temperature_c&quot;: null,
-      &quot;duration_min_minutes&quot;: 4,
-      &quot;duration_max_minutes&quot;: 6,
-      &quot;endpoint&quot;: &quot;The vegetable mixture is warm but no longer releasing substantial steam and remains free from pooled liquid.&quot;,
-      &quot;corrective_actions&quot;: [
-        {
-          &quot;condition&quot;: &quot;The vegetables remain very hot after 6 minutes.&quot;,
-          &quot;action&quot;: &quot;Transfer them to a cool plate and spread into a thinner layer for an additional 2-3 minutes.&quot;
-        }
-      ],
-      &quot;critical&quot;: false
-    },
-    {
-      &quot;step_id&quot;: &quot;STEP_05&quot;,
-      &quot;section&quot;: &quot;Egg mixture&quot;,
-      &quot;title&quot;: &quot;Combine the egg and cottage-cheese base&quot;,
-      &quot;depends_on&quot;: [],
-      &quot;parallel_group&quot;: &quot;P02&quot;,
-      &quot;ingredient_ids&quot;: [
-        &quot;eggs&quot;,
-        &quot;egg_whites_liquid&quot;,
-        &quot;cottage_cheese_low_fat&quot;,
-        &quot;dijon_mustard&quot;,
-        &quot;fresh_chives&quot;,
-        &quot;nutmeg_ground&quot;,
-        &quot;fine_salt&quot;,
-        &quot;black_pepper_ground&quot;
-      ],
-      &quot;equipment_ids&quot;: [
-        &quot;mixing_bowl&quot;,
-        &quot;measuring_spoons&quot;,
-        &quot;kitchen_scales&quot;
-      ],
-      &quot;instruction&quot;: &quot;To the 3 cracked eggs in the large mixing bowl add 180 g liquid egg whites, 180 g cottage cheese, 1 tsp Dijon mustard, the prepared 10 g chives, 0.125 tsp nutmeg, the remaining approximately 0.1875 tsp of the initial salt and 0.25 tsp black pepper. Whisk or stir vigorously until the eggs and whites are homogeneous while small cottage-cheese curds remain visible.&quot;,
-      &quot;heat_source&quot;: null,
-      &quot;heat_level&quot;: null,
-      &quot;temperature_c&quot;: null,
-      &quot;duration_min_minutes&quot;: 1,
-      &quot;duration_max_minutes&quot;: 2,
-      &quot;endpoint&quot;: &quot;The mixture is uniformly seasoned and fluid, with cottage-cheese curds evenly suspended rather than collected in one area.&quot;,
-      &quot;corrective_actions&quot;: [
-        {
-          &quot;condition&quot;: &quot;Large cottage-cheese clumps remain concentrated in one area.&quot;,
-          &quot;action&quot;: &quot;Break them apart gently with the spatula and continue mixing until evenly distributed.&quot;
-        }
-      ],
-      &quot;critical&quot;: false
-    },
-    {
-      &quot;step_id&quot;: &quot;STEP_06&quot;,
-      &quot;section&quot;: &quot;Assembly&quot;,
-      &quot;title&quot;: &quot;Combine filling and portion the muffin mixture&quot;,
-      &quot;depends_on&quot;: [
-        &quot;STEP_01&quot;,
-        &quot;STEP_04&quot;,
-        &quot;STEP_05&quot;
-      ],
-      &quot;parallel_group&quot;: null,
-      &quot;ingredient_ids&quot;: [
-        &quot;chestnut_mushrooms&quot;,
-        &quot;baby_spinach&quot;,
-        &quot;spring_onions&quot;,
-        &quot;eggs&quot;,
-        &quot;egg_whites_liquid&quot;,
-        &quot;cottage_cheese_low_fat&quot;
-      ],
-      &quot;equipment_ids&quot;: [
-        &quot;mixing_bowl&quot;,
-        &quot;muffin_tin&quot;,
-        &quot;kitchen_scales&quot;
-      ],
-      &quot;instruction&quot;: &quot;Add the cooled mushroom-spinach mixture to the egg mixture and fold until evenly distributed. Divide the complete mixture equally among all 6 greased muffin wells. Each well should contain a similar proportion of vegetables, cottage-cheese curds and liquid egg mixture and should remain below the top edge.&quot;,
-      &quot;heat_source&quot;: null,
-      &quot;heat_level&quot;: null,
-      &quot;temperature_c&quot;: null,
-      &quot;duration_min_minutes&quot;: 3,
-      &quot;duration_max_minutes&quot;: 5,
-      &quot;endpoint&quot;: &quot;All 6 wells contain approximately equal quantities and no well is filled sufficiently high to overflow during baking.&quot;,
-      &quot;corrective_actions&quot;: [
-        {
-          &quot;condition&quot;: &quot;Vegetables settle at the bottom of the mixing bowl during portioning.&quot;,
-          &quot;action&quot;: &quot;Stir the bowl gently between every 1-2 filled wells to redistribute the solids.&quot;
-        },
-        {
-          &quot;condition&quot;: &quot;One well is visibly more full than another.&quot;,
-          &quot;action&quot;: &quot;Transfer small spoonfuls between wells until the levels are approximately equal.&quot;
-        }
-      ],
-      &quot;critical&quot;: false
-    },
-    {
-      &quot;step_id&quot;: &quot;STEP_07&quot;,
-      &quot;section&quot;: &quot;Baking&quot;,
-      &quot;title&quot;: &quot;Bake the egg muffins&quot;,
-      &quot;depends_on&quot;: [
-        &quot;STEP_06&quot;
-      ],
-      &quot;parallel_group&quot;: null,
-      &quot;ingredient_ids&quot;: [],
-      &quot;equipment_ids&quot;: [
-        &quot;oven&quot;,
-        &quot;muffin_tin&quot;
-      ],
-      &quot;instruction&quot;: &quot;Place the muffin tin on the centre rack of the preheated 180°C fan oven. Bake without opening the door during the first 14 minutes. Thereafter assess visually through the oven door where possible.&quot;,
-      &quot;heat_source&quot;: &quot;Oven&quot;,
-      &quot;heat_level&quot;: &quot;180°C fan&quot;,
-      &quot;temperature_c&quot;: 180,
-      &quot;duration_min_minutes&quot;: 16,
-      &quot;duration_max_minutes&quot;: 21,
-      &quot;endpoint&quot;: &quot;The muffins are risen, lightly golden at the exposed edges and centres appear set rather than liquid. A clean knife inserted into the centre of the largest muffin emerges without raw liquid egg; moist cottage-cheese residue is acceptable.&quot;,
-      &quot;corrective_actions&quot;: [
-        {
-          &quot;condition&quot;: &quot;The muffin tops brown strongly while the centres remain visibly wet.&quot;,
-          &quot;action&quot;: &quot;Reduce the oven to 170°C and continue baking in 2-minute intervals until the centre passes the stated endpoint.&quot;
-        },
-        {
-          &quot;condition&quot;: &quot;The centres remain visibly liquid after 21 minutes.&quot;,
-          &quot;action&quot;: &quot;Continue baking in 2-minute intervals and reassess after each interval.&quot;
-        }
-      ],
-      &quot;critical&quot;: true
-    },
-    {
-      &quot;step_id&quot;: &quot;STEP_08&quot;,
-      &quot;section&quot;: &quot;Resting&quot;,
-      &quot;title&quot;: &quot;Rest and release the muffins&quot;,
-      &quot;depends_on&quot;: [
-        &quot;STEP_07&quot;
-      ],
-      &quot;parallel_group&quot;: &quot;P03&quot;,
-      &quot;ingredient_ids&quot;: [],
-      &quot;equipment_ids&quot;: [
-        &quot;muffin_tin&quot;
-      ],
-      &quot;instruction&quot;: &quot;Remove the muffin tin from the oven and place it on a heat-resistant surface. Leave the muffins undisturbed for approximately 4 minutes so the egg structure firms slightly. Run a thin spatula or table knife around the perimeter of each muffin if required, then lift them from the tin.&quot;,
-      &quot;heat_source&quot;: null,
-      &quot;heat_level&quot;: null,
-      &quot;temperature_c&quot;: null,
-      &quot;duration_min_minutes&quot;: 4,
-      &quot;duration_max_minutes&quot;: 6,
-      &quot;endpoint&quot;: &quot;Each muffin releases intact, remains upright and has a tender but fully set centre.&quot;,
-      &quot;corrective_actions&quot;: [
-        {
-          &quot;condition&quot;: &quot;A muffin adheres strongly to the tin.&quot;,
-          &quot;action&quot;: &quot;Loosen the full perimeter before lifting; do not pull forcefully from one side because the muffin may tear.&quot;
-        }
-      ],
-      &quot;critical&quot;: false
-    },
-    {
-      &quot;step_id&quot;: &quot;STEP_09&quot;,
-      &quot;section&quot;: &quot;Toast&quot;,
-      &quot;title&quot;: &quot;Toast the seeded wholemeal bread&quot;,
-      &quot;depends_on&quot;: [
-        &quot;STEP_07&quot;
-      ],
-      &quot;parallel_group&quot;: &quot;P03&quot;,
-      &quot;ingredient_ids&quot;: [
-        &quot;seeded_wholemeal_bread&quot;
-      ],
-      &quot;equipment_ids&quot;: [
-        &quot;toaster&quot;
-      ],
-      &quot;instruction&quot;: &quot;Place the approximately 90 g seeded wholemeal bread in the toaster. Select a medium browning setting and toast until the surfaces are crisp and golden-brown while the centres retain slight tenderness.&quot;,
-      &quot;heat_source&quot;: &quot;Toaster&quot;,
-      &quot;heat_level&quot;: &quot;Medium browning setting&quot;,
-      &quot;temperature_c&quot;: null,
-      &quot;duration_min_minutes&quot;: 2,
-      &quot;duration_max_minutes&quot;: 4,
-      &quot;endpoint&quot;: &quot;The toast is evenly browned, crisp at the surface and shows no blackened or burnt areas.&quot;,
-      &quot;corrective_actions&quot;: [
-        {
-          &quot;condition&quot;: &quot;The toast darkens faster than expected.&quot;,
-          &quot;action&quot;: &quot;Cancel the toaster cycle immediately and reduce the browning setting for any remaining slices.&quot;
-        },
-        {
-          &quot;condition&quot;: &quot;The toast remains pale and soft after one cycle.&quot;,
-          &quot;action&quot;: &quot;Return it to the toaster for a short additional cycle while monitoring closely.&quot;
-        }
-      ],
-      &quot;critical&quot;: false
-    },
-    {
-      &quot;step_id&quot;: &quot;STEP_10&quot;,
-      &quot;section&quot;: &quot;Final seasoning and portioning&quot;,
-      &quot;title&quot;: &quot;Check seasoning and divide into servings&quot;,
-      &quot;depends_on&quot;: [
-        &quot;STEP_08&quot;,
-        &quot;STEP_09&quot;
-      ],
-      &quot;parallel_group&quot;: null,
-      &quot;ingredient_ids&quot;: [
-        &quot;fine_salt&quot;
-      ],
-      &quot;equipment_ids&quot;: [
-        &quot;kitchen_scales&quot;
-      ],
-      &quot;instruction&quot;: &quot;Taste a small piece from one representative muffin. If the seasoning is already defined and savoury, do not add the reserved salt. If noticeably under-seasoned, distribute up to the reserved 0.125 tsp fine salt very lightly across all 6 muffins. Divide the muffins into 2 portions of 3 muffins each and divide the toasted bread equally between the 2 servings.&quot;,
-      &quot;heat_source&quot;: null,
-      &quot;heat_level&quot;: null,
-      &quot;temperature_c&quot;: null,
-      &quot;duration_min_minutes&quot;: 1,
-      &quot;duration_max_minutes&quot;: 2,
-      &quot;endpoint&quot;: &quot;Each serving contains 3 egg muffins and approximately 45 g seeded wholemeal toast, with balanced seasoning and approximately equal total portion size.&quot;,
-      &quot;corrective_actions&quot;: [
-        {
-          &quot;condition&quot;: &quot;The muffins are adequately seasoned before the reserved salt is used.&quot;,
-          &quot;action&quot;: &quot;Do not add any reserved salt.&quot;
-        }
-      ],
-      &quot;critical&quot;: false
-    }
-  ],
-  &quot;plating&quot;: [
-    {
-      &quot;step_id&quot;: &quot;PLATE_01&quot;,
-      &quot;instruction&quot;: &quot;Serve 3 warm egg muffins and approximately 45 g crisp seeded wholemeal toast per person. Keep the toast alongside rather than underneath the muffins so steam from the eggs does not soften it.&quot;
-    }
-  ],
-  &quot;storage&quot;: {
-    &quot;refrigerator_days&quot;: 3,
-    &quot;freezer_months&quot;: 1,
-    &quot;storage_instructions&quot;: &quot;Cool leftover egg muffins promptly, transfer to a sealed container and refrigerate at 5°C or below for up to 3 days. Freeze fully cooled muffins in a sealed freezer-safe container for up to 1 month. Store bread separately and toast fresh whenever practical. Reheat egg muffins only once and ensure they are steaming hot through the centre before eating.&quot;,
-    &quot;reheating_methods&quot;: [
-      &quot;Air fryer: reheat refrigerated egg muffins at 160°C for approximately 5-7 minutes, until steaming hot through the centre without excessive surface browning.&quot;,
-      &quot;Oven: reheat refrigerated egg muffins at 170°C for approximately 8-12 minutes, until steaming hot throughout.&quot;,
-      &quot;From frozen: thaw overnight in the refrigerator before reheating using the air fryer or oven method.&quot;,
-      &quot;Toast bread separately in the toaster immediately before serving.&quot;
-    ]
-  },
-  &quot;shopping&quot;: {
-    &quot;sainsburys&quot;: [],
-    &quot;marks_and_spencer&quot;: [],
-    &quot;either_retailer&quot;: [
-      &quot;Medium eggs: buy at least 3&quot;,
-      &quot;Pasteurised liquid egg whites: buy enough to provide at least 180 g&quot;,
-      &quot;Low-fat cottage cheese: buy 1 tub containing at least 180 g&quot;,
-      &quot;Chestnut mushrooms: buy at least 180 g&quot;,
-      &quot;Baby spinach: buy 1 bag containing at least 120 g&quot;,
-      &quot;Spring onions: buy 1 bunch&quot;,
-      &quot;Seeded wholemeal bread: buy 1 loaf&quot;,
-      &quot;Olive oil: buy 1 bottle if not already stocked&quot;,
-      &quot;Dijon mustard: buy 1 jar&quot;,
-      &quot;Fresh chives: buy 1 packet or pot containing at least 10 g&quot;,
-      &quot;Ground nutmeg: buy 1 jar if not already stocked&quot;,
-      &quot;Fine salt: buy 1 container if not already stocked&quot;,
-      &quot;Ground black pepper: buy 1 jar or pepper mill if not already stocked&quot;
-    ]
-  },
-  &quot;quality_checks&quot;: {
-    &quot;protein_requirement_met&quot;: true,
-    &quot;protein_g_per_serving&quot;: 38,
-    &quot;restaurant_quality_features&quot;: [
-      &quot;Mushrooms are browned until their released moisture has evaporated, concentrating savoury flavour instead of introducing water into the egg muffins.&quot;,
-      &quot;Spinach is wilted separately within the mushroom mixture and cooked until the pan is dry, protecting the finished muffins from a wet or rubbery interior.&quot;,
-      &quot;Whole eggs are combined with additional egg whites and cottage cheese to provide a tender, protein-rich structure without excessive calories.&quot;,
-      &quot;Dijon mustard supplies restrained acidity and savoury depth, while nutmeg reinforces the spinach and dairy flavours.&quot;,
-      &quot;Fresh chives and spring onions provide two layers of mild allium character without overwhelming the breakfast.&quot;,
-      &quot;The muffins are rested briefly after baking so they release cleanly and retain moisture.&quot;,
-      &quot;Seeded wholemeal toast is prepared immediately before serving to provide crisp contrast against the soft egg muffins.&quot;
-    ],
-    &quot;nutrition_notes&quot;: [
-      &quot;Estimated nutrition represents one complete breakfast serving of 3 egg muffins plus approximately 45 g seeded wholemeal toast.&quot;,
-      &quot;The recipe is designed around the approximately 400 kcal breakfast target.&quot;,
-      &quot;Approximately 38 g protein per serving comes from eggs, egg whites, cottage cheese and seeded wholemeal bread.&quot;,
-      &quot;Spinach, mushrooms, spring onions and wholemeal bread provide fibre and micronutrient variety without requiring substantial additional fat.&quot;,
-      &quot;Nutrition values are estimates and will vary with the exact cottage cheese, liquid egg white and seeded bread products selected.&quot;,
-      &quot;The recipe follows the supplied structured recipe and breakfast requirements. &quot;
-    ],
-    &quot;critical_success_factors&quot;: [
-      &quot;Cook the mushrooms until genuinely browned and free from visible moisture before adding spinach.&quot;,
-      &quot;Do not add hot, steaming vegetables directly to the egg mixture; cool them sufficiently to avoid prematurely coagulating the eggs.&quot;,
-      &quot;Ensure the spinach mixture is dry before muffin assembly because retained vegetable water will compromise texture.&quot;,
-      &quot;Distribute vegetable solids evenly among all 6 muffin wells rather than allowing them to settle in the mixing bowl.&quot;,
-      &quot;Bake until the centre is fully set but avoid prolonged baking after that point, which will make the eggs rubbery.&quot;,
-      &quot;Rest the baked muffins before removal so the protein structure can firm and release cleanly.&quot;,
-      &quot;Toast the bread as the muffins finish resting so both components reach the table at their intended textures.&quot;
-    ]
-  }
-}</pre>
-
 </details>
 
+
+<details class="section non-method">
+    <summary>Equipment</summary>
+    <div class="section-content">
+        <ul class="compact-list">
+            <li>Oven</li><li>Gas hob</li><li>Large frying pan</li><li>6-hole standard muffin tin</li><li>Large mixing bowl</li><li>Small bowl</li><li>Chef&#x27;s knife</li><li>Chopping board</li><li>Kitchen scales</li><li>Measuring spoons</li><li>Heatproof spatula</li><li>Toaster</li>
+        </ul>
+    </div>
+</details>
+
+
+<details class="section non-method" open>
+    <summary>Mise en place</summary>
+    <div class="section-content card-stack">
+        <article class="prep-card">
+<h3>Prep 1</h3>
+<p>Inspect 180 g chestnut mushrooms. Wipe or brush away visible soil; avoid soaking them in water. Trim only dry or damaged stem ends, then dice the mushrooms into pieces approximately 8 mm across.</p>
+<div class="endpoint"><strong>Ready when:</strong> The mushrooms are clean, externally dry and evenly diced into approximately 8 mm pieces.</div>
+</article><article class="prep-card">
+<h3>Prep 2</h3>
+<p>Inspect 120 g baby spinach. Wash only if required by the packaging instructions, then dry thoroughly in a salad spinner or using clean kitchen paper. Remove any visibly damaged leaves or coarse stems.</p>
+<div class="endpoint"><strong>Ready when:</strong> The spinach is clean and as dry as practical before cooking.</div>
+</article><article class="prep-card">
+<h3>Prep 3</h3>
+<p>Wash the 2 spring onions and the chives if required. Dry thoroughly. Trim the spring-onion roots and damaged green ends, then slice crosswise into approximately 3 mm pieces. Slice the chives crosswise into approximately 2 mm pieces.</p>
+<div class="endpoint"><strong>Ready when:</strong> Spring onions and chives are clean, dry and uniformly sliced.</div>
+</article><article class="prep-card">
+<h3>Prep 4</h3>
+<p>Crack each of the 3 eggs individually into the small bowl, inspect for shell fragments, then transfer to the large mixing bowl. Weigh 180 g liquid egg whites and 180 g low-fat cottage cheese. Measure 1 tsp Dijon mustard, 0.125 tsp ground nutmeg, 0.25 tsp initial fine salt, 0.125 tsp reserved fine salt and 0.25 tsp black pepper.</p>
+<div class="endpoint"><strong>Ready when:</strong> All egg-mixture ingredients are accurately measured and ready for assembly.</div>
+</article><article class="prep-card">
+<h3>Prep 5</h3>
+<p>Measure 6 g olive oil. Allocate approximately 4 g for cooking the vegetables and approximately 2 g for greasing the muffin tin. Weigh 90 g seeded wholemeal bread and keep it covered until the toasting stage.</p>
+<div class="endpoint"><strong>Ready when:</strong> Cooking oil is divided by function and the bread is ready for later toasting.</div>
+</article>
+    </div>
+</details>
+
+
+<section class="section method-section">
+    <h2>Method</h2>
+
+    <div id="methodSteps" class="card-stack">
+        <article class="method-step" data-step-index="0">
+<div class="step-heading">
+<div class="step-number">Step 1</div>
+<h3>Preheat the oven and grease the muffin tin</h3>
+</div>
+<div class="step-section">Oven preparation</div>
+<div class="step-meta"><span class="badge">Heat source: Oven</span><span class="badge">Setting: 180°C fan</span><span class="badge">Temperature: 180°C</span><span class="badge">Time: 5–10 min</span></div>
+<p class="instruction">Preheat a fan oven to 180°C. Apply approximately 2 g of the measured olive oil as a very thin film across the base and lower sides of all 6 muffin-tin wells.</p>
+<div class="endpoint"><strong>Ready when:</strong> The oven has reached 180°C and all 6 muffin wells have a continuous but minimal oil coating without visible pools.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul>
+        <li><strong>If:</strong> Oil pools visibly at the bottom of a muffin well.<br><strong>Do:</strong> Redistribute the excess oil across the remaining wells using clean kitchen paper or a pastry brush.</li>
+    </ul>
+</details>
+
+</article><article class="method-step" data-step-index="1">
+<div class="step-heading">
+<div class="step-number">Step 2</div>
+<h3>Brown the mushrooms</h3>
+</div>
+<div class="step-section">Vegetable filling</div>
+<div class="step-meta"><span class="badge">Heat source: Gas hob</span><span class="badge">Setting: Medium-high</span><span class="badge">Time: 6–9 min</span></div>
+<p class="instruction">Place the large frying pan over medium-high gas heat for approximately 1 minute. Add the remaining approximately 4 g olive oil, followed immediately by the 180 g diced mushrooms. Spread into a single layer where practical. Cook while stirring or tossing approximately every 45-60 seconds. After the mushrooms begin releasing moisture, add approximately 0.0625 tsp of the measured initial salt.</p>
+<div class="endpoint"><strong>Ready when:</strong> The mushrooms have released and evaporated their visible moisture, are reduced in volume and show distinct golden-brown surfaces rather than appearing grey and wet.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul>
+        <li><strong>If:</strong> Liquid accumulates heavily in the pan and the mushrooms steam without colouring.<br><strong>Do:</strong> Increase the heat and spread the mushrooms into a thinner layer; continue until all free liquid evaporates before proceeding.</li><li><strong>If:</strong> The mushrooms blacken before releasing their moisture.<br><strong>Do:</strong> Reduce the heat to medium and stir immediately.</li>
+    </ul>
+</details>
+
+</article><article class="method-step" data-step-index="2">
+<div class="step-heading">
+<div class="step-number">Step 3</div>
+<h3>Wilt and dry the spinach</h3>
+</div>
+<div class="step-section">Vegetable filling</div>
+<div class="step-meta"><span class="badge">Heat source: Gas hob</span><span class="badge">Setting: Medium</span><span class="badge">Time: 2–4 min</span></div>
+<p class="instruction">Reduce the heat to medium. Add the prepared 120 g spinach and sliced spring onions to the browned mushrooms. Turn continuously until the spinach collapses. Continue cooking uncovered while stirring until liquid released by the spinach has completely evaporated.</p>
+<div class="endpoint"><strong>Ready when:</strong> The spinach is fully wilted, the spring onions are softened but still green and no visible liquid remains in the pan when the vegetables are moved aside.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul>
+        <li><strong>If:</strong> Visible green liquid remains in the pan after the spinach has wilted.<br><strong>Do:</strong> Increase the heat slightly and continue cooking uncovered while stirring until the pan surface is dry.</li><li><strong>If:</strong> The vegetables begin catching before moisture has evaporated.<br><strong>Do:</strong> Reduce the heat slightly and keep the mixture moving continuously.</li>
+    </ul>
+</details>
+
+</article><article class="method-step" data-step-index="3">
+<div class="step-heading">
+<div class="step-number">Step 4</div>
+<h3>Cool the vegetable mixture</h3>
+</div>
+<div class="step-section">Vegetable filling</div>
+<div class="step-meta"><span class="badge">Time: 4–6 min</span></div>
+<p class="instruction">Remove the frying pan from the heat and spread the cooked vegetables into a thin layer across the pan surface. Leave uncovered until strong visible steam has stopped and the mixture is warm rather than piping hot.</p>
+<div class="endpoint"><strong>Ready when:</strong> The vegetable mixture is warm but no longer releasing substantial steam and remains free from pooled liquid.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul>
+        <li><strong>If:</strong> The vegetables remain very hot after 6 minutes.<br><strong>Do:</strong> Transfer them to a cool plate and spread into a thinner layer for an additional 2-3 minutes.</li>
+    </ul>
+</details>
+
+</article><article class="method-step" data-step-index="4">
+<div class="step-heading">
+<div class="step-number">Step 5</div>
+<h3>Combine the egg and cottage-cheese base</h3>
+</div>
+<div class="step-section">Egg mixture</div>
+<div class="step-meta"><span class="badge">Time: 1–2 min</span></div>
+<p class="instruction">To the 3 cracked eggs in the large mixing bowl add 180 g liquid egg whites, 180 g cottage cheese, 1 tsp Dijon mustard, the prepared 10 g chives, 0.125 tsp nutmeg, the remaining approximately 0.1875 tsp of the initial salt and 0.25 tsp black pepper. Whisk or stir vigorously until the eggs and whites are homogeneous while small cottage-cheese curds remain visible.</p>
+<div class="endpoint"><strong>Ready when:</strong> The mixture is uniformly seasoned and fluid, with cottage-cheese curds evenly suspended rather than collected in one area.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul>
+        <li><strong>If:</strong> Large cottage-cheese clumps remain concentrated in one area.<br><strong>Do:</strong> Break them apart gently with the spatula and continue mixing until evenly distributed.</li>
+    </ul>
+</details>
+
+</article><article class="method-step" data-step-index="5">
+<div class="step-heading">
+<div class="step-number">Step 6</div>
+<h3>Combine filling and portion the muffin mixture</h3>
+</div>
+<div class="step-section">Assembly</div>
+<div class="step-meta"><span class="badge">Time: 3–5 min</span></div>
+<p class="instruction">Add the cooled mushroom-spinach mixture to the egg mixture and fold until evenly distributed. Divide the complete mixture equally among all 6 greased muffin wells. Each well should contain a similar proportion of vegetables, cottage-cheese curds and liquid egg mixture and should remain below the top edge.</p>
+<div class="endpoint"><strong>Ready when:</strong> All 6 wells contain approximately equal quantities and no well is filled sufficiently high to overflow during baking.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul>
+        <li><strong>If:</strong> Vegetables settle at the bottom of the mixing bowl during portioning.<br><strong>Do:</strong> Stir the bowl gently between every 1-2 filled wells to redistribute the solids.</li><li><strong>If:</strong> One well is visibly more full than another.<br><strong>Do:</strong> Transfer small spoonfuls between wells until the levels are approximately equal.</li>
+    </ul>
+</details>
+
+</article><article class="method-step" data-step-index="6">
+<div class="step-heading">
+<div class="step-number">Step 7</div>
+<h3>Bake the egg muffins</h3>
+</div>
+<div class="step-section">Baking</div>
+<div class="step-meta"><span class="badge">Heat source: Oven</span><span class="badge">Setting: 180°C fan</span><span class="badge">Temperature: 180°C</span><span class="badge">Time: 16–21 min</span></div>
+<p class="instruction">Place the muffin tin on the centre rack of the preheated 180°C fan oven. Bake without opening the door during the first 14 minutes. Thereafter assess visually through the oven door where possible.</p>
+<div class="endpoint"><strong>Ready when:</strong> The muffins are risen, lightly golden at the exposed edges and centres appear set rather than liquid. A clean knife inserted into the centre of the largest muffin emerges without raw liquid egg; moist cottage-cheese residue is acceptable.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul>
+        <li><strong>If:</strong> The muffin tops brown strongly while the centres remain visibly wet.<br><strong>Do:</strong> Reduce the oven to 170°C and continue baking in 2-minute intervals until the centre passes the stated endpoint.</li><li><strong>If:</strong> The centres remain visibly liquid after 21 minutes.<br><strong>Do:</strong> Continue baking in 2-minute intervals and reassess after each interval.</li>
+    </ul>
+</details>
+
+</article><article class="method-step" data-step-index="7">
+<div class="step-heading">
+<div class="step-number">Step 8</div>
+<h3>Rest and release the muffins</h3>
+</div>
+<div class="step-section">Resting</div>
+<div class="step-meta"><span class="badge">Time: 4–6 min</span></div>
+<p class="instruction">Remove the muffin tin from the oven and place it on a heat-resistant surface. Leave the muffins undisturbed for approximately 4 minutes so the egg structure firms slightly. Run a thin spatula or table knife around the perimeter of each muffin if required, then lift them from the tin.</p>
+<div class="endpoint"><strong>Ready when:</strong> Each muffin releases intact, remains upright and has a tender but fully set centre.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul>
+        <li><strong>If:</strong> A muffin adheres strongly to the tin.<br><strong>Do:</strong> Loosen the full perimeter before lifting; do not pull forcefully from one side because the muffin may tear.</li>
+    </ul>
+</details>
+
+</article><article class="method-step" data-step-index="8">
+<div class="step-heading">
+<div class="step-number">Step 9</div>
+<h3>Toast the seeded wholemeal bread</h3>
+</div>
+<div class="step-section">Toast</div>
+<div class="step-meta"><span class="badge">Heat source: Toaster</span><span class="badge">Setting: Medium browning setting</span><span class="badge">Time: 2–4 min</span></div>
+<p class="instruction">Place the approximately 90 g seeded wholemeal bread in the toaster. Select a medium browning setting and toast until the surfaces are crisp and golden-brown while the centres retain slight tenderness.</p>
+<div class="endpoint"><strong>Ready when:</strong> The toast is evenly browned, crisp at the surface and shows no blackened or burnt areas.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul>
+        <li><strong>If:</strong> The toast darkens faster than expected.<br><strong>Do:</strong> Cancel the toaster cycle immediately and reduce the browning setting for any remaining slices.</li><li><strong>If:</strong> The toast remains pale and soft after one cycle.<br><strong>Do:</strong> Return it to the toaster for a short additional cycle while monitoring closely.</li>
+    </ul>
+</details>
+
+</article><article class="method-step" data-step-index="9">
+<div class="step-heading">
+<div class="step-number">Step 10</div>
+<h3>Check seasoning and divide into servings</h3>
+</div>
+<div class="step-section">Final seasoning and portioning</div>
+<div class="step-meta"><span class="badge">Time: 1–2 min</span></div>
+<p class="instruction">Taste a small piece from one representative muffin. If the seasoning is already defined and savoury, do not add the reserved salt. If noticeably under-seasoned, distribute up to the reserved 0.125 tsp fine salt very lightly across all 6 muffins. Divide the muffins into 2 portions of 3 muffins each and divide the toasted bread equally between the 2 servings.</p>
+<div class="endpoint"><strong>Ready when:</strong> Each serving contains 3 egg muffins and approximately 45 g seeded wholemeal toast, with balanced seasoning and approximately equal total portion size.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul>
+        <li><strong>If:</strong> The muffins are adequately seasoned before the reserved salt is used.<br><strong>Do:</strong> Do not add any reserved salt.</li>
+    </ul>
+</details>
+
+</article>
+    </div>
+
+    <div id="cookControls" class="cook-controls">
+        <button
+            id="previousStep"
+            type="button"
+        >
+            Previous
+        </button>
+
+        <div id="stepCounter"></div>
+
+        <button
+            id="nextStep"
+            type="button"
+        >
+            Next
+        </button>
+    </div>
+</section>
+
+
+<details class="section non-method">
+    <summary>Serving</summary>
+    <div class="section-content">
+        <p>Serve 3 warm egg muffins and approximately 45 g crisp seeded wholemeal toast per person. Keep the toast alongside rather than underneath the muffins so steam from the eggs does not soften it.</p>
+    </div>
+</details>
+
+
+<details class="section non-method">
+    <summary>Storage & reheating</summary>
+    <div class="section-content">
+        <p><strong>Refrigerator:</strong> 3 days</p><p><strong>Freezer:</strong> 1 months</p><p>Cool leftover egg muffins promptly, transfer to a sealed container and refrigerate at 5°C or below for up to 3 days. Freeze fully cooled muffins in a sealed freezer-safe container for up to 1 month. Store bread separately and toast fresh whenever practical. Reheat egg muffins only once and ensure they are steaming hot through the centre before eating.</p><h3>Reheating</h3><ul><li>Air fryer: reheat refrigerated egg muffins at 160°C for approximately 5-7 minutes, until steaming hot through the centre without excessive surface browning.</li><li>Oven: reheat refrigerated egg muffins at 170°C for approximately 8-12 minutes, until steaming hot throughout.</li><li>From frozen: thaw overnight in the refrigerator before reheating using the air fryer or oven method.</li><li>Toast bread separately in the toaster immediately before serving.</li></ul>
+    </div>
+</details>
+
+
+<details class="section non-method">
+    <summary>Shopping</summary>
+    <div class="section-content">
+        
+            <h3>Either retailer</h3>
+            <ul><li>Medium eggs: buy at least 3</li><li>Pasteurised liquid egg whites: buy enough to provide at least 180 g</li><li>Low-fat cottage cheese: buy 1 tub containing at least 180 g</li><li>Chestnut mushrooms: buy at least 180 g</li><li>Baby spinach: buy 1 bag containing at least 120 g</li><li>Spring onions: buy 1 bunch</li><li>Seeded wholemeal bread: buy 1 loaf</li><li>Olive oil: buy 1 bottle if not already stocked</li><li>Dijon mustard: buy 1 jar</li><li>Fresh chives: buy 1 packet or pot containing at least 10 g</li><li>Ground nutmeg: buy 1 jar if not already stocked</li><li>Fine salt: buy 1 container if not already stocked</li><li>Ground black pepper: buy 1 jar or pepper mill if not already stocked</li></ul>
+            
+    </div>
+</details>
+
+
 </main>
+
+
+<script>
+
+(function () {
+
+    const button =
+        document.getElementById(
+            "cookModeButton"
+        );
+
+    const steps =
+        Array.from(
+            document.querySelectorAll(
+                ".method-step"
+            )
+        );
+
+    const controls =
+        document.getElementById(
+            "cookControls"
+        );
+
+    const previous =
+        document.getElementById(
+            "previousStep"
+        );
+
+    const next =
+        document.getElementById(
+            "nextStep"
+        );
+
+    const counter =
+        document.getElementById(
+            "stepCounter"
+        );
+
+    let currentStep = 0;
+
+
+    function showStep(index) {
+
+        if (!steps.length) {
+            return;
+        }
+
+        currentStep =
+            Math.max(
+                0,
+                Math.min(
+                    index,
+                    steps.length - 1
+                )
+            );
+
+        steps.forEach(
+            (step, stepIndex) => {
+
+                step.classList.toggle(
+                    "active",
+                    stepIndex === currentStep
+                );
+
+            }
+        );
+
+        if (counter) {
+
+            counter.textContent =
+                (
+                    "Step "
+                    +
+                    (currentStep + 1)
+                    +
+                    " of "
+                    +
+                    steps.length
+                );
+        }
+
+        if (previous) {
+            previous.disabled =
+                currentStep === 0;
+        }
+
+        if (next) {
+            next.disabled =
+                currentStep ===
+                steps.length - 1;
+        }
+
+        const active =
+            steps[currentStep];
+
+        if (active) {
+
+            active.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+        }
+    }
+
+
+    if (button) {
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                const active =
+                    document.body.classList.toggle(
+                        "cook-mode"
+                    );
+
+                button.textContent =
+                    active
+                        ? "Exit cook mode"
+                        : "Cook mode";
+
+                if (active) {
+                    showStep(
+                        currentStep
+                    );
+                }
+            }
+        );
+    }
+
+
+    if (previous) {
+
+        previous.addEventListener(
+            "click",
+            () => {
+                showStep(
+                    currentStep - 1
+                );
+            }
+        );
+    }
+
+
+    if (next) {
+
+        next.addEventListener(
+            "click",
+            () => {
+                showStep(
+                    currentStep + 1
+                );
+            }
+        );
+    }
+
+
+    if (!steps.length && controls) {
+        controls.style.display = "none";
+    }
+
+})();
+
+</script>
 
 </body>
 

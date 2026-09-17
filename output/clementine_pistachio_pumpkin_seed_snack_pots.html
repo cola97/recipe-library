@@ -7,7 +7,7 @@
 
 <meta
     name="viewport"
-    content="width=device-width, initial-scale=1"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
 >
 
 <title>Clementine, Pistachio &amp; Pumpkin Seed Snack Pots</title>
@@ -15,21 +15,18 @@
 <style>
 
     :root {
-        --page-width: 1100px;
-        --border: #8f8f8f;
-        --page-background: #f2f2f2;
+        --background: #f4f2ec;
+        --panel: #ffffff;
+        --text: #000000;
+        --muted: #555555;
+        --border: #b9b5ad;
+        --accent: #e5f1dd;
+        --endpoint: #fff4c6;
+        --step: #f7f7f4;
     }
 
     * {
         box-sizing: border-box;
-    }
-
-    html {
-        background: var(--page-background);
-    }
-
-    body {
-        margin: 0;
 
         font-family:
             -apple-system,
@@ -39,512 +36,521 @@
             Helvetica,
             Arial,
             sans-serif;
-
-        color: #000000;
-
-        line-height: 1.55;
     }
 
-    h1,
-    h2,
-    h3,
-    h4,
-    p,
-    div,
-    span,
-    code,
-    pre,
-    summary,
-    strong {
-        color: #000000;
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+
+        background: var(--background);
+        color: var(--text);
+    }
+
+    body {
+        min-height: 100vh;
+        min-height: 100dvh;
+    }
+
+    button,
+    input,
+    select,
+    summary {
+        font: inherit;
     }
 
     .page {
         width: min(
-            calc(100% - 32px),
-            var(--page-width)
+            calc(100% - 24px),
+            1050px
         );
 
-        margin:
-            32px
-            auto
-            64px
-            auto;
+        margin: 0 auto;
+
+        padding:
+            max(12px, env(safe-area-inset-top))
+            0
+            max(40px, env(safe-area-inset-bottom))
+            0;
     }
 
-    /* ======================================================
-       Header
-       ====================================================== */
+    .recipe-header {
+        position: sticky;
+        top: 0;
+        z-index: 20;
 
-    .document-header {
-        background: #ffffff;
+        background:
+            rgba(
+                244,
+                242,
+                236,
+                0.96
+            );
 
-        border:
+        backdrop-filter:
+            blur(10px);
+
+        padding:
+            12px
+            0
+            10px
+            0;
+
+        border-bottom:
             1px
             solid
             var(--border);
-
-        border-radius: 14px;
-
-        padding: 32px;
-
-        margin-bottom: 24px;
     }
 
-    .document-header h1 {
+    .title-row {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 12px;
+    }
+
+    h1 {
         margin: 0;
 
         font-size:
             clamp(
-                2rem,
-                4vw,
-                3rem
+                1.65rem,
+                5vw,
+                2.8rem
             );
 
-        line-height: 1.1;
+        line-height: 1.12;
     }
 
-    .schedule-date {
-        margin-top: 18px;
+    .description {
+        margin:
+            12px
+            0
+            0
+            0;
+
+        line-height: 1.5;
+    }
+
+    .scheduled-date {
+        margin-top: 8px;
+        font-weight: 700;
+    }
+
+    .tag-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+
+        margin-top: 10px;
+    }
+
+    .badge {
+        display: inline-block;
 
         padding:
-            12px
-            16px;
+            4px
+            8px;
 
-        border:
-            1px
-            solid
-            #000000;
-
-        border-radius: 8px;
-
-        background: #fff7c7;
-
-        font-size: 1.1rem;
-    }
-
-    /* ======================================================
-       All major JSON sections
-       ====================================================== */
-
-    .top-section {
         border:
             1px
             solid
             var(--border);
 
-        border-radius: 14px;
+        border-radius: 999px;
 
-        padding: 24px;
+        background: #ffffff;
 
-        margin:
-            0
-            0
-            24px
-            0;
+        color: #000000;
+
+        font-size: 0.82rem;
     }
 
-    .top-section > h2 {
-        margin:
-            0
-            0
-            20px
-            0;
+    .allergens {
+        margin-top: 10px;
 
-        padding-bottom: 10px;
+        padding:
+            8px
+            10px;
 
-        border-bottom:
-            2px
-            solid
-            #000000;
+        border-radius: 8px;
 
-        font-size: 1.6rem;
+        background: #ffe4df;
     }
 
-    /*
-       Every major section receives its own background colour.
+    .facts {
+        display: grid;
 
-       Text remains black throughout.
-    */
-
-    .top-section[data-json-path="$.schema_version"] {
-        background: #eeeeee;
-    }
-
-    .top-section[data-json-path="$.recipe"] {
-        background: #ffe8dc;
-    }
-
-    .top-section[data-json-path="$.nutrition_per_serving"] {
-        background: #ddf3e4;
-    }
-
-    .top-section[data-json-path="$.ingredients"] {
-        background: #fff4c9;
-    }
-
-    .top-section[data-json-path="$.equipment"] {
-        background: #dfeeff;
-    }
-
-    .top-section[data-json-path="$.mise_en_place"] {
-        background: #eee2fa;
-    }
-
-    .top-section[data-json-path="$.procedure"] {
-        background: #ffe1e8;
-    }
-
-    .top-section[data-json-path="$.plating"] {
-        background: #daf5f2;
-    }
-
-    .top-section[data-json-path="$.storage"] {
-        background: #ffe9c9;
-    }
-
-    .top-section[data-json-path="$.shopping"] {
-        background: #e4f3d7;
-    }
-
-    .top-section[data-json-path="$.quality_checks"] {
-        background: #eadff5;
-    }
-
-    /* ======================================================
-       Nested objects
-       ====================================================== */
-
-    .object-content {
-        margin: 0;
-    }
-
-    .nested-object {
-        margin:
-            18px
-            0;
-
-        padding: 18px;
-
-        border:
-            1px
-            solid
-            #777777;
-
-        border-radius: 10px;
-
-        background:
-            rgba(
-                255,
-                255,
-                255,
-                0.55
+        grid-template-columns:
+            repeat(
+                auto-fit,
+                minmax(90px, 1fr)
             );
-    }
 
-    .nested-object > h3 {
+        gap: 8px;
+
         margin:
-            0
-            0
             14px
             0;
     }
 
-    /* ======================================================
-       Individual fields
-       ====================================================== */
-
-    .field-row {
+    .fact {
         display: grid;
+        gap: 2px;
 
-        grid-template-columns:
-            minmax(
-                180px,
-                28%
-            )
-            1fr;
-
-        gap: 20px;
-
-        padding:
-            10px
-            0;
-
-        border-bottom:
-            1px
-            solid
-            rgba(
-                0,
-                0,
-                0,
-                0.18
-            );
-    }
-
-    .field-row:last-child {
-        border-bottom: 0;
-    }
-
-    .field-name {
-        font-weight: 700;
-    }
-
-    .field-value {
-        white-space: pre-wrap;
-
-        overflow-wrap: anywhere;
-    }
-
-    .top-scalar-value {
-        font-size: 1.05rem;
-
-        overflow-wrap: anywhere;
-    }
-
-    /* ======================================================
-       Arrays
-       ====================================================== */
-
-    .array-block {
-        margin:
-            10px
-            0
-            20px
-            0;
-    }
-
-    .array-block > h3 {
-        margin-bottom: 12px;
-    }
-
-    .array-items {
-        display: grid;
-
-        gap: 14px;
-    }
-
-    .array-item {
-        padding: 18px;
+        padding: 9px;
 
         border:
             1px
             solid
-            #777777;
+            var(--border);
+
+        border-radius: 9px;
+
+        background: #ffffff;
+    }
+
+    .fact span {
+        font-size: 0.78rem;
+        color: var(--muted);
+    }
+
+    .section {
+        display: block;
+
+        margin-top: 14px;
+
+        border:
+            1px
+            solid
+            var(--border);
+
+        border-radius: 12px;
+
+        background: var(--panel);
+
+        overflow: hidden;
+    }
+
+    details.section > summary {
+        cursor: pointer;
+
+        padding:
+            15px
+            16px;
+
+        font-size: 1.12rem;
+
+        font-weight: 800;
+
+        background: var(--accent);
+    }
+
+    .section-content {
+        padding: 14px;
+    }
+
+    .method-section {
+        padding:
+            14px;
+    }
+
+    .method-section > h2 {
+        margin:
+            0
+            0
+            12px
+            0;
+    }
+
+    .ingredient-grid {
+        display: grid;
+        gap: 10px;
+    }
+
+    .ingredient-card,
+    .prep-card,
+    .method-step {
+        padding: 14px;
+
+        border:
+            1px
+            solid
+            var(--border);
 
         border-radius: 10px;
 
-        background:
-            rgba(
-                255,
-                255,
-                255,
-                0.60
-            );
+        background: var(--step);
     }
 
-    .item-number {
-        font-size: 0.82rem;
+    .ingredient-heading {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 14px;
+    }
 
-        font-weight: 700;
+    .ingredient-quantity {
+        flex: 0 0 auto;
+
+        font-weight: 800;
+
+        white-space: nowrap;
+    }
+
+    .subline {
+        margin-top: 7px;
+        line-height: 1.4;
+    }
+
+    .compact-list {
+        margin:
+            0;
+        padding-left:
+            22px;
+    }
+
+    .card-stack {
+        display: grid;
+        gap: 12px;
+    }
+
+    .prep-card h3,
+    .method-step h3 {
+        margin:
+            0;
+    }
+
+    .prep-card p,
+    .method-step p {
+        margin:
+            10px
+            0;
+    }
+
+    .step-heading {
+        display: flex;
+        align-items: baseline;
+        gap: 10px;
+    }
+
+    .step-number {
+        flex: 0 0 auto;
+
+        font-size: 0.8rem;
+        font-weight: 800;
 
         text-transform: uppercase;
-
-        letter-spacing: 0.06em;
-
-        margin-bottom: 8px;
     }
 
-    .scalar-array-item {
+    .step-section {
+        margin-top: 6px;
+
+        font-size: 0.85rem;
+        font-weight: 700;
+
+        color: var(--muted);
+    }
+
+    .step-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+
+        margin-top: 10px;
+    }
+
+    .instruction {
+        font-size: 1rem;
+        line-height: 1.55;
+    }
+
+    .endpoint {
+        margin-top: 10px;
+
+        padding:
+            10px
+            12px;
+
+        border-left:
+            4px
+            solid
+            #000000;
+
+        background: var(--endpoint);
+
+        line-height: 1.45;
+    }
+
+    .corrective {
+        margin-top: 10px;
+    }
+
+    .corrective summary {
+        cursor: pointer;
+        font-weight: 750;
+    }
+
+    .corrective ul {
+        margin-bottom: 0;
+    }
+
+    .cook-button {
+        flex: 0 0 auto;
+
+        min-height: 42px;
+
         padding:
             8px
             12px;
 
-        border-left:
-            3px
+        border:
+            1px
             solid
             #000000;
 
-        background:
-            rgba(
-                255,
-                255,
-                255,
-                0.55
+        border-radius: 9px;
+
+        background: #000000;
+        color: #ffffff;
+
+        font-weight: 750;
+    }
+
+    .cook-controls {
+        display: none;
+
+        position: sticky;
+
+        bottom:
+            max(
+                8px,
+                env(safe-area-inset-bottom)
             );
 
-        white-space: pre-wrap;
+        z-index: 30;
 
-        overflow-wrap: anywhere;
+        align-items: center;
+
+        justify-content: space-between;
+
+        gap: 10px;
+
+        margin-top: 14px;
+
+        padding: 10px;
+
+        border:
+            1px
+            solid
+            #000000;
+
+        border-radius: 12px;
+
+        background: #ffffff;
     }
 
-    /* ======================================================
-       Special JSON values
-       ====================================================== */
-
-    .null-value {
-        font-style: italic;
-
-        color: #000000;
-    }
-
-    .boolean-value {
-        font-family:
-            ui-monospace,
-            "Cascadia Mono",
-            Consolas,
-            monospace;
-
-        color: #000000;
-    }
-
-    .empty-value {
-        font-family:
-            ui-monospace,
-            "Cascadia Mono",
-            Consolas,
-            monospace;
-
-        color: #000000;
+    .cook-controls button {
+        min-height: 44px;
 
         padding:
             8px
-            0;
-    }
-
-    /* ======================================================
-       Integrity information
-       ====================================================== */
-
-    .integrity {
-        margin-top: 32px;
-
-        background: #eeeeee;
+            14px;
 
         border:
             1px
             solid
-            var(--border);
-
-        border-radius: 10px;
-
-        padding: 18px;
-
-        font-size: 0.9rem;
-    }
-
-    .integrity code {
-        color: #000000;
-
-        overflow-wrap: anywhere;
-    }
-
-    /* ======================================================
-       Original source JSON
-       ====================================================== */
-
-    details {
-        margin-top: 20px;
-
-        background: #ffffff;
-
-        border:
-            1px
-            solid
-            var(--border);
-
-        border-radius: 10px;
-
-        padding: 16px;
-    }
-
-    summary {
-        cursor: pointer;
-
-        font-weight: 700;
-
-        color: #000000;
-    }
-
-    pre {
-        margin-top: 18px;
-
-        overflow-x: auto;
-
-        padding: 18px;
-
-        background: #eeeeee;
-
-        color: #000000;
-
-        border:
-            1px
-            solid
-            #777777;
+            #000000;
 
         border-radius: 8px;
 
-        white-space: pre-wrap;
+        background: #000000;
+        color: #ffffff;
 
-        overflow-wrap: anywhere;
+        font-weight: 750;
     }
 
-    /* ======================================================
-       Mobile layout
-       ====================================================== */
+    body.cook-mode .non-method {
+        display: none;
+    }
 
-    @media (max-width: 700px) {
+    body.cook-mode .method-step {
+        display: none;
+    }
+
+    body.cook-mode .method-step.active {
+        display: block;
+    }
+
+    body.cook-mode .cook-controls {
+        display: flex;
+    }
+
+    body.cook-mode .method-section {
+        min-height:
+            70vh;
+    }
+
+    @media (max-width: 600px) {
 
         .page {
             width:
-                min(
-                    calc(100% - 20px),
-                    var(--page-width)
-                );
-
-            margin-top: 10px;
+                calc(100% - 12px);
         }
 
-        .document-header,
-        .top-section {
-            padding: 18px;
+        .recipe-header {
+            padding-top: 8px;
         }
 
-        .field-row {
+        .title-row {
+            display: grid;
             grid-template-columns: 1fr;
+        }
 
+        .cook-button {
+            width: 100%;
+        }
+
+        .ingredient-heading {
+            display: grid;
+            grid-template-columns: 1fr;
             gap: 3px;
+        }
+
+        .ingredient-quantity {
+            white-space: normal;
+        }
+
+        .method-section,
+        .section-content {
+            padding: 10px;
+        }
+
+        .ingredient-card,
+        .prep-card,
+        .method-step {
+            padding: 12px;
         }
     }
 
-    /* ======================================================
-       Print layout
-       ====================================================== */
-
     @media print {
 
-        html,
-        body {
-            background: #ffffff;
+        .recipe-header {
+            position: static;
         }
 
-        .page {
-            width: 100%;
-
-            margin: 0;
+        .cook-button,
+        .cook-controls {
+            display: none !important;
         }
 
-        .top-section,
-        .array-item {
+        body.cook-mode .non-method,
+        body.cook-mode .method-step {
+            display: block;
+        }
+
+        .section {
             break-inside: avoid;
-        }
-
-        /*
-           Hide the full raw JSON when printing.
-           It remains present in the HTML source.
-        */
-
-        details {
-            display: none;
         }
     }
 
@@ -556,1061 +562,425 @@
 
 <main class="page">
 
-<header class="document-header">
+<header class="recipe-header">
 
-    <h1>Clementine, Pistachio &amp; Pumpkin Seed Snack Pots</h1>
+    <div class="title-row">
+
+        <h1>Clementine, Pistachio &amp; Pumpkin Seed Snack Pots</h1>
+
+        <button
+            id="cookModeButton"
+            class="cook-button"
+            type="button"
+        >
+            Cook mode
+        </button>
+
+    </div>
 
     
 
+    <p class="description">
+        Portable morning snack pots combining fresh clementine segments with lightly toasted pistachios and pumpkin seeds, finished with a restrained maple-cinnamon glaze and a small amount of salt for contrast.
+    </p>
+
+    <div class="tag-row">
+        <span class="badge">Morning snack</span><span class="badge">Vegetarian</span><span class="badge">Vegan</span><span class="badge">Portable</span><span class="badge">High fibre</span>
+    </div>
+
+    <div class="allergens"><strong>Allergens:</strong> Pistachios</div>
+
 </header>
 
-<section class="top-section" data-json-path="$.schema_version"><h2>Schema Version</h2><div class="top-scalar-value" data-json-path="$.schema_version">1.0</div></section>
-<section class="top-section" data-json-path="$.recipe"><h2>Recipe</h2><div class="object-content" data-json-path="$.recipe">
-<div class="field-row" data-json-path="$.recipe.id"><div class="field-name">Id</div><div class="field-value">clementine_pistachio_pumpkin_seed_snack_pots</div></div>
-<div class="field-row" data-json-path="$.recipe.title"><div class="field-name">Title</div><div class="field-value">Clementine, Pistachio &amp; Pumpkin Seed Snack Pots</div></div>
-<div class="field-row" data-json-path="$.recipe.description"><div class="field-name">Description</div><div class="field-value">Portable morning snack pots combining fresh clementine segments with lightly toasted pistachios and pumpkin seeds, finished with a restrained maple-cinnamon glaze and a small amount of salt for contrast.</div></div>
-<div class="field-row" data-json-path="$.recipe.servings"><div class="field-name">Servings</div><div class="field-value">2</div></div>
-<div class="field-row" data-json-path="$.recipe.difficulty"><div class="field-name">Difficulty</div><div class="field-value">Easy</div></div>
-<div class="field-row" data-json-path="$.recipe.total_time_minutes"><div class="field-name">Total Time Minutes</div><div class="field-value">20</div></div>
-<div class="field-row" data-json-path="$.recipe.active_time_minutes"><div class="field-name">Active Time Minutes</div><div class="field-value">12</div></div>
-<div class="field-row" data-json-path="$.recipe.passive_time_minutes"><div class="field-name">Passive Time Minutes</div><div class="field-value">8</div></div>
-<div class="array-block" data-json-path="$.recipe.cuisine">
-<h3>Cuisine</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.recipe.cuisine[0]">Contemporary</div>
-<div class="scalar-array-item" data-json-path="$.recipe.cuisine[1]">British</div>
+<div class="facts">
+    <div class="fact"><span>Serves</span><strong>2</strong></div><div class="fact"><span>Difficulty</span><strong>Easy</strong></div><div class="fact"><span>Active</span><strong>12 min</strong></div><div class="fact"><span>Total</span><strong>20 min</strong></div><div class="fact"><span>Energy</span><strong>190 kcal</strong></div><div class="fact"><span>Protein</span><strong>6 g</strong></div>
 </div>
-</div>
-<div class="array-block" data-json-path="$.recipe.meal_types">
-<h3>Meal Types</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.recipe.meal_types[0]">Morning snack</div>
-</div>
-</div>
-<div class="array-block" data-json-path="$.recipe.dietary_tags">
-<h3>Dietary Tags</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.recipe.dietary_tags[0]">Vegetarian</div>
-<div class="scalar-array-item" data-json-path="$.recipe.dietary_tags[1]">Vegan</div>
-<div class="scalar-array-item" data-json-path="$.recipe.dietary_tags[2]">Portable</div>
-<div class="scalar-array-item" data-json-path="$.recipe.dietary_tags[3]">High fibre</div>
-</div>
-</div>
-<div class="array-block" data-json-path="$.recipe.allergens">
-<h3>Allergens</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.recipe.allergens[0]">Pistachios</div>
-</div>
-</div>
-</div></section>
-<section class="top-section" data-json-path="$.nutrition_per_serving"><h2>Nutrition Per Serving</h2><div class="object-content" data-json-path="$.nutrition_per_serving">
-<div class="field-row" data-json-path="$.nutrition_per_serving.energy_kcal"><div class="field-name">Energy Kcal</div><div class="field-value">190</div></div>
-<div class="field-row" data-json-path="$.nutrition_per_serving.protein_g"><div class="field-name">Protein G</div><div class="field-value">6</div></div>
-<div class="field-row" data-json-path="$.nutrition_per_serving.carbohydrate_g"><div class="field-name">Carbohydrate G</div><div class="field-value">16</div></div>
-<div class="field-row" data-json-path="$.nutrition_per_serving.fat_g"><div class="field-name">Fat G</div><div class="field-value">13</div></div>
-<div class="field-row" data-json-path="$.nutrition_per_serving.saturated_fat_g"><div class="field-name">Saturated Fat G</div><div class="field-value">2</div></div>
-<div class="field-row" data-json-path="$.nutrition_per_serving.fibre_g"><div class="field-name">Fibre G</div><div class="field-value">4</div></div>
-<div class="field-row" data-json-path="$.nutrition_per_serving.salt_g"><div class="field-name">Salt G</div><div class="field-value">0.1</div></div>
-</div></section>
-<section class="top-section" data-json-path="$.ingredients"><h2>Ingredients</h2><div class="array-block" data-json-path="$.ingredients">
-<div class="array-items">
-<article class="array-item" data-json-path="$.ingredients[0]">
-<div class="item-number">Item 1</div>
-<div class="field-row" data-json-path="$.ingredients[0].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">clementines</div></div>
-<div class="field-row" data-json-path="$.ingredients[0].display_name"><div class="field-name">Display Name</div><div class="field-value">Clementines</div></div>
-<div class="field-row" data-json-path="$.ingredients[0].category"><div class="field-name">Category</div><div class="field-value">Fruit</div></div>
-<div class="field-row" data-json-path="$.ingredients[0].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.ingredients[0].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">2</div></div>
-<div class="field-row" data-json-path="$.ingredients[0].unit_used"><div class="field-name">Unit Used</div><div class="field-value">integer</div></div>
-<div class="field-row" data-json-path="$.ingredients[0].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 2 clementines</div></div>
-<div class="field-row" data-json-path="$.ingredients[0].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Choose firm, fragrant clementines with intact skin and no soft or mouldy areas.</div></div>
-<div class="array-block" data-json-path="$.ingredients[0].retailers">
-<h3>Retailers</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.ingredients[0].retailers[0]">Sainsbury&#x27;s</div>
-<div class="scalar-array-item" data-json-path="$.ingredients[0].retailers[1]">Marks &amp; Spencer</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.ingredients[0].preparation"><div class="field-name">Preparation</div><div class="field-value">Wash and dry before peeling. Peel completely, separate into individual segments and remove any loose white pith and seeds.</div></div>
-<div class="field-row" data-json-path="$.ingredients[0].notes"><div class="field-name">Notes</div><div class="field-value">Use: 2 whole clementines, approximately 1 per serving. Exact edible weight varies naturally and does not scale perfectly by mass.</div></div>
-</article>
-<article class="array-item" data-json-path="$.ingredients[1]">
-<div class="item-number">Item 2</div>
-<div class="field-row" data-json-path="$.ingredients[1].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">pistachios_unsalted</div></div>
-<div class="field-row" data-json-path="$.ingredients[1].display_name"><div class="field-name">Display Name</div><div class="field-value">Unsalted shelled pistachios</div></div>
-<div class="field-row" data-json-path="$.ingredients[1].category"><div class="field-name">Category</div><div class="field-value">Nuts</div></div>
-<div class="field-row" data-json-path="$.ingredients[1].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.ingredients[1].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">32</div></div>
-<div class="field-row" data-json-path="$.ingredients[1].unit_used"><div class="field-name">Unit Used</div><div class="field-value">g</div></div>
-<div class="field-row" data-json-path="$.ingredients[1].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 standard packet containing at least 32 g</div></div>
-<div class="field-row" data-json-path="$.ingredients[1].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Use plain unsalted shelled pistachios. Retail pack size may vary.</div></div>
-<div class="array-block" data-json-path="$.ingredients[1].retailers">
-<h3>Retailers</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.ingredients[1].retailers[0]">Sainsbury&#x27;s</div>
-<div class="scalar-array-item" data-json-path="$.ingredients[1].retailers[1]">Marks &amp; Spencer</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.ingredients[1].preparation"><div class="field-name">Preparation</div><div class="field-value">Inspect for shell fragments, then roughly chop into pieces approximately 4-6 mm across.</div></div>
-<div class="field-row" data-json-path="$.ingredients[1].notes"><div class="field-name">Notes</div><div class="field-value">Use: 32 g total, 16 g per serving.</div></div>
-</article>
-<article class="array-item" data-json-path="$.ingredients[2]">
-<div class="item-number">Item 3</div>
-<div class="field-row" data-json-path="$.ingredients[2].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">pumpkin_seeds</div></div>
-<div class="field-row" data-json-path="$.ingredients[2].display_name"><div class="field-name">Display Name</div><div class="field-value">Pumpkin seeds</div></div>
-<div class="field-row" data-json-path="$.ingredients[2].category"><div class="field-name">Category</div><div class="field-value">Seeds</div></div>
-<div class="field-row" data-json-path="$.ingredients[2].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.ingredients[2].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">20</div></div>
-<div class="field-row" data-json-path="$.ingredients[2].unit_used"><div class="field-name">Unit Used</div><div class="field-value">g</div></div>
-<div class="field-row" data-json-path="$.ingredients[2].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 standard packet containing at least 20 g</div></div>
-<div class="field-row" data-json-path="$.ingredients[2].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Use plain, unsalted pumpkin seeds. Retail pack size may vary.</div></div>
-<div class="array-block" data-json-path="$.ingredients[2].retailers">
-<h3>Retailers</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.ingredients[2].retailers[0]">Sainsbury&#x27;s</div>
-<div class="scalar-array-item" data-json-path="$.ingredients[2].retailers[1]">Marks &amp; Spencer</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.ingredients[2].preparation"><div class="field-name">Preparation</div><div class="field-value">Inspect and remove any foreign material before toasting.</div></div>
-<div class="field-row" data-json-path="$.ingredients[2].notes"><div class="field-name">Notes</div><div class="field-value">Use: 20 g total, 10 g per serving.</div></div>
-</article>
-<article class="array-item" data-json-path="$.ingredients[3]">
-<div class="item-number">Item 4</div>
-<div class="field-row" data-json-path="$.ingredients[3].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">maple_syrup</div></div>
-<div class="field-row" data-json-path="$.ingredients[3].display_name"><div class="field-name">Display Name</div><div class="field-value">Pure maple syrup</div></div>
-<div class="field-row" data-json-path="$.ingredients[3].category"><div class="field-name">Category</div><div class="field-value">Sweeteners</div></div>
-<div class="field-row" data-json-path="$.ingredients[3].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.ingredients[3].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">1</div></div>
-<div class="field-row" data-json-path="$.ingredients[3].unit_used"><div class="field-name">Unit Used</div><div class="field-value">tsp</div></div>
-<div class="field-row" data-json-path="$.ingredients[3].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 small bottle</div></div>
-<div class="field-row" data-json-path="$.ingredients[3].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Use pure maple syrup rather than maple-flavoured syrup where available.</div></div>
-<div class="array-block" data-json-path="$.ingredients[3].retailers">
-<h3>Retailers</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.ingredients[3].retailers[0]">Sainsbury&#x27;s</div>
-<div class="scalar-array-item" data-json-path="$.ingredients[3].retailers[1]">Marks &amp; Spencer</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.ingredients[3].preparation"><div class="field-name">Preparation</div><div class="field-value">Measure immediately before glazing the toasted nuts and seeds.</div></div>
-<div class="field-row" data-json-path="$.ingredients[3].notes"><div class="field-name">Notes</div><div class="field-value">Use: 1 tsp total. The small quantity is intended to create a light glaze rather than a sweet coating.</div></div>
-</article>
-<article class="array-item" data-json-path="$.ingredients[4]">
-<div class="item-number">Item 5</div>
-<div class="field-row" data-json-path="$.ingredients[4].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">cinnamon_ground</div></div>
-<div class="field-row" data-json-path="$.ingredients[4].display_name"><div class="field-name">Display Name</div><div class="field-value">Ground cinnamon</div></div>
-<div class="field-row" data-json-path="$.ingredients[4].category"><div class="field-name">Category</div><div class="field-value">Spices</div></div>
-<div class="field-row" data-json-path="$.ingredients[4].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.ingredients[4].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">0.25</div></div>
-<div class="field-row" data-json-path="$.ingredients[4].unit_used"><div class="field-name">Unit Used</div><div class="field-value">tsp</div></div>
-<div class="field-row" data-json-path="$.ingredients[4].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 jar</div></div>
-<div class="field-row" data-json-path="$.ingredients[4].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Standard ground cinnamon is suitable.</div></div>
-<div class="array-block" data-json-path="$.ingredients[4].retailers">
-<h3>Retailers</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.ingredients[4].retailers[0]">Sainsbury&#x27;s</div>
-<div class="scalar-array-item" data-json-path="$.ingredients[4].retailers[1]">Marks &amp; Spencer</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.ingredients[4].preparation"><div class="field-name">Preparation</div><div class="field-value">Measure before beginning the toasting stage.</div></div>
-<div class="field-row" data-json-path="$.ingredients[4].notes"><div class="field-name">Notes</div><div class="field-value">Use: 0.25 tsp total.</div></div>
-</article>
-<article class="array-item" data-json-path="$.ingredients[5]">
-<div class="item-number">Item 6</div>
-<div class="field-row" data-json-path="$.ingredients[5].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">fine_salt</div></div>
-<div class="field-row" data-json-path="$.ingredients[5].display_name"><div class="field-name">Display Name</div><div class="field-value">Fine salt</div></div>
-<div class="field-row" data-json-path="$.ingredients[5].category"><div class="field-name">Category</div><div class="field-value">Seasoning</div></div>
-<div class="field-row" data-json-path="$.ingredients[5].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.ingredients[5].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">0.0625</div></div>
-<div class="field-row" data-json-path="$.ingredients[5].unit_used"><div class="field-name">Unit Used</div><div class="field-value">tsp</div></div>
-<div class="field-row" data-json-path="$.ingredients[5].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 standard container</div></div>
-<div class="field-row" data-json-path="$.ingredients[5].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Fine table salt or fine sea salt is suitable.</div></div>
-<div class="array-block" data-json-path="$.ingredients[5].retailers">
-<h3>Retailers</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.ingredients[5].retailers[0]">Sainsbury&#x27;s</div>
-<div class="scalar-array-item" data-json-path="$.ingredients[5].retailers[1]">Marks &amp; Spencer</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.ingredients[5].preparation"><div class="field-name">Preparation</div><div class="field-value">Measure accurately before use.</div></div>
-<div class="field-row" data-json-path="$.ingredients[5].notes"><div class="field-name">Notes</div><div class="field-value">Use: 0.0625 tsp total. The small amount balances the sweetness of the fruit and maple syrup.</div></div>
-</article>
-</div>
-</div></section>
-<section class="top-section" data-json-path="$.equipment"><h2>Equipment</h2><div class="array-block" data-json-path="$.equipment">
-<div class="array-items">
-<article class="array-item" data-json-path="$.equipment[0]">
-<div class="item-number">Item 1</div>
-<div class="field-row" data-json-path="$.equipment[0].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">kitchen_scales</div></div>
-<div class="field-row" data-json-path="$.equipment[0].display_name"><div class="field-name">Display Name</div><div class="field-value">Kitchen scales</div></div>
-<div class="field-row" data-json-path="$.equipment[0].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.equipment[0].notes"><div class="field-name">Notes</div><div class="field-value">Required for accurate nut and seed quantities.</div></div>
-</article>
-<article class="array-item" data-json-path="$.equipment[1]">
-<div class="item-number">Item 2</div>
-<div class="field-row" data-json-path="$.equipment[1].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">measuring_spoons</div></div>
-<div class="field-row" data-json-path="$.equipment[1].display_name"><div class="field-name">Display Name</div><div class="field-value">Measuring spoons</div></div>
-<div class="field-row" data-json-path="$.equipment[1].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.equipment[1].notes"><div class="field-name">Notes</div><div class="field-value">For maple syrup, cinnamon and salt.</div></div>
-</article>
-<article class="array-item" data-json-path="$.equipment[2]">
-<div class="item-number">Item 3</div>
-<div class="field-row" data-json-path="$.equipment[2].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">chef_knife</div></div>
-<div class="field-row" data-json-path="$.equipment[2].display_name"><div class="field-name">Display Name</div><div class="field-value">Chef&#x27;s knife</div></div>
-<div class="field-row" data-json-path="$.equipment[2].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.equipment[2].notes"><div class="field-name">Notes</div><div class="field-value">For chopping the pistachios.</div></div>
-</article>
-<article class="array-item" data-json-path="$.equipment[3]">
-<div class="item-number">Item 4</div>
-<div class="field-row" data-json-path="$.equipment[3].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">chopping_board</div></div>
-<div class="field-row" data-json-path="$.equipment[3].display_name"><div class="field-name">Display Name</div><div class="field-value">Chopping board</div></div>
-<div class="field-row" data-json-path="$.equipment[3].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.equipment[3].notes"><div class="field-name">Notes</div><div class="field-value">For safe preparation of the pistachios.</div></div>
-</article>
-<article class="array-item" data-json-path="$.equipment[4]">
-<div class="item-number">Item 5</div>
-<div class="field-row" data-json-path="$.equipment[4].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">frying_pan</div></div>
-<div class="field-row" data-json-path="$.equipment[4].display_name"><div class="field-name">Display Name</div><div class="field-value">Small frying pan</div></div>
-<div class="field-row" data-json-path="$.equipment[4].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.equipment[4].notes"><div class="field-name">Notes</div><div class="field-value">For controlled dry-toasting of the nuts and seeds.</div></div>
-</article>
-<article class="array-item" data-json-path="$.equipment[5]">
-<div class="item-number">Item 6</div>
-<div class="field-row" data-json-path="$.equipment[5].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">gas_hob</div></div>
-<div class="field-row" data-json-path="$.equipment[5].display_name"><div class="field-name">Display Name</div><div class="field-value">Gas hob</div></div>
-<div class="field-row" data-json-path="$.equipment[5].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.equipment[5].notes"><div class="field-name">Notes</div><div class="field-value">Provides responsive heat control during toasting.</div></div>
-</article>
-<article class="array-item" data-json-path="$.equipment[6]">
-<div class="item-number">Item 7</div>
-<div class="field-row" data-json-path="$.equipment[6].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">mixing_bowl</div></div>
-<div class="field-row" data-json-path="$.equipment[6].display_name"><div class="field-name">Display Name</div><div class="field-value">Small mixing bowl</div></div>
-<div class="field-row" data-json-path="$.equipment[6].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.equipment[6].notes"><div class="field-name">Notes</div><div class="field-value">For cooling and coating the toasted pistachios and pumpkin seeds.</div></div>
-</article>
-<article class="array-item" data-json-path="$.equipment[7]">
-<div class="item-number">Item 8</div>
-<div class="field-row" data-json-path="$.equipment[7].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">lidded_containers</div></div>
-<div class="field-row" data-json-path="$.equipment[7].display_name"><div class="field-name">Display Name</div><div class="field-value">2 portable lidded snack pots</div></div>
-<div class="field-row" data-json-path="$.equipment[7].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.equipment[7].notes"><div class="field-name">Notes</div><div class="field-value">Each pot should be sufficiently large to hold one clementine and half of the nut-and-seed mixture without crushing the fruit.</div></div>
-</article>
-</div>
-</div></section>
-<section class="top-section" data-json-path="$.mise_en_place"><h2>Mise En Place</h2><div class="array-block" data-json-path="$.mise_en_place">
-<div class="array-items">
-<article class="array-item" data-json-path="$.mise_en_place[0]">
-<div class="item-number">Item 1</div>
-<div class="field-row" data-json-path="$.mise_en_place[0].prep_id"><div class="field-name">Prep Id</div><div class="field-value">PREP_01</div></div>
-<div class="array-block" data-json-path="$.mise_en_place[0].ingredient_ids">
-<h3>Ingredient Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.mise_en_place[0].ingredient_ids[0]">clementines</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.mise_en_place[0].instruction"><div class="field-name">Instruction</div><div class="field-value">Wash the 2 whole clementines under cold running water and dry them thoroughly. Peel each clementine completely. Separate the fruit into individual segments. Remove loose white pith and discard it. Inspect the segments and remove any seeds encountered without excessively breaking the fruit.</div></div>
-<div class="field-row" data-json-path="$.mise_en_place[0].endpoint"><div class="field-name">Endpoint</div><div class="field-value">Two peeled clementines are separated into clean, intact segments with loose pith and seeds removed.</div></div>
-</article>
-<article class="array-item" data-json-path="$.mise_en_place[1]">
-<div class="item-number">Item 2</div>
-<div class="field-row" data-json-path="$.mise_en_place[1].prep_id"><div class="field-name">Prep Id</div><div class="field-value">PREP_02</div></div>
-<div class="array-block" data-json-path="$.mise_en_place[1].ingredient_ids">
-<h3>Ingredient Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.mise_en_place[1].ingredient_ids[0]">pistachios_unsalted</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.mise_en_place[1].instruction"><div class="field-name">Instruction</div><div class="field-value">Inspect 32 g shelled pistachios and remove any shell fragments. Transfer to a chopping board and use the chef&#x27;s knife to cut the nuts into irregular pieces approximately 4-6 mm across. Do not reduce them to crumbs.</div></div>
-<div class="field-row" data-json-path="$.mise_en_place[1].endpoint"><div class="field-name">Endpoint</div><div class="field-value">The pistachios are evenly coarse-chopped, with visible pieces large enough to retain crunch.</div></div>
-</article>
-<article class="array-item" data-json-path="$.mise_en_place[2]">
-<div class="item-number">Item 3</div>
-<div class="field-row" data-json-path="$.mise_en_place[2].prep_id"><div class="field-name">Prep Id</div><div class="field-value">PREP_03</div></div>
-<div class="array-block" data-json-path="$.mise_en_place[2].ingredient_ids">
-<h3>Ingredient Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.mise_en_place[2].ingredient_ids[0]">pumpkin_seeds</div>
-<div class="scalar-array-item" data-json-path="$.mise_en_place[2].ingredient_ids[1]">maple_syrup</div>
-<div class="scalar-array-item" data-json-path="$.mise_en_place[2].ingredient_ids[2]">cinnamon_ground</div>
-<div class="scalar-array-item" data-json-path="$.mise_en_place[2].ingredient_ids[3]">fine_salt</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.mise_en_place[2].instruction"><div class="field-name">Instruction</div><div class="field-value">Weigh 20 g pumpkin seeds. Measure 1 tsp maple syrup, 0.25 tsp ground cinnamon and 0.0625 tsp fine salt into separate measured quantities so they can be added rapidly after toasting.</div></div>
-<div class="field-row" data-json-path="$.mise_en_place[2].endpoint"><div class="field-name">Endpoint</div><div class="field-value">All seed and seasoning components are accurately measured and immediately available.</div></div>
-</article>
-</div>
-</div></section>
-<section class="top-section" data-json-path="$.procedure"><h2>Procedure</h2><div class="array-block" data-json-path="$.procedure">
-<div class="array-items">
-<article class="array-item" data-json-path="$.procedure[0]">
-<div class="item-number">Item 1</div>
-<div class="field-row" data-json-path="$.procedure[0].step_id"><div class="field-name">Step Id</div><div class="field-value">STEP_01</div></div>
-<div class="field-row" data-json-path="$.procedure[0].section"><div class="field-name">Section</div><div class="field-value">Toasted nut and seed topping</div></div>
-<div class="field-row" data-json-path="$.procedure[0].title"><div class="field-name">Title</div><div class="field-value">Dry-toast the pistachios and pumpkin seeds</div></div>
-<div class="array-block" data-json-path="$.procedure[0].depends_on">
-<h3>Depends On</h3>
-<div class="empty-value">[ ]</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[0].parallel_group"><div class="field-name">Parallel Group</div><div class="field-value">P01</div></div>
-<div class="array-block" data-json-path="$.procedure[0].ingredient_ids">
-<h3>Ingredient Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[0].ingredient_ids[0]">pistachios_unsalted</div>
-<div class="scalar-array-item" data-json-path="$.procedure[0].ingredient_ids[1]">pumpkin_seeds</div>
-</div>
-</div>
-<div class="array-block" data-json-path="$.procedure[0].equipment_ids">
-<h3>Equipment Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[0].equipment_ids[0]">frying_pan</div>
-<div class="scalar-array-item" data-json-path="$.procedure[0].equipment_ids[1]">gas_hob</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[0].instruction"><div class="field-name">Instruction</div><div class="field-value">Place the dry frying pan over a low-to-medium gas flame. Add the prepared 32 g pistachios and 20 g pumpkin seeds in a single layer. Stir or shake the pan every 10-15 seconds so all surfaces heat evenly. Continue until the pumpkin seeds begin to produce occasional light popping sounds, the pistachios become slightly deeper green-gold and the mixture develops a distinctly toasted nut aroma.</div></div>
-<div class="field-row" data-json-path="$.procedure[0].heat_source"><div class="field-name">Heat Source</div><div class="field-value">Gas hob</div></div>
-<div class="field-row" data-json-path="$.procedure[0].heat_level"><div class="field-name">Heat Level</div><div class="field-value">Low-medium</div></div>
-<div class="field-row" data-json-path="$.procedure[0].temperature_c"><div class="field-name">Temperature C</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[0].duration_min_minutes"><div class="field-name">Duration Min Minutes</div><div class="field-value">3</div></div>
-<div class="field-row" data-json-path="$.procedure[0].duration_max_minutes"><div class="field-name">Duration Max Minutes</div><div class="field-value">5</div></div>
-<div class="field-row" data-json-path="$.procedure[0].endpoint"><div class="field-name">Endpoint</div><div class="field-value">The nuts and seeds smell clearly toasted and aromatic, the pumpkin seeds are lightly golden in places, and no component shows blackened edges or produces smoke.</div></div>
-<div class="array-block" data-json-path="$.procedure[0].corrective_actions">
-<h3>Corrective Actions</h3>
-<div class="array-items">
-<article class="array-item" data-json-path="$.procedure[0].corrective_actions[0]">
-<div class="item-number">Item 1</div>
-<div class="field-row" data-json-path="$.procedure[0].corrective_actions[0].condition"><div class="field-name">Condition</div><div class="field-value">The nuts or seeds darken rapidly or begin producing smoke.</div></div>
-<div class="field-row" data-json-path="$.procedure[0].corrective_actions[0].action"><div class="field-name">Action</div><div class="field-value">Immediately remove the pan from the heat and transfer the contents to the mixing bowl. Discard any visibly blackened pieces.</div></div>
-</article>
-<article class="array-item" data-json-path="$.procedure[0].corrective_actions[1]">
-<div class="item-number">Item 2</div>
-<div class="field-row" data-json-path="$.procedure[0].corrective_actions[1].condition"><div class="field-name">Condition</div><div class="field-value">Little aroma or colour develops after approximately 5 minutes.</div></div>
-<div class="field-row" data-json-path="$.procedure[0].corrective_actions[1].action"><div class="field-name">Action</div><div class="field-value">Increase the gas flame slightly and continue in 20-second intervals while stirring continuously until the stated endpoint is achieved.</div></div>
-</article>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[0].critical"><div class="field-name">Critical</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-</article>
-<article class="array-item" data-json-path="$.procedure[1]">
-<div class="item-number">Item 2</div>
-<div class="field-row" data-json-path="$.procedure[1].step_id"><div class="field-name">Step Id</div><div class="field-value">STEP_02</div></div>
-<div class="field-row" data-json-path="$.procedure[1].section"><div class="field-name">Section</div><div class="field-value">Fruit preparation</div></div>
-<div class="field-row" data-json-path="$.procedure[1].title"><div class="field-name">Title</div><div class="field-value">Divide the clementine segments</div></div>
-<div class="array-block" data-json-path="$.procedure[1].depends_on">
-<h3>Depends On</h3>
-<div class="empty-value">[ ]</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[1].parallel_group"><div class="field-name">Parallel Group</div><div class="field-value">P01</div></div>
-<div class="array-block" data-json-path="$.procedure[1].ingredient_ids">
-<h3>Ingredient Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[1].ingredient_ids[0]">clementines</div>
-</div>
-</div>
-<div class="array-block" data-json-path="$.procedure[1].equipment_ids">
-<h3>Equipment Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[1].equipment_ids[0]">lidded_containers</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[1].instruction"><div class="field-name">Instruction</div><div class="field-value">Divide the prepared clementine segments equally between the 2 clean snack pots. Arrange the segments loosely rather than compressing them so the fruit retains its shape and released juice is minimised.</div></div>
-<div class="field-row" data-json-path="$.procedure[1].heat_source"><div class="field-name">Heat Source</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[1].heat_level"><div class="field-name">Heat Level</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[1].temperature_c"><div class="field-name">Temperature C</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[1].duration_min_minutes"><div class="field-name">Duration Min Minutes</div><div class="field-value">1</div></div>
-<div class="field-row" data-json-path="$.procedure[1].duration_max_minutes"><div class="field-name">Duration Max Minutes</div><div class="field-value">2</div></div>
-<div class="field-row" data-json-path="$.procedure[1].endpoint"><div class="field-name">Endpoint</div><div class="field-value">Each snack pot contains approximately one clementine&#x27;s worth of intact segments with no excessive pooling of juice.</div></div>
-<div class="array-block" data-json-path="$.procedure[1].corrective_actions">
-<h3>Corrective Actions</h3>
-<div class="array-items">
-<article class="array-item" data-json-path="$.procedure[1].corrective_actions[0]">
-<div class="item-number">Item 1</div>
-<div class="field-row" data-json-path="$.procedure[1].corrective_actions[0].condition"><div class="field-name">Condition</div><div class="field-value">A clementine has released substantial juice during peeling.</div></div>
-<div class="field-row" data-json-path="$.procedure[1].corrective_actions[0].action"><div class="field-name">Action</div><div class="field-value">Drain the loose juice before packing so the nut and seed topping is not unnecessarily softened during storage.</div></div>
-</article>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[1].critical"><div class="field-name">Critical</div><div class="field-value"><span class="boolean-value">false</span></div></div>
-</article>
-<article class="array-item" data-json-path="$.procedure[2]">
-<div class="item-number">Item 3</div>
-<div class="field-row" data-json-path="$.procedure[2].step_id"><div class="field-name">Step Id</div><div class="field-value">STEP_03</div></div>
-<div class="field-row" data-json-path="$.procedure[2].section"><div class="field-name">Section</div><div class="field-value">Toasted nut and seed topping</div></div>
-<div class="field-row" data-json-path="$.procedure[2].title"><div class="field-name">Title</div><div class="field-value">Apply the maple-cinnamon seasoning</div></div>
-<div class="array-block" data-json-path="$.procedure[2].depends_on">
-<h3>Depends On</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[2].depends_on[0]">STEP_01</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[2].parallel_group"><div class="field-name">Parallel Group</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="array-block" data-json-path="$.procedure[2].ingredient_ids">
-<h3>Ingredient Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[2].ingredient_ids[0]">maple_syrup</div>
-<div class="scalar-array-item" data-json-path="$.procedure[2].ingredient_ids[1]">cinnamon_ground</div>
-<div class="scalar-array-item" data-json-path="$.procedure[2].ingredient_ids[2]">fine_salt</div>
-</div>
-</div>
-<div class="array-block" data-json-path="$.procedure[2].equipment_ids">
-<h3>Equipment Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[2].equipment_ids[0]">mixing_bowl</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[2].instruction"><div class="field-name">Instruction</div><div class="field-value">Immediately transfer the hot toasted pistachios and pumpkin seeds to the mixing bowl. Add 1 tsp maple syrup, 0.25 tsp ground cinnamon and 0.0625 tsp fine salt. Stir continuously for approximately 30-45 seconds until the maple syrup forms a very thin, even coating over the hot nuts and seeds and no concentrated wet patches remain.</div></div>
-<div class="field-row" data-json-path="$.procedure[2].heat_source"><div class="field-name">Heat Source</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[2].heat_level"><div class="field-name">Heat Level</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[2].temperature_c"><div class="field-name">Temperature C</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[2].duration_min_minutes"><div class="field-name">Duration Min Minutes</div><div class="field-value">0.5</div></div>
-<div class="field-row" data-json-path="$.procedure[2].duration_max_minutes"><div class="field-name">Duration Max Minutes</div><div class="field-value">1</div></div>
-<div class="field-row" data-json-path="$.procedure[2].endpoint"><div class="field-name">Endpoint</div><div class="field-value">The nut-and-seed mixture is evenly lightly glazed, fragrant with cinnamon and remains predominantly loose rather than forming a sticky mass.</div></div>
-<div class="array-block" data-json-path="$.procedure[2].corrective_actions">
-<h3>Corrective Actions</h3>
-<div class="array-items">
-<article class="array-item" data-json-path="$.procedure[2].corrective_actions[0]">
-<div class="item-number">Item 1</div>
-<div class="field-row" data-json-path="$.procedure[2].corrective_actions[0].condition"><div class="field-name">Condition</div><div class="field-value">The maple syrup collects in one part of the bowl or forms sticky clumps.</div></div>
-<div class="field-row" data-json-path="$.procedure[2].corrective_actions[0].action"><div class="field-name">Action</div><div class="field-value">Continue stirring and separating the pieces with the spoon until the coating is redistributed while the mixture is still warm.</div></div>
-</article>
-<article class="array-item" data-json-path="$.procedure[2].corrective_actions[1]">
-<div class="item-number">Item 2</div>
-<div class="field-row" data-json-path="$.procedure[2].corrective_actions[1].condition"><div class="field-name">Condition</div><div class="field-value">The mixture appears excessively wet after thorough stirring.</div></div>
-<div class="field-row" data-json-path="$.procedure[2].corrective_actions[1].action"><div class="field-name">Action</div><div class="field-value">Spread it in a thin layer across the bowl and allow it to cool uncovered; do not add additional nuts or seeds because this would alter the specified quantities.</div></div>
-</article>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[2].critical"><div class="field-name">Critical</div><div class="field-value"><span class="boolean-value">false</span></div></div>
-</article>
-<article class="array-item" data-json-path="$.procedure[3]">
-<div class="item-number">Item 4</div>
-<div class="field-row" data-json-path="$.procedure[3].step_id"><div class="field-name">Step Id</div><div class="field-value">STEP_04</div></div>
-<div class="field-row" data-json-path="$.procedure[3].section"><div class="field-name">Section</div><div class="field-value">Cooling</div></div>
-<div class="field-row" data-json-path="$.procedure[3].title"><div class="field-name">Title</div><div class="field-value">Cool the toasted mixture completely</div></div>
-<div class="array-block" data-json-path="$.procedure[3].depends_on">
-<h3>Depends On</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[3].depends_on[0]">STEP_03</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[3].parallel_group"><div class="field-name">Parallel Group</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="array-block" data-json-path="$.procedure[3].ingredient_ids">
-<h3>Ingredient Ids</h3>
-<div class="empty-value">[ ]</div>
-</div>
-<div class="array-block" data-json-path="$.procedure[3].equipment_ids">
-<h3>Equipment Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[3].equipment_ids[0]">mixing_bowl</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[3].instruction"><div class="field-name">Instruction</div><div class="field-value">Leave the seasoned pistachio and pumpkin seed mixture uncovered in the mixing bowl at room temperature. Stir once after approximately 3 minutes to break apart any pieces beginning to adhere. Do not seal or add the mixture to the fruit while it remains warm.</div></div>
-<div class="field-row" data-json-path="$.procedure[3].heat_source"><div class="field-name">Heat Source</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[3].heat_level"><div class="field-name">Heat Level</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[3].temperature_c"><div class="field-name">Temperature C</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[3].duration_min_minutes"><div class="field-name">Duration Min Minutes</div><div class="field-value">6</div></div>
-<div class="field-row" data-json-path="$.procedure[3].duration_max_minutes"><div class="field-name">Duration Max Minutes</div><div class="field-value">8</div></div>
-<div class="field-row" data-json-path="$.procedure[3].endpoint"><div class="field-name">Endpoint</div><div class="field-value">The mixture has returned to room temperature, feels dry rather than tacky on the surface and the pieces separate readily when stirred.</div></div>
-<div class="array-block" data-json-path="$.procedure[3].corrective_actions">
-<h3>Corrective Actions</h3>
-<div class="array-items">
-<article class="array-item" data-json-path="$.procedure[3].corrective_actions[0]">
-<div class="item-number">Item 1</div>
-<div class="field-row" data-json-path="$.procedure[3].corrective_actions[0].condition"><div class="field-name">Condition</div><div class="field-value">The mixture remains warm or tacky after 8 minutes.</div></div>
-<div class="field-row" data-json-path="$.procedure[3].corrective_actions[0].action"><div class="field-name">Action</div><div class="field-value">Spread it more thinly in the bowl and continue cooling in 2-minute intervals until the stated endpoint is reached.</div></div>
-</article>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[3].critical"><div class="field-name">Critical</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-</article>
-<article class="array-item" data-json-path="$.procedure[4]">
-<div class="item-number">Item 5</div>
-<div class="field-row" data-json-path="$.procedure[4].step_id"><div class="field-name">Step Id</div><div class="field-value">STEP_05</div></div>
-<div class="field-row" data-json-path="$.procedure[4].section"><div class="field-name">Section</div><div class="field-value">Assembly</div></div>
-<div class="field-row" data-json-path="$.procedure[4].title"><div class="field-name">Title</div><div class="field-value">Assemble the portable snack pots</div></div>
-<div class="array-block" data-json-path="$.procedure[4].depends_on">
-<h3>Depends On</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[4].depends_on[0]">STEP_02</div>
-<div class="scalar-array-item" data-json-path="$.procedure[4].depends_on[1]">STEP_04</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[4].parallel_group"><div class="field-name">Parallel Group</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="array-block" data-json-path="$.procedure[4].ingredient_ids">
-<h3>Ingredient Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[4].ingredient_ids[0]">clementines</div>
-<div class="scalar-array-item" data-json-path="$.procedure[4].ingredient_ids[1]">pistachios_unsalted</div>
-<div class="scalar-array-item" data-json-path="$.procedure[4].ingredient_ids[2]">pumpkin_seeds</div>
-<div class="scalar-array-item" data-json-path="$.procedure[4].ingredient_ids[3]">maple_syrup</div>
-<div class="scalar-array-item" data-json-path="$.procedure[4].ingredient_ids[4]">cinnamon_ground</div>
-<div class="scalar-array-item" data-json-path="$.procedure[4].ingredient_ids[5]">fine_salt</div>
-</div>
-</div>
-<div class="array-block" data-json-path="$.procedure[4].equipment_ids">
-<h3>Equipment Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[4].equipment_ids[0]">lidded_containers</div>
-<div class="scalar-array-item" data-json-path="$.procedure[4].equipment_ids[1]">kitchen_scales</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[4].instruction"><div class="field-name">Instruction</div><div class="field-value">Place the bowl containing the cooled nut-and-seed mixture on the kitchen scales and determine its total finished mass. Divide the mixture equally between the 2 snack pots, placing approximately half over each portion of clementine. Fit the lids securely. Keep the pots upright during transport.</div></div>
-<div class="field-row" data-json-path="$.procedure[4].heat_source"><div class="field-name">Heat Source</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[4].heat_level"><div class="field-name">Heat Level</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[4].temperature_c"><div class="field-name">Temperature C</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[4].duration_min_minutes"><div class="field-name">Duration Min Minutes</div><div class="field-value">2</div></div>
-<div class="field-row" data-json-path="$.procedure[4].duration_max_minutes"><div class="field-name">Duration Max Minutes</div><div class="field-value">3</div></div>
-<div class="field-row" data-json-path="$.procedure[4].endpoint"><div class="field-name">Endpoint</div><div class="field-value">Both pots contain equal portions of clementine and toasted nut-and-seed topping, the topping is cool before sealing, and the lids are fully secured for transport.</div></div>
-<div class="array-block" data-json-path="$.procedure[4].corrective_actions">
-<h3>Corrective Actions</h3>
-<div class="array-items">
-<article class="array-item" data-json-path="$.procedure[4].corrective_actions[0]">
-<div class="item-number">Item 1</div>
-<div class="field-row" data-json-path="$.procedure[4].corrective_actions[0].condition"><div class="field-name">Condition</div><div class="field-value">One pot contains visibly more nut-and-seed mixture than the other.</div></div>
-<div class="field-row" data-json-path="$.procedure[4].corrective_actions[0].action"><div class="field-name">Action</div><div class="field-value">Use the kitchen scales to transfer small amounts between pots until the topping is divided approximately equally.</div></div>
-</article>
-<article class="array-item" data-json-path="$.procedure[4].corrective_actions[1]">
-<div class="item-number">Item 2</div>
-<div class="field-row" data-json-path="$.procedure[4].corrective_actions[1].condition"><div class="field-name">Condition</div><div class="field-value">The clementines have released visible juice during assembly.</div></div>
-<div class="field-row" data-json-path="$.procedure[4].corrective_actions[1].action"><div class="field-name">Action</div><div class="field-value">Keep the toasted topping concentrated on the upper surface rather than mixing it through the fruit, limiting prolonged contact with the liquid.</div></div>
-</article>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[4].critical"><div class="field-name">Critical</div><div class="field-value"><span class="boolean-value">false</span></div></div>
-</article>
-</div>
-</div></section>
-<section class="top-section" data-json-path="$.plating"><h2>Plating</h2><div class="array-block" data-json-path="$.plating">
-<div class="array-items">
-<article class="array-item" data-json-path="$.plating[0]">
-<div class="item-number">Item 1</div>
-<div class="field-row" data-json-path="$.plating[0].step_id"><div class="field-name">Step Id</div><div class="field-value">PLATE_01</div></div>
-<div class="field-row" data-json-path="$.plating[0].instruction"><div class="field-name">Instruction</div><div class="field-value">Serve one chilled snack pot per person. For maximum textural contrast, stir only immediately before eating so the juicy clementine segments and crisp toasted pistachio-pumpkin seed mixture remain distinct for as long as possible.</div></div>
-</article>
-</div>
-</div></section>
-<section class="top-section" data-json-path="$.storage"><h2>Storage</h2><div class="object-content" data-json-path="$.storage">
-<div class="field-row" data-json-path="$.storage.refrigerator_days"><div class="field-name">Refrigerator Days</div><div class="field-value">1</div></div>
-<div class="field-row" data-json-path="$.storage.freezer_months"><div class="field-name">Freezer Months</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.storage.storage_instructions"><div class="field-name">Storage Instructions</div><div class="field-value">Refrigerate the assembled pots at 5°C or below and consume within 24 hours. The snack is suitable for transport to work or on a car journey; keep chilled in an insulated lunch bag with an ice pack if it will be outside refrigeration for an extended period. For maximum crunch, the toasted pistachio and pumpkin seed mixture may instead be stored separately in a sealed dry container and added immediately before eating.</div></div>
-<div class="array-block" data-json-path="$.storage.reheating_methods">
-<h3>Reheating Methods</h3>
-<div class="empty-value">[ ]</div>
-</div>
-</div></section>
-<section class="top-section" data-json-path="$.shopping"><h2>Shopping</h2><div class="object-content" data-json-path="$.shopping">
-<div class="array-block" data-json-path="$.shopping.sainsburys">
-<h3>Sainsburys</h3>
-<div class="empty-value">[ ]</div>
-</div>
-<div class="array-block" data-json-path="$.shopping.marks_and_spencer">
-<h3>Marks And Spencer</h3>
-<div class="empty-value">[ ]</div>
-</div>
-<div class="array-block" data-json-path="$.shopping.either_retailer">
-<h3>Either Retailer</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[0]">Clementines: buy 2</div>
-<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[1]">Unsalted shelled pistachios: buy 1 standard packet containing at least 32 g</div>
-<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[2]">Pumpkin seeds: buy 1 standard packet containing at least 20 g</div>
-<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[3]">Pure maple syrup: buy 1 small bottle</div>
-<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[4]">Ground cinnamon: buy 1 jar</div>
-<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[5]">Fine salt: buy 1 standard container</div>
-</div>
-</div>
-</div></section>
-<section class="top-section" data-json-path="$.quality_checks"><h2>Quality Checks</h2><div class="object-content" data-json-path="$.quality_checks">
-<div class="field-row" data-json-path="$.quality_checks.protein_requirement_met"><div class="field-name">Protein Requirement Met</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.quality_checks.protein_g_per_serving"><div class="field-name">Protein G Per Serving</div><div class="field-value">6</div></div>
-<div class="array-block" data-json-path="$.quality_checks.restaurant_quality_features">
-<h3>Restaurant Quality Features</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.quality_checks.restaurant_quality_features[0]">Dry-toasting the pistachios and pumpkin seeds develops nuttier flavour and a crisper texture than using them directly from the packet.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.restaurant_quality_features[1]">A restrained maple glaze helps cinnamon and salt adhere while avoiding an excessively sweet or sticky snack.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.restaurant_quality_features[2]">Fine salt is deliberately included to sharpen the natural sweetness and acidity of the clementine.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.restaurant_quality_features[3]">Cooling the toasted topping completely before sealing reduces condensation and helps preserve crunch.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.restaurant_quality_features[4]">Keeping the juicy fruit and crisp topping texturally distinct provides contrast despite the recipe&#x27;s simplicity.</div>
-</div>
-</div>
-<div class="array-block" data-json-path="$.quality_checks.nutrition_notes">
-<h3>Nutrition Notes</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.quality_checks.nutrition_notes[0]">Estimated nutrition represents one complete snack pot including clementine, pistachios, pumpkin seeds, maple syrup, cinnamon and salt.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.nutrition_notes[1]">This recipe is designed as a morning snack at approximately 200 kcal per serving.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.nutrition_notes[2]">The general 30 g protein target does not apply to morning snacks under the meal-plan rules; the approximately 6 g protein per serving is therefore compliant with the specified snack requirements.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.nutrition_notes[3]">Most of the fat is naturally occurring unsaturated fat from pistachios and pumpkin seeds.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.nutrition_notes[4]">Nutrition values are estimates and will vary with the size of the clementines and the exact supermarket products used.</div>
-</div>
-</div>
-<div class="array-block" data-json-path="$.quality_checks.critical_success_factors">
-<h3>Critical Success Factors</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.quality_checks.critical_success_factors[0]">Do not over-toast the pistachios or pumpkin seeds; their relatively high oil content allows them to move rapidly from toasted to burnt.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.critical_success_factors[1]">Apply the maple syrup only after removing the toasted mixture from direct heat to reduce the risk of scorching the sugars.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.critical_success_factors[2]">Cool the nut-and-seed mixture completely before sealing the pots.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.critical_success_factors[3]">Avoid compressing or heavily mixing the clementine segments because released juice will soften the toasted topping.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.critical_success_factors[4]">For journeys substantially longer than normal commuting time, transport the pots in an insulated bag with an ice pack.</div>
-</div>
-</div>
-</div></section>
 
-<section class="integrity">
 
-    <strong>Source integrity</strong>
-
-    <div>
-        Source JSON SHA-256:
-        <code>de97e796002e68f2e6a1f2e6b6d87a49eb3624c449cfec60f3d0269853646d1d</code>
+<details class="section non-method" open>
+    <summary>Ingredients</summary>
+    <div class="section-content ingredient-grid">
+        <article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Clementines</strong>
+<span class="ingredient-quantity">2</span>
+</div>
+<div class="subline"><strong>Buy:</strong> Buy: 2 clementines</div>
+<div class="subline"><strong>Prep:</strong> Wash and dry before peeling. Peel completely, separate into individual segments and remove any loose white pith and seeds.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Unsalted shelled pistachios</strong>
+<span class="ingredient-quantity">32 g</span>
+</div>
+<div class="subline"><strong>Buy:</strong> Buy: 1 standard packet containing at least 32 g</div>
+<div class="subline"><strong>Prep:</strong> Inspect for shell fragments, then roughly chop into pieces approximately 4-6 mm across.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Pumpkin seeds</strong>
+<span class="ingredient-quantity">20 g</span>
+</div>
+<div class="subline"><strong>Buy:</strong> Buy: 1 standard packet containing at least 20 g</div>
+<div class="subline"><strong>Prep:</strong> Inspect and remove any foreign material before toasting.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Pure maple syrup</strong>
+<span class="ingredient-quantity">1 tsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> Buy: 1 small bottle</div>
+<div class="subline"><strong>Prep:</strong> Measure immediately before glazing the toasted nuts and seeds.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Ground cinnamon</strong>
+<span class="ingredient-quantity">¼ tsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> Buy: 1 jar</div>
+<div class="subline"><strong>Prep:</strong> Measure before beginning the toasting stage.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Fine salt</strong>
+<span class="ingredient-quantity">1/16 tsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> Buy: 1 standard container</div>
+<div class="subline"><strong>Prep:</strong> Measure accurately before use.</div>
+</article>
     </div>
-
-    <div>
-        JSON paths checked:
-        <code>352</code>
-    </div>
-
-    <div>
-        Missing JSON paths:
-        <code>0</code>
-    </div>
-
-</section>
-
-<details>
-
-<summary>
-Original source JSON
-</summary>
-
-<pre>{
-  &quot;schema_version&quot;: &quot;1.0&quot;,
-  &quot;recipe&quot;: {
-    &quot;id&quot;: &quot;clementine_pistachio_pumpkin_seed_snack_pots&quot;,
-    &quot;title&quot;: &quot;Clementine, Pistachio &amp; Pumpkin Seed Snack Pots&quot;,
-    &quot;description&quot;: &quot;Portable morning snack pots combining fresh clementine segments with lightly toasted pistachios and pumpkin seeds, finished with a restrained maple-cinnamon glaze and a small amount of salt for contrast.&quot;,
-    &quot;servings&quot;: 2,
-    &quot;difficulty&quot;: &quot;Easy&quot;,
-    &quot;total_time_minutes&quot;: 20,
-    &quot;active_time_minutes&quot;: 12,
-    &quot;passive_time_minutes&quot;: 8,
-    &quot;cuisine&quot;: [
-      &quot;Contemporary&quot;,
-      &quot;British&quot;
-    ],
-    &quot;meal_types&quot;: [
-      &quot;Morning snack&quot;
-    ],
-    &quot;dietary_tags&quot;: [
-      &quot;Vegetarian&quot;,
-      &quot;Vegan&quot;,
-      &quot;Portable&quot;,
-      &quot;High fibre&quot;
-    ],
-    &quot;allergens&quot;: [
-      &quot;Pistachios&quot;
-    ]
-  },
-  &quot;nutrition_per_serving&quot;: {
-    &quot;energy_kcal&quot;: 190,
-    &quot;protein_g&quot;: 6,
-    &quot;carbohydrate_g&quot;: 16,
-    &quot;fat_g&quot;: 13,
-    &quot;saturated_fat_g&quot;: 2,
-    &quot;fibre_g&quot;: 4,
-    &quot;salt_g&quot;: 0.1
-  },
-  &quot;ingredients&quot;: [
-    {
-      &quot;ingredient_id&quot;: &quot;clementines&quot;,
-      &quot;display_name&quot;: &quot;Clementines&quot;,
-      &quot;category&quot;: &quot;Fruit&quot;,
-      &quot;required&quot;: true,
-      &quot;quantity_used&quot;: 2,
-      &quot;unit_used&quot;: &quot;integer&quot;,
-      &quot;purchase_quantity&quot;: &quot;Buy: 2 clementines&quot;,
-      &quot;purchase_notes&quot;: &quot;Choose firm, fragrant clementines with intact skin and no soft or mouldy areas.&quot;,
-      &quot;retailers&quot;: [
-        &quot;Sainsbury&#x27;s&quot;,
-        &quot;Marks &amp; Spencer&quot;
-      ],
-      &quot;preparation&quot;: &quot;Wash and dry before peeling. Peel completely, separate into individual segments and remove any loose white pith and seeds.&quot;,
-      &quot;notes&quot;: &quot;Use: 2 whole clementines, approximately 1 per serving. Exact edible weight varies naturally and does not scale perfectly by mass.&quot;
-    },
-    {
-      &quot;ingredient_id&quot;: &quot;pistachios_unsalted&quot;,
-      &quot;display_name&quot;: &quot;Unsalted shelled pistachios&quot;,
-      &quot;category&quot;: &quot;Nuts&quot;,
-      &quot;required&quot;: true,
-      &quot;quantity_used&quot;: 32,
-      &quot;unit_used&quot;: &quot;g&quot;,
-      &quot;purchase_quantity&quot;: &quot;Buy: 1 standard packet containing at least 32 g&quot;,
-      &quot;purchase_notes&quot;: &quot;Use plain unsalted shelled pistachios. Retail pack size may vary.&quot;,
-      &quot;retailers&quot;: [
-        &quot;Sainsbury&#x27;s&quot;,
-        &quot;Marks &amp; Spencer&quot;
-      ],
-      &quot;preparation&quot;: &quot;Inspect for shell fragments, then roughly chop into pieces approximately 4-6 mm across.&quot;,
-      &quot;notes&quot;: &quot;Use: 32 g total, 16 g per serving.&quot;
-    },
-    {
-      &quot;ingredient_id&quot;: &quot;pumpkin_seeds&quot;,
-      &quot;display_name&quot;: &quot;Pumpkin seeds&quot;,
-      &quot;category&quot;: &quot;Seeds&quot;,
-      &quot;required&quot;: true,
-      &quot;quantity_used&quot;: 20,
-      &quot;unit_used&quot;: &quot;g&quot;,
-      &quot;purchase_quantity&quot;: &quot;Buy: 1 standard packet containing at least 20 g&quot;,
-      &quot;purchase_notes&quot;: &quot;Use plain, unsalted pumpkin seeds. Retail pack size may vary.&quot;,
-      &quot;retailers&quot;: [
-        &quot;Sainsbury&#x27;s&quot;,
-        &quot;Marks &amp; Spencer&quot;
-      ],
-      &quot;preparation&quot;: &quot;Inspect and remove any foreign material before toasting.&quot;,
-      &quot;notes&quot;: &quot;Use: 20 g total, 10 g per serving.&quot;
-    },
-    {
-      &quot;ingredient_id&quot;: &quot;maple_syrup&quot;,
-      &quot;display_name&quot;: &quot;Pure maple syrup&quot;,
-      &quot;category&quot;: &quot;Sweeteners&quot;,
-      &quot;required&quot;: true,
-      &quot;quantity_used&quot;: 1,
-      &quot;unit_used&quot;: &quot;tsp&quot;,
-      &quot;purchase_quantity&quot;: &quot;Buy: 1 small bottle&quot;,
-      &quot;purchase_notes&quot;: &quot;Use pure maple syrup rather than maple-flavoured syrup where available.&quot;,
-      &quot;retailers&quot;: [
-        &quot;Sainsbury&#x27;s&quot;,
-        &quot;Marks &amp; Spencer&quot;
-      ],
-      &quot;preparation&quot;: &quot;Measure immediately before glazing the toasted nuts and seeds.&quot;,
-      &quot;notes&quot;: &quot;Use: 1 tsp total. The small quantity is intended to create a light glaze rather than a sweet coating.&quot;
-    },
-    {
-      &quot;ingredient_id&quot;: &quot;cinnamon_ground&quot;,
-      &quot;display_name&quot;: &quot;Ground cinnamon&quot;,
-      &quot;category&quot;: &quot;Spices&quot;,
-      &quot;required&quot;: true,
-      &quot;quantity_used&quot;: 0.25,
-      &quot;unit_used&quot;: &quot;tsp&quot;,
-      &quot;purchase_quantity&quot;: &quot;Buy: 1 jar&quot;,
-      &quot;purchase_notes&quot;: &quot;Standard ground cinnamon is suitable.&quot;,
-      &quot;retailers&quot;: [
-        &quot;Sainsbury&#x27;s&quot;,
-        &quot;Marks &amp; Spencer&quot;
-      ],
-      &quot;preparation&quot;: &quot;Measure before beginning the toasting stage.&quot;,
-      &quot;notes&quot;: &quot;Use: 0.25 tsp total.&quot;
-    },
-    {
-      &quot;ingredient_id&quot;: &quot;fine_salt&quot;,
-      &quot;display_name&quot;: &quot;Fine salt&quot;,
-      &quot;category&quot;: &quot;Seasoning&quot;,
-      &quot;required&quot;: true,
-      &quot;quantity_used&quot;: 0.0625,
-      &quot;unit_used&quot;: &quot;tsp&quot;,
-      &quot;purchase_quantity&quot;: &quot;Buy: 1 standard container&quot;,
-      &quot;purchase_notes&quot;: &quot;Fine table salt or fine sea salt is suitable.&quot;,
-      &quot;retailers&quot;: [
-        &quot;Sainsbury&#x27;s&quot;,
-        &quot;Marks &amp; Spencer&quot;
-      ],
-      &quot;preparation&quot;: &quot;Measure accurately before use.&quot;,
-      &quot;notes&quot;: &quot;Use: 0.0625 tsp total. The small amount balances the sweetness of the fruit and maple syrup.&quot;
-    }
-  ],
-  &quot;equipment&quot;: [
-    {
-      &quot;equipment_id&quot;: &quot;kitchen_scales&quot;,
-      &quot;display_name&quot;: &quot;Kitchen scales&quot;,
-      &quot;required&quot;: true,
-      &quot;notes&quot;: &quot;Required for accurate nut and seed quantities.&quot;
-    },
-    {
-      &quot;equipment_id&quot;: &quot;measuring_spoons&quot;,
-      &quot;display_name&quot;: &quot;Measuring spoons&quot;,
-      &quot;required&quot;: true,
-      &quot;notes&quot;: &quot;For maple syrup, cinnamon and salt.&quot;
-    },
-    {
-      &quot;equipment_id&quot;: &quot;chef_knife&quot;,
-      &quot;display_name&quot;: &quot;Chef&#x27;s knife&quot;,
-      &quot;required&quot;: true,
-      &quot;notes&quot;: &quot;For chopping the pistachios.&quot;
-    },
-    {
-      &quot;equipment_id&quot;: &quot;chopping_board&quot;,
-      &quot;display_name&quot;: &quot;Chopping board&quot;,
-      &quot;required&quot;: true,
-      &quot;notes&quot;: &quot;For safe preparation of the pistachios.&quot;
-    },
-    {
-      &quot;equipment_id&quot;: &quot;frying_pan&quot;,
-      &quot;display_name&quot;: &quot;Small frying pan&quot;,
-      &quot;required&quot;: true,
-      &quot;notes&quot;: &quot;For controlled dry-toasting of the nuts and seeds.&quot;
-    },
-    {
-      &quot;equipment_id&quot;: &quot;gas_hob&quot;,
-      &quot;display_name&quot;: &quot;Gas hob&quot;,
-      &quot;required&quot;: true,
-      &quot;notes&quot;: &quot;Provides responsive heat control during toasting.&quot;
-    },
-    {
-      &quot;equipment_id&quot;: &quot;mixing_bowl&quot;,
-      &quot;display_name&quot;: &quot;Small mixing bowl&quot;,
-      &quot;required&quot;: true,
-      &quot;notes&quot;: &quot;For cooling and coating the toasted pistachios and pumpkin seeds.&quot;
-    },
-    {
-      &quot;equipment_id&quot;: &quot;lidded_containers&quot;,
-      &quot;display_name&quot;: &quot;2 portable lidded snack pots&quot;,
-      &quot;required&quot;: true,
-      &quot;notes&quot;: &quot;Each pot should be sufficiently large to hold one clementine and half of the nut-and-seed mixture without crushing the fruit.&quot;
-    }
-  ],
-  &quot;mise_en_place&quot;: [
-    {
-      &quot;prep_id&quot;: &quot;PREP_01&quot;,
-      &quot;ingredient_ids&quot;: [
-        &quot;clementines&quot;
-      ],
-      &quot;instruction&quot;: &quot;Wash the 2 whole clementines under cold running water and dry them thoroughly. Peel each clementine completely. Separate the fruit into individual segments. Remove loose white pith and discard it. Inspect the segments and remove any seeds encountered without excessively breaking the fruit.&quot;,
-      &quot;endpoint&quot;: &quot;Two peeled clementines are separated into clean, intact segments with loose pith and seeds removed.&quot;
-    },
-    {
-      &quot;prep_id&quot;: &quot;PREP_02&quot;,
-      &quot;ingredient_ids&quot;: [
-        &quot;pistachios_unsalted&quot;
-      ],
-      &quot;instruction&quot;: &quot;Inspect 32 g shelled pistachios and remove any shell fragments. Transfer to a chopping board and use the chef&#x27;s knife to cut the nuts into irregular pieces approximately 4-6 mm across. Do not reduce them to crumbs.&quot;,
-      &quot;endpoint&quot;: &quot;The pistachios are evenly coarse-chopped, with visible pieces large enough to retain crunch.&quot;
-    },
-    {
-      &quot;prep_id&quot;: &quot;PREP_03&quot;,
-      &quot;ingredient_ids&quot;: [
-        &quot;pumpkin_seeds&quot;,
-        &quot;maple_syrup&quot;,
-        &quot;cinnamon_ground&quot;,
-        &quot;fine_salt&quot;
-      ],
-      &quot;instruction&quot;: &quot;Weigh 20 g pumpkin seeds. Measure 1 tsp maple syrup, 0.25 tsp ground cinnamon and 0.0625 tsp fine salt into separate measured quantities so they can be added rapidly after toasting.&quot;,
-      &quot;endpoint&quot;: &quot;All seed and seasoning components are accurately measured and immediately available.&quot;
-    }
-  ],
-  &quot;procedure&quot;: [
-    {
-      &quot;step_id&quot;: &quot;STEP_01&quot;,
-      &quot;section&quot;: &quot;Toasted nut and seed topping&quot;,
-      &quot;title&quot;: &quot;Dry-toast the pistachios and pumpkin seeds&quot;,
-      &quot;depends_on&quot;: [],
-      &quot;parallel_group&quot;: &quot;P01&quot;,
-      &quot;ingredient_ids&quot;: [
-        &quot;pistachios_unsalted&quot;,
-        &quot;pumpkin_seeds&quot;
-      ],
-      &quot;equipment_ids&quot;: [
-        &quot;frying_pan&quot;,
-        &quot;gas_hob&quot;
-      ],
-      &quot;instruction&quot;: &quot;Place the dry frying pan over a low-to-medium gas flame. Add the prepared 32 g pistachios and 20 g pumpkin seeds in a single layer. Stir or shake the pan every 10-15 seconds so all surfaces heat evenly. Continue until the pumpkin seeds begin to produce occasional light popping sounds, the pistachios become slightly deeper green-gold and the mixture develops a distinctly toasted nut aroma.&quot;,
-      &quot;heat_source&quot;: &quot;Gas hob&quot;,
-      &quot;heat_level&quot;: &quot;Low-medium&quot;,
-      &quot;temperature_c&quot;: null,
-      &quot;duration_min_minutes&quot;: 3,
-      &quot;duration_max_minutes&quot;: 5,
-      &quot;endpoint&quot;: &quot;The nuts and seeds smell clearly toasted and aromatic, the pumpkin seeds are lightly golden in places, and no component shows blackened edges or produces smoke.&quot;,
-      &quot;corrective_actions&quot;: [
-        {
-          &quot;condition&quot;: &quot;The nuts or seeds darken rapidly or begin producing smoke.&quot;,
-          &quot;action&quot;: &quot;Immediately remove the pan from the heat and transfer the contents to the mixing bowl. Discard any visibly blackened pieces.&quot;
-        },
-        {
-          &quot;condition&quot;: &quot;Little aroma or colour develops after approximately 5 minutes.&quot;,
-          &quot;action&quot;: &quot;Increase the gas flame slightly and continue in 20-second intervals while stirring continuously until the stated endpoint is achieved.&quot;
-        }
-      ],
-      &quot;critical&quot;: true
-    },
-    {
-      &quot;step_id&quot;: &quot;STEP_02&quot;,
-      &quot;section&quot;: &quot;Fruit preparation&quot;,
-      &quot;title&quot;: &quot;Divide the clementine segments&quot;,
-      &quot;depends_on&quot;: [],
-      &quot;parallel_group&quot;: &quot;P01&quot;,
-      &quot;ingredient_ids&quot;: [
-        &quot;clementines&quot;
-      ],
-      &quot;equipment_ids&quot;: [
-        &quot;lidded_containers&quot;
-      ],
-      &quot;instruction&quot;: &quot;Divide the prepared clementine segments equally between the 2 clean snack pots. Arrange the segments loosely rather than compressing them so the fruit retains its shape and released juice is minimised.&quot;,
-      &quot;heat_source&quot;: null,
-      &quot;heat_level&quot;: null,
-      &quot;temperature_c&quot;: null,
-      &quot;duration_min_minutes&quot;: 1,
-      &quot;duration_max_minutes&quot;: 2,
-      &quot;endpoint&quot;: &quot;Each snack pot contains approximately one clementine&#x27;s worth of intact segments with no excessive pooling of juice.&quot;,
-      &quot;corrective_actions&quot;: [
-        {
-          &quot;condition&quot;: &quot;A clementine has released substantial juice during peeling.&quot;,
-          &quot;action&quot;: &quot;Drain the loose juice before packing so the nut and seed topping is not unnecessarily softened during storage.&quot;
-        }
-      ],
-      &quot;critical&quot;: false
-    },
-    {
-      &quot;step_id&quot;: &quot;STEP_03&quot;,
-      &quot;section&quot;: &quot;Toasted nut and seed topping&quot;,
-      &quot;title&quot;: &quot;Apply the maple-cinnamon seasoning&quot;,
-      &quot;depends_on&quot;: [
-        &quot;STEP_01&quot;
-      ],
-      &quot;parallel_group&quot;: null,
-      &quot;ingredient_ids&quot;: [
-        &quot;maple_syrup&quot;,
-        &quot;cinnamon_ground&quot;,
-        &quot;fine_salt&quot;
-      ],
-      &quot;equipment_ids&quot;: [
-        &quot;mixing_bowl&quot;
-      ],
-      &quot;instruction&quot;: &quot;Immediately transfer the hot toasted pistachios and pumpkin seeds to the mixing bowl. Add 1 tsp maple syrup, 0.25 tsp ground cinnamon and 0.0625 tsp fine salt. Stir continuously for approximately 30-45 seconds until the maple syrup forms a very thin, even coating over the hot nuts and seeds and no concentrated wet patches remain.&quot;,
-      &quot;heat_source&quot;: null,
-      &quot;heat_level&quot;: null,
-      &quot;temperature_c&quot;: null,
-      &quot;duration_min_minutes&quot;: 0.5,
-      &quot;duration_max_minutes&quot;: 1,
-      &quot;endpoint&quot;: &quot;The nut-and-seed mixture is evenly lightly glazed, fragrant with cinnamon and remains predominantly loose rather than forming a sticky mass.&quot;,
-      &quot;corrective_actions&quot;: [
-        {
-          &quot;condition&quot;: &quot;The maple syrup collects in one part of the bowl or forms sticky clumps.&quot;,
-          &quot;action&quot;: &quot;Continue stirring and separating the pieces with the spoon until the coating is redistributed while the mixture is still warm.&quot;
-        },
-        {
-          &quot;condition&quot;: &quot;The mixture appears excessively wet after thorough stirring.&quot;,
-          &quot;action&quot;: &quot;Spread it in a thin layer across the bowl and allow it to cool uncovered; do not add additional nuts or seeds because this would alter the specified quantities.&quot;
-        }
-      ],
-      &quot;critical&quot;: false
-    },
-    {
-      &quot;step_id&quot;: &quot;STEP_04&quot;,
-      &quot;section&quot;: &quot;Cooling&quot;,
-      &quot;title&quot;: &quot;Cool the toasted mixture completely&quot;,
-      &quot;depends_on&quot;: [
-        &quot;STEP_03&quot;
-      ],
-      &quot;parallel_group&quot;: null,
-      &quot;ingredient_ids&quot;: [],
-      &quot;equipment_ids&quot;: [
-        &quot;mixing_bowl&quot;
-      ],
-      &quot;instruction&quot;: &quot;Leave the seasoned pistachio and pumpkin seed mixture uncovered in the mixing bowl at room temperature. Stir once after approximately 3 minutes to break apart any pieces beginning to adhere. Do not seal or add the mixture to the fruit while it remains warm.&quot;,
-      &quot;heat_source&quot;: null,
-      &quot;heat_level&quot;: null,
-      &quot;temperature_c&quot;: null,
-      &quot;duration_min_minutes&quot;: 6,
-      &quot;duration_max_minutes&quot;: 8,
-      &quot;endpoint&quot;: &quot;The mixture has returned to room temperature, feels dry rather than tacky on the surface and the pieces separate readily when stirred.&quot;,
-      &quot;corrective_actions&quot;: [
-        {
-          &quot;condition&quot;: &quot;The mixture remains warm or tacky after 8 minutes.&quot;,
-          &quot;action&quot;: &quot;Spread it more thinly in the bowl and continue cooling in 2-minute intervals until the stated endpoint is reached.&quot;
-        }
-      ],
-      &quot;critical&quot;: true
-    },
-    {
-      &quot;step_id&quot;: &quot;STEP_05&quot;,
-      &quot;section&quot;: &quot;Assembly&quot;,
-      &quot;title&quot;: &quot;Assemble the portable snack pots&quot;,
-      &quot;depends_on&quot;: [
-        &quot;STEP_02&quot;,
-        &quot;STEP_04&quot;
-      ],
-      &quot;parallel_group&quot;: null,
-      &quot;ingredient_ids&quot;: [
-        &quot;clementines&quot;,
-        &quot;pistachios_unsalted&quot;,
-        &quot;pumpkin_seeds&quot;,
-        &quot;maple_syrup&quot;,
-        &quot;cinnamon_ground&quot;,
-        &quot;fine_salt&quot;
-      ],
-      &quot;equipment_ids&quot;: [
-        &quot;lidded_containers&quot;,
-        &quot;kitchen_scales&quot;
-      ],
-      &quot;instruction&quot;: &quot;Place the bowl containing the cooled nut-and-seed mixture on the kitchen scales and determine its total finished mass. Divide the mixture equally between the 2 snack pots, placing approximately half over each portion of clementine. Fit the lids securely. Keep the pots upright during transport.&quot;,
-      &quot;heat_source&quot;: null,
-      &quot;heat_level&quot;: null,
-      &quot;temperature_c&quot;: null,
-      &quot;duration_min_minutes&quot;: 2,
-      &quot;duration_max_minutes&quot;: 3,
-      &quot;endpoint&quot;: &quot;Both pots contain equal portions of clementine and toasted nut-and-seed topping, the topping is cool before sealing, and the lids are fully secured for transport.&quot;,
-      &quot;corrective_actions&quot;: [
-        {
-          &quot;condition&quot;: &quot;One pot contains visibly more nut-and-seed mixture than the other.&quot;,
-          &quot;action&quot;: &quot;Use the kitchen scales to transfer small amounts between pots until the topping is divided approximately equally.&quot;
-        },
-        {
-          &quot;condition&quot;: &quot;The clementines have released visible juice during assembly.&quot;,
-          &quot;action&quot;: &quot;Keep the toasted topping concentrated on the upper surface rather than mixing it through the fruit, limiting prolonged contact with the liquid.&quot;
-        }
-      ],
-      &quot;critical&quot;: false
-    }
-  ],
-  &quot;plating&quot;: [
-    {
-      &quot;step_id&quot;: &quot;PLATE_01&quot;,
-      &quot;instruction&quot;: &quot;Serve one chilled snack pot per person. For maximum textural contrast, stir only immediately before eating so the juicy clementine segments and crisp toasted pistachio-pumpkin seed mixture remain distinct for as long as possible.&quot;
-    }
-  ],
-  &quot;storage&quot;: {
-    &quot;refrigerator_days&quot;: 1,
-    &quot;freezer_months&quot;: null,
-    &quot;storage_instructions&quot;: &quot;Refrigerate the assembled pots at 5°C or below and consume within 24 hours. The snack is suitable for transport to work or on a car journey; keep chilled in an insulated lunch bag with an ice pack if it will be outside refrigeration for an extended period. For maximum crunch, the toasted pistachio and pumpkin seed mixture may instead be stored separately in a sealed dry container and added immediately before eating.&quot;,
-    &quot;reheating_methods&quot;: []
-  },
-  &quot;shopping&quot;: {
-    &quot;sainsburys&quot;: [],
-    &quot;marks_and_spencer&quot;: [],
-    &quot;either_retailer&quot;: [
-      &quot;Clementines: buy 2&quot;,
-      &quot;Unsalted shelled pistachios: buy 1 standard packet containing at least 32 g&quot;,
-      &quot;Pumpkin seeds: buy 1 standard packet containing at least 20 g&quot;,
-      &quot;Pure maple syrup: buy 1 small bottle&quot;,
-      &quot;Ground cinnamon: buy 1 jar&quot;,
-      &quot;Fine salt: buy 1 standard container&quot;
-    ]
-  },
-  &quot;quality_checks&quot;: {
-    &quot;protein_requirement_met&quot;: true,
-    &quot;protein_g_per_serving&quot;: 6,
-    &quot;restaurant_quality_features&quot;: [
-      &quot;Dry-toasting the pistachios and pumpkin seeds develops nuttier flavour and a crisper texture than using them directly from the packet.&quot;,
-      &quot;A restrained maple glaze helps cinnamon and salt adhere while avoiding an excessively sweet or sticky snack.&quot;,
-      &quot;Fine salt is deliberately included to sharpen the natural sweetness and acidity of the clementine.&quot;,
-      &quot;Cooling the toasted topping completely before sealing reduces condensation and helps preserve crunch.&quot;,
-      &quot;Keeping the juicy fruit and crisp topping texturally distinct provides contrast despite the recipe&#x27;s simplicity.&quot;
-    ],
-    &quot;nutrition_notes&quot;: [
-      &quot;Estimated nutrition represents one complete snack pot including clementine, pistachios, pumpkin seeds, maple syrup, cinnamon and salt.&quot;,
-      &quot;This recipe is designed as a morning snack at approximately 200 kcal per serving.&quot;,
-      &quot;The general 30 g protein target does not apply to morning snacks under the meal-plan rules; the approximately 6 g protein per serving is therefore compliant with the specified snack requirements.&quot;,
-      &quot;Most of the fat is naturally occurring unsaturated fat from pistachios and pumpkin seeds.&quot;,
-      &quot;Nutrition values are estimates and will vary with the size of the clementines and the exact supermarket products used.&quot;
-    ],
-    &quot;critical_success_factors&quot;: [
-      &quot;Do not over-toast the pistachios or pumpkin seeds; their relatively high oil content allows them to move rapidly from toasted to burnt.&quot;,
-      &quot;Apply the maple syrup only after removing the toasted mixture from direct heat to reduce the risk of scorching the sugars.&quot;,
-      &quot;Cool the nut-and-seed mixture completely before sealing the pots.&quot;,
-      &quot;Avoid compressing or heavily mixing the clementine segments because released juice will soften the toasted topping.&quot;,
-      &quot;For journeys substantially longer than normal commuting time, transport the pots in an insulated bag with an ice pack.&quot;
-    ]
-  }
-}</pre>
-
 </details>
 
+
+<details class="section non-method">
+    <summary>Equipment</summary>
+    <div class="section-content">
+        <ul class="compact-list">
+            <li>Kitchen scales</li><li>Measuring spoons</li><li>Chef&#x27;s knife</li><li>Chopping board</li><li>Small frying pan</li><li>Gas hob</li><li>Small mixing bowl</li><li>2 portable lidded snack pots</li>
+        </ul>
+    </div>
+</details>
+
+
+<details class="section non-method" open>
+    <summary>Mise en place</summary>
+    <div class="section-content card-stack">
+        <article class="prep-card">
+<h3>Prep 1</h3>
+<p>Wash the 2 whole clementines under cold running water and dry them thoroughly. Peel each clementine completely. Separate the fruit into individual segments. Remove loose white pith and discard it. Inspect the segments and remove any seeds encountered without excessively breaking the fruit.</p>
+<div class="endpoint"><strong>Ready when:</strong> Two peeled clementines are separated into clean, intact segments with loose pith and seeds removed.</div>
+</article><article class="prep-card">
+<h3>Prep 2</h3>
+<p>Inspect 32 g shelled pistachios and remove any shell fragments. Transfer to a chopping board and use the chef&#x27;s knife to cut the nuts into irregular pieces approximately 4-6 mm across. Do not reduce them to crumbs.</p>
+<div class="endpoint"><strong>Ready when:</strong> The pistachios are evenly coarse-chopped, with visible pieces large enough to retain crunch.</div>
+</article><article class="prep-card">
+<h3>Prep 3</h3>
+<p>Weigh 20 g pumpkin seeds. Measure 1 tsp maple syrup, 0.25 tsp ground cinnamon and 0.0625 tsp fine salt into separate measured quantities so they can be added rapidly after toasting.</p>
+<div class="endpoint"><strong>Ready when:</strong> All seed and seasoning components are accurately measured and immediately available.</div>
+</article>
+    </div>
+</details>
+
+
+<section class="section method-section">
+    <h2>Method</h2>
+
+    <div id="methodSteps" class="card-stack">
+        <article class="method-step" data-step-index="0">
+<div class="step-heading">
+<div class="step-number">Step 1</div>
+<h3>Dry-toast the pistachios and pumpkin seeds</h3>
+</div>
+<div class="step-section">Toasted nut and seed topping</div>
+<div class="step-meta"><span class="badge">Heat source: Gas hob</span><span class="badge">Setting: Low-medium</span><span class="badge">Time: 3–5 min</span></div>
+<p class="instruction">Place the dry frying pan over a low-to-medium gas flame. Add the prepared 32 g pistachios and 20 g pumpkin seeds in a single layer. Stir or shake the pan every 10-15 seconds so all surfaces heat evenly. Continue until the pumpkin seeds begin to produce occasional light popping sounds, the pistachios become slightly deeper green-gold and the mixture develops a distinctly toasted nut aroma.</p>
+<div class="endpoint"><strong>Ready when:</strong> The nuts and seeds smell clearly toasted and aromatic, the pumpkin seeds are lightly golden in places, and no component shows blackened edges or produces smoke.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul>
+        <li><strong>If:</strong> The nuts or seeds darken rapidly or begin producing smoke.<br><strong>Do:</strong> Immediately remove the pan from the heat and transfer the contents to the mixing bowl. Discard any visibly blackened pieces.</li><li><strong>If:</strong> Little aroma or colour develops after approximately 5 minutes.<br><strong>Do:</strong> Increase the gas flame slightly and continue in 20-second intervals while stirring continuously until the stated endpoint is achieved.</li>
+    </ul>
+</details>
+
+</article><article class="method-step" data-step-index="1">
+<div class="step-heading">
+<div class="step-number">Step 2</div>
+<h3>Divide the clementine segments</h3>
+</div>
+<div class="step-section">Fruit preparation</div>
+<div class="step-meta"><span class="badge">Time: 1–2 min</span></div>
+<p class="instruction">Divide the prepared clementine segments equally between the 2 clean snack pots. Arrange the segments loosely rather than compressing them so the fruit retains its shape and released juice is minimised.</p>
+<div class="endpoint"><strong>Ready when:</strong> Each snack pot contains approximately one clementine&#x27;s worth of intact segments with no excessive pooling of juice.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul>
+        <li><strong>If:</strong> A clementine has released substantial juice during peeling.<br><strong>Do:</strong> Drain the loose juice before packing so the nut and seed topping is not unnecessarily softened during storage.</li>
+    </ul>
+</details>
+
+</article><article class="method-step" data-step-index="2">
+<div class="step-heading">
+<div class="step-number">Step 3</div>
+<h3>Apply the maple-cinnamon seasoning</h3>
+</div>
+<div class="step-section">Toasted nut and seed topping</div>
+<div class="step-meta"><span class="badge">Time: 0.5–1 min</span></div>
+<p class="instruction">Immediately transfer the hot toasted pistachios and pumpkin seeds to the mixing bowl. Add 1 tsp maple syrup, 0.25 tsp ground cinnamon and 0.0625 tsp fine salt. Stir continuously for approximately 30-45 seconds until the maple syrup forms a very thin, even coating over the hot nuts and seeds and no concentrated wet patches remain.</p>
+<div class="endpoint"><strong>Ready when:</strong> The nut-and-seed mixture is evenly lightly glazed, fragrant with cinnamon and remains predominantly loose rather than forming a sticky mass.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul>
+        <li><strong>If:</strong> The maple syrup collects in one part of the bowl or forms sticky clumps.<br><strong>Do:</strong> Continue stirring and separating the pieces with the spoon until the coating is redistributed while the mixture is still warm.</li><li><strong>If:</strong> The mixture appears excessively wet after thorough stirring.<br><strong>Do:</strong> Spread it in a thin layer across the bowl and allow it to cool uncovered; do not add additional nuts or seeds because this would alter the specified quantities.</li>
+    </ul>
+</details>
+
+</article><article class="method-step" data-step-index="3">
+<div class="step-heading">
+<div class="step-number">Step 4</div>
+<h3>Cool the toasted mixture completely</h3>
+</div>
+<div class="step-section">Cooling</div>
+<div class="step-meta"><span class="badge">Time: 6–8 min</span></div>
+<p class="instruction">Leave the seasoned pistachio and pumpkin seed mixture uncovered in the mixing bowl at room temperature. Stir once after approximately 3 minutes to break apart any pieces beginning to adhere. Do not seal or add the mixture to the fruit while it remains warm.</p>
+<div class="endpoint"><strong>Ready when:</strong> The mixture has returned to room temperature, feels dry rather than tacky on the surface and the pieces separate readily when stirred.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul>
+        <li><strong>If:</strong> The mixture remains warm or tacky after 8 minutes.<br><strong>Do:</strong> Spread it more thinly in the bowl and continue cooling in 2-minute intervals until the stated endpoint is reached.</li>
+    </ul>
+</details>
+
+</article><article class="method-step" data-step-index="4">
+<div class="step-heading">
+<div class="step-number">Step 5</div>
+<h3>Assemble the portable snack pots</h3>
+</div>
+<div class="step-section">Assembly</div>
+<div class="step-meta"><span class="badge">Time: 2–3 min</span></div>
+<p class="instruction">Place the bowl containing the cooled nut-and-seed mixture on the kitchen scales and determine its total finished mass. Divide the mixture equally between the 2 snack pots, placing approximately half over each portion of clementine. Fit the lids securely. Keep the pots upright during transport.</p>
+<div class="endpoint"><strong>Ready when:</strong> Both pots contain equal portions of clementine and toasted nut-and-seed topping, the topping is cool before sealing, and the lids are fully secured for transport.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul>
+        <li><strong>If:</strong> One pot contains visibly more nut-and-seed mixture than the other.<br><strong>Do:</strong> Use the kitchen scales to transfer small amounts between pots until the topping is divided approximately equally.</li><li><strong>If:</strong> The clementines have released visible juice during assembly.<br><strong>Do:</strong> Keep the toasted topping concentrated on the upper surface rather than mixing it through the fruit, limiting prolonged contact with the liquid.</li>
+    </ul>
+</details>
+
+</article>
+    </div>
+
+    <div id="cookControls" class="cook-controls">
+        <button
+            id="previousStep"
+            type="button"
+        >
+            Previous
+        </button>
+
+        <div id="stepCounter"></div>
+
+        <button
+            id="nextStep"
+            type="button"
+        >
+            Next
+        </button>
+    </div>
+</section>
+
+
+<details class="section non-method">
+    <summary>Serving</summary>
+    <div class="section-content">
+        <p>Serve one chilled snack pot per person. For maximum textural contrast, stir only immediately before eating so the juicy clementine segments and crisp toasted pistachio-pumpkin seed mixture remain distinct for as long as possible.</p>
+    </div>
+</details>
+
+
+<details class="section non-method">
+    <summary>Storage & reheating</summary>
+    <div class="section-content">
+        <p><strong>Refrigerator:</strong> 1 days</p><p>Refrigerate the assembled pots at 5°C or below and consume within 24 hours. The snack is suitable for transport to work or on a car journey; keep chilled in an insulated lunch bag with an ice pack if it will be outside refrigeration for an extended period. For maximum crunch, the toasted pistachio and pumpkin seed mixture may instead be stored separately in a sealed dry container and added immediately before eating.</p>
+    </div>
+</details>
+
+
+<details class="section non-method">
+    <summary>Shopping</summary>
+    <div class="section-content">
+        
+            <h3>Either retailer</h3>
+            <ul><li>Clementines: buy 2</li><li>Unsalted shelled pistachios: buy 1 standard packet containing at least 32 g</li><li>Pumpkin seeds: buy 1 standard packet containing at least 20 g</li><li>Pure maple syrup: buy 1 small bottle</li><li>Ground cinnamon: buy 1 jar</li><li>Fine salt: buy 1 standard container</li></ul>
+            
+    </div>
+</details>
+
+
 </main>
+
+
+<script>
+
+(function () {
+
+    const button =
+        document.getElementById(
+            "cookModeButton"
+        );
+
+    const steps =
+        Array.from(
+            document.querySelectorAll(
+                ".method-step"
+            )
+        );
+
+    const controls =
+        document.getElementById(
+            "cookControls"
+        );
+
+    const previous =
+        document.getElementById(
+            "previousStep"
+        );
+
+    const next =
+        document.getElementById(
+            "nextStep"
+        );
+
+    const counter =
+        document.getElementById(
+            "stepCounter"
+        );
+
+    let currentStep = 0;
+
+
+    function showStep(index) {
+
+        if (!steps.length) {
+            return;
+        }
+
+        currentStep =
+            Math.max(
+                0,
+                Math.min(
+                    index,
+                    steps.length - 1
+                )
+            );
+
+        steps.forEach(
+            (step, stepIndex) => {
+
+                step.classList.toggle(
+                    "active",
+                    stepIndex === currentStep
+                );
+
+            }
+        );
+
+        if (counter) {
+
+            counter.textContent =
+                (
+                    "Step "
+                    +
+                    (currentStep + 1)
+                    +
+                    " of "
+                    +
+                    steps.length
+                );
+        }
+
+        if (previous) {
+            previous.disabled =
+                currentStep === 0;
+        }
+
+        if (next) {
+            next.disabled =
+                currentStep ===
+                steps.length - 1;
+        }
+
+        const active =
+            steps[currentStep];
+
+        if (active) {
+
+            active.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+        }
+    }
+
+
+    if (button) {
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                const active =
+                    document.body.classList.toggle(
+                        "cook-mode"
+                    );
+
+                button.textContent =
+                    active
+                        ? "Exit cook mode"
+                        : "Cook mode";
+
+                if (active) {
+                    showStep(
+                        currentStep
+                    );
+                }
+            }
+        );
+    }
+
+
+    if (previous) {
+
+        previous.addEventListener(
+            "click",
+            () => {
+                showStep(
+                    currentStep - 1
+                );
+            }
+        );
+    }
+
+
+    if (next) {
+
+        next.addEventListener(
+            "click",
+            () => {
+                showStep(
+                    currentStep + 1
+                );
+            }
+        );
+    }
+
+
+    if (!steps.length && controls) {
+        controls.style.display = "none";
+    }
+
+})();
+
+</script>
 
 </body>
 

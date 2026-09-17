@@ -7,7 +7,7 @@
 
 <meta
     name="viewport"
-    content="width=device-width, initial-scale=1"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
 >
 
 <title>Kiwi, Greek Yoghurt &amp; Hemp Seed Pots</title>
@@ -15,21 +15,18 @@
 <style>
 
     :root {
-        --page-width: 1100px;
-        --border: #8f8f8f;
-        --page-background: #f2f2f2;
+        --background: #f4f2ec;
+        --panel: #ffffff;
+        --text: #000000;
+        --muted: #555555;
+        --border: #b9b5ad;
+        --accent: #e5f1dd;
+        --endpoint: #fff4c6;
+        --step: #f7f7f4;
     }
 
     * {
         box-sizing: border-box;
-    }
-
-    html {
-        background: var(--page-background);
-    }
-
-    body {
-        margin: 0;
 
         font-family:
             -apple-system,
@@ -39,512 +36,521 @@
             Helvetica,
             Arial,
             sans-serif;
-
-        color: #000000;
-
-        line-height: 1.55;
     }
 
-    h1,
-    h2,
-    h3,
-    h4,
-    p,
-    div,
-    span,
-    code,
-    pre,
-    summary,
-    strong {
-        color: #000000;
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+
+        background: var(--background);
+        color: var(--text);
+    }
+
+    body {
+        min-height: 100vh;
+        min-height: 100dvh;
+    }
+
+    button,
+    input,
+    select,
+    summary {
+        font: inherit;
     }
 
     .page {
         width: min(
-            calc(100% - 32px),
-            var(--page-width)
+            calc(100% - 24px),
+            1050px
         );
 
-        margin:
-            32px
-            auto
-            64px
-            auto;
+        margin: 0 auto;
+
+        padding:
+            max(12px, env(safe-area-inset-top))
+            0
+            max(40px, env(safe-area-inset-bottom))
+            0;
     }
 
-    /* ======================================================
-       Header
-       ====================================================== */
+    .recipe-header {
+        position: sticky;
+        top: 0;
+        z-index: 20;
 
-    .document-header {
-        background: #ffffff;
+        background:
+            rgba(
+                244,
+                242,
+                236,
+                0.96
+            );
 
-        border:
+        backdrop-filter:
+            blur(10px);
+
+        padding:
+            12px
+            0
+            10px
+            0;
+
+        border-bottom:
             1px
             solid
             var(--border);
-
-        border-radius: 14px;
-
-        padding: 32px;
-
-        margin-bottom: 24px;
     }
 
-    .document-header h1 {
+    .title-row {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 12px;
+    }
+
+    h1 {
         margin: 0;
 
         font-size:
             clamp(
-                2rem,
-                4vw,
-                3rem
+                1.65rem,
+                5vw,
+                2.8rem
             );
 
-        line-height: 1.1;
+        line-height: 1.12;
     }
 
-    .schedule-date {
-        margin-top: 18px;
+    .description {
+        margin:
+            12px
+            0
+            0
+            0;
+
+        line-height: 1.5;
+    }
+
+    .scheduled-date {
+        margin-top: 8px;
+        font-weight: 700;
+    }
+
+    .tag-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+
+        margin-top: 10px;
+    }
+
+    .badge {
+        display: inline-block;
 
         padding:
-            12px
-            16px;
+            4px
+            8px;
 
-        border:
-            1px
-            solid
-            #000000;
-
-        border-radius: 8px;
-
-        background: #fff7c7;
-
-        font-size: 1.1rem;
-    }
-
-    /* ======================================================
-       All major JSON sections
-       ====================================================== */
-
-    .top-section {
         border:
             1px
             solid
             var(--border);
 
-        border-radius: 14px;
+        border-radius: 999px;
 
-        padding: 24px;
+        background: #ffffff;
 
-        margin:
-            0
-            0
-            24px
-            0;
+        color: #000000;
+
+        font-size: 0.82rem;
     }
 
-    .top-section > h2 {
-        margin:
-            0
-            0
-            20px
-            0;
+    .allergens {
+        margin-top: 10px;
 
-        padding-bottom: 10px;
+        padding:
+            8px
+            10px;
 
-        border-bottom:
-            2px
-            solid
-            #000000;
+        border-radius: 8px;
 
-        font-size: 1.6rem;
+        background: #ffe4df;
     }
 
-    /*
-       Every major section receives its own background colour.
+    .facts {
+        display: grid;
 
-       Text remains black throughout.
-    */
-
-    .top-section[data-json-path="$.schema_version"] {
-        background: #eeeeee;
-    }
-
-    .top-section[data-json-path="$.recipe"] {
-        background: #ffe8dc;
-    }
-
-    .top-section[data-json-path="$.nutrition_per_serving"] {
-        background: #ddf3e4;
-    }
-
-    .top-section[data-json-path="$.ingredients"] {
-        background: #fff4c9;
-    }
-
-    .top-section[data-json-path="$.equipment"] {
-        background: #dfeeff;
-    }
-
-    .top-section[data-json-path="$.mise_en_place"] {
-        background: #eee2fa;
-    }
-
-    .top-section[data-json-path="$.procedure"] {
-        background: #ffe1e8;
-    }
-
-    .top-section[data-json-path="$.plating"] {
-        background: #daf5f2;
-    }
-
-    .top-section[data-json-path="$.storage"] {
-        background: #ffe9c9;
-    }
-
-    .top-section[data-json-path="$.shopping"] {
-        background: #e4f3d7;
-    }
-
-    .top-section[data-json-path="$.quality_checks"] {
-        background: #eadff5;
-    }
-
-    /* ======================================================
-       Nested objects
-       ====================================================== */
-
-    .object-content {
-        margin: 0;
-    }
-
-    .nested-object {
-        margin:
-            18px
-            0;
-
-        padding: 18px;
-
-        border:
-            1px
-            solid
-            #777777;
-
-        border-radius: 10px;
-
-        background:
-            rgba(
-                255,
-                255,
-                255,
-                0.55
+        grid-template-columns:
+            repeat(
+                auto-fit,
+                minmax(90px, 1fr)
             );
-    }
 
-    .nested-object > h3 {
+        gap: 8px;
+
         margin:
-            0
-            0
             14px
             0;
     }
 
-    /* ======================================================
-       Individual fields
-       ====================================================== */
-
-    .field-row {
+    .fact {
         display: grid;
+        gap: 2px;
 
-        grid-template-columns:
-            minmax(
-                180px,
-                28%
-            )
-            1fr;
-
-        gap: 20px;
-
-        padding:
-            10px
-            0;
-
-        border-bottom:
-            1px
-            solid
-            rgba(
-                0,
-                0,
-                0,
-                0.18
-            );
-    }
-
-    .field-row:last-child {
-        border-bottom: 0;
-    }
-
-    .field-name {
-        font-weight: 700;
-    }
-
-    .field-value {
-        white-space: pre-wrap;
-
-        overflow-wrap: anywhere;
-    }
-
-    .top-scalar-value {
-        font-size: 1.05rem;
-
-        overflow-wrap: anywhere;
-    }
-
-    /* ======================================================
-       Arrays
-       ====================================================== */
-
-    .array-block {
-        margin:
-            10px
-            0
-            20px
-            0;
-    }
-
-    .array-block > h3 {
-        margin-bottom: 12px;
-    }
-
-    .array-items {
-        display: grid;
-
-        gap: 14px;
-    }
-
-    .array-item {
-        padding: 18px;
+        padding: 9px;
 
         border:
             1px
             solid
-            #777777;
+            var(--border);
+
+        border-radius: 9px;
+
+        background: #ffffff;
+    }
+
+    .fact span {
+        font-size: 0.78rem;
+        color: var(--muted);
+    }
+
+    .section {
+        display: block;
+
+        margin-top: 14px;
+
+        border:
+            1px
+            solid
+            var(--border);
+
+        border-radius: 12px;
+
+        background: var(--panel);
+
+        overflow: hidden;
+    }
+
+    details.section > summary {
+        cursor: pointer;
+
+        padding:
+            15px
+            16px;
+
+        font-size: 1.12rem;
+
+        font-weight: 800;
+
+        background: var(--accent);
+    }
+
+    .section-content {
+        padding: 14px;
+    }
+
+    .method-section {
+        padding:
+            14px;
+    }
+
+    .method-section > h2 {
+        margin:
+            0
+            0
+            12px
+            0;
+    }
+
+    .ingredient-grid {
+        display: grid;
+        gap: 10px;
+    }
+
+    .ingredient-card,
+    .prep-card,
+    .method-step {
+        padding: 14px;
+
+        border:
+            1px
+            solid
+            var(--border);
 
         border-radius: 10px;
 
-        background:
-            rgba(
-                255,
-                255,
-                255,
-                0.60
-            );
+        background: var(--step);
     }
 
-    .item-number {
-        font-size: 0.82rem;
+    .ingredient-heading {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 14px;
+    }
 
-        font-weight: 700;
+    .ingredient-quantity {
+        flex: 0 0 auto;
+
+        font-weight: 800;
+
+        white-space: nowrap;
+    }
+
+    .subline {
+        margin-top: 7px;
+        line-height: 1.4;
+    }
+
+    .compact-list {
+        margin:
+            0;
+        padding-left:
+            22px;
+    }
+
+    .card-stack {
+        display: grid;
+        gap: 12px;
+    }
+
+    .prep-card h3,
+    .method-step h3 {
+        margin:
+            0;
+    }
+
+    .prep-card p,
+    .method-step p {
+        margin:
+            10px
+            0;
+    }
+
+    .step-heading {
+        display: flex;
+        align-items: baseline;
+        gap: 10px;
+    }
+
+    .step-number {
+        flex: 0 0 auto;
+
+        font-size: 0.8rem;
+        font-weight: 800;
 
         text-transform: uppercase;
-
-        letter-spacing: 0.06em;
-
-        margin-bottom: 8px;
     }
 
-    .scalar-array-item {
+    .step-section {
+        margin-top: 6px;
+
+        font-size: 0.85rem;
+        font-weight: 700;
+
+        color: var(--muted);
+    }
+
+    .step-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+
+        margin-top: 10px;
+    }
+
+    .instruction {
+        font-size: 1rem;
+        line-height: 1.55;
+    }
+
+    .endpoint {
+        margin-top: 10px;
+
+        padding:
+            10px
+            12px;
+
+        border-left:
+            4px
+            solid
+            #000000;
+
+        background: var(--endpoint);
+
+        line-height: 1.45;
+    }
+
+    .corrective {
+        margin-top: 10px;
+    }
+
+    .corrective summary {
+        cursor: pointer;
+        font-weight: 750;
+    }
+
+    .corrective ul {
+        margin-bottom: 0;
+    }
+
+    .cook-button {
+        flex: 0 0 auto;
+
+        min-height: 42px;
+
         padding:
             8px
             12px;
 
-        border-left:
-            3px
+        border:
+            1px
             solid
             #000000;
 
-        background:
-            rgba(
-                255,
-                255,
-                255,
-                0.55
+        border-radius: 9px;
+
+        background: #000000;
+        color: #ffffff;
+
+        font-weight: 750;
+    }
+
+    .cook-controls {
+        display: none;
+
+        position: sticky;
+
+        bottom:
+            max(
+                8px,
+                env(safe-area-inset-bottom)
             );
 
-        white-space: pre-wrap;
+        z-index: 30;
 
-        overflow-wrap: anywhere;
+        align-items: center;
+
+        justify-content: space-between;
+
+        gap: 10px;
+
+        margin-top: 14px;
+
+        padding: 10px;
+
+        border:
+            1px
+            solid
+            #000000;
+
+        border-radius: 12px;
+
+        background: #ffffff;
     }
 
-    /* ======================================================
-       Special JSON values
-       ====================================================== */
-
-    .null-value {
-        font-style: italic;
-
-        color: #000000;
-    }
-
-    .boolean-value {
-        font-family:
-            ui-monospace,
-            "Cascadia Mono",
-            Consolas,
-            monospace;
-
-        color: #000000;
-    }
-
-    .empty-value {
-        font-family:
-            ui-monospace,
-            "Cascadia Mono",
-            Consolas,
-            monospace;
-
-        color: #000000;
+    .cook-controls button {
+        min-height: 44px;
 
         padding:
             8px
-            0;
-    }
-
-    /* ======================================================
-       Integrity information
-       ====================================================== */
-
-    .integrity {
-        margin-top: 32px;
-
-        background: #eeeeee;
+            14px;
 
         border:
             1px
             solid
-            var(--border);
-
-        border-radius: 10px;
-
-        padding: 18px;
-
-        font-size: 0.9rem;
-    }
-
-    .integrity code {
-        color: #000000;
-
-        overflow-wrap: anywhere;
-    }
-
-    /* ======================================================
-       Original source JSON
-       ====================================================== */
-
-    details {
-        margin-top: 20px;
-
-        background: #ffffff;
-
-        border:
-            1px
-            solid
-            var(--border);
-
-        border-radius: 10px;
-
-        padding: 16px;
-    }
-
-    summary {
-        cursor: pointer;
-
-        font-weight: 700;
-
-        color: #000000;
-    }
-
-    pre {
-        margin-top: 18px;
-
-        overflow-x: auto;
-
-        padding: 18px;
-
-        background: #eeeeee;
-
-        color: #000000;
-
-        border:
-            1px
-            solid
-            #777777;
+            #000000;
 
         border-radius: 8px;
 
-        white-space: pre-wrap;
+        background: #000000;
+        color: #ffffff;
 
-        overflow-wrap: anywhere;
+        font-weight: 750;
     }
 
-    /* ======================================================
-       Mobile layout
-       ====================================================== */
+    body.cook-mode .non-method {
+        display: none;
+    }
 
-    @media (max-width: 700px) {
+    body.cook-mode .method-step {
+        display: none;
+    }
+
+    body.cook-mode .method-step.active {
+        display: block;
+    }
+
+    body.cook-mode .cook-controls {
+        display: flex;
+    }
+
+    body.cook-mode .method-section {
+        min-height:
+            70vh;
+    }
+
+    @media (max-width: 600px) {
 
         .page {
             width:
-                min(
-                    calc(100% - 20px),
-                    var(--page-width)
-                );
-
-            margin-top: 10px;
+                calc(100% - 12px);
         }
 
-        .document-header,
-        .top-section {
-            padding: 18px;
+        .recipe-header {
+            padding-top: 8px;
         }
 
-        .field-row {
+        .title-row {
+            display: grid;
             grid-template-columns: 1fr;
+        }
 
+        .cook-button {
+            width: 100%;
+        }
+
+        .ingredient-heading {
+            display: grid;
+            grid-template-columns: 1fr;
             gap: 3px;
+        }
+
+        .ingredient-quantity {
+            white-space: normal;
+        }
+
+        .method-section,
+        .section-content {
+            padding: 10px;
+        }
+
+        .ingredient-card,
+        .prep-card,
+        .method-step {
+            padding: 12px;
         }
     }
 
-    /* ======================================================
-       Print layout
-       ====================================================== */
-
     @media print {
 
-        html,
-        body {
-            background: #ffffff;
+        .recipe-header {
+            position: static;
         }
 
-        .page {
-            width: 100%;
-
-            margin: 0;
+        .cook-button,
+        .cook-controls {
+            display: none !important;
         }
 
-        .top-section,
-        .array-item {
+        body.cook-mode .non-method,
+        body.cook-mode .method-step {
+            display: block;
+        }
+
+        .section {
             break-inside: avoid;
-        }
-
-        /*
-           Hide the full raw JSON when printing.
-           It remains present in the HTML source.
-        */
-
-        details {
-            display: none;
         }
     }
 
@@ -556,1200 +562,449 @@
 
 <main class="page">
 
-<header class="document-header">
+<header class="recipe-header">
 
-    <h1>Kiwi, Greek Yoghurt &amp; Hemp Seed Pots</h1>
+    <div class="title-row">
+
+        <h1>Kiwi, Greek Yoghurt &amp; Hemp Seed Pots</h1>
+
+        <button
+            id="cookModeButton"
+            class="cook-button"
+            type="button"
+        >
+            Cook mode
+        </button>
+
+    </div>
 
     
 
+    <p class="description">
+        Chilled evening snack pots combining thick Greek yoghurt with fresh lime and vanilla, ripe kiwi and lightly toasted hemp seeds. The kiwi provides bright acidity and juicy texture while the toasted hemp seeds add nutty aroma and gentle crunch.
+    </p>
+
+    <div class="tag-row">
+        <span class="badge">Evening snack</span><span class="badge">Vegetarian</span><span class="badge">High protein</span>
+    </div>
+
+    <div class="allergens"><strong>Allergens:</strong> Milk</div>
+
 </header>
 
-<section class="top-section" data-json-path="$.schema_version"><h2>Schema Version</h2><div class="top-scalar-value" data-json-path="$.schema_version">1.0</div></section>
-<section class="top-section" data-json-path="$.recipe"><h2>Recipe</h2><div class="object-content" data-json-path="$.recipe">
-<div class="field-row" data-json-path="$.recipe.id"><div class="field-name">Id</div><div class="field-value">kiwi_greek_yoghurt_hemp_seed_pots</div></div>
-<div class="field-row" data-json-path="$.recipe.title"><div class="field-name">Title</div><div class="field-value">Kiwi, Greek Yoghurt &amp; Hemp Seed Pots</div></div>
-<div class="field-row" data-json-path="$.recipe.description"><div class="field-name">Description</div><div class="field-value">Chilled evening snack pots combining thick Greek yoghurt with fresh lime and vanilla, ripe kiwi and lightly toasted hemp seeds. The kiwi provides bright acidity and juicy texture while the toasted hemp seeds add nutty aroma and gentle crunch.</div></div>
-<div class="field-row" data-json-path="$.recipe.servings"><div class="field-name">Servings</div><div class="field-value">2</div></div>
-<div class="field-row" data-json-path="$.recipe.difficulty"><div class="field-name">Difficulty</div><div class="field-value">Easy</div></div>
-<div class="field-row" data-json-path="$.recipe.total_time_minutes"><div class="field-name">Total Time Minutes</div><div class="field-value">20</div></div>
-<div class="field-row" data-json-path="$.recipe.active_time_minutes"><div class="field-name">Active Time Minutes</div><div class="field-value">12</div></div>
-<div class="field-row" data-json-path="$.recipe.passive_time_minutes"><div class="field-name">Passive Time Minutes</div><div class="field-value">8</div></div>
-<div class="array-block" data-json-path="$.recipe.cuisine">
-<h3>Cuisine</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.recipe.cuisine[0]">Contemporary</div>
-<div class="scalar-array-item" data-json-path="$.recipe.cuisine[1]">British</div>
+<div class="facts">
+    <div class="fact"><span>Serves</span><strong>2</strong></div><div class="fact"><span>Difficulty</span><strong>Easy</strong></div><div class="fact"><span>Active</span><strong>12 min</strong></div><div class="fact"><span>Total</span><strong>20 min</strong></div><div class="fact"><span>Energy</span><strong>195 kcal</strong></div><div class="fact"><span>Protein</span><strong>17 g</strong></div>
 </div>
-</div>
-<div class="array-block" data-json-path="$.recipe.meal_types">
-<h3>Meal Types</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.recipe.meal_types[0]">Evening snack</div>
-</div>
-</div>
-<div class="array-block" data-json-path="$.recipe.dietary_tags">
-<h3>Dietary Tags</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.recipe.dietary_tags[0]">Vegetarian</div>
-<div class="scalar-array-item" data-json-path="$.recipe.dietary_tags[1]">High protein</div>
-</div>
-</div>
-<div class="array-block" data-json-path="$.recipe.allergens">
-<h3>Allergens</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.recipe.allergens[0]">Milk</div>
-</div>
-</div>
-</div></section>
-<section class="top-section" data-json-path="$.nutrition_per_serving"><h2>Nutrition Per Serving</h2><div class="object-content" data-json-path="$.nutrition_per_serving">
-<div class="field-row" data-json-path="$.nutrition_per_serving.energy_kcal"><div class="field-name">Energy Kcal</div><div class="field-value">195</div></div>
-<div class="field-row" data-json-path="$.nutrition_per_serving.protein_g"><div class="field-name">Protein G</div><div class="field-value">17</div></div>
-<div class="field-row" data-json-path="$.nutrition_per_serving.carbohydrate_g"><div class="field-name">Carbohydrate G</div><div class="field-value">21</div></div>
-<div class="field-row" data-json-path="$.nutrition_per_serving.fat_g"><div class="field-name">Fat G</div><div class="field-value">7</div></div>
-<div class="field-row" data-json-path="$.nutrition_per_serving.saturated_fat_g"><div class="field-name">Saturated Fat G</div><div class="field-value">1</div></div>
-<div class="field-row" data-json-path="$.nutrition_per_serving.fibre_g"><div class="field-name">Fibre G</div><div class="field-value">3</div></div>
-<div class="field-row" data-json-path="$.nutrition_per_serving.salt_g"><div class="field-name">Salt G</div><div class="field-value">0.2</div></div>
-</div></section>
-<section class="top-section" data-json-path="$.ingredients"><h2>Ingredients</h2><div class="array-block" data-json-path="$.ingredients">
-<div class="array-items">
-<article class="array-item" data-json-path="$.ingredients[0]">
-<div class="item-number">Item 1</div>
-<div class="field-row" data-json-path="$.ingredients[0].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">greek_yoghurt_0_percent</div></div>
-<div class="field-row" data-json-path="$.ingredients[0].display_name"><div class="field-name">Display Name</div><div class="field-value">0% Greek yoghurt</div></div>
-<div class="field-row" data-json-path="$.ingredients[0].category"><div class="field-name">Category</div><div class="field-value">Dairy</div></div>
-<div class="field-row" data-json-path="$.ingredients[0].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.ingredients[0].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">260</div></div>
-<div class="field-row" data-json-path="$.ingredients[0].unit_used"><div class="field-name">Unit Used</div><div class="field-value">g</div></div>
-<div class="field-row" data-json-path="$.ingredients[0].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 tub containing at least 260 g</div></div>
-<div class="field-row" data-json-path="$.ingredients[0].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Use plain unsweetened 0% Greek yoghurt, preferably providing approximately 9-10 g protein per 100 g. Exact supermarket tub size varies.</div></div>
-<div class="array-block" data-json-path="$.ingredients[0].retailers">
-<h3>Retailers</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.ingredients[0].retailers[0]">Sainsbury&#x27;s</div>
-<div class="scalar-array-item" data-json-path="$.ingredients[0].retailers[1]">Marks &amp; Spencer</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.ingredients[0].preparation"><div class="field-name">Preparation</div><div class="field-value">Keep refrigerated until assembly.</div></div>
-<div class="field-row" data-json-path="$.ingredients[0].notes"><div class="field-name">Notes</div><div class="field-value">Use: 260 g total, 130 g per serving.</div></div>
-</article>
-<article class="array-item" data-json-path="$.ingredients[1]">
-<div class="item-number">Item 2</div>
-<div class="field-row" data-json-path="$.ingredients[1].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">kiwi_fruit</div></div>
-<div class="field-row" data-json-path="$.ingredients[1].display_name"><div class="field-name">Display Name</div><div class="field-value">Kiwi fruit</div></div>
-<div class="field-row" data-json-path="$.ingredients[1].category"><div class="field-name">Category</div><div class="field-value">Fruit</div></div>
-<div class="field-row" data-json-path="$.ingredients[1].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.ingredients[1].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">2</div></div>
-<div class="field-row" data-json-path="$.ingredients[1].unit_used"><div class="field-name">Unit Used</div><div class="field-value">integer</div></div>
-<div class="field-row" data-json-path="$.ingredients[1].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 2 medium kiwi fruit</div></div>
-<div class="field-row" data-json-path="$.ingredients[1].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Choose ripe kiwi that yield slightly to gentle pressure without being soft or leaking.</div></div>
-<div class="array-block" data-json-path="$.ingredients[1].retailers">
-<h3>Retailers</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.ingredients[1].retailers[0]">Sainsbury&#x27;s</div>
-<div class="scalar-array-item" data-json-path="$.ingredients[1].retailers[1]">Marks &amp; Spencer</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.ingredients[1].preparation"><div class="field-name">Preparation</div><div class="field-value">Wash and dry, trim both ends, peel completely and cut the edible flesh into approximately 10 mm pieces.</div></div>
-<div class="field-row" data-json-path="$.ingredients[1].notes"><div class="field-name">Notes</div><div class="field-value">Recipe assumes approximately 150 g edible kiwi flesh in total.</div></div>
-</article>
-<article class="array-item" data-json-path="$.ingredients[2]">
-<div class="item-number">Item 3</div>
-<div class="field-row" data-json-path="$.ingredients[2].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">hemp_seeds</div></div>
-<div class="field-row" data-json-path="$.ingredients[2].display_name"><div class="field-name">Display Name</div><div class="field-value">Shelled hemp seeds</div></div>
-<div class="field-row" data-json-path="$.ingredients[2].category"><div class="field-name">Category</div><div class="field-value">Seeds</div></div>
-<div class="field-row" data-json-path="$.ingredients[2].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.ingredients[2].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">20</div></div>
-<div class="field-row" data-json-path="$.ingredients[2].unit_used"><div class="field-name">Unit Used</div><div class="field-value">g</div></div>
-<div class="field-row" data-json-path="$.ingredients[2].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 standard packet containing at least 20 g</div></div>
-<div class="field-row" data-json-path="$.ingredients[2].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Use plain shelled hemp seeds or hemp hearts. Exact packet size varies.</div></div>
-<div class="array-block" data-json-path="$.ingredients[2].retailers">
-<h3>Retailers</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.ingredients[2].retailers[0]">Sainsbury&#x27;s</div>
-<div class="scalar-array-item" data-json-path="$.ingredients[2].retailers[1]">Marks &amp; Spencer</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.ingredients[2].preparation"><div class="field-name">Preparation</div><div class="field-value">Inspect for foreign material before lightly toasting.</div></div>
-<div class="field-row" data-json-path="$.ingredients[2].notes"><div class="field-name">Notes</div><div class="field-value">Use: 20 g total, 10 g per serving.</div></div>
-</article>
-<article class="array-item" data-json-path="$.ingredients[3]">
-<div class="item-number">Item 4</div>
-<div class="field-row" data-json-path="$.ingredients[3].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">runny_honey</div></div>
-<div class="field-row" data-json-path="$.ingredients[3].display_name"><div class="field-name">Display Name</div><div class="field-value">Runny honey</div></div>
-<div class="field-row" data-json-path="$.ingredients[3].category"><div class="field-name">Category</div><div class="field-value">Sweeteners</div></div>
-<div class="field-row" data-json-path="$.ingredients[3].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.ingredients[3].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">10</div></div>
-<div class="field-row" data-json-path="$.ingredients[3].unit_used"><div class="field-name">Unit Used</div><div class="field-value">g</div></div>
-<div class="field-row" data-json-path="$.ingredients[3].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 jar or squeeze bottle</div></div>
-<div class="field-row" data-json-path="$.ingredients[3].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Use a mild-flavoured runny honey so the kiwi remains prominent.</div></div>
-<div class="array-block" data-json-path="$.ingredients[3].retailers">
-<h3>Retailers</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.ingredients[3].retailers[0]">Sainsbury&#x27;s</div>
-<div class="scalar-array-item" data-json-path="$.ingredients[3].retailers[1]">Marks &amp; Spencer</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.ingredients[3].preparation"><div class="field-name">Preparation</div><div class="field-value">Measure accurately before mixing.</div></div>
-<div class="field-row" data-json-path="$.ingredients[3].notes"><div class="field-name">Notes</div><div class="field-value">Use: 10 g total, 5 g per serving.</div></div>
-</article>
-<article class="array-item" data-json-path="$.ingredients[4]">
-<div class="item-number">Item 5</div>
-<div class="field-row" data-json-path="$.ingredients[4].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">lime</div></div>
-<div class="field-row" data-json-path="$.ingredients[4].display_name"><div class="field-name">Display Name</div><div class="field-value">Unwaxed lime</div></div>
-<div class="field-row" data-json-path="$.ingredients[4].category"><div class="field-name">Category</div><div class="field-value">Fruit</div></div>
-<div class="field-row" data-json-path="$.ingredients[4].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.ingredients[4].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">1</div></div>
-<div class="field-row" data-json-path="$.ingredients[4].unit_used"><div class="field-name">Unit Used</div><div class="field-value">integer</div></div>
-<div class="field-row" data-json-path="$.ingredients[4].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 lime</div></div>
-<div class="field-row" data-json-path="$.ingredients[4].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">An unwaxed lime is preferred because the zest is used.</div></div>
-<div class="array-block" data-json-path="$.ingredients[4].retailers">
-<h3>Retailers</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.ingredients[4].retailers[0]">Sainsbury&#x27;s</div>
-<div class="scalar-array-item" data-json-path="$.ingredients[4].retailers[1]">Marks &amp; Spencer</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.ingredients[4].preparation"><div class="field-name">Preparation</div><div class="field-value">Wash and dry. Finely grate approximately 1 g green zest, then squeeze 10 ml juice and remove any seeds.</div></div>
-<div class="field-row" data-json-path="$.ingredients[4].notes"><div class="field-name">Notes</div><div class="field-value">Use approximately 1 g zest and 10 ml juice; reserve the remaining lime for another use.</div></div>
-</article>
-<article class="array-item" data-json-path="$.ingredients[5]">
-<div class="item-number">Item 6</div>
-<div class="field-row" data-json-path="$.ingredients[5].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">vanilla_extract</div></div>
-<div class="field-row" data-json-path="$.ingredients[5].display_name"><div class="field-name">Display Name</div><div class="field-value">Vanilla extract</div></div>
-<div class="field-row" data-json-path="$.ingredients[5].category"><div class="field-name">Category</div><div class="field-value">Flavourings</div></div>
-<div class="field-row" data-json-path="$.ingredients[5].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.ingredients[5].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">0.5</div></div>
-<div class="field-row" data-json-path="$.ingredients[5].unit_used"><div class="field-name">Unit Used</div><div class="field-value">tsp</div></div>
-<div class="field-row" data-json-path="$.ingredients[5].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 small bottle if not already stocked</div></div>
-<div class="field-row" data-json-path="$.ingredients[5].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Use vanilla extract rather than artificial vanilla essence where practical.</div></div>
-<div class="array-block" data-json-path="$.ingredients[5].retailers">
-<h3>Retailers</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.ingredients[5].retailers[0]">Sainsbury&#x27;s</div>
-<div class="scalar-array-item" data-json-path="$.ingredients[5].retailers[1]">Marks &amp; Spencer</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.ingredients[5].preparation"><div class="field-name">Preparation</div><div class="field-value">Measure immediately before mixing.</div></div>
-<div class="field-row" data-json-path="$.ingredients[5].notes"><div class="field-name">Notes</div><div class="field-value">Use: 0.5 tsp total.</div></div>
-</article>
-<article class="array-item" data-json-path="$.ingredients[6]">
-<div class="item-number">Item 7</div>
-<div class="field-row" data-json-path="$.ingredients[6].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">fine_salt</div></div>
-<div class="field-row" data-json-path="$.ingredients[6].display_name"><div class="field-name">Display Name</div><div class="field-value">Fine salt</div></div>
-<div class="field-row" data-json-path="$.ingredients[6].category"><div class="field-name">Category</div><div class="field-value">Seasoning</div></div>
-<div class="field-row" data-json-path="$.ingredients[6].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.ingredients[6].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">0.03125</div></div>
-<div class="field-row" data-json-path="$.ingredients[6].unit_used"><div class="field-name">Unit Used</div><div class="field-value">tsp</div></div>
-<div class="field-row" data-json-path="$.ingredients[6].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 standard container if not already stocked</div></div>
-<div class="field-row" data-json-path="$.ingredients[6].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Fine table salt or fine sea salt is suitable.</div></div>
-<div class="array-block" data-json-path="$.ingredients[6].retailers">
-<h3>Retailers</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.ingredients[6].retailers[0]">Sainsbury&#x27;s</div>
-<div class="scalar-array-item" data-json-path="$.ingredients[6].retailers[1]">Marks &amp; Spencer</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.ingredients[6].preparation"><div class="field-name">Preparation</div><div class="field-value">Measure accurately before mixing.</div></div>
-<div class="field-row" data-json-path="$.ingredients[6].notes"><div class="field-name">Notes</div><div class="field-value">Use: 0.03125 tsp total. The very small quantity sharpens the yoghurt, lime and honey flavours without making the snack taste salty.</div></div>
-</article>
-</div>
-</div></section>
-<section class="top-section" data-json-path="$.equipment"><h2>Equipment</h2><div class="array-block" data-json-path="$.equipment">
-<div class="array-items">
-<article class="array-item" data-json-path="$.equipment[0]">
-<div class="item-number">Item 1</div>
-<div class="field-row" data-json-path="$.equipment[0].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">kitchen_scales</div></div>
-<div class="field-row" data-json-path="$.equipment[0].display_name"><div class="field-name">Display Name</div><div class="field-value">Kitchen scales</div></div>
-<div class="field-row" data-json-path="$.equipment[0].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.equipment[0].notes"><div class="field-name">Notes</div><div class="field-value">Used for yoghurt, hemp seed and honey quantities and even portioning.</div></div>
-</article>
-<article class="array-item" data-json-path="$.equipment[1]">
-<div class="item-number">Item 2</div>
-<div class="field-row" data-json-path="$.equipment[1].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">measuring_spoons</div></div>
-<div class="field-row" data-json-path="$.equipment[1].display_name"><div class="field-name">Display Name</div><div class="field-value">Measuring spoons</div></div>
-<div class="field-row" data-json-path="$.equipment[1].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.equipment[1].notes"><div class="field-name">Notes</div><div class="field-value">Used for vanilla extract and salt.</div></div>
-</article>
-<article class="array-item" data-json-path="$.equipment[2]">
-<div class="item-number">Item 3</div>
-<div class="field-row" data-json-path="$.equipment[2].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">chef_knife</div></div>
-<div class="field-row" data-json-path="$.equipment[2].display_name"><div class="field-name">Display Name</div><div class="field-value">Chef&#x27;s knife</div></div>
-<div class="field-row" data-json-path="$.equipment[2].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.equipment[2].notes"><div class="field-name">Notes</div><div class="field-value">Used to prepare the kiwi and lime.</div></div>
-</article>
-<article class="array-item" data-json-path="$.equipment[3]">
-<div class="item-number">Item 4</div>
-<div class="field-row" data-json-path="$.equipment[3].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">chopping_board</div></div>
-<div class="field-row" data-json-path="$.equipment[3].display_name"><div class="field-name">Display Name</div><div class="field-value">Chopping board</div></div>
-<div class="field-row" data-json-path="$.equipment[3].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.equipment[3].notes"><div class="field-name">Notes</div><div class="field-value">Used for fruit preparation.</div></div>
-</article>
-<article class="array-item" data-json-path="$.equipment[4]">
-<div class="item-number">Item 5</div>
-<div class="field-row" data-json-path="$.equipment[4].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">fine_grater</div></div>
-<div class="field-row" data-json-path="$.equipment[4].display_name"><div class="field-name">Display Name</div><div class="field-value">Fine grater or Microplane</div></div>
-<div class="field-row" data-json-path="$.equipment[4].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.equipment[4].notes"><div class="field-name">Notes</div><div class="field-value">Used for lime zest.</div></div>
-</article>
-<article class="array-item" data-json-path="$.equipment[5]">
-<div class="item-number">Item 6</div>
-<div class="field-row" data-json-path="$.equipment[5].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">mixing_bowl</div></div>
-<div class="field-row" data-json-path="$.equipment[5].display_name"><div class="field-name">Display Name</div><div class="field-value">Medium mixing bowl</div></div>
-<div class="field-row" data-json-path="$.equipment[5].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.equipment[5].notes"><div class="field-name">Notes</div><div class="field-value">Used to prepare the flavoured yoghurt.</div></div>
-</article>
-<article class="array-item" data-json-path="$.equipment[6]">
-<div class="item-number">Item 7</div>
-<div class="field-row" data-json-path="$.equipment[6].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">small_bowl</div></div>
-<div class="field-row" data-json-path="$.equipment[6].display_name"><div class="field-name">Display Name</div><div class="field-value">Small bowl</div></div>
-<div class="field-row" data-json-path="$.equipment[6].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.equipment[6].notes"><div class="field-name">Notes</div><div class="field-value">Used to hold the prepared kiwi.</div></div>
-</article>
-<article class="array-item" data-json-path="$.equipment[7]">
-<div class="item-number">Item 8</div>
-<div class="field-row" data-json-path="$.equipment[7].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">frying_pan</div></div>
-<div class="field-row" data-json-path="$.equipment[7].display_name"><div class="field-name">Display Name</div><div class="field-value">Small frying pan</div></div>
-<div class="field-row" data-json-path="$.equipment[7].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.equipment[7].notes"><div class="field-name">Notes</div><div class="field-value">Used to toast the hemp seeds.</div></div>
-</article>
-<article class="array-item" data-json-path="$.equipment[8]">
-<div class="item-number">Item 9</div>
-<div class="field-row" data-json-path="$.equipment[8].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">gas_hob</div></div>
-<div class="field-row" data-json-path="$.equipment[8].display_name"><div class="field-name">Display Name</div><div class="field-value">Gas hob</div></div>
-<div class="field-row" data-json-path="$.equipment[8].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.equipment[8].notes"><div class="field-name">Notes</div><div class="field-value">Used for controlled low-heat hemp seed toasting.</div></div>
-</article>
-<article class="array-item" data-json-path="$.equipment[9]">
-<div class="item-number">Item 10</div>
-<div class="field-row" data-json-path="$.equipment[9].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">lidded_containers</div></div>
-<div class="field-row" data-json-path="$.equipment[9].display_name"><div class="field-name">Display Name</div><div class="field-value">2 individual lidded snack pots</div></div>
-<div class="field-row" data-json-path="$.equipment[9].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.equipment[9].notes"><div class="field-name">Notes</div><div class="field-value">Each pot should comfortably hold one complete serving.</div></div>
-</article>
-</div>
-</div></section>
-<section class="top-section" data-json-path="$.mise_en_place"><h2>Mise En Place</h2><div class="array-block" data-json-path="$.mise_en_place">
-<div class="array-items">
-<article class="array-item" data-json-path="$.mise_en_place[0]">
-<div class="item-number">Item 1</div>
-<div class="field-row" data-json-path="$.mise_en_place[0].prep_id"><div class="field-name">Prep Id</div><div class="field-value">PREP_01</div></div>
-<div class="array-block" data-json-path="$.mise_en_place[0].ingredient_ids">
-<h3>Ingredient Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.mise_en_place[0].ingredient_ids[0]">kiwi_fruit</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.mise_en_place[0].instruction"><div class="field-name">Instruction</div><div class="field-value">Wash and dry the 2 whole kiwi fruit. Trim a thin slice from both ends of each fruit. Remove and discard the skin, then cut the edible flesh into pieces approximately 10 mm across. Transfer the prepared fruit to the small bowl.</div></div>
-<div class="field-row" data-json-path="$.mise_en_place[0].endpoint"><div class="field-name">Endpoint</div><div class="field-value">Approximately 150 g kiwi flesh is peeled and cut into evenly sized pieces with no skin remaining.</div></div>
-</article>
-<article class="array-item" data-json-path="$.mise_en_place[1]">
-<div class="item-number">Item 2</div>
-<div class="field-row" data-json-path="$.mise_en_place[1].prep_id"><div class="field-name">Prep Id</div><div class="field-value">PREP_02</div></div>
-<div class="array-block" data-json-path="$.mise_en_place[1].ingredient_ids">
-<h3>Ingredient Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.mise_en_place[1].ingredient_ids[0]">lime</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.mise_en_place[1].instruction"><div class="field-name">Instruction</div><div class="field-value">Wash and dry the whole lime. Finely grate approximately 1 g of the green outer zest, stopping before significant white pith is removed. Cut the lime and squeeze 10 ml juice, removing any seeds.</div></div>
-<div class="field-row" data-json-path="$.mise_en_place[1].endpoint"><div class="field-name">Endpoint</div><div class="field-value">Approximately 1 g lime zest and 10 ml seed-free lime juice are prepared.</div></div>
-</article>
-<article class="array-item" data-json-path="$.mise_en_place[2]">
-<div class="item-number">Item 3</div>
-<div class="field-row" data-json-path="$.mise_en_place[2].prep_id"><div class="field-name">Prep Id</div><div class="field-value">PREP_03</div></div>
-<div class="array-block" data-json-path="$.mise_en_place[2].ingredient_ids">
-<h3>Ingredient Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.mise_en_place[2].ingredient_ids[0]">greek_yoghurt_0_percent</div>
-<div class="scalar-array-item" data-json-path="$.mise_en_place[2].ingredient_ids[1]">hemp_seeds</div>
-<div class="scalar-array-item" data-json-path="$.mise_en_place[2].ingredient_ids[2]">runny_honey</div>
-<div class="scalar-array-item" data-json-path="$.mise_en_place[2].ingredient_ids[3]">vanilla_extract</div>
-<div class="scalar-array-item" data-json-path="$.mise_en_place[2].ingredient_ids[4]">fine_salt</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.mise_en_place[2].instruction"><div class="field-name">Instruction</div><div class="field-value">Weigh 260 g Greek yoghurt, 20 g shelled hemp seeds and 10 g runny honey. Measure 0.5 tsp vanilla extract and 0.03125 tsp fine salt.</div></div>
-<div class="field-row" data-json-path="$.mise_en_place[2].endpoint"><div class="field-name">Endpoint</div><div class="field-value">All remaining ingredients are accurately measured and ready for immediate use.</div></div>
-</article>
-</div>
-</div></section>
-<section class="top-section" data-json-path="$.procedure"><h2>Procedure</h2><div class="array-block" data-json-path="$.procedure">
-<div class="array-items">
-<article class="array-item" data-json-path="$.procedure[0]">
-<div class="item-number">Item 1</div>
-<div class="field-row" data-json-path="$.procedure[0].step_id"><div class="field-name">Step Id</div><div class="field-value">STEP_01</div></div>
-<div class="field-row" data-json-path="$.procedure[0].section"><div class="field-name">Section</div><div class="field-value">Hemp seed topping</div></div>
-<div class="field-row" data-json-path="$.procedure[0].title"><div class="field-name">Title</div><div class="field-value">Lightly toast the hemp seeds</div></div>
-<div class="array-block" data-json-path="$.procedure[0].depends_on">
-<h3>Depends On</h3>
-<div class="empty-value">[ ]</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[0].parallel_group"><div class="field-name">Parallel Group</div><div class="field-value">P01</div></div>
-<div class="array-block" data-json-path="$.procedure[0].ingredient_ids">
-<h3>Ingredient Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[0].ingredient_ids[0]">hemp_seeds</div>
-</div>
-</div>
-<div class="array-block" data-json-path="$.procedure[0].equipment_ids">
-<h3>Equipment Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[0].equipment_ids[0]">frying_pan</div>
-<div class="scalar-array-item" data-json-path="$.procedure[0].equipment_ids[1]">gas_hob</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[0].instruction"><div class="field-name">Instruction</div><div class="field-value">Place the dry frying pan over low gas heat. Add the 20 g shelled hemp seeds and spread them into an even layer. Stir or shake the pan continuously so the seeds heat evenly and do not remain stationary against the pan.</div></div>
-<div class="field-row" data-json-path="$.procedure[0].heat_source"><div class="field-name">Heat Source</div><div class="field-value">Gas hob</div></div>
-<div class="field-row" data-json-path="$.procedure[0].heat_level"><div class="field-name">Heat Level</div><div class="field-value">Low</div></div>
-<div class="field-row" data-json-path="$.procedure[0].temperature_c"><div class="field-name">Temperature C</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[0].duration_min_minutes"><div class="field-name">Duration Min Minutes</div><div class="field-value">2</div></div>
-<div class="field-row" data-json-path="$.procedure[0].duration_max_minutes"><div class="field-name">Duration Max Minutes</div><div class="field-value">4</div></div>
-<div class="field-row" data-json-path="$.procedure[0].endpoint"><div class="field-name">Endpoint</div><div class="field-value">The hemp seeds smell distinctly nutty, show slight golden colouring and remain loose, with no smoke or dark-brown scorched patches.</div></div>
-<div class="array-block" data-json-path="$.procedure[0].corrective_actions">
-<h3>Corrective Actions</h3>
-<div class="array-items">
-<article class="array-item" data-json-path="$.procedure[0].corrective_actions[0]">
-<div class="item-number">Item 1</div>
-<div class="field-row" data-json-path="$.procedure[0].corrective_actions[0].condition"><div class="field-name">Condition</div><div class="field-value">The hemp seeds darken rapidly or produce smoke.</div></div>
-<div class="field-row" data-json-path="$.procedure[0].corrective_actions[0].action"><div class="field-name">Action</div><div class="field-value">Remove the pan from the heat immediately and transfer the seeds to a cool plate or bowl.</div></div>
-</article>
-<article class="array-item" data-json-path="$.procedure[0].corrective_actions[1]">
-<div class="item-number">Item 2</div>
-<div class="field-row" data-json-path="$.procedure[0].corrective_actions[1].condition"><div class="field-name">Condition</div><div class="field-value">No toasted aroma develops after 4 minutes.</div></div>
-<div class="field-row" data-json-path="$.procedure[0].corrective_actions[1].action"><div class="field-name">Action</div><div class="field-value">Increase the flame slightly and continue stirring continuously in 20-second intervals until the stated endpoint is reached.</div></div>
-</article>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[0].critical"><div class="field-name">Critical</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-</article>
-<article class="array-item" data-json-path="$.procedure[1]">
-<div class="item-number">Item 2</div>
-<div class="field-row" data-json-path="$.procedure[1].step_id"><div class="field-name">Step Id</div><div class="field-value">STEP_02</div></div>
-<div class="field-row" data-json-path="$.procedure[1].section"><div class="field-name">Section</div><div class="field-value">Kiwi layer</div></div>
-<div class="field-row" data-json-path="$.procedure[1].title"><div class="field-name">Title</div><div class="field-value">Season the kiwi</div></div>
-<div class="array-block" data-json-path="$.procedure[1].depends_on">
-<h3>Depends On</h3>
-<div class="empty-value">[ ]</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[1].parallel_group"><div class="field-name">Parallel Group</div><div class="field-value">P01</div></div>
-<div class="array-block" data-json-path="$.procedure[1].ingredient_ids">
-<h3>Ingredient Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[1].ingredient_ids[0]">kiwi_fruit</div>
-<div class="scalar-array-item" data-json-path="$.procedure[1].ingredient_ids[1]">lime</div>
-</div>
-</div>
-<div class="array-block" data-json-path="$.procedure[1].equipment_ids">
-<h3>Equipment Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[1].equipment_ids[0]">small_bowl</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[1].instruction"><div class="field-name">Instruction</div><div class="field-value">Add approximately half of the prepared lime zest and 5 ml of the lime juice to the prepared kiwi. Fold gently 2-3 times to distribute the citrus without crushing the fruit. Leave the fruit undisturbed while the yoghurt base is prepared.</div></div>
-<div class="field-row" data-json-path="$.procedure[1].heat_source"><div class="field-name">Heat Source</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[1].heat_level"><div class="field-name">Heat Level</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[1].temperature_c"><div class="field-name">Temperature C</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[1].duration_min_minutes"><div class="field-name">Duration Min Minutes</div><div class="field-value">2</div></div>
-<div class="field-row" data-json-path="$.procedure[1].duration_max_minutes"><div class="field-name">Duration Max Minutes</div><div class="field-value">5</div></div>
-<div class="field-row" data-json-path="$.procedure[1].endpoint"><div class="field-name">Endpoint</div><div class="field-value">The kiwi pieces remain structurally intact and appear lightly glossy with lime juice, with only a small amount of free fruit liquid in the bowl.</div></div>
-<div class="array-block" data-json-path="$.procedure[1].corrective_actions">
-<h3>Corrective Actions</h3>
-<div class="array-items">
-<article class="array-item" data-json-path="$.procedure[1].corrective_actions[0]">
-<div class="item-number">Item 1</div>
-<div class="field-row" data-json-path="$.procedure[1].corrective_actions[0].condition"><div class="field-name">Condition</div><div class="field-value">The kiwi begins breaking down substantially during mixing.</div></div>
-<div class="field-row" data-json-path="$.procedure[1].corrective_actions[0].action"><div class="field-name">Action</div><div class="field-value">Stop mixing immediately and leave the fruit undisturbed until assembly.</div></div>
-</article>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[1].critical"><div class="field-name">Critical</div><div class="field-value"><span class="boolean-value">false</span></div></div>
-</article>
-<article class="array-item" data-json-path="$.procedure[2]">
-<div class="item-number">Item 3</div>
-<div class="field-row" data-json-path="$.procedure[2].step_id"><div class="field-name">Step Id</div><div class="field-value">STEP_03</div></div>
-<div class="field-row" data-json-path="$.procedure[2].section"><div class="field-name">Section</div><div class="field-value">Hemp seed topping</div></div>
-<div class="field-row" data-json-path="$.procedure[2].title"><div class="field-name">Title</div><div class="field-value">Cool the toasted hemp seeds</div></div>
-<div class="array-block" data-json-path="$.procedure[2].depends_on">
-<h3>Depends On</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[2].depends_on[0]">STEP_01</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[2].parallel_group"><div class="field-name">Parallel Group</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="array-block" data-json-path="$.procedure[2].ingredient_ids">
-<h3>Ingredient Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[2].ingredient_ids[0]">hemp_seeds</div>
-</div>
-</div>
-<div class="array-block" data-json-path="$.procedure[2].equipment_ids">
-<h3>Equipment Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[2].equipment_ids[0]">frying_pan</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[2].instruction"><div class="field-name">Instruction</div><div class="field-value">Remove the frying pan from direct heat and spread the toasted hemp seeds into a thin layer. Leave uncovered so heat and any residual steam can escape.</div></div>
-<div class="field-row" data-json-path="$.procedure[2].heat_source"><div class="field-name">Heat Source</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[2].heat_level"><div class="field-name">Heat Level</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[2].temperature_c"><div class="field-name">Temperature C</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[2].duration_min_minutes"><div class="field-name">Duration Min Minutes</div><div class="field-value">4</div></div>
-<div class="field-row" data-json-path="$.procedure[2].duration_max_minutes"><div class="field-name">Duration Max Minutes</div><div class="field-value">6</div></div>
-<div class="field-row" data-json-path="$.procedure[2].endpoint"><div class="field-name">Endpoint</div><div class="field-value">The hemp seeds are at room temperature, dry and loose before they contact the cold yoghurt.</div></div>
-<div class="array-block" data-json-path="$.procedure[2].corrective_actions">
-<h3>Corrective Actions</h3>
-<div class="array-items">
-<article class="array-item" data-json-path="$.procedure[2].corrective_actions[0]">
-<div class="item-number">Item 1</div>
-<div class="field-row" data-json-path="$.procedure[2].corrective_actions[0].condition"><div class="field-name">Condition</div><div class="field-value">The seeds remain warm after 6 minutes.</div></div>
-<div class="field-row" data-json-path="$.procedure[2].corrective_actions[0].action"><div class="field-name">Action</div><div class="field-value">Transfer them to a cool plate and spread into a thinner layer until fully cooled.</div></div>
-</article>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[2].critical"><div class="field-name">Critical</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-</article>
-<article class="array-item" data-json-path="$.procedure[3]">
-<div class="item-number">Item 4</div>
-<div class="field-row" data-json-path="$.procedure[3].step_id"><div class="field-name">Step Id</div><div class="field-value">STEP_04</div></div>
-<div class="field-row" data-json-path="$.procedure[3].section"><div class="field-name">Section</div><div class="field-value">Yoghurt base</div></div>
-<div class="field-row" data-json-path="$.procedure[3].title"><div class="field-name">Title</div><div class="field-value">Prepare the lime-vanilla Greek yoghurt</div></div>
-<div class="array-block" data-json-path="$.procedure[3].depends_on">
-<h3>Depends On</h3>
-<div class="empty-value">[ ]</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[3].parallel_group"><div class="field-name">Parallel Group</div><div class="field-value">P02</div></div>
-<div class="array-block" data-json-path="$.procedure[3].ingredient_ids">
-<h3>Ingredient Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[3].ingredient_ids[0]">greek_yoghurt_0_percent</div>
-<div class="scalar-array-item" data-json-path="$.procedure[3].ingredient_ids[1]">runny_honey</div>
-<div class="scalar-array-item" data-json-path="$.procedure[3].ingredient_ids[2]">lime</div>
-<div class="scalar-array-item" data-json-path="$.procedure[3].ingredient_ids[3]">vanilla_extract</div>
-<div class="scalar-array-item" data-json-path="$.procedure[3].ingredient_ids[4]">fine_salt</div>
-</div>
-</div>
-<div class="array-block" data-json-path="$.procedure[3].equipment_ids">
-<h3>Equipment Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[3].equipment_ids[0]">mixing_bowl</div>
-<div class="scalar-array-item" data-json-path="$.procedure[3].equipment_ids[1]">kitchen_scales</div>
-<div class="scalar-array-item" data-json-path="$.procedure[3].equipment_ids[2]">measuring_spoons</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[3].instruction"><div class="field-name">Instruction</div><div class="field-value">Place 260 g Greek yoghurt in the mixing bowl. Add 10 g honey, the remaining approximately half of the lime zest, the remaining 5 ml lime juice, 0.5 tsp vanilla extract and 0.03125 tsp fine salt. Stir until completely homogeneous, scraping the base and sides of the bowl.</div></div>
-<div class="field-row" data-json-path="$.procedure[3].heat_source"><div class="field-name">Heat Source</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[3].heat_level"><div class="field-name">Heat Level</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[3].temperature_c"><div class="field-name">Temperature C</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[3].duration_min_minutes"><div class="field-name">Duration Min Minutes</div><div class="field-value">1</div></div>
-<div class="field-row" data-json-path="$.procedure[3].duration_max_minutes"><div class="field-name">Duration Max Minutes</div><div class="field-value">2</div></div>
-<div class="field-row" data-json-path="$.procedure[3].endpoint"><div class="field-name">Endpoint</div><div class="field-value">The yoghurt is smooth, glossy and uniformly flavoured, with no concentrated honey streaks or unmixed zest.</div></div>
-<div class="array-block" data-json-path="$.procedure[3].corrective_actions">
-<h3>Corrective Actions</h3>
-<div class="array-items">
-<article class="array-item" data-json-path="$.procedure[3].corrective_actions[0]">
-<div class="item-number">Item 1</div>
-<div class="field-row" data-json-path="$.procedure[3].corrective_actions[0].condition"><div class="field-name">Condition</div><div class="field-value">The yoghurt appears unusually stiff.</div></div>
-<div class="field-row" data-json-path="$.procedure[3].corrective_actions[0].action"><div class="field-name">Action</div><div class="field-value">Continue stirring vigorously for approximately 20 seconds before making any adjustment; do not add unlisted liquid because the kiwi will supply additional moisture.</div></div>
-</article>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[3].critical"><div class="field-name">Critical</div><div class="field-value"><span class="boolean-value">false</span></div></div>
-</article>
-<article class="array-item" data-json-path="$.procedure[4]">
-<div class="item-number">Item 5</div>
-<div class="field-row" data-json-path="$.procedure[4].step_id"><div class="field-name">Step Id</div><div class="field-value">STEP_05</div></div>
-<div class="field-row" data-json-path="$.procedure[4].section"><div class="field-name">Section</div><div class="field-value">Assembly</div></div>
-<div class="field-row" data-json-path="$.procedure[4].title"><div class="field-name">Title</div><div class="field-value">Layer the evening snack pots</div></div>
-<div class="array-block" data-json-path="$.procedure[4].depends_on">
-<h3>Depends On</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[4].depends_on[0]">STEP_02</div>
-<div class="scalar-array-item" data-json-path="$.procedure[4].depends_on[1]">STEP_03</div>
-<div class="scalar-array-item" data-json-path="$.procedure[4].depends_on[2]">STEP_04</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[4].parallel_group"><div class="field-name">Parallel Group</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="array-block" data-json-path="$.procedure[4].ingredient_ids">
-<h3>Ingredient Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[4].ingredient_ids[0]">greek_yoghurt_0_percent</div>
-<div class="scalar-array-item" data-json-path="$.procedure[4].ingredient_ids[1]">kiwi_fruit</div>
-<div class="scalar-array-item" data-json-path="$.procedure[4].ingredient_ids[2]">hemp_seeds</div>
-<div class="scalar-array-item" data-json-path="$.procedure[4].ingredient_ids[3]">runny_honey</div>
-<div class="scalar-array-item" data-json-path="$.procedure[4].ingredient_ids[4]">lime</div>
-<div class="scalar-array-item" data-json-path="$.procedure[4].ingredient_ids[5]">vanilla_extract</div>
-<div class="scalar-array-item" data-json-path="$.procedure[4].ingredient_ids[6]">fine_salt</div>
-</div>
-</div>
-<div class="array-block" data-json-path="$.procedure[4].equipment_ids">
-<h3>Equipment Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[4].equipment_ids[0]">lidded_containers</div>
-<div class="scalar-array-item" data-json-path="$.procedure[4].equipment_ids[1]">kitchen_scales</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[4].instruction"><div class="field-name">Instruction</div><div class="field-value">Divide approximately half of the lime-vanilla yoghurt equally between the 2 snack pots. Divide the prepared kiwi, including any small quantity of released juice, equally over the yoghurt. Add the remaining yoghurt equally on top. Finish each pot with half of the completely cooled toasted hemp seeds. Fit the lids securely.</div></div>
-<div class="field-row" data-json-path="$.procedure[4].heat_source"><div class="field-name">Heat Source</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[4].heat_level"><div class="field-name">Heat Level</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[4].temperature_c"><div class="field-name">Temperature C</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[4].duration_min_minutes"><div class="field-name">Duration Min Minutes</div><div class="field-value">3</div></div>
-<div class="field-row" data-json-path="$.procedure[4].duration_max_minutes"><div class="field-name">Duration Max Minutes</div><div class="field-value">5</div></div>
-<div class="field-row" data-json-path="$.procedure[4].endpoint"><div class="field-name">Endpoint</div><div class="field-value">Both pots contain approximately equal quantities of yoghurt, kiwi and hemp seeds, with visible fruit layers and dry toasted seeds on the surface.</div></div>
-<div class="array-block" data-json-path="$.procedure[4].corrective_actions">
-<h3>Corrective Actions</h3>
-<div class="array-items">
-<article class="array-item" data-json-path="$.procedure[4].corrective_actions[0]">
-<div class="item-number">Item 1</div>
-<div class="field-row" data-json-path="$.procedure[4].corrective_actions[0].condition"><div class="field-name">Condition</div><div class="field-value">One pot is visibly heavier than the other.</div></div>
-<div class="field-row" data-json-path="$.procedure[4].corrective_actions[0].action"><div class="field-name">Action</div><div class="field-value">Use the kitchen scales to transfer small amounts between pots until both filled weights are approximately equal.</div></div>
-</article>
-<article class="array-item" data-json-path="$.procedure[4].corrective_actions[1]">
-<div class="item-number">Item 2</div>
-<div class="field-row" data-json-path="$.procedure[4].corrective_actions[1].condition"><div class="field-name">Condition</div><div class="field-value">The toasted hemp seeds are still warm.</div></div>
-<div class="field-row" data-json-path="$.procedure[4].corrective_actions[1].action"><div class="field-name">Action</div><div class="field-value">Do not seal the pots. Remove or hold the seeds separately until they have cooled completely.</div></div>
-</article>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[4].critical"><div class="field-name">Critical</div><div class="field-value"><span class="boolean-value">false</span></div></div>
-</article>
-<article class="array-item" data-json-path="$.procedure[5]">
-<div class="item-number">Item 6</div>
-<div class="field-row" data-json-path="$.procedure[5].step_id"><div class="field-name">Step Id</div><div class="field-value">STEP_06</div></div>
-<div class="field-row" data-json-path="$.procedure[5].section"><div class="field-name">Section</div><div class="field-value">Chilling</div></div>
-<div class="field-row" data-json-path="$.procedure[5].title"><div class="field-name">Title</div><div class="field-value">Chill before serving</div></div>
-<div class="array-block" data-json-path="$.procedure[5].depends_on">
-<h3>Depends On</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[5].depends_on[0]">STEP_05</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[5].parallel_group"><div class="field-name">Parallel Group</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="array-block" data-json-path="$.procedure[5].ingredient_ids">
-<h3>Ingredient Ids</h3>
-<div class="empty-value">[ ]</div>
-</div>
-<div class="array-block" data-json-path="$.procedure[5].equipment_ids">
-<h3>Equipment Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[5].equipment_ids[0]">lidded_containers</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[5].instruction"><div class="field-name">Instruction</div><div class="field-value">Transfer the sealed pots to a refrigerator operating at 5°C or below and chill for at least 10 minutes before serving.</div></div>
-<div class="field-row" data-json-path="$.procedure[5].heat_source"><div class="field-name">Heat Source</div><div class="field-value">Refrigerator</div></div>
-<div class="field-row" data-json-path="$.procedure[5].heat_level"><div class="field-name">Heat Level</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[5].temperature_c"><div class="field-name">Temperature C</div><div class="field-value">5</div></div>
-<div class="field-row" data-json-path="$.procedure[5].duration_min_minutes"><div class="field-name">Duration Min Minutes</div><div class="field-value">10</div></div>
-<div class="field-row" data-json-path="$.procedure[5].duration_max_minutes"><div class="field-name">Duration Max Minutes</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[5].endpoint"><div class="field-name">Endpoint</div><div class="field-value">The pots are fully chilled, the yoghurt remains thick and the kiwi retains identifiable pieces rather than breaking down into the dairy.</div></div>
-<div class="array-block" data-json-path="$.procedure[5].corrective_actions">
-<h3>Corrective Actions</h3>
-<div class="array-items">
-<article class="array-item" data-json-path="$.procedure[5].corrective_actions[0]">
-<div class="item-number">Item 1</div>
-<div class="field-row" data-json-path="$.procedure[5].corrective_actions[0].condition"><div class="field-name">Condition</div><div class="field-value">A noticeable layer of kiwi juice accumulates during chilling.</div></div>
-<div class="field-row" data-json-path="$.procedure[5].corrective_actions[0].action"><div class="field-name">Action</div><div class="field-value">Fold the juice gently into the immediately adjacent yoghurt immediately before eating rather than discarding it.</div></div>
-</article>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[5].critical"><div class="field-name">Critical</div><div class="field-value"><span class="boolean-value">false</span></div></div>
-</article>
-</div>
-</div></section>
-<section class="top-section" data-json-path="$.plating"><h2>Plating</h2><div class="array-block" data-json-path="$.plating">
-<div class="array-items">
-<article class="array-item" data-json-path="$.plating[0]">
-<div class="item-number">Item 1</div>
-<div class="field-row" data-json-path="$.plating[0].step_id"><div class="field-name">Step Id</div><div class="field-value">PLATE_01</div></div>
-<div class="field-row" data-json-path="$.plating[0].instruction"><div class="field-name">Instruction</div><div class="field-value">Serve one chilled pot per person. Eat through the layers rather than completely mixing at the outset so each spoonful can retain contrast between thick lime-vanilla yoghurt, juicy kiwi and nutty toasted hemp seeds.</div></div>
-</article>
-</div>
-</div></section>
-<section class="top-section" data-json-path="$.storage"><h2>Storage</h2><div class="object-content" data-json-path="$.storage">
-<div class="field-row" data-json-path="$.storage.refrigerator_days"><div class="field-name">Refrigerator Days</div><div class="field-value">1</div></div>
-<div class="field-row" data-json-path="$.storage.freezer_months"><div class="field-name">Freezer Months</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.storage.storage_instructions"><div class="field-name">Storage Instructions</div><div class="field-value">Store the covered pots continuously at 5°C or below and consume within 24 hours for best texture. Kiwi contains enzymes that can gradually alter dairy texture during prolonged storage, so these pots are best assembled on the day they are eaten. For maximum hemp-seed crunch, the cooled toasted seeds may be kept separately in a small dry container and scattered over immediately before serving.</div></div>
-<div class="array-block" data-json-path="$.storage.reheating_methods">
-<h3>Reheating Methods</h3>
-<div class="empty-value">[ ]</div>
-</div>
-</div></section>
-<section class="top-section" data-json-path="$.shopping"><h2>Shopping</h2><div class="object-content" data-json-path="$.shopping">
-<div class="array-block" data-json-path="$.shopping.sainsburys">
-<h3>Sainsburys</h3>
-<div class="empty-value">[ ]</div>
-</div>
-<div class="array-block" data-json-path="$.shopping.marks_and_spencer">
-<h3>Marks And Spencer</h3>
-<div class="empty-value">[ ]</div>
-</div>
-<div class="array-block" data-json-path="$.shopping.either_retailer">
-<h3>Either Retailer</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[0]">0% Greek yoghurt: buy 1 tub containing at least 260 g</div>
-<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[1]">Kiwi fruit: buy 2 medium fruit</div>
-<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[2]">Shelled hemp seeds or hemp hearts: buy 1 standard packet containing at least 20 g</div>
-<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[3]">Runny honey: buy 1 jar or squeeze bottle</div>
-<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[4]">Unwaxed lime: buy 1</div>
-<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[5]">Vanilla extract: buy 1 small bottle if not already stocked</div>
-<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[6]">Fine salt: buy 1 standard container if not already stocked</div>
-</div>
-</div>
-</div></section>
-<section class="top-section" data-json-path="$.quality_checks"><h2>Quality Checks</h2><div class="object-content" data-json-path="$.quality_checks">
-<div class="field-row" data-json-path="$.quality_checks.protein_requirement_met"><div class="field-name">Protein Requirement Met</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.quality_checks.protein_g_per_serving"><div class="field-name">Protein G Per Serving</div><div class="field-value">17</div></div>
-<div class="array-block" data-json-path="$.quality_checks.restaurant_quality_features">
-<h3>Restaurant Quality Features</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.quality_checks.restaurant_quality_features[0]">Hemp seeds are lightly toasted to develop a more pronounced nutty aroma and textural contrast than raw seeds.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.restaurant_quality_features[1]">Fresh lime zest provides aromatic citrus character while a controlled quantity of juice sharpens both yoghurt and kiwi.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.restaurant_quality_features[2]">Vanilla and a restrained amount of honey round the acidity without making the snack excessively sweet.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.restaurant_quality_features[3]">A very small measured amount of salt enhances the yoghurt, honey and citrus flavours without becoming perceptibly salty.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.restaurant_quality_features[4]">Kiwi is cut into identifiable pieces and folded only minimally so the finished pots retain fresh fruit texture.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.restaurant_quality_features[5]">The toasted seeds are cooled completely before contact with the yoghurt, helping preserve their texture.</div>
-</div>
-</div>
-<div class="array-block" data-json-path="$.quality_checks.nutrition_notes">
-<h3>Nutrition Notes</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.quality_checks.nutrition_notes[0]">Estimated nutrition represents one complete evening snack pot including Greek yoghurt, kiwi, hemp seeds, honey, lime, vanilla and salt.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.nutrition_notes[1]">The recipe is designed around the approximately 200 kcal evening-snack target.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.nutrition_notes[2]">The general 30 g protein requirement does not apply to evening snacks under the specified meal-plan rules; approximately 17 g protein per serving is therefore compliant.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.nutrition_notes[3]">Greek yoghurt provides most of the protein while hemp seeds contribute additional protein and predominantly unsaturated fat.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.nutrition_notes[4]">Kiwi provides fruit, fibre and vitamin C while allowing added honey to remain limited.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.nutrition_notes[5]">Nutrition values are estimates and will vary with kiwi size and the exact Greek yoghurt and hemp seed products used.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.nutrition_notes[6]">The recipe follows the supplied structured-recipe and evening-snack requirements. </div>
-</div>
-</div>
-<div class="array-block" data-json-path="$.quality_checks.critical_success_factors">
-<h3>Critical Success Factors</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.quality_checks.critical_success_factors[0]">Toast hemp seeds only over low heat and remove them as soon as they become aromatic because their small size makes them easy to scorch.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.critical_success_factors[1]">Cool the toasted hemp seeds completely before adding them to the cold yoghurt.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.critical_success_factors[2]">Use ripe but structurally firm kiwi so the fruit remains in distinct pieces after cutting and chilling.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.critical_success_factors[3]">Do not assemble substantially more than 24 hours ahead because kiwi enzymes can progressively alter dairy texture.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.critical_success_factors[4]">Keep the completed pots continuously refrigerated until serving.</div>
-</div>
-</div>
-</div></section>
 
-<section class="integrity">
 
-    <strong>Source integrity</strong>
-
-    <div>
-        Source JSON SHA-256:
-        <code>6780ff5ba9ea8ecd68240389ecaf3772657aa967d4aba5db6fa1307a143314a4</code>
+<details class="section non-method" open>
+    <summary>Ingredients</summary>
+    <div class="section-content ingredient-grid">
+        <article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>0% Greek yoghurt</strong>
+<span class="ingredient-quantity">260 g</span>
+</div>
+<div class="subline"><strong>Buy:</strong> Buy: 1 tub containing at least 260 g</div>
+<div class="subline"><strong>Prep:</strong> Keep refrigerated until assembly.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Kiwi fruit</strong>
+<span class="ingredient-quantity">2</span>
+</div>
+<div class="subline"><strong>Buy:</strong> Buy: 2 medium kiwi fruit</div>
+<div class="subline"><strong>Prep:</strong> Wash and dry, trim both ends, peel completely and cut the edible flesh into approximately 10 mm pieces.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Shelled hemp seeds</strong>
+<span class="ingredient-quantity">20 g</span>
+</div>
+<div class="subline"><strong>Buy:</strong> Buy: 1 standard packet containing at least 20 g</div>
+<div class="subline"><strong>Prep:</strong> Inspect for foreign material before lightly toasting.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Runny honey</strong>
+<span class="ingredient-quantity">10 g</span>
+</div>
+<div class="subline"><strong>Buy:</strong> Buy: 1 jar or squeeze bottle</div>
+<div class="subline"><strong>Prep:</strong> Measure accurately before mixing.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Unwaxed lime</strong>
+<span class="ingredient-quantity">1</span>
+</div>
+<div class="subline"><strong>Buy:</strong> Buy: 1 lime</div>
+<div class="subline"><strong>Prep:</strong> Wash and dry. Finely grate approximately 1 g green zest, then squeeze 10 ml juice and remove any seeds.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Vanilla extract</strong>
+<span class="ingredient-quantity">½ tsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> Buy: 1 small bottle if not already stocked</div>
+<div class="subline"><strong>Prep:</strong> Measure immediately before mixing.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Fine salt</strong>
+<span class="ingredient-quantity">1/32 tsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> Buy: 1 standard container if not already stocked</div>
+<div class="subline"><strong>Prep:</strong> Measure accurately before mixing.</div>
+</article>
     </div>
-
-    <div>
-        JSON paths checked:
-        <code>404</code>
-    </div>
-
-    <div>
-        Missing JSON paths:
-        <code>0</code>
-    </div>
-
-</section>
-
-<details>
-
-<summary>
-Original source JSON
-</summary>
-
-<pre>{
-  &quot;schema_version&quot;: &quot;1.0&quot;,
-  &quot;recipe&quot;: {
-    &quot;id&quot;: &quot;kiwi_greek_yoghurt_hemp_seed_pots&quot;,
-    &quot;title&quot;: &quot;Kiwi, Greek Yoghurt &amp; Hemp Seed Pots&quot;,
-    &quot;description&quot;: &quot;Chilled evening snack pots combining thick Greek yoghurt with fresh lime and vanilla, ripe kiwi and lightly toasted hemp seeds. The kiwi provides bright acidity and juicy texture while the toasted hemp seeds add nutty aroma and gentle crunch.&quot;,
-    &quot;servings&quot;: 2,
-    &quot;difficulty&quot;: &quot;Easy&quot;,
-    &quot;total_time_minutes&quot;: 20,
-    &quot;active_time_minutes&quot;: 12,
-    &quot;passive_time_minutes&quot;: 8,
-    &quot;cuisine&quot;: [
-      &quot;Contemporary&quot;,
-      &quot;British&quot;
-    ],
-    &quot;meal_types&quot;: [
-      &quot;Evening snack&quot;
-    ],
-    &quot;dietary_tags&quot;: [
-      &quot;Vegetarian&quot;,
-      &quot;High protein&quot;
-    ],
-    &quot;allergens&quot;: [
-      &quot;Milk&quot;
-    ]
-  },
-  &quot;nutrition_per_serving&quot;: {
-    &quot;energy_kcal&quot;: 195,
-    &quot;protein_g&quot;: 17,
-    &quot;carbohydrate_g&quot;: 21,
-    &quot;fat_g&quot;: 7,
-    &quot;saturated_fat_g&quot;: 1,
-    &quot;fibre_g&quot;: 3,
-    &quot;salt_g&quot;: 0.2
-  },
-  &quot;ingredients&quot;: [
-    {
-      &quot;ingredient_id&quot;: &quot;greek_yoghurt_0_percent&quot;,
-      &quot;display_name&quot;: &quot;0% Greek yoghurt&quot;,
-      &quot;category&quot;: &quot;Dairy&quot;,
-      &quot;required&quot;: true,
-      &quot;quantity_used&quot;: 260,
-      &quot;unit_used&quot;: &quot;g&quot;,
-      &quot;purchase_quantity&quot;: &quot;Buy: 1 tub containing at least 260 g&quot;,
-      &quot;purchase_notes&quot;: &quot;Use plain unsweetened 0% Greek yoghurt, preferably providing approximately 9-10 g protein per 100 g. Exact supermarket tub size varies.&quot;,
-      &quot;retailers&quot;: [
-        &quot;Sainsbury&#x27;s&quot;,
-        &quot;Marks &amp; Spencer&quot;
-      ],
-      &quot;preparation&quot;: &quot;Keep refrigerated until assembly.&quot;,
-      &quot;notes&quot;: &quot;Use: 260 g total, 130 g per serving.&quot;
-    },
-    {
-      &quot;ingredient_id&quot;: &quot;kiwi_fruit&quot;,
-      &quot;display_name&quot;: &quot;Kiwi fruit&quot;,
-      &quot;category&quot;: &quot;Fruit&quot;,
-      &quot;required&quot;: true,
-      &quot;quantity_used&quot;: 2,
-      &quot;unit_used&quot;: &quot;integer&quot;,
-      &quot;purchase_quantity&quot;: &quot;Buy: 2 medium kiwi fruit&quot;,
-      &quot;purchase_notes&quot;: &quot;Choose ripe kiwi that yield slightly to gentle pressure without being soft or leaking.&quot;,
-      &quot;retailers&quot;: [
-        &quot;Sainsbury&#x27;s&quot;,
-        &quot;Marks &amp; Spencer&quot;
-      ],
-      &quot;preparation&quot;: &quot;Wash and dry, trim both ends, peel completely and cut the edible flesh into approximately 10 mm pieces.&quot;,
-      &quot;notes&quot;: &quot;Recipe assumes approximately 150 g edible kiwi flesh in total.&quot;
-    },
-    {
-      &quot;ingredient_id&quot;: &quot;hemp_seeds&quot;,
-      &quot;display_name&quot;: &quot;Shelled hemp seeds&quot;,
-      &quot;category&quot;: &quot;Seeds&quot;,
-      &quot;required&quot;: true,
-      &quot;quantity_used&quot;: 20,
-      &quot;unit_used&quot;: &quot;g&quot;,
-      &quot;purchase_quantity&quot;: &quot;Buy: 1 standard packet containing at least 20 g&quot;,
-      &quot;purchase_notes&quot;: &quot;Use plain shelled hemp seeds or hemp hearts. Exact packet size varies.&quot;,
-      &quot;retailers&quot;: [
-        &quot;Sainsbury&#x27;s&quot;,
-        &quot;Marks &amp; Spencer&quot;
-      ],
-      &quot;preparation&quot;: &quot;Inspect for foreign material before lightly toasting.&quot;,
-      &quot;notes&quot;: &quot;Use: 20 g total, 10 g per serving.&quot;
-    },
-    {
-      &quot;ingredient_id&quot;: &quot;runny_honey&quot;,
-      &quot;display_name&quot;: &quot;Runny honey&quot;,
-      &quot;category&quot;: &quot;Sweeteners&quot;,
-      &quot;required&quot;: true,
-      &quot;quantity_used&quot;: 10,
-      &quot;unit_used&quot;: &quot;g&quot;,
-      &quot;purchase_quantity&quot;: &quot;Buy: 1 jar or squeeze bottle&quot;,
-      &quot;purchase_notes&quot;: &quot;Use a mild-flavoured runny honey so the kiwi remains prominent.&quot;,
-      &quot;retailers&quot;: [
-        &quot;Sainsbury&#x27;s&quot;,
-        &quot;Marks &amp; Spencer&quot;
-      ],
-      &quot;preparation&quot;: &quot;Measure accurately before mixing.&quot;,
-      &quot;notes&quot;: &quot;Use: 10 g total, 5 g per serving.&quot;
-    },
-    {
-      &quot;ingredient_id&quot;: &quot;lime&quot;,
-      &quot;display_name&quot;: &quot;Unwaxed lime&quot;,
-      &quot;category&quot;: &quot;Fruit&quot;,
-      &quot;required&quot;: true,
-      &quot;quantity_used&quot;: 1,
-      &quot;unit_used&quot;: &quot;integer&quot;,
-      &quot;purchase_quantity&quot;: &quot;Buy: 1 lime&quot;,
-      &quot;purchase_notes&quot;: &quot;An unwaxed lime is preferred because the zest is used.&quot;,
-      &quot;retailers&quot;: [
-        &quot;Sainsbury&#x27;s&quot;,
-        &quot;Marks &amp; Spencer&quot;
-      ],
-      &quot;preparation&quot;: &quot;Wash and dry. Finely grate approximately 1 g green zest, then squeeze 10 ml juice and remove any seeds.&quot;,
-      &quot;notes&quot;: &quot;Use approximately 1 g zest and 10 ml juice; reserve the remaining lime for another use.&quot;
-    },
-    {
-      &quot;ingredient_id&quot;: &quot;vanilla_extract&quot;,
-      &quot;display_name&quot;: &quot;Vanilla extract&quot;,
-      &quot;category&quot;: &quot;Flavourings&quot;,
-      &quot;required&quot;: true,
-      &quot;quantity_used&quot;: 0.5,
-      &quot;unit_used&quot;: &quot;tsp&quot;,
-      &quot;purchase_quantity&quot;: &quot;Buy: 1 small bottle if not already stocked&quot;,
-      &quot;purchase_notes&quot;: &quot;Use vanilla extract rather than artificial vanilla essence where practical.&quot;,
-      &quot;retailers&quot;: [
-        &quot;Sainsbury&#x27;s&quot;,
-        &quot;Marks &amp; Spencer&quot;
-      ],
-      &quot;preparation&quot;: &quot;Measure immediately before mixing.&quot;,
-      &quot;notes&quot;: &quot;Use: 0.5 tsp total.&quot;
-    },
-    {
-      &quot;ingredient_id&quot;: &quot;fine_salt&quot;,
-      &quot;display_name&quot;: &quot;Fine salt&quot;,
-      &quot;category&quot;: &quot;Seasoning&quot;,
-      &quot;required&quot;: true,
-      &quot;quantity_used&quot;: 0.03125,
-      &quot;unit_used&quot;: &quot;tsp&quot;,
-      &quot;purchase_quantity&quot;: &quot;Buy: 1 standard container if not already stocked&quot;,
-      &quot;purchase_notes&quot;: &quot;Fine table salt or fine sea salt is suitable.&quot;,
-      &quot;retailers&quot;: [
-        &quot;Sainsbury&#x27;s&quot;,
-        &quot;Marks &amp; Spencer&quot;
-      ],
-      &quot;preparation&quot;: &quot;Measure accurately before mixing.&quot;,
-      &quot;notes&quot;: &quot;Use: 0.03125 tsp total. The very small quantity sharpens the yoghurt, lime and honey flavours without making the snack taste salty.&quot;
-    }
-  ],
-  &quot;equipment&quot;: [
-    {
-      &quot;equipment_id&quot;: &quot;kitchen_scales&quot;,
-      &quot;display_name&quot;: &quot;Kitchen scales&quot;,
-      &quot;required&quot;: true,
-      &quot;notes&quot;: &quot;Used for yoghurt, hemp seed and honey quantities and even portioning.&quot;
-    },
-    {
-      &quot;equipment_id&quot;: &quot;measuring_spoons&quot;,
-      &quot;display_name&quot;: &quot;Measuring spoons&quot;,
-      &quot;required&quot;: true,
-      &quot;notes&quot;: &quot;Used for vanilla extract and salt.&quot;
-    },
-    {
-      &quot;equipment_id&quot;: &quot;chef_knife&quot;,
-      &quot;display_name&quot;: &quot;Chef&#x27;s knife&quot;,
-      &quot;required&quot;: true,
-      &quot;notes&quot;: &quot;Used to prepare the kiwi and lime.&quot;
-    },
-    {
-      &quot;equipment_id&quot;: &quot;chopping_board&quot;,
-      &quot;display_name&quot;: &quot;Chopping board&quot;,
-      &quot;required&quot;: true,
-      &quot;notes&quot;: &quot;Used for fruit preparation.&quot;
-    },
-    {
-      &quot;equipment_id&quot;: &quot;fine_grater&quot;,
-      &quot;display_name&quot;: &quot;Fine grater or Microplane&quot;,
-      &quot;required&quot;: true,
-      &quot;notes&quot;: &quot;Used for lime zest.&quot;
-    },
-    {
-      &quot;equipment_id&quot;: &quot;mixing_bowl&quot;,
-      &quot;display_name&quot;: &quot;Medium mixing bowl&quot;,
-      &quot;required&quot;: true,
-      &quot;notes&quot;: &quot;Used to prepare the flavoured yoghurt.&quot;
-    },
-    {
-      &quot;equipment_id&quot;: &quot;small_bowl&quot;,
-      &quot;display_name&quot;: &quot;Small bowl&quot;,
-      &quot;required&quot;: true,
-      &quot;notes&quot;: &quot;Used to hold the prepared kiwi.&quot;
-    },
-    {
-      &quot;equipment_id&quot;: &quot;frying_pan&quot;,
-      &quot;display_name&quot;: &quot;Small frying pan&quot;,
-      &quot;required&quot;: true,
-      &quot;notes&quot;: &quot;Used to toast the hemp seeds.&quot;
-    },
-    {
-      &quot;equipment_id&quot;: &quot;gas_hob&quot;,
-      &quot;display_name&quot;: &quot;Gas hob&quot;,
-      &quot;required&quot;: true,
-      &quot;notes&quot;: &quot;Used for controlled low-heat hemp seed toasting.&quot;
-    },
-    {
-      &quot;equipment_id&quot;: &quot;lidded_containers&quot;,
-      &quot;display_name&quot;: &quot;2 individual lidded snack pots&quot;,
-      &quot;required&quot;: true,
-      &quot;notes&quot;: &quot;Each pot should comfortably hold one complete serving.&quot;
-    }
-  ],
-  &quot;mise_en_place&quot;: [
-    {
-      &quot;prep_id&quot;: &quot;PREP_01&quot;,
-      &quot;ingredient_ids&quot;: [
-        &quot;kiwi_fruit&quot;
-      ],
-      &quot;instruction&quot;: &quot;Wash and dry the 2 whole kiwi fruit. Trim a thin slice from both ends of each fruit. Remove and discard the skin, then cut the edible flesh into pieces approximately 10 mm across. Transfer the prepared fruit to the small bowl.&quot;,
-      &quot;endpoint&quot;: &quot;Approximately 150 g kiwi flesh is peeled and cut into evenly sized pieces with no skin remaining.&quot;
-    },
-    {
-      &quot;prep_id&quot;: &quot;PREP_02&quot;,
-      &quot;ingredient_ids&quot;: [
-        &quot;lime&quot;
-      ],
-      &quot;instruction&quot;: &quot;Wash and dry the whole lime. Finely grate approximately 1 g of the green outer zest, stopping before significant white pith is removed. Cut the lime and squeeze 10 ml juice, removing any seeds.&quot;,
-      &quot;endpoint&quot;: &quot;Approximately 1 g lime zest and 10 ml seed-free lime juice are prepared.&quot;
-    },
-    {
-      &quot;prep_id&quot;: &quot;PREP_03&quot;,
-      &quot;ingredient_ids&quot;: [
-        &quot;greek_yoghurt_0_percent&quot;,
-        &quot;hemp_seeds&quot;,
-        &quot;runny_honey&quot;,
-        &quot;vanilla_extract&quot;,
-        &quot;fine_salt&quot;
-      ],
-      &quot;instruction&quot;: &quot;Weigh 260 g Greek yoghurt, 20 g shelled hemp seeds and 10 g runny honey. Measure 0.5 tsp vanilla extract and 0.03125 tsp fine salt.&quot;,
-      &quot;endpoint&quot;: &quot;All remaining ingredients are accurately measured and ready for immediate use.&quot;
-    }
-  ],
-  &quot;procedure&quot;: [
-    {
-      &quot;step_id&quot;: &quot;STEP_01&quot;,
-      &quot;section&quot;: &quot;Hemp seed topping&quot;,
-      &quot;title&quot;: &quot;Lightly toast the hemp seeds&quot;,
-      &quot;depends_on&quot;: [],
-      &quot;parallel_group&quot;: &quot;P01&quot;,
-      &quot;ingredient_ids&quot;: [
-        &quot;hemp_seeds&quot;
-      ],
-      &quot;equipment_ids&quot;: [
-        &quot;frying_pan&quot;,
-        &quot;gas_hob&quot;
-      ],
-      &quot;instruction&quot;: &quot;Place the dry frying pan over low gas heat. Add the 20 g shelled hemp seeds and spread them into an even layer. Stir or shake the pan continuously so the seeds heat evenly and do not remain stationary against the pan.&quot;,
-      &quot;heat_source&quot;: &quot;Gas hob&quot;,
-      &quot;heat_level&quot;: &quot;Low&quot;,
-      &quot;temperature_c&quot;: null,
-      &quot;duration_min_minutes&quot;: 2,
-      &quot;duration_max_minutes&quot;: 4,
-      &quot;endpoint&quot;: &quot;The hemp seeds smell distinctly nutty, show slight golden colouring and remain loose, with no smoke or dark-brown scorched patches.&quot;,
-      &quot;corrective_actions&quot;: [
-        {
-          &quot;condition&quot;: &quot;The hemp seeds darken rapidly or produce smoke.&quot;,
-          &quot;action&quot;: &quot;Remove the pan from the heat immediately and transfer the seeds to a cool plate or bowl.&quot;
-        },
-        {
-          &quot;condition&quot;: &quot;No toasted aroma develops after 4 minutes.&quot;,
-          &quot;action&quot;: &quot;Increase the flame slightly and continue stirring continuously in 20-second intervals until the stated endpoint is reached.&quot;
-        }
-      ],
-      &quot;critical&quot;: true
-    },
-    {
-      &quot;step_id&quot;: &quot;STEP_02&quot;,
-      &quot;section&quot;: &quot;Kiwi layer&quot;,
-      &quot;title&quot;: &quot;Season the kiwi&quot;,
-      &quot;depends_on&quot;: [],
-      &quot;parallel_group&quot;: &quot;P01&quot;,
-      &quot;ingredient_ids&quot;: [
-        &quot;kiwi_fruit&quot;,
-        &quot;lime&quot;
-      ],
-      &quot;equipment_ids&quot;: [
-        &quot;small_bowl&quot;
-      ],
-      &quot;instruction&quot;: &quot;Add approximately half of the prepared lime zest and 5 ml of the lime juice to the prepared kiwi. Fold gently 2-3 times to distribute the citrus without crushing the fruit. Leave the fruit undisturbed while the yoghurt base is prepared.&quot;,
-      &quot;heat_source&quot;: null,
-      &quot;heat_level&quot;: null,
-      &quot;temperature_c&quot;: null,
-      &quot;duration_min_minutes&quot;: 2,
-      &quot;duration_max_minutes&quot;: 5,
-      &quot;endpoint&quot;: &quot;The kiwi pieces remain structurally intact and appear lightly glossy with lime juice, with only a small amount of free fruit liquid in the bowl.&quot;,
-      &quot;corrective_actions&quot;: [
-        {
-          &quot;condition&quot;: &quot;The kiwi begins breaking down substantially during mixing.&quot;,
-          &quot;action&quot;: &quot;Stop mixing immediately and leave the fruit undisturbed until assembly.&quot;
-        }
-      ],
-      &quot;critical&quot;: false
-    },
-    {
-      &quot;step_id&quot;: &quot;STEP_03&quot;,
-      &quot;section&quot;: &quot;Hemp seed topping&quot;,
-      &quot;title&quot;: &quot;Cool the toasted hemp seeds&quot;,
-      &quot;depends_on&quot;: [
-        &quot;STEP_01&quot;
-      ],
-      &quot;parallel_group&quot;: null,
-      &quot;ingredient_ids&quot;: [
-        &quot;hemp_seeds&quot;
-      ],
-      &quot;equipment_ids&quot;: [
-        &quot;frying_pan&quot;
-      ],
-      &quot;instruction&quot;: &quot;Remove the frying pan from direct heat and spread the toasted hemp seeds into a thin layer. Leave uncovered so heat and any residual steam can escape.&quot;,
-      &quot;heat_source&quot;: null,
-      &quot;heat_level&quot;: null,
-      &quot;temperature_c&quot;: null,
-      &quot;duration_min_minutes&quot;: 4,
-      &quot;duration_max_minutes&quot;: 6,
-      &quot;endpoint&quot;: &quot;The hemp seeds are at room temperature, dry and loose before they contact the cold yoghurt.&quot;,
-      &quot;corrective_actions&quot;: [
-        {
-          &quot;condition&quot;: &quot;The seeds remain warm after 6 minutes.&quot;,
-          &quot;action&quot;: &quot;Transfer them to a cool plate and spread into a thinner layer until fully cooled.&quot;
-        }
-      ],
-      &quot;critical&quot;: true
-    },
-    {
-      &quot;step_id&quot;: &quot;STEP_04&quot;,
-      &quot;section&quot;: &quot;Yoghurt base&quot;,
-      &quot;title&quot;: &quot;Prepare the lime-vanilla Greek yoghurt&quot;,
-      &quot;depends_on&quot;: [],
-      &quot;parallel_group&quot;: &quot;P02&quot;,
-      &quot;ingredient_ids&quot;: [
-        &quot;greek_yoghurt_0_percent&quot;,
-        &quot;runny_honey&quot;,
-        &quot;lime&quot;,
-        &quot;vanilla_extract&quot;,
-        &quot;fine_salt&quot;
-      ],
-      &quot;equipment_ids&quot;: [
-        &quot;mixing_bowl&quot;,
-        &quot;kitchen_scales&quot;,
-        &quot;measuring_spoons&quot;
-      ],
-      &quot;instruction&quot;: &quot;Place 260 g Greek yoghurt in the mixing bowl. Add 10 g honey, the remaining approximately half of the lime zest, the remaining 5 ml lime juice, 0.5 tsp vanilla extract and 0.03125 tsp fine salt. Stir until completely homogeneous, scraping the base and sides of the bowl.&quot;,
-      &quot;heat_source&quot;: null,
-      &quot;heat_level&quot;: null,
-      &quot;temperature_c&quot;: null,
-      &quot;duration_min_minutes&quot;: 1,
-      &quot;duration_max_minutes&quot;: 2,
-      &quot;endpoint&quot;: &quot;The yoghurt is smooth, glossy and uniformly flavoured, with no concentrated honey streaks or unmixed zest.&quot;,
-      &quot;corrective_actions&quot;: [
-        {
-          &quot;condition&quot;: &quot;The yoghurt appears unusually stiff.&quot;,
-          &quot;action&quot;: &quot;Continue stirring vigorously for approximately 20 seconds before making any adjustment; do not add unlisted liquid because the kiwi will supply additional moisture.&quot;
-        }
-      ],
-      &quot;critical&quot;: false
-    },
-    {
-      &quot;step_id&quot;: &quot;STEP_05&quot;,
-      &quot;section&quot;: &quot;Assembly&quot;,
-      &quot;title&quot;: &quot;Layer the evening snack pots&quot;,
-      &quot;depends_on&quot;: [
-        &quot;STEP_02&quot;,
-        &quot;STEP_03&quot;,
-        &quot;STEP_04&quot;
-      ],
-      &quot;parallel_group&quot;: null,
-      &quot;ingredient_ids&quot;: [
-        &quot;greek_yoghurt_0_percent&quot;,
-        &quot;kiwi_fruit&quot;,
-        &quot;hemp_seeds&quot;,
-        &quot;runny_honey&quot;,
-        &quot;lime&quot;,
-        &quot;vanilla_extract&quot;,
-        &quot;fine_salt&quot;
-      ],
-      &quot;equipment_ids&quot;: [
-        &quot;lidded_containers&quot;,
-        &quot;kitchen_scales&quot;
-      ],
-      &quot;instruction&quot;: &quot;Divide approximately half of the lime-vanilla yoghurt equally between the 2 snack pots. Divide the prepared kiwi, including any small quantity of released juice, equally over the yoghurt. Add the remaining yoghurt equally on top. Finish each pot with half of the completely cooled toasted hemp seeds. Fit the lids securely.&quot;,
-      &quot;heat_source&quot;: null,
-      &quot;heat_level&quot;: null,
-      &quot;temperature_c&quot;: null,
-      &quot;duration_min_minutes&quot;: 3,
-      &quot;duration_max_minutes&quot;: 5,
-      &quot;endpoint&quot;: &quot;Both pots contain approximately equal quantities of yoghurt, kiwi and hemp seeds, with visible fruit layers and dry toasted seeds on the surface.&quot;,
-      &quot;corrective_actions&quot;: [
-        {
-          &quot;condition&quot;: &quot;One pot is visibly heavier than the other.&quot;,
-          &quot;action&quot;: &quot;Use the kitchen scales to transfer small amounts between pots until both filled weights are approximately equal.&quot;
-        },
-        {
-          &quot;condition&quot;: &quot;The toasted hemp seeds are still warm.&quot;,
-          &quot;action&quot;: &quot;Do not seal the pots. Remove or hold the seeds separately until they have cooled completely.&quot;
-        }
-      ],
-      &quot;critical&quot;: false
-    },
-    {
-      &quot;step_id&quot;: &quot;STEP_06&quot;,
-      &quot;section&quot;: &quot;Chilling&quot;,
-      &quot;title&quot;: &quot;Chill before serving&quot;,
-      &quot;depends_on&quot;: [
-        &quot;STEP_05&quot;
-      ],
-      &quot;parallel_group&quot;: null,
-      &quot;ingredient_ids&quot;: [],
-      &quot;equipment_ids&quot;: [
-        &quot;lidded_containers&quot;
-      ],
-      &quot;instruction&quot;: &quot;Transfer the sealed pots to a refrigerator operating at 5°C or below and chill for at least 10 minutes before serving.&quot;,
-      &quot;heat_source&quot;: &quot;Refrigerator&quot;,
-      &quot;heat_level&quot;: null,
-      &quot;temperature_c&quot;: 5,
-      &quot;duration_min_minutes&quot;: 10,
-      &quot;duration_max_minutes&quot;: null,
-      &quot;endpoint&quot;: &quot;The pots are fully chilled, the yoghurt remains thick and the kiwi retains identifiable pieces rather than breaking down into the dairy.&quot;,
-      &quot;corrective_actions&quot;: [
-        {
-          &quot;condition&quot;: &quot;A noticeable layer of kiwi juice accumulates during chilling.&quot;,
-          &quot;action&quot;: &quot;Fold the juice gently into the immediately adjacent yoghurt immediately before eating rather than discarding it.&quot;
-        }
-      ],
-      &quot;critical&quot;: false
-    }
-  ],
-  &quot;plating&quot;: [
-    {
-      &quot;step_id&quot;: &quot;PLATE_01&quot;,
-      &quot;instruction&quot;: &quot;Serve one chilled pot per person. Eat through the layers rather than completely mixing at the outset so each spoonful can retain contrast between thick lime-vanilla yoghurt, juicy kiwi and nutty toasted hemp seeds.&quot;
-    }
-  ],
-  &quot;storage&quot;: {
-    &quot;refrigerator_days&quot;: 1,
-    &quot;freezer_months&quot;: null,
-    &quot;storage_instructions&quot;: &quot;Store the covered pots continuously at 5°C or below and consume within 24 hours for best texture. Kiwi contains enzymes that can gradually alter dairy texture during prolonged storage, so these pots are best assembled on the day they are eaten. For maximum hemp-seed crunch, the cooled toasted seeds may be kept separately in a small dry container and scattered over immediately before serving.&quot;,
-    &quot;reheating_methods&quot;: []
-  },
-  &quot;shopping&quot;: {
-    &quot;sainsburys&quot;: [],
-    &quot;marks_and_spencer&quot;: [],
-    &quot;either_retailer&quot;: [
-      &quot;0% Greek yoghurt: buy 1 tub containing at least 260 g&quot;,
-      &quot;Kiwi fruit: buy 2 medium fruit&quot;,
-      &quot;Shelled hemp seeds or hemp hearts: buy 1 standard packet containing at least 20 g&quot;,
-      &quot;Runny honey: buy 1 jar or squeeze bottle&quot;,
-      &quot;Unwaxed lime: buy 1&quot;,
-      &quot;Vanilla extract: buy 1 small bottle if not already stocked&quot;,
-      &quot;Fine salt: buy 1 standard container if not already stocked&quot;
-    ]
-  },
-  &quot;quality_checks&quot;: {
-    &quot;protein_requirement_met&quot;: true,
-    &quot;protein_g_per_serving&quot;: 17,
-    &quot;restaurant_quality_features&quot;: [
-      &quot;Hemp seeds are lightly toasted to develop a more pronounced nutty aroma and textural contrast than raw seeds.&quot;,
-      &quot;Fresh lime zest provides aromatic citrus character while a controlled quantity of juice sharpens both yoghurt and kiwi.&quot;,
-      &quot;Vanilla and a restrained amount of honey round the acidity without making the snack excessively sweet.&quot;,
-      &quot;A very small measured amount of salt enhances the yoghurt, honey and citrus flavours without becoming perceptibly salty.&quot;,
-      &quot;Kiwi is cut into identifiable pieces and folded only minimally so the finished pots retain fresh fruit texture.&quot;,
-      &quot;The toasted seeds are cooled completely before contact with the yoghurt, helping preserve their texture.&quot;
-    ],
-    &quot;nutrition_notes&quot;: [
-      &quot;Estimated nutrition represents one complete evening snack pot including Greek yoghurt, kiwi, hemp seeds, honey, lime, vanilla and salt.&quot;,
-      &quot;The recipe is designed around the approximately 200 kcal evening-snack target.&quot;,
-      &quot;The general 30 g protein requirement does not apply to evening snacks under the specified meal-plan rules; approximately 17 g protein per serving is therefore compliant.&quot;,
-      &quot;Greek yoghurt provides most of the protein while hemp seeds contribute additional protein and predominantly unsaturated fat.&quot;,
-      &quot;Kiwi provides fruit, fibre and vitamin C while allowing added honey to remain limited.&quot;,
-      &quot;Nutrition values are estimates and will vary with kiwi size and the exact Greek yoghurt and hemp seed products used.&quot;,
-      &quot;The recipe follows the supplied structured-recipe and evening-snack requirements. &quot;
-    ],
-    &quot;critical_success_factors&quot;: [
-      &quot;Toast hemp seeds only over low heat and remove them as soon as they become aromatic because their small size makes them easy to scorch.&quot;,
-      &quot;Cool the toasted hemp seeds completely before adding them to the cold yoghurt.&quot;,
-      &quot;Use ripe but structurally firm kiwi so the fruit remains in distinct pieces after cutting and chilling.&quot;,
-      &quot;Do not assemble substantially more than 24 hours ahead because kiwi enzymes can progressively alter dairy texture.&quot;,
-      &quot;Keep the completed pots continuously refrigerated until serving.&quot;
-    ]
-  }
-}</pre>
-
 </details>
 
+
+<details class="section non-method">
+    <summary>Equipment</summary>
+    <div class="section-content">
+        <ul class="compact-list">
+            <li>Kitchen scales</li><li>Measuring spoons</li><li>Chef&#x27;s knife</li><li>Chopping board</li><li>Fine grater or Microplane</li><li>Medium mixing bowl</li><li>Small bowl</li><li>Small frying pan</li><li>Gas hob</li><li>2 individual lidded snack pots</li>
+        </ul>
+    </div>
+</details>
+
+
+<details class="section non-method" open>
+    <summary>Mise en place</summary>
+    <div class="section-content card-stack">
+        <article class="prep-card">
+<h3>Prep 1</h3>
+<p>Wash and dry the 2 whole kiwi fruit. Trim a thin slice from both ends of each fruit. Remove and discard the skin, then cut the edible flesh into pieces approximately 10 mm across. Transfer the prepared fruit to the small bowl.</p>
+<div class="endpoint"><strong>Ready when:</strong> Approximately 150 g kiwi flesh is peeled and cut into evenly sized pieces with no skin remaining.</div>
+</article><article class="prep-card">
+<h3>Prep 2</h3>
+<p>Wash and dry the whole lime. Finely grate approximately 1 g of the green outer zest, stopping before significant white pith is removed. Cut the lime and squeeze 10 ml juice, removing any seeds.</p>
+<div class="endpoint"><strong>Ready when:</strong> Approximately 1 g lime zest and 10 ml seed-free lime juice are prepared.</div>
+</article><article class="prep-card">
+<h3>Prep 3</h3>
+<p>Weigh 260 g Greek yoghurt, 20 g shelled hemp seeds and 10 g runny honey. Measure 0.5 tsp vanilla extract and 0.03125 tsp fine salt.</p>
+<div class="endpoint"><strong>Ready when:</strong> All remaining ingredients are accurately measured and ready for immediate use.</div>
+</article>
+    </div>
+</details>
+
+
+<section class="section method-section">
+    <h2>Method</h2>
+
+    <div id="methodSteps" class="card-stack">
+        <article class="method-step" data-step-index="0">
+<div class="step-heading">
+<div class="step-number">Step 1</div>
+<h3>Lightly toast the hemp seeds</h3>
+</div>
+<div class="step-section">Hemp seed topping</div>
+<div class="step-meta"><span class="badge">Heat source: Gas hob</span><span class="badge">Setting: Low</span><span class="badge">Time: 2–4 min</span></div>
+<p class="instruction">Place the dry frying pan over low gas heat. Add the 20 g shelled hemp seeds and spread them into an even layer. Stir or shake the pan continuously so the seeds heat evenly and do not remain stationary against the pan.</p>
+<div class="endpoint"><strong>Ready when:</strong> The hemp seeds smell distinctly nutty, show slight golden colouring and remain loose, with no smoke or dark-brown scorched patches.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul>
+        <li><strong>If:</strong> The hemp seeds darken rapidly or produce smoke.<br><strong>Do:</strong> Remove the pan from the heat immediately and transfer the seeds to a cool plate or bowl.</li><li><strong>If:</strong> No toasted aroma develops after 4 minutes.<br><strong>Do:</strong> Increase the flame slightly and continue stirring continuously in 20-second intervals until the stated endpoint is reached.</li>
+    </ul>
+</details>
+
+</article><article class="method-step" data-step-index="1">
+<div class="step-heading">
+<div class="step-number">Step 2</div>
+<h3>Season the kiwi</h3>
+</div>
+<div class="step-section">Kiwi layer</div>
+<div class="step-meta"><span class="badge">Time: 2–5 min</span></div>
+<p class="instruction">Add approximately half of the prepared lime zest and 5 ml of the lime juice to the prepared kiwi. Fold gently 2-3 times to distribute the citrus without crushing the fruit. Leave the fruit undisturbed while the yoghurt base is prepared.</p>
+<div class="endpoint"><strong>Ready when:</strong> The kiwi pieces remain structurally intact and appear lightly glossy with lime juice, with only a small amount of free fruit liquid in the bowl.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul>
+        <li><strong>If:</strong> The kiwi begins breaking down substantially during mixing.<br><strong>Do:</strong> Stop mixing immediately and leave the fruit undisturbed until assembly.</li>
+    </ul>
+</details>
+
+</article><article class="method-step" data-step-index="2">
+<div class="step-heading">
+<div class="step-number">Step 3</div>
+<h3>Cool the toasted hemp seeds</h3>
+</div>
+<div class="step-section">Hemp seed topping</div>
+<div class="step-meta"><span class="badge">Time: 4–6 min</span></div>
+<p class="instruction">Remove the frying pan from direct heat and spread the toasted hemp seeds into a thin layer. Leave uncovered so heat and any residual steam can escape.</p>
+<div class="endpoint"><strong>Ready when:</strong> The hemp seeds are at room temperature, dry and loose before they contact the cold yoghurt.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul>
+        <li><strong>If:</strong> The seeds remain warm after 6 minutes.<br><strong>Do:</strong> Transfer them to a cool plate and spread into a thinner layer until fully cooled.</li>
+    </ul>
+</details>
+
+</article><article class="method-step" data-step-index="3">
+<div class="step-heading">
+<div class="step-number">Step 4</div>
+<h3>Prepare the lime-vanilla Greek yoghurt</h3>
+</div>
+<div class="step-section">Yoghurt base</div>
+<div class="step-meta"><span class="badge">Time: 1–2 min</span></div>
+<p class="instruction">Place 260 g Greek yoghurt in the mixing bowl. Add 10 g honey, the remaining approximately half of the lime zest, the remaining 5 ml lime juice, 0.5 tsp vanilla extract and 0.03125 tsp fine salt. Stir until completely homogeneous, scraping the base and sides of the bowl.</p>
+<div class="endpoint"><strong>Ready when:</strong> The yoghurt is smooth, glossy and uniformly flavoured, with no concentrated honey streaks or unmixed zest.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul>
+        <li><strong>If:</strong> The yoghurt appears unusually stiff.<br><strong>Do:</strong> Continue stirring vigorously for approximately 20 seconds before making any adjustment; do not add unlisted liquid because the kiwi will supply additional moisture.</li>
+    </ul>
+</details>
+
+</article><article class="method-step" data-step-index="4">
+<div class="step-heading">
+<div class="step-number">Step 5</div>
+<h3>Layer the evening snack pots</h3>
+</div>
+<div class="step-section">Assembly</div>
+<div class="step-meta"><span class="badge">Time: 3–5 min</span></div>
+<p class="instruction">Divide approximately half of the lime-vanilla yoghurt equally between the 2 snack pots. Divide the prepared kiwi, including any small quantity of released juice, equally over the yoghurt. Add the remaining yoghurt equally on top. Finish each pot with half of the completely cooled toasted hemp seeds. Fit the lids securely.</p>
+<div class="endpoint"><strong>Ready when:</strong> Both pots contain approximately equal quantities of yoghurt, kiwi and hemp seeds, with visible fruit layers and dry toasted seeds on the surface.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul>
+        <li><strong>If:</strong> One pot is visibly heavier than the other.<br><strong>Do:</strong> Use the kitchen scales to transfer small amounts between pots until both filled weights are approximately equal.</li><li><strong>If:</strong> The toasted hemp seeds are still warm.<br><strong>Do:</strong> Do not seal the pots. Remove or hold the seeds separately until they have cooled completely.</li>
+    </ul>
+</details>
+
+</article><article class="method-step" data-step-index="5">
+<div class="step-heading">
+<div class="step-number">Step 6</div>
+<h3>Chill before serving</h3>
+</div>
+<div class="step-section">Chilling</div>
+<div class="step-meta"><span class="badge">Heat source: Refrigerator</span><span class="badge">Temperature: 5°C</span><span class="badge">Time: 10 min minimum</span></div>
+<p class="instruction">Transfer the sealed pots to a refrigerator operating at 5°C or below and chill for at least 10 minutes before serving.</p>
+<div class="endpoint"><strong>Ready when:</strong> The pots are fully chilled, the yoghurt remains thick and the kiwi retains identifiable pieces rather than breaking down into the dairy.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul>
+        <li><strong>If:</strong> A noticeable layer of kiwi juice accumulates during chilling.<br><strong>Do:</strong> Fold the juice gently into the immediately adjacent yoghurt immediately before eating rather than discarding it.</li>
+    </ul>
+</details>
+
+</article>
+    </div>
+
+    <div id="cookControls" class="cook-controls">
+        <button
+            id="previousStep"
+            type="button"
+        >
+            Previous
+        </button>
+
+        <div id="stepCounter"></div>
+
+        <button
+            id="nextStep"
+            type="button"
+        >
+            Next
+        </button>
+    </div>
+</section>
+
+
+<details class="section non-method">
+    <summary>Serving</summary>
+    <div class="section-content">
+        <p>Serve one chilled pot per person. Eat through the layers rather than completely mixing at the outset so each spoonful can retain contrast between thick lime-vanilla yoghurt, juicy kiwi and nutty toasted hemp seeds.</p>
+    </div>
+</details>
+
+
+<details class="section non-method">
+    <summary>Storage & reheating</summary>
+    <div class="section-content">
+        <p><strong>Refrigerator:</strong> 1 days</p><p>Store the covered pots continuously at 5°C or below and consume within 24 hours for best texture. Kiwi contains enzymes that can gradually alter dairy texture during prolonged storage, so these pots are best assembled on the day they are eaten. For maximum hemp-seed crunch, the cooled toasted seeds may be kept separately in a small dry container and scattered over immediately before serving.</p>
+    </div>
+</details>
+
+
+<details class="section non-method">
+    <summary>Shopping</summary>
+    <div class="section-content">
+        
+            <h3>Either retailer</h3>
+            <ul><li>0% Greek yoghurt: buy 1 tub containing at least 260 g</li><li>Kiwi fruit: buy 2 medium fruit</li><li>Shelled hemp seeds or hemp hearts: buy 1 standard packet containing at least 20 g</li><li>Runny honey: buy 1 jar or squeeze bottle</li><li>Unwaxed lime: buy 1</li><li>Vanilla extract: buy 1 small bottle if not already stocked</li><li>Fine salt: buy 1 standard container if not already stocked</li></ul>
+            
+    </div>
+</details>
+
+
 </main>
+
+
+<script>
+
+(function () {
+
+    const button =
+        document.getElementById(
+            "cookModeButton"
+        );
+
+    const steps =
+        Array.from(
+            document.querySelectorAll(
+                ".method-step"
+            )
+        );
+
+    const controls =
+        document.getElementById(
+            "cookControls"
+        );
+
+    const previous =
+        document.getElementById(
+            "previousStep"
+        );
+
+    const next =
+        document.getElementById(
+            "nextStep"
+        );
+
+    const counter =
+        document.getElementById(
+            "stepCounter"
+        );
+
+    let currentStep = 0;
+
+
+    function showStep(index) {
+
+        if (!steps.length) {
+            return;
+        }
+
+        currentStep =
+            Math.max(
+                0,
+                Math.min(
+                    index,
+                    steps.length - 1
+                )
+            );
+
+        steps.forEach(
+            (step, stepIndex) => {
+
+                step.classList.toggle(
+                    "active",
+                    stepIndex === currentStep
+                );
+
+            }
+        );
+
+        if (counter) {
+
+            counter.textContent =
+                (
+                    "Step "
+                    +
+                    (currentStep + 1)
+                    +
+                    " of "
+                    +
+                    steps.length
+                );
+        }
+
+        if (previous) {
+            previous.disabled =
+                currentStep === 0;
+        }
+
+        if (next) {
+            next.disabled =
+                currentStep ===
+                steps.length - 1;
+        }
+
+        const active =
+            steps[currentStep];
+
+        if (active) {
+
+            active.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+        }
+    }
+
+
+    if (button) {
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                const active =
+                    document.body.classList.toggle(
+                        "cook-mode"
+                    );
+
+                button.textContent =
+                    active
+                        ? "Exit cook mode"
+                        : "Cook mode";
+
+                if (active) {
+                    showStep(
+                        currentStep
+                    );
+                }
+            }
+        );
+    }
+
+
+    if (previous) {
+
+        previous.addEventListener(
+            "click",
+            () => {
+                showStep(
+                    currentStep - 1
+                );
+            }
+        );
+    }
+
+
+    if (next) {
+
+        next.addEventListener(
+            "click",
+            () => {
+                showStep(
+                    currentStep + 1
+                );
+            }
+        );
+    }
+
+
+    if (!steps.length && controls) {
+        controls.style.display = "none";
+    }
+
+})();
+
+</script>
 
 </body>
 

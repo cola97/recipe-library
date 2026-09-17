@@ -1,482 +1,1060 @@
 import argparse
-import copy
-import hashlib
 import html
 import json
+from fractions import Fraction
 from pathlib import Path
 
 
+BASE_DIR = Path(__file__).resolve().parent
+DEFAULT_OUTPUT_DIR = BASE_DIR / "output"
+
+
 # ============================================================
-# Formatting helpers
+# Basic helpers
 # ============================================================
 
-def display_label(key):
-    """
-    Convert a JSON field name into a more readable display label.
-
-    This affects presentation only.
-    The original JSON key remains preserved in data-json-path.
-    """
-    if key is None:
-        return ""
-
-    return key.replace("_", " ").strip().title()
-
-
-def path_for_key(parent_path, key):
-    if parent_path == "$":
-        return f"$.{key}"
-    return f"{parent_path}.{key}"
-
-
-def path_for_index(parent_path, index):
-    return f"{parent_path}[{index}]"
-
-
-def format_scalar(value):
-    """
-    Render a JSON scalar without altering its semantic value.
-    """
-
+def esc(value):
     if value is None:
-        return '<span class="null-value">null</span>'
+        return ""
+    return html.escape(str(value))
 
+
+def meaningful(value):
+    return value not in (
+        None,
+        "",
+        [],
+        {},
+    )
+
+
+def format_number(value):
     if isinstance(value, bool):
+        return str(value).lower()
+
+    if isinstance(value, int):
+        return str(value)
+
+    if isinstance(value, float):
+        if value.is_integer():
+            return str(int(value))
+
         return (
-            '<span class="boolean-value">'
-            + ("true" if value else "false")
-            + "</span>"
+            f"{value:.4f}"
+            .rstrip("0")
+            .rstrip(".")
         )
 
-    if isinstance(value, (int, float)):
-        return html.escape(
-            json.dumps(
-                value,
-                ensure_ascii=False,
-                allow_nan=False
+    return str(value)
+
+
+# ============================================================
+# Fraction formatting
+# ============================================================
+
+UNICODE_FRACTIONS = {
+    (1, 2): "½",
+    (1, 3): "⅓",
+    (2, 3): "⅔",
+    (1, 4): "¼",
+    (3, 4): "¾",
+    (1, 5): "⅕",
+    (2, 5): "⅖",
+    (3, 5): "⅗",
+    (4, 5): "⅘",
+    (1, 6): "⅙",
+    (5, 6): "⅚",
+    (1, 8): "⅛",
+    (3, 8): "⅜",
+    (5, 8): "⅝",
+    (7, 8): "⅞",
+}
+
+
+def format_fraction(value):
+    """
+    Convert numeric spoon quantities into readable fractions.
+
+    Examples:
+        0.5    -> ½
+        0.25   -> ¼
+        1.5    -> 1½
+        0.0625 -> 1/16
+
+    Old recipes containing very small spoon quantities are
+    displayed exactly rather than rounded.
+    """
+
+    try:
+        numeric = float(value)
+    except (TypeError, ValueError):
+        return str(value)
+
+    fraction = Fraction(
+        str(value)
+    ).limit_denominator(32)
+
+    if abs(
+        float(fraction) - numeric
+    ) > 0.000001:
+        return format_number(value)
+
+    sign = "-" if fraction < 0 else ""
+
+    fraction = abs(fraction)
+
+    whole = (
+        fraction.numerator
+        //
+        fraction.denominator
+    )
+
+    remainder = (
+        fraction.numerator
+        %
+        fraction.denominator
+    )
+
+    if remainder == 0:
+        return f"{sign}{whole}"
+
+    glyph = UNICODE_FRACTIONS.get(
+        (
+            remainder,
+            fraction.denominator,
+        )
+    )
+
+    if glyph:
+
+        if whole:
+            return (
+                f"{sign}"
+                f"{whole}"
+                f"{glyph}"
             )
+
+        return (
+            f"{sign}"
+            f"{glyph}"
         )
 
-    if isinstance(value, str):
-        return html.escape(value)
+    fraction_text = (
+        f"{remainder}"
+        f"/"
+        f"{fraction.denominator}"
+    )
 
-    raise TypeError(
-        f"Unexpected scalar type: {type(value).__name__}"
+    if whole:
+
+        return (
+            f"{sign}"
+            f"{whole} "
+            f"{fraction_text}"
+        )
+
+    return (
+        f"{sign}"
+        f"{fraction_text}"
+    )
+
+
+def format_quantity(
+    quantity,
+    unit
+):
+    """
+    Format ingredient quantities for the human cooking view.
+
+    No conversion between units is performed.
+    """
+
+    if unit in (
+        "tsp",
+        "tbsp",
+    ):
+        number = format_fraction(
+            quantity
+        )
+
+    else:
+        number = format_number(
+            quantity
+        )
+
+    if unit == "integer":
+        return number
+
+    return (
+        f"{number} {unit}"
     )
 
 
 # ============================================================
-# Completeness checking
+# Time formatting
 # ============================================================
 
-def collect_json_paths(node, path="$"):
-    """
-    Return every object, array and value path present in the JSON.
-
-    Empty dictionaries and empty arrays are included.
-    """
-
-    paths = {path}
-
-    if isinstance(node, dict):
-        for key, value in node.items():
-            child_path = path_for_key(path, key)
-            paths.update(
-                collect_json_paths(value, child_path)
-            )
-
-    elif isinstance(node, list):
-        for index, value in enumerate(node):
-            child_path = path_for_index(path, index)
-            paths.update(
-                collect_json_paths(value, child_path)
-            )
-
-    return paths
-
-
-# ============================================================
-# Recursive HTML renderer
-# ============================================================
-
-def render_node(
-    node,
-    path,
-    seen_paths,
-    key=None,
-    depth=0
+def format_duration(
+    minimum,
+    maximum
 ):
-    """
-    Recursively render any JSON value.
 
-    No JSON content is intentionally omitted.
-    """
+    if minimum is None and maximum is None:
+        return None
 
-    seen_paths.add(path)
+    if (
+        minimum is not None
+        and
+        maximum is not None
+    ):
 
-    label = display_label(key)
-
-    # --------------------------------------------------------
-    # Dictionary / object
-    # --------------------------------------------------------
-
-    if isinstance(node, dict):
-
-        if key is None:
-            parts = [
-                f'<div class="object-content" '
-                f'data-json-path="{html.escape(path)}">'
-            ]
-        else:
-            parts = [
-                f'<section class="nested-object" '
-                f'data-json-path="{html.escape(path)}">'
-            ]
-
-            parts.append(
-                f"<h3>{html.escape(label)}</h3>"
+        if minimum == maximum:
+            return (
+                f"{format_number(minimum)} min"
             )
 
-        if len(node) == 0:
-            parts.append(
-                '<div class="empty-value">{ }</div>'
+        return (
+            f"{format_number(minimum)}"
+            f"–"
+            f"{format_number(maximum)} min"
+        )
+
+    if minimum is not None:
+        return (
+            f"{format_number(minimum)} min minimum"
+        )
+
+    return (
+        f"up to {format_number(maximum)} min"
+    )
+
+
+# ============================================================
+# HTML fragments
+# ============================================================
+
+def badge(text):
+    return (
+        '<span class="badge">'
+        f'{esc(text)}'
+        '</span>'
+    )
+
+
+def render_ingredients(data):
+
+    ingredients = data.get(
+        "ingredients",
+        []
+    )
+
+    if not ingredients:
+        return ""
+
+    cards = []
+
+    for item in ingredients:
+
+        name = item.get(
+            "display_name",
+            ""
+        )
+
+        quantity = format_quantity(
+            item.get(
+                "quantity_used",
+                ""
+            ),
+            item.get(
+                "unit_used",
+                ""
             )
+        )
 
-        else:
-            for child_key, child_value in node.items():
+        purchase = item.get(
+            "purchase_quantity"
+        )
 
-                child_path = path_for_key(
-                    path,
-                    child_key
-                )
-
-                parts.append(
-                    render_node(
-                        child_value,
-                        child_path,
-                        seen_paths,
-                        key=child_key,
-                        depth=depth + 1
-                    )
-                )
-
-        if key is None:
-            parts.append("</div>")
-        else:
-            parts.append("</section>")
-
-        return "\n".join(parts)
-
-    # --------------------------------------------------------
-    # List / array
-    # --------------------------------------------------------
-
-    if isinstance(node, list):
+        preparation = item.get(
+            "preparation"
+        )
 
         parts = [
-            f'<div class="array-block" '
-            f'data-json-path="{html.escape(path)}">'
+            '<article class="ingredient-card">',
+            '<div class="ingredient-heading">',
+            f'<strong>{esc(name)}</strong>',
+            f'<span class="ingredient-quantity">{esc(quantity)}</span>',
+            '</div>',
         ]
 
-        if key is not None:
+        if meaningful(purchase):
             parts.append(
-                f"<h3>{html.escape(label)}</h3>"
+                '<div class="subline">'
+                '<strong>Buy:</strong> '
+                f'{esc(purchase)}'
+                '</div>'
             )
 
-        if len(node) == 0:
-
+        if meaningful(preparation):
             parts.append(
-                '<div class="empty-value">[ ]</div>'
-            )
-
-        else:
-
-            parts.append(
-                '<div class="array-items">'
-            )
-
-            for index, item in enumerate(node):
-
-                item_path = path_for_index(
-                    path,
-                    index
-                )
-
-                # --------------------------------------------
-                # Object inside an array
-                # --------------------------------------------
-
-                if isinstance(item, dict):
-
-                    seen_paths.add(item_path)
-
-                    parts.append(
-                        f'<article class="array-item" '
-                        f'data-json-path="{html.escape(item_path)}">'
-                    )
-
-                    parts.append(
-                        f'<div class="item-number">'
-                        f'Item {index + 1}'
-                        f'</div>'
-                    )
-
-                    if len(item) == 0:
-
-                        parts.append(
-                            '<div class="empty-value">{ }</div>'
-                        )
-
-                    else:
-
-                        for child_key, child_value in item.items():
-
-                            child_path = path_for_key(
-                                item_path,
-                                child_key
-                            )
-
-                            parts.append(
-                                render_node(
-                                    child_value,
-                                    child_path,
-                                    seen_paths,
-                                    key=child_key,
-                                    depth=depth + 1
-                                )
-                            )
-
-                    parts.append(
-                        "</article>"
-                    )
-
-                # --------------------------------------------
-                # Nested array
-                # --------------------------------------------
-
-                elif isinstance(item, list):
-
-                    parts.append(
-                        render_node(
-                            item,
-                            item_path,
-                            seen_paths,
-                            key=None,
-                            depth=depth + 1
-                        )
-                    )
-
-                # --------------------------------------------
-                # Scalar array member
-                # --------------------------------------------
-
-                else:
-
-                    seen_paths.add(item_path)
-
-                    parts.append(
-                        f'<div class="scalar-array-item" '
-                        f'data-json-path="{html.escape(item_path)}">'
-                        f'{format_scalar(item)}'
-                        f'</div>'
-                    )
-
-            parts.append(
-                "</div>"
+                '<div class="subline">'
+                '<strong>Prep:</strong> '
+                f'{esc(preparation)}'
+                '</div>'
             )
 
         parts.append(
-            "</div>"
+            '</article>'
         )
 
-        return "\n".join(parts)
-
-    # --------------------------------------------------------
-    # Scalar
-    # --------------------------------------------------------
-
-    if key is None:
-
-        return (
-            f'<div class="top-scalar-value" '
-            f'data-json-path="{html.escape(path)}">'
-            f'{format_scalar(node)}'
-            f'</div>'
+        cards.append(
+            "\n".join(parts)
         )
 
-    return (
-        f'<div class="field-row" '
-        f'data-json-path="{html.escape(path)}">'
-        f'<div class="field-name">'
-        f'{html.escape(label)}'
-        f'</div>'
-        f'<div class="field-value">'
-        f'{format_scalar(node)}'
-        f'</div>'
-        f'</div>'
+    return f"""
+<details class="section non-method" open>
+    <summary>Ingredients</summary>
+    <div class="section-content ingredient-grid">
+        {''.join(cards)}
+    </div>
+</details>
+"""
+
+
+def render_equipment(data):
+
+    equipment = data.get(
+        "equipment",
+        []
     )
 
+    if not equipment:
+        return ""
 
-# ============================================================
-# Top-level section renderer
-# ============================================================
+    rows = []
 
-def render_top_section(
-    key,
-    value,
-    path,
-    seen_paths
+    for item in equipment:
+
+        name = item.get(
+            "display_name"
+        )
+
+        if not meaningful(name):
+            continue
+
+        rows.append(
+            '<li>'
+            f'{esc(name)}'
+            '</li>'
+        )
+
+    if not rows:
+        return ""
+
+    return f"""
+<details class="section non-method">
+    <summary>Equipment</summary>
+    <div class="section-content">
+        <ul class="compact-list">
+            {''.join(rows)}
+        </ul>
+    </div>
+</details>
+"""
+
+
+def render_mise_en_place(data):
+
+    prep = data.get(
+        "mise_en_place",
+        []
+    )
+
+    if not prep:
+        return ""
+
+    cards = []
+
+    for index, item in enumerate(
+        prep,
+        start=1
+    ):
+
+        instruction = item.get(
+            "instruction"
+        )
+
+        endpoint = item.get(
+            "endpoint"
+        )
+
+        if not meaningful(
+            instruction
+        ):
+            continue
+
+        parts = [
+            '<article class="prep-card">',
+            f'<h3>Prep {index}</h3>',
+            f'<p>{esc(instruction)}</p>',
+        ]
+
+        if meaningful(endpoint):
+
+            parts.append(
+                '<div class="endpoint">'
+                '<strong>Ready when:</strong> '
+                f'{esc(endpoint)}'
+                '</div>'
+            )
+
+        parts.append(
+            '</article>'
+        )
+
+        cards.append(
+            "\n".join(parts)
+        )
+
+    if not cards:
+        return ""
+
+    return f"""
+<details class="section non-method" open>
+    <summary>Mise en place</summary>
+    <div class="section-content card-stack">
+        {''.join(cards)}
+    </div>
+</details>
+"""
+
+
+def render_corrective_actions(
+    actions
 ):
-    """
-    Render every top-level JSON property as its own coloured section.
-    """
 
-    seen_paths.add(path)
+    if not actions:
+        return ""
 
-    label = display_label(key)
+    rows = []
 
-    contents = render_node(
-        value,
-        path,
-        seen_paths,
-        key=None,
-        depth=0
+    for item in actions:
+
+        condition = item.get(
+            "condition"
+        )
+
+        action = item.get(
+            "action"
+        )
+
+        if (
+            not meaningful(condition)
+            and
+            not meaningful(action)
+        ):
+            continue
+
+        text = ""
+
+        if meaningful(condition):
+
+            text += (
+                '<strong>If:</strong> '
+                f'{esc(condition)}'
+            )
+
+        if (
+            meaningful(condition)
+            and
+            meaningful(action)
+        ):
+            text += "<br>"
+
+        if meaningful(action):
+
+            text += (
+                '<strong>Do:</strong> '
+                f'{esc(action)}'
+            )
+
+        rows.append(
+            f'<li>{text}</li>'
+        )
+
+    if not rows:
+        return ""
+
+    return f"""
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul>
+        {''.join(rows)}
+    </ul>
+</details>
+"""
+
+
+def render_procedure(data):
+
+    procedure = data.get(
+        "procedure",
+        []
     )
 
-    return (
-        f'<section class="top-section" '
-        f'data-json-path="{html.escape(path)}">'
-        f'<h2>{html.escape(label)}</h2>'
-        f'{contents}'
-        f'</section>'
+    if not procedure:
+        return ""
+
+    cards = []
+
+    for index, step in enumerate(
+        procedure,
+        start=1
+    ):
+
+        title = (
+            step.get("title")
+            or
+            f"Step {index}"
+        )
+
+        section = step.get(
+            "section"
+        )
+
+        instruction = step.get(
+            "instruction"
+        )
+
+        endpoint = step.get(
+            "endpoint"
+        )
+
+        meta = []
+
+        if meaningful(
+            step.get(
+                "heat_source"
+            )
+        ):
+            meta.append(
+                "Heat source: "
+                +
+                str(
+                    step["heat_source"]
+                )
+            )
+
+        if meaningful(
+            step.get(
+                "heat_level"
+            )
+        ):
+            meta.append(
+                "Setting: "
+                +
+                str(
+                    step["heat_level"]
+                )
+            )
+
+        if step.get(
+            "temperature_c"
+        ) is not None:
+            meta.append(
+                "Temperature: "
+                +
+                format_number(
+                    step[
+                        "temperature_c"
+                    ]
+                )
+                +
+                "°C"
+            )
+
+        duration = format_duration(
+            step.get(
+                "duration_min_minutes"
+            ),
+            step.get(
+                "duration_max_minutes"
+            )
+        )
+
+        if duration:
+            meta.append(
+                "Time: "
+                +
+                duration
+            )
+
+        corrective = (
+            render_corrective_actions(
+                step.get(
+                    "corrective_actions",
+                    []
+                )
+            )
+        )
+
+        parts = [
+            (
+                '<article '
+                'class="method-step" '
+                f'data-step-index="{index - 1}">'
+            ),
+            '<div class="step-heading">',
+            f'<div class="step-number">Step {index}</div>',
+            f'<h3>{esc(title)}</h3>',
+            '</div>',
+        ]
+
+        if meaningful(section):
+            parts.append(
+                '<div class="step-section">'
+                f'{esc(section)}'
+                '</div>'
+            )
+
+        if meta:
+
+            parts.append(
+                '<div class="step-meta">'
+                +
+                "".join(
+                    badge(item)
+                    for item in meta
+                )
+                +
+                '</div>'
+            )
+
+        if meaningful(instruction):
+
+            parts.append(
+                '<p class="instruction">'
+                f'{esc(instruction)}'
+                '</p>'
+            )
+
+        if meaningful(endpoint):
+
+            parts.append(
+                '<div class="endpoint">'
+                '<strong>Ready when:</strong> '
+                f'{esc(endpoint)}'
+                '</div>'
+            )
+
+        if corrective:
+            parts.append(
+                corrective
+            )
+
+        parts.append(
+            '</article>'
+        )
+
+        cards.append(
+            "\n".join(parts)
+        )
+
+    return f"""
+<section class="section method-section">
+    <h2>Method</h2>
+
+    <div id="methodSteps" class="card-stack">
+        {''.join(cards)}
+    </div>
+
+    <div id="cookControls" class="cook-controls">
+        <button
+            id="previousStep"
+            type="button"
+        >
+            Previous
+        </button>
+
+        <div id="stepCounter"></div>
+
+        <button
+            id="nextStep"
+            type="button"
+        >
+            Next
+        </button>
+    </div>
+</section>
+"""
+
+
+def render_plating(data):
+
+    plating = data.get(
+        "plating",
+        []
     )
+
+    instructions = [
+        item.get(
+            "instruction"
+        )
+        for item in plating
+        if meaningful(
+            item.get(
+                "instruction"
+            )
+        )
+    ]
+
+    if not instructions:
+        return ""
+
+    paragraphs = "".join(
+        f"<p>{esc(text)}</p>"
+        for text in instructions
+    )
+
+    return f"""
+<details class="section non-method">
+    <summary>Serving</summary>
+    <div class="section-content">
+        {paragraphs}
+    </div>
+</details>
+"""
+
+
+def render_storage(data):
+
+    storage = data.get(
+        "storage",
+        {}
+    )
+
+    if not storage:
+        return ""
+
+    rows = []
+
+    refrigerator = storage.get(
+        "refrigerator_days"
+    )
+
+    freezer = storage.get(
+        "freezer_months"
+    )
+
+    instructions = storage.get(
+        "storage_instructions"
+    )
+
+    reheating = storage.get(
+        "reheating_methods",
+        []
+    )
+
+    if refrigerator is not None:
+        rows.append(
+            '<p>'
+            '<strong>Refrigerator:</strong> '
+            f'{esc(format_number(refrigerator))} days'
+            '</p>'
+        )
+
+    if freezer is not None:
+        rows.append(
+            '<p>'
+            '<strong>Freezer:</strong> '
+            f'{esc(format_number(freezer))} months'
+            '</p>'
+        )
+
+    if meaningful(instructions):
+        rows.append(
+            f'<p>{esc(instructions)}</p>'
+        )
+
+    if reheating:
+
+        reheating_rows = "".join(
+            f'<li>{esc(method)}</li>'
+            for method in reheating
+            if meaningful(method)
+        )
+
+        if reheating_rows:
+
+            rows.append(
+                '<h3>Reheating</h3>'
+                '<ul>'
+                f'{reheating_rows}'
+                '</ul>'
+            )
+
+    if not rows:
+        return ""
+
+    return f"""
+<details class="section non-method">
+    <summary>Storage & reheating</summary>
+    <div class="section-content">
+        {''.join(rows)}
+    </div>
+</details>
+"""
+
+
+def render_shopping(data):
+
+    shopping = data.get(
+        "shopping",
+        {}
+    )
+
+    if not shopping:
+        return ""
+
+    groups = [
+        (
+            "Sainsbury's",
+            shopping.get(
+                "sainsburys",
+                []
+            )
+        ),
+        (
+            "Marks & Spencer",
+            shopping.get(
+                "marks_and_spencer",
+                []
+            )
+        ),
+        (
+            "Either retailer",
+            shopping.get(
+                "either_retailer",
+                []
+            )
+        ),
+    ]
+
+    blocks = []
+
+    for title, items in groups:
+
+        useful_items = [
+            item
+            for item in items
+            if meaningful(item)
+        ]
+
+        if not useful_items:
+            continue
+
+        rows = "".join(
+            f"<li>{esc(item)}</li>"
+            for item in useful_items
+        )
+
+        blocks.append(
+            f"""
+            <h3>{esc(title)}</h3>
+            <ul>{rows}</ul>
+            """
+        )
+
+    if not blocks:
+        return ""
+
+    return f"""
+<details class="section non-method">
+    <summary>Shopping</summary>
+    <div class="section-content">
+        {''.join(blocks)}
+    </div>
+</details>
+"""
 
 
 # ============================================================
-# Main HTML document
+# Document creation
 # ============================================================
 
 def build_html(
     data,
-    raw_json_text,
     scheduled_date=None
 ):
 
-    # Keep a completely separate copy for mutation checking.
-    original_data = copy.deepcopy(data)
-
-    expected_paths = collect_json_paths(data)
-
-    seen_paths = {"$"}
-
-    recipe_title = (
-        data.get("recipe", {}).get("title")
-        if isinstance(data, dict)
-        else None
+    recipe = data.get(
+        "recipe",
+        {}
     )
 
-    if not isinstance(recipe_title, str):
-        recipe_title = "Recipe"
+    nutrition = data.get(
+        "nutrition_per_serving",
+        {}
+    )
 
-    # --------------------------------------------------------
-    # Render every top-level field in original JSON order
-    # --------------------------------------------------------
+    title = recipe.get(
+        "title",
+        "Recipe"
+    )
 
-    body_parts = []
+    description = recipe.get(
+        "description",
+        ""
+    )
 
-    for key, value in data.items():
+    quick_facts = []
 
-        path = path_for_key(
-            "$",
-            key
-        )
-
-        body_parts.append(
-            render_top_section(
-                key,
-                value,
-                path,
-                seen_paths
+    if recipe.get(
+        "servings"
+    ) is not None:
+        quick_facts.append(
+            (
+                "Serves",
+                format_number(
+                    recipe[
+                        "servings"
+                    ]
+                )
             )
         )
 
-    # --------------------------------------------------------
-    # Completeness audit
-    # --------------------------------------------------------
-
-    missing_paths = (
-        expected_paths - seen_paths
-    )
-
-    if missing_paths:
-
-        missing_text = "\n".join(
-            sorted(missing_paths)
+    if meaningful(
+        recipe.get(
+            "difficulty"
+        )
+    ):
+        quick_facts.append(
+            (
+                "Difficulty",
+                recipe[
+                    "difficulty"
+                ]
+            )
         )
 
-        raise RuntimeError(
-            "HTML rendering failed completeness audit.\n"
-            "The following JSON paths were not rendered:\n"
-            f"{missing_text}"
+    if recipe.get(
+        "active_time_minutes"
+    ) is not None:
+        quick_facts.append(
+            (
+                "Active",
+                (
+                    f'{format_number(recipe["active_time_minutes"])} min'
+                )
+            )
         )
 
-    unexpected_paths = (
-        seen_paths - expected_paths
-    )
-
-    if unexpected_paths:
-
-        unexpected_text = "\n".join(
-            sorted(unexpected_paths)
+    if recipe.get(
+        "total_time_minutes"
+    ) is not None:
+        quick_facts.append(
+            (
+                "Total",
+                (
+                    f'{format_number(recipe["total_time_minutes"])} min'
+                )
+            )
         )
 
-        raise RuntimeError(
-            "HTML rendering produced unexpected JSON paths:\n"
-            f"{unexpected_text}"
+    if nutrition.get(
+        "energy_kcal"
+    ) is not None:
+        quick_facts.append(
+            (
+                "Energy",
+                (
+                    f'{format_number(nutrition["energy_kcal"])} kcal'
+                )
+            )
         )
 
-    # --------------------------------------------------------
-    # Mutation check
-    # --------------------------------------------------------
-
-    if data != original_data:
-
-        raise RuntimeError(
-            "The JSON data changed during rendering."
+    if nutrition.get(
+        "protein_g"
+    ) is not None:
+        quick_facts.append(
+            (
+                "Protein",
+                (
+                    f'{format_number(nutrition["protein_g"])} g'
+                )
+            )
         )
 
-    # --------------------------------------------------------
-    # Source fingerprint
-    # --------------------------------------------------------
-
-    source_hash = hashlib.sha256(
-        raw_json_text.encode("utf-8")
-    ).hexdigest()
-
-    source_json_escaped = html.escape(
-        raw_json_text
-    )
-
-    body_html = "\n".join(
-        body_parts
-    )
-
-    # --------------------------------------------------------
-    # Schedule metadata
-    # --------------------------------------------------------
-
-    if scheduled_date is None:
-
-        date_html = ""
-
-    else:
-
-        date_html = (
-            '<div class="schedule-date">'
-            '<strong>Scheduled date:</strong> '
-            f'{html.escape(scheduled_date)}'
+    quick_fact_html = "".join(
+        (
+            '<div class="fact">'
+            f'<span>{esc(label)}</span>'
+            f'<strong>{esc(value)}</strong>'
             '</div>'
         )
+        for label, value in quick_facts
+    )
+
+    tags = []
+
+    for value in recipe.get(
+        "meal_types",
+        []
+    ):
+        tags.append(
+            badge(value)
+        )
+
+    for value in recipe.get(
+        "dietary_tags",
+        []
+    ):
+        tags.append(
+            badge(value)
+        )
+
+    allergens = recipe.get(
+        "allergens",
+        []
+    )
+
+    allergen_html = ""
+
+    if allergens:
+
+        allergen_html = (
+            '<div class="allergens">'
+            '<strong>Allergens:</strong> '
+            +
+            ", ".join(
+                esc(value)
+                for value in allergens
+            )
+            +
+            '</div>'
+        )
+
+    date_html = ""
+
+    if meaningful(
+        scheduled_date
+    ):
+
+        date_html = (
+            '<div class="scheduled-date">'
+            f'{esc(scheduled_date)}'
+            '</div>'
+        )
+
+    sections = "\n".join([
+        render_ingredients(data),
+        render_equipment(data),
+        render_mise_en_place(data),
+        render_procedure(data),
+        render_plating(data),
+        render_storage(data),
+        render_shopping(data),
+    ])
 
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -487,29 +1065,26 @@ def build_html(
 
 <meta
     name="viewport"
-    content="width=device-width, initial-scale=1"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
 >
 
-<title>{html.escape(recipe_title)}</title>
+<title>{esc(title)}</title>
 
 <style>
 
     :root {{
-        --page-width: 1100px;
-        --border: #8f8f8f;
-        --page-background: #f2f2f2;
+        --background: #f4f2ec;
+        --panel: #ffffff;
+        --text: #000000;
+        --muted: #555555;
+        --border: #b9b5ad;
+        --accent: #e5f1dd;
+        --endpoint: #fff4c6;
+        --step: #f7f7f4;
     }}
 
     * {{
         box-sizing: border-box;
-    }}
-
-    html {{
-        background: var(--page-background);
-    }}
-
-    body {{
-        margin: 0;
 
         font-family:
             -apple-system,
@@ -519,512 +1094,521 @@ def build_html(
             Helvetica,
             Arial,
             sans-serif;
-
-        color: #000000;
-
-        line-height: 1.55;
     }}
 
-    h1,
-    h2,
-    h3,
-    h4,
-    p,
-    div,
-    span,
-    code,
-    pre,
-    summary,
-    strong {{
-        color: #000000;
+    html,
+    body {{
+        margin: 0;
+        padding: 0;
+
+        background: var(--background);
+        color: var(--text);
+    }}
+
+    body {{
+        min-height: 100vh;
+        min-height: 100dvh;
+    }}
+
+    button,
+    input,
+    select,
+    summary {{
+        font: inherit;
     }}
 
     .page {{
         width: min(
-            calc(100% - 32px),
-            var(--page-width)
+            calc(100% - 24px),
+            1050px
         );
 
-        margin:
-            32px
-            auto
-            64px
-            auto;
+        margin: 0 auto;
+
+        padding:
+            max(12px, env(safe-area-inset-top))
+            0
+            max(40px, env(safe-area-inset-bottom))
+            0;
     }}
 
-    /* ======================================================
-       Header
-       ====================================================== */
+    .recipe-header {{
+        position: sticky;
+        top: 0;
+        z-index: 20;
 
-    .document-header {{
-        background: #ffffff;
+        background:
+            rgba(
+                244,
+                242,
+                236,
+                0.96
+            );
 
-        border:
+        backdrop-filter:
+            blur(10px);
+
+        padding:
+            12px
+            0
+            10px
+            0;
+
+        border-bottom:
             1px
             solid
             var(--border);
-
-        border-radius: 14px;
-
-        padding: 32px;
-
-        margin-bottom: 24px;
     }}
 
-    .document-header h1 {{
+    .title-row {{
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 12px;
+    }}
+
+    h1 {{
         margin: 0;
 
         font-size:
             clamp(
-                2rem,
-                4vw,
-                3rem
+                1.65rem,
+                5vw,
+                2.8rem
             );
 
-        line-height: 1.1;
+        line-height: 1.12;
     }}
 
-    .schedule-date {{
-        margin-top: 18px;
+    .description {{
+        margin:
+            12px
+            0
+            0
+            0;
+
+        line-height: 1.5;
+    }}
+
+    .scheduled-date {{
+        margin-top: 8px;
+        font-weight: 700;
+    }}
+
+    .tag-row {{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+
+        margin-top: 10px;
+    }}
+
+    .badge {{
+        display: inline-block;
 
         padding:
-            12px
-            16px;
+            4px
+            8px;
 
-        border:
-            1px
-            solid
-            #000000;
-
-        border-radius: 8px;
-
-        background: #fff7c7;
-
-        font-size: 1.1rem;
-    }}
-
-    /* ======================================================
-       All major JSON sections
-       ====================================================== */
-
-    .top-section {{
         border:
             1px
             solid
             var(--border);
 
-        border-radius: 14px;
+        border-radius: 999px;
 
-        padding: 24px;
+        background: #ffffff;
 
-        margin:
-            0
-            0
-            24px
-            0;
+        color: #000000;
+
+        font-size: 0.82rem;
     }}
 
-    .top-section > h2 {{
-        margin:
-            0
-            0
-            20px
-            0;
+    .allergens {{
+        margin-top: 10px;
 
-        padding-bottom: 10px;
+        padding:
+            8px
+            10px;
 
-        border-bottom:
-            2px
-            solid
-            #000000;
+        border-radius: 8px;
 
-        font-size: 1.6rem;
+        background: #ffe4df;
     }}
 
-    /*
-       Every major section receives its own background colour.
+    .facts {{
+        display: grid;
 
-       Text remains black throughout.
-    */
-
-    .top-section[data-json-path="$.schema_version"] {{
-        background: #eeeeee;
-    }}
-
-    .top-section[data-json-path="$.recipe"] {{
-        background: #ffe8dc;
-    }}
-
-    .top-section[data-json-path="$.nutrition_per_serving"] {{
-        background: #ddf3e4;
-    }}
-
-    .top-section[data-json-path="$.ingredients"] {{
-        background: #fff4c9;
-    }}
-
-    .top-section[data-json-path="$.equipment"] {{
-        background: #dfeeff;
-    }}
-
-    .top-section[data-json-path="$.mise_en_place"] {{
-        background: #eee2fa;
-    }}
-
-    .top-section[data-json-path="$.procedure"] {{
-        background: #ffe1e8;
-    }}
-
-    .top-section[data-json-path="$.plating"] {{
-        background: #daf5f2;
-    }}
-
-    .top-section[data-json-path="$.storage"] {{
-        background: #ffe9c9;
-    }}
-
-    .top-section[data-json-path="$.shopping"] {{
-        background: #e4f3d7;
-    }}
-
-    .top-section[data-json-path="$.quality_checks"] {{
-        background: #eadff5;
-    }}
-
-    /* ======================================================
-       Nested objects
-       ====================================================== */
-
-    .object-content {{
-        margin: 0;
-    }}
-
-    .nested-object {{
-        margin:
-            18px
-            0;
-
-        padding: 18px;
-
-        border:
-            1px
-            solid
-            #777777;
-
-        border-radius: 10px;
-
-        background:
-            rgba(
-                255,
-                255,
-                255,
-                0.55
+        grid-template-columns:
+            repeat(
+                auto-fit,
+                minmax(90px, 1fr)
             );
-    }}
 
-    .nested-object > h3 {{
+        gap: 8px;
+
         margin:
-            0
-            0
             14px
             0;
     }}
 
-    /* ======================================================
-       Individual fields
-       ====================================================== */
-
-    .field-row {{
+    .fact {{
         display: grid;
+        gap: 2px;
 
-        grid-template-columns:
-            minmax(
-                180px,
-                28%
-            )
-            1fr;
-
-        gap: 20px;
-
-        padding:
-            10px
-            0;
-
-        border-bottom:
-            1px
-            solid
-            rgba(
-                0,
-                0,
-                0,
-                0.18
-            );
-    }}
-
-    .field-row:last-child {{
-        border-bottom: 0;
-    }}
-
-    .field-name {{
-        font-weight: 700;
-    }}
-
-    .field-value {{
-        white-space: pre-wrap;
-
-        overflow-wrap: anywhere;
-    }}
-
-    .top-scalar-value {{
-        font-size: 1.05rem;
-
-        overflow-wrap: anywhere;
-    }}
-
-    /* ======================================================
-       Arrays
-       ====================================================== */
-
-    .array-block {{
-        margin:
-            10px
-            0
-            20px
-            0;
-    }}
-
-    .array-block > h3 {{
-        margin-bottom: 12px;
-    }}
-
-    .array-items {{
-        display: grid;
-
-        gap: 14px;
-    }}
-
-    .array-item {{
-        padding: 18px;
+        padding: 9px;
 
         border:
             1px
             solid
-            #777777;
+            var(--border);
+
+        border-radius: 9px;
+
+        background: #ffffff;
+    }}
+
+    .fact span {{
+        font-size: 0.78rem;
+        color: var(--muted);
+    }}
+
+    .section {{
+        display: block;
+
+        margin-top: 14px;
+
+        border:
+            1px
+            solid
+            var(--border);
+
+        border-radius: 12px;
+
+        background: var(--panel);
+
+        overflow: hidden;
+    }}
+
+    details.section > summary {{
+        cursor: pointer;
+
+        padding:
+            15px
+            16px;
+
+        font-size: 1.12rem;
+
+        font-weight: 800;
+
+        background: var(--accent);
+    }}
+
+    .section-content {{
+        padding: 14px;
+    }}
+
+    .method-section {{
+        padding:
+            14px;
+    }}
+
+    .method-section > h2 {{
+        margin:
+            0
+            0
+            12px
+            0;
+    }}
+
+    .ingredient-grid {{
+        display: grid;
+        gap: 10px;
+    }}
+
+    .ingredient-card,
+    .prep-card,
+    .method-step {{
+        padding: 14px;
+
+        border:
+            1px
+            solid
+            var(--border);
 
         border-radius: 10px;
 
-        background:
-            rgba(
-                255,
-                255,
-                255,
-                0.60
-            );
+        background: var(--step);
     }}
 
-    .item-number {{
-        font-size: 0.82rem;
+    .ingredient-heading {{
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 14px;
+    }}
 
-        font-weight: 700;
+    .ingredient-quantity {{
+        flex: 0 0 auto;
+
+        font-weight: 800;
+
+        white-space: nowrap;
+    }}
+
+    .subline {{
+        margin-top: 7px;
+        line-height: 1.4;
+    }}
+
+    .compact-list {{
+        margin:
+            0;
+        padding-left:
+            22px;
+    }}
+
+    .card-stack {{
+        display: grid;
+        gap: 12px;
+    }}
+
+    .prep-card h3,
+    .method-step h3 {{
+        margin:
+            0;
+    }}
+
+    .prep-card p,
+    .method-step p {{
+        margin:
+            10px
+            0;
+    }}
+
+    .step-heading {{
+        display: flex;
+        align-items: baseline;
+        gap: 10px;
+    }}
+
+    .step-number {{
+        flex: 0 0 auto;
+
+        font-size: 0.8rem;
+        font-weight: 800;
 
         text-transform: uppercase;
-
-        letter-spacing: 0.06em;
-
-        margin-bottom: 8px;
     }}
 
-    .scalar-array-item {{
+    .step-section {{
+        margin-top: 6px;
+
+        font-size: 0.85rem;
+        font-weight: 700;
+
+        color: var(--muted);
+    }}
+
+    .step-meta {{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+
+        margin-top: 10px;
+    }}
+
+    .instruction {{
+        font-size: 1rem;
+        line-height: 1.55;
+    }}
+
+    .endpoint {{
+        margin-top: 10px;
+
+        padding:
+            10px
+            12px;
+
+        border-left:
+            4px
+            solid
+            #000000;
+
+        background: var(--endpoint);
+
+        line-height: 1.45;
+    }}
+
+    .corrective {{
+        margin-top: 10px;
+    }}
+
+    .corrective summary {{
+        cursor: pointer;
+        font-weight: 750;
+    }}
+
+    .corrective ul {{
+        margin-bottom: 0;
+    }}
+
+    .cook-button {{
+        flex: 0 0 auto;
+
+        min-height: 42px;
+
         padding:
             8px
             12px;
 
-        border-left:
-            3px
+        border:
+            1px
             solid
             #000000;
 
-        background:
-            rgba(
-                255,
-                255,
-                255,
-                0.55
+        border-radius: 9px;
+
+        background: #000000;
+        color: #ffffff;
+
+        font-weight: 750;
+    }}
+
+    .cook-controls {{
+        display: none;
+
+        position: sticky;
+
+        bottom:
+            max(
+                8px,
+                env(safe-area-inset-bottom)
             );
 
-        white-space: pre-wrap;
+        z-index: 30;
 
-        overflow-wrap: anywhere;
+        align-items: center;
+
+        justify-content: space-between;
+
+        gap: 10px;
+
+        margin-top: 14px;
+
+        padding: 10px;
+
+        border:
+            1px
+            solid
+            #000000;
+
+        border-radius: 12px;
+
+        background: #ffffff;
     }}
 
-    /* ======================================================
-       Special JSON values
-       ====================================================== */
-
-    .null-value {{
-        font-style: italic;
-
-        color: #000000;
-    }}
-
-    .boolean-value {{
-        font-family:
-            ui-monospace,
-            "Cascadia Mono",
-            Consolas,
-            monospace;
-
-        color: #000000;
-    }}
-
-    .empty-value {{
-        font-family:
-            ui-monospace,
-            "Cascadia Mono",
-            Consolas,
-            monospace;
-
-        color: #000000;
+    .cook-controls button {{
+        min-height: 44px;
 
         padding:
             8px
-            0;
-    }}
-
-    /* ======================================================
-       Integrity information
-       ====================================================== */
-
-    .integrity {{
-        margin-top: 32px;
-
-        background: #eeeeee;
+            14px;
 
         border:
             1px
             solid
-            var(--border);
-
-        border-radius: 10px;
-
-        padding: 18px;
-
-        font-size: 0.9rem;
-    }}
-
-    .integrity code {{
-        color: #000000;
-
-        overflow-wrap: anywhere;
-    }}
-
-    /* ======================================================
-       Original source JSON
-       ====================================================== */
-
-    details {{
-        margin-top: 20px;
-
-        background: #ffffff;
-
-        border:
-            1px
-            solid
-            var(--border);
-
-        border-radius: 10px;
-
-        padding: 16px;
-    }}
-
-    summary {{
-        cursor: pointer;
-
-        font-weight: 700;
-
-        color: #000000;
-    }}
-
-    pre {{
-        margin-top: 18px;
-
-        overflow-x: auto;
-
-        padding: 18px;
-
-        background: #eeeeee;
-
-        color: #000000;
-
-        border:
-            1px
-            solid
-            #777777;
+            #000000;
 
         border-radius: 8px;
 
-        white-space: pre-wrap;
+        background: #000000;
+        color: #ffffff;
 
-        overflow-wrap: anywhere;
+        font-weight: 750;
     }}
 
-    /* ======================================================
-       Mobile layout
-       ====================================================== */
+    body.cook-mode .non-method {{
+        display: none;
+    }}
 
-    @media (max-width: 700px) {{
+    body.cook-mode .method-step {{
+        display: none;
+    }}
+
+    body.cook-mode .method-step.active {{
+        display: block;
+    }}
+
+    body.cook-mode .cook-controls {{
+        display: flex;
+    }}
+
+    body.cook-mode .method-section {{
+        min-height:
+            70vh;
+    }}
+
+    @media (max-width: 600px) {{
 
         .page {{
             width:
-                min(
-                    calc(100% - 20px),
-                    var(--page-width)
-                );
-
-            margin-top: 10px;
+                calc(100% - 12px);
         }}
 
-        .document-header,
-        .top-section {{
-            padding: 18px;
+        .recipe-header {{
+            padding-top: 8px;
         }}
 
-        .field-row {{
+        .title-row {{
+            display: grid;
             grid-template-columns: 1fr;
+        }}
 
+        .cook-button {{
+            width: 100%;
+        }}
+
+        .ingredient-heading {{
+            display: grid;
+            grid-template-columns: 1fr;
             gap: 3px;
+        }}
+
+        .ingredient-quantity {{
+            white-space: normal;
+        }}
+
+        .method-section,
+        .section-content {{
+            padding: 10px;
+        }}
+
+        .ingredient-card,
+        .prep-card,
+        .method-step {{
+            padding: 12px;
         }}
     }}
 
-    /* ======================================================
-       Print layout
-       ====================================================== */
-
     @media print {{
 
-        html,
-        body {{
-            background: #ffffff;
+        .recipe-header {{
+            position: static;
         }}
 
-        .page {{
-            width: 100%;
-
-            margin: 0;
+        .cook-button,
+        .cook-controls {{
+            display: none !important;
         }}
 
-        .top-section,
-        .array-item {{
+        body.cook-mode .non-method,
+        body.cook-mode .method-step {{
+            display: block;
+        }}
+
+        .section {{
             break-inside: avoid;
-        }}
-
-        /*
-           Hide the full raw JSON when printing.
-           It remains present in the HTML source.
-        */
-
-        details {{
-            display: none;
         }}
     }}
 
@@ -1036,48 +1620,207 @@ def build_html(
 
 <main class="page">
 
-<header class="document-header">
+<header class="recipe-header">
 
-    <h1>{html.escape(recipe_title)}</h1>
+    <div class="title-row">
+
+        <h1>{esc(title)}</h1>
+
+        <button
+            id="cookModeButton"
+            class="cook-button"
+            type="button"
+        >
+            Cook mode
+        </button>
+
+    </div>
 
     {date_html}
 
+    <p class="description">
+        {esc(description)}
+    </p>
+
+    <div class="tag-row">
+        {''.join(tags)}
+    </div>
+
+    {allergen_html}
+
 </header>
 
-{body_html}
+<div class="facts">
+    {quick_fact_html}
+</div>
 
-<section class="integrity">
-
-    <strong>Source integrity</strong>
-
-    <div>
-        Source JSON SHA-256:
-        <code>{source_hash}</code>
-    </div>
-
-    <div>
-        JSON paths checked:
-        <code>{len(expected_paths)}</code>
-    </div>
-
-    <div>
-        Missing JSON paths:
-        <code>0</code>
-    </div>
-
-</section>
-
-<details>
-
-<summary>
-Original source JSON
-</summary>
-
-<pre>{source_json_escaped}</pre>
-
-</details>
+{sections}
 
 </main>
+
+
+<script>
+
+(function () {{
+
+    const button =
+        document.getElementById(
+            "cookModeButton"
+        );
+
+    const steps =
+        Array.from(
+            document.querySelectorAll(
+                ".method-step"
+            )
+        );
+
+    const controls =
+        document.getElementById(
+            "cookControls"
+        );
+
+    const previous =
+        document.getElementById(
+            "previousStep"
+        );
+
+    const next =
+        document.getElementById(
+            "nextStep"
+        );
+
+    const counter =
+        document.getElementById(
+            "stepCounter"
+        );
+
+    let currentStep = 0;
+
+
+    function showStep(index) {{
+
+        if (!steps.length) {{
+            return;
+        }}
+
+        currentStep =
+            Math.max(
+                0,
+                Math.min(
+                    index,
+                    steps.length - 1
+                )
+            );
+
+        steps.forEach(
+            (step, stepIndex) => {{
+
+                step.classList.toggle(
+                    "active",
+                    stepIndex === currentStep
+                );
+
+            }}
+        );
+
+        if (counter) {{
+
+            counter.textContent =
+                (
+                    "Step "
+                    +
+                    (currentStep + 1)
+                    +
+                    " of "
+                    +
+                    steps.length
+                );
+        }}
+
+        if (previous) {{
+            previous.disabled =
+                currentStep === 0;
+        }}
+
+        if (next) {{
+            next.disabled =
+                currentStep ===
+                steps.length - 1;
+        }}
+
+        const active =
+            steps[currentStep];
+
+        if (active) {{
+
+            active.scrollIntoView({{
+                behavior: "smooth",
+                block: "start"
+            }});
+        }}
+    }}
+
+
+    if (button) {{
+
+        button.addEventListener(
+            "click",
+            () => {{
+
+                const active =
+                    document.body.classList.toggle(
+                        "cook-mode"
+                    );
+
+                button.textContent =
+                    active
+                        ? "Exit cook mode"
+                        : "Cook mode";
+
+                if (active) {{
+                    showStep(
+                        currentStep
+                    );
+                }}
+            }}
+        );
+    }}
+
+
+    if (previous) {{
+
+        previous.addEventListener(
+            "click",
+            () => {{
+                showStep(
+                    currentStep - 1
+                );
+            }}
+        );
+    }}
+
+
+    if (next) {{
+
+        next.addEventListener(
+            "click",
+            () => {{
+                showStep(
+                    currentStep + 1
+                );
+            }}
+        );
+    }}
+
+
+    if (!steps.length && controls) {{
+        controls.style.display = "none";
+    }}
+
+}})();
+
+</script>
 
 </body>
 
@@ -1093,15 +1836,15 @@ def main():
 
     parser = argparse.ArgumentParser(
         description=(
-            "Render recipe JSON into lossless, "
-            "human-readable HTML."
+            "Render structured recipe JSON "
+            "into compact human cooking HTML."
         )
     )
 
     parser.add_argument(
         "input_json",
         help=(
-            "Path to the source recipe JSON file."
+            "Path to the recipe JSON file."
         )
     )
 
@@ -1110,9 +1853,7 @@ def main():
         nargs="?",
         default=None,
         help=(
-            "Optional explicit HTML output path. "
-            "If omitted, output/<JSON filename>.html "
-            "is created automatically."
+            "Optional explicit output HTML path."
         )
     )
 
@@ -1121,18 +1862,8 @@ def main():
         dest="scheduled_date",
         default=None,
         help=(
-            "Optional scheduled date to display exactly "
-            "as entered, for example 16/09/2026."
-        )
-    )
-
-    parser.add_argument(
-        "--output-dir",
-        default="output",
-        help=(
-            "Output directory used when output_html "
-            "is not explicitly supplied. "
-            "Default: output"
+            "Optional display date. "
+            "Normally scheduling is handled by the app."
         )
     )
 
@@ -1142,40 +1873,20 @@ def main():
         args.input_json
     )
 
-    # --------------------------------------------------------
-    # Determine output filename automatically
-    # --------------------------------------------------------
+    if not input_path.exists():
 
-    if args.output_html is not None:
-
-        output_path = Path(
-            args.output_html
+        raise SystemExit(
+            f"Input file not found: {input_path}"
         )
 
-    else:
-
-        output_directory = Path(
-            args.output_dir
-        )
-
-        output_path = (
-            output_directory
-            /
-            f"{input_path.stem}.html"
-        )
-
-    # --------------------------------------------------------
-    # Read source JSON
-    # --------------------------------------------------------
-
-    raw_json_text = input_path.read_text(
+    raw_text = input_path.read_text(
         encoding="utf-8"
     )
 
     try:
 
         data = json.loads(
-            raw_json_text
+            raw_text
         )
 
     except json.JSONDecodeError as exc:
@@ -1187,25 +1898,28 @@ def main():
             f"Error: {exc.msg}"
         )
 
-    if not isinstance(data, dict):
+    if not isinstance(
+        data,
+        dict
+    ):
 
         raise SystemExit(
-            "The root JSON value must be an object."
+            "Recipe JSON root must be an object."
         )
 
-    # --------------------------------------------------------
-    # Render HTML
-    # --------------------------------------------------------
+    if args.output_html:
 
-    rendered_html = build_html(
-        data,
-        raw_json_text,
-        scheduled_date=args.scheduled_date
-    )
+        output_path = Path(
+            args.output_html
+        )
 
-    # --------------------------------------------------------
-    # Create output directory if necessary
-    # --------------------------------------------------------
+    else:
+
+        output_path = (
+            DEFAULT_OUTPUT_DIR
+            /
+            f"{input_path.stem}.html"
+        )
 
     output_path.parent.mkdir(
         parents=True,
@@ -1213,7 +1927,10 @@ def main():
     )
 
     output_path.write_text(
-        rendered_html,
+        build_html(
+            data,
+            scheduled_date=args.scheduled_date
+        ),
         encoding="utf-8"
     )
 

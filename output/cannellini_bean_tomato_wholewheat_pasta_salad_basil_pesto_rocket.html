@@ -7,7 +7,7 @@
 
 <meta
     name="viewport"
-    content="width=device-width, initial-scale=1"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
 >
 
 <title>Cannellini Bean, Tomato &amp; Wholewheat Pasta Salad with Basil Pesto and Rocket</title>
@@ -15,21 +15,18 @@
 <style>
 
     :root {
-        --page-width: 1100px;
-        --border: #8f8f8f;
-        --page-background: #f2f2f2;
+        --background: #f4f2ec;
+        --panel: #ffffff;
+        --text: #000000;
+        --muted: #555555;
+        --border: #b9b5ad;
+        --accent: #e5f1dd;
+        --endpoint: #fff4c6;
+        --step: #f7f7f4;
     }
 
     * {
         box-sizing: border-box;
-    }
-
-    html {
-        background: var(--page-background);
-    }
-
-    body {
-        margin: 0;
 
         font-family:
             -apple-system,
@@ -39,512 +36,521 @@
             Helvetica,
             Arial,
             sans-serif;
-
-        color: #000000;
-
-        line-height: 1.55;
     }
 
-    h1,
-    h2,
-    h3,
-    h4,
-    p,
-    div,
-    span,
-    code,
-    pre,
-    summary,
-    strong {
-        color: #000000;
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+
+        background: var(--background);
+        color: var(--text);
+    }
+
+    body {
+        min-height: 100vh;
+        min-height: 100dvh;
+    }
+
+    button,
+    input,
+    select,
+    summary {
+        font: inherit;
     }
 
     .page {
         width: min(
-            calc(100% - 32px),
-            var(--page-width)
+            calc(100% - 24px),
+            1050px
         );
 
-        margin:
-            32px
-            auto
-            64px
-            auto;
+        margin: 0 auto;
+
+        padding:
+            max(12px, env(safe-area-inset-top))
+            0
+            max(40px, env(safe-area-inset-bottom))
+            0;
     }
 
-    /* ======================================================
-       Header
-       ====================================================== */
+    .recipe-header {
+        position: sticky;
+        top: 0;
+        z-index: 20;
 
-    .document-header {
-        background: #ffffff;
+        background:
+            rgba(
+                244,
+                242,
+                236,
+                0.96
+            );
 
-        border:
+        backdrop-filter:
+            blur(10px);
+
+        padding:
+            12px
+            0
+            10px
+            0;
+
+        border-bottom:
             1px
             solid
             var(--border);
-
-        border-radius: 14px;
-
-        padding: 32px;
-
-        margin-bottom: 24px;
     }
 
-    .document-header h1 {
+    .title-row {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 12px;
+    }
+
+    h1 {
         margin: 0;
 
         font-size:
             clamp(
-                2rem,
-                4vw,
-                3rem
+                1.65rem,
+                5vw,
+                2.8rem
             );
 
-        line-height: 1.1;
+        line-height: 1.12;
     }
 
-    .schedule-date {
-        margin-top: 18px;
+    .description {
+        margin:
+            12px
+            0
+            0
+            0;
+
+        line-height: 1.5;
+    }
+
+    .scheduled-date {
+        margin-top: 8px;
+        font-weight: 700;
+    }
+
+    .tag-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+
+        margin-top: 10px;
+    }
+
+    .badge {
+        display: inline-block;
 
         padding:
-            12px
-            16px;
+            4px
+            8px;
 
-        border:
-            1px
-            solid
-            #000000;
-
-        border-radius: 8px;
-
-        background: #fff7c7;
-
-        font-size: 1.1rem;
-    }
-
-    /* ======================================================
-       All major JSON sections
-       ====================================================== */
-
-    .top-section {
         border:
             1px
             solid
             var(--border);
 
-        border-radius: 14px;
+        border-radius: 999px;
 
-        padding: 24px;
+        background: #ffffff;
 
-        margin:
-            0
-            0
-            24px
-            0;
+        color: #000000;
+
+        font-size: 0.82rem;
     }
 
-    .top-section > h2 {
-        margin:
-            0
-            0
-            20px
-            0;
+    .allergens {
+        margin-top: 10px;
 
-        padding-bottom: 10px;
+        padding:
+            8px
+            10px;
 
-        border-bottom:
-            2px
-            solid
-            #000000;
+        border-radius: 8px;
 
-        font-size: 1.6rem;
+        background: #ffe4df;
     }
 
-    /*
-       Every major section receives its own background colour.
+    .facts {
+        display: grid;
 
-       Text remains black throughout.
-    */
-
-    .top-section[data-json-path="$.schema_version"] {
-        background: #eeeeee;
-    }
-
-    .top-section[data-json-path="$.recipe"] {
-        background: #ffe8dc;
-    }
-
-    .top-section[data-json-path="$.nutrition_per_serving"] {
-        background: #ddf3e4;
-    }
-
-    .top-section[data-json-path="$.ingredients"] {
-        background: #fff4c9;
-    }
-
-    .top-section[data-json-path="$.equipment"] {
-        background: #dfeeff;
-    }
-
-    .top-section[data-json-path="$.mise_en_place"] {
-        background: #eee2fa;
-    }
-
-    .top-section[data-json-path="$.procedure"] {
-        background: #ffe1e8;
-    }
-
-    .top-section[data-json-path="$.plating"] {
-        background: #daf5f2;
-    }
-
-    .top-section[data-json-path="$.storage"] {
-        background: #ffe9c9;
-    }
-
-    .top-section[data-json-path="$.shopping"] {
-        background: #e4f3d7;
-    }
-
-    .top-section[data-json-path="$.quality_checks"] {
-        background: #eadff5;
-    }
-
-    /* ======================================================
-       Nested objects
-       ====================================================== */
-
-    .object-content {
-        margin: 0;
-    }
-
-    .nested-object {
-        margin:
-            18px
-            0;
-
-        padding: 18px;
-
-        border:
-            1px
-            solid
-            #777777;
-
-        border-radius: 10px;
-
-        background:
-            rgba(
-                255,
-                255,
-                255,
-                0.55
+        grid-template-columns:
+            repeat(
+                auto-fit,
+                minmax(90px, 1fr)
             );
-    }
 
-    .nested-object > h3 {
+        gap: 8px;
+
         margin:
-            0
-            0
             14px
             0;
     }
 
-    /* ======================================================
-       Individual fields
-       ====================================================== */
-
-    .field-row {
+    .fact {
         display: grid;
+        gap: 2px;
 
-        grid-template-columns:
-            minmax(
-                180px,
-                28%
-            )
-            1fr;
-
-        gap: 20px;
-
-        padding:
-            10px
-            0;
-
-        border-bottom:
-            1px
-            solid
-            rgba(
-                0,
-                0,
-                0,
-                0.18
-            );
-    }
-
-    .field-row:last-child {
-        border-bottom: 0;
-    }
-
-    .field-name {
-        font-weight: 700;
-    }
-
-    .field-value {
-        white-space: pre-wrap;
-
-        overflow-wrap: anywhere;
-    }
-
-    .top-scalar-value {
-        font-size: 1.05rem;
-
-        overflow-wrap: anywhere;
-    }
-
-    /* ======================================================
-       Arrays
-       ====================================================== */
-
-    .array-block {
-        margin:
-            10px
-            0
-            20px
-            0;
-    }
-
-    .array-block > h3 {
-        margin-bottom: 12px;
-    }
-
-    .array-items {
-        display: grid;
-
-        gap: 14px;
-    }
-
-    .array-item {
-        padding: 18px;
+        padding: 9px;
 
         border:
             1px
             solid
-            #777777;
+            var(--border);
+
+        border-radius: 9px;
+
+        background: #ffffff;
+    }
+
+    .fact span {
+        font-size: 0.78rem;
+        color: var(--muted);
+    }
+
+    .section {
+        display: block;
+
+        margin-top: 14px;
+
+        border:
+            1px
+            solid
+            var(--border);
+
+        border-radius: 12px;
+
+        background: var(--panel);
+
+        overflow: hidden;
+    }
+
+    details.section > summary {
+        cursor: pointer;
+
+        padding:
+            15px
+            16px;
+
+        font-size: 1.12rem;
+
+        font-weight: 800;
+
+        background: var(--accent);
+    }
+
+    .section-content {
+        padding: 14px;
+    }
+
+    .method-section {
+        padding:
+            14px;
+    }
+
+    .method-section > h2 {
+        margin:
+            0
+            0
+            12px
+            0;
+    }
+
+    .ingredient-grid {
+        display: grid;
+        gap: 10px;
+    }
+
+    .ingredient-card,
+    .prep-card,
+    .method-step {
+        padding: 14px;
+
+        border:
+            1px
+            solid
+            var(--border);
 
         border-radius: 10px;
 
-        background:
-            rgba(
-                255,
-                255,
-                255,
-                0.60
-            );
+        background: var(--step);
     }
 
-    .item-number {
-        font-size: 0.82rem;
+    .ingredient-heading {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 14px;
+    }
 
-        font-weight: 700;
+    .ingredient-quantity {
+        flex: 0 0 auto;
+
+        font-weight: 800;
+
+        white-space: nowrap;
+    }
+
+    .subline {
+        margin-top: 7px;
+        line-height: 1.4;
+    }
+
+    .compact-list {
+        margin:
+            0;
+        padding-left:
+            22px;
+    }
+
+    .card-stack {
+        display: grid;
+        gap: 12px;
+    }
+
+    .prep-card h3,
+    .method-step h3 {
+        margin:
+            0;
+    }
+
+    .prep-card p,
+    .method-step p {
+        margin:
+            10px
+            0;
+    }
+
+    .step-heading {
+        display: flex;
+        align-items: baseline;
+        gap: 10px;
+    }
+
+    .step-number {
+        flex: 0 0 auto;
+
+        font-size: 0.8rem;
+        font-weight: 800;
 
         text-transform: uppercase;
-
-        letter-spacing: 0.06em;
-
-        margin-bottom: 8px;
     }
 
-    .scalar-array-item {
+    .step-section {
+        margin-top: 6px;
+
+        font-size: 0.85rem;
+        font-weight: 700;
+
+        color: var(--muted);
+    }
+
+    .step-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+
+        margin-top: 10px;
+    }
+
+    .instruction {
+        font-size: 1rem;
+        line-height: 1.55;
+    }
+
+    .endpoint {
+        margin-top: 10px;
+
+        padding:
+            10px
+            12px;
+
+        border-left:
+            4px
+            solid
+            #000000;
+
+        background: var(--endpoint);
+
+        line-height: 1.45;
+    }
+
+    .corrective {
+        margin-top: 10px;
+    }
+
+    .corrective summary {
+        cursor: pointer;
+        font-weight: 750;
+    }
+
+    .corrective ul {
+        margin-bottom: 0;
+    }
+
+    .cook-button {
+        flex: 0 0 auto;
+
+        min-height: 42px;
+
         padding:
             8px
             12px;
 
-        border-left:
-            3px
+        border:
+            1px
             solid
             #000000;
 
-        background:
-            rgba(
-                255,
-                255,
-                255,
-                0.55
+        border-radius: 9px;
+
+        background: #000000;
+        color: #ffffff;
+
+        font-weight: 750;
+    }
+
+    .cook-controls {
+        display: none;
+
+        position: sticky;
+
+        bottom:
+            max(
+                8px,
+                env(safe-area-inset-bottom)
             );
 
-        white-space: pre-wrap;
+        z-index: 30;
 
-        overflow-wrap: anywhere;
+        align-items: center;
+
+        justify-content: space-between;
+
+        gap: 10px;
+
+        margin-top: 14px;
+
+        padding: 10px;
+
+        border:
+            1px
+            solid
+            #000000;
+
+        border-radius: 12px;
+
+        background: #ffffff;
     }
 
-    /* ======================================================
-       Special JSON values
-       ====================================================== */
-
-    .null-value {
-        font-style: italic;
-
-        color: #000000;
-    }
-
-    .boolean-value {
-        font-family:
-            ui-monospace,
-            "Cascadia Mono",
-            Consolas,
-            monospace;
-
-        color: #000000;
-    }
-
-    .empty-value {
-        font-family:
-            ui-monospace,
-            "Cascadia Mono",
-            Consolas,
-            monospace;
-
-        color: #000000;
+    .cook-controls button {
+        min-height: 44px;
 
         padding:
             8px
-            0;
-    }
-
-    /* ======================================================
-       Integrity information
-       ====================================================== */
-
-    .integrity {
-        margin-top: 32px;
-
-        background: #eeeeee;
+            14px;
 
         border:
             1px
             solid
-            var(--border);
-
-        border-radius: 10px;
-
-        padding: 18px;
-
-        font-size: 0.9rem;
-    }
-
-    .integrity code {
-        color: #000000;
-
-        overflow-wrap: anywhere;
-    }
-
-    /* ======================================================
-       Original source JSON
-       ====================================================== */
-
-    details {
-        margin-top: 20px;
-
-        background: #ffffff;
-
-        border:
-            1px
-            solid
-            var(--border);
-
-        border-radius: 10px;
-
-        padding: 16px;
-    }
-
-    summary {
-        cursor: pointer;
-
-        font-weight: 700;
-
-        color: #000000;
-    }
-
-    pre {
-        margin-top: 18px;
-
-        overflow-x: auto;
-
-        padding: 18px;
-
-        background: #eeeeee;
-
-        color: #000000;
-
-        border:
-            1px
-            solid
-            #777777;
+            #000000;
 
         border-radius: 8px;
 
-        white-space: pre-wrap;
+        background: #000000;
+        color: #ffffff;
 
-        overflow-wrap: anywhere;
+        font-weight: 750;
     }
 
-    /* ======================================================
-       Mobile layout
-       ====================================================== */
+    body.cook-mode .non-method {
+        display: none;
+    }
 
-    @media (max-width: 700px) {
+    body.cook-mode .method-step {
+        display: none;
+    }
+
+    body.cook-mode .method-step.active {
+        display: block;
+    }
+
+    body.cook-mode .cook-controls {
+        display: flex;
+    }
+
+    body.cook-mode .method-section {
+        min-height:
+            70vh;
+    }
+
+    @media (max-width: 600px) {
 
         .page {
             width:
-                min(
-                    calc(100% - 20px),
-                    var(--page-width)
-                );
-
-            margin-top: 10px;
+                calc(100% - 12px);
         }
 
-        .document-header,
-        .top-section {
-            padding: 18px;
+        .recipe-header {
+            padding-top: 8px;
         }
 
-        .field-row {
+        .title-row {
+            display: grid;
             grid-template-columns: 1fr;
+        }
 
+        .cook-button {
+            width: 100%;
+        }
+
+        .ingredient-heading {
+            display: grid;
+            grid-template-columns: 1fr;
             gap: 3px;
+        }
+
+        .ingredient-quantity {
+            white-space: normal;
+        }
+
+        .method-section,
+        .section-content {
+            padding: 10px;
+        }
+
+        .ingredient-card,
+        .prep-card,
+        .method-step {
+            padding: 12px;
         }
     }
 
-    /* ======================================================
-       Print layout
-       ====================================================== */
-
     @media print {
 
-        html,
-        body {
-            background: #ffffff;
+        .recipe-header {
+            position: static;
         }
 
-        .page {
-            width: 100%;
-
-            margin: 0;
+        .cook-button,
+        .cook-controls {
+            display: none !important;
         }
 
-        .top-section,
-        .array-item {
+        body.cook-mode .non-method,
+        body.cook-mode .method-step {
+            display: block;
+        }
+
+        .section {
             break-inside: avoid;
-        }
-
-        /*
-           Hide the full raw JSON when printing.
-           It remains present in the HTML source.
-        */
-
-        details {
-            display: none;
         }
     }
 
@@ -556,1670 +562,512 @@
 
 <main class="page">
 
-<header class="document-header">
+<header class="recipe-header">
 
-    <h1>Cannellini Bean, Tomato &amp; Wholewheat Pasta Salad with Basil Pesto and Rocket</h1>
+    <div class="title-row">
+
+        <h1>Cannellini Bean, Tomato &amp; Wholewheat Pasta Salad with Basil Pesto and Rocket</h1>
+
+        <button
+            id="cookModeButton"
+            class="cook-button"
+            type="button"
+        >
+            Cook mode
+        </button>
+
+    </div>
 
     
 
+    <p class="description">
+        A portable high-protein wholewheat pasta salad with creamy cannellini beans, ripe tomatoes and peppery rocket, bound with a bright basil-pesto dressing enriched with blended cottage cheese and lemon for additional protein and freshness without excessive oil.
+    </p>
+
+    <div class="tag-row">
+        <span class="badge">Lunch</span><span class="badge">Vegetarian</span><span class="badge">High protein</span><span class="badge">High fibre</span><span class="badge">Portable</span>
+    </div>
+
+    <div class="allergens"><strong>Allergens:</strong> Milk, Wheat, Gluten, Nuts</div>
+
 </header>
 
-<section class="top-section" data-json-path="$.schema_version"><h2>Schema Version</h2><div class="top-scalar-value" data-json-path="$.schema_version">1.0</div></section>
-<section class="top-section" data-json-path="$.recipe"><h2>Recipe</h2><div class="object-content" data-json-path="$.recipe">
-<div class="field-row" data-json-path="$.recipe.id"><div class="field-name">Id</div><div class="field-value">cannellini_bean_tomato_wholewheat_pasta_salad_basil_pesto_rocket</div></div>
-<div class="field-row" data-json-path="$.recipe.title"><div class="field-name">Title</div><div class="field-value">Cannellini Bean, Tomato &amp; Wholewheat Pasta Salad with Basil Pesto and Rocket</div></div>
-<div class="field-row" data-json-path="$.recipe.description"><div class="field-name">Description</div><div class="field-value">A portable high-protein wholewheat pasta salad with creamy cannellini beans, ripe tomatoes and peppery rocket, bound with a bright basil-pesto dressing enriched with blended cottage cheese and lemon for additional protein and freshness without excessive oil.</div></div>
-<div class="field-row" data-json-path="$.recipe.servings"><div class="field-name">Servings</div><div class="field-value">2</div></div>
-<div class="field-row" data-json-path="$.recipe.difficulty"><div class="field-name">Difficulty</div><div class="field-value">Easy</div></div>
-<div class="field-row" data-json-path="$.recipe.total_time_minutes"><div class="field-name">Total Time Minutes</div><div class="field-value">35</div></div>
-<div class="field-row" data-json-path="$.recipe.active_time_minutes"><div class="field-name">Active Time Minutes</div><div class="field-value">25</div></div>
-<div class="field-row" data-json-path="$.recipe.passive_time_minutes"><div class="field-name">Passive Time Minutes</div><div class="field-value">10</div></div>
-<div class="array-block" data-json-path="$.recipe.cuisine">
-<h3>Cuisine</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.recipe.cuisine[0]">Italian-inspired</div>
-<div class="scalar-array-item" data-json-path="$.recipe.cuisine[1]">Contemporary</div>
+<div class="facts">
+    <div class="fact"><span>Serves</span><strong>2</strong></div><div class="fact"><span>Difficulty</span><strong>Easy</strong></div><div class="fact"><span>Active</span><strong>25 min</strong></div><div class="fact"><span>Total</span><strong>35 min</strong></div><div class="fact"><span>Energy</span><strong>400 kcal</strong></div><div class="fact"><span>Protein</span><strong>31 g</strong></div>
 </div>
-</div>
-<div class="array-block" data-json-path="$.recipe.meal_types">
-<h3>Meal Types</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.recipe.meal_types[0]">Lunch</div>
-</div>
-</div>
-<div class="array-block" data-json-path="$.recipe.dietary_tags">
-<h3>Dietary Tags</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.recipe.dietary_tags[0]">Vegetarian</div>
-<div class="scalar-array-item" data-json-path="$.recipe.dietary_tags[1]">High protein</div>
-<div class="scalar-array-item" data-json-path="$.recipe.dietary_tags[2]">High fibre</div>
-<div class="scalar-array-item" data-json-path="$.recipe.dietary_tags[3]">Portable</div>
-</div>
-</div>
-<div class="array-block" data-json-path="$.recipe.allergens">
-<h3>Allergens</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.recipe.allergens[0]">Milk</div>
-<div class="scalar-array-item" data-json-path="$.recipe.allergens[1]">Wheat</div>
-<div class="scalar-array-item" data-json-path="$.recipe.allergens[2]">Gluten</div>
-<div class="scalar-array-item" data-json-path="$.recipe.allergens[3]">Nuts</div>
-</div>
-</div>
-</div></section>
-<section class="top-section" data-json-path="$.nutrition_per_serving"><h2>Nutrition Per Serving</h2><div class="object-content" data-json-path="$.nutrition_per_serving">
-<div class="field-row" data-json-path="$.nutrition_per_serving.energy_kcal"><div class="field-name">Energy Kcal</div><div class="field-value">400</div></div>
-<div class="field-row" data-json-path="$.nutrition_per_serving.protein_g"><div class="field-name">Protein G</div><div class="field-value">31</div></div>
-<div class="field-row" data-json-path="$.nutrition_per_serving.carbohydrate_g"><div class="field-name">Carbohydrate G</div><div class="field-value">48</div></div>
-<div class="field-row" data-json-path="$.nutrition_per_serving.fat_g"><div class="field-name">Fat G</div><div class="field-value">11</div></div>
-<div class="field-row" data-json-path="$.nutrition_per_serving.saturated_fat_g"><div class="field-name">Saturated Fat G</div><div class="field-value">3</div></div>
-<div class="field-row" data-json-path="$.nutrition_per_serving.fibre_g"><div class="field-name">Fibre G</div><div class="field-value">11</div></div>
-<div class="field-row" data-json-path="$.nutrition_per_serving.salt_g"><div class="field-name">Salt G</div><div class="field-value">1.1</div></div>
-</div></section>
-<section class="top-section" data-json-path="$.ingredients"><h2>Ingredients</h2><div class="array-block" data-json-path="$.ingredients">
-<div class="array-items">
-<article class="array-item" data-json-path="$.ingredients[0]">
-<div class="item-number">Item 1</div>
-<div class="field-row" data-json-path="$.ingredients[0].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">wholewheat_pasta_dry</div></div>
-<div class="field-row" data-json-path="$.ingredients[0].display_name"><div class="field-name">Display Name</div><div class="field-value">Wholewheat pasta</div></div>
-<div class="field-row" data-json-path="$.ingredients[0].category"><div class="field-name">Category</div><div class="field-value">Pasta and grains</div></div>
-<div class="field-row" data-json-path="$.ingredients[0].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.ingredients[0].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">65</div></div>
-<div class="field-row" data-json-path="$.ingredients[0].unit_used"><div class="field-name">Unit Used</div><div class="field-value">g</div></div>
-<div class="field-row" data-json-path="$.ingredients[0].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 standard packet</div></div>
-<div class="field-row" data-json-path="$.ingredients[0].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Use a short wholewheat pasta shape such as fusilli or penne. Exact supermarket pack size varies.</div></div>
-<div class="array-block" data-json-path="$.ingredients[0].retailers">
-<h3>Retailers</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.ingredients[0].retailers[0]">Sainsbury&#x27;s</div>
-<div class="scalar-array-item" data-json-path="$.ingredients[0].retailers[1]">Marks &amp; Spencer</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.ingredients[0].preparation"><div class="field-name">Preparation</div><div class="field-value">Use dry weight. Cook until just tender with a slight bite, then drain thoroughly.</div></div>
-<div class="field-row" data-json-path="$.ingredients[0].notes"><div class="field-name">Notes</div><div class="field-value">Use: 65 g dry total.</div></div>
-</article>
-<article class="array-item" data-json-path="$.ingredients[1]">
-<div class="item-number">Item 2</div>
-<div class="field-row" data-json-path="$.ingredients[1].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">cannellini_beans_canned</div></div>
-<div class="field-row" data-json-path="$.ingredients[1].display_name"><div class="field-name">Display Name</div><div class="field-value">Cannellini beans</div></div>
-<div class="field-row" data-json-path="$.ingredients[1].category"><div class="field-name">Category</div><div class="field-value">Legumes</div></div>
-<div class="field-row" data-json-path="$.ingredients[1].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.ingredients[1].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">240</div></div>
-<div class="field-row" data-json-path="$.ingredients[1].unit_used"><div class="field-name">Unit Used</div><div class="field-value">g</div></div>
-<div class="field-row" data-json-path="$.ingredients[1].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 x 400 g tin</div></div>
-<div class="field-row" data-json-path="$.ingredients[1].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">A standard 400 g tin normally yields approximately 230-250 g drained beans; exact drained weight varies.</div></div>
-<div class="array-block" data-json-path="$.ingredients[1].retailers">
-<h3>Retailers</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.ingredients[1].retailers[0]">Sainsbury&#x27;s</div>
-<div class="scalar-array-item" data-json-path="$.ingredients[1].retailers[1]">Marks &amp; Spencer</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.ingredients[1].preparation"><div class="field-name">Preparation</div><div class="field-value">Drain completely, rinse thoroughly under cold running water and allow excess water to drain away.</div></div>
-<div class="field-row" data-json-path="$.ingredients[1].notes"><div class="field-name">Notes</div><div class="field-value">Use: approximately 240 g drained.</div></div>
-</article>
-<article class="array-item" data-json-path="$.ingredients[2]">
-<div class="item-number">Item 3</div>
-<div class="field-row" data-json-path="$.ingredients[2].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">cottage_cheese_low_fat</div></div>
-<div class="field-row" data-json-path="$.ingredients[2].display_name"><div class="field-name">Display Name</div><div class="field-value">Low-fat cottage cheese</div></div>
-<div class="field-row" data-json-path="$.ingredients[2].category"><div class="field-name">Category</div><div class="field-value">Dairy</div></div>
-<div class="field-row" data-json-path="$.ingredients[2].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.ingredients[2].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">220</div></div>
-<div class="field-row" data-json-path="$.ingredients[2].unit_used"><div class="field-name">Unit Used</div><div class="field-value">g</div></div>
-<div class="field-row" data-json-path="$.ingredients[2].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 tub containing at least 220 g</div></div>
-<div class="field-row" data-json-path="$.ingredients[2].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Choose plain low-fat cottage cheese. Exact supermarket tub size varies.</div></div>
-<div class="array-block" data-json-path="$.ingredients[2].retailers">
-<h3>Retailers</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.ingredients[2].retailers[0]">Sainsbury&#x27;s</div>
-<div class="scalar-array-item" data-json-path="$.ingredients[2].retailers[1]">Marks &amp; Spencer</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.ingredients[2].preparation"><div class="field-name">Preparation</div><div class="field-value">Drain off any visible loose whey before weighing, then blend into the pesto dressing.</div></div>
-<div class="field-row" data-json-path="$.ingredients[2].notes"><div class="field-name">Notes</div><div class="field-value">Use: 220 g total. This materially increases protein while providing a creamy dressing without requiring a large quantity of oil.</div></div>
-</article>
-<article class="array-item" data-json-path="$.ingredients[3]">
-<div class="item-number">Item 4</div>
-<div class="field-row" data-json-path="$.ingredients[3].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">basil_pesto</div></div>
-<div class="field-row" data-json-path="$.ingredients[3].display_name"><div class="field-name">Display Name</div><div class="field-value">Basil pesto</div></div>
-<div class="field-row" data-json-path="$.ingredients[3].category"><div class="field-name">Category</div><div class="field-value">Condiments</div></div>
-<div class="field-row" data-json-path="$.ingredients[3].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.ingredients[3].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">12</div></div>
-<div class="field-row" data-json-path="$.ingredients[3].unit_used"><div class="field-name">Unit Used</div><div class="field-value">g</div></div>
-<div class="field-row" data-json-path="$.ingredients[3].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 small jar</div></div>
-<div class="field-row" data-json-path="$.ingredients[3].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Choose a vegetarian basil pesto made without animal rennet where required. Exact pack size varies.</div></div>
-<div class="array-block" data-json-path="$.ingredients[3].retailers">
-<h3>Retailers</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.ingredients[3].retailers[0]">Sainsbury&#x27;s</div>
-<div class="scalar-array-item" data-json-path="$.ingredients[3].retailers[1]">Marks &amp; Spencer</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.ingredients[3].preparation"><div class="field-name">Preparation</div><div class="field-value">Stir the jar thoroughly before measuring if oil has separated.</div></div>
-<div class="field-row" data-json-path="$.ingredients[3].notes"><div class="field-name">Notes</div><div class="field-value">Use: 12 g total. The restrained quantity supplies concentrated basil, garlic, cheese and nut flavour while keeping calories controlled.</div></div>
-</article>
-<article class="array-item" data-json-path="$.ingredients[4]">
-<div class="item-number">Item 5</div>
-<div class="field-row" data-json-path="$.ingredients[4].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">vegetarian_parmesan_style_cheese</div></div>
-<div class="field-row" data-json-path="$.ingredients[4].display_name"><div class="field-name">Display Name</div><div class="field-value">Vegetarian Parmesan-style hard cheese</div></div>
-<div class="field-row" data-json-path="$.ingredients[4].category"><div class="field-name">Category</div><div class="field-value">Dairy</div></div>
-<div class="field-row" data-json-path="$.ingredients[4].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.ingredients[4].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">20</div></div>
-<div class="field-row" data-json-path="$.ingredients[4].unit_used"><div class="field-name">Unit Used</div><div class="field-value">g</div></div>
-<div class="field-row" data-json-path="$.ingredients[4].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 small wedge or packet</div></div>
-<div class="field-row" data-json-path="$.ingredients[4].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Use a vegetarian Italian-style hard cheese suitable for fine grating.</div></div>
-<div class="array-block" data-json-path="$.ingredients[4].retailers">
-<h3>Retailers</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.ingredients[4].retailers[0]">Sainsbury&#x27;s</div>
-<div class="scalar-array-item" data-json-path="$.ingredients[4].retailers[1]">Marks &amp; Spencer</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.ingredients[4].preparation"><div class="field-name">Preparation</div><div class="field-value">Finely grate immediately before making the dressing.</div></div>
-<div class="field-row" data-json-path="$.ingredients[4].notes"><div class="field-name">Notes</div><div class="field-value">Use: 20 g total.</div></div>
-</article>
-<article class="array-item" data-json-path="$.ingredients[5]">
-<div class="item-number">Item 6</div>
-<div class="field-row" data-json-path="$.ingredients[5].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">cherry_tomatoes</div></div>
-<div class="field-row" data-json-path="$.ingredients[5].display_name"><div class="field-name">Display Name</div><div class="field-value">Cherry tomatoes</div></div>
-<div class="field-row" data-json-path="$.ingredients[5].category"><div class="field-name">Category</div><div class="field-value">Vegetables</div></div>
-<div class="field-row" data-json-path="$.ingredients[5].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.ingredients[5].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">180</div></div>
-<div class="field-row" data-json-path="$.ingredients[5].unit_used"><div class="field-name">Unit Used</div><div class="field-value">g</div></div>
-<div class="field-row" data-json-path="$.ingredients[5].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 punnet containing at least 180 g</div></div>
-<div class="field-row" data-json-path="$.ingredients[5].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Choose ripe, firm tomatoes without split or mouldy fruit.</div></div>
-<div class="array-block" data-json-path="$.ingredients[5].retailers">
-<h3>Retailers</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.ingredients[5].retailers[0]">Sainsbury&#x27;s</div>
-<div class="scalar-array-item" data-json-path="$.ingredients[5].retailers[1]">Marks &amp; Spencer</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.ingredients[5].preparation"><div class="field-name">Preparation</div><div class="field-value">Wash and dry thoroughly, remove any stems and halve through the stem axis.</div></div>
-<div class="field-row" data-json-path="$.ingredients[5].notes"><div class="field-name">Notes</div><div class="field-value">Use: 180 g total.</div></div>
-</article>
-<article class="array-item" data-json-path="$.ingredients[6]">
-<div class="item-number">Item 7</div>
-<div class="field-row" data-json-path="$.ingredients[6].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">rocket</div></div>
-<div class="field-row" data-json-path="$.ingredients[6].display_name"><div class="field-name">Display Name</div><div class="field-value">Rocket</div></div>
-<div class="field-row" data-json-path="$.ingredients[6].category"><div class="field-name">Category</div><div class="field-value">Leafy vegetables</div></div>
-<div class="field-row" data-json-path="$.ingredients[6].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.ingredients[6].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">50</div></div>
-<div class="field-row" data-json-path="$.ingredients[6].unit_used"><div class="field-name">Unit Used</div><div class="field-value">g</div></div>
-<div class="field-row" data-json-path="$.ingredients[6].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 bag containing at least 50 g</div></div>
-<div class="field-row" data-json-path="$.ingredients[6].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Choose fresh, dry leaves without slimy or heavily wilted sections.</div></div>
-<div class="array-block" data-json-path="$.ingredients[6].retailers">
-<h3>Retailers</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.ingredients[6].retailers[0]">Sainsbury&#x27;s</div>
-<div class="scalar-array-item" data-json-path="$.ingredients[6].retailers[1]">Marks &amp; Spencer</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.ingredients[6].preparation"><div class="field-name">Preparation</div><div class="field-value">Wash only if required by pack instructions, then dry thoroughly.</div></div>
-<div class="field-row" data-json-path="$.ingredients[6].notes"><div class="field-name">Notes</div><div class="field-value">Use: 50 g total.</div></div>
-</article>
-<article class="array-item" data-json-path="$.ingredients[7]">
-<div class="item-number">Item 8</div>
-<div class="field-row" data-json-path="$.ingredients[7].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">lemon</div></div>
-<div class="field-row" data-json-path="$.ingredients[7].display_name"><div class="field-name">Display Name</div><div class="field-value">Unwaxed lemon</div></div>
-<div class="field-row" data-json-path="$.ingredients[7].category"><div class="field-name">Category</div><div class="field-value">Fruit</div></div>
-<div class="field-row" data-json-path="$.ingredients[7].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.ingredients[7].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">1</div></div>
-<div class="field-row" data-json-path="$.ingredients[7].unit_used"><div class="field-name">Unit Used</div><div class="field-value">integer</div></div>
-<div class="field-row" data-json-path="$.ingredients[7].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 lemon</div></div>
-<div class="field-row" data-json-path="$.ingredients[7].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">An unwaxed lemon is preferred because the zest is used.</div></div>
-<div class="array-block" data-json-path="$.ingredients[7].retailers">
-<h3>Retailers</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.ingredients[7].retailers[0]">Sainsbury&#x27;s</div>
-<div class="scalar-array-item" data-json-path="$.ingredients[7].retailers[1]">Marks &amp; Spencer</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.ingredients[7].preparation"><div class="field-name">Preparation</div><div class="field-value">Wash and dry. Finely grate approximately 2 g yellow zest and squeeze 20 ml juice, removing all seeds.</div></div>
-<div class="field-row" data-json-path="$.ingredients[7].notes"><div class="field-name">Notes</div><div class="field-value">Use approximately 2 g zest and 20 ml juice; reserve the remaining lemon for another use.</div></div>
-</article>
-<article class="array-item" data-json-path="$.ingredients[8]">
-<div class="item-number">Item 9</div>
-<div class="field-row" data-json-path="$.ingredients[8].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">garlic</div></div>
-<div class="field-row" data-json-path="$.ingredients[8].display_name"><div class="field-name">Display Name</div><div class="field-value">Garlic</div></div>
-<div class="field-row" data-json-path="$.ingredients[8].category"><div class="field-name">Category</div><div class="field-value">Aromatics</div></div>
-<div class="field-row" data-json-path="$.ingredients[8].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.ingredients[8].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">1</div></div>
-<div class="field-row" data-json-path="$.ingredients[8].unit_used"><div class="field-name">Unit Used</div><div class="field-value">integer</div></div>
-<div class="field-row" data-json-path="$.ingredients[8].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 garlic bulb</div></div>
-<div class="field-row" data-json-path="$.ingredients[8].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Use 1 small clove from the bulb.</div></div>
-<div class="array-block" data-json-path="$.ingredients[8].retailers">
-<h3>Retailers</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.ingredients[8].retailers[0]">Sainsbury&#x27;s</div>
-<div class="scalar-array-item" data-json-path="$.ingredients[8].retailers[1]">Marks &amp; Spencer</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.ingredients[8].preparation"><div class="field-name">Preparation</div><div class="field-value">Separate 1 small clove, peel, trim the root end and finely grate.</div></div>
-<div class="field-row" data-json-path="$.ingredients[8].notes"><div class="field-name">Notes</div><div class="field-value">Use: 1 small clove, approximately 3 g prepared.</div></div>
-</article>
-<article class="array-item" data-json-path="$.ingredients[9]">
-<div class="item-number">Item 10</div>
-<div class="field-row" data-json-path="$.ingredients[9].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">extra_virgin_olive_oil</div></div>
-<div class="field-row" data-json-path="$.ingredients[9].display_name"><div class="field-name">Display Name</div><div class="field-value">Extra-virgin olive oil</div></div>
-<div class="field-row" data-json-path="$.ingredients[9].category"><div class="field-name">Category</div><div class="field-value">Oils</div></div>
-<div class="field-row" data-json-path="$.ingredients[9].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.ingredients[9].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">4</div></div>
-<div class="field-row" data-json-path="$.ingredients[9].unit_used"><div class="field-name">Unit Used</div><div class="field-value">g</div></div>
-<div class="field-row" data-json-path="$.ingredients[9].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 bottle if not already stocked</div></div>
-<div class="field-row" data-json-path="$.ingredients[9].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Use a good everyday extra-virgin olive oil.</div></div>
-<div class="array-block" data-json-path="$.ingredients[9].retailers">
-<h3>Retailers</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.ingredients[9].retailers[0]">Sainsbury&#x27;s</div>
-<div class="scalar-array-item" data-json-path="$.ingredients[9].retailers[1]">Marks &amp; Spencer</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.ingredients[9].preparation"><div class="field-name">Preparation</div><div class="field-value">Measure accurately before preparing the dressing.</div></div>
-<div class="field-row" data-json-path="$.ingredients[9].notes"><div class="field-name">Notes</div><div class="field-value">Use: 4 g total.</div></div>
-</article>
-<article class="array-item" data-json-path="$.ingredients[10]">
-<div class="item-number">Item 11</div>
-<div class="field-row" data-json-path="$.ingredients[10].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">fine_salt</div></div>
-<div class="field-row" data-json-path="$.ingredients[10].display_name"><div class="field-name">Display Name</div><div class="field-value">Fine salt</div></div>
-<div class="field-row" data-json-path="$.ingredients[10].category"><div class="field-name">Category</div><div class="field-value">Seasoning</div></div>
-<div class="field-row" data-json-path="$.ingredients[10].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.ingredients[10].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">0.375</div></div>
-<div class="field-row" data-json-path="$.ingredients[10].unit_used"><div class="field-name">Unit Used</div><div class="field-value">tsp</div></div>
-<div class="field-row" data-json-path="$.ingredients[10].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 standard container if not already stocked</div></div>
-<div class="field-row" data-json-path="$.ingredients[10].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Fine table salt or fine sea salt is suitable.</div></div>
-<div class="array-block" data-json-path="$.ingredients[10].retailers">
-<h3>Retailers</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.ingredients[10].retailers[0]">Sainsbury&#x27;s</div>
-<div class="scalar-array-item" data-json-path="$.ingredients[10].retailers[1]">Marks &amp; Spencer</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.ingredients[10].preparation"><div class="field-name">Preparation</div><div class="field-value">Measure 0.25 tsp for pasta cooking and dressing, and reserve up to 0.125 tsp for final adjustment.</div></div>
-<div class="field-row" data-json-path="$.ingredients[10].notes"><div class="field-name">Notes</div><div class="field-value">Pesto and hard cheese are already salty, so the reserved quantity should only be used if required after tasting.</div></div>
-</article>
-<article class="array-item" data-json-path="$.ingredients[11]">
-<div class="item-number">Item 12</div>
-<div class="field-row" data-json-path="$.ingredients[11].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">black_pepper_ground</div></div>
-<div class="field-row" data-json-path="$.ingredients[11].display_name"><div class="field-name">Display Name</div><div class="field-value">Ground black pepper</div></div>
-<div class="field-row" data-json-path="$.ingredients[11].category"><div class="field-name">Category</div><div class="field-value">Seasoning</div></div>
-<div class="field-row" data-json-path="$.ingredients[11].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.ingredients[11].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">0.25</div></div>
-<div class="field-row" data-json-path="$.ingredients[11].unit_used"><div class="field-name">Unit Used</div><div class="field-value">tsp</div></div>
-<div class="field-row" data-json-path="$.ingredients[11].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Buy: 1 jar or pepper mill if not already stocked</div></div>
-<div class="field-row" data-json-path="$.ingredients[11].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">Freshly ground black pepper is preferred where available.</div></div>
-<div class="array-block" data-json-path="$.ingredients[11].retailers">
-<h3>Retailers</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.ingredients[11].retailers[0]">Sainsbury&#x27;s</div>
-<div class="scalar-array-item" data-json-path="$.ingredients[11].retailers[1]">Marks &amp; Spencer</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.ingredients[11].preparation"><div class="field-name">Preparation</div><div class="field-value">Measure before mixing.</div></div>
-<div class="field-row" data-json-path="$.ingredients[11].notes"><div class="field-name">Notes</div><div class="field-value">Use: 0.25 tsp total.</div></div>
-</article>
-<article class="array-item" data-json-path="$.ingredients[12]">
-<div class="item-number">Item 13</div>
-<div class="field-row" data-json-path="$.ingredients[12].ingredient_id"><div class="field-name">Ingredient Id</div><div class="field-value">water</div></div>
-<div class="field-row" data-json-path="$.ingredients[12].display_name"><div class="field-name">Display Name</div><div class="field-value">Water</div></div>
-<div class="field-row" data-json-path="$.ingredients[12].category"><div class="field-name">Category</div><div class="field-value">Liquid</div></div>
-<div class="field-row" data-json-path="$.ingredients[12].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.ingredients[12].quantity_used"><div class="field-name">Quantity Used</div><div class="field-value">20</div></div>
-<div class="field-row" data-json-path="$.ingredients[12].unit_used"><div class="field-name">Unit Used</div><div class="field-value">ml</div></div>
-<div class="field-row" data-json-path="$.ingredients[12].purchase_quantity"><div class="field-name">Purchase Quantity</div><div class="field-value">Use: up to 20 ml tap water plus sufficient water for boiling the pasta</div></div>
-<div class="field-row" data-json-path="$.ingredients[12].purchase_notes"><div class="field-name">Purchase Notes</div><div class="field-value">No purchase required.</div></div>
-<div class="array-block" data-json-path="$.ingredients[12].retailers">
-<h3>Retailers</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.ingredients[12].retailers[0]">Sainsbury&#x27;s</div>
-<div class="scalar-array-item" data-json-path="$.ingredients[12].retailers[1]">Marks &amp; Spencer</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.ingredients[12].preparation"><div class="field-name">Preparation</div><div class="field-value">Reserve up to 20 ml cold water for loosening the dressing after blending.</div></div>
-<div class="field-row" data-json-path="$.ingredients[12].notes"><div class="field-name">Notes</div><div class="field-value">The stated 20 ml is dressing water only; pasta-boiling water is additional.</div></div>
-</article>
-</div>
-</div></section>
-<section class="top-section" data-json-path="$.equipment"><h2>Equipment</h2><div class="array-block" data-json-path="$.equipment">
-<div class="array-items">
-<article class="array-item" data-json-path="$.equipment[0]">
-<div class="item-number">Item 1</div>
-<div class="field-row" data-json-path="$.equipment[0].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">saucepan</div></div>
-<div class="field-row" data-json-path="$.equipment[0].display_name"><div class="field-name">Display Name</div><div class="field-value">Medium saucepan</div></div>
-<div class="field-row" data-json-path="$.equipment[0].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.equipment[0].notes"><div class="field-name">Notes</div><div class="field-value">Used to cook the wholewheat pasta.</div></div>
-</article>
-<article class="array-item" data-json-path="$.equipment[1]">
-<div class="item-number">Item 2</div>
-<div class="field-row" data-json-path="$.equipment[1].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">gas_hob</div></div>
-<div class="field-row" data-json-path="$.equipment[1].display_name"><div class="field-name">Display Name</div><div class="field-value">Gas hob</div></div>
-<div class="field-row" data-json-path="$.equipment[1].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.equipment[1].notes"><div class="field-name">Notes</div><div class="field-value">Used to boil the pasta.</div></div>
-</article>
-<article class="array-item" data-json-path="$.equipment[2]">
-<div class="item-number">Item 3</div>
-<div class="field-row" data-json-path="$.equipment[2].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">colander</div></div>
-<div class="field-row" data-json-path="$.equipment[2].display_name"><div class="field-name">Display Name</div><div class="field-value">Colander</div></div>
-<div class="field-row" data-json-path="$.equipment[2].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.equipment[2].notes"><div class="field-name">Notes</div><div class="field-value">Used to drain the pasta and cannellini beans.</div></div>
-</article>
-<article class="array-item" data-json-path="$.equipment[3]">
-<div class="item-number">Item 4</div>
-<div class="field-row" data-json-path="$.equipment[3].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">standard_blender</div></div>
-<div class="field-row" data-json-path="$.equipment[3].display_name"><div class="field-name">Display Name</div><div class="field-value">Standard blender</div></div>
-<div class="field-row" data-json-path="$.equipment[3].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.equipment[3].notes"><div class="field-name">Notes</div><div class="field-value">Used to make the smooth basil-pesto and cottage-cheese dressing.</div></div>
-</article>
-<article class="array-item" data-json-path="$.equipment[4]">
-<div class="item-number">Item 5</div>
-<div class="field-row" data-json-path="$.equipment[4].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">mixing_bowl</div></div>
-<div class="field-row" data-json-path="$.equipment[4].display_name"><div class="field-name">Display Name</div><div class="field-value">Large mixing bowl</div></div>
-<div class="field-row" data-json-path="$.equipment[4].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.equipment[4].notes"><div class="field-name">Notes</div><div class="field-value">Used to assemble and cool the pasta salad.</div></div>
-</article>
-<article class="array-item" data-json-path="$.equipment[5]">
-<div class="item-number">Item 6</div>
-<div class="field-row" data-json-path="$.equipment[5].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">chef_knife</div></div>
-<div class="field-row" data-json-path="$.equipment[5].display_name"><div class="field-name">Display Name</div><div class="field-value">Chef&#x27;s knife</div></div>
-<div class="field-row" data-json-path="$.equipment[5].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.equipment[5].notes"><div class="field-name">Notes</div><div class="field-value">Used to halve the tomatoes and prepare the lemon and garlic.</div></div>
-</article>
-<article class="array-item" data-json-path="$.equipment[6]">
-<div class="item-number">Item 7</div>
-<div class="field-row" data-json-path="$.equipment[6].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">chopping_board</div></div>
-<div class="field-row" data-json-path="$.equipment[6].display_name"><div class="field-name">Display Name</div><div class="field-value">Chopping board</div></div>
-<div class="field-row" data-json-path="$.equipment[6].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.equipment[6].notes"><div class="field-name">Notes</div><div class="field-value">Used for safe produce preparation.</div></div>
-</article>
-<article class="array-item" data-json-path="$.equipment[7]">
-<div class="item-number">Item 8</div>
-<div class="field-row" data-json-path="$.equipment[7].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">fine_grater</div></div>
-<div class="field-row" data-json-path="$.equipment[7].display_name"><div class="field-name">Display Name</div><div class="field-value">Fine grater or Microplane</div></div>
-<div class="field-row" data-json-path="$.equipment[7].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.equipment[7].notes"><div class="field-name">Notes</div><div class="field-value">Used for lemon zest, garlic and hard cheese.</div></div>
-</article>
-<article class="array-item" data-json-path="$.equipment[8]">
-<div class="item-number">Item 9</div>
-<div class="field-row" data-json-path="$.equipment[8].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">measuring_jug</div></div>
-<div class="field-row" data-json-path="$.equipment[8].display_name"><div class="field-name">Display Name</div><div class="field-value">Measuring jug</div></div>
-<div class="field-row" data-json-path="$.equipment[8].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.equipment[8].notes"><div class="field-name">Notes</div><div class="field-value">Used for lemon juice and dressing water.</div></div>
-</article>
-<article class="array-item" data-json-path="$.equipment[9]">
-<div class="item-number">Item 10</div>
-<div class="field-row" data-json-path="$.equipment[9].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">measuring_spoons</div></div>
-<div class="field-row" data-json-path="$.equipment[9].display_name"><div class="field-name">Display Name</div><div class="field-value">Measuring spoons</div></div>
-<div class="field-row" data-json-path="$.equipment[9].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.equipment[9].notes"><div class="field-name">Notes</div><div class="field-value">Used for salt and black pepper.</div></div>
-</article>
-<article class="array-item" data-json-path="$.equipment[10]">
-<div class="item-number">Item 11</div>
-<div class="field-row" data-json-path="$.equipment[10].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">kitchen_scales</div></div>
-<div class="field-row" data-json-path="$.equipment[10].display_name"><div class="field-name">Display Name</div><div class="field-value">Kitchen scales</div></div>
-<div class="field-row" data-json-path="$.equipment[10].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.equipment[10].notes"><div class="field-name">Notes</div><div class="field-value">Used for accurate pasta, bean, cottage-cheese, pesto, cheese, oil and vegetable quantities.</div></div>
-</article>
-<article class="array-item" data-json-path="$.equipment[11]">
-<div class="item-number">Item 12</div>
-<div class="field-row" data-json-path="$.equipment[11].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">spatula</div></div>
-<div class="field-row" data-json-path="$.equipment[11].display_name"><div class="field-name">Display Name</div><div class="field-value">Flexible spatula or large spoon</div></div>
-<div class="field-row" data-json-path="$.equipment[11].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.equipment[11].notes"><div class="field-name">Notes</div><div class="field-value">Used to fold the salad without crushing the beans.</div></div>
-</article>
-<article class="array-item" data-json-path="$.equipment[12]">
-<div class="item-number">Item 13</div>
-<div class="field-row" data-json-path="$.equipment[12].equipment_id"><div class="field-name">Equipment Id</div><div class="field-value">lidded_containers</div></div>
-<div class="field-row" data-json-path="$.equipment[12].display_name"><div class="field-name">Display Name</div><div class="field-value">2 portable lidded lunch containers</div></div>
-<div class="field-row" data-json-path="$.equipment[12].required"><div class="field-name">Required</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.equipment[12].notes"><div class="field-name">Notes</div><div class="field-value">Each container should hold approximately 650-750 ml and seal securely for transport.</div></div>
-</article>
-</div>
-</div></section>
-<section class="top-section" data-json-path="$.mise_en_place"><h2>Mise En Place</h2><div class="array-block" data-json-path="$.mise_en_place">
-<div class="array-items">
-<article class="array-item" data-json-path="$.mise_en_place[0]">
-<div class="item-number">Item 1</div>
-<div class="field-row" data-json-path="$.mise_en_place[0].prep_id"><div class="field-name">Prep Id</div><div class="field-value">PREP_01</div></div>
-<div class="array-block" data-json-path="$.mise_en_place[0].ingredient_ids">
-<h3>Ingredient Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.mise_en_place[0].ingredient_ids[0]">cannellini_beans_canned</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.mise_en_place[0].instruction"><div class="field-name">Instruction</div><div class="field-value">Open the cannellini bean tin. Pour the contents into a colander and discard the canning liquid. Rinse the beans thoroughly under cold running water while gently turning them with clean fingers. Shake the colander and leave the beans to drain for at least 2 minutes.</div></div>
-<div class="field-row" data-json-path="$.mise_en_place[0].endpoint"><div class="field-name">Endpoint</div><div class="field-value">Approximately 240 g cannellini beans are clean, intact and free from visible canning liquid.</div></div>
-</article>
-<article class="array-item" data-json-path="$.mise_en_place[1]">
-<div class="item-number">Item 2</div>
-<div class="field-row" data-json-path="$.mise_en_place[1].prep_id"><div class="field-name">Prep Id</div><div class="field-value">PREP_02</div></div>
-<div class="array-block" data-json-path="$.mise_en_place[1].ingredient_ids">
-<h3>Ingredient Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.mise_en_place[1].ingredient_ids[0]">cherry_tomatoes</div>
-<div class="scalar-array-item" data-json-path="$.mise_en_place[1].ingredient_ids[1]">rocket</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.mise_en_place[1].instruction"><div class="field-name">Instruction</div><div class="field-value">Wash the cherry tomatoes and rocket if required by the packaging instructions, then dry thoroughly. Remove any tomato stems and halve each tomato through the stem axis. Remove damaged or slimy rocket leaves and discard them.</div></div>
-<div class="field-row" data-json-path="$.mise_en_place[1].endpoint"><div class="field-name">Endpoint</div><div class="field-value">The tomatoes are clean, dry and evenly halved, and the rocket is clean, dry and free from damaged leaves.</div></div>
-</article>
-<article class="array-item" data-json-path="$.mise_en_place[2]">
-<div class="item-number">Item 3</div>
-<div class="field-row" data-json-path="$.mise_en_place[2].prep_id"><div class="field-name">Prep Id</div><div class="field-value">PREP_03</div></div>
-<div class="array-block" data-json-path="$.mise_en_place[2].ingredient_ids">
-<h3>Ingredient Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.mise_en_place[2].ingredient_ids[0]">lemon</div>
-<div class="scalar-array-item" data-json-path="$.mise_en_place[2].ingredient_ids[1]">garlic</div>
-<div class="scalar-array-item" data-json-path="$.mise_en_place[2].ingredient_ids[2]">vegetarian_parmesan_style_cheese</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.mise_en_place[2].instruction"><div class="field-name">Instruction</div><div class="field-value">Wash and dry the lemon. Finely grate approximately 2 g yellow zest without removing significant white pith. Cut the lemon and squeeze 20 ml juice, removing all seeds. Separate 1 small garlic clove, peel it, trim the root end and grate finely. Finely grate 20 g vegetarian Parmesan-style cheese.</div></div>
-<div class="field-row" data-json-path="$.mise_en_place[2].endpoint"><div class="field-name">Endpoint</div><div class="field-value">Lemon zest, lemon juice, garlic and hard cheese are finely prepared and ready for blending.</div></div>
-</article>
-<article class="array-item" data-json-path="$.mise_en_place[3]">
-<div class="item-number">Item 4</div>
-<div class="field-row" data-json-path="$.mise_en_place[3].prep_id"><div class="field-name">Prep Id</div><div class="field-value">PREP_04</div></div>
-<div class="array-block" data-json-path="$.mise_en_place[3].ingredient_ids">
-<h3>Ingredient Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.mise_en_place[3].ingredient_ids[0]">wholewheat_pasta_dry</div>
-<div class="scalar-array-item" data-json-path="$.mise_en_place[3].ingredient_ids[1]">cottage_cheese_low_fat</div>
-<div class="scalar-array-item" data-json-path="$.mise_en_place[3].ingredient_ids[2]">basil_pesto</div>
-<div class="scalar-array-item" data-json-path="$.mise_en_place[3].ingredient_ids[3]">extra_virgin_olive_oil</div>
-<div class="scalar-array-item" data-json-path="$.mise_en_place[3].ingredient_ids[4]">fine_salt</div>
-<div class="scalar-array-item" data-json-path="$.mise_en_place[3].ingredient_ids[5]">black_pepper_ground</div>
-<div class="scalar-array-item" data-json-path="$.mise_en_place[3].ingredient_ids[6]">water</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.mise_en_place[3].instruction"><div class="field-name">Instruction</div><div class="field-value">Weigh 65 g dry wholewheat pasta, 220 g low-fat cottage cheese, 12 g basil pesto and 4 g extra-virgin olive oil. Measure 0.25 tsp initial fine salt, 0.125 tsp reserved fine salt, 0.25 tsp black pepper and 20 ml cold water.</div></div>
-<div class="field-row" data-json-path="$.mise_en_place[3].endpoint"><div class="field-name">Endpoint</div><div class="field-value">All remaining ingredients are accurately measured and immediately available.</div></div>
-</article>
-</div>
-</div></section>
-<section class="top-section" data-json-path="$.procedure"><h2>Procedure</h2><div class="array-block" data-json-path="$.procedure">
-<div class="array-items">
-<article class="array-item" data-json-path="$.procedure[0]">
-<div class="item-number">Item 1</div>
-<div class="field-row" data-json-path="$.procedure[0].step_id"><div class="field-name">Step Id</div><div class="field-value">STEP_01</div></div>
-<div class="field-row" data-json-path="$.procedure[0].section"><div class="field-name">Section</div><div class="field-value">Pasta</div></div>
-<div class="field-row" data-json-path="$.procedure[0].title"><div class="field-name">Title</div><div class="field-value">Cook the wholewheat pasta</div></div>
-<div class="array-block" data-json-path="$.procedure[0].depends_on">
-<h3>Depends On</h3>
-<div class="empty-value">[ ]</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[0].parallel_group"><div class="field-name">Parallel Group</div><div class="field-value">P01</div></div>
-<div class="array-block" data-json-path="$.procedure[0].ingredient_ids">
-<h3>Ingredient Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[0].ingredient_ids[0]">wholewheat_pasta_dry</div>
-<div class="scalar-array-item" data-json-path="$.procedure[0].ingredient_ids[1]">fine_salt</div>
-</div>
-</div>
-<div class="array-block" data-json-path="$.procedure[0].equipment_ids">
-<h3>Equipment Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[0].equipment_ids[0]">saucepan</div>
-<div class="scalar-array-item" data-json-path="$.procedure[0].equipment_ids[1]">gas_hob</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[0].instruction"><div class="field-name">Instruction</div><div class="field-value">Fill the saucepan with sufficient water to allow the 65 g pasta to move freely and bring to a full boil over high gas heat. Add approximately 0.125 tsp of the measured initial salt, then add the wholewheat pasta. Stir immediately to prevent sticking and maintain a steady active boil.</div></div>
-<div class="field-row" data-json-path="$.procedure[0].heat_source"><div class="field-name">Heat Source</div><div class="field-value">Gas hob</div></div>
-<div class="field-row" data-json-path="$.procedure[0].heat_level"><div class="field-name">Heat Level</div><div class="field-value">High, then medium-high</div></div>
-<div class="field-row" data-json-path="$.procedure[0].temperature_c"><div class="field-name">Temperature C</div><div class="field-value">100</div></div>
-<div class="field-row" data-json-path="$.procedure[0].duration_min_minutes"><div class="field-name">Duration Min Minutes</div><div class="field-value">8</div></div>
-<div class="field-row" data-json-path="$.procedure[0].duration_max_minutes"><div class="field-name">Duration Max Minutes</div><div class="field-value">12</div></div>
-<div class="field-row" data-json-path="$.procedure[0].endpoint"><div class="field-name">Endpoint</div><div class="field-value">The pasta is fully cooked but retains a slight firm bite at the centre and shows no chalky raw core.</div></div>
-<div class="array-block" data-json-path="$.procedure[0].corrective_actions">
-<h3>Corrective Actions</h3>
-<div class="array-items">
-<article class="array-item" data-json-path="$.procedure[0].corrective_actions[0]">
-<div class="item-number">Item 1</div>
-<div class="field-row" data-json-path="$.procedure[0].corrective_actions[0].condition"><div class="field-name">Condition</div><div class="field-value">The water threatens to boil over.</div></div>
-<div class="field-row" data-json-path="$.procedure[0].corrective_actions[0].action"><div class="field-name">Action</div><div class="field-value">Reduce the gas flame while maintaining an active boil.</div></div>
-</article>
-<article class="array-item" data-json-path="$.procedure[0].corrective_actions[1]">
-<div class="item-number">Item 2</div>
-<div class="field-row" data-json-path="$.procedure[0].corrective_actions[1].condition"><div class="field-name">Condition</div><div class="field-value">The pasta remains noticeably hard at the maximum stated time.</div></div>
-<div class="field-row" data-json-path="$.procedure[0].corrective_actions[1].action"><div class="field-name">Action</div><div class="field-value">Continue cooking in 1-minute intervals and reassess after each interval.</div></div>
-</article>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[0].critical"><div class="field-name">Critical</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-</article>
-<article class="array-item" data-json-path="$.procedure[1]">
-<div class="item-number">Item 2</div>
-<div class="field-row" data-json-path="$.procedure[1].step_id"><div class="field-name">Step Id</div><div class="field-value">STEP_02</div></div>
-<div class="field-row" data-json-path="$.procedure[1].section"><div class="field-name">Section</div><div class="field-value">Dressing</div></div>
-<div class="field-row" data-json-path="$.procedure[1].title"><div class="field-name">Title</div><div class="field-value">Blend the basil-pesto dressing</div></div>
-<div class="array-block" data-json-path="$.procedure[1].depends_on">
-<h3>Depends On</h3>
-<div class="empty-value">[ ]</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[1].parallel_group"><div class="field-name">Parallel Group</div><div class="field-value">P01</div></div>
-<div class="array-block" data-json-path="$.procedure[1].ingredient_ids">
-<h3>Ingredient Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[1].ingredient_ids[0]">cottage_cheese_low_fat</div>
-<div class="scalar-array-item" data-json-path="$.procedure[1].ingredient_ids[1]">basil_pesto</div>
-<div class="scalar-array-item" data-json-path="$.procedure[1].ingredient_ids[2]">vegetarian_parmesan_style_cheese</div>
-<div class="scalar-array-item" data-json-path="$.procedure[1].ingredient_ids[3]">lemon</div>
-<div class="scalar-array-item" data-json-path="$.procedure[1].ingredient_ids[4]">garlic</div>
-<div class="scalar-array-item" data-json-path="$.procedure[1].ingredient_ids[5]">extra_virgin_olive_oil</div>
-<div class="scalar-array-item" data-json-path="$.procedure[1].ingredient_ids[6]">fine_salt</div>
-<div class="scalar-array-item" data-json-path="$.procedure[1].ingredient_ids[7]">black_pepper_ground</div>
-<div class="scalar-array-item" data-json-path="$.procedure[1].ingredient_ids[8]">water</div>
-</div>
-</div>
-<div class="array-block" data-json-path="$.procedure[1].equipment_ids">
-<h3>Equipment Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[1].equipment_ids[0]">standard_blender</div>
-<div class="scalar-array-item" data-json-path="$.procedure[1].equipment_ids[1]">fine_grater</div>
-<div class="scalar-array-item" data-json-path="$.procedure[1].equipment_ids[2]">measuring_jug</div>
-<div class="scalar-array-item" data-json-path="$.procedure[1].equipment_ids[3]">measuring_spoons</div>
-<div class="scalar-array-item" data-json-path="$.procedure[1].equipment_ids[4]">kitchen_scales</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[1].instruction"><div class="field-name">Instruction</div><div class="field-value">Add 220 g cottage cheese, 12 g basil pesto, 20 g grated vegetarian Parmesan-style cheese, 20 ml lemon juice, approximately 2 g lemon zest, the finely grated garlic, 4 g extra-virgin olive oil, approximately 0.125 tsp of the initial salt and 0.25 tsp black pepper to the blender. Blend until smooth. If the mixture does not circulate freely or remains thicker than a spoonable dressing, add the measured cold water in 5 ml increments and blend after each addition.</div></div>
-<div class="field-row" data-json-path="$.procedure[1].heat_source"><div class="field-name">Heat Source</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[1].heat_level"><div class="field-name">Heat Level</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[1].temperature_c"><div class="field-name">Temperature C</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[1].duration_min_minutes"><div class="field-name">Duration Min Minutes</div><div class="field-value">1</div></div>
-<div class="field-row" data-json-path="$.procedure[1].duration_max_minutes"><div class="field-name">Duration Max Minutes</div><div class="field-value">3</div></div>
-<div class="field-row" data-json-path="$.procedure[1].endpoint"><div class="field-name">Endpoint</div><div class="field-value">The dressing is pale green, smooth, cohesive and thick enough to coat pasta and beans without running freely from a spoon.</div></div>
-<div class="array-block" data-json-path="$.procedure[1].corrective_actions">
-<h3>Corrective Actions</h3>
-<div class="array-items">
-<article class="array-item" data-json-path="$.procedure[1].corrective_actions[0]">
-<div class="item-number">Item 1</div>
-<div class="field-row" data-json-path="$.procedure[1].corrective_actions[0].condition"><div class="field-name">Condition</div><div class="field-value">The blender blades spin without circulating the mixture.</div></div>
-<div class="field-row" data-json-path="$.procedure[1].corrective_actions[0].action"><div class="field-name">Action</div><div class="field-value">Stop the blender, scrape down the sides and add 5 ml water before restarting.</div></div>
-</article>
-<article class="array-item" data-json-path="$.procedure[1].corrective_actions[1]">
-<div class="item-number">Item 2</div>
-<div class="field-row" data-json-path="$.procedure[1].corrective_actions[1].condition"><div class="field-name">Condition</div><div class="field-value">The dressing becomes thinner than intended.</div></div>
-<div class="field-row" data-json-path="$.procedure[1].corrective_actions[1].action"><div class="field-name">Action</div><div class="field-value">Stop adding water immediately and refrigerate the dressing while the pasta cools; do not add unlisted thickening ingredients.</div></div>
-</article>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[1].critical"><div class="field-name">Critical</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-</article>
-<article class="array-item" data-json-path="$.procedure[2]">
-<div class="item-number">Item 3</div>
-<div class="field-row" data-json-path="$.procedure[2].step_id"><div class="field-name">Step Id</div><div class="field-value">STEP_03</div></div>
-<div class="field-row" data-json-path="$.procedure[2].section"><div class="field-name">Section</div><div class="field-value">Pasta</div></div>
-<div class="field-row" data-json-path="$.procedure[2].title"><div class="field-name">Title</div><div class="field-value">Drain and cool the pasta</div></div>
-<div class="array-block" data-json-path="$.procedure[2].depends_on">
-<h3>Depends On</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[2].depends_on[0]">STEP_01</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[2].parallel_group"><div class="field-name">Parallel Group</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="array-block" data-json-path="$.procedure[2].ingredient_ids">
-<h3>Ingredient Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[2].ingredient_ids[0]">wholewheat_pasta_dry</div>
-</div>
-</div>
-<div class="array-block" data-json-path="$.procedure[2].equipment_ids">
-<h3>Equipment Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[2].equipment_ids[0]">colander</div>
-<div class="scalar-array-item" data-json-path="$.procedure[2].equipment_ids[1]">mixing_bowl</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[2].instruction"><div class="field-name">Instruction</div><div class="field-value">Drain the cooked pasta immediately through the colander. Shake firmly to remove excess water. Transfer the pasta to the large mixing bowl and spread it into a thin layer. Leave uncovered, turning once or twice with the spatula so steam escapes evenly.</div></div>
-<div class="field-row" data-json-path="$.procedure[2].heat_source"><div class="field-name">Heat Source</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[2].heat_level"><div class="field-name">Heat Level</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[2].temperature_c"><div class="field-name">Temperature C</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[2].duration_min_minutes"><div class="field-name">Duration Min Minutes</div><div class="field-value">5</div></div>
-<div class="field-row" data-json-path="$.procedure[2].duration_max_minutes"><div class="field-name">Duration Max Minutes</div><div class="field-value">8</div></div>
-<div class="field-row" data-json-path="$.procedure[2].endpoint"><div class="field-name">Endpoint</div><div class="field-value">The pasta is no longer visibly steaming, feels warm rather than hot and has no standing water in the bowl.</div></div>
-<div class="array-block" data-json-path="$.procedure[2].corrective_actions">
-<h3>Corrective Actions</h3>
-<div class="array-items">
-<article class="array-item" data-json-path="$.procedure[2].corrective_actions[0]">
-<div class="item-number">Item 1</div>
-<div class="field-row" data-json-path="$.procedure[2].corrective_actions[0].condition"><div class="field-name">Condition</div><div class="field-value">The pasta begins sticking into compact clumps while cooling.</div></div>
-<div class="field-row" data-json-path="$.procedure[2].corrective_actions[0].action"><div class="field-name">Action</div><div class="field-value">Separate the pieces gently with the spatula; do not add additional oil because the dressing will provide lubrication.</div></div>
-</article>
-<article class="array-item" data-json-path="$.procedure[2].corrective_actions[1]">
-<div class="item-number">Item 2</div>
-<div class="field-row" data-json-path="$.procedure[2].corrective_actions[1].condition"><div class="field-name">Condition</div><div class="field-value">Water accumulates at the base of the bowl.</div></div>
-<div class="field-row" data-json-path="$.procedure[2].corrective_actions[1].action"><div class="field-name">Action</div><div class="field-value">Return the pasta to the colander briefly, drain again and then resume cooling.</div></div>
-</article>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[2].critical"><div class="field-name">Critical</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-</article>
-<article class="array-item" data-json-path="$.procedure[3]">
-<div class="item-number">Item 4</div>
-<div class="field-row" data-json-path="$.procedure[3].step_id"><div class="field-name">Step Id</div><div class="field-value">STEP_04</div></div>
-<div class="field-row" data-json-path="$.procedure[3].section"><div class="field-name">Section</div><div class="field-value">Base assembly</div></div>
-<div class="field-row" data-json-path="$.procedure[3].title"><div class="field-name">Title</div><div class="field-value">Coat the pasta and beans</div></div>
-<div class="array-block" data-json-path="$.procedure[3].depends_on">
-<h3>Depends On</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[3].depends_on[0]">STEP_02</div>
-<div class="scalar-array-item" data-json-path="$.procedure[3].depends_on[1]">STEP_03</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[3].parallel_group"><div class="field-name">Parallel Group</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="array-block" data-json-path="$.procedure[3].ingredient_ids">
-<h3>Ingredient Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[3].ingredient_ids[0]">wholewheat_pasta_dry</div>
-<div class="scalar-array-item" data-json-path="$.procedure[3].ingredient_ids[1]">cannellini_beans_canned</div>
-<div class="scalar-array-item" data-json-path="$.procedure[3].ingredient_ids[2]">cottage_cheese_low_fat</div>
-<div class="scalar-array-item" data-json-path="$.procedure[3].ingredient_ids[3]">basil_pesto</div>
-<div class="scalar-array-item" data-json-path="$.procedure[3].ingredient_ids[4]">vegetarian_parmesan_style_cheese</div>
-<div class="scalar-array-item" data-json-path="$.procedure[3].ingredient_ids[5]">lemon</div>
-<div class="scalar-array-item" data-json-path="$.procedure[3].ingredient_ids[6]">garlic</div>
-<div class="scalar-array-item" data-json-path="$.procedure[3].ingredient_ids[7]">extra_virgin_olive_oil</div>
-<div class="scalar-array-item" data-json-path="$.procedure[3].ingredient_ids[8]">fine_salt</div>
-<div class="scalar-array-item" data-json-path="$.procedure[3].ingredient_ids[9]">black_pepper_ground</div>
-<div class="scalar-array-item" data-json-path="$.procedure[3].ingredient_ids[10]">water</div>
-</div>
-</div>
-<div class="array-block" data-json-path="$.procedure[3].equipment_ids">
-<h3>Equipment Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[3].equipment_ids[0]">mixing_bowl</div>
-<div class="scalar-array-item" data-json-path="$.procedure[3].equipment_ids[1]">spatula</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[3].instruction"><div class="field-name">Instruction</div><div class="field-value">Add the drained cannellini beans to the cooled pasta. Add all of the prepared basil-pesto dressing. Fold gently from the bottom upward until the pasta and beans are evenly coated. Avoid vigorous stirring, which can crush the beans.</div></div>
-<div class="field-row" data-json-path="$.procedure[3].heat_source"><div class="field-name">Heat Source</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[3].heat_level"><div class="field-name">Heat Level</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[3].temperature_c"><div class="field-name">Temperature C</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[3].duration_min_minutes"><div class="field-name">Duration Min Minutes</div><div class="field-value">2</div></div>
-<div class="field-row" data-json-path="$.procedure[3].duration_max_minutes"><div class="field-name">Duration Max Minutes</div><div class="field-value">3</div></div>
-<div class="field-row" data-json-path="$.procedure[3].endpoint"><div class="field-name">Endpoint</div><div class="field-value">The pasta and beans are uniformly coated with a thin creamy green dressing, with the cannellini beans remaining predominantly intact.</div></div>
-<div class="array-block" data-json-path="$.procedure[3].corrective_actions">
-<h3>Corrective Actions</h3>
-<div class="array-items">
-<article class="array-item" data-json-path="$.procedure[3].corrective_actions[0]">
-<div class="item-number">Item 1</div>
-<div class="field-row" data-json-path="$.procedure[3].corrective_actions[0].condition"><div class="field-name">Condition</div><div class="field-value">The dressing remains concentrated in one area.</div></div>
-<div class="field-row" data-json-path="$.procedure[3].corrective_actions[0].action"><div class="field-name">Action</div><div class="field-value">Continue folding from multiple directions until the coating is evenly distributed.</div></div>
-</article>
-<article class="array-item" data-json-path="$.procedure[3].corrective_actions[1]">
-<div class="item-number">Item 2</div>
-<div class="field-row" data-json-path="$.procedure[3].corrective_actions[1].condition"><div class="field-name">Condition</div><div class="field-value">The mixture appears excessively thick after coating.</div></div>
-<div class="field-row" data-json-path="$.procedure[3].corrective_actions[1].action"><div class="field-name">Action</div><div class="field-value">Add any remaining measured water in 5 ml increments and fold gently until the dressing coats rather than clumps.</div></div>
-</article>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[3].critical"><div class="field-name">Critical</div><div class="field-value"><span class="boolean-value">false</span></div></div>
-</article>
-<article class="array-item" data-json-path="$.procedure[4]">
-<div class="item-number">Item 5</div>
-<div class="field-row" data-json-path="$.procedure[4].step_id"><div class="field-name">Step Id</div><div class="field-value">STEP_05</div></div>
-<div class="field-row" data-json-path="$.procedure[4].section"><div class="field-name">Section</div><div class="field-value">Vegetable assembly</div></div>
-<div class="field-row" data-json-path="$.procedure[4].title"><div class="field-name">Title</div><div class="field-value">Add the tomatoes and rocket</div></div>
-<div class="array-block" data-json-path="$.procedure[4].depends_on">
-<h3>Depends On</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[4].depends_on[0]">STEP_04</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[4].parallel_group"><div class="field-name">Parallel Group</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="array-block" data-json-path="$.procedure[4].ingredient_ids">
-<h3>Ingredient Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[4].ingredient_ids[0]">cherry_tomatoes</div>
-<div class="scalar-array-item" data-json-path="$.procedure[4].ingredient_ids[1]">rocket</div>
-</div>
-</div>
-<div class="array-block" data-json-path="$.procedure[4].equipment_ids">
-<h3>Equipment Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[4].equipment_ids[0]">mixing_bowl</div>
-<div class="scalar-array-item" data-json-path="$.procedure[4].equipment_ids[1]">spatula</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[4].instruction"><div class="field-name">Instruction</div><div class="field-value">Add the 180 g halved cherry tomatoes and 50 g dry rocket to the dressed pasta and beans. Fold slowly and only until the vegetables are distributed throughout the salad.</div></div>
-<div class="field-row" data-json-path="$.procedure[4].heat_source"><div class="field-name">Heat Source</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[4].heat_level"><div class="field-name">Heat Level</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[4].temperature_c"><div class="field-name">Temperature C</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[4].duration_min_minutes"><div class="field-name">Duration Min Minutes</div><div class="field-value">1</div></div>
-<div class="field-row" data-json-path="$.procedure[4].duration_max_minutes"><div class="field-name">Duration Max Minutes</div><div class="field-value">2</div></div>
-<div class="field-row" data-json-path="$.procedure[4].endpoint"><div class="field-name">Endpoint</div><div class="field-value">Tomatoes and rocket are evenly distributed, the tomato halves remain structurally intact and the rocket is coated lightly rather than crushed or heavily wilted.</div></div>
-<div class="array-block" data-json-path="$.procedure[4].corrective_actions">
-<h3>Corrective Actions</h3>
-<div class="array-items">
-<article class="array-item" data-json-path="$.procedure[4].corrective_actions[0]">
-<div class="item-number">Item 1</div>
-<div class="field-row" data-json-path="$.procedure[4].corrective_actions[0].condition"><div class="field-name">Condition</div><div class="field-value">The rocket begins compressing or bruising during mixing.</div></div>
-<div class="field-row" data-json-path="$.procedure[4].corrective_actions[0].action"><div class="field-name">Action</div><div class="field-value">Stop mixing immediately and complete distribution during portioning rather than continuing to fold.</div></div>
-</article>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[4].critical"><div class="field-name">Critical</div><div class="field-value"><span class="boolean-value">false</span></div></div>
-</article>
-<article class="array-item" data-json-path="$.procedure[5]">
-<div class="item-number">Item 6</div>
-<div class="field-row" data-json-path="$.procedure[5].step_id"><div class="field-name">Step Id</div><div class="field-value">STEP_06</div></div>
-<div class="field-row" data-json-path="$.procedure[5].section"><div class="field-name">Section</div><div class="field-value">Seasoning</div></div>
-<div class="field-row" data-json-path="$.procedure[5].title"><div class="field-name">Title</div><div class="field-value">Check final seasoning</div></div>
-<div class="array-block" data-json-path="$.procedure[5].depends_on">
-<h3>Depends On</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[5].depends_on[0]">STEP_05</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[5].parallel_group"><div class="field-name">Parallel Group</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="array-block" data-json-path="$.procedure[5].ingredient_ids">
-<h3>Ingredient Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[5].ingredient_ids[0]">fine_salt</div>
-</div>
-</div>
-<div class="array-block" data-json-path="$.procedure[5].equipment_ids">
-<h3>Equipment Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[5].equipment_ids[0]">mixing_bowl</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[5].instruction"><div class="field-name">Instruction</div><div class="field-value">Taste one representative mouthful containing pasta, bean, tomato and dressing. If the flavour is already clearly seasoned, acidic and savoury, do not add the reserved salt. If noticeably under-seasoned, add up to the reserved 0.125 tsp fine salt in 0.0625 tsp increments, folding gently after each addition.</div></div>
-<div class="field-row" data-json-path="$.procedure[5].heat_source"><div class="field-name">Heat Source</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[5].heat_level"><div class="field-name">Heat Level</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[5].temperature_c"><div class="field-name">Temperature C</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[5].duration_min_minutes"><div class="field-name">Duration Min Minutes</div><div class="field-value">1</div></div>
-<div class="field-row" data-json-path="$.procedure[5].duration_max_minutes"><div class="field-name">Duration Max Minutes</div><div class="field-value">2</div></div>
-<div class="field-row" data-json-path="$.procedure[5].endpoint"><div class="field-name">Endpoint</div><div class="field-value">The salad tastes balanced, with identifiable basil, lemon, tomato sweetness and savoury cheese, without excessive saltiness or oiliness.</div></div>
-<div class="array-block" data-json-path="$.procedure[5].corrective_actions">
-<h3>Corrective Actions</h3>
-<div class="array-items">
-<article class="array-item" data-json-path="$.procedure[5].corrective_actions[0]">
-<div class="item-number">Item 1</div>
-<div class="field-row" data-json-path="$.procedure[5].corrective_actions[0].condition"><div class="field-name">Condition</div><div class="field-value">The salad is adequately seasoned before the reserved salt is used.</div></div>
-<div class="field-row" data-json-path="$.procedure[5].corrective_actions[0].action"><div class="field-name">Action</div><div class="field-value">Do not add the reserved salt.</div></div>
-</article>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[5].critical"><div class="field-name">Critical</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-</article>
-<article class="array-item" data-json-path="$.procedure[6]">
-<div class="item-number">Item 7</div>
-<div class="field-row" data-json-path="$.procedure[6].step_id"><div class="field-name">Step Id</div><div class="field-value">STEP_07</div></div>
-<div class="field-row" data-json-path="$.procedure[6].section"><div class="field-name">Section</div><div class="field-value">Packing</div></div>
-<div class="field-row" data-json-path="$.procedure[6].title"><div class="field-name">Title</div><div class="field-value">Divide and chill the portable lunches</div></div>
-<div class="array-block" data-json-path="$.procedure[6].depends_on">
-<h3>Depends On</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[6].depends_on[0]">STEP_06</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[6].parallel_group"><div class="field-name">Parallel Group</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="array-block" data-json-path="$.procedure[6].ingredient_ids">
-<h3>Ingredient Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[6].ingredient_ids[0]">wholewheat_pasta_dry</div>
-<div class="scalar-array-item" data-json-path="$.procedure[6].ingredient_ids[1]">cannellini_beans_canned</div>
-<div class="scalar-array-item" data-json-path="$.procedure[6].ingredient_ids[2]">cherry_tomatoes</div>
-<div class="scalar-array-item" data-json-path="$.procedure[6].ingredient_ids[3]">rocket</div>
-<div class="scalar-array-item" data-json-path="$.procedure[6].ingredient_ids[4]">cottage_cheese_low_fat</div>
-<div class="scalar-array-item" data-json-path="$.procedure[6].ingredient_ids[5]">basil_pesto</div>
-<div class="scalar-array-item" data-json-path="$.procedure[6].ingredient_ids[6]">vegetarian_parmesan_style_cheese</div>
-<div class="scalar-array-item" data-json-path="$.procedure[6].ingredient_ids[7]">lemon</div>
-<div class="scalar-array-item" data-json-path="$.procedure[6].ingredient_ids[8]">garlic</div>
-<div class="scalar-array-item" data-json-path="$.procedure[6].ingredient_ids[9]">extra_virgin_olive_oil</div>
-<div class="scalar-array-item" data-json-path="$.procedure[6].ingredient_ids[10]">fine_salt</div>
-<div class="scalar-array-item" data-json-path="$.procedure[6].ingredient_ids[11]">black_pepper_ground</div>
-<div class="scalar-array-item" data-json-path="$.procedure[6].ingredient_ids[12]">water</div>
-</div>
-</div>
-<div class="array-block" data-json-path="$.procedure[6].equipment_ids">
-<h3>Equipment Ids</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.procedure[6].equipment_ids[0]">lidded_containers</div>
-<div class="scalar-array-item" data-json-path="$.procedure[6].equipment_ids[1]">kitchen_scales</div>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[6].instruction"><div class="field-name">Instruction</div><div class="field-value">Divide the complete salad equally between 2 clean lunch containers using the kitchen scales. Ensure each portion contains approximately equal quantities of pasta, beans, tomatoes, rocket and dressing. Secure the lids and refrigerate immediately at 5°C or below.</div></div>
-<div class="field-row" data-json-path="$.procedure[6].heat_source"><div class="field-name">Heat Source</div><div class="field-value">Refrigerator</div></div>
-<div class="field-row" data-json-path="$.procedure[6].heat_level"><div class="field-name">Heat Level</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[6].temperature_c"><div class="field-name">Temperature C</div><div class="field-value">5</div></div>
-<div class="field-row" data-json-path="$.procedure[6].duration_min_minutes"><div class="field-name">Duration Min Minutes</div><div class="field-value">10</div></div>
-<div class="field-row" data-json-path="$.procedure[6].duration_max_minutes"><div class="field-name">Duration Max Minutes</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.procedure[6].endpoint"><div class="field-name">Endpoint</div><div class="field-value">Both containers contain approximately equal complete servings and are fully chilled before transport.</div></div>
-<div class="array-block" data-json-path="$.procedure[6].corrective_actions">
-<h3>Corrective Actions</h3>
-<div class="array-items">
-<article class="array-item" data-json-path="$.procedure[6].corrective_actions[0]">
-<div class="item-number">Item 1</div>
-<div class="field-row" data-json-path="$.procedure[6].corrective_actions[0].condition"><div class="field-name">Condition</div><div class="field-value">One portion contains visibly fewer beans or tomatoes than the other.</div></div>
-<div class="field-row" data-json-path="$.procedure[6].corrective_actions[0].action"><div class="field-name">Action</div><div class="field-value">Redistribute individual components between containers before sealing.</div></div>
-</article>
-<article class="array-item" data-json-path="$.procedure[6].corrective_actions[1]">
-<div class="item-number">Item 2</div>
-<div class="field-row" data-json-path="$.procedure[6].corrective_actions[1].condition"><div class="field-name">Condition</div><div class="field-value">The salad is still noticeably warm when the containers are filled.</div></div>
-<div class="field-row" data-json-path="$.procedure[6].corrective_actions[1].action"><div class="field-name">Action</div><div class="field-value">Leave the containers open in the refrigerator until the salad is chilled, then fit the lids securely.</div></div>
-</article>
-</div>
-</div>
-<div class="field-row" data-json-path="$.procedure[6].critical"><div class="field-name">Critical</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-</article>
-</div>
-</div></section>
-<section class="top-section" data-json-path="$.plating"><h2>Plating</h2><div class="array-block" data-json-path="$.plating">
-<div class="array-items">
-<article class="array-item" data-json-path="$.plating[0]">
-<div class="item-number">Item 1</div>
-<div class="field-row" data-json-path="$.plating[0].step_id"><div class="field-name">Step Id</div><div class="field-value">PLATE_01</div></div>
-<div class="field-row" data-json-path="$.plating[0].instruction"><div class="field-name">Instruction</div><div class="field-value">Serve one chilled or cool-room-temperature portion per person. Before eating, turn the salad gently once or twice with a fork to redistribute any dressing that has settled, taking care not to mash the cannellini beans.</div></div>
-</article>
-</div>
-</div></section>
-<section class="top-section" data-json-path="$.storage"><h2>Storage</h2><div class="object-content" data-json-path="$.storage">
-<div class="field-row" data-json-path="$.storage.refrigerator_days"><div class="field-name">Refrigerator Days</div><div class="field-value">2</div></div>
-<div class="field-row" data-json-path="$.storage.freezer_months"><div class="field-name">Freezer Months</div><div class="field-value"><span class="null-value">null</span></div></div>
-<div class="field-row" data-json-path="$.storage.storage_instructions"><div class="field-name">Storage Instructions</div><div class="field-value">Store at 5°C or below and consume within 2 days. For transport to work or on a car journey, keep the lunch chilled in an insulated bag with an ice pack when continuous refrigeration is unavailable. The salad is intended to be eaten chilled or cool rather than reheated. Rocket will soften gradually during storage, so texture is best within 24 hours.</div></div>
-<div class="array-block" data-json-path="$.storage.reheating_methods">
-<h3>Reheating Methods</h3>
-<div class="empty-value">[ ]</div>
-</div>
-</div></section>
-<section class="top-section" data-json-path="$.shopping"><h2>Shopping</h2><div class="object-content" data-json-path="$.shopping">
-<div class="array-block" data-json-path="$.shopping.sainsburys">
-<h3>Sainsburys</h3>
-<div class="empty-value">[ ]</div>
-</div>
-<div class="array-block" data-json-path="$.shopping.marks_and_spencer">
-<h3>Marks And Spencer</h3>
-<div class="empty-value">[ ]</div>
-</div>
-<div class="array-block" data-json-path="$.shopping.either_retailer">
-<h3>Either Retailer</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[0]">Wholewheat short pasta: buy 1 standard packet</div>
-<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[1]">Cannellini beans: buy 1 x 400 g tin</div>
-<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[2]">Low-fat cottage cheese: buy 1 tub containing at least 220 g</div>
-<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[3]">Vegetarian basil pesto: buy 1 small jar</div>
-<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[4]">Vegetarian Parmesan-style hard cheese: buy 1 small wedge or packet</div>
-<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[5]">Cherry tomatoes: buy 1 punnet containing at least 180 g</div>
-<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[6]">Rocket: buy 1 bag containing at least 50 g</div>
-<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[7]">Unwaxed lemon: buy 1</div>
-<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[8]">Garlic: buy 1 bulb</div>
-<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[9]">Extra-virgin olive oil: buy 1 bottle if not already stocked</div>
-<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[10]">Fine salt: buy 1 container if not already stocked</div>
-<div class="scalar-array-item" data-json-path="$.shopping.either_retailer[11]">Ground black pepper: buy 1 jar or pepper mill if not already stocked</div>
-</div>
-</div>
-</div></section>
-<section class="top-section" data-json-path="$.quality_checks"><h2>Quality Checks</h2><div class="object-content" data-json-path="$.quality_checks">
-<div class="field-row" data-json-path="$.quality_checks.protein_requirement_met"><div class="field-name">Protein Requirement Met</div><div class="field-value"><span class="boolean-value">true</span></div></div>
-<div class="field-row" data-json-path="$.quality_checks.protein_g_per_serving"><div class="field-name">Protein G Per Serving</div><div class="field-value">31</div></div>
-<div class="array-block" data-json-path="$.quality_checks.restaurant_quality_features">
-<h3>Restaurant Quality Features</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.quality_checks.restaurant_quality_features[0]">Cannellini beans provide creamy texture and substantial protein while remaining intact through gentle folding.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.restaurant_quality_features[1]">Cottage cheese is blended into the basil pesto dressing to create a smooth, protein-rich coating without requiring a large quantity of oil.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.restaurant_quality_features[2]">Vegetarian Parmesan-style hard cheese reinforces savoury depth and provides additional protein.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.restaurant_quality_features[3]">Fresh lemon juice and zest balance the richness of pesto and cheese and keep the cold salad tasting bright.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.restaurant_quality_features[4]">Garlic is grated directly into the dressing so its flavour disperses evenly without harsh chunks.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.restaurant_quality_features[5]">Wholewheat pasta is cooked only until slightly firm so it retains structure after chilling and dressing.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.restaurant_quality_features[6]">Tomatoes and rocket are added after the pasta has cooled, preventing unnecessary wilting and preserving textural contrast.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.restaurant_quality_features[7]">The pasta is cooled without oil so the dressing adheres directly to the grain surface rather than sliding off.</div>
-</div>
-</div>
-<div class="array-block" data-json-path="$.quality_checks.nutrition_notes">
-<h3>Nutrition Notes</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.quality_checks.nutrition_notes[0]">Estimated nutrition represents one complete lunch serving including pasta, cannellini beans, tomatoes, rocket, cottage cheese, pesto, vegetarian hard cheese, olive oil and all dressing components.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.nutrition_notes[1]">The recipe is designed around the approximately 400 kcal lunch target.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.nutrition_notes[2]">Approximately 31 g protein per serving comes from cannellini beans, cottage cheese, wholewheat pasta and vegetarian hard cheese.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.nutrition_notes[3]">Cannellini beans, wholewheat pasta, tomatoes and rocket provide substantial dietary fibre and plant diversity.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.nutrition_notes[4]">Pesto and olive oil are deliberately used in restrained quantities because their flavour is concentrated and larger amounts would substantially increase calories without being necessary for coating.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.nutrition_notes[5]">Nutrition values are estimates and will vary with the exact pasta, cottage cheese, pesto, beans and cheese selected.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.nutrition_notes[6]">The recipe follows the supplied structured-recipe and lunch requirements. </div>
-</div>
-</div>
-<div class="array-block" data-json-path="$.quality_checks.critical_success_factors">
-<h3>Critical Success Factors</h3>
-<div class="array-items">
-<div class="scalar-array-item" data-json-path="$.quality_checks.critical_success_factors[0]">Do not overcook the wholewheat pasta; it should retain slight bite before cooling.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.critical_success_factors[1]">Drain both the pasta and cannellini beans thoroughly because excess water will dilute the dressing.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.critical_success_factors[2]">Blend the cottage-cheese pesto dressing until smooth before combining it with the salad.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.critical_success_factors[3]">Cool the pasta before adding rocket so the leaves remain fresh rather than heat-wilted.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.critical_success_factors[4]">Fold rather than vigorously stir once cannellini beans and tomatoes are present to preserve their structure.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.critical_success_factors[5]">Taste before using the reserved salt because pesto and hard cheese can vary substantially in salt content.</div>
-<div class="scalar-array-item" data-json-path="$.quality_checks.critical_success_factors[6]">Keep the completed salad chilled during storage and transport.</div>
-</div>
-</div>
-</div></section>
 
-<section class="integrity">
 
-    <strong>Source integrity</strong>
-
-    <div>
-        Source JSON SHA-256:
-        <code>0c976434a12c971f823dd66bda43cda8179616e20047390210a09881c022bd1d</code>
+<details class="section non-method" open>
+    <summary>Ingredients</summary>
+    <div class="section-content ingredient-grid">
+        <article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Wholewheat pasta</strong>
+<span class="ingredient-quantity">65 g</span>
+</div>
+<div class="subline"><strong>Buy:</strong> Buy: 1 standard packet</div>
+<div class="subline"><strong>Prep:</strong> Use dry weight. Cook until just tender with a slight bite, then drain thoroughly.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Cannellini beans</strong>
+<span class="ingredient-quantity">240 g</span>
+</div>
+<div class="subline"><strong>Buy:</strong> Buy: 1 x 400 g tin</div>
+<div class="subline"><strong>Prep:</strong> Drain completely, rinse thoroughly under cold running water and allow excess water to drain away.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Low-fat cottage cheese</strong>
+<span class="ingredient-quantity">220 g</span>
+</div>
+<div class="subline"><strong>Buy:</strong> Buy: 1 tub containing at least 220 g</div>
+<div class="subline"><strong>Prep:</strong> Drain off any visible loose whey before weighing, then blend into the pesto dressing.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Basil pesto</strong>
+<span class="ingredient-quantity">12 g</span>
+</div>
+<div class="subline"><strong>Buy:</strong> Buy: 1 small jar</div>
+<div class="subline"><strong>Prep:</strong> Stir the jar thoroughly before measuring if oil has separated.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Vegetarian Parmesan-style hard cheese</strong>
+<span class="ingredient-quantity">20 g</span>
+</div>
+<div class="subline"><strong>Buy:</strong> Buy: 1 small wedge or packet</div>
+<div class="subline"><strong>Prep:</strong> Finely grate immediately before making the dressing.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Cherry tomatoes</strong>
+<span class="ingredient-quantity">180 g</span>
+</div>
+<div class="subline"><strong>Buy:</strong> Buy: 1 punnet containing at least 180 g</div>
+<div class="subline"><strong>Prep:</strong> Wash and dry thoroughly, remove any stems and halve through the stem axis.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Rocket</strong>
+<span class="ingredient-quantity">50 g</span>
+</div>
+<div class="subline"><strong>Buy:</strong> Buy: 1 bag containing at least 50 g</div>
+<div class="subline"><strong>Prep:</strong> Wash only if required by pack instructions, then dry thoroughly.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Unwaxed lemon</strong>
+<span class="ingredient-quantity">1</span>
+</div>
+<div class="subline"><strong>Buy:</strong> Buy: 1 lemon</div>
+<div class="subline"><strong>Prep:</strong> Wash and dry. Finely grate approximately 2 g yellow zest and squeeze 20 ml juice, removing all seeds.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Garlic</strong>
+<span class="ingredient-quantity">1</span>
+</div>
+<div class="subline"><strong>Buy:</strong> Buy: 1 garlic bulb</div>
+<div class="subline"><strong>Prep:</strong> Separate 1 small clove, peel, trim the root end and finely grate.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Extra-virgin olive oil</strong>
+<span class="ingredient-quantity">4 g</span>
+</div>
+<div class="subline"><strong>Buy:</strong> Buy: 1 bottle if not already stocked</div>
+<div class="subline"><strong>Prep:</strong> Measure accurately before preparing the dressing.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Fine salt</strong>
+<span class="ingredient-quantity">⅜ tsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> Buy: 1 standard container if not already stocked</div>
+<div class="subline"><strong>Prep:</strong> Measure 0.25 tsp for pasta cooking and dressing, and reserve up to 0.125 tsp for final adjustment.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Ground black pepper</strong>
+<span class="ingredient-quantity">¼ tsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> Buy: 1 jar or pepper mill if not already stocked</div>
+<div class="subline"><strong>Prep:</strong> Measure before mixing.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Water</strong>
+<span class="ingredient-quantity">20 ml</span>
+</div>
+<div class="subline"><strong>Buy:</strong> Use: up to 20 ml tap water plus sufficient water for boiling the pasta</div>
+<div class="subline"><strong>Prep:</strong> Reserve up to 20 ml cold water for loosening the dressing after blending.</div>
+</article>
     </div>
-
-    <div>
-        JSON paths checked:
-        <code>587</code>
-    </div>
-
-    <div>
-        Missing JSON paths:
-        <code>0</code>
-    </div>
-
-</section>
-
-<details>
-
-<summary>
-Original source JSON
-</summary>
-
-<pre>{
-  &quot;schema_version&quot;: &quot;1.0&quot;,
-  &quot;recipe&quot;: {
-    &quot;id&quot;: &quot;cannellini_bean_tomato_wholewheat_pasta_salad_basil_pesto_rocket&quot;,
-    &quot;title&quot;: &quot;Cannellini Bean, Tomato &amp; Wholewheat Pasta Salad with Basil Pesto and Rocket&quot;,
-    &quot;description&quot;: &quot;A portable high-protein wholewheat pasta salad with creamy cannellini beans, ripe tomatoes and peppery rocket, bound with a bright basil-pesto dressing enriched with blended cottage cheese and lemon for additional protein and freshness without excessive oil.&quot;,
-    &quot;servings&quot;: 2,
-    &quot;difficulty&quot;: &quot;Easy&quot;,
-    &quot;total_time_minutes&quot;: 35,
-    &quot;active_time_minutes&quot;: 25,
-    &quot;passive_time_minutes&quot;: 10,
-    &quot;cuisine&quot;: [
-      &quot;Italian-inspired&quot;,
-      &quot;Contemporary&quot;
-    ],
-    &quot;meal_types&quot;: [
-      &quot;Lunch&quot;
-    ],
-    &quot;dietary_tags&quot;: [
-      &quot;Vegetarian&quot;,
-      &quot;High protein&quot;,
-      &quot;High fibre&quot;,
-      &quot;Portable&quot;
-    ],
-    &quot;allergens&quot;: [
-      &quot;Milk&quot;,
-      &quot;Wheat&quot;,
-      &quot;Gluten&quot;,
-      &quot;Nuts&quot;
-    ]
-  },
-  &quot;nutrition_per_serving&quot;: {
-    &quot;energy_kcal&quot;: 400,
-    &quot;protein_g&quot;: 31,
-    &quot;carbohydrate_g&quot;: 48,
-    &quot;fat_g&quot;: 11,
-    &quot;saturated_fat_g&quot;: 3,
-    &quot;fibre_g&quot;: 11,
-    &quot;salt_g&quot;: 1.1
-  },
-  &quot;ingredients&quot;: [
-    {
-      &quot;ingredient_id&quot;: &quot;wholewheat_pasta_dry&quot;,
-      &quot;display_name&quot;: &quot;Wholewheat pasta&quot;,
-      &quot;category&quot;: &quot;Pasta and grains&quot;,
-      &quot;required&quot;: true,
-      &quot;quantity_used&quot;: 65,
-      &quot;unit_used&quot;: &quot;g&quot;,
-      &quot;purchase_quantity&quot;: &quot;Buy: 1 standard packet&quot;,
-      &quot;purchase_notes&quot;: &quot;Use a short wholewheat pasta shape such as fusilli or penne. Exact supermarket pack size varies.&quot;,
-      &quot;retailers&quot;: [
-        &quot;Sainsbury&#x27;s&quot;,
-        &quot;Marks &amp; Spencer&quot;
-      ],
-      &quot;preparation&quot;: &quot;Use dry weight. Cook until just tender with a slight bite, then drain thoroughly.&quot;,
-      &quot;notes&quot;: &quot;Use: 65 g dry total.&quot;
-    },
-    {
-      &quot;ingredient_id&quot;: &quot;cannellini_beans_canned&quot;,
-      &quot;display_name&quot;: &quot;Cannellini beans&quot;,
-      &quot;category&quot;: &quot;Legumes&quot;,
-      &quot;required&quot;: true,
-      &quot;quantity_used&quot;: 240,
-      &quot;unit_used&quot;: &quot;g&quot;,
-      &quot;purchase_quantity&quot;: &quot;Buy: 1 x 400 g tin&quot;,
-      &quot;purchase_notes&quot;: &quot;A standard 400 g tin normally yields approximately 230-250 g drained beans; exact drained weight varies.&quot;,
-      &quot;retailers&quot;: [
-        &quot;Sainsbury&#x27;s&quot;,
-        &quot;Marks &amp; Spencer&quot;
-      ],
-      &quot;preparation&quot;: &quot;Drain completely, rinse thoroughly under cold running water and allow excess water to drain away.&quot;,
-      &quot;notes&quot;: &quot;Use: approximately 240 g drained.&quot;
-    },
-    {
-      &quot;ingredient_id&quot;: &quot;cottage_cheese_low_fat&quot;,
-      &quot;display_name&quot;: &quot;Low-fat cottage cheese&quot;,
-      &quot;category&quot;: &quot;Dairy&quot;,
-      &quot;required&quot;: true,
-      &quot;quantity_used&quot;: 220,
-      &quot;unit_used&quot;: &quot;g&quot;,
-      &quot;purchase_quantity&quot;: &quot;Buy: 1 tub containing at least 220 g&quot;,
-      &quot;purchase_notes&quot;: &quot;Choose plain low-fat cottage cheese. Exact supermarket tub size varies.&quot;,
-      &quot;retailers&quot;: [
-        &quot;Sainsbury&#x27;s&quot;,
-        &quot;Marks &amp; Spencer&quot;
-      ],
-      &quot;preparation&quot;: &quot;Drain off any visible loose whey before weighing, then blend into the pesto dressing.&quot;,
-      &quot;notes&quot;: &quot;Use: 220 g total. This materially increases protein while providing a creamy dressing without requiring a large quantity of oil.&quot;
-    },
-    {
-      &quot;ingredient_id&quot;: &quot;basil_pesto&quot;,
-      &quot;display_name&quot;: &quot;Basil pesto&quot;,
-      &quot;category&quot;: &quot;Condiments&quot;,
-      &quot;required&quot;: true,
-      &quot;quantity_used&quot;: 12,
-      &quot;unit_used&quot;: &quot;g&quot;,
-      &quot;purchase_quantity&quot;: &quot;Buy: 1 small jar&quot;,
-      &quot;purchase_notes&quot;: &quot;Choose a vegetarian basil pesto made without animal rennet where required. Exact pack size varies.&quot;,
-      &quot;retailers&quot;: [
-        &quot;Sainsbury&#x27;s&quot;,
-        &quot;Marks &amp; Spencer&quot;
-      ],
-      &quot;preparation&quot;: &quot;Stir the jar thoroughly before measuring if oil has separated.&quot;,
-      &quot;notes&quot;: &quot;Use: 12 g total. The restrained quantity supplies concentrated basil, garlic, cheese and nut flavour while keeping calories controlled.&quot;
-    },
-    {
-      &quot;ingredient_id&quot;: &quot;vegetarian_parmesan_style_cheese&quot;,
-      &quot;display_name&quot;: &quot;Vegetarian Parmesan-style hard cheese&quot;,
-      &quot;category&quot;: &quot;Dairy&quot;,
-      &quot;required&quot;: true,
-      &quot;quantity_used&quot;: 20,
-      &quot;unit_used&quot;: &quot;g&quot;,
-      &quot;purchase_quantity&quot;: &quot;Buy: 1 small wedge or packet&quot;,
-      &quot;purchase_notes&quot;: &quot;Use a vegetarian Italian-style hard cheese suitable for fine grating.&quot;,
-      &quot;retailers&quot;: [
-        &quot;Sainsbury&#x27;s&quot;,
-        &quot;Marks &amp; Spencer&quot;
-      ],
-      &quot;preparation&quot;: &quot;Finely grate immediately before making the dressing.&quot;,
-      &quot;notes&quot;: &quot;Use: 20 g total.&quot;
-    },
-    {
-      &quot;ingredient_id&quot;: &quot;cherry_tomatoes&quot;,
-      &quot;display_name&quot;: &quot;Cherry tomatoes&quot;,
-      &quot;category&quot;: &quot;Vegetables&quot;,
-      &quot;required&quot;: true,
-      &quot;quantity_used&quot;: 180,
-      &quot;unit_used&quot;: &quot;g&quot;,
-      &quot;purchase_quantity&quot;: &quot;Buy: 1 punnet containing at least 180 g&quot;,
-      &quot;purchase_notes&quot;: &quot;Choose ripe, firm tomatoes without split or mouldy fruit.&quot;,
-      &quot;retailers&quot;: [
-        &quot;Sainsbury&#x27;s&quot;,
-        &quot;Marks &amp; Spencer&quot;
-      ],
-      &quot;preparation&quot;: &quot;Wash and dry thoroughly, remove any stems and halve through the stem axis.&quot;,
-      &quot;notes&quot;: &quot;Use: 180 g total.&quot;
-    },
-    {
-      &quot;ingredient_id&quot;: &quot;rocket&quot;,
-      &quot;display_name&quot;: &quot;Rocket&quot;,
-      &quot;category&quot;: &quot;Leafy vegetables&quot;,
-      &quot;required&quot;: true,
-      &quot;quantity_used&quot;: 50,
-      &quot;unit_used&quot;: &quot;g&quot;,
-      &quot;purchase_quantity&quot;: &quot;Buy: 1 bag containing at least 50 g&quot;,
-      &quot;purchase_notes&quot;: &quot;Choose fresh, dry leaves without slimy or heavily wilted sections.&quot;,
-      &quot;retailers&quot;: [
-        &quot;Sainsbury&#x27;s&quot;,
-        &quot;Marks &amp; Spencer&quot;
-      ],
-      &quot;preparation&quot;: &quot;Wash only if required by pack instructions, then dry thoroughly.&quot;,
-      &quot;notes&quot;: &quot;Use: 50 g total.&quot;
-    },
-    {
-      &quot;ingredient_id&quot;: &quot;lemon&quot;,
-      &quot;display_name&quot;: &quot;Unwaxed lemon&quot;,
-      &quot;category&quot;: &quot;Fruit&quot;,
-      &quot;required&quot;: true,
-      &quot;quantity_used&quot;: 1,
-      &quot;unit_used&quot;: &quot;integer&quot;,
-      &quot;purchase_quantity&quot;: &quot;Buy: 1 lemon&quot;,
-      &quot;purchase_notes&quot;: &quot;An unwaxed lemon is preferred because the zest is used.&quot;,
-      &quot;retailers&quot;: [
-        &quot;Sainsbury&#x27;s&quot;,
-        &quot;Marks &amp; Spencer&quot;
-      ],
-      &quot;preparation&quot;: &quot;Wash and dry. Finely grate approximately 2 g yellow zest and squeeze 20 ml juice, removing all seeds.&quot;,
-      &quot;notes&quot;: &quot;Use approximately 2 g zest and 20 ml juice; reserve the remaining lemon for another use.&quot;
-    },
-    {
-      &quot;ingredient_id&quot;: &quot;garlic&quot;,
-      &quot;display_name&quot;: &quot;Garlic&quot;,
-      &quot;category&quot;: &quot;Aromatics&quot;,
-      &quot;required&quot;: true,
-      &quot;quantity_used&quot;: 1,
-      &quot;unit_used&quot;: &quot;integer&quot;,
-      &quot;purchase_quantity&quot;: &quot;Buy: 1 garlic bulb&quot;,
-      &quot;purchase_notes&quot;: &quot;Use 1 small clove from the bulb.&quot;,
-      &quot;retailers&quot;: [
-        &quot;Sainsbury&#x27;s&quot;,
-        &quot;Marks &amp; Spencer&quot;
-      ],
-      &quot;preparation&quot;: &quot;Separate 1 small clove, peel, trim the root end and finely grate.&quot;,
-      &quot;notes&quot;: &quot;Use: 1 small clove, approximately 3 g prepared.&quot;
-    },
-    {
-      &quot;ingredient_id&quot;: &quot;extra_virgin_olive_oil&quot;,
-      &quot;display_name&quot;: &quot;Extra-virgin olive oil&quot;,
-      &quot;category&quot;: &quot;Oils&quot;,
-      &quot;required&quot;: true,
-      &quot;quantity_used&quot;: 4,
-      &quot;unit_used&quot;: &quot;g&quot;,
-      &quot;purchase_quantity&quot;: &quot;Buy: 1 bottle if not already stocked&quot;,
-      &quot;purchase_notes&quot;: &quot;Use a good everyday extra-virgin olive oil.&quot;,
-      &quot;retailers&quot;: [
-        &quot;Sainsbury&#x27;s&quot;,
-        &quot;Marks &amp; Spencer&quot;
-      ],
-      &quot;preparation&quot;: &quot;Measure accurately before preparing the dressing.&quot;,
-      &quot;notes&quot;: &quot;Use: 4 g total.&quot;
-    },
-    {
-      &quot;ingredient_id&quot;: &quot;fine_salt&quot;,
-      &quot;display_name&quot;: &quot;Fine salt&quot;,
-      &quot;category&quot;: &quot;Seasoning&quot;,
-      &quot;required&quot;: true,
-      &quot;quantity_used&quot;: 0.375,
-      &quot;unit_used&quot;: &quot;tsp&quot;,
-      &quot;purchase_quantity&quot;: &quot;Buy: 1 standard container if not already stocked&quot;,
-      &quot;purchase_notes&quot;: &quot;Fine table salt or fine sea salt is suitable.&quot;,
-      &quot;retailers&quot;: [
-        &quot;Sainsbury&#x27;s&quot;,
-        &quot;Marks &amp; Spencer&quot;
-      ],
-      &quot;preparation&quot;: &quot;Measure 0.25 tsp for pasta cooking and dressing, and reserve up to 0.125 tsp for final adjustment.&quot;,
-      &quot;notes&quot;: &quot;Pesto and hard cheese are already salty, so the reserved quantity should only be used if required after tasting.&quot;
-    },
-    {
-      &quot;ingredient_id&quot;: &quot;black_pepper_ground&quot;,
-      &quot;display_name&quot;: &quot;Ground black pepper&quot;,
-      &quot;category&quot;: &quot;Seasoning&quot;,
-      &quot;required&quot;: true,
-      &quot;quantity_used&quot;: 0.25,
-      &quot;unit_used&quot;: &quot;tsp&quot;,
-      &quot;purchase_quantity&quot;: &quot;Buy: 1 jar or pepper mill if not already stocked&quot;,
-      &quot;purchase_notes&quot;: &quot;Freshly ground black pepper is preferred where available.&quot;,
-      &quot;retailers&quot;: [
-        &quot;Sainsbury&#x27;s&quot;,
-        &quot;Marks &amp; Spencer&quot;
-      ],
-      &quot;preparation&quot;: &quot;Measure before mixing.&quot;,
-      &quot;notes&quot;: &quot;Use: 0.25 tsp total.&quot;
-    },
-    {
-      &quot;ingredient_id&quot;: &quot;water&quot;,
-      &quot;display_name&quot;: &quot;Water&quot;,
-      &quot;category&quot;: &quot;Liquid&quot;,
-      &quot;required&quot;: true,
-      &quot;quantity_used&quot;: 20,
-      &quot;unit_used&quot;: &quot;ml&quot;,
-      &quot;purchase_quantity&quot;: &quot;Use: up to 20 ml tap water plus sufficient water for boiling the pasta&quot;,
-      &quot;purchase_notes&quot;: &quot;No purchase required.&quot;,
-      &quot;retailers&quot;: [
-        &quot;Sainsbury&#x27;s&quot;,
-        &quot;Marks &amp; Spencer&quot;
-      ],
-      &quot;preparation&quot;: &quot;Reserve up to 20 ml cold water for loosening the dressing after blending.&quot;,
-      &quot;notes&quot;: &quot;The stated 20 ml is dressing water only; pasta-boiling water is additional.&quot;
-    }
-  ],
-  &quot;equipment&quot;: [
-    {
-      &quot;equipment_id&quot;: &quot;saucepan&quot;,
-      &quot;display_name&quot;: &quot;Medium saucepan&quot;,
-      &quot;required&quot;: true,
-      &quot;notes&quot;: &quot;Used to cook the wholewheat pasta.&quot;
-    },
-    {
-      &quot;equipment_id&quot;: &quot;gas_hob&quot;,
-      &quot;display_name&quot;: &quot;Gas hob&quot;,
-      &quot;required&quot;: true,
-      &quot;notes&quot;: &quot;Used to boil the pasta.&quot;
-    },
-    {
-      &quot;equipment_id&quot;: &quot;colander&quot;,
-      &quot;display_name&quot;: &quot;Colander&quot;,
-      &quot;required&quot;: true,
-      &quot;notes&quot;: &quot;Used to drain the pasta and cannellini beans.&quot;
-    },
-    {
-      &quot;equipment_id&quot;: &quot;standard_blender&quot;,
-      &quot;display_name&quot;: &quot;Standard blender&quot;,
-      &quot;required&quot;: true,
-      &quot;notes&quot;: &quot;Used to make the smooth basil-pesto and cottage-cheese dressing.&quot;
-    },
-    {
-      &quot;equipment_id&quot;: &quot;mixing_bowl&quot;,
-      &quot;display_name&quot;: &quot;Large mixing bowl&quot;,
-      &quot;required&quot;: true,
-      &quot;notes&quot;: &quot;Used to assemble and cool the pasta salad.&quot;
-    },
-    {
-      &quot;equipment_id&quot;: &quot;chef_knife&quot;,
-      &quot;display_name&quot;: &quot;Chef&#x27;s knife&quot;,
-      &quot;required&quot;: true,
-      &quot;notes&quot;: &quot;Used to halve the tomatoes and prepare the lemon and garlic.&quot;
-    },
-    {
-      &quot;equipment_id&quot;: &quot;chopping_board&quot;,
-      &quot;display_name&quot;: &quot;Chopping board&quot;,
-      &quot;required&quot;: true,
-      &quot;notes&quot;: &quot;Used for safe produce preparation.&quot;
-    },
-    {
-      &quot;equipment_id&quot;: &quot;fine_grater&quot;,
-      &quot;display_name&quot;: &quot;Fine grater or Microplane&quot;,
-      &quot;required&quot;: true,
-      &quot;notes&quot;: &quot;Used for lemon zest, garlic and hard cheese.&quot;
-    },
-    {
-      &quot;equipment_id&quot;: &quot;measuring_jug&quot;,
-      &quot;display_name&quot;: &quot;Measuring jug&quot;,
-      &quot;required&quot;: true,
-      &quot;notes&quot;: &quot;Used for lemon juice and dressing water.&quot;
-    },
-    {
-      &quot;equipment_id&quot;: &quot;measuring_spoons&quot;,
-      &quot;display_name&quot;: &quot;Measuring spoons&quot;,
-      &quot;required&quot;: true,
-      &quot;notes&quot;: &quot;Used for salt and black pepper.&quot;
-    },
-    {
-      &quot;equipment_id&quot;: &quot;kitchen_scales&quot;,
-      &quot;display_name&quot;: &quot;Kitchen scales&quot;,
-      &quot;required&quot;: true,
-      &quot;notes&quot;: &quot;Used for accurate pasta, bean, cottage-cheese, pesto, cheese, oil and vegetable quantities.&quot;
-    },
-    {
-      &quot;equipment_id&quot;: &quot;spatula&quot;,
-      &quot;display_name&quot;: &quot;Flexible spatula or large spoon&quot;,
-      &quot;required&quot;: true,
-      &quot;notes&quot;: &quot;Used to fold the salad without crushing the beans.&quot;
-    },
-    {
-      &quot;equipment_id&quot;: &quot;lidded_containers&quot;,
-      &quot;display_name&quot;: &quot;2 portable lidded lunch containers&quot;,
-      &quot;required&quot;: true,
-      &quot;notes&quot;: &quot;Each container should hold approximately 650-750 ml and seal securely for transport.&quot;
-    }
-  ],
-  &quot;mise_en_place&quot;: [
-    {
-      &quot;prep_id&quot;: &quot;PREP_01&quot;,
-      &quot;ingredient_ids&quot;: [
-        &quot;cannellini_beans_canned&quot;
-      ],
-      &quot;instruction&quot;: &quot;Open the cannellini bean tin. Pour the contents into a colander and discard the canning liquid. Rinse the beans thoroughly under cold running water while gently turning them with clean fingers. Shake the colander and leave the beans to drain for at least 2 minutes.&quot;,
-      &quot;endpoint&quot;: &quot;Approximately 240 g cannellini beans are clean, intact and free from visible canning liquid.&quot;
-    },
-    {
-      &quot;prep_id&quot;: &quot;PREP_02&quot;,
-      &quot;ingredient_ids&quot;: [
-        &quot;cherry_tomatoes&quot;,
-        &quot;rocket&quot;
-      ],
-      &quot;instruction&quot;: &quot;Wash the cherry tomatoes and rocket if required by the packaging instructions, then dry thoroughly. Remove any tomato stems and halve each tomato through the stem axis. Remove damaged or slimy rocket leaves and discard them.&quot;,
-      &quot;endpoint&quot;: &quot;The tomatoes are clean, dry and evenly halved, and the rocket is clean, dry and free from damaged leaves.&quot;
-    },
-    {
-      &quot;prep_id&quot;: &quot;PREP_03&quot;,
-      &quot;ingredient_ids&quot;: [
-        &quot;lemon&quot;,
-        &quot;garlic&quot;,
-        &quot;vegetarian_parmesan_style_cheese&quot;
-      ],
-      &quot;instruction&quot;: &quot;Wash and dry the lemon. Finely grate approximately 2 g yellow zest without removing significant white pith. Cut the lemon and squeeze 20 ml juice, removing all seeds. Separate 1 small garlic clove, peel it, trim the root end and grate finely. Finely grate 20 g vegetarian Parmesan-style cheese.&quot;,
-      &quot;endpoint&quot;: &quot;Lemon zest, lemon juice, garlic and hard cheese are finely prepared and ready for blending.&quot;
-    },
-    {
-      &quot;prep_id&quot;: &quot;PREP_04&quot;,
-      &quot;ingredient_ids&quot;: [
-        &quot;wholewheat_pasta_dry&quot;,
-        &quot;cottage_cheese_low_fat&quot;,
-        &quot;basil_pesto&quot;,
-        &quot;extra_virgin_olive_oil&quot;,
-        &quot;fine_salt&quot;,
-        &quot;black_pepper_ground&quot;,
-        &quot;water&quot;
-      ],
-      &quot;instruction&quot;: &quot;Weigh 65 g dry wholewheat pasta, 220 g low-fat cottage cheese, 12 g basil pesto and 4 g extra-virgin olive oil. Measure 0.25 tsp initial fine salt, 0.125 tsp reserved fine salt, 0.25 tsp black pepper and 20 ml cold water.&quot;,
-      &quot;endpoint&quot;: &quot;All remaining ingredients are accurately measured and immediately available.&quot;
-    }
-  ],
-  &quot;procedure&quot;: [
-    {
-      &quot;step_id&quot;: &quot;STEP_01&quot;,
-      &quot;section&quot;: &quot;Pasta&quot;,
-      &quot;title&quot;: &quot;Cook the wholewheat pasta&quot;,
-      &quot;depends_on&quot;: [],
-      &quot;parallel_group&quot;: &quot;P01&quot;,
-      &quot;ingredient_ids&quot;: [
-        &quot;wholewheat_pasta_dry&quot;,
-        &quot;fine_salt&quot;
-      ],
-      &quot;equipment_ids&quot;: [
-        &quot;saucepan&quot;,
-        &quot;gas_hob&quot;
-      ],
-      &quot;instruction&quot;: &quot;Fill the saucepan with sufficient water to allow the 65 g pasta to move freely and bring to a full boil over high gas heat. Add approximately 0.125 tsp of the measured initial salt, then add the wholewheat pasta. Stir immediately to prevent sticking and maintain a steady active boil.&quot;,
-      &quot;heat_source&quot;: &quot;Gas hob&quot;,
-      &quot;heat_level&quot;: &quot;High, then medium-high&quot;,
-      &quot;temperature_c&quot;: 100,
-      &quot;duration_min_minutes&quot;: 8,
-      &quot;duration_max_minutes&quot;: 12,
-      &quot;endpoint&quot;: &quot;The pasta is fully cooked but retains a slight firm bite at the centre and shows no chalky raw core.&quot;,
-      &quot;corrective_actions&quot;: [
-        {
-          &quot;condition&quot;: &quot;The water threatens to boil over.&quot;,
-          &quot;action&quot;: &quot;Reduce the gas flame while maintaining an active boil.&quot;
-        },
-        {
-          &quot;condition&quot;: &quot;The pasta remains noticeably hard at the maximum stated time.&quot;,
-          &quot;action&quot;: &quot;Continue cooking in 1-minute intervals and reassess after each interval.&quot;
-        }
-      ],
-      &quot;critical&quot;: true
-    },
-    {
-      &quot;step_id&quot;: &quot;STEP_02&quot;,
-      &quot;section&quot;: &quot;Dressing&quot;,
-      &quot;title&quot;: &quot;Blend the basil-pesto dressing&quot;,
-      &quot;depends_on&quot;: [],
-      &quot;parallel_group&quot;: &quot;P01&quot;,
-      &quot;ingredient_ids&quot;: [
-        &quot;cottage_cheese_low_fat&quot;,
-        &quot;basil_pesto&quot;,
-        &quot;vegetarian_parmesan_style_cheese&quot;,
-        &quot;lemon&quot;,
-        &quot;garlic&quot;,
-        &quot;extra_virgin_olive_oil&quot;,
-        &quot;fine_salt&quot;,
-        &quot;black_pepper_ground&quot;,
-        &quot;water&quot;
-      ],
-      &quot;equipment_ids&quot;: [
-        &quot;standard_blender&quot;,
-        &quot;fine_grater&quot;,
-        &quot;measuring_jug&quot;,
-        &quot;measuring_spoons&quot;,
-        &quot;kitchen_scales&quot;
-      ],
-      &quot;instruction&quot;: &quot;Add 220 g cottage cheese, 12 g basil pesto, 20 g grated vegetarian Parmesan-style cheese, 20 ml lemon juice, approximately 2 g lemon zest, the finely grated garlic, 4 g extra-virgin olive oil, approximately 0.125 tsp of the initial salt and 0.25 tsp black pepper to the blender. Blend until smooth. If the mixture does not circulate freely or remains thicker than a spoonable dressing, add the measured cold water in 5 ml increments and blend after each addition.&quot;,
-      &quot;heat_source&quot;: null,
-      &quot;heat_level&quot;: null,
-      &quot;temperature_c&quot;: null,
-      &quot;duration_min_minutes&quot;: 1,
-      &quot;duration_max_minutes&quot;: 3,
-      &quot;endpoint&quot;: &quot;The dressing is pale green, smooth, cohesive and thick enough to coat pasta and beans without running freely from a spoon.&quot;,
-      &quot;corrective_actions&quot;: [
-        {
-          &quot;condition&quot;: &quot;The blender blades spin without circulating the mixture.&quot;,
-          &quot;action&quot;: &quot;Stop the blender, scrape down the sides and add 5 ml water before restarting.&quot;
-        },
-        {
-          &quot;condition&quot;: &quot;The dressing becomes thinner than intended.&quot;,
-          &quot;action&quot;: &quot;Stop adding water immediately and refrigerate the dressing while the pasta cools; do not add unlisted thickening ingredients.&quot;
-        }
-      ],
-      &quot;critical&quot;: true
-    },
-    {
-      &quot;step_id&quot;: &quot;STEP_03&quot;,
-      &quot;section&quot;: &quot;Pasta&quot;,
-      &quot;title&quot;: &quot;Drain and cool the pasta&quot;,
-      &quot;depends_on&quot;: [
-        &quot;STEP_01&quot;
-      ],
-      &quot;parallel_group&quot;: null,
-      &quot;ingredient_ids&quot;: [
-        &quot;wholewheat_pasta_dry&quot;
-      ],
-      &quot;equipment_ids&quot;: [
-        &quot;colander&quot;,
-        &quot;mixing_bowl&quot;
-      ],
-      &quot;instruction&quot;: &quot;Drain the cooked pasta immediately through the colander. Shake firmly to remove excess water. Transfer the pasta to the large mixing bowl and spread it into a thin layer. Leave uncovered, turning once or twice with the spatula so steam escapes evenly.&quot;,
-      &quot;heat_source&quot;: null,
-      &quot;heat_level&quot;: null,
-      &quot;temperature_c&quot;: null,
-      &quot;duration_min_minutes&quot;: 5,
-      &quot;duration_max_minutes&quot;: 8,
-      &quot;endpoint&quot;: &quot;The pasta is no longer visibly steaming, feels warm rather than hot and has no standing water in the bowl.&quot;,
-      &quot;corrective_actions&quot;: [
-        {
-          &quot;condition&quot;: &quot;The pasta begins sticking into compact clumps while cooling.&quot;,
-          &quot;action&quot;: &quot;Separate the pieces gently with the spatula; do not add additional oil because the dressing will provide lubrication.&quot;
-        },
-        {
-          &quot;condition&quot;: &quot;Water accumulates at the base of the bowl.&quot;,
-          &quot;action&quot;: &quot;Return the pasta to the colander briefly, drain again and then resume cooling.&quot;
-        }
-      ],
-      &quot;critical&quot;: true
-    },
-    {
-      &quot;step_id&quot;: &quot;STEP_04&quot;,
-      &quot;section&quot;: &quot;Base assembly&quot;,
-      &quot;title&quot;: &quot;Coat the pasta and beans&quot;,
-      &quot;depends_on&quot;: [
-        &quot;STEP_02&quot;,
-        &quot;STEP_03&quot;
-      ],
-      &quot;parallel_group&quot;: null,
-      &quot;ingredient_ids&quot;: [
-        &quot;wholewheat_pasta_dry&quot;,
-        &quot;cannellini_beans_canned&quot;,
-        &quot;cottage_cheese_low_fat&quot;,
-        &quot;basil_pesto&quot;,
-        &quot;vegetarian_parmesan_style_cheese&quot;,
-        &quot;lemon&quot;,
-        &quot;garlic&quot;,
-        &quot;extra_virgin_olive_oil&quot;,
-        &quot;fine_salt&quot;,
-        &quot;black_pepper_ground&quot;,
-        &quot;water&quot;
-      ],
-      &quot;equipment_ids&quot;: [
-        &quot;mixing_bowl&quot;,
-        &quot;spatula&quot;
-      ],
-      &quot;instruction&quot;: &quot;Add the drained cannellini beans to the cooled pasta. Add all of the prepared basil-pesto dressing. Fold gently from the bottom upward until the pasta and beans are evenly coated. Avoid vigorous stirring, which can crush the beans.&quot;,
-      &quot;heat_source&quot;: null,
-      &quot;heat_level&quot;: null,
-      &quot;temperature_c&quot;: null,
-      &quot;duration_min_minutes&quot;: 2,
-      &quot;duration_max_minutes&quot;: 3,
-      &quot;endpoint&quot;: &quot;The pasta and beans are uniformly coated with a thin creamy green dressing, with the cannellini beans remaining predominantly intact.&quot;,
-      &quot;corrective_actions&quot;: [
-        {
-          &quot;condition&quot;: &quot;The dressing remains concentrated in one area.&quot;,
-          &quot;action&quot;: &quot;Continue folding from multiple directions until the coating is evenly distributed.&quot;
-        },
-        {
-          &quot;condition&quot;: &quot;The mixture appears excessively thick after coating.&quot;,
-          &quot;action&quot;: &quot;Add any remaining measured water in 5 ml increments and fold gently until the dressing coats rather than clumps.&quot;
-        }
-      ],
-      &quot;critical&quot;: false
-    },
-    {
-      &quot;step_id&quot;: &quot;STEP_05&quot;,
-      &quot;section&quot;: &quot;Vegetable assembly&quot;,
-      &quot;title&quot;: &quot;Add the tomatoes and rocket&quot;,
-      &quot;depends_on&quot;: [
-        &quot;STEP_04&quot;
-      ],
-      &quot;parallel_group&quot;: null,
-      &quot;ingredient_ids&quot;: [
-        &quot;cherry_tomatoes&quot;,
-        &quot;rocket&quot;
-      ],
-      &quot;equipment_ids&quot;: [
-        &quot;mixing_bowl&quot;,
-        &quot;spatula&quot;
-      ],
-      &quot;instruction&quot;: &quot;Add the 180 g halved cherry tomatoes and 50 g dry rocket to the dressed pasta and beans. Fold slowly and only until the vegetables are distributed throughout the salad.&quot;,
-      &quot;heat_source&quot;: null,
-      &quot;heat_level&quot;: null,
-      &quot;temperature_c&quot;: null,
-      &quot;duration_min_minutes&quot;: 1,
-      &quot;duration_max_minutes&quot;: 2,
-      &quot;endpoint&quot;: &quot;Tomatoes and rocket are evenly distributed, the tomato halves remain structurally intact and the rocket is coated lightly rather than crushed or heavily wilted.&quot;,
-      &quot;corrective_actions&quot;: [
-        {
-          &quot;condition&quot;: &quot;The rocket begins compressing or bruising during mixing.&quot;,
-          &quot;action&quot;: &quot;Stop mixing immediately and complete distribution during portioning rather than continuing to fold.&quot;
-        }
-      ],
-      &quot;critical&quot;: false
-    },
-    {
-      &quot;step_id&quot;: &quot;STEP_06&quot;,
-      &quot;section&quot;: &quot;Seasoning&quot;,
-      &quot;title&quot;: &quot;Check final seasoning&quot;,
-      &quot;depends_on&quot;: [
-        &quot;STEP_05&quot;
-      ],
-      &quot;parallel_group&quot;: null,
-      &quot;ingredient_ids&quot;: [
-        &quot;fine_salt&quot;
-      ],
-      &quot;equipment_ids&quot;: [
-        &quot;mixing_bowl&quot;
-      ],
-      &quot;instruction&quot;: &quot;Taste one representative mouthful containing pasta, bean, tomato and dressing. If the flavour is already clearly seasoned, acidic and savoury, do not add the reserved salt. If noticeably under-seasoned, add up to the reserved 0.125 tsp fine salt in 0.0625 tsp increments, folding gently after each addition.&quot;,
-      &quot;heat_source&quot;: null,
-      &quot;heat_level&quot;: null,
-      &quot;temperature_c&quot;: null,
-      &quot;duration_min_minutes&quot;: 1,
-      &quot;duration_max_minutes&quot;: 2,
-      &quot;endpoint&quot;: &quot;The salad tastes balanced, with identifiable basil, lemon, tomato sweetness and savoury cheese, without excessive saltiness or oiliness.&quot;,
-      &quot;corrective_actions&quot;: [
-        {
-          &quot;condition&quot;: &quot;The salad is adequately seasoned before the reserved salt is used.&quot;,
-          &quot;action&quot;: &quot;Do not add the reserved salt.&quot;
-        }
-      ],
-      &quot;critical&quot;: true
-    },
-    {
-      &quot;step_id&quot;: &quot;STEP_07&quot;,
-      &quot;section&quot;: &quot;Packing&quot;,
-      &quot;title&quot;: &quot;Divide and chill the portable lunches&quot;,
-      &quot;depends_on&quot;: [
-        &quot;STEP_06&quot;
-      ],
-      &quot;parallel_group&quot;: null,
-      &quot;ingredient_ids&quot;: [
-        &quot;wholewheat_pasta_dry&quot;,
-        &quot;cannellini_beans_canned&quot;,
-        &quot;cherry_tomatoes&quot;,
-        &quot;rocket&quot;,
-        &quot;cottage_cheese_low_fat&quot;,
-        &quot;basil_pesto&quot;,
-        &quot;vegetarian_parmesan_style_cheese&quot;,
-        &quot;lemon&quot;,
-        &quot;garlic&quot;,
-        &quot;extra_virgin_olive_oil&quot;,
-        &quot;fine_salt&quot;,
-        &quot;black_pepper_ground&quot;,
-        &quot;water&quot;
-      ],
-      &quot;equipment_ids&quot;: [
-        &quot;lidded_containers&quot;,
-        &quot;kitchen_scales&quot;
-      ],
-      &quot;instruction&quot;: &quot;Divide the complete salad equally between 2 clean lunch containers using the kitchen scales. Ensure each portion contains approximately equal quantities of pasta, beans, tomatoes, rocket and dressing. Secure the lids and refrigerate immediately at 5°C or below.&quot;,
-      &quot;heat_source&quot;: &quot;Refrigerator&quot;,
-      &quot;heat_level&quot;: null,
-      &quot;temperature_c&quot;: 5,
-      &quot;duration_min_minutes&quot;: 10,
-      &quot;duration_max_minutes&quot;: null,
-      &quot;endpoint&quot;: &quot;Both containers contain approximately equal complete servings and are fully chilled before transport.&quot;,
-      &quot;corrective_actions&quot;: [
-        {
-          &quot;condition&quot;: &quot;One portion contains visibly fewer beans or tomatoes than the other.&quot;,
-          &quot;action&quot;: &quot;Redistribute individual components between containers before sealing.&quot;
-        },
-        {
-          &quot;condition&quot;: &quot;The salad is still noticeably warm when the containers are filled.&quot;,
-          &quot;action&quot;: &quot;Leave the containers open in the refrigerator until the salad is chilled, then fit the lids securely.&quot;
-        }
-      ],
-      &quot;critical&quot;: true
-    }
-  ],
-  &quot;plating&quot;: [
-    {
-      &quot;step_id&quot;: &quot;PLATE_01&quot;,
-      &quot;instruction&quot;: &quot;Serve one chilled or cool-room-temperature portion per person. Before eating, turn the salad gently once or twice with a fork to redistribute any dressing that has settled, taking care not to mash the cannellini beans.&quot;
-    }
-  ],
-  &quot;storage&quot;: {
-    &quot;refrigerator_days&quot;: 2,
-    &quot;freezer_months&quot;: null,
-    &quot;storage_instructions&quot;: &quot;Store at 5°C or below and consume within 2 days. For transport to work or on a car journey, keep the lunch chilled in an insulated bag with an ice pack when continuous refrigeration is unavailable. The salad is intended to be eaten chilled or cool rather than reheated. Rocket will soften gradually during storage, so texture is best within 24 hours.&quot;,
-    &quot;reheating_methods&quot;: []
-  },
-  &quot;shopping&quot;: {
-    &quot;sainsburys&quot;: [],
-    &quot;marks_and_spencer&quot;: [],
-    &quot;either_retailer&quot;: [
-      &quot;Wholewheat short pasta: buy 1 standard packet&quot;,
-      &quot;Cannellini beans: buy 1 x 400 g tin&quot;,
-      &quot;Low-fat cottage cheese: buy 1 tub containing at least 220 g&quot;,
-      &quot;Vegetarian basil pesto: buy 1 small jar&quot;,
-      &quot;Vegetarian Parmesan-style hard cheese: buy 1 small wedge or packet&quot;,
-      &quot;Cherry tomatoes: buy 1 punnet containing at least 180 g&quot;,
-      &quot;Rocket: buy 1 bag containing at least 50 g&quot;,
-      &quot;Unwaxed lemon: buy 1&quot;,
-      &quot;Garlic: buy 1 bulb&quot;,
-      &quot;Extra-virgin olive oil: buy 1 bottle if not already stocked&quot;,
-      &quot;Fine salt: buy 1 container if not already stocked&quot;,
-      &quot;Ground black pepper: buy 1 jar or pepper mill if not already stocked&quot;
-    ]
-  },
-  &quot;quality_checks&quot;: {
-    &quot;protein_requirement_met&quot;: true,
-    &quot;protein_g_per_serving&quot;: 31,
-    &quot;restaurant_quality_features&quot;: [
-      &quot;Cannellini beans provide creamy texture and substantial protein while remaining intact through gentle folding.&quot;,
-      &quot;Cottage cheese is blended into the basil pesto dressing to create a smooth, protein-rich coating without requiring a large quantity of oil.&quot;,
-      &quot;Vegetarian Parmesan-style hard cheese reinforces savoury depth and provides additional protein.&quot;,
-      &quot;Fresh lemon juice and zest balance the richness of pesto and cheese and keep the cold salad tasting bright.&quot;,
-      &quot;Garlic is grated directly into the dressing so its flavour disperses evenly without harsh chunks.&quot;,
-      &quot;Wholewheat pasta is cooked only until slightly firm so it retains structure after chilling and dressing.&quot;,
-      &quot;Tomatoes and rocket are added after the pasta has cooled, preventing unnecessary wilting and preserving textural contrast.&quot;,
-      &quot;The pasta is cooled without oil so the dressing adheres directly to the grain surface rather than sliding off.&quot;
-    ],
-    &quot;nutrition_notes&quot;: [
-      &quot;Estimated nutrition represents one complete lunch serving including pasta, cannellini beans, tomatoes, rocket, cottage cheese, pesto, vegetarian hard cheese, olive oil and all dressing components.&quot;,
-      &quot;The recipe is designed around the approximately 400 kcal lunch target.&quot;,
-      &quot;Approximately 31 g protein per serving comes from cannellini beans, cottage cheese, wholewheat pasta and vegetarian hard cheese.&quot;,
-      &quot;Cannellini beans, wholewheat pasta, tomatoes and rocket provide substantial dietary fibre and plant diversity.&quot;,
-      &quot;Pesto and olive oil are deliberately used in restrained quantities because their flavour is concentrated and larger amounts would substantially increase calories without being necessary for coating.&quot;,
-      &quot;Nutrition values are estimates and will vary with the exact pasta, cottage cheese, pesto, beans and cheese selected.&quot;,
-      &quot;The recipe follows the supplied structured-recipe and lunch requirements. &quot;
-    ],
-    &quot;critical_success_factors&quot;: [
-      &quot;Do not overcook the wholewheat pasta; it should retain slight bite before cooling.&quot;,
-      &quot;Drain both the pasta and cannellini beans thoroughly because excess water will dilute the dressing.&quot;,
-      &quot;Blend the cottage-cheese pesto dressing until smooth before combining it with the salad.&quot;,
-      &quot;Cool the pasta before adding rocket so the leaves remain fresh rather than heat-wilted.&quot;,
-      &quot;Fold rather than vigorously stir once cannellini beans and tomatoes are present to preserve their structure.&quot;,
-      &quot;Taste before using the reserved salt because pesto and hard cheese can vary substantially in salt content.&quot;,
-      &quot;Keep the completed salad chilled during storage and transport.&quot;
-    ]
-  }
-}</pre>
-
 </details>
 
+
+<details class="section non-method">
+    <summary>Equipment</summary>
+    <div class="section-content">
+        <ul class="compact-list">
+            <li>Medium saucepan</li><li>Gas hob</li><li>Colander</li><li>Standard blender</li><li>Large mixing bowl</li><li>Chef&#x27;s knife</li><li>Chopping board</li><li>Fine grater or Microplane</li><li>Measuring jug</li><li>Measuring spoons</li><li>Kitchen scales</li><li>Flexible spatula or large spoon</li><li>2 portable lidded lunch containers</li>
+        </ul>
+    </div>
+</details>
+
+
+<details class="section non-method" open>
+    <summary>Mise en place</summary>
+    <div class="section-content card-stack">
+        <article class="prep-card">
+<h3>Prep 1</h3>
+<p>Open the cannellini bean tin. Pour the contents into a colander and discard the canning liquid. Rinse the beans thoroughly under cold running water while gently turning them with clean fingers. Shake the colander and leave the beans to drain for at least 2 minutes.</p>
+<div class="endpoint"><strong>Ready when:</strong> Approximately 240 g cannellini beans are clean, intact and free from visible canning liquid.</div>
+</article><article class="prep-card">
+<h3>Prep 2</h3>
+<p>Wash the cherry tomatoes and rocket if required by the packaging instructions, then dry thoroughly. Remove any tomato stems and halve each tomato through the stem axis. Remove damaged or slimy rocket leaves and discard them.</p>
+<div class="endpoint"><strong>Ready when:</strong> The tomatoes are clean, dry and evenly halved, and the rocket is clean, dry and free from damaged leaves.</div>
+</article><article class="prep-card">
+<h3>Prep 3</h3>
+<p>Wash and dry the lemon. Finely grate approximately 2 g yellow zest without removing significant white pith. Cut the lemon and squeeze 20 ml juice, removing all seeds. Separate 1 small garlic clove, peel it, trim the root end and grate finely. Finely grate 20 g vegetarian Parmesan-style cheese.</p>
+<div class="endpoint"><strong>Ready when:</strong> Lemon zest, lemon juice, garlic and hard cheese are finely prepared and ready for blending.</div>
+</article><article class="prep-card">
+<h3>Prep 4</h3>
+<p>Weigh 65 g dry wholewheat pasta, 220 g low-fat cottage cheese, 12 g basil pesto and 4 g extra-virgin olive oil. Measure 0.25 tsp initial fine salt, 0.125 tsp reserved fine salt, 0.25 tsp black pepper and 20 ml cold water.</p>
+<div class="endpoint"><strong>Ready when:</strong> All remaining ingredients are accurately measured and immediately available.</div>
+</article>
+    </div>
+</details>
+
+
+<section class="section method-section">
+    <h2>Method</h2>
+
+    <div id="methodSteps" class="card-stack">
+        <article class="method-step" data-step-index="0">
+<div class="step-heading">
+<div class="step-number">Step 1</div>
+<h3>Cook the wholewheat pasta</h3>
+</div>
+<div class="step-section">Pasta</div>
+<div class="step-meta"><span class="badge">Heat source: Gas hob</span><span class="badge">Setting: High, then medium-high</span><span class="badge">Temperature: 100°C</span><span class="badge">Time: 8–12 min</span></div>
+<p class="instruction">Fill the saucepan with sufficient water to allow the 65 g pasta to move freely and bring to a full boil over high gas heat. Add approximately 0.125 tsp of the measured initial salt, then add the wholewheat pasta. Stir immediately to prevent sticking and maintain a steady active boil.</p>
+<div class="endpoint"><strong>Ready when:</strong> The pasta is fully cooked but retains a slight firm bite at the centre and shows no chalky raw core.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul>
+        <li><strong>If:</strong> The water threatens to boil over.<br><strong>Do:</strong> Reduce the gas flame while maintaining an active boil.</li><li><strong>If:</strong> The pasta remains noticeably hard at the maximum stated time.<br><strong>Do:</strong> Continue cooking in 1-minute intervals and reassess after each interval.</li>
+    </ul>
+</details>
+
+</article><article class="method-step" data-step-index="1">
+<div class="step-heading">
+<div class="step-number">Step 2</div>
+<h3>Blend the basil-pesto dressing</h3>
+</div>
+<div class="step-section">Dressing</div>
+<div class="step-meta"><span class="badge">Time: 1–3 min</span></div>
+<p class="instruction">Add 220 g cottage cheese, 12 g basil pesto, 20 g grated vegetarian Parmesan-style cheese, 20 ml lemon juice, approximately 2 g lemon zest, the finely grated garlic, 4 g extra-virgin olive oil, approximately 0.125 tsp of the initial salt and 0.25 tsp black pepper to the blender. Blend until smooth. If the mixture does not circulate freely or remains thicker than a spoonable dressing, add the measured cold water in 5 ml increments and blend after each addition.</p>
+<div class="endpoint"><strong>Ready when:</strong> The dressing is pale green, smooth, cohesive and thick enough to coat pasta and beans without running freely from a spoon.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul>
+        <li><strong>If:</strong> The blender blades spin without circulating the mixture.<br><strong>Do:</strong> Stop the blender, scrape down the sides and add 5 ml water before restarting.</li><li><strong>If:</strong> The dressing becomes thinner than intended.<br><strong>Do:</strong> Stop adding water immediately and refrigerate the dressing while the pasta cools; do not add unlisted thickening ingredients.</li>
+    </ul>
+</details>
+
+</article><article class="method-step" data-step-index="2">
+<div class="step-heading">
+<div class="step-number">Step 3</div>
+<h3>Drain and cool the pasta</h3>
+</div>
+<div class="step-section">Pasta</div>
+<div class="step-meta"><span class="badge">Time: 5–8 min</span></div>
+<p class="instruction">Drain the cooked pasta immediately through the colander. Shake firmly to remove excess water. Transfer the pasta to the large mixing bowl and spread it into a thin layer. Leave uncovered, turning once or twice with the spatula so steam escapes evenly.</p>
+<div class="endpoint"><strong>Ready when:</strong> The pasta is no longer visibly steaming, feels warm rather than hot and has no standing water in the bowl.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul>
+        <li><strong>If:</strong> The pasta begins sticking into compact clumps while cooling.<br><strong>Do:</strong> Separate the pieces gently with the spatula; do not add additional oil because the dressing will provide lubrication.</li><li><strong>If:</strong> Water accumulates at the base of the bowl.<br><strong>Do:</strong> Return the pasta to the colander briefly, drain again and then resume cooling.</li>
+    </ul>
+</details>
+
+</article><article class="method-step" data-step-index="3">
+<div class="step-heading">
+<div class="step-number">Step 4</div>
+<h3>Coat the pasta and beans</h3>
+</div>
+<div class="step-section">Base assembly</div>
+<div class="step-meta"><span class="badge">Time: 2–3 min</span></div>
+<p class="instruction">Add the drained cannellini beans to the cooled pasta. Add all of the prepared basil-pesto dressing. Fold gently from the bottom upward until the pasta and beans are evenly coated. Avoid vigorous stirring, which can crush the beans.</p>
+<div class="endpoint"><strong>Ready when:</strong> The pasta and beans are uniformly coated with a thin creamy green dressing, with the cannellini beans remaining predominantly intact.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul>
+        <li><strong>If:</strong> The dressing remains concentrated in one area.<br><strong>Do:</strong> Continue folding from multiple directions until the coating is evenly distributed.</li><li><strong>If:</strong> The mixture appears excessively thick after coating.<br><strong>Do:</strong> Add any remaining measured water in 5 ml increments and fold gently until the dressing coats rather than clumps.</li>
+    </ul>
+</details>
+
+</article><article class="method-step" data-step-index="4">
+<div class="step-heading">
+<div class="step-number">Step 5</div>
+<h3>Add the tomatoes and rocket</h3>
+</div>
+<div class="step-section">Vegetable assembly</div>
+<div class="step-meta"><span class="badge">Time: 1–2 min</span></div>
+<p class="instruction">Add the 180 g halved cherry tomatoes and 50 g dry rocket to the dressed pasta and beans. Fold slowly and only until the vegetables are distributed throughout the salad.</p>
+<div class="endpoint"><strong>Ready when:</strong> Tomatoes and rocket are evenly distributed, the tomato halves remain structurally intact and the rocket is coated lightly rather than crushed or heavily wilted.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul>
+        <li><strong>If:</strong> The rocket begins compressing or bruising during mixing.<br><strong>Do:</strong> Stop mixing immediately and complete distribution during portioning rather than continuing to fold.</li>
+    </ul>
+</details>
+
+</article><article class="method-step" data-step-index="5">
+<div class="step-heading">
+<div class="step-number">Step 6</div>
+<h3>Check final seasoning</h3>
+</div>
+<div class="step-section">Seasoning</div>
+<div class="step-meta"><span class="badge">Time: 1–2 min</span></div>
+<p class="instruction">Taste one representative mouthful containing pasta, bean, tomato and dressing. If the flavour is already clearly seasoned, acidic and savoury, do not add the reserved salt. If noticeably under-seasoned, add up to the reserved 0.125 tsp fine salt in 0.0625 tsp increments, folding gently after each addition.</p>
+<div class="endpoint"><strong>Ready when:</strong> The salad tastes balanced, with identifiable basil, lemon, tomato sweetness and savoury cheese, without excessive saltiness or oiliness.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul>
+        <li><strong>If:</strong> The salad is adequately seasoned before the reserved salt is used.<br><strong>Do:</strong> Do not add the reserved salt.</li>
+    </ul>
+</details>
+
+</article><article class="method-step" data-step-index="6">
+<div class="step-heading">
+<div class="step-number">Step 7</div>
+<h3>Divide and chill the portable lunches</h3>
+</div>
+<div class="step-section">Packing</div>
+<div class="step-meta"><span class="badge">Heat source: Refrigerator</span><span class="badge">Temperature: 5°C</span><span class="badge">Time: 10 min minimum</span></div>
+<p class="instruction">Divide the complete salad equally between 2 clean lunch containers using the kitchen scales. Ensure each portion contains approximately equal quantities of pasta, beans, tomatoes, rocket and dressing. Secure the lids and refrigerate immediately at 5°C or below.</p>
+<div class="endpoint"><strong>Ready when:</strong> Both containers contain approximately equal complete servings and are fully chilled before transport.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul>
+        <li><strong>If:</strong> One portion contains visibly fewer beans or tomatoes than the other.<br><strong>Do:</strong> Redistribute individual components between containers before sealing.</li><li><strong>If:</strong> The salad is still noticeably warm when the containers are filled.<br><strong>Do:</strong> Leave the containers open in the refrigerator until the salad is chilled, then fit the lids securely.</li>
+    </ul>
+</details>
+
+</article>
+    </div>
+
+    <div id="cookControls" class="cook-controls">
+        <button
+            id="previousStep"
+            type="button"
+        >
+            Previous
+        </button>
+
+        <div id="stepCounter"></div>
+
+        <button
+            id="nextStep"
+            type="button"
+        >
+            Next
+        </button>
+    </div>
+</section>
+
+
+<details class="section non-method">
+    <summary>Serving</summary>
+    <div class="section-content">
+        <p>Serve one chilled or cool-room-temperature portion per person. Before eating, turn the salad gently once or twice with a fork to redistribute any dressing that has settled, taking care not to mash the cannellini beans.</p>
+    </div>
+</details>
+
+
+<details class="section non-method">
+    <summary>Storage & reheating</summary>
+    <div class="section-content">
+        <p><strong>Refrigerator:</strong> 2 days</p><p>Store at 5°C or below and consume within 2 days. For transport to work or on a car journey, keep the lunch chilled in an insulated bag with an ice pack when continuous refrigeration is unavailable. The salad is intended to be eaten chilled or cool rather than reheated. Rocket will soften gradually during storage, so texture is best within 24 hours.</p>
+    </div>
+</details>
+
+
+<details class="section non-method">
+    <summary>Shopping</summary>
+    <div class="section-content">
+        
+            <h3>Either retailer</h3>
+            <ul><li>Wholewheat short pasta: buy 1 standard packet</li><li>Cannellini beans: buy 1 x 400 g tin</li><li>Low-fat cottage cheese: buy 1 tub containing at least 220 g</li><li>Vegetarian basil pesto: buy 1 small jar</li><li>Vegetarian Parmesan-style hard cheese: buy 1 small wedge or packet</li><li>Cherry tomatoes: buy 1 punnet containing at least 180 g</li><li>Rocket: buy 1 bag containing at least 50 g</li><li>Unwaxed lemon: buy 1</li><li>Garlic: buy 1 bulb</li><li>Extra-virgin olive oil: buy 1 bottle if not already stocked</li><li>Fine salt: buy 1 container if not already stocked</li><li>Ground black pepper: buy 1 jar or pepper mill if not already stocked</li></ul>
+            
+    </div>
+</details>
+
+
 </main>
+
+
+<script>
+
+(function () {
+
+    const button =
+        document.getElementById(
+            "cookModeButton"
+        );
+
+    const steps =
+        Array.from(
+            document.querySelectorAll(
+                ".method-step"
+            )
+        );
+
+    const controls =
+        document.getElementById(
+            "cookControls"
+        );
+
+    const previous =
+        document.getElementById(
+            "previousStep"
+        );
+
+    const next =
+        document.getElementById(
+            "nextStep"
+        );
+
+    const counter =
+        document.getElementById(
+            "stepCounter"
+        );
+
+    let currentStep = 0;
+
+
+    function showStep(index) {
+
+        if (!steps.length) {
+            return;
+        }
+
+        currentStep =
+            Math.max(
+                0,
+                Math.min(
+                    index,
+                    steps.length - 1
+                )
+            );
+
+        steps.forEach(
+            (step, stepIndex) => {
+
+                step.classList.toggle(
+                    "active",
+                    stepIndex === currentStep
+                );
+
+            }
+        );
+
+        if (counter) {
+
+            counter.textContent =
+                (
+                    "Step "
+                    +
+                    (currentStep + 1)
+                    +
+                    " of "
+                    +
+                    steps.length
+                );
+        }
+
+        if (previous) {
+            previous.disabled =
+                currentStep === 0;
+        }
+
+        if (next) {
+            next.disabled =
+                currentStep ===
+                steps.length - 1;
+        }
+
+        const active =
+            steps[currentStep];
+
+        if (active) {
+
+            active.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+        }
+    }
+
+
+    if (button) {
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                const active =
+                    document.body.classList.toggle(
+                        "cook-mode"
+                    );
+
+                button.textContent =
+                    active
+                        ? "Exit cook mode"
+                        : "Cook mode";
+
+                if (active) {
+                    showStep(
+                        currentStep
+                    );
+                }
+            }
+        );
+    }
+
+
+    if (previous) {
+
+        previous.addEventListener(
+            "click",
+            () => {
+                showStep(
+                    currentStep - 1
+                );
+            }
+        );
+    }
+
+
+    if (next) {
+
+        next.addEventListener(
+            "click",
+            () => {
+                showStep(
+                    currentStep + 1
+                );
+            }
+        );
+    }
+
+
+    if (!steps.length && controls) {
+        controls.style.display = "none";
+    }
+
+})();
+
+</script>
 
 </body>
 
