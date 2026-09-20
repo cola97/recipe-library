@@ -1,0 +1,599 @@
+{
+  "schema_version": "1.0",
+  "recipe": {
+    "id": "cannellini_bean_cottage_cheese_roasted_courgette_wholewheat_pasta_salad_basil_lemon",
+    "title": "Cannellini Bean, Cottage Cheese & Roasted Courgette Wholewheat Pasta Salad with Basil and Lemon",
+    "description": "A portable high-protein wholewheat pasta salad with caramelised roasted courgette, creamy cottage cheese and cannellini beans, brightened with lemon, basil and Dijon mustard.",
+    "servings": 2,
+    "difficulty": "Easy",
+    "total_time_minutes": 28,
+    "active_time_minutes": 19,
+    "passive_time_minutes": 9,
+    "cuisine": [
+      "Mediterranean-inspired"
+    ],
+    "meal_types": [
+      "Lunch"
+    ],
+    "dietary_tags": [
+      "Lacto-ovo vegetarian",
+      "High protein",
+      "High fibre",
+      "Portable"
+    ],
+    "allergens": [
+      "Milk",
+      "Wheat",
+      "Mustard"
+    ]
+  },
+  "nutrition_per_serving": {
+    "energy_kcal": 402,
+    "protein_g": 31.5,
+    "carbohydrate_g": 52.0,
+    "fat_g": 9.0,
+    "saturated_fat_g": 2.5,
+    "fibre_g": 10.5,
+    "salt_g": 1.0
+  },
+  "ingredients": [
+    {
+      "ingredient_id": "wholewheat_pasta_dry",
+      "display_name": "Wholewheat pasta",
+      "category": "Pasta and grains",
+      "required": true,
+      "quantity_used": 90,
+      "unit_used": "g",
+      "purchase_quantity": "1 pack",
+      "purchase_notes": "Use 90 g dry pasta; a short shape such as fusilli or penne is best for a portable salad.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Keep dry until cooking.",
+      "notes": ""
+    },
+    {
+      "ingredient_id": "cottage_cheese_low_fat",
+      "display_name": "Low-fat cottage cheese",
+      "category": "Dairy",
+      "required": true,
+      "quantity_used": 300,
+      "unit_used": "g",
+      "purchase_quantity": "1 tub",
+      "purchase_notes": "Use 300 g; retail tub size may vary.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Keep refrigerated until required.",
+      "notes": "Use a thick low-fat cottage cheese so the salad remains creamy without becoming watery."
+    },
+    {
+      "ingredient_id": "cannellini_beans_canned",
+      "display_name": "Canned cannellini beans",
+      "category": "Legumes",
+      "required": true,
+      "quantity_used": 180,
+      "unit_used": "g",
+      "purchase_quantity": "1 x approximately 400 g tin",
+      "purchase_notes": "Use approximately 180 g drained beans; reserve any remainder for another meal.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Drain, rinse thoroughly under cold water and drain again.",
+      "notes": ""
+    },
+    {
+      "ingredient_id": "courgette",
+      "display_name": "Medium courgettes",
+      "category": "Vegetables",
+      "required": true,
+      "quantity_used": 2,
+      "unit_used": "integer",
+      "purchase_quantity": "2 medium courgettes",
+      "purchase_notes": "",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Wash and dry before cutting.",
+      "notes": "Whole courgettes do not scale perfectly for every serving quantity; round sensibly when scaling."
+    },
+    {
+      "ingredient_id": "fresh_basil",
+      "display_name": "Fresh basil",
+      "category": "Fresh herbs",
+      "required": true,
+      "quantity_used": 15,
+      "unit_used": "g",
+      "purchase_quantity": "1 small pack or pot",
+      "purchase_notes": "Use approximately 15 g leaves.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Wash only if necessary and dry thoroughly.",
+      "notes": ""
+    },
+    {
+      "ingredient_id": "lemon",
+      "display_name": "Unwaxed lemon",
+      "category": "Fruit",
+      "required": true,
+      "quantity_used": 1,
+      "unit_used": "integer",
+      "purchase_quantity": "1 lemon",
+      "purchase_notes": "",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Wash and dry before zesting and juicing.",
+      "notes": ""
+    },
+    {
+      "ingredient_id": "dijon_mustard",
+      "display_name": "Dijon mustard",
+      "category": "Condiments",
+      "required": true,
+      "quantity_used": 2,
+      "unit_used": "tsp",
+      "purchase_quantity": "1 jar",
+      "purchase_notes": "Use 2 tsp.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": ""
+    },
+    {
+      "ingredient_id": "olive_oil",
+      "display_name": "Olive oil",
+      "category": "Oils",
+      "required": true,
+      "quantity_used": 2,
+      "unit_used": "tsp",
+      "purchase_quantity": "1 bottle",
+      "purchase_notes": "Use 2 tsp in total.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": "Use 1 1/2 tsp for roasting the courgettes and 1/2 tsp in the lemon dressing."
+    },
+    {
+      "ingredient_id": "garlic",
+      "display_name": "Garlic clove",
+      "category": "Aromatics",
+      "required": true,
+      "quantity_used": 1,
+      "unit_used": "integer",
+      "purchase_quantity": "1 bulb",
+      "purchase_notes": "Use 1 clove.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Peel before finely grating.",
+      "notes": ""
+    },
+    {
+      "ingredient_id": "fine_salt",
+      "display_name": "Fine salt",
+      "category": "Seasoning",
+      "required": true,
+      "quantity_used": 0.375,
+      "unit_used": "tsp",
+      "purchase_quantity": "1 container",
+      "purchase_notes": "Use 3/8 tsp in total.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": "Use 1/4 tsp on the courgettes and 1/8 tsp in the dressing; cottage cheese adds additional salt."
+    },
+    {
+      "ingredient_id": "black_pepper_ground",
+      "display_name": "Ground black pepper",
+      "category": "Seasoning",
+      "required": true,
+      "quantity_used": 0.5,
+      "unit_used": "tsp",
+      "purchase_quantity": "1 container",
+      "purchase_notes": "Use 1/2 tsp in total.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": "Use 1/4 tsp on the courgettes and 1/4 tsp in the finished salad."
+    }
+  ],
+  "equipment": [
+    {
+      "equipment_id": "air_fryer",
+      "display_name": "Air fryer",
+      "required": true,
+      "notes": "Used to roast the courgettes with minimal active supervision."
+    },
+    {
+      "equipment_id": "gas_hob",
+      "display_name": "Gas hob",
+      "required": true,
+      "notes": ""
+    },
+    {
+      "equipment_id": "saucepan",
+      "display_name": "Medium saucepan",
+      "required": true,
+      "notes": "Used to cook the pasta."
+    },
+    {
+      "equipment_id": "kettle",
+      "display_name": "Electric kettle",
+      "required": true,
+      "notes": "Speeds up bringing the pasta water to the boil."
+    },
+    {
+      "equipment_id": "colander",
+      "display_name": "Colander",
+      "required": true,
+      "notes": "Used to drain and rapidly cool the cooked pasta."
+    },
+    {
+      "equipment_id": "mixing_bowl",
+      "display_name": "Large mixing bowl",
+      "required": true,
+      "notes": "Used to mix the dressing and assemble the salad."
+    },
+    {
+      "equipment_id": "chef_knife",
+      "display_name": "Chef's knife",
+      "required": true,
+      "notes": ""
+    },
+    {
+      "equipment_id": "chopping_board",
+      "display_name": "Chopping board",
+      "required": true,
+      "notes": ""
+    },
+    {
+      "equipment_id": "fine_grater",
+      "display_name": "Fine grater or Microplane",
+      "required": true,
+      "notes": "Used for lemon zest and garlic."
+    },
+    {
+      "equipment_id": "kitchen_scales",
+      "display_name": "Kitchen scales",
+      "required": true,
+      "notes": ""
+    },
+    {
+      "equipment_id": "measuring_spoons",
+      "display_name": "Measuring spoons",
+      "required": true,
+      "notes": ""
+    },
+    {
+      "equipment_id": "lidded_containers",
+      "display_name": "2 lidded lunch containers",
+      "required": true,
+      "notes": "Use leak-resistant containers suitable for chilled transport."
+    }
+  ],
+  "mise_en_place": [
+    {
+      "prep_id": "PREP_01",
+      "ingredient_ids": [
+        "courgette"
+      ],
+      "instruction": "Trim the ends from the washed courgettes, then cut the courgettes into half-moons approximately 10 mm thick.",
+      "endpoint": "The courgette pieces are evenly sized so they roast at a similar rate."
+    },
+    {
+      "prep_id": "PREP_02",
+      "ingredient_ids": [
+        "cannellini_beans_canned"
+      ],
+      "instruction": "Drain the cannellini beans, rinse them thoroughly under cold running water and leave them in the colander until no free water remains.",
+      "endpoint": "The beans are clean-tasting and well drained rather than wet."
+    },
+    {
+      "prep_id": "PREP_03",
+      "ingredient_ids": [
+        "lemon",
+        "garlic",
+        "fresh_basil"
+      ],
+      "instruction": "Finely grate the zest from approximately half of the lemon, then halve the lemon and squeeze the juice. Peel and finely grate the garlic clove. Tear or roughly chop the basil leaves immediately before assembly.",
+      "endpoint": "The lemon zest, juice, garlic and basil are ready without bruising the basil excessively."
+    }
+  ],
+  "procedure": [
+    {
+      "step_id": "STEP_01",
+      "section": "Courgette",
+      "title": "Roast the courgettes",
+      "depends_on": [
+        "PREP_01"
+      ],
+      "parallel_group": "P01",
+      "ingredient_ids": [
+        "courgette",
+        "olive_oil",
+        "fine_salt",
+        "black_pepper_ground"
+      ],
+      "equipment_ids": [
+        "air_fryer"
+      ],
+      "instruction": "Toss the courgette half-moons with 1 1/2 tsp olive oil, 1/4 tsp fine salt and 1/4 tsp black pepper. Arrange them in the air-fryer basket with enough space for air circulation. Air-fry at 200°C for approximately 12-15 minutes, shaking or turning once after approximately 7 minutes.",
+      "heat_source": "air_fryer",
+      "heat_level": "200°C",
+      "temperature_c": 200,
+      "duration_min_minutes": 12,
+      "duration_max_minutes": 15,
+      "endpoint": "The courgettes are tender through the centre with distinct golden-brown edges and no pool of released water.",
+      "corrective_actions": [
+        {
+          "condition": "The courgettes are browning rapidly while remaining firm inside.",
+          "action": "Reduce the air-fryer temperature to 185°C and continue until tender."
+        },
+        {
+          "condition": "The courgettes remain pale and watery after 15 minutes.",
+          "action": "Continue air-frying for 2-3 minutes, checking every minute, until the moisture has evaporated and browned edges develop."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_02",
+      "section": "Pasta",
+      "title": "Cook the wholewheat pasta",
+      "depends_on": [],
+      "parallel_group": "P01",
+      "ingredient_ids": [
+        "wholewheat_pasta_dry"
+      ],
+      "equipment_ids": [
+        "kettle",
+        "gas_hob",
+        "saucepan"
+      ],
+      "instruction": "While the courgettes roast, boil sufficient water in the kettle and pour it into the saucepan. Return it to a vigorous boil, add the 90 g wholewheat pasta and cook according to the lower end of the package timing, normally approximately 8-10 minutes.",
+      "heat_source": "gas_hob",
+      "heat_level": "medium-high",
+      "temperature_c": null,
+      "duration_min_minutes": 8,
+      "duration_max_minutes": 10,
+      "endpoint": "The pasta is tender throughout but retains a slight bite and has not become soft or swollen.",
+      "corrective_actions": [
+        {
+          "condition": "The pasta reaches the correct texture before the stated package time.",
+          "action": "Drain it immediately rather than continuing to cook by the clock."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_03",
+      "section": "Pasta",
+      "title": "Cool and drain the pasta",
+      "depends_on": [
+        "STEP_02"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "wholewheat_pasta_dry"
+      ],
+      "equipment_ids": [
+        "colander"
+      ],
+      "instruction": "Drain the pasta immediately into the colander and rinse briefly under cold running water while tossing gently until the pasta is cool enough for a chilled salad. Shake the colander thoroughly and leave the pasta to drain for approximately 1 minute.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 2,
+      "duration_max_minutes": 3,
+      "endpoint": "The pasta is cool, separate and well drained, with no visible water collecting beneath the colander.",
+      "corrective_actions": [
+        {
+          "condition": "The pasta remains visibly wet after rinsing.",
+          "action": "Shake the colander again and allow another minute of draining before adding it to the dressing."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_04",
+      "section": "Dressing",
+      "title": "Make the basil-lemon dressing",
+      "depends_on": [
+        "PREP_03"
+      ],
+      "parallel_group": "P01",
+      "ingredient_ids": [
+        "lemon",
+        "dijon_mustard",
+        "olive_oil",
+        "garlic",
+        "fine_salt",
+        "black_pepper_ground"
+      ],
+      "equipment_ids": [
+        "mixing_bowl",
+        "fine_grater",
+        "measuring_spoons"
+      ],
+      "instruction": "In the mixing bowl, combine 2 tbsp lemon juice, the prepared lemon zest, 2 tsp Dijon mustard, the remaining 1/2 tsp olive oil, the grated garlic, the remaining 1/8 tsp fine salt and the remaining 1/4 tsp black pepper. Stir vigorously until evenly combined.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 1,
+      "duration_max_minutes": 2,
+      "endpoint": "The dressing is sharp, savoury and lightly emulsified, with no concentrated mustard or garlic pockets.",
+      "corrective_actions": [
+        {
+          "condition": "The dressing tastes excessively sharp.",
+          "action": "Add 1 tsp cold water and mix again before making any further adjustment."
+        }
+      ],
+      "critical": false
+    },
+    {
+      "step_id": "STEP_05",
+      "section": "Assembly",
+      "title": "Dress the pasta and beans",
+      "depends_on": [
+        "STEP_03",
+        "STEP_04",
+        "PREP_02"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "wholewheat_pasta_dry",
+        "cannellini_beans_canned",
+        "fresh_basil"
+      ],
+      "equipment_ids": [
+        "mixing_bowl"
+      ],
+      "instruction": "Add the well-drained pasta and cannellini beans to the dressing. Add approximately half of the basil and fold thoroughly until the pasta and beans are evenly coated.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 1,
+      "duration_max_minutes": 2,
+      "endpoint": "The pasta and beans are evenly coated but there is no watery dressing pooling at the bottom of the bowl.",
+      "corrective_actions": [
+        {
+          "condition": "Liquid collects at the bottom of the bowl.",
+          "action": "Allow the mixture to stand for 1 minute and fold again; if excess liquid remains, drain it off before adding the cottage cheese."
+        }
+      ],
+      "critical": false
+    },
+    {
+      "step_id": "STEP_06",
+      "section": "Assembly",
+      "title": "Add the roasted courgette and cottage cheese",
+      "depends_on": [
+        "STEP_01",
+        "STEP_05"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "courgette",
+        "cottage_cheese_low_fat",
+        "fresh_basil"
+      ],
+      "equipment_ids": [
+        "mixing_bowl"
+      ],
+      "instruction": "Allow the roasted courgette to cool for approximately 2 minutes so it is no longer steaming strongly. Add it to the dressed pasta with the 300 g cottage cheese and remaining basil. Fold gently until the cottage cheese is distributed through the salad while retaining visible curds and intact courgette pieces.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 2,
+      "duration_max_minutes": 3,
+      "endpoint": "The salad is creamy and evenly seasoned, with distinct beans, browned courgette, pasta and cottage-cheese curds rather than a uniform paste.",
+      "corrective_actions": [
+        {
+          "condition": "The salad becomes loose or watery after the cottage cheese is added.",
+          "action": "Leave it uncovered for 2-3 minutes before packing so excess surface moisture can dissipate."
+        }
+      ],
+      "critical": false
+    },
+    {
+      "step_id": "STEP_07",
+      "section": "Packing",
+      "title": "Pack and chill",
+      "depends_on": [
+        "STEP_06"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "wholewheat_pasta_dry",
+        "cannellini_beans_canned",
+        "cottage_cheese_low_fat",
+        "courgette"
+      ],
+      "equipment_ids": [
+        "lidded_containers"
+      ],
+      "instruction": "Divide the salad evenly between the two lunch containers. Leave the lids slightly ajar only until any residual warmth has dissipated, then seal and refrigerate promptly.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 1,
+      "duration_max_minutes": 2,
+      "endpoint": "Each container holds an even portion of salad and is chilled promptly without trapping visible steam.",
+      "corrective_actions": [],
+      "critical": false
+    }
+  ],
+  "plating": [
+    {
+      "step_id": "PLATE_01",
+      "instruction": "Serve chilled or cool. Stir lightly before eating to redistribute the lemon-basil dressing while keeping the roasted courgette pieces and cottage-cheese curds distinct."
+    }
+  ],
+  "storage": {
+    "refrigerator_days": 2,
+    "freezer_months": null,
+    "storage_instructions": "Refrigerate promptly in sealed containers and use within 2 days. For transport to work or on a car journey, keep the salad in an insulated bag with an ice pack and refrigerate on arrival where possible. Keep chilled until shortly before eating.",
+    "reheating_methods": []
+  },
+  "shopping": {
+    "sainsburys": [],
+    "marks_and_spencer": [],
+    "either_retailer": [
+      "Wholewheat pasta — 1 pack; use 90 g dry.",
+      "Low-fat cottage cheese — 1 tub; use 300 g.",
+      "Canned cannellini beans — 1 approximately 400 g tin; use approximately 180 g drained.",
+      "Medium courgettes — 2.",
+      "Fresh basil — 1 small pack or pot; use approximately 15 g.",
+      "Unwaxed lemon — 1.",
+      "Dijon mustard — use 2 tsp.",
+      "Olive oil — use 2 tsp.",
+      "Garlic — 1 bulb; use 1 clove.",
+      "Fine salt — use 3/8 tsp.",
+      "Ground black pepper — use 1/2 tsp."
+    ]
+  },
+  "quality_checks": {
+    "protein_requirement_met": true,
+    "protein_g_per_serving": 31.5,
+    "restaurant_quality_features": [
+      "High-heat air frying concentrates the courgette flavour and produces browned edges without requiring a separately monitored frying pan.",
+      "Cannellini beans add creamy texture and savoury depth alongside the cottage cheese.",
+      "Lemon zest and juice provide freshness and enough acidity to balance the dairy and beans.",
+      "Dijon mustard gives the dressing useful savoury sharpness without requiring a heavy mayonnaise-based sauce.",
+      "Fresh basil is divided between dressing and final assembly so its flavour remains bright.",
+      "Cottage cheese is folded in gently so distinct creamy curds remain visible."
+    ],
+    "nutrition_notes": [
+      "Approximately 402 kcal and 31.5 g protein per serving.",
+      "Cottage cheese, cannellini beans and wholewheat pasta collectively provide sufficient protein for the lunch target.",
+      "Wholewheat pasta and cannellini beans contribute substantial fibre.",
+      "Courgette increases vegetable volume while keeping energy density moderate.",
+      "Nutrition values are estimates and will vary with the exact cottage cheese, pasta and canned bean products used."
+    ],
+    "critical_success_factors": [
+      "Roast the courgettes until browned and free from excess surface moisture.",
+      "Do not overcook the wholewheat pasta; retain a slight bite so it survives chilling.",
+      "Drain both the pasta and cannellini beans thoroughly before assembly.",
+      "Use enough lemon to keep the cottage cheese and beans tasting fresh rather than heavy.",
+      "Cool the roasted courgette briefly before adding the cottage cheese.",
+      "Maintain refrigeration during storage and transport."
+    ]
+  }
+}

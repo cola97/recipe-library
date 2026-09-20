@@ -1,0 +1,737 @@
+{
+  "schema_version": "1.0",
+  "recipe": {
+    "id": "tomato_mushroom_mycoprotein_wholewheat_bolognese_spinach_vegetarian_parmesan_style_cheese",
+    "title": "Tomato, Mushroom & Mycoprotein Wholewheat Bolognese with Spinach and Vegetarian Parmesan-Style Cheese",
+    "description": "A rich, high-protein wholewheat pasta bolognese with deeply browned mycoprotein and chestnut mushrooms, a reduced tomato sauce, wilted spinach and a savoury vegetarian Parmesan-style finish.",
+    "servings": 2,
+    "difficulty": "Easy",
+    "total_time_minutes": 40,
+    "active_time_minutes": 28,
+    "passive_time_minutes": 12,
+    "cuisine": [
+      "Italian-inspired"
+    ],
+    "meal_types": [
+      "Dinner"
+    ],
+    "dietary_tags": [
+      "Lacto-ovo vegetarian",
+      "High protein",
+      "High fibre"
+    ],
+    "allergens": [
+      "Wheat",
+      "Egg",
+      "Milk"
+    ]
+  },
+  "nutrition_per_serving": {
+    "energy_kcal": 605,
+    "protein_g": 43.0,
+    "carbohydrate_g": 73.0,
+    "fat_g": 17.0,
+    "saturated_fat_g": 4.2,
+    "fibre_g": 15.0,
+    "salt_g": 1.7
+  },
+  "ingredients": [
+    {
+      "ingredient_id": "mycoprotein_mince",
+      "display_name": "Vegetarian mycoprotein mince",
+      "category": "Plant protein",
+      "required": true,
+      "quantity_used": 300,
+      "unit_used": "g",
+      "purchase_quantity": "1 pack",
+      "purchase_notes": "Use 300 g; retail pack size may vary. Check the package allergen declaration.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Use chilled or fully defrosted according to the package instructions.",
+      "notes": "Choose plain vegetarian mince rather than a pre-sauced product. Formulations commonly contain egg."
+    },
+    {
+      "ingredient_id": "wholewheat_spaghetti_dry",
+      "display_name": "Wholewheat spaghetti",
+      "category": "Pasta and grains",
+      "required": true,
+      "quantity_used": 130,
+      "unit_used": "g",
+      "purchase_quantity": "1 pack",
+      "purchase_notes": "Use 130 g dry spaghetti.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Keep dry until cooking.",
+      "notes": ""
+    },
+    {
+      "ingredient_id": "chestnut_mushrooms",
+      "display_name": "Chestnut mushrooms",
+      "category": "Vegetables",
+      "required": true,
+      "quantity_used": 250,
+      "unit_used": "g",
+      "purchase_quantity": "1 pack",
+      "purchase_notes": "Use 250 g.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Brush or wipe clean rather than soaking.",
+      "notes": ""
+    },
+    {
+      "ingredient_id": "spinach_fresh",
+      "display_name": "Fresh spinach",
+      "category": "Leafy vegetables",
+      "required": true,
+      "quantity_used": 120,
+      "unit_used": "g",
+      "purchase_quantity": "1 bag",
+      "purchase_notes": "Use 120 g.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Wash if required and dry thoroughly.",
+      "notes": ""
+    },
+    {
+      "ingredient_id": "chopped_tomatoes_canned",
+      "display_name": "Canned chopped tomatoes",
+      "category": "Vegetables",
+      "required": true,
+      "quantity_used": 400,
+      "unit_used": "g",
+      "purchase_quantity": "1 x approximately 400 g tin",
+      "purchase_notes": "Use the entire contents of 1 approximately 400 g tin.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Open immediately before use.",
+      "notes": ""
+    },
+    {
+      "ingredient_id": "brown_onion",
+      "display_name": "Medium brown onion",
+      "category": "Aromatics",
+      "required": true,
+      "quantity_used": 1,
+      "unit_used": "integer",
+      "purchase_quantity": "1 medium brown onion",
+      "purchase_notes": "",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Peel before chopping.",
+      "notes": "Whole onions do not scale perfectly for every serving quantity; round sensibly when scaling."
+    },
+    {
+      "ingredient_id": "carrots",
+      "display_name": "Medium carrot",
+      "category": "Vegetables",
+      "required": true,
+      "quantity_used": 1,
+      "unit_used": "integer",
+      "purchase_quantity": "1 medium carrot",
+      "purchase_notes": "",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Wash and peel only if the skin is coarse or damaged.",
+      "notes": "Whole carrots do not scale perfectly for every serving quantity; round sensibly when scaling."
+    },
+    {
+      "ingredient_id": "garlic",
+      "display_name": "Garlic cloves",
+      "category": "Aromatics",
+      "required": true,
+      "quantity_used": 2,
+      "unit_used": "integer",
+      "purchase_quantity": "1 bulb",
+      "purchase_notes": "Use 2 cloves.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Peel before finely grating or crushing.",
+      "notes": ""
+    },
+    {
+      "ingredient_id": "tomato_puree",
+      "display_name": "Tomato purée",
+      "category": "Condiments",
+      "required": true,
+      "quantity_used": 2,
+      "unit_used": "tbsp",
+      "purchase_quantity": "1 tube or container",
+      "purchase_notes": "Use 2 tbsp.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": ""
+    },
+    {
+      "ingredient_id": "olive_oil",
+      "display_name": "Olive oil",
+      "category": "Oils",
+      "required": true,
+      "quantity_used": 2,
+      "unit_used": "tsp",
+      "purchase_quantity": "1 bottle",
+      "purchase_notes": "Use 2 tsp.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": ""
+    },
+    {
+      "ingredient_id": "dried_oregano",
+      "display_name": "Dried oregano",
+      "category": "Spices",
+      "required": true,
+      "quantity_used": 1,
+      "unit_used": "tsp",
+      "purchase_quantity": "1 jar",
+      "purchase_notes": "Use 1 tsp.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": ""
+    },
+    {
+      "ingredient_id": "red_wine_vinegar",
+      "display_name": "Red wine vinegar",
+      "category": "Condiments",
+      "required": true,
+      "quantity_used": 2,
+      "unit_used": "tsp",
+      "purchase_quantity": "1 bottle",
+      "purchase_notes": "Use 2 tsp.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": "Added at the end so its acidity remains fresh and balances the reduced tomato sauce."
+    },
+    {
+      "ingredient_id": "vegetarian_parmesan_style_cheese",
+      "display_name": "Vegetarian Parmesan-style hard cheese",
+      "category": "Dairy",
+      "required": true,
+      "quantity_used": 25,
+      "unit_used": "g",
+      "purchase_quantity": "1 pack",
+      "purchase_notes": "Use 25 g. Choose a vegetarian hard Italian-style cheese made without animal rennet; retail pack size may vary.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Finely grate immediately before serving.",
+      "notes": ""
+    },
+    {
+      "ingredient_id": "fine_salt",
+      "display_name": "Fine salt",
+      "category": "Seasoning",
+      "required": true,
+      "quantity_used": 0.5,
+      "unit_used": "tsp",
+      "purchase_quantity": "1 container",
+      "purchase_notes": "Use 1/2 tsp in total.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": "Use 1/4 tsp in the pasta water and 1/4 tsp in the sauce; mycoprotein and cheese contribute additional salt."
+    },
+    {
+      "ingredient_id": "black_pepper_ground",
+      "display_name": "Ground black pepper",
+      "category": "Seasoning",
+      "required": true,
+      "quantity_used": 0.5,
+      "unit_used": "tsp",
+      "purchase_quantity": "1 container",
+      "purchase_notes": "Use 1/2 tsp.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": ""
+    },
+    {
+      "ingredient_id": "water",
+      "display_name": "Water",
+      "category": "Liquid",
+      "required": true,
+      "quantity_used": 2,
+      "unit_used": "L",
+      "purchase_quantity": "",
+      "purchase_notes": "Use approximately 2 L for cooking the pasta; reserve approximately 100 ml of the pasta cooking water before draining.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": "Most of the pasta water is discarded after cooking."
+    }
+  ],
+  "equipment": [
+    {
+      "equipment_id": "gas_hob",
+      "display_name": "Gas hob",
+      "required": true,
+      "notes": ""
+    },
+    {
+      "equipment_id": "saute_pan",
+      "display_name": "Large sauté pan",
+      "required": true,
+      "notes": "Use a broad pan so the mushrooms and mycoprotein can brown rather than steam."
+    },
+    {
+      "equipment_id": "saucepan",
+      "display_name": "Large saucepan",
+      "required": true,
+      "notes": "For cooking the wholewheat spaghetti."
+    },
+    {
+      "equipment_id": "kettle",
+      "display_name": "Electric kettle",
+      "required": true,
+      "notes": "Used to bring the pasta water to temperature quickly."
+    },
+    {
+      "equipment_id": "colander",
+      "display_name": "Colander",
+      "required": true,
+      "notes": "For draining the spaghetti."
+    },
+    {
+      "equipment_id": "chef_knife",
+      "display_name": "Chef's knife",
+      "required": true,
+      "notes": ""
+    },
+    {
+      "equipment_id": "chopping_board",
+      "display_name": "Chopping board",
+      "required": true,
+      "notes": ""
+    },
+    {
+      "equipment_id": "fine_grater",
+      "display_name": "Fine grater or Microplane",
+      "required": true,
+      "notes": "For garlic and vegetarian Parmesan-style cheese."
+    },
+    {
+      "equipment_id": "box_grater",
+      "display_name": "Box grater",
+      "required": true,
+      "notes": "Used to coarsely grate the carrot quickly."
+    },
+    {
+      "equipment_id": "measuring_spoons",
+      "display_name": "Measuring spoons",
+      "required": true,
+      "notes": ""
+    },
+    {
+      "equipment_id": "measuring_jug",
+      "display_name": "Measuring jug",
+      "required": true,
+      "notes": "Used to reserve pasta cooking water."
+    },
+    {
+      "equipment_id": "spatula",
+      "display_name": "Heatproof spatula or wooden spoon",
+      "required": true,
+      "notes": ""
+    }
+  ],
+  "mise_en_place": [
+    {
+      "prep_id": "PREP_01",
+      "ingredient_ids": [
+        "brown_onion",
+        "carrots",
+        "garlic",
+        "chestnut_mushrooms"
+      ],
+      "instruction": "Peel the onion, trim the ends and dice the usable flesh into approximately 5 mm pieces. Trim the carrot and coarsely grate it. Peel and finely grate or crush the garlic. Trim the mushroom stem ends and slice the mushrooms approximately 5 mm thick.",
+      "endpoint": "The onion, carrot, garlic and mushrooms are prepared for rapid sequential cooking."
+    },
+    {
+      "prep_id": "PREP_02",
+      "ingredient_ids": [
+        "spinach_fresh"
+      ],
+      "instruction": "Wash the spinach if required and dry thoroughly. Remove only unusually thick or damaged stems.",
+      "endpoint": "The spinach is clean and dry enough to wilt without unnecessarily watering the sauce."
+    },
+    {
+      "prep_id": "PREP_03",
+      "ingredient_ids": [
+        "vegetarian_parmesan_style_cheese"
+      ],
+      "instruction": "Finely grate the 25 g vegetarian Parmesan-style hard cheese.",
+      "endpoint": "The cheese is finely grated so a relatively small amount distributes evenly over both portions."
+    }
+  ],
+  "procedure": [
+    {
+      "step_id": "STEP_01",
+      "section": "Sauce",
+      "title": "Brown the mushrooms",
+      "depends_on": [
+        "PREP_01"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "chestnut_mushrooms",
+        "olive_oil"
+      ],
+      "equipment_ids": [
+        "gas_hob",
+        "saute_pan",
+        "spatula"
+      ],
+      "instruction": "Heat the sauté pan over medium-high heat for approximately 1 minute. Add 1 tsp olive oil and the sliced mushrooms. Spread them into a broad layer and cook for approximately 5-7 minutes, stirring only every 60-90 seconds at first.",
+      "heat_source": "gas_hob",
+      "heat_level": "medium-high",
+      "temperature_c": null,
+      "duration_min_minutes": 5,
+      "duration_max_minutes": 7,
+      "endpoint": "The mushroom liquid has evaporated and the mushroom surfaces have distinct deep golden-brown patches.",
+      "corrective_actions": [
+        {
+          "condition": "The mushrooms release liquid and remain grey.",
+          "action": "Keep the pan uncovered at medium-high heat and avoid stirring until the visible liquid has evaporated."
+        },
+        {
+          "condition": "The mushrooms darken before their released liquid evaporates.",
+          "action": "Reduce the heat slightly and continue until the pan is dry."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_02",
+      "section": "Sauce",
+      "title": "Cook the aromatics and brown the mycoprotein",
+      "depends_on": [
+        "STEP_01"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "brown_onion",
+        "carrots",
+        "mycoprotein_mince",
+        "olive_oil",
+        "black_pepper_ground"
+      ],
+      "equipment_ids": [
+        "gas_hob",
+        "saute_pan",
+        "spatula"
+      ],
+      "instruction": "Add the remaining 1 tsp olive oil, diced onion and grated carrot to the browned mushrooms. Cook for approximately 3-4 minutes until the onion begins to soften. Add the 300 g mycoprotein mince and 1/2 tsp black pepper, increase the heat to medium-high and cook for another 4-5 minutes, stirring only often enough to prevent catching.",
+      "heat_source": "gas_hob",
+      "heat_level": "medium-high",
+      "temperature_c": null,
+      "duration_min_minutes": 7,
+      "duration_max_minutes": 9,
+      "endpoint": "The onion is softened, the carrot has collapsed into the mixture and the mycoprotein has developed visible browned areas rather than remaining uniformly pale.",
+      "corrective_actions": [
+        {
+          "condition": "The mixture releases enough liquid to prevent browning.",
+          "action": "Keep the pan uncovered and continue at medium-high heat until the visible moisture evaporates before proceeding."
+        },
+        {
+          "condition": "The onion or carrot begins catching before the mycoprotein has browned.",
+          "action": "Reduce the heat slightly and stir more frequently."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_03",
+      "section": "Sauce",
+      "title": "Cook the tomato purée and aromatics",
+      "depends_on": [
+        "STEP_02"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "garlic",
+        "tomato_puree",
+        "dried_oregano"
+      ],
+      "equipment_ids": [
+        "gas_hob",
+        "saute_pan",
+        "spatula"
+      ],
+      "instruction": "Reduce the heat to medium. Add the garlic, 2 tbsp tomato purée and 1 tsp dried oregano. Stir continuously for approximately 1 minute, scraping the tomato purée across the pan base so it darkens slightly.",
+      "heat_source": "gas_hob",
+      "heat_level": "medium",
+      "temperature_c": null,
+      "duration_min_minutes": 1,
+      "duration_max_minutes": 1,
+      "endpoint": "The garlic and oregano smell aromatic and the tomato purée has darkened from bright red towards brick red without scorching.",
+      "corrective_actions": [
+        {
+          "condition": "The garlic or tomato purée begins catching or smelling bitter.",
+          "action": "Immediately add the chopped tomatoes and stir thoroughly."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_04",
+      "section": "Sauce",
+      "title": "Reduce the bolognese sauce",
+      "depends_on": [
+        "STEP_03"
+      ],
+      "parallel_group": "P01",
+      "ingredient_ids": [
+        "chopped_tomatoes_canned",
+        "fine_salt"
+      ],
+      "equipment_ids": [
+        "gas_hob",
+        "saute_pan",
+        "spatula"
+      ],
+      "instruction": "Add the 400 g chopped tomatoes and 1/4 tsp fine salt. Bring to a lively simmer, then cook uncovered over medium heat for approximately 8-10 minutes, stirring every 2-3 minutes.",
+      "heat_source": "gas_hob",
+      "heat_level": "medium",
+      "temperature_c": null,
+      "duration_min_minutes": 8,
+      "duration_max_minutes": 10,
+      "endpoint": "The sauce is thick and glossy, no watery tomato liquid separates around the edges, and a spatula drawn across the pan base leaves a trail visible for approximately 2 seconds.",
+      "corrective_actions": [
+        {
+          "condition": "The sauce begins sticking before reaching the reduction endpoint.",
+          "action": "Reduce the heat and add 1 tbsp of the reserved pasta water once available."
+        },
+        {
+          "condition": "The sauce remains visibly watery after 10 minutes.",
+          "action": "Increase the heat slightly and continue uncovered until it passes the stated spatula-trail test."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_05",
+      "section": "Pasta",
+      "title": "Cook the wholewheat spaghetti",
+      "depends_on": [],
+      "parallel_group": "P01",
+      "ingredient_ids": [
+        "wholewheat_spaghetti_dry",
+        "water",
+        "fine_salt"
+      ],
+      "equipment_ids": [
+        "kettle",
+        "gas_hob",
+        "saucepan"
+      ],
+      "instruction": "While the tomato sauce reduces, boil approximately 2 L water in the kettle and transfer it to the saucepan. Return to a vigorous boil, add 1/4 tsp fine salt and the 130 g wholewheat spaghetti. Cook according to the lower end of the package timing, normally approximately 8-10 minutes, stirring well after the pasta first enters the water.",
+      "heat_source": "gas_hob",
+      "heat_level": "medium-high",
+      "temperature_c": null,
+      "duration_min_minutes": 8,
+      "duration_max_minutes": 10,
+      "endpoint": "The spaghetti is tender through the centre but retains a slight bite and is not soft or swollen.",
+      "corrective_actions": [
+        {
+          "condition": "The spaghetti reaches the correct texture before the stated package time.",
+          "action": "Proceed immediately to reserving cooking water and draining rather than continuing to cook by the clock."
+        }
+      ],
+      "critical": true
+    },
+    {
+      "step_id": "STEP_06",
+      "section": "Pasta",
+      "title": "Reserve pasta water and drain",
+      "depends_on": [
+        "STEP_05"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "wholewheat_spaghetti_dry",
+        "water"
+      ],
+      "equipment_ids": [
+        "measuring_jug",
+        "colander"
+      ],
+      "instruction": "Before draining, scoop approximately 100 ml pasta cooking water into the measuring jug. Drain the spaghetti thoroughly in the colander. Do not rinse it.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 1,
+      "duration_max_minutes": 2,
+      "endpoint": "The spaghetti is well drained but retains its surface starch, and approximately 100 ml hot cooking water is reserved for sauce adjustment.",
+      "corrective_actions": [],
+      "critical": false
+    },
+    {
+      "step_id": "STEP_07",
+      "section": "Sauce",
+      "title": "Wilt the spinach and balance the sauce",
+      "depends_on": [
+        "STEP_04",
+        "PREP_02"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "spinach_fresh",
+        "red_wine_vinegar"
+      ],
+      "equipment_ids": [
+        "gas_hob",
+        "saute_pan",
+        "spatula"
+      ],
+      "instruction": "Add the spinach to the reduced sauce in 2 additions, folding each portion through until wilted. Cook for approximately 1-2 minutes, then remove the pan from the heat and stir through 2 tsp red wine vinegar.",
+      "heat_source": "gas_hob",
+      "heat_level": "medium",
+      "temperature_c": null,
+      "duration_min_minutes": 1,
+      "duration_max_minutes": 2,
+      "endpoint": "The spinach is fully wilted, the sauce remains thick and glossy, and the vinegar gives a clean acidic lift without making the sauce taste sharply vinegary.",
+      "corrective_actions": [
+        {
+          "condition": "The spinach releases enough water to loosen the sauce.",
+          "action": "Return the pan to medium-high heat for 1-2 minutes and reduce until the original thick consistency returns."
+        }
+      ],
+      "critical": false
+    },
+    {
+      "step_id": "STEP_08",
+      "section": "Finishing",
+      "title": "Coat the spaghetti in the bolognese",
+      "depends_on": [
+        "STEP_06",
+        "STEP_07"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "wholewheat_spaghetti_dry",
+        "water"
+      ],
+      "equipment_ids": [
+        "saute_pan",
+        "spatula"
+      ],
+      "instruction": "Add the drained spaghetti to the bolognese sauce and toss thoroughly over low heat for approximately 1 minute. Add reserved pasta water 1 tbsp at a time only if required to make the sauce cling evenly to the spaghetti.",
+      "heat_source": "gas_hob",
+      "heat_level": "low",
+      "temperature_c": null,
+      "duration_min_minutes": 1,
+      "duration_max_minutes": 2,
+      "endpoint": "Every strand of spaghetti is coated in the thick tomato-mushroom sauce, with no watery liquid at the bottom of the pan and no dry clumps of pasta.",
+      "corrective_actions": [
+        {
+          "condition": "The sauce is too thick to coat the spaghetti evenly.",
+          "action": "Add 1 tbsp reserved pasta water, toss thoroughly and repeat only if required."
+        },
+        {
+          "condition": "The sauce becomes loose after adding pasta water.",
+          "action": "Continue tossing over medium heat for approximately 1 minute until the excess moisture evaporates."
+        }
+      ],
+      "critical": true
+    }
+  ],
+  "plating": [
+    {
+      "step_id": "PLATE_01",
+      "instruction": "Divide the wholewheat spaghetti and bolognese evenly between two warm bowls. Scatter half of the finely grated vegetarian Parmesan-style cheese over each serving and serve immediately while the sauce is glossy and the cheese is freshly melting."
+    }
+  ],
+  "storage": {
+    "refrigerator_days": 2,
+    "freezer_months": 1,
+    "storage_instructions": "Cool leftovers promptly and refrigerate in a sealed container for up to 2 days. The bolognese sauce without pasta may be frozen for up to 1 month. For the best texture, freeze sauce separately and cook fresh pasta after defrosting.",
+    "reheating_methods": [
+      "Hob: place leftover pasta and sauce in a covered sauté pan over low-medium heat with 1-2 tbsp water and heat, stirring regularly, until piping hot throughout.",
+      "Oven: place in a covered ovenproof dish with 1-2 tbsp water and heat at approximately 180°C until piping hot throughout.",
+      "For frozen sauce, defrost safely in the refrigerator, then reheat on the hob until piping hot before combining with freshly cooked pasta."
+    ]
+  },
+  "shopping": {
+    "sainsburys": [],
+    "marks_and_spencer": [],
+    "either_retailer": [
+      "Vegetarian mycoprotein mince — 1 pack; use 300 g.",
+      "Wholewheat spaghetti — 1 pack; use 130 g dry.",
+      "Chestnut mushrooms — use 250 g.",
+      "Fresh spinach — 1 bag; use 120 g.",
+      "Canned chopped tomatoes — 1 approximately 400 g tin.",
+      "Medium brown onion — 1.",
+      "Medium carrot — 1.",
+      "Garlic — 1 bulb; use 2 cloves.",
+      "Tomato purée — use 2 tbsp.",
+      "Olive oil — use 2 tsp.",
+      "Dried oregano — use 1 tsp.",
+      "Red wine vinegar — use 2 tsp.",
+      "Vegetarian Parmesan-style hard cheese — 1 pack; use 25 g.",
+      "Fine salt — use 1/2 tsp.",
+      "Ground black pepper — use 1/2 tsp."
+    ]
+  },
+  "quality_checks": {
+    "protein_requirement_met": true,
+    "protein_g_per_serving": 43.0,
+    "restaurant_quality_features": [
+      "Mushrooms are browned until their released liquid has completely evaporated, creating substantial savoury depth.",
+      "Mycoprotein is allowed to brown before the tomato sauce is added rather than simply simmering from the start.",
+      "Tomato purée is cooked directly against the pan to deepen and sweeten its flavour.",
+      "The tomato sauce is reduced to a glossy consistency before spinach and pasta are introduced.",
+      "Red wine vinegar added after reduction preserves a fresh acidic lift.",
+      "Starchy pasta cooking water is used only as required to help the reduced sauce cling to the wholewheat spaghetti.",
+      "Finely grated vegetarian Parmesan-style cheese provides concentrated savoury richness without requiring a large quantity."
+    ],
+    "nutrition_notes": [
+      "Approximately 605 kcal and 43 g protein per serving.",
+      "Mycoprotein provides the principal protein contribution, supported by wholewheat pasta and vegetarian hard cheese.",
+      "Wholewheat spaghetti, mushrooms, spinach, carrot and tomato contribute substantial dietary fibre.",
+      "A large vegetable and mushroom proportion adds volume and flavour without relying on excessive oil.",
+      "Nutrition values are estimates and will vary with the exact mycoprotein, pasta and vegetarian cheese products used."
+    ],
+    "critical_success_factors": [
+      "Brown the mushrooms until their released moisture has evaporated before adding the remaining sauce ingredients.",
+      "Allow the mycoprotein to develop visible browning rather than steaming it in a wet pan.",
+      "Cook the tomato purée briefly before adding canned tomatoes.",
+      "Reduce the bolognese until it passes the stated spatula-trail test.",
+      "Do not overcook the wholewheat spaghetti.",
+      "Add pasta water gradually and only as required so the final sauce remains thick and clings to the pasta.",
+      "Add the red wine vinegar at the end to preserve fresh acidity."
+    ]
+  }
+}

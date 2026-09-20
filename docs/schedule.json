@@ -245,7 +245,7 @@
     "title": "Skyr, Blackberry & Oat Breakfast Pots with Ground Flaxseed and Pumpkin Seeds",
     "file": "skyr_blackberry_oat_breakfast_pots_ground_flaxseed_pumpkin_seeds.html",
     "recipe_id": "skyr_blackberry_oat_breakfast_pots_ground_flaxseed_pumpkin_seeds",
-    "available": false
+    "available": true
   },
   {
     "date": "2026-09-21",
@@ -253,7 +253,7 @@
     "title": "Kiwi & Unsalted Mixed Seed Snack Pots",
     "file": "kiwi_unsalted_mixed_seed_snack_pots.html",
     "recipe_id": "kiwi_unsalted_mixed_seed_snack_pots",
-    "available": false
+    "available": true
   },
   {
     "date": "2026-09-21",
@@ -261,7 +261,7 @@
     "title": "Cannellini Bean, Cottage Cheese & Roasted Courgette Wholewheat Pasta Salad with Basil and Lemon",
     "file": "cannellini_bean_cottage_cheese_roasted_courgette_wholewheat_pasta_salad_basil_lemon.html",
     "recipe_id": "cannellini_bean_cottage_cheese_roasted_courgette_wholewheat_pasta_salad_basil_lemon",
-    "available": false
+    "available": true
   },
   {
     "date": "2026-09-21",
@@ -269,7 +269,7 @@
     "title": "Red Pepper & Cucumber Batons with Lemon Hummus",
     "file": "red_pepper_cucumber_batons_lemon_hummus.html",
     "recipe_id": "red_pepper_cucumber_batons_lemon_hummus",
-    "available": false
+    "available": true
   },
   {
     "date": "2026-09-21",
@@ -277,7 +277,7 @@
     "title": "Tomato, Mushroom & Mycoprotein Wholewheat Bolognese with Spinach and Vegetarian Parmesan-Style Cheese",
     "file": "tomato_mushroom_mycoprotein_wholewheat_bolognese_spinach_vegetarian_parmesan_style_cheese.html",
     "recipe_id": "tomato_mushroom_mycoprotein_wholewheat_bolognese_spinach_vegetarian_parmesan_style_cheese",
-    "available": false
+    "available": true
   },
   {
     "date": "2026-09-21",
@@ -285,7 +285,7 @@
     "title": "Cocoa Quark Pots with Raspberries",
     "file": "cocoa_quark_pots_raspberries.html",
     "recipe_id": "cocoa_quark_pots_raspberries",
-    "available": false
+    "available": true
   },
   {
     "date": "2026-09-22",
@@ -293,7 +293,7 @@
     "title": "Spinach, Tomato & Cottage Cheese Egg Muffins with Seeded Wholemeal Toast",
     "file": "spinach_tomato_cottage_cheese_egg_muffins_seeded_wholemeal_toast.html",
     "recipe_id": "spinach_tomato_cottage_cheese_egg_muffins_seeded_wholemeal_toast",
-    "available": false
+    "available": true
   },
   {
     "date": "2026-09-22",
@@ -301,7 +301,7 @@
     "title": "Plum & Pistachio Snack Boxes",
     "file": "plum_pistachio_snack_boxes.html",
     "recipe_id": "plum_pistachio_snack_boxes",
-    "available": false
+    "available": true
   },
   {
     "date": "2026-09-22",
@@ -765,7 +765,7 @@
     "title": "Cocoa Quark Pots with Raspberries",
     "file": "cocoa_quark_pots_raspberries.html",
     "recipe_id": "cocoa_quark_pots_raspberries",
-    "available": false
+    "available": true
   },
   {
     "date": "2026-10-02",
@@ -965,7 +965,7 @@
     "title": "Spinach, Tomato & Cottage Cheese Egg Muffins with Seeded Wholemeal Toast",
     "file": "spinach_tomato_cottage_cheese_egg_muffins_seeded_wholemeal_toast.html",
     "recipe_id": "spinach_tomato_cottage_cheese_egg_muffins_seeded_wholemeal_toast",
-    "available": false
+    "available": true
   },
   {
     "date": "2026-10-06",
@@ -1677,7 +1677,7 @@
     "title": "Cocoa Quark Pots with Raspberries",
     "file": "cocoa_quark_pots_raspberries.html",
     "recipe_id": "cocoa_quark_pots_raspberries",
-    "available": false
+    "available": true
   },
   {
     "date": "2026-10-21",
@@ -1965,7 +1965,7 @@
     "title": "Cocoa Quark Pots with Raspberries",
     "file": "cocoa_quark_pots_raspberries.html",
     "recipe_id": "cocoa_quark_pots_raspberries",
-    "available": false
+    "available": true
   },
   {
     "date": "2026-10-27",
@@ -2349,7 +2349,7 @@
     "title": "Cocoa Quark Pots with Raspberries",
     "file": "cocoa_quark_pots_raspberries.html",
     "recipe_id": "cocoa_quark_pots_raspberries",
-    "available": false
+    "available": true
   },
   {
     "date": "2026-11-04",
@@ -2389,7 +2389,7 @@
     "title": "Tomato, Mushroom & Mycoprotein Wholewheat Bolognese with Spinach and Vegetarian Parmesan-Style Cheese",
     "file": "tomato_mushroom_mycoprotein_wholewheat_bolognese_spinach_vegetarian_parmesan_style_cheese.html",
     "recipe_id": "tomato_mushroom_mycoprotein_wholewheat_bolognese_spinach_vegetarian_parmesan_style_cheese",
-    "available": false
+    "available": true
   },
   {
     "date": "2026-11-04",
@@ -3629,7 +3629,7 @@
     "title": "Red Pepper & Cucumber Batons with Lemon Hummus",
     "file": "red_pepper_cucumber_batons_lemon_hummus.html",
     "recipe_id": "red_pepper_cucumber_batons_lemon_hummus",
-    "available": false
+    "available": true
   },
   {
     "date": "2026-11-30",
@@ -3965,7 +3965,7 @@
     "title": "Red Pepper & Cucumber Batons with Lemon Hummus",
     "file": "red_pepper_cucumber_batons_lemon_hummus.html",
     "recipe_id": "red_pepper_cucumber_batons_lemon_hummus",
-    "available": false
+    "available": true
   },
   {
     "date": "2026-12-07",
@@ -4989,7 +4989,7 @@
     "title": "Cocoa Quark Pots with Raspberries",
     "file": "cocoa_quark_pots_raspberries.html",
     "recipe_id": "cocoa_quark_pots_raspberries",
-    "available": false
+    "available": true
   },
   {
     "date": "2026-12-29",

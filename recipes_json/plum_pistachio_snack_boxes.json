@@ -1,0 +1,201 @@
+{
+  "schema_version": "1.0",
+  "recipe": {
+    "id": "plum_pistachio_snack_boxes",
+    "title": "Plum & Pistachio Snack Boxes",
+    "description": "A simple portable snack pairing ripe whole plums with unsalted pistachios for juicy sweet-tart fruit, nutty crunch and satisfying healthy fats without unnecessary preparation.",
+    "servings": 2,
+    "difficulty": "Easy",
+    "total_time_minutes": 4,
+    "active_time_minutes": 4,
+    "passive_time_minutes": 0,
+    "cuisine": [
+      "Modern European"
+    ],
+    "meal_types": [
+      "Morning snack"
+    ],
+    "dietary_tags": [
+      "Lacto-ovo vegetarian",
+      "Portable",
+      "No-cook"
+    ],
+    "allergens": [
+      "Nuts"
+    ]
+  },
+  "nutrition_per_serving": {
+    "energy_kcal": 205,
+    "protein_g": 6.7,
+    "carbohydrate_g": 16.0,
+    "fat_g": 13.8,
+    "saturated_fat_g": 1.7,
+    "fibre_g": 4.1,
+    "salt_g": 0.01
+  },
+  "ingredients": [
+    {
+      "ingredient_id": "plums",
+      "display_name": "Ripe medium plums",
+      "category": "Fruit",
+      "required": true,
+      "quantity_used": 2,
+      "unit_used": "integer",
+      "purchase_quantity": "2 medium plums",
+      "purchase_notes": "Choose ripe but still firm fruit without bruised or split skin.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Wash, dry and keep whole for transport.",
+      "notes": "Use 1 plum per serving. Whole fruit does not scale perfectly for every serving quantity; round sensibly when scaling."
+    },
+    {
+      "ingredient_id": "pistachios_unsalted",
+      "display_name": "Unsalted shelled pistachios",
+      "category": "Nuts",
+      "required": true,
+      "quantity_used": 60,
+      "unit_used": "g",
+      "purchase_quantity": "1 pack",
+      "purchase_notes": "Use 60 g in total; retail pack size may vary.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Use dry as purchased.",
+      "notes": "Unsalted roasted pistachios are ideal for maximum crunch, but plain unsalted shelled pistachios are also suitable."
+    }
+  ],
+  "equipment": [
+    {
+      "equipment_id": "kitchen_scales",
+      "display_name": "Kitchen scales",
+      "required": true,
+      "notes": "Used to portion the pistachios."
+    },
+    {
+      "equipment_id": "lidded_containers",
+      "display_name": "2 lidded snack containers",
+      "required": true,
+      "notes": "Choose containers large enough to hold the whole plums without crushing them."
+    }
+  ],
+  "mise_en_place": [
+    {
+      "prep_id": "PREP_01",
+      "ingredient_ids": [
+        "plums"
+      ],
+      "instruction": "Wash the 2 plums under cool running water, dry them thoroughly and inspect for bruised, split or damaged areas. Keep the fruit whole with the stones in place for transport.",
+      "endpoint": "Two clean, dry and structurally sound whole plums are ready to pack."
+    },
+    {
+      "prep_id": "PREP_02",
+      "ingredient_ids": [
+        "pistachios_unsalted"
+      ],
+      "instruction": "Weigh 60 g unsalted shelled pistachios.",
+      "endpoint": "The pistachios are accurately measured and remain completely dry."
+    }
+  ],
+  "procedure": [
+    {
+      "step_id": "STEP_01",
+      "section": "Assembly",
+      "title": "Portion the pistachios",
+      "depends_on": [
+        "PREP_02"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "pistachios_unsalted"
+      ],
+      "equipment_ids": [
+        "kitchen_scales",
+        "lidded_containers"
+      ],
+      "instruction": "Divide the 60 g pistachios evenly between the two snack containers, giving approximately 30 g per serving.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 1,
+      "duration_max_minutes": 2,
+      "endpoint": "Each snack container contains an equal dry portion of approximately 30 g pistachios.",
+      "corrective_actions": [],
+      "critical": false
+    },
+    {
+      "step_id": "STEP_02",
+      "section": "Assembly",
+      "title": "Pack the plums",
+      "depends_on": [
+        "PREP_01",
+        "STEP_01"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "plums"
+      ],
+      "equipment_ids": [
+        "lidded_containers"
+      ],
+      "instruction": "Place 1 whole dry plum into each container alongside the pistachios. Position the fruit so it does not crush the nuts, then close the lids securely.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 1,
+      "duration_max_minutes": 2,
+      "endpoint": "Each sealed snack box contains 1 whole plum and approximately 30 g dry pistachios.",
+      "corrective_actions": [
+        {
+          "condition": "A plum is too large to fit without being compressed.",
+          "action": "Carry the plum separately rather than cutting it before transport."
+        }
+      ],
+      "critical": false
+    }
+  ],
+  "plating": [
+    {
+      "step_id": "PLATE_01",
+      "instruction": "At the time of eating, bite or cut around the plum stone and eat the fruit alongside the pistachios. Discard the stone."
+    }
+  ],
+  "storage": {
+    "refrigerator_days": 2,
+    "freezer_months": null,
+    "storage_instructions": "For same-day use, keep the sealed snack boxes in a cool place away from direct heat. For advance preparation, refrigerate for up to 2 days. Keep the plums whole and dry so their juice cannot soften the pistachios. For prolonged transport in warm conditions, use an insulated bag with an ice pack.",
+    "reheating_methods": []
+  },
+  "shopping": {
+    "sainsburys": [],
+    "marks_and_spencer": [],
+    "either_retailer": [
+      "Ripe medium plums — 2.",
+      "Unsalted shelled pistachios — 1 pack; use 60 g."
+    ]
+  },
+  "quality_checks": {
+    "protein_requirement_met": true,
+    "protein_g_per_serving": 6.7,
+    "restaurant_quality_features": [
+      "Ripe plum provides juicy sweet-tart freshness against rich, nutty pistachios.",
+      "Keeping the fruit whole prevents moisture transfer and preserves pistachio crunch.",
+      "The minimal ingredient list keeps the snack practical while retaining clear flavour and texture contrast."
+    ],
+    "nutrition_notes": [
+      "Approximately 205 kcal per serving.",
+      "Morning snacks have no minimum protein requirement.",
+      "Plums provide fruit, fibre and micronutrients.",
+      "Pistachios contribute unsaturated fats, plant protein, fibre and minerals.",
+      "Nutrition values are estimates and will vary slightly with plum size and the exact pistachio product used."
+    ],
+    "critical_success_factors": [
+      "Use ripe but firm plums without damaged skin.",
+      "Dry the plums thoroughly before packing.",
+      "Keep the pistachios completely dry until eating.",
+      "Portion the pistachios evenly so both servings remain close to the intended energy target."
+    ]
+  }
+}

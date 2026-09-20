@@ -1,0 +1,267 @@
+{
+  "schema_version": "1.0",
+  "recipe": {
+    "id": "cocoa_quark_pots_raspberries",
+    "title": "Cocoa Quark Pots with Raspberries",
+    "description": "Thick, creamy cocoa quark layered with sharp fresh raspberries and lightly sweetened with honey for a simple high-protein evening snack with a rich chocolate flavour and fresh fruit contrast.",
+    "servings": 2,
+    "difficulty": "Easy",
+    "total_time_minutes": 6,
+    "active_time_minutes": 6,
+    "passive_time_minutes": 0,
+    "cuisine": [
+      "Modern European"
+    ],
+    "meal_types": [
+      "Evening snack"
+    ],
+    "dietary_tags": [
+      "Lacto-ovo vegetarian",
+      "High protein",
+      "No-cook"
+    ],
+    "allergens": [
+      "Milk"
+    ]
+  },
+  "nutrition_per_serving": {
+    "energy_kcal": 201,
+    "protein_g": 25.0,
+    "carbohydrate_g": 22.0,
+    "fat_g": 2.1,
+    "saturated_fat_g": 1.0,
+    "fibre_g": 5.5,
+    "salt_g": 0.18
+  },
+  "ingredients": [
+    {
+      "ingredient_id": "quark_low_fat",
+      "display_name": "Low-fat plain quark",
+      "category": "Dairy",
+      "required": true,
+      "quantity_used": 400,
+      "unit_used": "g",
+      "purchase_quantity": "1 pot",
+      "purchase_notes": "Use 400 g; retail pot size may vary.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Keep refrigerated until assembly.",
+      "notes": "Use a thick plain quark without added sugar."
+    },
+    {
+      "ingredient_id": "raspberries_fresh",
+      "display_name": "Fresh raspberries",
+      "category": "Fruit",
+      "required": true,
+      "quantity_used": 150,
+      "unit_used": "g",
+      "purchase_quantity": "1 punnet",
+      "purchase_notes": "Use 150 g; retail punnet size may vary.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Inspect, rinse gently if required and dry thoroughly.",
+      "notes": "Choose ripe berries without mould, leaking juice or crushed fruit."
+    },
+    {
+      "ingredient_id": "cocoa_powder_unsweetened",
+      "display_name": "Unsweetened cocoa powder",
+      "category": "Baking ingredients",
+      "required": true,
+      "quantity_used": 1,
+      "unit_used": "tbsp",
+      "purchase_quantity": "1 container",
+      "purchase_notes": "Use 1 tbsp.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": "Use pure unsweetened cocoa powder rather than drinking chocolate."
+    },
+    {
+      "ingredient_id": "runny_honey",
+      "display_name": "Runny honey",
+      "category": "Sweeteners",
+      "required": true,
+      "quantity_used": 2,
+      "unit_used": "tsp",
+      "purchase_quantity": "1 jar or squeezy bottle",
+      "purchase_notes": "Use 2 tsp in total.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": "The restrained amount of honey balances the cocoa and quark without making the pots excessively sweet."
+    }
+  ],
+  "equipment": [
+    {
+      "equipment_id": "mixing_bowl",
+      "display_name": "Small mixing bowl",
+      "required": true,
+      "notes": "Used to combine the cocoa quark."
+    },
+    {
+      "equipment_id": "kitchen_scales",
+      "display_name": "Kitchen scales",
+      "required": true,
+      "notes": "Used to portion the quark and raspberries."
+    },
+    {
+      "equipment_id": "measuring_spoons",
+      "display_name": "Measuring spoons",
+      "required": true,
+      "notes": ""
+    },
+    {
+      "equipment_id": "lidded_containers",
+      "display_name": "2 serving pots or lidded snack containers",
+      "required": true,
+      "notes": "Use leak-resistant containers if preparing the pots ahead."
+    }
+  ],
+  "mise_en_place": [
+    {
+      "prep_id": "PREP_01",
+      "ingredient_ids": [
+        "raspberries_fresh"
+      ],
+      "instruction": "Inspect the raspberries and discard any damaged or mouldy fruit. Rinse gently only if required, then dry thoroughly so excess water does not loosen the finished pots.",
+      "endpoint": "The raspberries are intact, clean and dry on the surface."
+    },
+    {
+      "prep_id": "PREP_02",
+      "ingredient_ids": [
+        "quark_low_fat",
+        "cocoa_powder_unsweetened",
+        "runny_honey"
+      ],
+      "instruction": "Measure 400 g quark, 1 tbsp unsweetened cocoa powder and 2 tsp runny honey.",
+      "endpoint": "The cocoa-quark ingredients are accurately measured and ready to combine."
+    }
+  ],
+  "procedure": [
+    {
+      "step_id": "STEP_01",
+      "section": "Cocoa quark",
+      "title": "Mix the cocoa quark",
+      "depends_on": [
+        "PREP_02"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "quark_low_fat",
+        "cocoa_powder_unsweetened",
+        "runny_honey"
+      ],
+      "equipment_ids": [
+        "mixing_bowl",
+        "measuring_spoons"
+      ],
+      "instruction": "Combine the 400 g quark, 1 tbsp cocoa powder and 2 tsp runny honey. Stir firmly for approximately 45-60 seconds, scraping the base and sides of the bowl until the cocoa is completely dispersed.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 0.75,
+      "duration_max_minutes": 1,
+      "endpoint": "The quark is uniformly chocolate-brown, smooth and creamy with no dry cocoa pockets or pale streaks remaining.",
+      "corrective_actions": [
+        {
+          "condition": "Dry cocoa forms persistent lumps.",
+          "action": "Press the lumps firmly against the side of the bowl with the spoon, then continue stirring until fully incorporated."
+        },
+        {
+          "condition": "The cocoa quark seems unusually stiff.",
+          "action": "Stir in 1 tsp cold water and reassess before adding any more."
+        }
+      ],
+      "critical": false
+    },
+    {
+      "step_id": "STEP_02",
+      "section": "Assembly",
+      "title": "Layer the pots",
+      "depends_on": [
+        "STEP_01",
+        "PREP_01"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "quark_low_fat",
+        "cocoa_powder_unsweetened",
+        "runny_honey",
+        "raspberries_fresh"
+      ],
+      "equipment_ids": [
+        "lidded_containers",
+        "kitchen_scales"
+      ],
+      "instruction": "Divide approximately half of the cocoa quark between the two pots. Add approximately half of the raspberries, then cover with the remaining cocoa quark and finish with the remaining raspberries. Handle the fruit gently so most berries remain intact.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 2,
+      "duration_max_minutes": 3,
+      "endpoint": "Each pot contains an even portion of cocoa quark and approximately 75 g raspberries, with distinct fruit pieces and no excessive free juice.",
+      "corrective_actions": [
+        {
+          "condition": "Very ripe raspberries release substantial juice during assembly.",
+          "action": "Place the softest berries on top rather than between the quark layers so the lower part of the pot remains thick."
+        }
+      ],
+      "critical": false
+    }
+  ],
+  "plating": [
+    {
+      "step_id": "PLATE_01",
+      "instruction": "Serve chilled. Stir lightly while eating so some raspberries break into the cocoa quark while others remain intact, giving alternating rich chocolate and sharp fruit flavours."
+    }
+  ],
+  "storage": {
+    "refrigerator_days": 2,
+    "freezer_months": null,
+    "storage_instructions": "Keep sealed and refrigerated and use within 2 days. For the best raspberry texture, eat within 24 hours where practical. Do not freeze the assembled pots because both the quark and fresh raspberries will lose their preferred texture.",
+    "reheating_methods": []
+  },
+  "shopping": {
+    "sainsburys": [],
+    "marks_and_spencer": [],
+    "either_retailer": [
+      "Low-fat plain quark — 1 pot; use 400 g.",
+      "Fresh raspberries — 1 punnet; use 150 g.",
+      "Unsweetened cocoa powder — use 1 tbsp.",
+      "Runny honey — use 2 tsp."
+    ]
+  },
+  "quality_checks": {
+    "protein_requirement_met": true,
+    "protein_g_per_serving": 25.0,
+    "restaurant_quality_features": [
+      "Unsweetened cocoa provides a deep chocolate flavour without requiring a calorie-dense chocolate component.",
+      "Fresh raspberries provide sharp acidity and juicy contrast against the thick creamy quark.",
+      "A restrained amount of honey balances cocoa bitterness while keeping the snack close to its energy target.",
+      "Layered assembly preserves distinct creamy and fresh-fruit textures."
+    ],
+    "nutrition_notes": [
+      "Approximately 201 kcal per serving.",
+      "Evening snacks have no minimum protein requirement.",
+      "Quark nevertheless provides substantial protein and calcium.",
+      "Raspberries contribute fruit, fibre and vitamin C.",
+      "Unsweetened cocoa contributes additional fibre and cocoa polyphenols.",
+      "Nutrition values are estimates and will vary slightly with the exact quark and cocoa products used."
+    ],
+    "critical_success_factors": [
+      "Mix the cocoa thoroughly so no dry or bitter pockets remain.",
+      "Use thick plain quark rather than a loose yoghurt.",
+      "Dry the raspberries before assembly.",
+      "Avoid crushing all of the raspberries so the finished pots retain useful textural contrast.",
+      "Keep refrigerated until serving."
+    ]
+  }
+}

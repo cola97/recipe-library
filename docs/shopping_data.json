@@ -244,6 +244,90 @@
       }
     ]
   },
+  "cannellini_bean_cottage_cheese_roasted_courgette_wholewheat_pasta_salad_basil_lemon.html": {
+    "recipe_id": "cannellini_bean_cottage_cheese_roasted_courgette_wholewheat_pasta_salad_basil_lemon",
+    "title": "Cannellini Bean, Cottage Cheese & Roasted Courgette Wholewheat Pasta Salad with Basil and Lemon",
+    "servings": 2,
+    "ingredients": [
+      {
+        "ingredient_id": "wholewheat_pasta_dry",
+        "display_name": "Wholewheat pasta",
+        "category": "Pasta and grains",
+        "quantity_used": 90,
+        "unit_used": "g"
+      },
+      {
+        "ingredient_id": "cottage_cheese_low_fat",
+        "display_name": "Low-fat cottage cheese",
+        "category": "Dairy",
+        "quantity_used": 300,
+        "unit_used": "g"
+      },
+      {
+        "ingredient_id": "cannellini_beans_canned",
+        "display_name": "Canned cannellini beans",
+        "category": "Legumes",
+        "quantity_used": 180,
+        "unit_used": "g"
+      },
+      {
+        "ingredient_id": "courgette",
+        "display_name": "Medium courgettes",
+        "category": "Vegetables",
+        "quantity_used": 2,
+        "unit_used": "integer"
+      },
+      {
+        "ingredient_id": "fresh_basil",
+        "display_name": "Fresh basil",
+        "category": "Fresh herbs",
+        "quantity_used": 15,
+        "unit_used": "g"
+      },
+      {
+        "ingredient_id": "lemon",
+        "display_name": "Unwaxed lemon",
+        "category": "Fruit",
+        "quantity_used": 1,
+        "unit_used": "integer"
+      },
+      {
+        "ingredient_id": "dijon_mustard",
+        "display_name": "Dijon mustard",
+        "category": "Condiments",
+        "quantity_used": 2,
+        "unit_used": "tsp"
+      },
+      {
+        "ingredient_id": "olive_oil",
+        "display_name": "Olive oil",
+        "category": "Oils",
+        "quantity_used": 2,
+        "unit_used": "tsp"
+      },
+      {
+        "ingredient_id": "garlic",
+        "display_name": "Garlic clove",
+        "category": "Aromatics",
+        "quantity_used": 1,
+        "unit_used": "integer"
+      },
+      {
+        "ingredient_id": "fine_salt",
+        "display_name": "Fine salt",
+        "category": "Seasoning",
+        "quantity_used": 0.375,
+        "unit_used": "tsp"
+      },
+      {
+        "ingredient_id": "black_pepper_ground",
+        "display_name": "Ground black pepper",
+        "category": "Seasoning",
+        "quantity_used": 0.5,
+        "unit_used": "tsp"
+      }
+    ]
+  },
   "cannellini_bean_tomato_wholewheat_pasta_salad_basil_pesto_rocket.html": {
     "recipe_id": "cannellini_bean_tomato_wholewheat_pasta_salad_basil_pesto_rocket",
     "title": "Cannellini Bean, Tomato & Wholewheat Pasta Salad with Basil Pesto and Rocket",
@@ -520,6 +604,41 @@
         "display_name": "Fine salt",
         "category": "Seasoning",
         "quantity_used": 0.0625,
+        "unit_used": "tsp"
+      }
+    ]
+  },
+  "cocoa_quark_pots_raspberries.html": {
+    "recipe_id": "cocoa_quark_pots_raspberries",
+    "title": "Cocoa Quark Pots with Raspberries",
+    "servings": 2,
+    "ingredients": [
+      {
+        "ingredient_id": "quark_low_fat",
+        "display_name": "Low-fat plain quark",
+        "category": "Dairy",
+        "quantity_used": 400,
+        "unit_used": "g"
+      },
+      {
+        "ingredient_id": "raspberries_fresh",
+        "display_name": "Fresh raspberries",
+        "category": "Fruit",
+        "quantity_used": 150,
+        "unit_used": "g"
+      },
+      {
+        "ingredient_id": "cocoa_powder_unsweetened",
+        "display_name": "Unsweetened cocoa powder",
+        "category": "Baking ingredients",
+        "quantity_used": 1,
+        "unit_used": "tbsp"
+      },
+      {
+        "ingredient_id": "runny_honey",
+        "display_name": "Runny honey",
+        "category": "Sweeteners",
+        "quantity_used": 2,
         "unit_used": "tsp"
       }
     ]
@@ -1000,6 +1119,27 @@
       }
     ]
   },
+  "kiwi_unsalted_mixed_seed_snack_pots.html": {
+    "recipe_id": "kiwi_unsalted_mixed_seed_snack_pots",
+    "title": "Kiwi & Unsalted Mixed Seed Snack Pots",
+    "servings": 2,
+    "ingredients": [
+      {
+        "ingredient_id": "kiwi",
+        "display_name": "Ripe kiwi fruit",
+        "category": "Fruit",
+        "quantity_used": 2,
+        "unit_used": "integer"
+      },
+      {
+        "ingredient_id": "mixed_seeds_unsalted",
+        "display_name": "Unsalted mixed seeds",
+        "category": "Seeds",
+        "quantity_used": 50,
+        "unit_used": "g"
+      }
+    ]
+  },
   "miso_ginger_tofu_broccoli_brown_basmati_stir_fry_sesame_edamame.html": {
     "recipe_id": "miso_ginger_tofu_broccoli_brown_basmati_stir_fry_sesame_edamame",
     "title": "Miso-Ginger Tofu, Broccoli & Brown Basmati Stir-Fry with Sesame and Edamame",
@@ -1406,6 +1546,27 @@
       }
     ]
   },
+  "plum_pistachio_snack_boxes.html": {
+    "recipe_id": "plum_pistachio_snack_boxes",
+    "title": "Plum & Pistachio Snack Boxes",
+    "servings": 2,
+    "ingredients": [
+      {
+        "ingredient_id": "plums",
+        "display_name": "Ripe medium plums",
+        "category": "Fruit",
+        "quantity_used": 2,
+        "unit_used": "integer"
+      },
+      {
+        "ingredient_id": "pistachios_unsalted",
+        "display_name": "Unsalted shelled pistachios",
+        "category": "Nuts",
+        "quantity_used": 60,
+        "unit_used": "g"
+      }
+    ]
+  },
   "raspberry_lemon_protein_pancakes_skyr_pistachios.html": {
     "recipe_id": "raspberry_lemon_protein_pancakes_skyr_pistachios",
     "title": "Raspberry-Lemon Protein Pancakes with Skyr and Pistachios",
@@ -1654,6 +1815,118 @@
         "display_name": "Water",
         "category": "Liquid",
         "quantity_used": 550,
+        "unit_used": "ml"
+      }
+    ]
+  },
+  "red_pepper_cucumber_batons_lemon_hummus.html": {
+    "recipe_id": "red_pepper_cucumber_batons_lemon_hummus",
+    "title": "Red Pepper & Cucumber Batons with Lemon Hummus",
+    "servings": 2,
+    "ingredients": [
+      {
+        "ingredient_id": "hummus_plain",
+        "display_name": "Plain hummus",
+        "category": "Legumes",
+        "quantity_used": 130,
+        "unit_used": "g"
+      },
+      {
+        "ingredient_id": "red_pepper",
+        "display_name": "Medium red pepper",
+        "category": "Vegetables",
+        "quantity_used": 1,
+        "unit_used": "integer"
+      },
+      {
+        "ingredient_id": "cucumber",
+        "display_name": "Small cucumber",
+        "category": "Vegetables",
+        "quantity_used": 1,
+        "unit_used": "integer"
+      },
+      {
+        "ingredient_id": "lemon_juice",
+        "display_name": "Lemon juice",
+        "category": "Condiments",
+        "quantity_used": 1,
+        "unit_used": "tbsp"
+      },
+      {
+        "ingredient_id": "black_pepper_ground",
+        "display_name": "Ground black pepper",
+        "category": "Seasoning",
+        "quantity_used": 0.125,
+        "unit_used": "tsp"
+      }
+    ]
+  },
+  "skyr_blackberry_oat_breakfast_pots_ground_flaxseed_pumpkin_seeds.html": {
+    "recipe_id": "skyr_blackberry_oat_breakfast_pots_ground_flaxseed_pumpkin_seeds",
+    "title": "Skyr, Blackberry & Oat Breakfast Pots with Ground Flaxseed and Pumpkin Seeds",
+    "servings": 2,
+    "ingredients": [
+      {
+        "ingredient_id": "skyr_plain",
+        "display_name": "Plain 0% skyr",
+        "category": "Dairy",
+        "quantity_used": 500,
+        "unit_used": "g"
+      },
+      {
+        "ingredient_id": "jumbo_oats",
+        "display_name": "Jumbo oats",
+        "category": "Cereals",
+        "quantity_used": 70,
+        "unit_used": "g"
+      },
+      {
+        "ingredient_id": "blackberries_fresh",
+        "display_name": "Fresh blackberries",
+        "category": "Fruit",
+        "quantity_used": 150,
+        "unit_used": "g"
+      },
+      {
+        "ingredient_id": "ground_flaxseed",
+        "display_name": "Ground flaxseed",
+        "category": "Seeds",
+        "quantity_used": 1,
+        "unit_used": "tbsp"
+      },
+      {
+        "ingredient_id": "pumpkin_seeds",
+        "display_name": "Pumpkin seeds",
+        "category": "Seeds",
+        "quantity_used": 1,
+        "unit_used": "tbsp"
+      },
+      {
+        "ingredient_id": "runny_honey",
+        "display_name": "Runny honey",
+        "category": "Sweeteners",
+        "quantity_used": 1,
+        "unit_used": "tsp"
+      },
+      {
+        "ingredient_id": "vanilla_extract",
+        "display_name": "Vanilla extract",
+        "category": "Flavourings",
+        "quantity_used": 1,
+        "unit_used": "tsp"
+      },
+      {
+        "ingredient_id": "cinnamon_ground",
+        "display_name": "Ground cinnamon",
+        "category": "Spices",
+        "quantity_used": 0.5,
+        "unit_used": "tsp"
+      },
+      {
+        "ingredient_id": "water",
+        "display_name": "Cold water",
+        "category": "Liquid",
+        "quantity_used": 80,
         "unit_used": "ml"
       }
     ]
@@ -2131,6 +2404,216 @@
         "category": "Seasoning",
         "quantity_used": 0.25,
         "unit_used": "tsp"
+      }
+    ]
+  },
+  "spinach_tomato_cottage_cheese_egg_muffins_seeded_wholemeal_toast.html": {
+    "recipe_id": "spinach_tomato_cottage_cheese_egg_muffins_seeded_wholemeal_toast",
+    "title": "Spinach, Tomato & Cottage Cheese Egg Muffins with Seeded Wholemeal Toast",
+    "servings": 2,
+    "ingredients": [
+      {
+        "ingredient_id": "eggs",
+        "display_name": "Medium eggs",
+        "category": "Eggs",
+        "quantity_used": 2,
+        "unit_used": "integer"
+      },
+      {
+        "ingredient_id": "egg_whites_liquid",
+        "display_name": "Liquid egg whites",
+        "category": "Eggs",
+        "quantity_used": 150,
+        "unit_used": "g"
+      },
+      {
+        "ingredient_id": "cottage_cheese_low_fat",
+        "display_name": "Low-fat cottage cheese",
+        "category": "Dairy",
+        "quantity_used": 180,
+        "unit_used": "g"
+      },
+      {
+        "ingredient_id": "spinach_fresh",
+        "display_name": "Fresh spinach",
+        "category": "Leafy vegetables",
+        "quantity_used": 80,
+        "unit_used": "g"
+      },
+      {
+        "ingredient_id": "cherry_tomatoes",
+        "display_name": "Cherry tomatoes",
+        "category": "Vegetables",
+        "quantity_used": 160,
+        "unit_used": "g"
+      },
+      {
+        "ingredient_id": "seeded_wholemeal_bread",
+        "display_name": "Seeded wholemeal bread",
+        "category": "Bread",
+        "quantity_used": 4,
+        "unit_used": "integer"
+      },
+      {
+        "ingredient_id": "olive_oil",
+        "display_name": "Olive oil",
+        "category": "Oils",
+        "quantity_used": 1,
+        "unit_used": "tsp"
+      },
+      {
+        "ingredient_id": "dijon_mustard",
+        "display_name": "Dijon mustard",
+        "category": "Condiments",
+        "quantity_used": 1,
+        "unit_used": "tsp"
+      },
+      {
+        "ingredient_id": "smoked_paprika",
+        "display_name": "Smoked paprika",
+        "category": "Spices",
+        "quantity_used": 0.5,
+        "unit_used": "tsp"
+      },
+      {
+        "ingredient_id": "dried_oregano",
+        "display_name": "Dried oregano",
+        "category": "Spices",
+        "quantity_used": 0.5,
+        "unit_used": "tsp"
+      },
+      {
+        "ingredient_id": "fine_salt",
+        "display_name": "Fine salt",
+        "category": "Seasoning",
+        "quantity_used": 0.25,
+        "unit_used": "tsp"
+      },
+      {
+        "ingredient_id": "black_pepper_ground",
+        "display_name": "Ground black pepper",
+        "category": "Seasoning",
+        "quantity_used": 0.25,
+        "unit_used": "tsp"
+      }
+    ]
+  },
+  "tomato_mushroom_mycoprotein_wholewheat_bolognese_spinach_vegetarian_parmesan_style_cheese.html": {
+    "recipe_id": "tomato_mushroom_mycoprotein_wholewheat_bolognese_spinach_vegetarian_parmesan_style_cheese",
+    "title": "Tomato, Mushroom & Mycoprotein Wholewheat Bolognese with Spinach and Vegetarian Parmesan-Style Cheese",
+    "servings": 2,
+    "ingredients": [
+      {
+        "ingredient_id": "mycoprotein_mince",
+        "display_name": "Vegetarian mycoprotein mince",
+        "category": "Plant protein",
+        "quantity_used": 300,
+        "unit_used": "g"
+      },
+      {
+        "ingredient_id": "wholewheat_spaghetti_dry",
+        "display_name": "Wholewheat spaghetti",
+        "category": "Pasta and grains",
+        "quantity_used": 130,
+        "unit_used": "g"
+      },
+      {
+        "ingredient_id": "chestnut_mushrooms",
+        "display_name": "Chestnut mushrooms",
+        "category": "Vegetables",
+        "quantity_used": 250,
+        "unit_used": "g"
+      },
+      {
+        "ingredient_id": "spinach_fresh",
+        "display_name": "Fresh spinach",
+        "category": "Leafy vegetables",
+        "quantity_used": 120,
+        "unit_used": "g"
+      },
+      {
+        "ingredient_id": "chopped_tomatoes_canned",
+        "display_name": "Canned chopped tomatoes",
+        "category": "Vegetables",
+        "quantity_used": 400,
+        "unit_used": "g"
+      },
+      {
+        "ingredient_id": "brown_onion",
+        "display_name": "Medium brown onion",
+        "category": "Aromatics",
+        "quantity_used": 1,
+        "unit_used": "integer"
+      },
+      {
+        "ingredient_id": "carrots",
+        "display_name": "Medium carrot",
+        "category": "Vegetables",
+        "quantity_used": 1,
+        "unit_used": "integer"
+      },
+      {
+        "ingredient_id": "garlic",
+        "display_name": "Garlic cloves",
+        "category": "Aromatics",
+        "quantity_used": 2,
+        "unit_used": "integer"
+      },
+      {
+        "ingredient_id": "tomato_puree",
+        "display_name": "Tomato purée",
+        "category": "Condiments",
+        "quantity_used": 2,
+        "unit_used": "tbsp"
+      },
+      {
+        "ingredient_id": "olive_oil",
+        "display_name": "Olive oil",
+        "category": "Oils",
+        "quantity_used": 2,
+        "unit_used": "tsp"
+      },
+      {
+        "ingredient_id": "dried_oregano",
+        "display_name": "Dried oregano",
+        "category": "Spices",
+        "quantity_used": 1,
+        "unit_used": "tsp"
+      },
+      {
+        "ingredient_id": "red_wine_vinegar",
+        "display_name": "Red wine vinegar",
+        "category": "Condiments",
+        "quantity_used": 2,
+        "unit_used": "tsp"
+      },
+      {
+        "ingredient_id": "vegetarian_parmesan_style_cheese",
+        "display_name": "Vegetarian Parmesan-style hard cheese",
+        "category": "Dairy",
+        "quantity_used": 25,
+        "unit_used": "g"
+      },
+      {
+        "ingredient_id": "fine_salt",
+        "display_name": "Fine salt",
+        "category": "Seasoning",
+        "quantity_used": 0.5,
+        "unit_used": "tsp"
+      },
+      {
+        "ingredient_id": "black_pepper_ground",
+        "display_name": "Ground black pepper",
+        "category": "Seasoning",
+        "quantity_used": 0.5,
+        "unit_used": "tsp"
+      },
+      {
+        "ingredient_id": "water",
+        "display_name": "Water",
+        "category": "Liquid",
+        "quantity_used": 2,
+        "unit_used": "L"
       }
     ]
   }

@@ -1,0 +1,420 @@
+{
+  "schema_version": "1.0",
+  "recipe": {
+    "id": "skyr_blackberry_oat_breakfast_pots_ground_flaxseed_pumpkin_seeds",
+    "title": "Skyr, Blackberry & Oat Breakfast Pots with Ground Flaxseed and Pumpkin Seeds",
+    "description": "Make-ahead breakfast pots of thick skyr and jumbo oats with juicy blackberries, ground flaxseed and pumpkin seeds, lightly flavoured with cinnamon and vanilla for a creamy, high-protein breakfast with fresh fruit and contrasting seed crunch.",
+    "servings": 2,
+    "difficulty": "Easy",
+    "total_time_minutes": 488,
+    "active_time_minutes": 8,
+    "passive_time_minutes": 480,
+    "cuisine": [
+      "Modern European"
+    ],
+    "meal_types": [
+      "Breakfast"
+    ],
+    "dietary_tags": [
+      "Lacto-ovo vegetarian",
+      "High protein",
+      "High fibre",
+      "Make-ahead",
+      "Portable"
+    ],
+    "allergens": [
+      "Milk",
+      "Gluten"
+    ]
+  },
+  "nutrition_per_serving": {
+    "energy_kcal": 395,
+    "protein_g": 34.0,
+    "carbohydrate_g": 47.0,
+    "fat_g": 8.0,
+    "saturated_fat_g": 1.1,
+    "fibre_g": 8.5,
+    "salt_g": 0.2
+  },
+  "ingredients": [
+    {
+      "ingredient_id": "skyr_plain",
+      "display_name": "Plain 0% skyr",
+      "category": "Dairy",
+      "required": true,
+      "quantity_used": 500,
+      "unit_used": "g",
+      "purchase_quantity": "1 large pot or sufficient smaller pots",
+      "purchase_notes": "Use 500 g in total; retail pot size may vary.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Keep refrigerated until assembly.",
+      "notes": "Use thick plain skyr without added sugar."
+    },
+    {
+      "ingredient_id": "jumbo_oats",
+      "display_name": "Jumbo oats",
+      "category": "Cereals",
+      "required": true,
+      "quantity_used": 70,
+      "unit_used": "g",
+      "purchase_quantity": "1 bag",
+      "purchase_notes": "Use 70 g.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Use dry as purchased.",
+      "notes": "Jumbo oats retain more texture after overnight hydration than finer porridge oats."
+    },
+    {
+      "ingredient_id": "blackberries_fresh",
+      "display_name": "Fresh blackberries",
+      "category": "Fruit",
+      "required": true,
+      "quantity_used": 150,
+      "unit_used": "g",
+      "purchase_quantity": "1 punnet",
+      "purchase_notes": "Use 150 g; retail punnet size may vary.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Inspect, rinse gently if required and dry thoroughly.",
+      "notes": "Use ripe fruit without leaking juice or mould."
+    },
+    {
+      "ingredient_id": "ground_flaxseed",
+      "display_name": "Ground flaxseed",
+      "category": "Seeds",
+      "required": true,
+      "quantity_used": 1,
+      "unit_used": "tbsp",
+      "purchase_quantity": "1 pack",
+      "purchase_notes": "Use 1 tbsp.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Use as purchased.",
+      "notes": "Ground rather than whole flaxseed integrates into the oat mixture and contributes fibre and alpha-linolenic acid."
+    },
+    {
+      "ingredient_id": "pumpkin_seeds",
+      "display_name": "Pumpkin seeds",
+      "category": "Seeds",
+      "required": true,
+      "quantity_used": 1,
+      "unit_used": "tbsp",
+      "purchase_quantity": "1 pack",
+      "purchase_notes": "Use 1 tbsp.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Keep dry until serving.",
+      "notes": "Add after overnight hydration so the seeds retain their crunch."
+    },
+    {
+      "ingredient_id": "runny_honey",
+      "display_name": "Runny honey",
+      "category": "Sweeteners",
+      "required": true,
+      "quantity_used": 1,
+      "unit_used": "tsp",
+      "purchase_quantity": "1 jar or squeezy bottle",
+      "purchase_notes": "Use 1 tsp in total.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": "A restrained amount balances the tart skyr and blackberries."
+    },
+    {
+      "ingredient_id": "vanilla_extract",
+      "display_name": "Vanilla extract",
+      "category": "Flavourings",
+      "required": true,
+      "quantity_used": 1,
+      "unit_used": "tsp",
+      "purchase_quantity": "1 bottle",
+      "purchase_notes": "Use 1 tsp.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": ""
+    },
+    {
+      "ingredient_id": "cinnamon_ground",
+      "display_name": "Ground cinnamon",
+      "category": "Spices",
+      "required": true,
+      "quantity_used": 0.5,
+      "unit_used": "tsp",
+      "purchase_quantity": "1 jar",
+      "purchase_notes": "Use 1/2 tsp.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": ""
+    },
+    {
+      "ingredient_id": "water",
+      "display_name": "Cold water",
+      "category": "Liquid",
+      "required": true,
+      "quantity_used": 80,
+      "unit_used": "ml",
+      "purchase_quantity": "",
+      "purchase_notes": "Use 80 ml.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Use cold drinking water.",
+      "notes": "Loosens the skyr sufficiently for the oats to hydrate without adding unnecessary calories."
+    }
+  ],
+  "equipment": [
+    {
+      "equipment_id": "mixing_bowl",
+      "display_name": "Medium mixing bowl",
+      "required": true,
+      "notes": "Used to combine the skyr and oat base."
+    },
+    {
+      "equipment_id": "kitchen_scales",
+      "display_name": "Kitchen scales",
+      "required": true,
+      "notes": ""
+    },
+    {
+      "equipment_id": "measuring_spoons",
+      "display_name": "Measuring spoons",
+      "required": true,
+      "notes": ""
+    },
+    {
+      "equipment_id": "measuring_jug",
+      "display_name": "Measuring jug",
+      "required": true,
+      "notes": "Used to measure the cold water."
+    },
+    {
+      "equipment_id": "lidded_containers",
+      "display_name": "2 lidded breakfast pots",
+      "required": true,
+      "notes": "Use leak-resistant containers suitable for overnight refrigeration and transport."
+    }
+  ],
+  "mise_en_place": [
+    {
+      "prep_id": "PREP_01",
+      "ingredient_ids": [
+        "blackberries_fresh"
+      ],
+      "instruction": "Inspect the blackberries and discard any damaged or mouldy berries. Rinse gently only if required, then dry thoroughly so excess water does not loosen the breakfast pots.",
+      "endpoint": "The blackberries are intact, clean and dry on the surface."
+    },
+    {
+      "prep_id": "PREP_02",
+      "ingredient_ids": [
+        "skyr_plain",
+        "jumbo_oats",
+        "ground_flaxseed",
+        "runny_honey",
+        "vanilla_extract",
+        "cinnamon_ground",
+        "water"
+      ],
+      "instruction": "Measure 500 g skyr, 70 g jumbo oats, 1 tbsp ground flaxseed, 1 tsp runny honey, 1 tsp vanilla extract, 1/2 tsp ground cinnamon and 80 ml cold water.",
+      "endpoint": "All ingredients for the overnight oat base are accurately measured."
+    }
+  ],
+  "procedure": [
+    {
+      "step_id": "STEP_01",
+      "section": "Oat base",
+      "title": "Mix the skyr and oat base",
+      "depends_on": [
+        "PREP_02"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "skyr_plain",
+        "jumbo_oats",
+        "ground_flaxseed",
+        "runny_honey",
+        "vanilla_extract",
+        "cinnamon_ground",
+        "water"
+      ],
+      "equipment_ids": [
+        "mixing_bowl"
+      ],
+      "instruction": "Combine the skyr, jumbo oats, ground flaxseed, honey, vanilla extract, cinnamon and 80 ml cold water. Stir thoroughly for approximately 45-60 seconds, scraping the base and sides of the bowl so the oats and flaxseed are evenly distributed.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 1,
+      "duration_max_minutes": 2,
+      "endpoint": "The mixture is homogeneous, thick but spoonable, with no dry pockets of oats or clumps of flaxseed.",
+      "corrective_actions": [
+        {
+          "condition": "The mixture is too stiff to stir evenly.",
+          "action": "Add 1 tbsp cold water and mix again; add a second tablespoon only if still necessary."
+        }
+      ],
+      "critical": false
+    },
+    {
+      "step_id": "STEP_02",
+      "section": "Assembly",
+      "title": "Layer the breakfast pots",
+      "depends_on": [
+        "STEP_01",
+        "PREP_01"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "blackberries_fresh",
+        "skyr_plain",
+        "jumbo_oats",
+        "ground_flaxseed"
+      ],
+      "equipment_ids": [
+        "lidded_containers",
+        "kitchen_scales"
+      ],
+      "instruction": "Divide approximately half of the skyr-oat mixture between the two pots. Divide approximately half of the blackberries over that layer, then add the remaining oat mixture and finish with the remaining blackberries. Handle the fruit gently so most berries remain whole.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 2,
+      "duration_max_minutes": 3,
+      "endpoint": "Each pot contains an even portion of the skyr-oat mixture and approximately 75 g blackberries, with visible intact fruit and no large pockets of dry oats.",
+      "corrective_actions": [
+        {
+          "condition": "Very ripe blackberries release substantial juice during assembly.",
+          "action": "Place the softest berries on the top layer rather than burying them in the oat mixture."
+        }
+      ],
+      "critical": false
+    },
+    {
+      "step_id": "STEP_03",
+      "section": "Hydration",
+      "title": "Refrigerate overnight",
+      "depends_on": [
+        "STEP_02"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "jumbo_oats",
+        "ground_flaxseed",
+        "skyr_plain"
+      ],
+      "equipment_ids": [
+        "lidded_containers"
+      ],
+      "instruction": "Seal the pots and refrigerate for at least 8 hours before serving.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 480,
+      "duration_max_minutes": null,
+      "endpoint": "The jumbo oats are hydrated and pleasantly chewy rather than dry, and the mixture has thickened while remaining creamy and spoonable.",
+      "corrective_actions": [
+        {
+          "condition": "The mixture is unusually thick after overnight refrigeration.",
+          "action": "Stir 1 tbsp cold water into each pot immediately before serving."
+        }
+      ],
+      "critical": false
+    },
+    {
+      "step_id": "STEP_04",
+      "section": "Finishing",
+      "title": "Add the pumpkin seeds",
+      "depends_on": [
+        "STEP_03"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "pumpkin_seeds"
+      ],
+      "equipment_ids": [
+        "lidded_containers",
+        "measuring_spoons"
+      ],
+      "instruction": "Immediately before eating, divide the 1 tbsp pumpkin seeds evenly between the two pots, scattering approximately 1/2 tbsp over each serving.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 0.5,
+      "duration_max_minutes": 1,
+      "endpoint": "Each breakfast pot has a fresh, dry pumpkin-seed topping that remains crisp against the creamy oats.",
+      "corrective_actions": [],
+      "critical": false
+    }
+  ],
+  "plating": [
+    {
+      "step_id": "PLATE_01",
+      "instruction": "Serve chilled, stirring lightly as you eat so some blackberries break into the cinnamon-vanilla skyr while the remaining berries and pumpkin seeds retain distinct juicy and crunchy textures."
+    }
+  ],
+  "storage": {
+    "refrigerator_days": 2,
+    "freezer_months": null,
+    "storage_instructions": "Keep the assembled skyr, oat and blackberry pots sealed and refrigerated for up to 2 days. Store the pumpkin seeds separately and add immediately before eating for the best crunch. For transport, keep the pots chilled in an insulated bag with an ice pack and refrigerate on arrival where possible.",
+    "reheating_methods": []
+  },
+  "shopping": {
+    "sainsburys": [],
+    "marks_and_spencer": [],
+    "either_retailer": [
+      "Plain 0% skyr — use 500 g; retail pot size may vary.",
+      "Jumbo oats — use 70 g.",
+      "Fresh blackberries — use 150 g.",
+      "Ground flaxseed — use 1 tbsp.",
+      "Pumpkin seeds — use 1 tbsp.",
+      "Runny honey — use 1 tsp.",
+      "Vanilla extract — use 1 tsp.",
+      "Ground cinnamon — use 1/2 tsp."
+    ]
+  },
+  "quality_checks": {
+    "protein_requirement_met": true,
+    "protein_g_per_serving": 34.0,
+    "restaurant_quality_features": [
+      "Jumbo oats retain a pleasant chewy texture after overnight hydration rather than becoming completely soft.",
+      "Fresh blackberries provide sharp, juicy contrast against thick creamy skyr.",
+      "Vanilla and cinnamon add aromatic depth without requiring excessive sweetener.",
+      "Ground flaxseed integrates into the creamy base while pumpkin seeds are held back until serving for contrasting crunch.",
+      "Overnight preparation keeps morning workload extremely low while improving oat texture."
+    ],
+    "nutrition_notes": [
+      "Approximately 395 kcal and 34 g protein per serving.",
+      "Skyr supplies the majority of the protein and calcium.",
+      "Jumbo oats provide wholegrain carbohydrate and soluble fibre.",
+      "Blackberries, oats and flaxseed provide substantial dietary fibre.",
+      "Ground flaxseed contributes alpha-linolenic acid, while pumpkin seeds provide unsaturated fats and minerals.",
+      "Nutrition values are estimates and will vary slightly with the exact skyr and oat products used."
+    ],
+    "critical_success_factors": [
+      "Use jumbo oats for useful overnight texture.",
+      "Distribute the ground flaxseed thoroughly so it does not form dense clumps.",
+      "Dry the blackberries before assembly.",
+      "Refrigerate for at least 8 hours so the oats hydrate properly.",
+      "Keep the pumpkin seeds separate until serving so they remain crisp."
+    ]
+  }
+}

@@ -1,0 +1,325 @@
+{
+  "schema_version": "1.0",
+  "recipe": {
+    "id": "red_pepper_cucumber_batons_lemon_hummus",
+    "title": "Red Pepper & Cucumber Batons with Lemon Hummus",
+    "description": "A crisp, portable snack of sweet red pepper and cool cucumber batons with creamy hummus sharpened with fresh lemon juice, packed separately to preserve texture.",
+    "servings": 2,
+    "difficulty": "Easy",
+    "total_time_minutes": 7,
+    "active_time_minutes": 7,
+    "passive_time_minutes": 0,
+    "cuisine": [
+      "Mediterranean-inspired"
+    ],
+    "meal_types": [
+      "Afternoon snack"
+    ],
+    "dietary_tags": [
+      "Lacto-ovo vegetarian",
+      "Portable",
+      "No-cook",
+      "High fibre"
+    ],
+    "allergens": [
+      "Sesame"
+    ]
+  },
+  "nutrition_per_serving": {
+    "energy_kcal": 195,
+    "protein_g": 6.0,
+    "carbohydrate_g": 16.5,
+    "fat_g": 11.5,
+    "saturated_fat_g": 1.5,
+    "fibre_g": 5.0,
+    "salt_g": 0.55
+  },
+  "ingredients": [
+    {
+      "ingredient_id": "hummus_plain",
+      "display_name": "Plain hummus",
+      "category": "Legumes",
+      "required": true,
+      "quantity_used": 130,
+      "unit_used": "g",
+      "purchase_quantity": "1 pot",
+      "purchase_notes": "Use 130 g; retail pot size may vary.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Keep refrigerated until assembly.",
+      "notes": "Use a thick plain chickpea-and-tahini hummus suitable for dipping."
+    },
+    {
+      "ingredient_id": "red_pepper",
+      "display_name": "Medium red pepper",
+      "category": "Vegetables",
+      "required": true,
+      "quantity_used": 1,
+      "unit_used": "integer",
+      "purchase_quantity": "1 medium red pepper",
+      "purchase_notes": "Choose a firm pepper with smooth, undamaged skin.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Wash and dry before cutting.",
+      "notes": "Whole peppers do not scale perfectly for every serving quantity; round sensibly when scaling."
+    },
+    {
+      "ingredient_id": "cucumber",
+      "display_name": "Small cucumber",
+      "category": "Vegetables",
+      "required": true,
+      "quantity_used": 1,
+      "unit_used": "integer",
+      "purchase_quantity": "1 small cucumber",
+      "purchase_notes": "Use 1 small cucumber or an equivalent portion of a larger cucumber.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "Wash and dry before cutting.",
+      "notes": "Whole cucumbers do not scale perfectly for every serving quantity; round sensibly when scaling."
+    },
+    {
+      "ingredient_id": "lemon_juice",
+      "display_name": "Lemon juice",
+      "category": "Condiments",
+      "required": true,
+      "quantity_used": 1,
+      "unit_used": "tbsp",
+      "purchase_quantity": "1 bottle",
+      "purchase_notes": "Use 1 tbsp.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": "Adds brightness and acidity to the hummus without requiring an additional sauce."
+    },
+    {
+      "ingredient_id": "black_pepper_ground",
+      "display_name": "Ground black pepper",
+      "category": "Seasoning",
+      "required": true,
+      "quantity_used": 0.125,
+      "unit_used": "tsp",
+      "purchase_quantity": "1 container",
+      "purchase_notes": "Use 1/8 tsp.",
+      "retailers": [
+        "Sainsbury's",
+        "Marks & Spencer"
+      ],
+      "preparation": "",
+      "notes": ""
+    }
+  ],
+  "equipment": [
+    {
+      "equipment_id": "chef_knife",
+      "display_name": "Chef's knife",
+      "required": true,
+      "notes": ""
+    },
+    {
+      "equipment_id": "chopping_board",
+      "display_name": "Chopping board",
+      "required": true,
+      "notes": ""
+    },
+    {
+      "equipment_id": "mixing_bowl",
+      "display_name": "Small mixing bowl",
+      "required": true,
+      "notes": "Used to mix the lemon hummus."
+    },
+    {
+      "equipment_id": "kitchen_scales",
+      "display_name": "Kitchen scales",
+      "required": true,
+      "notes": "Used to portion the hummus."
+    },
+    {
+      "equipment_id": "measuring_spoons",
+      "display_name": "Measuring spoons",
+      "required": true,
+      "notes": ""
+    },
+    {
+      "equipment_id": "lidded_containers",
+      "display_name": "2 divided snack containers with small sauce pots",
+      "required": true,
+      "notes": "Keep the hummus physically separate from the vegetable batons during transport."
+    }
+  ],
+  "mise_en_place": [
+    {
+      "prep_id": "PREP_01",
+      "ingredient_ids": [
+        "red_pepper"
+      ],
+      "instruction": "Halve the washed red pepper, remove the stem, seeds and white membranes, then cut the flesh into batons approximately 10 mm wide and 60-70 mm long.",
+      "endpoint": "The pepper is cut into firm, similarly sized batons that are easy to dip."
+    },
+    {
+      "prep_id": "PREP_02",
+      "ingredient_ids": [
+        "cucumber"
+      ],
+      "instruction": "Trim both ends from the washed cucumber, then cut it into batons approximately 10 mm thick and 60-70 mm long, retaining the edible skin.",
+      "endpoint": "The cucumber is cut into firm, evenly sized batons with minimal exposed watery surface."
+    },
+    {
+      "prep_id": "PREP_03",
+      "ingredient_ids": [
+        "hummus_plain",
+        "lemon_juice",
+        "black_pepper_ground"
+      ],
+      "instruction": "Measure 130 g hummus, 1 tbsp lemon juice and 1/8 tsp ground black pepper.",
+      "endpoint": "The hummus seasoning ingredients are accurately measured and ready to combine."
+    }
+  ],
+  "procedure": [
+    {
+      "step_id": "STEP_01",
+      "section": "Hummus",
+      "title": "Make the lemon hummus",
+      "depends_on": [
+        "PREP_03"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "hummus_plain",
+        "lemon_juice",
+        "black_pepper_ground"
+      ],
+      "equipment_ids": [
+        "mixing_bowl",
+        "measuring_spoons"
+      ],
+      "instruction": "Combine the 130 g hummus with 1 tbsp lemon juice and 1/8 tsp ground black pepper. Stir thoroughly for approximately 30 seconds until smooth and evenly seasoned.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 0.5,
+      "duration_max_minutes": 1,
+      "endpoint": "The hummus tastes distinctly brighter and more lemony while remaining thick enough to cling to a vegetable baton.",
+      "corrective_actions": [
+        {
+          "condition": "The hummus becomes looser than ideal for dipping.",
+          "action": "Refrigerate it until required rather than adding more liquid."
+        }
+      ],
+      "critical": false
+    },
+    {
+      "step_id": "STEP_02",
+      "section": "Packing",
+      "title": "Portion the lemon hummus",
+      "depends_on": [
+        "STEP_01"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "hummus_plain",
+        "lemon_juice",
+        "black_pepper_ground"
+      ],
+      "equipment_ids": [
+        "kitchen_scales",
+        "lidded_containers"
+      ],
+      "instruction": "Divide the lemon hummus evenly between 2 small sealed sauce pots, giving approximately 65 g per serving.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 1,
+      "duration_max_minutes": 2,
+      "endpoint": "Each snack contains an equal, securely sealed portion of lemon hummus.",
+      "corrective_actions": [],
+      "critical": false
+    },
+    {
+      "step_id": "STEP_03",
+      "section": "Packing",
+      "title": "Pack the vegetable batons",
+      "depends_on": [
+        "PREP_01",
+        "PREP_02",
+        "STEP_02"
+      ],
+      "parallel_group": null,
+      "ingredient_ids": [
+        "red_pepper",
+        "cucumber"
+      ],
+      "equipment_ids": [
+        "lidded_containers"
+      ],
+      "instruction": "Divide the red pepper and cucumber batons evenly between the two snack containers. Keep the vegetable compartment separate from the sealed hummus pot so the vegetables remain crisp and the hummus cannot coat them during transport.",
+      "heat_source": null,
+      "heat_level": null,
+      "temperature_c": null,
+      "duration_min_minutes": 1,
+      "duration_max_minutes": 2,
+      "endpoint": "Each snack contains an even mixture of crisp red pepper and cucumber batons with a separate portion of lemon hummus.",
+      "corrective_actions": [
+        {
+          "condition": "The cucumber surfaces are visibly wet after cutting.",
+          "action": "Pat the batons dry before packing so excess moisture does not collect in the container."
+        }
+      ],
+      "critical": false
+    }
+  ],
+  "plating": [
+    {
+      "step_id": "PLATE_01",
+      "instruction": "At the time of eating, dip the red pepper and cucumber batons into the lemon hummus. Keep the vegetables separate until each bite is assembled so they remain crisp and fresh."
+    }
+  ],
+  "storage": {
+    "refrigerator_days": 1,
+    "freezer_months": null,
+    "storage_instructions": "Refrigerate the lemon hummus and prepared vegetables promptly and use within 24 hours for the best texture. Keep the hummus sealed separately from the vegetable batons. For transport to work or on a car journey, carry the snack in an insulated bag with an ice pack and keep chilled until eating.",
+    "reheating_methods": []
+  },
+  "shopping": {
+    "sainsburys": [],
+    "marks_and_spencer": [],
+    "either_retailer": [
+      "Plain hummus — 1 pot; use 130 g.",
+      "Medium red pepper — 1.",
+      "Small cucumber — 1.",
+      "Lemon juice — use 1 tbsp.",
+      "Ground black pepper — use 1/8 tsp."
+    ]
+  },
+  "quality_checks": {
+    "protein_requirement_met": true,
+    "protein_g_per_serving": 6.0,
+    "restaurant_quality_features": [
+      "Fresh lemon sharpens the hummus and prevents the snack from tasting heavy.",
+      "Sweet red pepper and cool cucumber provide two distinct crisp vegetable textures.",
+      "A small amount of black pepper adds aromatic depth without complicating the snack.",
+      "Separate packing prevents the vegetables from becoming coated and soft before eating."
+    ],
+    "nutrition_notes": [
+      "Approximately 195 kcal per serving.",
+      "Afternoon snacks have no minimum protein requirement.",
+      "Hummus contributes plant protein, fibre and predominantly unsaturated fat.",
+      "Red pepper contributes vitamin C and carotenoids.",
+      "Cucumber provides additional vegetable volume and freshness for relatively few calories.",
+      "Nutrition values are estimates and will vary with vegetable size and the exact hummus product used."
+    ],
+    "critical_success_factors": [
+      "Use firm, fresh vegetables and cut them into sturdy batons.",
+      "Keep the cucumber surfaces as dry as practical before packing.",
+      "Keep the lemon hummus physically separate until eating.",
+      "Maintain refrigeration during storage and transport."
+    ]
+  }
+}

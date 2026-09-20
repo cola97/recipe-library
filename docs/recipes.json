@@ -124,6 +124,39 @@
     ]
   },
   {
+    "id": "cannellini_bean_cottage_cheese_roasted_courgette_wholewheat_pasta_salad_basil_lemon",
+    "filename": "cannellini_bean_cottage_cheese_roasted_courgette_wholewheat_pasta_salad_basil_lemon.html",
+    "title": "Cannellini Bean, Cottage Cheese & Roasted Courgette Wholewheat Pasta Salad with Basil and Lemon",
+    "description": "A portable high-protein wholewheat pasta salad with caramelised roasted courgette, creamy cottage cheese and cannellini beans, brightened with lemon, basil and Dijon mustard.",
+    "servings": 2,
+    "difficulty": "Easy",
+    "active_time_minutes": 19,
+    "total_time_minutes": 28,
+    "cuisine": [
+      "Mediterranean-inspired"
+    ],
+    "meal_types": [
+      "Lunch"
+    ],
+    "dietary_tags": [
+      "Lacto-ovo vegetarian",
+      "High protein",
+      "High fibre",
+      "Portable"
+    ],
+    "allergens": [
+      "Milk",
+      "Wheat",
+      "Mustard"
+    ],
+    "energy_kcal": 402,
+    "protein_g": 31.5,
+    "protein_sources": [
+      "Beans",
+      "Cottage cheese"
+    ]
+  },
+  {
     "id": "cannellini_bean_tomato_wholewheat_pasta_salad_basil_pesto_rocket",
     "filename": "cannellini_bean_tomato_wholewheat_pasta_salad_basil_pesto_rocket.html",
     "title": "Cannellini Bean, Tomato & Wholewheat Pasta Salad with Basil Pesto and Rocket",
@@ -270,6 +303,35 @@
     "protein_sources": []
   },
   {
+    "id": "cocoa_quark_pots_raspberries",
+    "filename": "cocoa_quark_pots_raspberries.html",
+    "title": "Cocoa Quark Pots with Raspberries",
+    "description": "Thick, creamy cocoa quark layered with sharp fresh raspberries and lightly sweetened with honey for a simple high-protein evening snack with a rich chocolate flavour and fresh fruit contrast.",
+    "servings": 2,
+    "difficulty": "Easy",
+    "active_time_minutes": 6,
+    "total_time_minutes": 6,
+    "cuisine": [
+      "Modern European"
+    ],
+    "meal_types": [
+      "Evening snack"
+    ],
+    "dietary_tags": [
+      "Lacto-ovo vegetarian",
+      "High protein",
+      "No-cook"
+    ],
+    "allergens": [
+      "Milk"
+    ],
+    "energy_kcal": 201,
+    "protein_g": 25.0,
+    "protein_sources": [
+      "Quark"
+    ]
+  },
+  {
     "id": "cocoa_raspberry_skyr_pots_ground_flaxseed",
     "filename": "cocoa_raspberry_skyr_pots_ground_flaxseed.html",
     "title": "Cocoa, Raspberry & Skyr Pots with Ground Flaxseed",
@@ -394,6 +456,33 @@
     "protein_sources": [
       "Seitan"
     ]
+  },
+  {
+    "id": "kiwi_unsalted_mixed_seed_snack_pots",
+    "filename": "kiwi_unsalted_mixed_seed_snack_pots.html",
+    "title": "Kiwi & Unsalted Mixed Seed Snack Pots",
+    "description": "A simple portable snack of ripe kiwi with a crunchy unsalted mixed-seed topping, packed separately until eating so the seeds stay crisp and the fruit remains fresh.",
+    "servings": 2,
+    "difficulty": "Easy",
+    "active_time_minutes": 6,
+    "total_time_minutes": 6,
+    "cuisine": [
+      "Modern European"
+    ],
+    "meal_types": [
+      "Morning snack"
+    ],
+    "dietary_tags": [
+      "Lacto-ovo vegetarian",
+      "Portable",
+      "No-cook"
+    ],
+    "allergens": [
+      "Sesame"
+    ],
+    "energy_kcal": 194,
+    "protein_g": 6.7,
+    "protein_sources": []
   },
   {
     "id": "kiwi_greek_yoghurt_hemp_seed_pots",
@@ -582,6 +671,33 @@
     ]
   },
   {
+    "id": "plum_pistachio_snack_boxes",
+    "filename": "plum_pistachio_snack_boxes.html",
+    "title": "Plum & Pistachio Snack Boxes",
+    "description": "A simple portable snack pairing ripe whole plums with unsalted pistachios for juicy sweet-tart fruit, nutty crunch and satisfying healthy fats without unnecessary preparation.",
+    "servings": 2,
+    "difficulty": "Easy",
+    "active_time_minutes": 4,
+    "total_time_minutes": 4,
+    "cuisine": [
+      "Modern European"
+    ],
+    "meal_types": [
+      "Morning snack"
+    ],
+    "dietary_tags": [
+      "Lacto-ovo vegetarian",
+      "Portable",
+      "No-cook"
+    ],
+    "allergens": [
+      "Nuts"
+    ],
+    "energy_kcal": 205,
+    "protein_g": 6.7,
+    "protein_sources": []
+  },
+  {
     "id": "plum_almond_cinnamon_yoghurt_pots",
     "filename": "plum_almond_cinnamon_yoghurt_pots.html",
     "title": "Plum, Almond & Cinnamon Yoghurt Pots",
@@ -671,6 +787,68 @@
     "protein_g": 39,
     "protein_sources": [
       "Lentils",
+      "Skyr / Greek yoghurt"
+    ]
+  },
+  {
+    "id": "red_pepper_cucumber_batons_lemon_hummus",
+    "filename": "red_pepper_cucumber_batons_lemon_hummus.html",
+    "title": "Red Pepper & Cucumber Batons with Lemon Hummus",
+    "description": "A crisp, portable snack of sweet red pepper and cool cucumber batons with creamy hummus sharpened with fresh lemon juice, packed separately to preserve texture.",
+    "servings": 2,
+    "difficulty": "Easy",
+    "active_time_minutes": 7,
+    "total_time_minutes": 7,
+    "cuisine": [
+      "Mediterranean-inspired"
+    ],
+    "meal_types": [
+      "Afternoon snack"
+    ],
+    "dietary_tags": [
+      "Lacto-ovo vegetarian",
+      "Portable",
+      "No-cook",
+      "High fibre"
+    ],
+    "allergens": [
+      "Sesame"
+    ],
+    "energy_kcal": 195,
+    "protein_g": 6.0,
+    "protein_sources": [
+      "Legumes"
+    ]
+  },
+  {
+    "id": "skyr_blackberry_oat_breakfast_pots_ground_flaxseed_pumpkin_seeds",
+    "filename": "skyr_blackberry_oat_breakfast_pots_ground_flaxseed_pumpkin_seeds.html",
+    "title": "Skyr, Blackberry & Oat Breakfast Pots with Ground Flaxseed and Pumpkin Seeds",
+    "description": "Make-ahead breakfast pots of thick skyr and jumbo oats with juicy blackberries, ground flaxseed and pumpkin seeds, lightly flavoured with cinnamon and vanilla for a creamy, high-protein breakfast with fresh fruit and contrasting seed crunch.",
+    "servings": 2,
+    "difficulty": "Easy",
+    "active_time_minutes": 8,
+    "total_time_minutes": 488,
+    "cuisine": [
+      "Modern European"
+    ],
+    "meal_types": [
+      "Breakfast"
+    ],
+    "dietary_tags": [
+      "Lacto-ovo vegetarian",
+      "High protein",
+      "High fibre",
+      "Make-ahead",
+      "Portable"
+    ],
+    "allergens": [
+      "Milk",
+      "Gluten"
+    ],
+    "energy_kcal": 395,
+    "protein_g": 34.0,
+    "protein_sources": [
       "Skyr / Greek yoghurt"
     ]
   },
@@ -827,6 +1005,71 @@
     "protein_sources": [
       "Cottage cheese",
       "Eggs"
+    ]
+  },
+  {
+    "id": "spinach_tomato_cottage_cheese_egg_muffins_seeded_wholemeal_toast",
+    "filename": "spinach_tomato_cottage_cheese_egg_muffins_seeded_wholemeal_toast.html",
+    "title": "Spinach, Tomato & Cottage Cheese Egg Muffins with Seeded Wholemeal Toast",
+    "description": "Tender baked egg muffins with spinach, tomato and cottage cheese, seasoned with Dijon, smoked paprika and oregano, served with crisp seeded wholemeal toast for a practical high-protein weekday breakfast.",
+    "servings": 2,
+    "difficulty": "Easy",
+    "active_time_minutes": 13,
+    "total_time_minutes": 24,
+    "cuisine": [
+      "Modern European"
+    ],
+    "meal_types": [
+      "Breakfast"
+    ],
+    "dietary_tags": [
+      "Lacto-ovo vegetarian",
+      "High protein",
+      "High fibre"
+    ],
+    "allergens": [
+      "Egg",
+      "Milk",
+      "Wheat",
+      "Mustard",
+      "Sesame"
+    ],
+    "energy_kcal": 405,
+    "protein_g": 37.0,
+    "protein_sources": [
+      "Cottage cheese",
+      "Eggs"
+    ]
+  },
+  {
+    "id": "tomato_mushroom_mycoprotein_wholewheat_bolognese_spinach_vegetarian_parmesan_style_cheese",
+    "filename": "tomato_mushroom_mycoprotein_wholewheat_bolognese_spinach_vegetarian_parmesan_style_cheese.html",
+    "title": "Tomato, Mushroom & Mycoprotein Wholewheat Bolognese with Spinach and Vegetarian Parmesan-Style Cheese",
+    "description": "A rich, high-protein wholewheat pasta bolognese with deeply browned mycoprotein and chestnut mushrooms, a reduced tomato sauce, wilted spinach and a savoury vegetarian Parmesan-style finish.",
+    "servings": 2,
+    "difficulty": "Easy",
+    "active_time_minutes": 28,
+    "total_time_minutes": 40,
+    "cuisine": [
+      "Italian-inspired"
+    ],
+    "meal_types": [
+      "Dinner"
+    ],
+    "dietary_tags": [
+      "Lacto-ovo vegetarian",
+      "High protein",
+      "High fibre"
+    ],
+    "allergens": [
+      "Wheat",
+      "Egg",
+      "Milk"
+    ],
+    "energy_kcal": 605,
+    "protein_g": 43.0,
+    "protein_sources": [
+      "Mycoprotein"
     ]
   }
 ]

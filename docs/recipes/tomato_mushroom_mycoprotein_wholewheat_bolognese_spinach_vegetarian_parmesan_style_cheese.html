@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tomato, Mushroom &amp; Mycoprotein Wholewheat Bolognese with Spinach and Vegetarian Parmesan-Style Cheese</title>
+
+<style>
+:root {
+    --background: #f4f2ec;
+    --panel: #ffffff;
+    --text: #000000;
+    --muted: #555555;
+    --border: #b9b5ad;
+    --accent: #e5f1dd;
+    --endpoint: #fff4c6;
+    --step: #f7f7f4;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--background);
+    color: var(--text);
+}
+
+body {
+    min-height: 100vh;
+    min-height: 100dvh;
+}
+
+button, input, select, summary { font: inherit; }
+
+.page {
+    width: min(calc(100% - 24px), 1050px);
+    margin: 0 auto;
+    padding: max(12px, env(safe-area-inset-top)) 0 max(40px, env(safe-area-inset-bottom)) 0;
+}
+
+.recipe-header {
+    position: static;
+    background: transparent;
+    padding: 12px 0 10px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.title-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+h1 {
+    margin: 0;
+    font-size: clamp(1.65rem, 5vw, 2.8rem);
+    line-height: 1.12;
+}
+
+.scheduled-date { margin-top: 8px; font-weight: 700; }
+.description { margin: 12px 0 0 0; line-height: 1.5; }
+
+.recipe-info {
+    margin-top: 10px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    background: #ffffff;
+    overflow: hidden;
+}
+
+.recipe-info > summary {
+    cursor: pointer;
+    padding: 9px 11px;
+    font-weight: 750;
+}
+
+.recipe-info-content { padding: 0 11px 11px 11px; }
+
+.tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: #ffffff;
+    color: #000000;
+    font-size: 0.82rem;
+}
+
+.allergens {
+    margin-top: 10px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    background: #ffe4df;
+}
+
+.facts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+    gap: 8px;
+    margin: 14px 0;
+}
+
+.fact {
+    display: grid;
+    gap: 2px;
+    padding: 9px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    background: #ffffff;
+}
+
+.fact span { font-size: 0.78rem; color: var(--muted); }
+
+.recipe-tools {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.serving-tool, .rating-tool {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: #ffffff;
+}
+
+.serving-controls, .rating-buttons {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.serving-controls button, .rating-buttons button {
+    min-height: 36px;
+    padding: 5px 9px;
+    border: 1px solid #000000;
+    border-radius: 7px;
+    background: #ffffff;
+    color: #000000;
+    font-weight: 700;
+}
+
+#servingsValue {
+    min-width: 30px;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 800;
+}
+
+.rating-buttons button.active {
+    background: #000000;
+    color: #ffffff;
+}
+
+.section {
+    display: block;
+    margin-top: 14px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--panel);
+    overflow: hidden;
+}
+
+details.section > summary {
+    cursor: pointer;
+    padding: 15px 16px;
+    font-size: 1.12rem;
+    font-weight: 800;
+    background: var(--accent);
+}
+
+.section-content { padding: 14px; }
+.method-section { padding: 14px; }
+.method-section > h2 { margin: 0 0 12px 0; }
+.ingredient-grid, .card-stack { display: grid; gap: 10px; }
+
+.ingredient-card, .prep-card, .method-step {
+    padding: 14px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--step);
+}
+
+.ingredient-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 14px;
+}
+
+.ingredient-quantity {
+    flex: 0 0 auto;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.subline { margin-top: 7px; line-height: 1.4; }
+.compact-list { margin: 0; padding-left: 22px; }
+.prep-card h3, .method-step h3 { margin: 0; }
+.prep-card p, .method-step p { margin: 10px 0; }
+
+.step-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+}
+
+.step-number {
+    flex: 0 0 auto;
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.step-section {
+    margin-top: 6px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--muted);
+}
+
+.step-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+}
+
+.instruction { font-size: 1rem; line-height: 1.55; }
+
+.endpoint {
+    margin-top: 10px;
+    padding: 10px 12px;
+    border-left: 4px solid #000000;
+    background: var(--endpoint);
+    line-height: 1.45;
+}
+
+.corrective { margin-top: 10px; }
+.corrective summary { cursor: pointer; font-weight: 750; }
+.corrective ul { margin-bottom: 0; }
+
+.cook-button {
+    flex: 0 0 auto;
+    min-height: 42px;
+    padding: 8px 12px;
+    border: 1px solid #000000;
+    border-radius: 9px;
+    background: #000000;
+    color: #ffffff;
+    font-weight: 750;
+}
+
+.cook-controls {
+    display: none;
+    position: sticky;
+    bottom: max(8px, env(safe-area-inset-bottom));
+    z-index: 30;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 14px;
+    padding: 10px;
+    border: 1px solid #000000;
+    border-radius: 12px;
+    background: #ffffff;
+}
+
+.cook-controls button {
+    min-height: 44px;
+    padding: 8px 14px;
+    border: 1px solid #000000;
+    border-radius: 8px;
+    background: #000000;
+    color: #ffffff;
+    font-weight: 750;
+}
+
+.method-step { scroll-margin-top: 58px; }
+
+/* Compact cook-mode header */
+body.cook-mode .recipe-header {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    margin: 0;
+    padding: 6px 0;
+    background: rgba(244, 242, 236, 0.98);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(8px);
+}
+
+body.cook-mode .recipe-header .recipe-info,
+body.cook-mode .recipe-header .scheduled-date,
+body.cook-mode .facts,
+body.cook-mode .recipe-tools,
+body.cook-mode .non-method,
+body.cook-mode .method-section > h2 {
+    display: none;
+}
+
+body.cook-mode .title-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 8px;
+}
+
+body.cook-mode .recipe-header h1 {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+body.cook-mode .cook-button {
+    width: auto;
+    min-height: 36px;
+    padding: 6px 10px;
+    font-size: 0.85rem;
+    white-space: nowrap;
+}
+
+body.cook-mode .method-step { display: none; }
+body.cook-mode .method-step.active { display: block; }
+body.cook-mode .cook-controls { display: flex; }
+body.cook-mode .method-section {
+    min-height: calc(100dvh - 60px);
+    margin-top: 6px;
+}
+
+@media (max-width: 600px) {
+    .page { width: calc(100% - 12px); }
+    .recipe-header { padding-top: 8px; }
+
+    h1 {
+        font-size: 1.35rem;
+        line-height: 1.18;
+    }
+
+    .title-row {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: start;
+    }
+
+    .cook-button {
+        width: auto;
+        min-height: 36px;
+        padding: 6px 10px;
+        font-size: 0.85rem;
+    }
+
+    .recipe-tools { grid-template-columns: 1fr; }
+
+    .serving-tool, .rating-tool {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .rating-buttons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .ingredient-heading {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 3px;
+    }
+
+    .ingredient-quantity { white-space: normal; }
+    .method-section, .section-content { padding: 10px; }
+    .ingredient-card, .prep-card, .method-step { padding: 12px; }
+}
+
+@media print {
+    .recipe-header { position: static; }
+    .cook-button, .cook-controls, .recipe-tools { display: none !important; }
+    body.cook-mode .non-method, body.cook-mode .method-step { display: block; }
+    .section { break-inside: avoid; }
+}
+</style>
+</head>
+
+<body>
+<main class="page">
+
+<header class="recipe-header">
+    <div class="title-row">
+        <h1>Tomato, Mushroom &amp; Mycoprotein Wholewheat Bolognese with Spinach and Vegetarian Parmesan-Style Cheese</h1>
+        <button id="cookModeButton" class="cook-button" type="button">Cook mode</button>
+    </div>
+
+    
+
+    <details class="recipe-info">
+        <summary>Recipe info</summary>
+        <div class="recipe-info-content">
+            <p class="description">A rich, high-protein wholewheat pasta bolognese with deeply browned mycoprotein and chestnut mushrooms, a reduced tomato sauce, wilted spinach and a savoury vegetarian Parmesan-style finish.</p>
+            <div class="tag-row"><span class="badge">Dinner</span><span class="badge">Lacto-ovo vegetarian</span><span class="badge">High protein</span><span class="badge">High fibre</span></div>
+            <div class="allergens"><strong>Allergens:</strong> Wheat, Egg, Milk</div>
+        </div>
+    </details>
+</header>
+
+<div class="facts"><div class="fact"><span>Serves</span><strong id="servesFactValue">2</strong></div><div class="fact"><span>Difficulty</span><strong>Easy</strong></div><div class="fact"><span>Active</span><strong>28 min</strong></div><div class="fact"><span>Total</span><strong>40 min</strong></div><div class="fact"><span>Energy</span><strong>605 kcal</strong></div><div class="fact"><span>Protein</span><strong>43 g</strong></div></div>
+
+<section class="recipe-tools">
+    <div class="serving-tool">
+        <strong>Servings</strong>
+        <div class="serving-controls">
+            <button id="servingsMinus" type="button">−</button>
+            <span id="servingsValue" data-base-servings="2">2</span>
+            <button id="servingsPlus" type="button">+</button>
+        </div>
+    </div>
+
+    <div class="rating-tool" data-recipe-id="tomato_mushroom_mycoprotein_wholewheat_bolognese_spinach_vegetarian_parmesan_style_cheese">
+        <strong>Your rating</strong>
+        <div class="rating-buttons">
+            <button id="ratingFavourite" type="button">♥ Favourite</button>
+            <button id="ratingDislike" type="button">👎 Dislike</button>
+        </div>
+    </div>
+</section>
+
+
+<details class="section non-method" open>
+    <summary>Ingredients</summary>
+    <div class="section-content ingredient-grid">
+        <article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Vegetarian mycoprotein mince</strong>
+<span class="ingredient-quantity" data-base-quantity="300" data-unit="g">300 g</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 pack</div>
+<div class="subline"><strong>Prep:</strong> Use chilled or fully defrosted according to the package instructions.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Wholewheat spaghetti</strong>
+<span class="ingredient-quantity" data-base-quantity="130" data-unit="g">130 g</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 pack</div>
+<div class="subline"><strong>Prep:</strong> Keep dry until cooking.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Chestnut mushrooms</strong>
+<span class="ingredient-quantity" data-base-quantity="250" data-unit="g">250 g</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 pack</div>
+<div class="subline"><strong>Prep:</strong> Brush or wipe clean rather than soaking.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Fresh spinach</strong>
+<span class="ingredient-quantity" data-base-quantity="120" data-unit="g">120 g</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 bag</div>
+<div class="subline"><strong>Prep:</strong> Wash if required and dry thoroughly.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Canned chopped tomatoes</strong>
+<span class="ingredient-quantity" data-base-quantity="400" data-unit="g">400 g</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 x approximately 400 g tin</div>
+<div class="subline"><strong>Prep:</strong> Open immediately before use.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Medium brown onion</strong>
+<span class="ingredient-quantity" data-base-quantity="1" data-unit="integer">1</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 medium brown onion</div>
+<div class="subline"><strong>Prep:</strong> Peel before chopping.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Medium carrot</strong>
+<span class="ingredient-quantity" data-base-quantity="1" data-unit="integer">1</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 medium carrot</div>
+<div class="subline"><strong>Prep:</strong> Wash and peel only if the skin is coarse or damaged.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Garlic cloves</strong>
+<span class="ingredient-quantity" data-base-quantity="2" data-unit="integer">2</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 bulb</div>
+<div class="subline"><strong>Prep:</strong> Peel before finely grating or crushing.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Tomato purée</strong>
+<span class="ingredient-quantity" data-base-quantity="2" data-unit="tbsp">2 tbsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 tube or container</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Olive oil</strong>
+<span class="ingredient-quantity" data-base-quantity="2" data-unit="tsp">2 tsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 bottle</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Dried oregano</strong>
+<span class="ingredient-quantity" data-base-quantity="1" data-unit="tsp">1 tsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 jar</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Red wine vinegar</strong>
+<span class="ingredient-quantity" data-base-quantity="2" data-unit="tsp">2 tsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 bottle</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Vegetarian Parmesan-style hard cheese</strong>
+<span class="ingredient-quantity" data-base-quantity="25" data-unit="g">25 g</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 pack</div>
+<div class="subline"><strong>Prep:</strong> Finely grate immediately before serving.</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Fine salt</strong>
+<span class="ingredient-quantity" data-base-quantity="0.5" data-unit="tsp">½ tsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 container</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Ground black pepper</strong>
+<span class="ingredient-quantity" data-base-quantity="0.5" data-unit="tsp">½ tsp</span>
+</div>
+<div class="subline"><strong>Buy:</strong> 1 container</div>
+</article><article class="ingredient-card">
+<div class="ingredient-heading">
+<strong>Water</strong>
+<span class="ingredient-quantity" data-base-quantity="2" data-unit="L">2 L</span>
+</div>
+</article>
+    </div>
+</details>
+
+
+<details class="section non-method">
+    <summary>Equipment</summary>
+    <div class="section-content">
+        <ul class="compact-list"><li>Gas hob</li><li>Large sauté pan</li><li>Large saucepan</li><li>Electric kettle</li><li>Colander</li><li>Chef&#x27;s knife</li><li>Chopping board</li><li>Fine grater or Microplane</li><li>Box grater</li><li>Measuring spoons</li><li>Measuring jug</li><li>Heatproof spatula or wooden spoon</li></ul>
+    </div>
+</details>
+
+
+<details class="section non-method" open>
+    <summary>Mise en place</summary>
+    <div class="section-content card-stack"><article class="prep-card">
+<h3>Prep 1</h3>
+<p>Peel the onion, trim the ends and dice the usable flesh into approximately 5 mm pieces. Trim the carrot and coarsely grate it. Peel and finely grate or crush the garlic. Trim the mushroom stem ends and slice the mushrooms approximately 5 mm thick.</p>
+<div class="endpoint"><strong>Ready when:</strong> The onion, carrot, garlic and mushrooms are prepared for rapid sequential cooking.</div>
+</article><article class="prep-card">
+<h3>Prep 2</h3>
+<p>Wash the spinach if required and dry thoroughly. Remove only unusually thick or damaged stems.</p>
+<div class="endpoint"><strong>Ready when:</strong> The spinach is clean and dry enough to wilt without unnecessarily watering the sauce.</div>
+</article><article class="prep-card">
+<h3>Prep 3</h3>
+<p>Finely grate the 25 g vegetarian Parmesan-style hard cheese.</p>
+<div class="endpoint"><strong>Ready when:</strong> The cheese is finely grated so a relatively small amount distributes evenly over both portions.</div>
+</article></div>
+</details>
+
+
+<section class="section method-section">
+    <h2>Method</h2>
+    <div id="methodSteps" class="card-stack"><article class="method-step" data-step-index="0">
+<div class="step-heading">
+<div class="step-number">Step 1</div>
+<h3>Brown the mushrooms</h3>
+</div>
+<div class="step-section">Sauce</div>
+<div class="step-meta"><span class="badge">Heat source: gas_hob</span><span class="badge">Setting: medium-high</span><span class="badge">Time: 5–7 min</span></div>
+<p class="instruction">Heat the sauté pan over medium-high heat for approximately 1 minute. Add 1 tsp olive oil and the sliced mushrooms. Spread them into a broad layer and cook for approximately 5-7 minutes, stirring only every 60-90 seconds at first.</p>
+<div class="endpoint"><strong>Ready when:</strong> The mushroom liquid has evaporated and the mushroom surfaces have distinct deep golden-brown patches.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul><li><strong>If:</strong> The mushrooms release liquid and remain grey.<br><strong>Do:</strong> Keep the pan uncovered at medium-high heat and avoid stirring until the visible liquid has evaporated.</li><li><strong>If:</strong> The mushrooms darken before their released liquid evaporates.<br><strong>Do:</strong> Reduce the heat slightly and continue until the pan is dry.</li></ul>
+</details>
+
+</article><article class="method-step" data-step-index="1">
+<div class="step-heading">
+<div class="step-number">Step 2</div>
+<h3>Cook the aromatics and brown the mycoprotein</h3>
+</div>
+<div class="step-section">Sauce</div>
+<div class="step-meta"><span class="badge">Heat source: gas_hob</span><span class="badge">Setting: medium-high</span><span class="badge">Time: 7–9 min</span></div>
+<p class="instruction">Add the remaining 1 tsp olive oil, diced onion and grated carrot to the browned mushrooms. Cook for approximately 3-4 minutes until the onion begins to soften. Add the 300 g mycoprotein mince and 1/2 tsp black pepper, increase the heat to medium-high and cook for another 4-5 minutes, stirring only often enough to prevent catching.</p>
+<div class="endpoint"><strong>Ready when:</strong> The onion is softened, the carrot has collapsed into the mixture and the mycoprotein has developed visible browned areas rather than remaining uniformly pale.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul><li><strong>If:</strong> The mixture releases enough liquid to prevent browning.<br><strong>Do:</strong> Keep the pan uncovered and continue at medium-high heat until the visible moisture evaporates before proceeding.</li><li><strong>If:</strong> The onion or carrot begins catching before the mycoprotein has browned.<br><strong>Do:</strong> Reduce the heat slightly and stir more frequently.</li></ul>
+</details>
+
+</article><article class="method-step" data-step-index="2">
+<div class="step-heading">
+<div class="step-number">Step 3</div>
+<h3>Cook the tomato purée and aromatics</h3>
+</div>
+<div class="step-section">Sauce</div>
+<div class="step-meta"><span class="badge">Heat source: gas_hob</span><span class="badge">Setting: medium</span><span class="badge">Time: 1 min</span></div>
+<p class="instruction">Reduce the heat to medium. Add the garlic, 2 tbsp tomato purée and 1 tsp dried oregano. Stir continuously for approximately 1 minute, scraping the tomato purée across the pan base so it darkens slightly.</p>
+<div class="endpoint"><strong>Ready when:</strong> The garlic and oregano smell aromatic and the tomato purée has darkened from bright red towards brick red without scorching.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul><li><strong>If:</strong> The garlic or tomato purée begins catching or smelling bitter.<br><strong>Do:</strong> Immediately add the chopped tomatoes and stir thoroughly.</li></ul>
+</details>
+
+</article><article class="method-step" data-step-index="3">
+<div class="step-heading">
+<div class="step-number">Step 4</div>
+<h3>Reduce the bolognese sauce</h3>
+</div>
+<div class="step-section">Sauce</div>
+<div class="step-meta"><span class="badge">Heat source: gas_hob</span><span class="badge">Setting: medium</span><span class="badge">Time: 8–10 min</span></div>
+<p class="instruction">Add the 400 g chopped tomatoes and 1/4 tsp fine salt. Bring to a lively simmer, then cook uncovered over medium heat for approximately 8-10 minutes, stirring every 2-3 minutes.</p>
+<div class="endpoint"><strong>Ready when:</strong> The sauce is thick and glossy, no watery tomato liquid separates around the edges, and a spatula drawn across the pan base leaves a trail visible for approximately 2 seconds.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul><li><strong>If:</strong> The sauce begins sticking before reaching the reduction endpoint.<br><strong>Do:</strong> Reduce the heat and add 1 tbsp of the reserved pasta water once available.</li><li><strong>If:</strong> The sauce remains visibly watery after 10 minutes.<br><strong>Do:</strong> Increase the heat slightly and continue uncovered until it passes the stated spatula-trail test.</li></ul>
+</details>
+
+</article><article class="method-step" data-step-index="4">
+<div class="step-heading">
+<div class="step-number">Step 5</div>
+<h3>Cook the wholewheat spaghetti</h3>
+</div>
+<div class="step-section">Pasta</div>
+<div class="step-meta"><span class="badge">Heat source: gas_hob</span><span class="badge">Setting: medium-high</span><span class="badge">Time: 8–10 min</span></div>
+<p class="instruction">While the tomato sauce reduces, boil approximately 2 L water in the kettle and transfer it to the saucepan. Return to a vigorous boil, add 1/4 tsp fine salt and the 130 g wholewheat spaghetti. Cook according to the lower end of the package timing, normally approximately 8-10 minutes, stirring well after the pasta first enters the water.</p>
+<div class="endpoint"><strong>Ready when:</strong> The spaghetti is tender through the centre but retains a slight bite and is not soft or swollen.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul><li><strong>If:</strong> The spaghetti reaches the correct texture before the stated package time.<br><strong>Do:</strong> Proceed immediately to reserving cooking water and draining rather than continuing to cook by the clock.</li></ul>
+</details>
+
+</article><article class="method-step" data-step-index="5">
+<div class="step-heading">
+<div class="step-number">Step 6</div>
+<h3>Reserve pasta water and drain</h3>
+</div>
+<div class="step-section">Pasta</div>
+<div class="step-meta"><span class="badge">Time: 1–2 min</span></div>
+<p class="instruction">Before draining, scoop approximately 100 ml pasta cooking water into the measuring jug. Drain the spaghetti thoroughly in the colander. Do not rinse it.</p>
+<div class="endpoint"><strong>Ready when:</strong> The spaghetti is well drained but retains its surface starch, and approximately 100 ml hot cooking water is reserved for sauce adjustment.</div>
+</article><article class="method-step" data-step-index="6">
+<div class="step-heading">
+<div class="step-number">Step 7</div>
+<h3>Wilt the spinach and balance the sauce</h3>
+</div>
+<div class="step-section">Sauce</div>
+<div class="step-meta"><span class="badge">Heat source: gas_hob</span><span class="badge">Setting: medium</span><span class="badge">Time: 1–2 min</span></div>
+<p class="instruction">Add the spinach to the reduced sauce in 2 additions, folding each portion through until wilted. Cook for approximately 1-2 minutes, then remove the pan from the heat and stir through 2 tsp red wine vinegar.</p>
+<div class="endpoint"><strong>Ready when:</strong> The spinach is fully wilted, the sauce remains thick and glossy, and the vinegar gives a clean acidic lift without making the sauce taste sharply vinegary.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul><li><strong>If:</strong> The spinach releases enough water to loosen the sauce.<br><strong>Do:</strong> Return the pan to medium-high heat for 1-2 minutes and reduce until the original thick consistency returns.</li></ul>
+</details>
+
+</article><article class="method-step" data-step-index="7">
+<div class="step-heading">
+<div class="step-number">Step 8</div>
+<h3>Coat the spaghetti in the bolognese</h3>
+</div>
+<div class="step-section">Finishing</div>
+<div class="step-meta"><span class="badge">Heat source: gas_hob</span><span class="badge">Setting: low</span><span class="badge">Time: 1–2 min</span></div>
+<p class="instruction">Add the drained spaghetti to the bolognese sauce and toss thoroughly over low heat for approximately 1 minute. Add reserved pasta water 1 tbsp at a time only if required to make the sauce cling evenly to the spaghetti.</p>
+<div class="endpoint"><strong>Ready when:</strong> Every strand of spaghetti is coated in the thick tomato-mushroom sauce, with no watery liquid at the bottom of the pan and no dry clumps of pasta.</div>
+
+<details class="corrective">
+    <summary>Corrective actions</summary>
+    <ul><li><strong>If:</strong> The sauce is too thick to coat the spaghetti evenly.<br><strong>Do:</strong> Add 1 tbsp reserved pasta water, toss thoroughly and repeat only if required.</li><li><strong>If:</strong> The sauce becomes loose after adding pasta water.<br><strong>Do:</strong> Continue tossing over medium heat for approximately 1 minute until the excess moisture evaporates.</li></ul>
+</details>
+
+</article></div>
+
+    <div id="cookControls" class="cook-controls">
+        <button id="previousStep" type="button">Previous</button>
+        <div id="stepCounter"></div>
+        <button id="nextStep" type="button">Next</button>
+    </div>
+</section>
+
+
+<details class="section non-method">
+    <summary>Serving</summary>
+    <div class="section-content"><p>Divide the wholewheat spaghetti and bolognese evenly between two warm bowls. Scatter half of the finely grated vegetarian Parmesan-style cheese over each serving and serve immediately while the sauce is glossy and the cheese is freshly melting.</p></div>
+</details>
+
+
+<details class="section non-method">
+    <summary>Storage & reheating</summary>
+    <div class="section-content"><p><strong>Refrigerator:</strong> 2 days</p><p><strong>Freezer:</strong> 1 months</p><p>Cool leftovers promptly and refrigerate in a sealed container for up to 2 days. The bolognese sauce without pasta may be frozen for up to 1 month. For the best texture, freeze sauce separately and cook fresh pasta after defrosting.</p><h3>Reheating</h3><ul><li>Hob: place leftover pasta and sauce in a covered sauté pan over low-medium heat with 1-2 tbsp water and heat, stirring regularly, until piping hot throughout.</li><li>Oven: place in a covered ovenproof dish with 1-2 tbsp water and heat at approximately 180°C until piping hot throughout.</li><li>For frozen sauce, defrost safely in the refrigerator, then reheat on the hob until piping hot before combining with freshly cooked pasta.</li></ul></div>
+</details>
+
+
+<details class="section non-method">
+    <summary>Shopping</summary>
+    <div class="section-content"><h3>Either retailer</h3><ul><li>Vegetarian mycoprotein mince — 1 pack; use 300 g.</li><li>Wholewheat spaghetti — 1 pack; use 130 g dry.</li><li>Chestnut mushrooms — use 250 g.</li><li>Fresh spinach — 1 bag; use 120 g.</li><li>Canned chopped tomatoes — 1 approximately 400 g tin.</li><li>Medium brown onion — 1.</li><li>Medium carrot — 1.</li><li>Garlic — 1 bulb; use 2 cloves.</li><li>Tomato purée — use 2 tbsp.</li><li>Olive oil — use 2 tsp.</li><li>Dried oregano — use 1 tsp.</li><li>Red wine vinegar — use 2 tsp.</li><li>Vegetarian Parmesan-style hard cheese — 1 pack; use 25 g.</li><li>Fine salt — use 1/2 tsp.</li><li>Ground black pepper — use 1/2 tsp.</li></ul></div>
+</details>
+
+
+</main>
+
+<script>
+(function () {
+    const button = document.getElementById("cookModeButton");
+    const steps = Array.from(document.querySelectorAll(".method-step"));
+    const controls = document.getElementById("cookControls");
+    const previous = document.getElementById("previousStep");
+    const next = document.getElementById("nextStep");
+    const counter = document.getElementById("stepCounter");
+    let currentStep = 0;
+
+    function showStep(index) {
+        if (!steps.length) return;
+
+        currentStep = Math.max(0, Math.min(index, steps.length - 1));
+        steps.forEach((step, stepIndex) => {
+            step.classList.toggle("active", stepIndex === currentStep);
+        });
+
+        if (counter) counter.textContent = "Step " + (currentStep + 1) + " of " + steps.length;
+        if (previous) previous.disabled = currentStep === 0;
+        if (next) next.disabled = currentStep === steps.length - 1;
+
+        const active = steps[currentStep];
+        if (active) {
+            active.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+    }
+
+    if (button) {
+        button.addEventListener("click", () => {
+            const active = document.body.classList.toggle("cook-mode");
+            button.textContent = active ? "Exit cook mode" : "Cook mode";
+            if (active) showStep(currentStep);
+        });
+    }
+
+    if (previous) previous.addEventListener("click", () => showStep(currentStep - 1));
+    if (next) next.addEventListener("click", () => showStep(currentStep + 1));
+    if (!steps.length && controls) controls.style.display = "none";
+
+    /* Serving scaler */
+    const servingsMinus = document.getElementById("servingsMinus");
+    const servingsPlus = document.getElementById("servingsPlus");
+    const servingsValue = document.getElementById("servingsValue");
+    const servesFactValue = document.getElementById("servesFactValue");
+    const recipeId = "tomato_mushroom_mycoprotein_wholewheat_bolognese_spinach_vegetarian_parmesan_style_cheese";
+
+    function formatFraction(value) {
+        const rounded = Math.round(value * 8) / 8;
+        const whole = Math.floor(rounded);
+        const remainder = Math.round((rounded - whole) * 8);
+        const fractions = { 0: "", 1: "⅛", 2: "¼", 3: "⅜", 4: "½", 5: "⅝", 6: "¾", 7: "⅞" };
+
+        if (whole > 0 && remainder > 0) return String(whole) + fractions[remainder];
+        if (whole > 0) return String(whole);
+        if (remainder > 0) return fractions[remainder];
+        return "0";
+    }
+
+    function formatScaledQuantity(value, unit) {
+        if (unit === "tsp" || unit === "tbsp" || unit === "integer") {
+            const number = formatFraction(value);
+            return unit === "integer" ? number : number + " " + unit;
+        }
+
+        const rounded = Math.round(value * 10) / 10;
+        return String(rounded) + (unit ? " " + unit : "");
+    }
+
+    function setServings(newServings) {
+        const baseServings = Number(servingsValue.dataset.baseServings);
+        newServings = Math.max(1, Math.min(12, newServings));
+        servingsValue.textContent = String(newServings);
+        if (servesFactValue) servesFactValue.textContent = String(newServings);
+
+        const factor = newServings / baseServings;
+        document.querySelectorAll(".ingredient-quantity").forEach(element => {
+            const baseQuantity = Number(element.dataset.baseQuantity);
+            const unit = element.dataset.unit;
+            if (!Number.isFinite(baseQuantity)) return;
+            element.textContent = formatScaledQuantity(baseQuantity * factor, unit);
+        });
+
+        localStorage.setItem("recipe-servings:" + recipeId, String(newServings));
+    }
+
+    if (servingsMinus && servingsPlus && servingsValue) {
+        servingsMinus.addEventListener("click", () => {
+            setServings(Number(servingsValue.textContent) - 1);
+        });
+        servingsPlus.addEventListener("click", () => {
+            setServings(Number(servingsValue.textContent) + 1);
+        });
+
+        const saved = Number(localStorage.getItem("recipe-servings:" + recipeId));
+        if (Number.isFinite(saved) && saved >= 1) setServings(saved);
+    }
+
+    /* Favourite / neutral / dislike */
+    const favouriteButton = document.getElementById("ratingFavourite");
+    const dislikeButton = document.getElementById("ratingDislike");
+    const ratingKey = "recipe-rating:" + recipeId;
+
+    function setRating(rating) {
+        localStorage.setItem(ratingKey, rating);
+        if (favouriteButton) favouriteButton.classList.toggle("active", rating === "favourite");
+        if (dislikeButton) dislikeButton.classList.toggle("active", rating === "dislike");
+    }
+
+    if (favouriteButton) favouriteButton.addEventListener("click", () => setRating("favourite"));
+    if (neutralButton) neutralButton.addEventListener("click", () => setRating("neutral"));
+    if (dislikeButton) dislikeButton.addEventListener("click", () => setRating("dislike"));
+
+    if (favouriteButton && neutralButton && dislikeButton) {
+        setRating(localStorage.getItem(ratingKey) || "neutral");
+    }
+})();
+</script>
+
+</body>
+</html>
